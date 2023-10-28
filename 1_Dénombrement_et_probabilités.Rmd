@@ -38,6 +38,8 @@
 
 ### Probabilités conditionnelles
 
+bla bla bla
+
 -   Définition
 
 -   Propriétés : les mêmes que pour une probabilité "non conditionnelle"
