@@ -1,8 +1,6 @@
-about
-usage
-render-book
-preview-book
-introduction
+présentation-du-cours
+généralités
+coquilles-et-erreurs
 dénombrement-et-probabilités
 dénombrement
 permutations

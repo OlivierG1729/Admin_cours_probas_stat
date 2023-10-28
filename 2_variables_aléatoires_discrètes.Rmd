@@ -1,0 +1,55 @@
+# Variables aléatoires discrètes
+
+## Définition et premières propriétés
+
+### Définition
+
+### Loi d'une variable aléatoire discrète
+
+### Définition de $p(X\in A)$
+
+### Fonction de répartition, quantiles
+
+### Exemples classiques :
+
+-   loi uniforme sur un ensemble fini
+-   loi de Bernoulli
+-   loi binomiale
+-   loi de Poisson
+-   loi géométrique
+-   loi hypergéométrique
+
+### Moments d'une variable aléatoire
+
+-   Espérance, variance, moments d'ordres supérieurs
+-   inégalité de Markov, inégalité de Bieanymé-Tchébychev (exemples + intérêt)
+
+## Transformation d'une variable aléatoire discrète
+
+### Définition
+
+-   Définition
+-   Cas particuliers :
+    -   bijection continue
+    -   un unique extremum
+-   Déterminer la loi de $f(X)$ en pratique (message = passer par la fonction de répartition)
+
+### Théorème de transfert (cas discret)
+
+-   Théorème
+-   Exemple
+
+## Vecteurs aléatoires
+
+### Définition
+
+### Loi jointe, loi marginales
+
+### Loi conditionnelle $\mathcal{L}(Y|X)$
+
+### Loi d'un couple de VA indépendantes
+
+-   Définition
+-   Somme de deux VA indépendantes (produit de convolution discret)
+
+### Espérance conditionnelle, variance conditionnelle
