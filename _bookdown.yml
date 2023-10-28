@@ -1,6 +1,6 @@
 book_filename: "Probabilites_Statistique"
 delete_merged_file: true
-output.dir: "docs"
+output_dir: "docs"
 language:
   ui:
     chapter_name: "Chapter "
