@@ -1,5 +1,23 @@
-h1:sharing-your-book Sharing your book
-h2:publishing Publishing
-h2:pages 404 pages
-h2:metadata-for-sharing Metadata for sharing
+h1:statistique-inférentielle Statistique inférentielle
+h2:estimation Estimation
+h3:premières-définitions Premières définitions
+h3:convergence-dun-estimateur Convergence d’un estimateur
+h3:exemples-classiques Exemples classiques
+h3:méthodes-de-construction-des-estimateurs Méthodes de construction des estimateurs
+h4:la-méthode-des-moments La méthode des moments
+h4:la-méthode-du-maximum-de-vraisemblance La méthode du maximum de vraisemblance
+h3:estimation-des-coefficients-dune-régression-linéaire Estimation des coefficients d’une régression linéaire
+h4:présentation-du-modèle Présentation du modèle
+h4:rappels-utiles Rappels utiles
+h4:estimation-de-a-et-b-par-la-méthode-des-moindres-carrés Estimation de  et  par la méthode des moindres carrés
+h4:estimation-de-a-et-b-par-la-méthode-du-maximum-de-vraisemblance Estimation de  et  par la méthode du maximum de vraisemblance
+h4:absence-de-biais-des-estimateurs-widehata-et-widehatb Absence de biais des estimateurs  et 
+h4:variance-des-estimateurs-widehata-et-widehatb Variance des estimateurs  et 
+h4:résidus Résidus
+h4:distributions-des-estimateurs-widehata-et-widehatb Distributions des estimateurs  et 
+h4:convergence-des-estimateurs-widehata-et-widehatb Convergence des estimateurs  et 
+h3:intervalles-de-confiance Intervalles de confiance
+h2:tests-statistiques Tests statistiques
+h3:définition-et-principes Définition et principes
+h3:exemples-de-test Exemples de test
 

@@ -1,0 +1,51 @@
+# Dénombrement et probabilités
+
+## Dénombrement
+
+### Permutations
+
+### Arrangements
+
+### Combinaisons
+
+### Formule du binôme de Newton
+
+### Triangle de Pascal
+
+## Evénements et probabilités
+
+### Evénements
+
+-   Définition
+
+-   Opérations sur les événements : réunion, intersection, événement contraire
+
+### Probabilités
+
+-   Définition d'une probabilité
+
+-   Propriétés :
+
+    -   probabilité d'un événement contraire, d'une union disjointe
+
+    -   $0\leq p(A)\leq 1$
+
+    -   propriété de croisssance
+
+    -   crible de Poincaré
+
+    -   Equiprobabilité
+
+### Probabilités conditionnelles
+
+-   Définition
+
+-   Propriétés : les mêmes que pour une probabilité "non conditionnelle"
+
+-   Formule des probabilités composées
+
+-   Formule des probabilités totales
+
+-   Formule de Bayes
+
+-   Indépendance (deux à deux, mutuelle)
