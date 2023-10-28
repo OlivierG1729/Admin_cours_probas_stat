@@ -7,7 +7,7 @@ Bienvenue !
   - Dénombrement et probabilités
   - Variables aléatoires discrètes
   - Variables aléatoires à densité
-  - Convergence
+  - Convergencegit
   - Statistique descriptive
   - Statistique inférentielle
   
