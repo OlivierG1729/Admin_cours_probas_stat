@@ -1,5 +1,0 @@
-# Introduction
-
-\noindent Ce cours de probabilités et statistique est destiné aux candidats au concours interne d'Administrateur de l'Insee. Il est encore en chantier : à ce stade, seule la partie Statistique Inférentielle est écrite.  
-
-\noindent Si vous repérez une erreur ou une coquille, n'hésitez pas me la signaler.
