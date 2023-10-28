@@ -15,7 +15,7 @@ link-citations: yes
 github-repo: rstudio/bookdown-demo
 ---
 
-# Présentation
+## Présentation
 
   Ce document est un cours de probabilités et statistiques à destination des candidats au concours interne d'administrateur de l'Insee. Il est encore en construction et pour le moment très incomplet. Seule la partie Statistique inférentielle est à ce jour disponible.
   
@@ -36,7 +36,7 @@ github-repo: rstudio/bookdown-demo
   Comme toujours en mathématiques, la seule façon de progresser est de *faire*. Ne pas hésiter donc, à passer un peu de temps sur un exercice, même si on sèche complètement. 
   
 
-# Coquilles et erreurs
+## Coquilles et erreurs
 
 La loi de Poisson est souvent utilisée pour modéliser le nombre d'erreurs ou de coquilles inévitablement présentes dans un document. Celui-ci n'échappe pas à la règle et j'espère juste que le $\lambda$ n'est pas trop grand... Pour m'aider à le réduire, n'hésitez pas à me les signaler. 
 
