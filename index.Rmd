@@ -1,6 +1,6 @@
 --- 
-title: "A Minimal Book Example"
-author: "John Doe"
+title: "Cours de probabilités-statistiques pour le concours interne d'administrateur Insee"
+author: "Olivier Guin"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
@@ -8,53 +8,38 @@ bibliography: [book.bib, packages.bib]
 # url: your book url like https://bookdown.org/yihui/bookdown
 # cover-image: path to the social sharing image like images/cover.jpg
 description: |
-  This is a minimal example of using the bookdown package to write a book.
-  The HTML output format for this example is bookdown::gitbook,
-  set in the _output.yml file.
+  Cours de probabilités et statistiques 
+  
+  
 link-citations: yes
 github-repo: rstudio/bookdown-demo
 ---
 
-# About
+# Présentation
 
-This is a _sample_ book written in **Markdown**. You can use anything that Pandoc's Markdown supports; for example, a math equation $a^2 + b^2 = c^2$.
+  Ce document est un cours de probabilités et statistiques à destination des candidats au concours interne d'administrateur de l'Insee. Il est encore en construction et pour le moment très incomplet. Seule la partie Statistique inférentielle est à ce jour disponible.
+  
+  A terme, il devrait contenir les parties suivantes :
+  
+  - Dénombrement et probabilités
+  - Variables aléatoires discrètes
+  - Variables aléatoires à densité
+  - Convergence
+  - Statistique descriptive
+  - Statistique inférentielle
+  
+  Les démonstrations de certains résultats sont présentées. Elles ne sont pas necéssairement à connaître le jour du concours, mais il est toujours intéressant de prendre le temps de les comprendre car elles utilisent des techniques ou des méthodes classiques et qui peuvent être utiles pour résoudre un exercice ou un sujet de concours.
+  
+  Certaines des notions présentées ici, sans être explicitement au programme du concours, sont à la frontière de celui-ci. Concrètement, cela signifie que'on peut les retrouver dans un sujet d'écrit ou d'oral, mais qu'aucun prérequis les concernant n'est nécessaire pour traiter le sujet. Mais les avoir déjà rencontrées peut aider pour résoudre les questions... C'est le cas par exemple, dans la partie Statistique inférentielle, de l'information de Fisher, des statistiques exhaustives et de la borne de Cramer-Rao, qui sont présentes dans le sujet d'Administrateur interne de 2022 (sans être toutefois explicitement nommées).
+  
+  Comme toujours en mathématiques, la seule façon de progresser est de *faire*. Ne pas hésiter donc, à passer un peu de temps sur un exercice, même si on sèche complètement. 
+  
 
-## Usage 
+## Coquilles et erreurs
 
-Each **bookdown** chapter is an .Rmd file, and each .Rmd file can contain one (and only one) chapter. A chapter *must* start with a first-level heading: `# A good chapter`, and can contain one (and only one) first-level heading.
+La loi de Poisson est souvent utilisée pour modéliser le nombre d'erreurs ou de coquilles inévitablement présentes dans un document. Celui-ci n'échappe pas à la règle et j'espère juste que le $\lambda$ n'est pas trop grand... Pour m'aider à le réduire, n'hésitez pas à me les signaler. 
 
-Use second-level and higher headings within chapters like: `## A short section` or `### An even shorter section`.
-
-The `index.Rmd` file is required, and is also your first book chapter. It will be the homepage when you render the book.
-
-## Render book
-
-You can render the HTML version of this example book without changing anything:
-
-1. Find the **Build** pane in the RStudio IDE, and
-
-1. Click on **Build Book**, then select your output format, or select "All formats" if you'd like to use multiple formats from the same book source files.
-
-Or build the book from the R console:
-
-```{r, eval=FALSE}
-bookdown::render_book()
-```
-
-To render this example to PDF as a `bookdown::pdf_book`, you'll need to install XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): <https://yihui.org/tinytex/>.
-
-## Preview book
-
-As you work, you may start a local server to live preview this HTML book. This preview will update as you edit the book when you save individual .Rmd files. You can start the server in a work session by using the RStudio add-in "Preview book", or from the R console:
-
-```{r eval=FALSE}
-bookdown::serve_book()
-```
+Plus généralement, vos commentaires permettent d'améliorer la qualité de ce document : ils sont donc les bienvenus.
 
 
-```{r include=FALSE}
-# automatically create a bib database for R packages
-knitr::write_bib(c(
-  .packages(), 'bookdown', 'knitr', 'rmarkdown'
-), 'packages.bib')
-```
+
