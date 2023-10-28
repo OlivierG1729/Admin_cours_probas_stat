@@ -1,0 +1,34 @@
+# Convergence
+
+## Différents modes de convergence
+
+### Convergence en probabilité
+
+### Convergence dans les espaces $L^p$
+
+-   focus sur les cas $p=1$ et $p=2$
+
+### Convergence en loi
+
+### Convergence presque-sûre (hors-prgramme ?)
+
+### Liens entre les différents modes de convergence
+
+### Approximations
+
+-   approximation de la loi binomiale $\mathcal{B}(n\,;\,p)\approx\mathcal{N}(np\,;\,np(1-p))$
+-   approximation de la loi de Poisson $\mathcal{P}(\lambda)\approx\mathcal{N}(\lambda\,;\,\lambda)$
+
+(bien préciser les hypothèses sous-jcantes à ces approximations)
+
+## Loi Faible des Grands Nombres, Loi Forte des Grands Nombres
+
+-   énoncé théorique
+-   exemples avec illustration en R
+
+## Théorème Central Limite (TCL)
+
+-   énoncé théorique
+-   exemples avec illustration en R
+
+## Variantes du TCL (hors-programme)

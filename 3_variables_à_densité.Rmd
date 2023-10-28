@@ -1,0 +1,62 @@
+# Variables aléatoires à densité
+
+## Définition et premières propriétés
+
+### Définition
+
+### Loi d'une variable aléatoire à densité
+
+### Définition de $p(X\in A)$
+
+### Fonction de répartition, quantiles
+
+### Exemples classiques :
+
+-   loi uniforme sur un segment
+-   loi normale
+-   loi exponentielle
+-   loi gamma $\gamma(p\,;\,\theta)$
+-   loi log-normale
+-   loi du Chi-Deux
+-   loi de Student
+-   loi de Fisher
+
+### Moments d'une variable aléatoire
+
+-   Espérance, variance, espaces $L^1$ et $L^2$
+-   moments d'ordres supérieurs
+-   inégalité de Markov, inégalité de Bieanymé-Tchébychev (exemples + intérêt)
+
+## Transformation d'une variable aléatoire à densité
+
+### Définition
+
+-   Définition
+-   Cas particuliers :
+    -   bijection continue
+    -   un unique extremum
+-   Déterminer la loi de $f(X)$ en pratique (message = passer par la fonction de répartition)
+
+### Théorème de transfert (cas à densité)
+
+-   Théorème
+-   Exemple
+
+## Vecteurs aléatoires
+
+### Définition
+
+### Loi jointe, loi marginales
+
+### Loi conditionnelle $\mathcal{L}(Y|X)$
+
+### Loi d'un couple de VA indépendantes
+
+-   Définition
+-   Somme de deux VA indépendantes (produit de convolution à densité)
+
+### Espérance, matrice de variance-covariance
+
+-   exemple : vecteurs gaussiens en dimension 2
+
+### Espérance conditionnelle, variance conditionnelle

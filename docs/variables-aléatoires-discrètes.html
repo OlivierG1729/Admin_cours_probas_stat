@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Cours de probabilités-statistiques pour le concours interne d’administrateur Insee</title>
+  <title>Chapter 3 Variables aléatoires discrètes | Cours de probabilités-statistiques pour le concours interne d’administrateur Insee</title>
   <meta name="description" content="Cours de probabilités et statistiques" />
   <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Cours de probabilités-statistiques pour le concours interne d’administrateur Insee" />
+  <meta property="og:title" content="Chapter 3 Variables aléatoires discrètes | Cours de probabilités-statistiques pour le concours interne d’administrateur Insee" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Cours de probabilités et statistiques" />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Cours de probabilités-statistiques pour le concours interne d’administrateur Insee" />
+  <meta name="twitter:title" content="Chapter 3 Variables aléatoires discrètes | Cours de probabilités-statistiques pour le concours interne d’administrateur Insee" />
   
   <meta name="twitter:description" content="Cours de probabilités et statistiques" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
+<link rel="prev" href="dénombrement-et-probabilités.html"/>
 
-<link rel="next" href="dénombrement-et-probabilités.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -143,34 +143,85 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Cours de probabilités-statistiques pour le concours interne d’administrateur Insee</h1>
-<p class="author"><em>Olivier Guin</em></p>
-<p class="date"><em>2023-10-28</em></p>
+<div id="variables-aléatoires-discrètes" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Chapter 3</span> Variables aléatoires discrètes<a href="variables-aléatoires-discrètes.html#variables-aléatoires-discrètes" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="définition-et-premières-propriétés" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Définition et premières propriétés<a href="variables-aléatoires-discrètes.html#définition-et-premières-propriétés" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="définition" class="section level3 hasAnchor" number="3.1.1">
+<h3><span class="header-section-number">3.1.1</span> Définition<a href="variables-aléatoires-discrètes.html#définition" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
-<div id="présentation-du-cours" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">Chapter 1</span> Présentation du cours<a href="index.html#présentation-du-cours" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="généralités" class="section level2 hasAnchor" number="1.1">
-<h2><span class="header-section-number">1.1</span> Généralités<a href="index.html#généralités" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Ce document est un cours de probabilités et statistiques à destination des candidats au concours interne d’administrateur de l’Insee. Il est encore en construction et pour le moment très incomplet. Seule la partie Statistique inférentielle est à ce jour disponible.</p>
-<p>A terme, il devrait contenir les parties suivantes :</p>
+<div id="loi-dune-variable-aléatoire-discrète" class="section level3 hasAnchor" number="3.1.2">
+<h3><span class="header-section-number">3.1.2</span> Loi d’une variable aléatoire discrète<a href="variables-aléatoires-discrètes.html#loi-dune-variable-aléatoire-discrète" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="définition-de-pxin-a" class="section level3 hasAnchor" number="3.1.3">
+<h3><span class="header-section-number">3.1.3</span> Définition de <span class="math inline">\(p(X\in A)\)</span><a href="variables-aléatoires-discrètes.html#définition-de-pxin-a" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="fonction-de-répartition-quantiles" class="section level3 hasAnchor" number="3.1.4">
+<h3><span class="header-section-number">3.1.4</span> Fonction de répartition, quantiles<a href="variables-aléatoires-discrètes.html#fonction-de-répartition-quantiles" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="exemples-classiques" class="section level3 hasAnchor" number="3.1.5">
+<h3><span class="header-section-number">3.1.5</span> Exemples classiques :<a href="variables-aléatoires-discrètes.html#exemples-classiques" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
-<li>Dénombrement et probabilités</li>
-<li>Variables aléatoires discrètes</li>
-<li>Variables aléatoires à densité</li>
-<li>Convergence</li>
-<li>Statistique descriptive</li>
-<li>Statistique inférentielle</li>
+<li>loi uniforme sur un ensemble fini</li>
+<li>loi de Bernoulli</li>
+<li>loi binomiale</li>
+<li>loi de Poisson</li>
+<li>loi géométrique</li>
+<li>loi hypergéométrique</li>
 </ul>
-<p>Certaines des notions présentées ici, sans être explicitement au programme du concours, sont à la frontière de celui-ci. Concrètement, cela signifie que’on peut les retrouver dans un sujet d’écrit ou d’oral, mais qu’aucun prérequis les concernant n’est nécessaire pour traiter le sujet. Mais les avoir déjà rencontrées peut aider pour résoudre les questions… C’est le cas par exemple, dans la partie Statistique inférentielle, de l’information de Fisher, des statistiques exhaustives et de la borne de Cramer-Rao, qui sont présentes dans le sujet d’Administrateur interne de 2022 (sans être toutefois explicitement nommées).</p>
-<p>Même type de remarque pour les démonstrations. Celles qui sont présentées ici ne sont pas toutes indispensables pour aborder ce concours. Mais elles utilisent des méthodes de calcul ou de raisonnement qui reviennent souvent, et qui peuvent inspirer pour la résolution d’un exercice.</p>
-<p>Comme toujours en mathématiques, la seule façon de progresser est de <em>faire</em>. Ne pas hésiter donc, à passer un peu de temps sur un exercice, même si on sèche complètement.</p>
 </div>
-<div id="coquilles-et-erreurs" class="section level2 hasAnchor" number="1.2">
-<h2><span class="header-section-number">1.2</span> Coquilles et erreurs<a href="index.html#coquilles-et-erreurs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>La loi de Poisson est souvent utilisée pour modéliser le nombre d’erreurs ou de coquilles inévitablement présentes dans un document. Celui-ci n’échappe pas à la règle et j’espère juste que le <span class="math inline">\(\lambda\)</span> n’est pas trop grand… Pour m’aider à le réduire, n’hésitez pas à me les signaler.</p>
-<p>Plus généralement, vos commentaires permettent d’améliorer la qualité de ce document : ils sont donc les bienvenus.</p>
+<div id="moments-dune-variable-aléatoire" class="section level3 hasAnchor" number="3.1.6">
+<h3><span class="header-section-number">3.1.6</span> Moments d’une variable aléatoire<a href="variables-aléatoires-discrètes.html#moments-dune-variable-aléatoire" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Espérance, variance, moments d’ordres supérieurs</li>
+<li>inégalité de Markov, inégalité de Bieanymé-Tchébychev (exemples + intérêt)</li>
+</ul>
+</div>
+</div>
+<div id="transformation-dune-variable-aléatoire-discrète" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Transformation d’une variable aléatoire discrète<a href="variables-aléatoires-discrètes.html#transformation-dune-variable-aléatoire-discrète" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="définition-1" class="section level3 hasAnchor" number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> Définition<a href="variables-aléatoires-discrètes.html#définition-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Définition</li>
+<li>Cas particuliers :
+<ul>
+<li>bijection continue</li>
+<li>un unique extremum</li>
+</ul></li>
+<li>Déterminer la loi de <span class="math inline">\(f(X)\)</span> en pratique (message = passer par la fonction de répartition)</li>
+</ul>
+</div>
+<div id="théorème-de-transfert-cas-discret" class="section level3 hasAnchor" number="3.2.2">
+<h3><span class="header-section-number">3.2.2</span> Théorème de transfert (cas discret)<a href="variables-aléatoires-discrètes.html#théorème-de-transfert-cas-discret" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Théorème</li>
+<li>Exemple</li>
+</ul>
+</div>
+</div>
+<div id="vecteurs-aléatoires" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Vecteurs aléatoires<a href="variables-aléatoires-discrètes.html#vecteurs-aléatoires" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="définition-2" class="section level3 hasAnchor" number="3.3.1">
+<h3><span class="header-section-number">3.3.1</span> Définition<a href="variables-aléatoires-discrètes.html#définition-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="loi-jointe-loi-marginales" class="section level3 hasAnchor" number="3.3.2">
+<h3><span class="header-section-number">3.3.2</span> Loi jointe, loi marginales<a href="variables-aléatoires-discrètes.html#loi-jointe-loi-marginales" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="loi-conditionnelle-mathcallyx" class="section level3 hasAnchor" number="3.3.3">
+<h3><span class="header-section-number">3.3.3</span> Loi conditionnelle <span class="math inline">\(\mathcal{L}(Y|X)\)</span><a href="variables-aléatoires-discrètes.html#loi-conditionnelle-mathcallyx" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="loi-dun-couple-de-va-indépendantes" class="section level3 hasAnchor" number="3.3.4">
+<h3><span class="header-section-number">3.3.4</span> Loi d’un couple de VA indépendantes<a href="variables-aléatoires-discrètes.html#loi-dun-couple-de-va-indépendantes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Définition</li>
+<li>Somme de deux VA indépendantes (produit de convolution discret)</li>
+</ul>
+</div>
+<div id="espérance-conditionnelle-variance-conditionnelle" class="section level3 hasAnchor" number="3.3.5">
+<h3><span class="header-section-number">3.3.5</span> Espérance conditionnelle, variance conditionnelle<a href="variables-aléatoires-discrètes.html#espérance-conditionnelle-variance-conditionnelle" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 
+</div>
 </div>
 </div>
             </section>
@@ -178,8 +229,8 @@
           </div>
         </div>
       </div>
+<a href="dénombrement-et-probabilités.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="dénombrement-et-probabilités.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -210,7 +261,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/index.Rmd",
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/2_variables_aléatoires_discrètes.Rmd",
 "text": "Edit"
 },
 "history": {

@@ -1,0 +1,45 @@
+# Statistique descriptive
+
+## Vocabulaire
+
+### Population, individus, échantillon
+
+## Analyse statistique univariée
+
+### Notion de série statistique univariée
+
+-   série statistique à une variable
+-   valeurs
+-   variable statistique
+
+### Indicateurs d'une série statistique univariée
+
+-   modalités, effectif, fréquence
+-   effectifs cumulées croissants, fréquences cumulées croissantes
+-   indicateurs de position, indicateurs de dispersion
+-   indicateurs de concentration
+    -   courbe de Lorenz
+    -   indice de Gini
+    -   quantiles
+
+### Représentations graphiques
+
+## Analyse statistique bivariée
+
+### Notion de série statistique bivariée
+
+-   série statistique à deux variables
+
+### Indicateurs propres à l'analyse statistique multivariée
+
+-   distribution marginale
+    -   effectif marginal
+    -   fréquence marginale
+-   covariance empirique
+-   distribution conditionnelle
+-   formule de Huygens-Koenig
+-   coefficient de corrélation linéaire empirique
+
+### Nuage de points
+
+### Ajustement des moindres carrés
