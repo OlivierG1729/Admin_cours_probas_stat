@@ -247,6 +247,57 @@ $$l(x;\lambda)=n\ln(\lambda)-\lambda\sum_{i=1}^n x_i$$
 
 \noindent La fonction $\lambda\in\mathbb{R}_{+}^*\mapsto l(x;\lambda)$ est deux fois dérivable et $\frac{\partial}{\partial\lambda}l(x;\lambda)=\frac{n}{\lambda}-\sum\limits_{i=1}^n x_i$, qui s'annule en $\lambda=\frac{n}{\sum\limits_{i=1}^n x_i}=\frac{1}{\overline{x}_n}$. De plus, $\frac{\partial^2}{\partial\lambda^2}l(x;\lambda)=-\frac{n}{\lambda^2}<0$ et donc à $x$ fixé, $l(x;\lambda)$ atteint son maximum en $\frac{1}{\overline{x_n}}$. L'estimateur du maximum de vraisemblance est donc $\widehat{\lambda}_n=\frac{1}{\overline{X}_n}$. On remarque qu'on retrouve ici le même estimateur que celui obtenu par la méthode des moments.
 
+
+### Compléments (hors-programme)
+
+\noindent On présente dans cette partie les notions suivantes :
+
+- information de Fisher
+- borne de Cramer-Rao
+- statistique exhaustive
+- famille exponentielle
+- amélioration d'un estimateur
+
+\noindent Ces notions ne sont pas au programme du concours, mais elles sont clairement dans sa périphérie immédiate. On les retrouve d'ailleurs dans le sujet d'interne 2022, mais leur connaissance n'est pas requise pour traiter le sujet.
+
+#### Information de Fisher
+
+\noindent Soient $X$ une variable aléatoire à valeurs dans $\mathcal{X}$ de loi $f(x;\theta)>0$, $\theta\in\mathbb{R}$. On fait les hypothèses suivantes :
+
+- existence de $\frac{\partial f}{\partial\theta}(x;\theta)$ et de $\frac{\partial^2}{\partial\theta^2}f(x;\theta)$
+- on peut échanger tous les opérateurs de dérivation (à l'ordre $1$ et $2$) et d'intégration
+
+\noindent On appelle alors **score** la quantité $\frac{\partial \ln L_n}{\partial\theta}$, i.e. la dérivée de la log-vraisemblance par rapport à $\theta$.
+
+::: {.callout-note collapse="false" title="Estimateurs"}
+\noindent On a 
+
+$$\mathcal{E}_{\theta}\left(\frac{\partial f}{\partial\theta}(x;\theta)\right)$$
+
+i.e. le score est d'espérance nulle.
+:::
+
+
+::: {.callout-note collapse="false" title="Estimateurs"}
+
+<center>**Information de Fisher**</center>
+
+\noindent L'**information de Fisher** est la quantité définie par 
+
+$$I(\theta)\equiv\mathbb{E}_{\theta}\left(\left(\frac{\partial }{\partial\theta}\,\ln f(x;\theta)\right)^2\right)=\mathbb{V}_{\theta}\left(\frac{\partial}{\partial\theta}\ln f(x;\theta)\right)$$
+
+\noindent L'information de Fisher est aussi égale à 
+
+$$I(\theta)=-\mathbb{E}_{\theta}\left(\frac{\partial^2}{\partial\theta^2} f(x;\theta)\right)$$
+$$
+:::
+
+
+
+
+
+
+
 ### Estimation des coefficients d'une régression linéaire
 
 #### Présentation du modèle
