@@ -4,29 +4,23 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 6 Statistique inférentielle | A Minimal Book Example</title>
-  <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
-The HTML output format for this example is bookdown::gitbook,
-set in the _output.yml file.</p>" />
+  <title>Chapter 7 Statistique inférentielle | Cours de probabilités-statistiques pour le concours interne d’administrateur Insee</title>
+  <meta name="description" content="Cours de probabilités et statistiques" />
   <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 6 Statistique inférentielle | A Minimal Book Example" />
+  <meta property="og:title" content="Chapter 7 Statistique inférentielle | Cours de probabilités-statistiques pour le concours interne d’administrateur Insee" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
-The HTML output format for this example is bookdown::gitbook,
-set in the _output.yml file.</p>" />
+  <meta property="og:description" content="Cours de probabilités et statistiques" />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 6 Statistique inférentielle | A Minimal Book Example" />
+  <meta name="twitter:title" content="Chapter 7 Statistique inférentielle | Cours de probabilités-statistiques pour le concours interne d’administrateur Insee" />
   
-  <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
-The HTML output format for this example is bookdown::gitbook,
-set in the _output.yml file.</p>" />
+  <meta name="twitter:description" content="Cours de probabilités et statistiques" />
   
 
-<meta name="author" content="John Doe" />
+<meta name="author" content="Olivier Guin" />
 
 
 <meta name="date" content="2023-10-28" />
@@ -36,8 +30,8 @@ set in the _output.yml file.</p>" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="blocks.html"/>
-<link rel="next" href="references.html"/>
+<link rel="prev" href="statistique-descriptive.html"/>
+
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -60,96 +54,10 @@ set in the _output.yml file.</p>" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
-<style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
 
 <style type="text/css">
   
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-</style>
-<style type="text/css">
-/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -168,58 +76,129 @@ div.csl-indent {
 <li><a href="./">A Minimal Book Example</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About</a>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Présentation du cours</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#usage"><i class="fa fa-check"></i><b>1.1</b> Usage</a></li>
-<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#render-book"><i class="fa fa-check"></i><b>1.2</b> Render book</a></li>
-<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#preview-book"><i class="fa fa-check"></i><b>1.3</b> Preview book</a></li>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#généralités"><i class="fa fa-check"></i><b>1.1</b> Généralités</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#coquilles-et-erreurs"><i class="fa fa-check"></i><b>1.2</b> Coquilles et erreurs</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
-<li class="chapter" data-level="3" data-path="parts.html"><a href="parts.html"><i class="fa fa-check"></i><b>3</b> Parts</a></li>
-<li class="chapter" data-level="4" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html"><i class="fa fa-check"></i><b>4</b> Footnotes and citations</a>
+<li class="chapter" data-level="2" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html"><i class="fa fa-check"></i><b>2</b> Dénombrement et probabilités</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#footnotes"><i class="fa fa-check"></i><b>4.1</b> Footnotes</a></li>
-<li class="chapter" data-level="4.2" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#citations"><i class="fa fa-check"></i><b>4.2</b> Citations</a></li>
+<li class="chapter" data-level="2.1" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#dénombrement"><i class="fa fa-check"></i><b>2.1</b> Dénombrement</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#permutations"><i class="fa fa-check"></i><b>2.1.1</b> Permutations</a></li>
+<li class="chapter" data-level="2.1.2" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#arrangements"><i class="fa fa-check"></i><b>2.1.2</b> Arrangements</a></li>
+<li class="chapter" data-level="2.1.3" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#combinaisons"><i class="fa fa-check"></i><b>2.1.3</b> Combinaisons</a></li>
+<li class="chapter" data-level="2.1.4" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#formule-du-binôme-de-newton"><i class="fa fa-check"></i><b>2.1.4</b> Formule du binôme de Newton</a></li>
+<li class="chapter" data-level="2.1.5" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#triangle-de-pascal"><i class="fa fa-check"></i><b>2.1.5</b> Triangle de Pascal</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="blocks.html"><a href="blocks.html"><i class="fa fa-check"></i><b>5</b> Blocks</a>
+<li class="chapter" data-level="2.2" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#evénements-et-probabilités"><i class="fa fa-check"></i><b>2.2</b> Evénements et probabilités</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="blocks.html"><a href="blocks.html#equations"><i class="fa fa-check"></i><b>5.1</b> Equations</a></li>
-<li class="chapter" data-level="5.2" data-path="blocks.html"><a href="blocks.html#theorems-and-proofs"><i class="fa fa-check"></i><b>5.2</b> Theorems and proofs</a></li>
-<li class="chapter" data-level="5.3" data-path="blocks.html"><a href="blocks.html#callout-blocks"><i class="fa fa-check"></i><b>5.3</b> Callout blocks</a></li>
-</ul></li>
-<li class="chapter" data-level="6" data-path="statistique-inférentielle.html"><a href="statistique-inférentielle.html"><i class="fa fa-check"></i><b>6</b> Statistique inférentielle</a>
-<ul>
-<li class="chapter" data-level="6.1" data-path="statistique-inférentielle.html"><a href="statistique-inférentielle.html#estimation"><i class="fa fa-check"></i><b>6.1</b> Estimation</a>
-<ul>
-<li class="chapter" data-level="6.1.1" data-path="statistique-inférentielle.html"><a href="statistique-inférentielle.html#premières-définitions"><i class="fa fa-check"></i><b>6.1.1</b> Premières définitions</a></li>
-<li class="chapter" data-level="6.1.2" data-path="statistique-inférentielle.html"><a href="statistique-inférentielle.html#convergence-dun-estimateur"><i class="fa fa-check"></i><b>6.1.2</b> Convergence d’un estimateur</a></li>
-<li class="chapter" data-level="6.1.3" data-path="statistique-inférentielle.html"><a href="statistique-inférentielle.html#exemples-classiques"><i class="fa fa-check"></i><b>6.1.3</b> Exemples classiques</a></li>
-<li class="chapter" data-level="6.1.4" data-path="statistique-inférentielle.html"><a href="statistique-inférentielle.html#méthodes-de-construction-des-estimateurs"><i class="fa fa-check"></i><b>6.1.4</b> Méthodes de construction des estimateurs</a></li>
-<li class="chapter" data-level="6.1.5" data-path="statistique-inférentielle.html"><a href="statistique-inférentielle.html#estimation-des-coefficients-dune-régression-linéaire"><i class="fa fa-check"></i><b>6.1.5</b> Estimation des coefficients d’une régression linéaire</a></li>
-<li class="chapter" data-level="6.1.6" data-path="statistique-inférentielle.html"><a href="statistique-inférentielle.html#intervalles-de-confiance"><i class="fa fa-check"></i><b>6.1.6</b> Intervalles de confiance</a></li>
-</ul></li>
-<li class="chapter" data-level="6.2" data-path="statistique-inférentielle.html"><a href="statistique-inférentielle.html#tests-statistiques"><i class="fa fa-check"></i><b>6.2</b> Tests statistiques</a>
-<ul>
-<li class="chapter" data-level="6.2.1" data-path="statistique-inférentielle.html"><a href="statistique-inférentielle.html#définition-et-principes"><i class="fa fa-check"></i><b>6.2.1</b> Définition et principes</a></li>
-<li class="chapter" data-level="6.2.2" data-path="statistique-inférentielle.html"><a href="statistique-inférentielle.html#exemples-de-test"><i class="fa fa-check"></i><b>6.2.2</b> Exemples de test</a></li>
+<li class="chapter" data-level="2.2.1" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#evénements"><i class="fa fa-check"></i><b>2.2.1</b> Evénements</a></li>
+<li class="chapter" data-level="2.2.2" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#probabilités"><i class="fa fa-check"></i><b>2.2.2</b> Probabilités</a></li>
+<li class="chapter" data-level="2.2.3" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#probabilités-conditionnelles"><i class="fa fa-check"></i><b>2.2.3</b> Probabilités conditionnelles</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
-<li class="chapter" data-level="7" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html"><i class="fa fa-check"></i><b>7</b> Dénombrement et probabilités</a>
+<li class="chapter" data-level="3" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html"><i class="fa fa-check"></i><b>3</b> Variables aléatoires discrètes</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#dénombrement"><i class="fa fa-check"></i><b>7.1</b> Dénombrement</a>
+<li class="chapter" data-level="3.1" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#définition-et-premières-propriétés"><i class="fa fa-check"></i><b>3.1</b> Définition et premières propriétés</a>
 <ul>
-<li class="chapter" data-level="7.1.1" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#permutations"><i class="fa fa-check"></i><b>7.1.1</b> Permutations</a></li>
-<li class="chapter" data-level="7.1.2" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#arrangements"><i class="fa fa-check"></i><b>7.1.2</b> Arrangements</a></li>
-<li class="chapter" data-level="7.1.3" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#combinaisons"><i class="fa fa-check"></i><b>7.1.3</b> Combinaisons</a></li>
-<li class="chapter" data-level="7.1.4" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#formule-du-binôme-de-newton"><i class="fa fa-check"></i><b>7.1.4</b> Formule du binôme de Newton</a></li>
-<li class="chapter" data-level="7.1.5" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#triangle-de-pascal"><i class="fa fa-check"></i><b>7.1.5</b> Triangle de Pascal</a></li>
+<li class="chapter" data-level="3.1.1" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#définition"><i class="fa fa-check"></i><b>3.1.1</b> Définition</a></li>
+<li class="chapter" data-level="3.1.2" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#loi-dune-variable-aléatoire-discrète"><i class="fa fa-check"></i><b>3.1.2</b> Loi d’une variable aléatoire discrète</a></li>
+<li class="chapter" data-level="3.1.3" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#définition-de-pxin-a"><i class="fa fa-check"></i><b>3.1.3</b> Définition de <span class="math inline">\(p(X\in A)\)</span></a></li>
+<li class="chapter" data-level="3.1.4" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#fonction-de-répartition-quantiles"><i class="fa fa-check"></i><b>3.1.4</b> Fonction de répartition, quantiles</a></li>
+<li class="chapter" data-level="3.1.5" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#exemples-classiques"><i class="fa fa-check"></i><b>3.1.5</b> Exemples classiques :</a></li>
+<li class="chapter" data-level="3.1.6" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#moments-dune-variable-aléatoire"><i class="fa fa-check"></i><b>3.1.6</b> Moments d’une variable aléatoire</a></li>
 </ul></li>
-<li class="chapter" data-level="7.2" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#evénements-et-probabilités"><i class="fa fa-check"></i><b>7.2</b> Evénements et probabilités</a>
+<li class="chapter" data-level="3.2" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#transformation-dune-variable-aléatoire-discrète"><i class="fa fa-check"></i><b>3.2</b> Transformation d’une variable aléatoire discrète</a>
 <ul>
-<li class="chapter" data-level="7.2.1" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#evénements"><i class="fa fa-check"></i><b>7.2.1</b> Evénements</a></li>
-<li class="chapter" data-level="7.2.2" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#probabilités"><i class="fa fa-check"></i><b>7.2.2</b> Probabilités</a></li>
-<li class="chapter" data-level="7.2.3" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#probabilités-conditionnelles"><i class="fa fa-check"></i><b>7.2.3</b> Probabilités conditionnelles</a></li>
+<li class="chapter" data-level="3.2.1" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#définition-1"><i class="fa fa-check"></i><b>3.2.1</b> Définition</a></li>
+<li class="chapter" data-level="3.2.2" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#théorème-de-transfert-cas-discret"><i class="fa fa-check"></i><b>3.2.2</b> Théorème de transfert (cas discret)</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#vecteurs-aléatoires"><i class="fa fa-check"></i><b>3.3</b> Vecteurs aléatoires</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#définition-2"><i class="fa fa-check"></i><b>3.3.1</b> Définition</a></li>
+<li class="chapter" data-level="3.3.2" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#loi-jointe-loi-marginales"><i class="fa fa-check"></i><b>3.3.2</b> Loi jointe, loi marginales</a></li>
+<li class="chapter" data-level="3.3.3" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#loi-conditionnelle-mathcallyx"><i class="fa fa-check"></i><b>3.3.3</b> Loi conditionnelle <span class="math inline">\(\mathcal{L}(Y|X)\)</span></a></li>
+<li class="chapter" data-level="3.3.4" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#loi-dun-couple-de-va-indépendantes"><i class="fa fa-check"></i><b>3.3.4</b> Loi d’un couple de VA indépendantes</a></li>
+<li class="chapter" data-level="3.3.5" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#espérance-conditionnelle-variance-conditionnelle"><i class="fa fa-check"></i><b>3.3.5</b> Espérance conditionnelle, variance conditionnelle</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html"><i class="fa fa-check"></i><b>4</b> Variables aléatoires à densité</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#définition-et-premières-propriétés-1"><i class="fa fa-check"></i><b>4.1</b> Définition et premières propriétés</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#définition-3"><i class="fa fa-check"></i><b>4.1.1</b> Définition</a></li>
+<li class="chapter" data-level="4.1.2" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#loi-dune-variable-aléatoire-à-densité"><i class="fa fa-check"></i><b>4.1.2</b> Loi d’une variable aléatoire à densité</a></li>
+<li class="chapter" data-level="4.1.3" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#définition-de-pxin-a-1"><i class="fa fa-check"></i><b>4.1.3</b> Définition de <span class="math inline">\(p(X\in A)\)</span></a></li>
+<li class="chapter" data-level="4.1.4" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#fonction-de-répartition-quantiles-1"><i class="fa fa-check"></i><b>4.1.4</b> Fonction de répartition, quantiles</a></li>
+<li class="chapter" data-level="4.1.5" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#exemples-classiques-1"><i class="fa fa-check"></i><b>4.1.5</b> Exemples classiques :</a></li>
+<li class="chapter" data-level="4.1.6" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#moments-dune-variable-aléatoire-1"><i class="fa fa-check"></i><b>4.1.6</b> Moments d’une variable aléatoire</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#transformation-dune-variable-aléatoire-à-densité"><i class="fa fa-check"></i><b>4.2</b> Transformation d’une variable aléatoire à densité</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#définition-4"><i class="fa fa-check"></i><b>4.2.1</b> Définition</a></li>
+<li class="chapter" data-level="4.2.2" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#théorème-de-transfert-cas-à-densité"><i class="fa fa-check"></i><b>4.2.2</b> Théorème de transfert (cas à densité)</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#vecteurs-aléatoires-1"><i class="fa fa-check"></i><b>4.3</b> Vecteurs aléatoires</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#définition-5"><i class="fa fa-check"></i><b>4.3.1</b> Définition</a></li>
+<li class="chapter" data-level="4.3.2" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#loi-jointe-loi-marginales-1"><i class="fa fa-check"></i><b>4.3.2</b> Loi jointe, loi marginales</a></li>
+<li class="chapter" data-level="4.3.3" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#loi-conditionnelle-mathcallyx-1"><i class="fa fa-check"></i><b>4.3.3</b> Loi conditionnelle <span class="math inline">\(\mathcal{L}(Y|X)\)</span></a></li>
+<li class="chapter" data-level="4.3.4" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#loi-dun-couple-de-va-indépendantes-1"><i class="fa fa-check"></i><b>4.3.4</b> Loi d’un couple de VA indépendantes</a></li>
+<li class="chapter" data-level="4.3.5" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#espérance-matrice-de-variance-covariance"><i class="fa fa-check"></i><b>4.3.5</b> Espérance, matrice de variance-covariance</a></li>
+<li class="chapter" data-level="4.3.6" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#espérance-conditionnelle-variance-conditionnelle-1"><i class="fa fa-check"></i><b>4.3.6</b> Espérance conditionnelle, variance conditionnelle</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="convergence.html"><a href="convergence.html"><i class="fa fa-check"></i><b>5</b> Convergence</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="convergence.html"><a href="convergence.html#différents-modes-de-convergence"><i class="fa fa-check"></i><b>5.1</b> Différents modes de convergence</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="convergence.html"><a href="convergence.html#convergence-en-probabilité"><i class="fa fa-check"></i><b>5.1.1</b> Convergence en probabilité</a></li>
+<li class="chapter" data-level="5.1.2" data-path="convergence.html"><a href="convergence.html#convergence-dans-les-espaces-lp"><i class="fa fa-check"></i><b>5.1.2</b> Convergence dans les espaces <span class="math inline">\(L^p\)</span></a></li>
+<li class="chapter" data-level="5.1.3" data-path="convergence.html"><a href="convergence.html#convergence-en-loi"><i class="fa fa-check"></i><b>5.1.3</b> Convergence en loi</a></li>
+<li class="chapter" data-level="5.1.4" data-path="convergence.html"><a href="convergence.html#convergence-presque-sûre-hors-prgramme"><i class="fa fa-check"></i><b>5.1.4</b> Convergence presque-sûre (hors-prgramme ?)</a></li>
+<li class="chapter" data-level="5.1.5" data-path="convergence.html"><a href="convergence.html#liens-entre-les-différents-modes-de-convergence"><i class="fa fa-check"></i><b>5.1.5</b> Liens entre les différents modes de convergence</a></li>
+<li class="chapter" data-level="5.1.6" data-path="convergence.html"><a href="convergence.html#approximations"><i class="fa fa-check"></i><b>5.1.6</b> Approximations</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="convergence.html"><a href="convergence.html#loi-faible-des-grands-nombres-loi-forte-des-grands-nombres"><i class="fa fa-check"></i><b>5.2</b> Loi Faible des Grands Nombres, Loi Forte des Grands Nombres</a></li>
+<li class="chapter" data-level="5.3" data-path="convergence.html"><a href="convergence.html#théorème-central-limite-tcl"><i class="fa fa-check"></i><b>5.3</b> Théorème Central Limite (TCL)</a></li>
+<li class="chapter" data-level="5.4" data-path="convergence.html"><a href="convergence.html#variantes-du-tcl-hors-programme"><i class="fa fa-check"></i><b>5.4</b> Variantes du TCL (hors-programme)</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="statistique-descriptive.html"><a href="statistique-descriptive.html"><i class="fa fa-check"></i><b>6</b> Statistique descriptive</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="statistique-descriptive.html"><a href="statistique-descriptive.html#vocabulaire"><i class="fa fa-check"></i><b>6.1</b> Vocabulaire</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="statistique-descriptive.html"><a href="statistique-descriptive.html#population-individus-échantillon"><i class="fa fa-check"></i><b>6.1.1</b> Population, individus, échantillon</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="statistique-descriptive.html"><a href="statistique-descriptive.html#analyse-statistique-univariée"><i class="fa fa-check"></i><b>6.2</b> Analyse statistique univariée</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="statistique-descriptive.html"><a href="statistique-descriptive.html#notion-de-série-statistique-univariée"><i class="fa fa-check"></i><b>6.2.1</b> Notion de série statistique univariée</a></li>
+<li class="chapter" data-level="6.2.2" data-path="statistique-descriptive.html"><a href="statistique-descriptive.html#indicateurs-dune-série-statistique-univariée"><i class="fa fa-check"></i><b>6.2.2</b> Indicateurs d’une série statistique univariée</a></li>
+<li class="chapter" data-level="6.2.3" data-path="statistique-descriptive.html"><a href="statistique-descriptive.html#représentations-graphiques"><i class="fa fa-check"></i><b>6.2.3</b> Représentations graphiques</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="statistique-descriptive.html"><a href="statistique-descriptive.html#analyse-statistique-bivariée"><i class="fa fa-check"></i><b>6.3</b> Analyse statistique bivariée</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="statistique-descriptive.html"><a href="statistique-descriptive.html#notion-de-série-statistique-bivariée"><i class="fa fa-check"></i><b>6.3.1</b> Notion de série statistique bivariée</a></li>
+<li class="chapter" data-level="6.3.2" data-path="statistique-descriptive.html"><a href="statistique-descriptive.html#indicateurs-propres-à-lanalyse-statistique-multivariée"><i class="fa fa-check"></i><b>6.3.2</b> Indicateurs propres à l’analyse statistique multivariée</a></li>
+<li class="chapter" data-level="6.3.3" data-path="statistique-descriptive.html"><a href="statistique-descriptive.html#nuage-de-points"><i class="fa fa-check"></i><b>6.3.3</b> Nuage de points</a></li>
+<li class="chapter" data-level="6.3.4" data-path="statistique-descriptive.html"><a href="statistique-descriptive.html#ajustement-des-moindres-carrés"><i class="fa fa-check"></i><b>6.3.4</b> Ajustement des moindres carrés</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="statistique-inférentielle.html"><a href="statistique-inférentielle.html"><i class="fa fa-check"></i><b>7</b> Statistique inférentielle</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="statistique-inférentielle.html"><a href="statistique-inférentielle.html#estimation"><i class="fa fa-check"></i><b>7.1</b> Estimation</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="statistique-inférentielle.html"><a href="statistique-inférentielle.html#premières-définitions"><i class="fa fa-check"></i><b>7.1.1</b> Premières définitions</a></li>
+<li class="chapter" data-level="7.1.2" data-path="statistique-inférentielle.html"><a href="statistique-inférentielle.html#convergence-dun-estimateur"><i class="fa fa-check"></i><b>7.1.2</b> Convergence d’un estimateur</a></li>
+<li class="chapter" data-level="7.1.3" data-path="statistique-inférentielle.html"><a href="statistique-inférentielle.html#exemples-classiques-2"><i class="fa fa-check"></i><b>7.1.3</b> Exemples classiques</a></li>
+<li class="chapter" data-level="7.1.4" data-path="statistique-inférentielle.html"><a href="statistique-inférentielle.html#méthodes-de-construction-des-estimateurs"><i class="fa fa-check"></i><b>7.1.4</b> Méthodes de construction des estimateurs</a></li>
+<li class="chapter" data-level="7.1.5" data-path="statistique-inférentielle.html"><a href="statistique-inférentielle.html#estimation-des-coefficients-dune-régression-linéaire"><i class="fa fa-check"></i><b>7.1.5</b> Estimation des coefficients d’une régression linéaire</a></li>
+<li class="chapter" data-level="7.1.6" data-path="statistique-inférentielle.html"><a href="statistique-inférentielle.html#intervalles-de-confiance"><i class="fa fa-check"></i><b>7.1.6</b> Intervalles de confiance</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="statistique-inférentielle.html"><a href="statistique-inférentielle.html#tests-statistiques"><i class="fa fa-check"></i><b>7.2</b> Tests statistiques</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="statistique-inférentielle.html"><a href="statistique-inférentielle.html#définition-et-principes"><i class="fa fa-check"></i><b>7.2.1</b> Définition et principes</a></li>
+<li class="chapter" data-level="7.2.2" data-path="statistique-inférentielle.html"><a href="statistique-inférentielle.html#exemples-de-test"><i class="fa fa-check"></i><b>7.2.2</b> Exemples de test</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -234,7 +213,7 @@ div.csl-indent {
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A Minimal Book Example</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Cours de probabilités-statistiques pour le concours interne d’administrateur Insee</a>
           </h1>
         </div>
 
@@ -242,14 +221,14 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="statistique-inférentielle" class="section level1 hasAnchor" number="6">
-<h1><span class="header-section-number">Chapter 6</span> Statistique inférentielle<a href="statistique-inférentielle.html#statistique-inférentielle" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="estimation" class="section level2 hasAnchor" number="6.1">
-<h2><span class="header-section-number">6.1</span> Estimation<a href="statistique-inférentielle.html#estimation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="statistique-inférentielle" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">Chapter 7</span> Statistique inférentielle<a href="statistique-inférentielle.html#statistique-inférentielle" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="estimation" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> Estimation<a href="statistique-inférentielle.html#estimation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>On s’intéresse à une loi probabiliste <span class="math inline">\(\mathcal{L}_{\theta}\)</span>, qui est entièrement décrite par la donnée d’un paramètre inconnu <span class="math inline">\(\theta\)</span>. Pour mieux appréhender cette loi, il serait intéressant de connaître la valeur de <span class="math inline">\(\theta\)</span>. Plutôt que de chercher à déterminer la valeur exacte de <span class="math inline">\(\theta\)</span>, on peut essayer de l’approcher. Dans le cadre de la statistique inférentielle, on suppose qu’on dispose d’un <strong>échantillon i.i.d.</strong> de <span class="math inline">\(\mathcal{L}_{\theta}\)</span>, autrement dit d’un certain nombre de réalisations <span class="math inline">\((Y_1,\dots, Y_n)\)</span> indépendantes et identiquement distribuées de la loi <span class="math inline">\(\mathcal{L}_{\theta}\)</span>.</p>
 <p>La donnée d’un tel échantillon constitue un ensemble d’<strong>informations</strong> qui vont nous être utiles pour <strong>estimer</strong> le paramètre <span class="math inline">\(\theta\)</span>. on fait donc bien ici de l’<em>inférence</em> - ou encore de l’<em>induction</em> - dans le sens où on part d’observations particulières (les réalisations <span class="math inline">\(Y_1,\dots, Y_n)\)</span> pour énoncer une règle générale (le fait que ces réalisations sont issues de la loi <span class="math inline">\(\mathcal{L}_{\theta}\)</span>).</p>
-<div id="premières-définitions" class="section level3 hasAnchor" number="6.1.1">
-<h3><span class="header-section-number">6.1.1</span> Premières définitions<a href="statistique-inférentielle.html#premières-définitions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="premières-définitions" class="section level3 hasAnchor" number="7.1.1">
+<h3><span class="header-section-number">7.1.1</span> Premières définitions<a href="statistique-inférentielle.html#premières-définitions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="callout-note" collapse="false" title="Estimateurs">
 <p><strong>Définition :</strong> Soit <span class="math inline">\(Y\)</span> une variable aléatoire de loi <span class="math inline">\(\mathcal{L}(Y)\)</span>, paramétrée par un réel <span class="math inline">\(\theta\)</span> inconnu. Soit <span class="math inline">\((Y_1,\dots, Y_n)\)</span> un échantillon i.i.d. de loi <span class="math inline">\(\mathcal{L}(Y)\)</span>. On appelle <em>estimateur</em> de <span class="math inline">\(\theta\)</span> toute fonction de <span class="math inline">\(Y_1,\dots, Y_n\)</span>, i.e. <span class="math display">\[\widehat{\theta}_n=S(Y_1,\dots, Y_n)\]</span></p>
 </div>
@@ -270,8 +249,8 @@ div.csl-indent {
 </div>
 <p>Autrement dit, réduire l’erreur (quadratique moyenne) d’un estimateur revient à essayer de réduire son biais et/ou sa variance. En pratique, uune réduction du biais implique souvent une augmentation de la variance (et vice-versa) et il faut trouver un compromis entre les deux, i.e. un estimateur pour lequel la combinaison (biais, variance) implique une faible erreur quadratique moyenne. On parle alors de <strong>compromis biais-variance</strong>.</p>
 </div>
-<div id="convergence-dun-estimateur" class="section level3 hasAnchor" number="6.1.2">
-<h3><span class="header-section-number">6.1.2</span> Convergence d’un estimateur<a href="statistique-inférentielle.html#convergence-dun-estimateur" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="convergence-dun-estimateur" class="section level3 hasAnchor" number="7.1.2">
+<h3><span class="header-section-number">7.1.2</span> Convergence d’un estimateur<a href="statistique-inférentielle.html#convergence-dun-estimateur" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="callout-note" collapse="false" title="Estimateurs">
 <p>Un estimateur <span class="math inline">\(\widehat{\theta}_n\)</span> de <span class="math inline">\(\theta\)</span> est dit <strong>convergent</strong> lorsqu’il converge en probabilité vers <span class="math inline">\(\theta\)</span> i.e. lorsque</p>
 <p><span class="math display">\[\forall\varepsilon &gt;0, \mathbb{P}\left(|\widehat{\theta}_n-\theta|&gt;\varepsilon\right)\longrightarrow 0\]</span></p>
@@ -286,8 +265,8 @@ div.csl-indent {
 <p>Un estimateur <span class="math inline">\(\widehat{\theta}_n\)</span> asymtotiquement sans biais de <span class="math inline">\(\theta\)</span> est <strong>convergent</strong> dès que sa variance tend vers <span class="math inline">\(0\)</span>, i.e. <span class="math display">\[\left(\mathbb{E}_{\theta}(\widehat{\theta}_n)\underset{n\to +\infty}{\longrightarrow}\theta \text{ et } \mathbb{V}_{\theta}(\widehat{\theta}_n)\longrightarrow 0\right)\Rightarrow \left(\widehat{\theta}_n \underset{n \to +\infty}{\overset{\mathbb{P}}{\longrightarrow}}\theta\right)\]</span></p>
 </div>
 </div>
-<div id="exemples-classiques" class="section level3 hasAnchor" number="6.1.3">
-<h3><span class="header-section-number">6.1.3</span> Exemples classiques<a href="statistique-inférentielle.html#exemples-classiques" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="exemples-classiques-2" class="section level3 hasAnchor" number="7.1.3">
+<h3><span class="header-section-number">7.1.3</span> Exemples classiques<a href="statistique-inférentielle.html#exemples-classiques-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Quelques exemples très classiques d’estimateurs :</p>
 <p>**Exemple 1 : moyenne empirique.** Soit <span class="math inline">\(X_1,\dots X_n\)</span> une suite de <span class="math inline">\(VAR\)</span> i.i.d. de même loi que <span class="math inline">\(X\)</span>, admettant une espérance <span class="math inline">\(\mu\)</span>. La <em>moyenne empirique</em> est l’estimateur <span class="math display">\[\overline{X_n}=\frac{X_1+\dots + X_n}{n}\]</span></p>
 <div class="callout-note" collapse="false" title="Estimateurs">
@@ -326,11 +305,11 @@ div.csl-indent {
 <p><span class="math display">\[\mathbb{E}(S_n^2)=\sigma^2\]</span></p>
 </div>
 </div>
-<div id="méthodes-de-construction-des-estimateurs" class="section level3 hasAnchor" number="6.1.4">
-<h3><span class="header-section-number">6.1.4</span> Méthodes de construction des estimateurs<a href="statistique-inférentielle.html#méthodes-de-construction-des-estimateurs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="méthodes-de-construction-des-estimateurs" class="section level3 hasAnchor" number="7.1.4">
+<h3><span class="header-section-number">7.1.4</span> Méthodes de construction des estimateurs<a href="statistique-inférentielle.html#méthodes-de-construction-des-estimateurs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>On présente ici deux méthodes classiques de construction des estimateurs ; la <strong>méthode des moments</strong> et la <strong>méthode du maximum de vraisemblance</strong>.</p>
-<div id="la-méthode-des-moments" class="section level4 hasAnchor" number="6.1.4.1">
-<h4><span class="header-section-number">6.1.4.1</span> La méthode des moments<a href="statistique-inférentielle.html#la-méthode-des-moments" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="la-méthode-des-moments" class="section level4 hasAnchor" number="7.1.4.1">
+<h4><span class="header-section-number">7.1.4.1</span> La méthode des moments<a href="statistique-inférentielle.html#la-méthode-des-moments" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <div class="callout-note" collapse="false" title="Estimateurs">
 <center>
 <strong>La méthode des moments</strong>
@@ -348,8 +327,8 @@ div.csl-indent {
 <p>**Remarque.** En reprenant les notations explicitées ci-dessus, on peut identifier les fonctions <span class="math inline">\(f\)</span> et <span class="math inline">\(g\)</span> :</p>
 <p><span class="math display">\[f(x)=x\]</span> <span class="math display">\[g(x)=\frac{1}{x}\]</span> et ici évidemment <span class="math inline">\(\theta=\lambda\)</span>. En général, la méthode des moments s’utilise de façon complètement intuitive sans qu’on ait même à expliciter forcément les fonctions <span class="math inline">\(f\)</span> et <span class="math inline">\(g\)</span>.</p>
 </div>
-<div id="la-méthode-du-maximum-de-vraisemblance" class="section level4 hasAnchor" number="6.1.4.2">
-<h4><span class="header-section-number">6.1.4.2</span> La méthode du maximum de vraisemblance<a href="statistique-inférentielle.html#la-méthode-du-maximum-de-vraisemblance" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="la-méthode-du-maximum-de-vraisemblance" class="section level4 hasAnchor" number="7.1.4.2">
+<h4><span class="header-section-number">7.1.4.2</span> La méthode du maximum de vraisemblance<a href="statistique-inférentielle.html#la-méthode-du-maximum-de-vraisemblance" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Une autre méthode de construction d’estimateurs est celle du <strong>maximum de vraisemblance</strong>. L’idée générale de cette méthode est la suivante. On suppose qu’on dispose de réalisations <span class="math inline">\(x_1,\dots x_n\)</span> d’une même variable aléatoire, dont la loi appartient à une famille paramétrique <span class="math inline">\(\left\{\mathcal{L}_{\theta}\,;\,\theta\in\Theta\right\}\)</span> et on cherche à estimer <span class="math inline">\(\theta\)</span>. Si par exemple on dispose d’une série de cinq obersations <span class="math inline">\((0.12, -0.65, 1.35, 1.04, -1.19, 0.08)\)</span> et qu’on veut inférer sur <span class="math inline">\(\theta\)</span> à partir de ces observations, on est enclin à penser que la valeur <span class="math inline">\(\theta=0\)</span> est plus plausible que la valeur <span class="math inline">\(\theta=-10\)</span>. La vraisemblance est une formalisation de l’idée intuitive de plausibilité d’un paramètre à partir d’une observation ou d’un ensemble d’observations.</p>
 <p>A nouveau, <span class="math inline">\(X\)</span> désigne une variable aléatoire de loi dépendant d’un paramètre inconnu <span class="math inline">\(\theta\)</span>, et <span class="math inline">\(x\)</span> une réalisation de <span class="math inline">\(X\)</span>.</p>
 <p>La <em>vraisemblance</em> <span class="math inline">\(L(x,.)\)</span> est une fonction de <span class="math inline">\(\theta\)</span> définie par</p>
@@ -417,10 +396,10 @@ L(x;\lambda)&amp;=\prod\limits_{i=1}^n (\lambda e^{-\lambda x_i}\mathbb{1}_{x_i\
 <p>La fonction <span class="math inline">\(\lambda\in\mathbb{R}_{+}^*\mapsto l(x;\lambda)\)</span> est deux fois dérivable et <span class="math inline">\(\frac{\partial}{\partial\lambda}l(x;\lambda)=\frac{n}{\lambda}-\sum\limits_{i=1}^n x_i\)</span>, qui s’annule en <span class="math inline">\(\lambda=\frac{n}{\sum\limits_{i=1}^n x_i}=\frac{1}{\overline{x}_n}\)</span>. De plus, <span class="math inline">\(\frac{\partial^2}{\partial\lambda^2}l(x;\lambda)=-\frac{n}{\lambda^2}&lt;0\)</span> et donc à <span class="math inline">\(x\)</span> fixé, <span class="math inline">\(l(x;\lambda)\)</span> atteint son maximum en <span class="math inline">\(\frac{1}{\overline{x_n}}\)</span>. L’estimateur du maximum de vraisemblance est donc <span class="math inline">\(\widehat{\lambda}_n=\frac{1}{\overline{X}_n}\)</span>. On remarque qu’on retrouve ici le même estimateur que celui obtenu par la méthode des moments.</p>
 </div>
 </div>
-<div id="estimation-des-coefficients-dune-régression-linéaire" class="section level3 hasAnchor" number="6.1.5">
-<h3><span class="header-section-number">6.1.5</span> Estimation des coefficients d’une régression linéaire<a href="statistique-inférentielle.html#estimation-des-coefficients-dune-régression-linéaire" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div id="présentation-du-modèle" class="section level4 hasAnchor" number="6.1.5.1">
-<h4><span class="header-section-number">6.1.5.1</span> Présentation du modèle<a href="statistique-inférentielle.html#présentation-du-modèle" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="estimation-des-coefficients-dune-régression-linéaire" class="section level3 hasAnchor" number="7.1.5">
+<h3><span class="header-section-number">7.1.5</span> Estimation des coefficients d’une régression linéaire<a href="statistique-inférentielle.html#estimation-des-coefficients-dune-régression-linéaire" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="présentation-du-modèle" class="section level4 hasAnchor" number="7.1.5.1">
+<h4><span class="header-section-number">7.1.5.1</span> Présentation du modèle<a href="statistique-inférentielle.html#présentation-du-modèle" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p><span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span> sont deux variables aléatoires pour lesquelles on dispose d’observations <span class="math inline">\(x_1,\dots, x_n\)</span> et <span class="math inline">\(y_1,\dots y_n\)</span>. On considère le modèle</p>
 <p><span class="math display">\[Y_i=aX_i+b+u_i\]</span></p>
 <p>où <span class="math inline">\((a,b)\)</span> est un couple de réels inconnus et <span class="math inline">\(u_i\)</span> est un terme d’erreur (inconnu lui aussi). Le but est d’estimer des coefficients <span class="math inline">\((a,b)\)</span> à partir de l’échantillons d’observations <span class="math inline">\((x_i, y_i)\)</span> et de donner des propriétés des estimateurs obtenus sous certaines hypothèses.</p>
@@ -435,8 +414,8 @@ L(x;\lambda)&amp;=\prod\limits_{i=1}^n (\lambda e^{-\lambda x_i}\mathbb{1}_{x_i\
 <p>On présente deux approches différentes pour estimer <span class="math inline">\(a\)</span> et <span class="math inline">\(b\)</span> : par la méthode des moindres carrés et par maximum de vraisemblance. Bien que différentes, ces méthodes vont fournir les mêmes estimateurs.</p>
 <p>Avant cela, on rappelle quelques résultats classiques de statistique descriptive.</p>
 </div>
-<div id="rappels-utiles" class="section level4 hasAnchor" number="6.1.5.2">
-<h4><span class="header-section-number">6.1.5.2</span> Rappels utiles<a href="statistique-inférentielle.html#rappels-utiles" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="rappels-utiles" class="section level4 hasAnchor" number="7.1.5.2">
+<h4><span class="header-section-number">7.1.5.2</span> Rappels utiles<a href="statistique-inférentielle.html#rappels-utiles" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Avant de présenter cette méthode, on rappelle des égalités qui àa la fois très utiles et très classiques. Il faut les connaître pour le concours et savoir les redémontrer.</p>
 <div class="callout-note" collapse="false" title="Estimateurs">
 <center>
@@ -489,8 +468,8 @@ L(x;\lambda)&amp;=\prod\limits_{i=1}^n (\lambda e^{-\lambda x_i}\mathbb{1}_{x_i\
 <p><strong>4.</strong> On applique la dernière égalité de 4 dans le cas particulier où <span class="math inline">\(x=y\)</span>. On obtient alors</p>
 <p><span class="math display">\[\frac{1}{n}\sum\limits_{i=1}^n (x_i-\overline{x}_n)^2=\frac{1}{n}\sum\limits_{i=1}^n x_i^2-\left(\frac{1}{n}\sum\limits_{i=1}^n x_i\right)^2\]</span> <span class="math inline">\(\square\)</span></p>
 </div>
-<div id="estimation-de-a-et-b-par-la-méthode-des-moindres-carrés" class="section level4 hasAnchor" number="6.1.5.3">
-<h4><span class="header-section-number">6.1.5.3</span> Estimation de <span class="math inline">\(a\)</span> et <span class="math inline">\(b\)</span> par la méthode des moindres carrés<a href="statistique-inférentielle.html#estimation-de-a-et-b-par-la-méthode-des-moindres-carrés" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="estimation-de-a-et-b-par-la-méthode-des-moindres-carrés" class="section level4 hasAnchor" number="7.1.5.3">
+<h4><span class="header-section-number">7.1.5.3</span> Estimation de <span class="math inline">\(a\)</span> et <span class="math inline">\(b\)</span> par la méthode des moindres carrés<a href="statistique-inférentielle.html#estimation-de-a-et-b-par-la-méthode-des-moindres-carrés" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>On montre maintenant les formules des estimateurs de <span class="math inline">\(a\)</span> et <span class="math inline">\(b\)</span> par application de la méthode des moindres carrés :</p>
 <div class="callout-note" collapse="false" title="Estimateurs">
 <center>
@@ -550,8 +529,8 @@ L(x;\lambda)&amp;=\prod\limits_{i=1}^n (\lambda e^{-\lambda x_i}\mathbb{1}_{x_i\
 <p>On en déduit le résultat.</p>
 <p><span class="math inline">\(\square\)</span></p>
 </div>
-<div id="estimation-de-a-et-b-par-la-méthode-du-maximum-de-vraisemblance" class="section level4 hasAnchor" number="6.1.5.4">
-<h4><span class="header-section-number">6.1.5.4</span> Estimation de <span class="math inline">\(a\)</span> et <span class="math inline">\(b\)</span> par la méthode du maximum de vraisemblance<a href="statistique-inférentielle.html#estimation-de-a-et-b-par-la-méthode-du-maximum-de-vraisemblance" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="estimation-de-a-et-b-par-la-méthode-du-maximum-de-vraisemblance" class="section level4 hasAnchor" number="7.1.5.4">
+<h4><span class="header-section-number">7.1.5.4</span> Estimation de <span class="math inline">\(a\)</span> et <span class="math inline">\(b\)</span> par la méthode du maximum de vraisemblance<a href="statistique-inférentielle.html#estimation-de-a-et-b-par-la-méthode-du-maximum-de-vraisemblance" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>La méthode par maximum de vraisemblance requiert une information supplémentaire : celle de la distribution de la variable de terme d’erreur <span class="math inline">\(u\)</span>. Or, une telle information est justement donnée ici par l’hypothèse (H5) de distribution normale du terme d’erreur.</p>
 <div class="callout-note" collapse="false" title="Estimateurs">
 <center>
@@ -577,8 +556,8 @@ L(x;\lambda)&amp;=\prod\limits_{i=1}^n (\lambda e^{-\lambda x_i}\mathbb{1}_{x_i\
 <p><span class="math inline">\(\square\)</span></p>
 <p>**Remarque :** Dans des approches plus générales que celle présentée ici, aucune hypothèse n’est faite sur la distribution des termes d’erreur. Dans ce cas, la méthode par maximum de vraisemblance n’est plus applicable. On peut cependant toujours utiliser la méthode des moindres carrés.</p>
 </div>
-<div id="absence-de-biais-des-estimateurs-widehata-et-widehatb" class="section level4 hasAnchor" number="6.1.5.5">
-<h4><span class="header-section-number">6.1.5.5</span> Absence de biais des estimateurs <span class="math inline">\(\widehat{a}\)</span> et <span class="math inline">\(\widehat{b}\)</span><a href="statistique-inférentielle.html#absence-de-biais-des-estimateurs-widehata-et-widehatb" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="absence-de-biais-des-estimateurs-widehata-et-widehatb" class="section level4 hasAnchor" number="7.1.5.5">
+<h4><span class="header-section-number">7.1.5.5</span> Absence de biais des estimateurs <span class="math inline">\(\widehat{a}\)</span> et <span class="math inline">\(\widehat{b}\)</span><a href="statistique-inférentielle.html#absence-de-biais-des-estimateurs-widehata-et-widehatb" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <div class="callout-note" collapse="false" title="Estimateurs">
 <p>Les estimateurs</p>
 <p><span class="math display">\[\widehat{a}=\frac{\overline{\sigma_{XY}}}{\overline{\sigma_X^2}}\]</span> et <span class="math display">\[\widehat{b}=\overline{Y}_n-\widehat{a}\overline{X}_n\]</span> sont des estimateurs <strong>sans biais</strong> de <span class="math inline">\(a\)</span> et <span class="math inline">\(b\)</span>.</p>
@@ -600,8 +579,8 @@ L(x;\lambda)&amp;=\prod\limits_{i=1}^n (\lambda e^{-\lambda x_i}\mathbb{1}_{x_i\
 &amp;= b
 \end{align}\]</span> <span class="math inline">\(\square\)</span></p>
 </div>
-<div id="variance-des-estimateurs-widehata-et-widehatb" class="section level4 hasAnchor" number="6.1.5.6">
-<h4><span class="header-section-number">6.1.5.6</span> Variance des estimateurs <span class="math inline">\(\widehat{a}\)</span> et <span class="math inline">\(\widehat{b}\)</span><a href="statistique-inférentielle.html#variance-des-estimateurs-widehata-et-widehatb" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="variance-des-estimateurs-widehata-et-widehatb" class="section level4 hasAnchor" number="7.1.5.6">
+<h4><span class="header-section-number">7.1.5.6</span> Variance des estimateurs <span class="math inline">\(\widehat{a}\)</span> et <span class="math inline">\(\widehat{b}\)</span><a href="statistique-inférentielle.html#variance-des-estimateurs-widehata-et-widehatb" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <div class="callout-note" collapse="false" title="Estimateurs">
 <center>
 <strong>Variance des estimateurs</strong> <span class="math inline">\(\widehat{a}\)</span> et <span class="math inline">\(\widehat{b}\)</span>
@@ -641,8 +620,8 @@ L(x;\lambda)&amp;=\prod\limits_{i=1}^n (\lambda e^{-\lambda x_i}\mathbb{1}_{x_i\
 <p><span class="math inline">\(\square\)</span></p>
 <p></p>
 </div>
-<div id="résidus" class="section level4 hasAnchor" number="6.1.5.7">
-<h4><span class="header-section-number">6.1.5.7</span> Résidus<a href="statistique-inférentielle.html#résidus" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="résidus" class="section level4 hasAnchor" number="7.1.5.7">
+<h4><span class="header-section-number">7.1.5.7</span> Résidus<a href="statistique-inférentielle.html#résidus" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>La variance <span class="math inline">\(\sigma_u^2\)</span> des termes d’erreur <span class="math inline">\(u_i\)</span> n’est pas connue. Cependant, elle peut être estimée. Pour cela, on introduit la notion de <strong>résidu</strong>.</p>
 <p>Le résidu <span class="math inline">\(\widehat{u}_i\)</span> est défini comme l’écart entre la vraie valeur <span class="math inline">\(Y_i\)</span> et sa prédiction <span class="math inline">\(\widehat{Y}_i=\widehat{a}X_i+\widehat{b}\)</span> :</p>
 <p><span class="math display">\[\widehat{u}_i\equiv Y_i-\widehat{Y}_i\]</span> On a donc <span class="math display">\[\widehat{u}_i=Y_i-\widehat{a}X_i-\widehat{b}\]</span> Il s’agit d’une estimation (sans biais) de la vraie erreur</p>
@@ -655,8 +634,8 @@ L(x;\lambda)&amp;=\prod\limits_{i=1}^n (\lambda e^{-\lambda x_i}\mathbb{1}_{x_i\
 <p><span class="math display">\[s^2=\frac{1}{n-2}\sum\limits_{i=1}^n \widehat{u}_i^2\]</span></p>
 </div>
 </div>
-<div id="distributions-des-estimateurs-widehata-et-widehatb" class="section level4 hasAnchor" number="6.1.5.8">
-<h4><span class="header-section-number">6.1.5.8</span> Distributions des estimateurs <span class="math inline">\(\widehat{a}\)</span> et <span class="math inline">\(\widehat{b}\)</span><a href="statistique-inférentielle.html#distributions-des-estimateurs-widehata-et-widehatb" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="distributions-des-estimateurs-widehata-et-widehatb" class="section level4 hasAnchor" number="7.1.5.8">
+<h4><span class="header-section-number">7.1.5.8</span> Distributions des estimateurs <span class="math inline">\(\widehat{a}\)</span> et <span class="math inline">\(\widehat{b}\)</span><a href="statistique-inférentielle.html#distributions-des-estimateurs-widehata-et-widehatb" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>On admet alors le résultat suivant</p>
 <div class="callout-note" collapse="false" title="Estimateurs">
 <p>Sous l’hypothèse de normalité des termes d’erreur <span class="math inline">\(u_i\)</span>, on a</p>
@@ -665,8 +644,8 @@ L(x;\lambda)&amp;=\prod\limits_{i=1}^n (\lambda e^{-\lambda x_i}\mathbb{1}_{x_i\
 <p><span class="math display">\[\frac{\widehat{b}-b}{s\sqrt{\frac{1}{n}+\frac{\overline{X}_n^2}{\sum\limits_{i=1}^n (X_i-\overline{X}_n)^2}}}\]</span> suivent une loi de Student à <span class="math inline">\(n-2\)</span> degrés de liberté.</p>
 </div>
 </div>
-<div id="convergence-des-estimateurs-widehata-et-widehatb" class="section level4 hasAnchor" number="6.1.5.9">
-<h4><span class="header-section-number">6.1.5.9</span> Convergence des estimateurs <span class="math inline">\(\widehat{a}\)</span> et <span class="math inline">\(\widehat{b}\)</span><a href="statistique-inférentielle.html#convergence-des-estimateurs-widehata-et-widehatb" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="convergence-des-estimateurs-widehata-et-widehatb" class="section level4 hasAnchor" number="7.1.5.9">
+<h4><span class="header-section-number">7.1.5.9</span> Convergence des estimateurs <span class="math inline">\(\widehat{a}\)</span> et <span class="math inline">\(\widehat{b}\)</span><a href="statistique-inférentielle.html#convergence-des-estimateurs-widehata-et-widehatb" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Si on suppose que les <span class="math inline">\(X_i\)</span> admettent des moments d’ordre <span class="math inline">\(1\)</span> et <span class="math inline">\(2\)</span>, alors on peut montrer que les estimateurs <span class="math inline">\(\widehat{a}\)</span> et <span class="math inline">\(\widehat{b}\)</span> sont des estimateurs convergents.</p>
 <p>On sait déjà qu’ils sont sans biais, il suffit donc de démontrer que leurs variances tendent vers <span class="math inline">\(0\)</span>.</p>
 <p>Or, comme <span class="math inline">\(X_i\)</span> admet des moments d’ordres <span class="math inline">\(1\)</span> et <span class="math inline">\(2\)</span> on a, conditionnellement à <span class="math inline">\(X_1,\dots,X_n\)</span> :</p>
@@ -677,8 +656,8 @@ L(x;\lambda)&amp;=\prod\limits_{i=1}^n (\lambda e^{-\lambda x_i}\mathbb{1}_{x_i\
 <p><span class="math inline">\(\widehat{a}\)</span> et <span class="math inline">\(\widehat{b}\)</span> sont des estimateurs sans biais de <span class="math inline">\(a\)</span> et <span class="math inline">\(b\)</span> de variances asymptotiquement nulles. Ce sont donc des estimateurs convergents de <span class="math inline">\(a\)</span> et <span class="math inline">\(b\)</span>.</p>
 </div>
 </div>
-<div id="intervalles-de-confiance" class="section level3 hasAnchor" number="6.1.6">
-<h3><span class="header-section-number">6.1.6</span> Intervalles de confiance<a href="statistique-inférentielle.html#intervalles-de-confiance" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="intervalles-de-confiance" class="section level3 hasAnchor" number="7.1.6">
+<h3><span class="header-section-number">7.1.6</span> Intervalles de confiance<a href="statistique-inférentielle.html#intervalles-de-confiance" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li><p>jusqu’à présent : estimation ponctuelle</p></li>
 <li><p>on veut être plus informatif et calculer la précision de cette estimation ponctuelle –&gt; intervalle de confiance</p></li>
@@ -690,21 +669,20 @@ L(x;\lambda)&amp;=\prod\limits_{i=1}^n (\lambda e^{-\lambda x_i}\mathbb{1}_{x_i\
 </ul>
 </div>
 </div>
-<div id="tests-statistiques" class="section level2 hasAnchor" number="6.2">
-<h2><span class="header-section-number">6.2</span> Tests statistiques<a href="statistique-inférentielle.html#tests-statistiques" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="définition-et-principes" class="section level3 hasAnchor" number="6.2.1">
-<h3><span class="header-section-number">6.2.1</span> Définition et principes<a href="statistique-inférentielle.html#définition-et-principes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="tests-statistiques" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> Tests statistiques<a href="statistique-inférentielle.html#tests-statistiques" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="définition-et-principes" class="section level3 hasAnchor" number="7.2.1">
+<h3><span class="header-section-number">7.2.1</span> Définition et principes<a href="statistique-inférentielle.html#définition-et-principes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>approche très intuitive (d’après le programme du concours)</li>
 </ul>
 </div>
-<div id="exemples-de-test" class="section level3 hasAnchor" number="6.2.2">
-<h3><span class="header-section-number">6.2.2</span> Exemples de test<a href="statistique-inférentielle.html#exemples-de-test" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="exemples-de-test" class="section level3 hasAnchor" number="7.2.2">
+<h3><span class="header-section-number">7.2.2</span> Exemples de test<a href="statistique-inférentielle.html#exemples-de-test" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>le but est avant tout de montrer la démarche générale d’un test statistique à travers quelques exemples simples</li>
 </ul>
 
-<!--  -->
 </div>
 </div>
 </div>
@@ -713,8 +691,8 @@ L(x;\lambda)&amp;=\prod\limits_{i=1}^n (\lambda e^{-\lambda x_i}\mathbb{1}_{x_i\
           </div>
         </div>
       </div>
-<a href="blocks.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="statistique-descriptive.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -745,7 +723,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/06-share.Rmd",
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/6_statistique_inférentielle.Rmd",
 "text": "Edit"
 },
 "history": {

@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 3 Variables aléatoires discrètes | Cours de probabilités-statistiques pour le concours interne d’administrateur Insee</title>
+  <title>Chapter 4 Variables aléatoires à densité | Cours de probabilités-statistiques pour le concours interne d’administrateur Insee</title>
   <meta name="description" content="Cours de probabilités et statistiques" />
   <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 3 Variables aléatoires discrètes | Cours de probabilités-statistiques pour le concours interne d’administrateur Insee" />
+  <meta property="og:title" content="Chapter 4 Variables aléatoires à densité | Cours de probabilités-statistiques pour le concours interne d’administrateur Insee" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Cours de probabilités et statistiques" />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 3 Variables aléatoires discrètes | Cours de probabilités-statistiques pour le concours interne d’administrateur Insee" />
+  <meta name="twitter:title" content="Chapter 4 Variables aléatoires à densité | Cours de probabilités-statistiques pour le concours interne d’administrateur Insee" />
   
   <meta name="twitter:description" content="Cours de probabilités et statistiques" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="dénombrement-et-probabilités.html"/>
-<link rel="next" href="variables-aléatoires-à-densité.html"/>
+<link rel="prev" href="variables-aléatoires-discrètes.html"/>
+<link rel="next" href="convergence.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -221,45 +221,48 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="variables-aléatoires-discrètes" class="section level1 hasAnchor" number="3">
-<h1><span class="header-section-number">Chapter 3</span> Variables aléatoires discrètes<a href="variables-aléatoires-discrètes.html#variables-aléatoires-discrètes" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="définition-et-premières-propriétés" class="section level2 hasAnchor" number="3.1">
-<h2><span class="header-section-number">3.1</span> Définition et premières propriétés<a href="variables-aléatoires-discrètes.html#définition-et-premières-propriétés" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="définition" class="section level3 hasAnchor" number="3.1.1">
-<h3><span class="header-section-number">3.1.1</span> Définition<a href="variables-aléatoires-discrètes.html#définition" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="variables-aléatoires-à-densité" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Chapter 4</span> Variables aléatoires à densité<a href="variables-aléatoires-à-densité.html#variables-aléatoires-à-densité" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="définition-et-premières-propriétés-1" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Définition et premières propriétés<a href="variables-aléatoires-à-densité.html#définition-et-premières-propriétés-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="définition-3" class="section level3 hasAnchor" number="4.1.1">
+<h3><span class="header-section-number">4.1.1</span> Définition<a href="variables-aléatoires-à-densité.html#définition-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
-<div id="loi-dune-variable-aléatoire-discrète" class="section level3 hasAnchor" number="3.1.2">
-<h3><span class="header-section-number">3.1.2</span> Loi d’une variable aléatoire discrète<a href="variables-aléatoires-discrètes.html#loi-dune-variable-aléatoire-discrète" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="loi-dune-variable-aléatoire-à-densité" class="section level3 hasAnchor" number="4.1.2">
+<h3><span class="header-section-number">4.1.2</span> Loi d’une variable aléatoire à densité<a href="variables-aléatoires-à-densité.html#loi-dune-variable-aléatoire-à-densité" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
-<div id="définition-de-pxin-a" class="section level3 hasAnchor" number="3.1.3">
-<h3><span class="header-section-number">3.1.3</span> Définition de <span class="math inline">\(p(X\in A)\)</span><a href="variables-aléatoires-discrètes.html#définition-de-pxin-a" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="définition-de-pxin-a-1" class="section level3 hasAnchor" number="4.1.3">
+<h3><span class="header-section-number">4.1.3</span> Définition de <span class="math inline">\(p(X\in A)\)</span><a href="variables-aléatoires-à-densité.html#définition-de-pxin-a-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
-<div id="fonction-de-répartition-quantiles" class="section level3 hasAnchor" number="3.1.4">
-<h3><span class="header-section-number">3.1.4</span> Fonction de répartition, quantiles<a href="variables-aléatoires-discrètes.html#fonction-de-répartition-quantiles" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="fonction-de-répartition-quantiles-1" class="section level3 hasAnchor" number="4.1.4">
+<h3><span class="header-section-number">4.1.4</span> Fonction de répartition, quantiles<a href="variables-aléatoires-à-densité.html#fonction-de-répartition-quantiles-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
-<div id="exemples-classiques" class="section level3 hasAnchor" number="3.1.5">
-<h3><span class="header-section-number">3.1.5</span> Exemples classiques :<a href="variables-aléatoires-discrètes.html#exemples-classiques" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="exemples-classiques-1" class="section level3 hasAnchor" number="4.1.5">
+<h3><span class="header-section-number">4.1.5</span> Exemples classiques :<a href="variables-aléatoires-à-densité.html#exemples-classiques-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
-<li>loi uniforme sur un ensemble fini</li>
-<li>loi de Bernoulli</li>
-<li>loi binomiale</li>
-<li>loi de Poisson</li>
-<li>loi géométrique</li>
-<li>loi hypergéométrique</li>
+<li>loi uniforme sur un segment</li>
+<li>loi normale</li>
+<li>loi exponentielle</li>
+<li>loi gamma <span class="math inline">\(\gamma(p\,;\,\theta)\)</span></li>
+<li>loi log-normale</li>
+<li>loi du Chi-Deux</li>
+<li>loi de Student</li>
+<li>loi de Fisher</li>
 </ul>
 </div>
-<div id="moments-dune-variable-aléatoire" class="section level3 hasAnchor" number="3.1.6">
-<h3><span class="header-section-number">3.1.6</span> Moments d’une variable aléatoire<a href="variables-aléatoires-discrètes.html#moments-dune-variable-aléatoire" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="moments-dune-variable-aléatoire-1" class="section level3 hasAnchor" number="4.1.6">
+<h3><span class="header-section-number">4.1.6</span> Moments d’une variable aléatoire<a href="variables-aléatoires-à-densité.html#moments-dune-variable-aléatoire-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
-<li>Espérance, variance, moments d’ordres supérieurs</li>
+<li>Espérance, variance, espaces <span class="math inline">\(L^1\)</span> et <span class="math inline">\(L^2\)</span></li>
+<li>moments d’ordres supérieurs</li>
 <li>inégalité de Markov, inégalité de Bieanymé-Tchébychev (exemples + intérêt)</li>
 </ul>
 </div>
 </div>
-<div id="transformation-dune-variable-aléatoire-discrète" class="section level2 hasAnchor" number="3.2">
-<h2><span class="header-section-number">3.2</span> Transformation d’une variable aléatoire discrète<a href="variables-aléatoires-discrètes.html#transformation-dune-variable-aléatoire-discrète" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="définition-1" class="section level3 hasAnchor" number="3.2.1">
-<h3><span class="header-section-number">3.2.1</span> Définition<a href="variables-aléatoires-discrètes.html#définition-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="transformation-dune-variable-aléatoire-à-densité" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Transformation d’une variable aléatoire à densité<a href="variables-aléatoires-à-densité.html#transformation-dune-variable-aléatoire-à-densité" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="définition-4" class="section level3 hasAnchor" number="4.2.1">
+<h3><span class="header-section-number">4.2.1</span> Définition<a href="variables-aléatoires-à-densité.html#définition-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>Définition</li>
 <li>Cas particuliers :
@@ -270,34 +273,40 @@
 <li>Déterminer la loi de <span class="math inline">\(f(X)\)</span> en pratique (message = passer par la fonction de répartition)</li>
 </ul>
 </div>
-<div id="théorème-de-transfert-cas-discret" class="section level3 hasAnchor" number="3.2.2">
-<h3><span class="header-section-number">3.2.2</span> Théorème de transfert (cas discret)<a href="variables-aléatoires-discrètes.html#théorème-de-transfert-cas-discret" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="théorème-de-transfert-cas-à-densité" class="section level3 hasAnchor" number="4.2.2">
+<h3><span class="header-section-number">4.2.2</span> Théorème de transfert (cas à densité)<a href="variables-aléatoires-à-densité.html#théorème-de-transfert-cas-à-densité" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>Théorème</li>
 <li>Exemple</li>
 </ul>
 </div>
 </div>
-<div id="vecteurs-aléatoires" class="section level2 hasAnchor" number="3.3">
-<h2><span class="header-section-number">3.3</span> Vecteurs aléatoires<a href="variables-aléatoires-discrètes.html#vecteurs-aléatoires" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="définition-2" class="section level3 hasAnchor" number="3.3.1">
-<h3><span class="header-section-number">3.3.1</span> Définition<a href="variables-aléatoires-discrètes.html#définition-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="vecteurs-aléatoires-1" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Vecteurs aléatoires<a href="variables-aléatoires-à-densité.html#vecteurs-aléatoires-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="définition-5" class="section level3 hasAnchor" number="4.3.1">
+<h3><span class="header-section-number">4.3.1</span> Définition<a href="variables-aléatoires-à-densité.html#définition-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
-<div id="loi-jointe-loi-marginales" class="section level3 hasAnchor" number="3.3.2">
-<h3><span class="header-section-number">3.3.2</span> Loi jointe, loi marginales<a href="variables-aléatoires-discrètes.html#loi-jointe-loi-marginales" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="loi-jointe-loi-marginales-1" class="section level3 hasAnchor" number="4.3.2">
+<h3><span class="header-section-number">4.3.2</span> Loi jointe, loi marginales<a href="variables-aléatoires-à-densité.html#loi-jointe-loi-marginales-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
-<div id="loi-conditionnelle-mathcallyx" class="section level3 hasAnchor" number="3.3.3">
-<h3><span class="header-section-number">3.3.3</span> Loi conditionnelle <span class="math inline">\(\mathcal{L}(Y|X)\)</span><a href="variables-aléatoires-discrètes.html#loi-conditionnelle-mathcallyx" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="loi-conditionnelle-mathcallyx-1" class="section level3 hasAnchor" number="4.3.3">
+<h3><span class="header-section-number">4.3.3</span> Loi conditionnelle <span class="math inline">\(\mathcal{L}(Y|X)\)</span><a href="variables-aléatoires-à-densité.html#loi-conditionnelle-mathcallyx-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
-<div id="loi-dun-couple-de-va-indépendantes" class="section level3 hasAnchor" number="3.3.4">
-<h3><span class="header-section-number">3.3.4</span> Loi d’un couple de VA indépendantes<a href="variables-aléatoires-discrètes.html#loi-dun-couple-de-va-indépendantes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="loi-dun-couple-de-va-indépendantes-1" class="section level3 hasAnchor" number="4.3.4">
+<h3><span class="header-section-number">4.3.4</span> Loi d’un couple de VA indépendantes<a href="variables-aléatoires-à-densité.html#loi-dun-couple-de-va-indépendantes-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>Définition</li>
-<li>Somme de deux VA indépendantes (produit de convolution discret)</li>
+<li>Somme de deux VA indépendantes (produit de convolution à densité)</li>
 </ul>
 </div>
-<div id="espérance-conditionnelle-variance-conditionnelle" class="section level3 hasAnchor" number="3.3.5">
-<h3><span class="header-section-number">3.3.5</span> Espérance conditionnelle, variance conditionnelle<a href="variables-aléatoires-discrètes.html#espérance-conditionnelle-variance-conditionnelle" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="espérance-matrice-de-variance-covariance" class="section level3 hasAnchor" number="4.3.5">
+<h3><span class="header-section-number">4.3.5</span> Espérance, matrice de variance-covariance<a href="variables-aléatoires-à-densité.html#espérance-matrice-de-variance-covariance" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>exemple : vecteurs gaussiens en dimension 2</li>
+</ul>
+</div>
+<div id="espérance-conditionnelle-variance-conditionnelle-1" class="section level3 hasAnchor" number="4.3.6">
+<h3><span class="header-section-number">4.3.6</span> Espérance conditionnelle, variance conditionnelle<a href="variables-aléatoires-à-densité.html#espérance-conditionnelle-variance-conditionnelle-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 
 </div>
 </div>
@@ -307,8 +316,8 @@
           </div>
         </div>
       </div>
-<a href="dénombrement-et-probabilités.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="variables-aléatoires-à-densité.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="variables-aléatoires-discrètes.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="convergence.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -339,7 +348,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/2_variables_aléatoires_discrètes.Rmd",
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/3_variables_à_densité.Rmd",
 "text": "Edit"
 },
 "history": {
