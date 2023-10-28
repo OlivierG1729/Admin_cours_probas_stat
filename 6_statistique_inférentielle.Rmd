@@ -292,8 +292,18 @@ $$I(\theta)=-\mathbb{E}_{\theta}\left(\frac{\partial^2}{\partial\theta^2} f(x;\t
 $$
 :::
 
+#### Borne de Cramer-Rao
 
+\noindent Sous certaines hypothèses, on peut montrer que la variance d'un estimateur sans biais ne peut être inférieure à une certaine borne, appelée borne de Cramer-Rao. Cette borne est liée à l'information de Fisher.
 
+{: .important-title }
+> My important title
+>
+> A paragraph
+>
+> Another paragraph
+>
+> The last paragraph
 
 
 
