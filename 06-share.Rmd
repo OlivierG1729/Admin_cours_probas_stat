@@ -1,31 +1,625 @@
-# Sharing your book
+# Statistique inférentielle
 
-## Publishing
+## Estimation
 
-HTML books can be published online, see: https://bookdown.org/yihui/bookdown/publishing.html
+\noindent On s'intéresse à une loi probabiliste $\mathcal{L}_{\theta}$, qui est entièrement décrite par la donnée d'un paramètre inconnu $\theta$. Pour mieux appréhender cette loi, il serait intéressant de connaître la valeur de $\theta$. Plutôt que de chercher à déterminer la valeur exacte de $\theta$, on peut essayer de l'approcher. Dans le cadre de la statistique inférentielle, on suppose qu'on dispose d'un **échantillon i.i.d.** de $\mathcal{L}_{\theta}$, autrement dit d'un certain nombre de réalisations $(Y_1,\dots, Y_n)$ indépendantes et identiquement distribuées de la loi $\mathcal{L}_{\theta}$.
 
-## 404 pages
+\noindent La donnée d'un tel échantillon constitue un ensemble d'**informations** qui vont nous être utiles pour **estimer** le paramètre $\theta$. on fait donc bien ici de l'*inférence* - ou encore de l'*induction* - dans le sens où on part d'observations particulières (les réalisations $Y_1,\dots, Y_n)$ pour énoncer une règle générale (le fait que ces réalisations sont issues de la loi $\mathcal{L}_{\theta}$).
 
-By default, users will be directed to a 404 page if they try to access a webpage that cannot be found. If you'd like to customize your 404 page instead of using the default, you may add either a `_404.Rmd` or `_404.md` file to your project root and use code and/or Markdown syntax.
+### Premières définitions
 
-## Metadata for sharing
+::: {.callout-note collapse="false" title="Estimateurs"}
+**Définition :** Soit $Y$ une variable aléatoire de loi $\mathcal{L}(Y)$, paramétrée par un réel $\theta$ inconnu. Soit $(Y_1,\dots, Y_n)$ un échantillon i.i.d. de loi $\mathcal{L}(Y)$. On appelle *estimateur* de $\theta$ toute fonction de $Y_1,\dots, Y_n$, i.e. $$\widehat{\theta}_n=S(Y_1,\dots, Y_n)$$
+:::
 
-Bookdown HTML books will provide HTML metadata for social sharing on platforms like Twitter, Facebook, and LinkedIn, using information you provide in the `index.Rmd` YAML. To setup, set the `url` for your book and the path to your `cover-image` file. Your book's `title` and `description` are also used.
+\noindent On veut estimer la moyenne d'une loi normale $\mathcal{N}(\mu\,;\,1)$, à partir d'un échantillon d'observations i.i.d. $(Y_1,\dots, Y_n)$ tirées sous cette loi. Une façon naturelle d'estimer $\mu=\mathbb{E}(Y_1)$ est de poser $\widehat{\mu}_n=\frac{Y_1+\dots Y_n}{n}$. Ici, on estime donc une moyenne théorique par sa contrepartie *empirique*.
 
+::: {.callout-note collapse="false" title="Estimateurs"}
+**Définition :** Soit $\widehat{\theta}_n$ un estimateur de $\theta$ admettant un moment d'ordre $1$.
 
+-   On appelle **biais** de $\widehat{\theta}_n$ la quantité $b_{\theta}(\widehat{\theta}_n)=\mathbb{E}(\widehat{\theta}_n)-\theta$.
 
-This `gitbook` uses the same social sharing data across all chapters in your book- all links shared will look the same.
+-   Un estimateur est dit **sans biais** lorsque son biais est nul, i.e. $\mathbb{E}(\widehat{\theta}_n)=\theta$.
 
-Specify your book's source repository on GitHub using the `edit` key under the configuration options in the `_output.yml` file, which allows users to suggest an edit by linking to a chapter's source file. 
+-   Il est dit **asymptotiquement sans biais** lorsque son biais tend vers $0$, i.e. $b_{\theta}(\widehat{\theta}_n)\underset{n\to +\infty}{\longrightarrow}0$.
 
-Read more about the features of this output format here:
+-   Pour un estimateur des moments d'ordre $1$ et $2$, on appelle **erreur quadratique moyenne** la quantité (positive) $\text{EQM}_{\theta}(\widehat{\theta}_n)=\mathbb{E}\left(\left(\widehat{\theta}_n-\theta\right)^2\right)$
+:::
 
-https://pkgs.rstudio.com/bookdown/reference/gitbook.html
+\noindent L'erreur quadratique moyenne s'écrit à l'aide de l'espérance et de la variance :
 
-Or use:
+::: {.callout-note collapse="false" title="Estimateurs"}
+\noindent Soit $\widehat{\theta}_n$ un estimateur de $\theta$ admettant des moments d'ordres $1$ et $2$. Son erreur quadratique moyenne peut se décomposer en biais au carré/variance :
 
-```{r eval=FALSE}
-?bookdown::gitbook
+$$\text{EQM}_{\theta}(\widehat{\theta}_n)=b_{\theta}^2(\widehat{\theta}_n)+\mathbb{V}(\widehat{\theta}_n)$$
+:::
+
+\noindent Autrement dit, réduire l'erreur (quadratique moyenne) d'un estimateur revient à essayer de réduire son biais et/ou sa variance. En pratique, uune réduction du biais implique souvent une augmentation de la variance (et vice-versa) et il faut trouver un compromis entre les deux, i.e. un estimateur pour lequel la combinaison (biais, variance) implique une faible erreur quadratique moyenne. On parle alors de **compromis biais-variance**.
+
+### Convergence d'un estimateur
+
+::: {.callout-note collapse="false" title="Estimateurs"}
+\noindent Un estimateur $\widehat{\theta}_n$ de $\theta$ est dit **convergent** lorsqu'il converge en probabilité vers $\theta$ i.e. lorsque
+
+$$\forall\varepsilon >0, \mathbb{P}\left(|\widehat{\theta}_n-\theta|>\varepsilon\right)\longrightarrow 0$$
+:::
+
+\noindent La convergence d'un estimateur sans biais peut se montrer à l'aide du critère pratique suivant :
+
+::: {.callout-note collapse="false" title="Estimateurs"}
+\noindent Un estimateur $\widehat{\theta}_n$ sans biais de $\theta$ est **convergent** dès que sa variance tend vers $0$, i.e. $$\left(\mathbb{E}_{\theta}(\widehat{\theta}_n)=0 \text{ et } \mathbb{V}_{\theta}(\widehat{\theta}_n)\longrightarrow 0\right)\Rightarrow \left(\widehat{\theta}_n \underset{n \to +\infty}{\overset{\mathbb{P}}{\longrightarrow}}\theta\right)$$
+:::
+
+\noindent \*\*Démonstration.\*\* Compte-tenu du fait que $\widehat{\theta}_n$ est un estimateur sans biais pour $\theta$, l'inégalité de Bieanymé-Tchebychev s'écrit $\mathbb{P}(|\widehat{\theta}_n-\theta|>\varepsilon)\leq\frac{\mathbb{V}_{\theta}(\widehat{\theta}_n)}{\varepsilon^2}$, ce qui permet de conclure. $\square$
+
+\noindent On peut même affaiblir un peu l'hypothèse d'absence de biais par une hypothèse de biais asymptotiquement nul :
+
+::: {.callout-note collapse="false" title="Estimateurs"}
+\noindent Un estimateur $\widehat{\theta}_n$ asymtotiquement sans biais de $\theta$ est **convergent** dès que sa variance tend vers $0$, i.e. $$\left(\mathbb{E}_{\theta}(\widehat{\theta}_n)\underset{n\to +\infty}{\longrightarrow}\theta \text{ et } \mathbb{V}_{\theta}(\widehat{\theta}_n)\longrightarrow 0\right)\Rightarrow \left(\widehat{\theta}_n \underset{n \to +\infty}{\overset{\mathbb{P}}{\longrightarrow}}\theta\right)$$
+:::
+
+### Exemples classiques
+
+\noindent Quelques exemples très classiques d'estimateurs :
+
+\noindent \*\*Exemple 1 : moyenne empirique.\*\* Soit $X_1,\dots X_n$ une suite de $VAR$ i.i.d. de même loi que $X$, admettant une espérance $\mu$. La *moyenne empirique* est l'estimateur $$\overline{X_n}=\frac{X_1+\dots + X_n}{n}$$
+
+::: {.callout-note collapse="false" title="Estimateurs"}
+**Théorème :** Quelle que soit la loi suivie par $X$, la moyenne empirique $\overline{X_n}$ est un **estimateur sans biais** de l'espérance $\mu=\mathbb{E}(X)$. Si, de plus, $X$ admet une variance $\sigma^2$, alors $\overline{X_n}$ admet également une variance et celle-ci est donnée par $\mathbb{V}(\overline{X_n})=\frac{\sigma^2}{n}$.
+:::
+
+\noindent \*\*Démonstration.\*\* Par linéarité de l'espérance : $\mathbb{E}(\overline{X_n})=\frac{1}{n}\sum\limits_{i=1}^n\mathbb{E}(X_i)=\frac{1}{n}\sum\limits_{i=1}^n\mu=\mu$. Si $X$ admet une variance, alors $\overline{X_n}$ aussi et $\mathbb{V}(\overline{X_n})=\frac{1}{n^2}\sum\limits_{i=1}^n\mathbb{V}(X_i)=\frac{\sigma^2}{n}$, par indépendance de $X_1,\dots X_n$. $\square$
+
+::: {.callout-note collapse="false" title="Estimateurs"}
+**Corollaire :** La moyenne empirique est un estimateur convergent de l'espérance (lorsqu'elle existe).
+:::
+
+\noindent \*\*Démonstration.\*\* L'estimateur $\overline{X_n}$ est sans biais et $\mathbb{V}(\overline{X_n})=\frac{\sigma^2}{n}\longrightarrow 0$. C'est donc un estimateur convergent de l'espérance. $\square$.
+
+\noindent \*\*Exemple 2 : estimation d'une proportion.\*\* Au sein d'une population, une proportion $p$ d'individus présente une caractéristique. On suppose que la présence de cette caractéristique est distribuée de façon identique et indépendante d'un individu à l'autre suivant la loi de Bernoulli de paramètre $p$. On peut donc estimer la proportion $p$ au niveau population par la proportion $\widehat{p_n}$ au niveau échantillon : cet estimateur est la moyenne empirique, il est sans biais et de variance (inconnue) $\frac{p(1-p)}{n}$.
+
+\noindent \*\*Exemple 3 : variance empirique.\*\* Si $X$ admet une variance $\sigma^2$ et $X_1,\dots, X_n$ sont i.i.d. de même loi que $X$, alors un estimateur de $\sigma^2$ est donné par la variance empirique $S_n^{'2}=\frac{1}{n}\sum\limits_{i=1}^n(X_i-\overline{X_n})^2$.
+
+::: {.callout-note collapse="false" title="Estimateurs"}
+\noindent La variance empirique $S_n^{'2}$ est un estimateur biaisé de la variance $\sigma^2$. Plus précisément, on a
+
+$$\mathbb{E}(S_n^{'2})=\frac{n-1}{n}\sigma^2$$
+:::
+
+\noindent \*\*Démonstration.\*\*
+
+```{=tex}
+\begin{align}
+\mathbb{E}(S_n^{'2}) &= \frac{1}{n}\sum\limits_{i=1}^n\mathbb{E}(X_i^2)-\frac{2\overline{X_n}}{n}\sum\limits_{i=1}^n\mathbb{E}(X_i)+\frac{1}{n}\sum\limits_{i=1}^n\mathbb{E}(\overline{X_n}^2) \\
+ &= \mathbb{E}(X^2)-\mathbb{E}(\overline{X_n}^2)
+\end{align}
 ```
+Par ailleurs :
 
+```{=tex}
+\begin{align}
+\mathbb{E}(\overline{X_n}^2)&=\frac{1}{n^2}\sum\limits_{i=1}^n\mathbb{E}(X_i^2)+\frac{1}{n^2}\sum\limits_{i\neq j}\mathbb{E}(X_iX_j) \\
+&= \frac{1}{n}^2\sum\limits_{i=1}^n\mathbb{E}(X_i^2)+\frac{1}{n^2}\sum\limits_{i\neq j}\mathbb{E}(X_i)\mathbb{E}(X_j) \\
+&= \frac{1}{n}\mathbb{E}(X^2)+\frac{n-1}{n}\left(\mathbb{E}(X)\right)^2
+\end{align}
+```
+\noindent Avec la formule de Huygens $\mathbb{V}(X)=\mathbb{E}(X^2)-\mathbb{E}(X)^2$, on en déduit que
 
+$$\mathbb{E}(S_n^{'2})=\frac{n-1}{n}\sigma^2$$ $\square$
+
+\noindent \*\*Remarque.\*\* Le biais de l'estimateur $S_n^{'2}$ devient cependant très faible pour $n$ suffisamment grand. Il s'agit d'un estimateur asymptotiquement sans biais de la variance $\sigma^2$ : $\mathbb{E}(S_n^{'2})\longrightarrow \sigma^2$.
+
+\noindent \*\*Exemple 4 : variance empirique corrigée.\*\* En modifiant l'estimateur de la variance empirique par un petit facteur correctif, on obtient un estimateur sans biais de la variance. Il suffit de poser
+
+$$S_n^2=\frac{1}{n-1}\sum\limits_{i=1}^n(X_i-\overline{X_n})^2$$
+
+\noindent Cet estimateur s'appelle la **variance empirique corrigée**.
+
+::: {.callout-note collapse="false" title="Estimateurs"}
+\noindent La variance empirique corrigée $S_n^2=\frac{1}{n-1}\sum\limits_{i=1}^n (X_i-\overline{X_n})^2$ est un estimateur sans biais de la variance $\sigma^2=\mathbb{V}(X)$ :
+
+$$\mathbb{E}(S_n^2)=\sigma^2$$
+:::
+
+### Méthodes de construction des estimateurs
+
+\noindent On présente ici deux méthodes classiques de construction des estimateurs ; la **méthode des moments** et la **méthode du maximum de vraisemblance**.
+
+#### La méthode des moments
+
+::: {.callout-note collapse="false" title="Estimateurs"}
+<center>**La méthode des moments**</center>
+
+Soit $X$ une variable aléatoire réelle de loi $\mathcal{L}_{\theta}$, où $\theta$ est un paramètre inconnu. On considère une fonction $f$ de $I\subset\mathbb{R}$ dans $\mathbb{R}$ telle que $f(X)$ admette une espérance. Comme la loi de $X$ dépend de $\theta$, il en est de même de $\mathbb{E}(f(X))$. La méthode des moments suppose qu'on sait expliciter une telle dépendance, i.e. qu'on connaisse une fonction $g$ telle que
+
+$$\mathbb{E}(f(X))=g(\theta)$$
+
+La contrepartie empirique du membre de gauche de cette égalité est $\frac{1}{n}\sum\limits_{i=1}^n f(X_i)$, et la méthode des moments consiste alors à résoudre l'équation en $\widehat{\theta}$ :
+
+$$g(\widehat{\theta})=\frac{1}{n}\sum\limits_{i=1}^n f(X_i)$$
+:::
+
+\noindent \*\*Exemple 5 : estimation du paramètre d'une loi exponentielle.\*\* Soit $X\sim\mathcal{E}(\lambda)$, où $\lambda>0$ est un paramètre inconnu que l'on veut estimer. La variable aléatoire $X$ admet une espérance, et celle-ci est donnée par $\mathcal{E}(X)=\frac{1}{\lambda}$. La méthode des moments consiste alors à résoudre l'équation
+
+$$\frac{1}{\widehat{\lambda_n}}=\frac{1}{n}\sum\limits_{i=1}^n X_i$$
+
+Cette équation est très simple, elle admet pour solution
+
+$$\widehat{\lambda_n}=\frac{1}{\overline{X_n}}$$
+
+\noindent C'est l'estimateur que l'on obtient par la méthode des moments.
+
+\noindent \*\*Remarque.\*\* En reprenant les notations explicitées ci-dessus, on peut identifier les fonctions $f$ et $g$ :
+
+$$f(x)=x$$ $$g(x)=\frac{1}{x}$$ et ici évidemment $\theta=\lambda$. En général, la méthode des moments s'utilise de façon complètement intuitive sans qu'on ait même à expliciter forcément les fonctions $f$ et $g$.
+
+#### La méthode du maximum de vraisemblance
+
+\noindent Une autre méthode de construction d'estimateurs est celle du **maximum de vraisemblance**. L'idée générale de cette méthode est la suivante. On suppose qu'on dispose de réalisations $x_1,\dots x_n$ d'une même variable aléatoire, dont la loi appartient à une famille paramétrique $\left\{\mathcal{L}_{\theta}\,;\,\theta\in\Theta\right\}$ et on cherche à estimer $\theta$. Si par exemple on dispose d'une série de cinq obersations $(0.12, -0.65, 1.35, 1.04, -1.19, 0.08)$ et qu'on veut inférer sur $\theta$ à partir de ces observations, on est enclin à penser que la valeur $\theta=0$ est plus plausible que la valeur $\theta=-10$. La vraisemblance est une formalisation de l'idée intuitive de plausibilité d'un paramètre à partir d'une observation ou d'un ensemble d'observations.
+
+A nouveau, $X$ désigne une variable aléatoire de loi dépendant d'un paramètre inconnu $\theta$, et $x$ une réalisation de $X$.
+
+\noindent La *vraisemblance* $L(x,.)$ est une fonction de $\theta$ définie par
+
+$$L(x;\theta)=\left\{
+\begin{array}{lll}
+\mathbb{P}_{\theta}(X=x) &\text{; si } X \text{ est discrète} \\
+f(x;\theta) &\text{; si } X \text{ est une continue de densité } f(.;\theta) \\
+\end{array}
+\right.$$
+
+\noindent \*\*Remarque :\*\* D'autres notations existent dans la littérature, comme $L(x|\theta), \mathbb{P}(X=x|\theta), f(x|\theta)$. Ces notations viennent de la statistique bayésienne (hors programme du concours) qui envisage $\theta$ comme une variable aléatoire de distribution inconnue. Dans ce cas, la vraisemblance s'interprète comme une probabilité ou une densité de probabilité.
+
+\noindent La définition précédente s'étend au cas d'un échantillon $(X_1,\dots X_n)$ de VA de même loi que $X$. Un cas particulier important est celui où ces VA sont i.i.d. Dans ce cas, la vraisemblance est définie par
+
+$$L(x;\theta)=L(x_1,\dots,x_n ; \theta) \left\{
+\begin{array}{lll}
+\prod\limits_{i=1}^n\mathbb{P}_{\theta}(X_i=x_i) &\text{; si } X \text{ est discrète} \\
+\prod\limits_{i=1}^n f(x_i,\theta) &\text{; si } X \text{ est une continue de densité } f(.;\theta) \\
+\end{array}
+\right.$$
+
+\noindent La méthode du maximum de vraisemblance consiste juste à dire que si toute l'information dont on dispose sur la variable aléatoire $X$ est l'observation de l'échantillon $(x_1, \dots, x_n)$, alors la meilleure estimation que l'on puisse faire de $\theta$ à partir de cette information est celle qui maximise la fonction de vraisemblance. Autrement dit, on cherche la valeur de $\theta$ qui rend l'observation $(x_1,\dots, x_n)$ la plus plausible. Formellement :
+
+::: {.callout-note collapse="false" title="Estimateurs"}
+<center>**Méthode du maximum de vraisemblance**</center>
+
+\noindent Etant donné une collection de $n$ réalisations $x=(x_1,\dots, x_n)$ des VA $(X_1,\dots X_n)$ de même loi $\mathcal{L}_{\theta}$ de paramètre inconnu $\theta$, on appelle *estimation du maximum de vraisemblance* toute estimation $\widehat{\theta}_n=\widehat{\theta}_n(x_1,\dots,x_n)$ vérifiant
+
+$$\widehat{\theta}_n\in \arg\max\limits_{\theta\in\Theta}L(x;\theta)$$ \noindent \*\*Cas particulier :\*\* si la fonction $\theta\mapsto L(x;\theta)$ est deux fois dérivable sur $\Theta$, alors on peut chercher à résoudre (en \$\theta) le système
+
+$$\left\{
+\begin{array}{lll}
+\frac{\partial}{\partial\theta}L(x;\theta)=0 \\
+\frac{\partial^2}{\partial\theta^2}L(x;\theta)<0 \\
+\end{array}
+\right.$$ \noindent Les solutions de ce système fournissent des estimations par maximum de vraisemblance.
+:::
+
+\noindent \*\*Log-vraisemblance.\*\* Il est souvent plus commode de considérer la log-vraisemblance $l(x;\theta)=\ln L(x;\theta)=\sum\limits_{i=1}^n \ln L(x_i;\theta)$. La fonction $\ln$ étant croissante sur $\mathbb{R}_{+}^*$, maximiser la vraisemblance équivaut à maximiser la log-vraisemblance.
+
+::: {.callout-note collapse="false" title="Estimateurs"}
+<center>**Méthode du maximum de vraisemblance (version log-vraisemblance)**</center>
+
+\noindent En supposant que $L(x;\theta)>0$ pour tout $\theta\in\Theta$, on note $l(x;\theta)=\ln L(x;\theta)$ la log-vraisemblance. Sous les mêmes hypothèses que ci-dessus, on cherche
+
+$$\widehat{\theta}_n\in\arg\max\limits_{\theta\in\Theta}\left(\ln L(x;\theta)\right)$$ \noindent \*\*Cas particulier :\*\* si la fonction $\theta\mapsto L(x;\theta)$ est deux fois dérivable sur $\Theta$, alors la fonction $\theta\mapsto l(x;\theta)$ l'est aussi et on peut chercher à résoudre (en $\theta$) le système
+
+$$\left\{
+\begin{array}{lll}
+\frac{\partial}{\partial\theta}l(x;\theta)=0 \\
+\frac{\partial^2}{\partial\theta^2}l(x;\theta)<0 \\
+\end{array}
+\right.$$ \noindent Les solutions de ce système fournissent des estimations par maximum de vraisemblance.
+:::
+
+\noindent \*\*Exemple 6 : loi normale\*\* $\mathcal{N}(\mu, 1)$. On veut estimer le paramètre inconnu $\mu$ par maximum de vraisemblance. La vraisemblance est donnée par
+
+```{=tex}
+\begin{align}
+L(x;\mu)&=\prod\limits_{i=1}^n\left(\frac{e^{-\frac{(x_i-\mu)^2}{2}}}{\sqrt{2\pi}}\right)\\
+&=\frac{1}{(2\pi)^{\frac{n}{2}}}e^{-\sum\limits_{i=1}^n (x_i-\mu)^2}
+\end{align}
+```
+\noindent La log-vraisemblance est plus facile à manipuler :
+
+```{=tex}
+\begin{align}
+l(x;\mu)&=\ln L(x;\mu) \\
+&= -\frac{n}{2}\ln(2\pi)-\sum\limits_{i=1}^n(x_i-\mu)^2
+\end{align}
+```
+\noindent La fonction $\mu\mapsto l(x;\mu)$ est deux fois dérivable sur $\mathbb{R}$ et $\frac{\partial}{\partial\mu}l(x;\mu)=2\sum_{i=1}^n(\mu-x_i)$. Une seule valeur de $\mu$ l'annule :
+
+$$\widehat{\mu}_n=\frac{1}{n}\sum\limits_{i=1}^n x_i=\overline{x}_n$$ \noindent Par ailleurs $\frac{\partial^2}{\partial\mu^2}l(x;\mu)=2n>0$, et donc $\widehat{\mu}_n\in\arg\max\limits_{\mu\in\mathbb{R}}l(x;\mu)$. Finalement, un estimateur par maximum de vraisemblance est donné par
+
+$$\widehat{\mu}_n=\overline{X}_n=\frac{1}{n}\sum\limits_{i=1}^n X_i$$
+
+\noindent \*\*Remarque.\*\* Comme souvent en statistique, on commet un léger abus de notation en désignant par la même lettre l'estimateur $\widehat{\mu}_n=\frac{X_1+\dots+X_n}{n}=\widehat{\mu}_n(X_1,\dots,X_n)$ (qui est une statistique, i.e. une fonction de $(X_1,\dots,X_n$) et l'estimation $\widehat{\mu}_n=\frac{x_1+\dots+x_n}{n}=\widehat{\mu}_n(x_1,\dots, X_n)$ qui en est une réalisation. Conditionnellement à $(X_1,\dots,X_n)$ (i.e. si l'on suppose que l'on observe $(X_1,\dots, X_n)$) ces deux objets sont bien les mêmes.
+
+\noindent \*\*Exemple 7 : loi expoentielle.\*\* Soit $(X_1,\dots,X_n)$ un échantillon i.i.d. tiré selon une loi exponentielle $\mathcal{E}(\lambda)$ de paramètre $\lambda>0$ inconnu. La vraisemblance est donnée par \begin{align}
+L(x;\lambda)&=\prod\limits_{i=1}^n (\lambda e^{-\lambda x_i}\mathbb{1}_{x_i\geq 0}) \\
+\end{align}
+
+\noindent Si l'un des $x_i$ est négatif elle vaut $0$. Sinon on calcule la log-vraisemblance
+
+$$l(x;\lambda)=n\ln(\lambda)-\lambda\sum_{i=1}^n x_i$$
+
+\noindent La fonction $\lambda\in\mathbb{R}_{+}^*\mapsto l(x;\lambda)$ est deux fois dérivable et $\frac{\partial}{\partial\lambda}l(x;\lambda)=\frac{n}{\lambda}-\sum\limits_{i=1}^n x_i$, qui s'annule en $\lambda=\frac{n}{\sum\limits_{i=1}^n x_i}=\frac{1}{\overline{x}_n}$. De plus, $\frac{\partial^2}{\partial\lambda^2}l(x;\lambda)=-\frac{n}{\lambda^2}<0$ et donc à $x$ fixé, $l(x;\lambda)$ atteint son maximum en $\frac{1}{\overline{x_n}}$. L'estimateur du maximum de vraisemblance est donc $\widehat{\lambda}_n=\frac{1}{\overline{X}_n}$. On remarque qu'on retrouve ici le même estimateur que celui obtenu par la méthode des moments.
+
+### Estimation des coefficients d'une régression linéaire
+
+#### Présentation du modèle
+
+\noindent $X$ et $Y$ sont deux variables aléatoires pour lesquelles on dispose d'observations $x_1,\dots, x_n$ et $y_1,\dots y_n$. On considère le modèle
+
+$$Y_i=aX_i+b+u_i$$
+
+\noindent où $(a,b)$ est un couple de réels inconnus et $u_i$ est un terme d'erreur (inconnu lui aussi). Le but est d'estimer des coefficients $(a,b)$ à partir de l'échantillons d'observations $(x_i, y_i)$ et de donner des propriétés des estimateurs obtenus sous certaines hypothèses.
+
+\noindent \*\*Hypothèses du modèle.\*\* On fait les hypothèses suivantes :
+
+-   **(H1) :** Les couples $(X_i, Y_i)$ sont i.i.d.
+-   **(H2) :** Les termes d'erreur $u_i$ sont indépendants des $X_i$
+-   **(H3) :** $\mathbb{E}(u_i|X_i)=0$ (hypothèse d'exogénéité)
+-   **(H4) :** $\mathbb{V}(u_i|X_i)=\sigma_u^2$ ne dépend pas de $X_i$ (hypothèse d'homoscédasticité)
+-   **(H5) :** $u_i|X_i\sim\mathcal{N}(0, \sigma_u^2)$ (hypothèse de normalité des termes d'erreur)
+
+\noindent On présente deux approches différentes pour estimer $a$ et $b$ : par la méthode des moindres carrés et par maximum de vraisemblance. Bien que différentes, ces méthodes vont fournir les mêmes estimateurs.
+
+\noindent Avant cela, on rappelle quelques résultats classiques de statistique descriptive.
+
+#### Rappels utiles
+
+\noindent Avant de présenter cette méthode, on rappelle des égalités qui àa la fois très utiles et très classiques. Il faut les connaître pour le concours et savoir les redémontrer.
+
+::: {.callout-note collapse="false" title="Estimateurs"}
+<center>**Moyenne, covariance, variance**</center>
+
+\noindent Pour $x=(x_1,\dots, x_n)\in\mathbb{R}^n$ on note
+
+-   $\overline{x}_n=\frac{1}{n}\sum\limits_{i=1}^n x_i$ la moyenne de $x$
+-   $\sigma_x^2=\frac{1}{n}\sum\limits_{i=1}^n(x_i-\overline{x}_n)^2$ la variance de $x$
+-   si de plus $y=(y_1,\dots, y_n)$, $\sigma_{xy}=\frac{1}{n}\sum\limits_{i=1}^n (x_i-\overline{x}_n)(y_i-\overline{y}_n)$ est la covariance de $x$ et $y$.
+
+\noindent On a alors les égalités suivantes :
+
+**1.** $\sigma_{xx}=\sigma_x^2$
+
+**2.** $\sum\limits_{i=1}^n (x_i-\overline{x}_n)=0$
+
+**3. Différentes formules de la covariance :**
+
+```{=tex}
+\begin{align}
+\sigma_{xy} &= \frac{1}{n}\sum\limits_{i=1}^n (x_i-\overline{x}_n)(y_i-\overline{y}_n) \\
+&= \frac{1}{n}\sum\limits_{i=1}^n(x_i-\overline{x}_n)y_i \\
+&= \frac{1}{n}\sum\limits_{i=1}^n x_i(y_i-\overline{y}_n) \\
+&= \frac{1}{n}\sum\limits_{i=1}^n x_iy_i-\overline{x}_n\overline{y}_n
+\end{align}
+```
+**4. Différentes formules de la variance :**
+
+```{=tex}
+\begin{align}
+\sigma_x^2 &= \frac{1}{n}\sum\limits_{i=1}^n (x_i-\overline{x}_n)^2 \\
+&= \frac{1}{n}\sum\limits_{i=1}^n x_i^2-(\overline{x}_n)^2
+\end{align}
+```
+:::
+
+**Démonstration.**
+
+\noindent \*\*1.\*\* Evidente
+
+**2.** \begin{align} 
+\sum\limits_{i=1}^n (x_i-\overline{x}_n) &= \sum\limits_{i=1}^n x_i -n\overline{x}_n \\
+&= n\overline{x}_n-n\overline{x}_n \\
+& =0
+\end{align}
+
+**3.** \begin{align}
+\sigma_{xy} &= \frac{1}{n}\sum\limits_{i=1}^n (x_i-\overline{x}_n)(y_i-\overline{y}_n) \\
+&=\frac{1}{n}\sum\limits_{i=1}^n (x_i-\overline{x}_n)y_i-\frac{\overline{y}_n}{n}\sum\limits_{i=1}^n (x_i-\overline{x}_n) \\
+&= \frac{1}{n}\sum\limits_{i=1}^n (x_i-\overline{x}_n)y_i
+\end{align}
+
+\noindent d'après l'égalité 2.
+
+\noindent Par symétrie des rôles joués par $x$ et $y$ on a donc aussi $\sigma_{xy}=\frac{1}{n}\sum\limits_{i=1}^n x_i(y_i-\overline{y}_n)$.
+
+\noindent On montre la dernière égalité :
+
+```{=tex}
+\begin{align}
+\frac{1}{n}\sum\limits_{i=1}^n (x_i-\overline{x}_n)(y_i-\overline{y}_n) &=
+\frac{1}{n}\sum\limits_{i=1}^n (x_i-\overline{x}_n)y_i \\
+&= \frac{1}{n}\sum\limits_{i=1}^n x_iy_i-\overline{x}_n\frac{1}{n}\sum\limits_{i=1}^n y_i
+\\
+&=\frac{1}{n}\sum\limits_{i=1}^n x_iy_i-\overline{x}_n\overline{y}_n
+\end{align}
+```
+**4.** \noindent On applique la dernière égalité de 4 dans le cas particulier où $x=y$. On obtient alors
+
+$$\frac{1}{n}\sum\limits_{i=1}^n (x_i-\overline{x}_n)^2=\frac{1}{n}\sum\limits_{i=1}^n x_i^2-\left(\frac{1}{n}\sum\limits_{i=1}^n x_i\right)^2$$ $\square$
+
+#### Estimation de $a$ et $b$ par la méthode des moindres carrés
+
+\noindent On montre maintenant les formules des estimateurs de $a$ et $b$ par application de la méthode des moindres carrés :
+
+::: {.callout-note collapse="false" title="Estimateurs"}
+<center>**Estimation de** $a$ et $b$ par la méthode des moindres carrés</center>
+
+\noindent La méthode des moindres carrés consiste à minimiser l'erreur quadratique globale
+
+$$E(\alpha,\beta)\equiv\sum\limits_{i=1}^n (Y_i-\alpha X_i-\beta)^2$$ \noindent qui représente l'erreur globale faite en approchant $Y_i$ par $\alpha X_i+\beta$.
+
+\noindent Cette méthode fournit les estimateurs suivants de $a$ et $b$ :
+
+```{=tex}
+\begin{align}
+\left\{
+\begin{array}{ll}
+\widehat{a} &= \frac{\overline{\sigma_{XY}}}{\overline{\sigma^2_X}} \\
+\widehat{b} &= \overline{Y}_n-\widehat{a}\overline{X}_n
+\end{array}
+\right.
+\end{align}
+```
+\noindent où on note $\overline{\sigma_{XY}}=\frac{1}{n}\sum\limits_{i=1}^n(X_i-\overline{X}_n)(Y_i-\overline{Y}_n)$ et $\overline{\sigma^2_X}=\overline{\sigma_{XX}}=\frac{1}{n}\sum\limits_{i=1}^n (X_i-\overline{X}_n)^2$.
+:::
+
+\noindent \*\*Démonstration.\*\* La fonction $(\alpha, \beta)\mapsto E(\alpha, \beta)$ est deux fois dérivable par rapport à chacune de ses variables. \noindent
+
+**Conditions de premier ordre (CPO) :** \noindent Les conditions du premier ordre s'écrivent
+
+```{=tex}
+\begin{align}
+\left\{
+\begin{array}{ll}
+\frac{\partial}{\partial\alpha} E(\alpha, \beta) &=0 \\
+\frac{\partial}{\partial\beta} E(\alpha, \beta) &=0 \\
+\end{array}
+\right.
+\end{align}
+```
+\noindent i.e.
+
+```{=tex}
+\begin{align}
+\left\{
+\begin{array}{ll}
+\sum\limits_{i=1}^n X_i Y_i-\alpha\sum\limits_{i=1}^n X_i^2-\beta\sum\limits_{i=1}^n X_i&=0 \\
+\sum\limits_{i=1}^n Y_i-\alpha\sum\limits_{i=1}^n X_i-n\beta &= 0 \\
+\end{array}
+\right.
+\end{align}
+```
+\noindent Il s'agit d'un système de deux équations à deux inconnues $(\alpha, \beta)$. Sa résolution donne
+
+```{=tex}
+\begin{align}
+\left\{
+\begin{array}{ll}
+\alpha &= \frac{\frac{1}{n}\sum\limits_{i=1}^n X_iY_i-\left(\frac{1}{n}\sum\limits_{i=1}^n X_i\right)\left(\frac{1}{n}\sum\limits_{i=1}^n Y_i\right)}{\frac{1}{n}\sum\limits_{i=1}^n X_i^2-\left(\frac{1}{n}\sum\limits_{i=1}^n X_i\right)^2} \\
+\beta &= \overline{Y}_n-\alpha\overline{X}_n
+\end{array}
+\right.
+\end{align}
+```
+soit encore
+
+```{=tex}
+\begin{align}
+\left\{
+\begin{array}{ll}
+\alpha &= \frac{\overline{\sigma_{XY}}}{\overline{\sigma^2_X}} \\
+\beta &= \overline{Y}_n-\alpha\overline{X}_n
+\end{array}
+\right.
+\end{align}
+```
+\noindent Par ailleurs, pour tout couple $(x, y)$ de réels, la fonction $(\alpha, \beta)\mapsto (y-\alpha x-\beta)^2$ est convexe. Le point critique trouvé ci-dessus est donc un minimum.
+
+\noindent On en déduit le résultat.
+
+$\square$
+
+\vspace{0.5cm}
+
+#### Estimation de $a$ et $b$ par la méthode du maximum de vraisemblance
+
+\noindent La méthode par maximum de vraisemblance requiert une information supplémentaire : celle de la distribution de la variable de terme d'erreur $u$. Or, une telle information est justement donnée ici par l'hypothèse (H5) de distribution normale du terme d'erreur.
+
+::: {.callout-note collapse="false" title="Estimateurs"}
+<center>**Estimation de** $a$ et $b$ par la méthode du maximum de vraisemblance.</center>
+
+\noindent Sous l'hypothèse $(H5)$ de distribution normale des termes d'erreur, la méthode par maximum de vraisemblance fournit les mêmes estimateurs $\widehat{a}$ et $\widehat{b}$ que la méthode des moindres carrés.
+:::
+
+\noindent \*\*Démonstration.\*\* La vraisemblance est donnée par
+
+$$L((\alpha,\beta);u)=\prod_{i=1}^n\frac{1}{\sqrt{2\pi}\sigma_u}e^{-\frac{(Y_i-\alpha X_i-\beta)^2}{2\sigma_u^2}}$$
+
+\noindent On passe à la log-vraisemblance, qui est plus simple à dériver
+
+$$l((\alpha,\beta);u)=-n\ln(\sqrt{2\pi}\sigma_u^2)-\frac{(Y_i-\alpha X_i-\beta)^2}{2\sigma_u^2}$$
+
+\noindent On résout alors en $(\alpha, \beta)$ le système d'équations
+
+```{=tex}
+\begin{align}
+\frac{\partial l}{\partial\alpha}l((\alpha,\beta);u) &= 0 \\
+\frac{\partial l}{\partial\beta}l((\alpha,\beta);u) &= 0 \\
+\end{align}
+```
+\noindent soit
+
+```{=tex}
+\begin{align}
+\frac{X_i(Y_i-\alpha X_i-\beta)}{2\sigma_u^2} &= 0 \\
+\frac{Y_i-\alpha X_i-\beta}{2\sigma_u^2} &= 0 \\
+\end{align}
+```
+\noindent On vérifie facilement qu'on obtient le même couple de solution qu'avec la méthode des moindres carrés, et que ce couple constitue bien un maximum de la log-vraisemblance.
+
+$\square$
+
+\noindent \*\*Remarque :\*\* Dans des approches plus générales que celle présentée ici, aucune hypothèse n'est faite sur la distribution des termes d'erreur. Dans ce cas, la méthode par maximum de vraisemblance n'est plus applicable. On peut cependant toujours utiliser la méthode des moindres carrés.
+
+#### Absence de biais des estimateurs $\widehat{a}$ et $\widehat{b}$
+
+::: {.callout-note collapse="false" title="Estimateurs"}
+\noindent Les estimateurs
+
+$$\widehat{a}=\frac{\overline{\sigma_{XY}}}{\overline{\sigma_X^2}}$$ et $$\widehat{b}=\overline{Y}_n-\widehat{a}\overline{X}_n$$ \noindent sont des estimateurs **sans biais** de $a$ et $b$.
+:::
+
+\noindent \*\*Démonstration.\*\* On remarque d'abord qu'avec l'hypothèse d'exogénéité (H3) $\mathbb{E}(u_i|X_i)=0$ on a $\mathbb{E}(Y_i|X_i)=aX_i+b$ et donc $\mathbb{E}(Y_i-\overline{Y}_n|X_1,\dots, X_n)=a(X_i-\overline{X}_n)$. D'où
+
+```{=tex}
+\begin{align}
+\mathbb{E}(\widehat{a}|X_1,\dots, X_n) &= \mathbb{E}\left(\left.\frac{\frac{1}{n}\sum\limits_{i=1}^n (X_i-\overline{X}_n)(Y_i-\overline{Y}_n)}{\overline{\sigma_X^2}}\right|X_1,\dots, X_n\right) \\
+&=\frac{1}{\overline{\sigma_X^2}}\frac{1}{n}\sum\limits_{i=1}^n(X_i-\overline{X}_n)\mathbb{E}(\left. Y_i-\overline{Y}_n\right|X_1\,\dots,X_n) \\
+&= a\frac{1}{\overline{\sigma_X^2}}\frac{1}{n}\sum\limits_{i=1}^n (X_i-\overline{X}_n)^2 \\
+& =a\frac{\overline{\sigma_X^2}}{\overline{\sigma_X^2}} \\
+& =a
+\end{align}
+```
+\noindent Par ailleurs
+
+\begin{align}
+\mathbb{E}(\widehat{b}|X_1,\dots,X_n)&=\mathbb{E}(\overline{Y}_n-\widehat{a}\overline{X}_n|X_1,\dots,X_n) \\
+&=\frac{1}{n}\sum\limits_{i=1}^n \mathbb{E}(Y_i|X_1,\dots,X_n)-\overline{X}_n\mathbb{E}(\widehat{a}|X_1,\dots,X_n) \\
+&=\frac{1}{n}\sum\limits_{i=1}^n (aX_i+b)-a\overline{X}_n \\
+&= a\overline{X}_n+b-a\overline{X}_n \\
+&= b
+\end{align} $\square$
+
+#### Variance des estimateurs $\widehat{a}$ et $\widehat{b}$
+
+::: {.callout-note collapse="false" title="Estimateurs"}
+<center>**Variance des estimateurs** $\widehat{a}$ et $\widehat{b}$</center>
+
+Les estimateurs $\widehat{a}$ et $\widehat{b}$ ont pour variances
+
+```{=tex}
+\begin{align}
+\mathbb{V}(\widehat{a}|X_1,\dots, X_n) &= \frac{\sigma_u^2}{\sum\limits_{i=1}^n (X_i-\overline{X}_n)^2} \\
+\mathbb{V}(\widehat{b}|X_1,\dots,X_n) &=\sigma_u^2\left(\frac{1}{n}+ \frac{\overline{X}_n^2}{\sum\limits_{i=1}^n (X_i-\overline{X}_n)^2}\right)
+\end{align}
+```
+:::
+
+\noindent \*\*Démonstration.\*\* On remarque tout d'abord que
+
+$$\mathbb{V}(Y_i|X_1,\dots,X_n)=\sigma_u^2$$
+
+\noindent En effet
+
+```{=tex}
+\begin{align}
+\mathbb{V}(Y_i|X_1,\dots,X_n) &= \mathbb{V}(aX_i+b+u_i|X_1,\dots, X_n) \\
+&= \mathbb{V}(u_i|X_1,\dots,X_n) \\
+&= \sigma_u^2
+\end{align}
+```
+\noindent Le passage de la première à la deuxième ligne vient du fait qu'à $X_1,\dots, X_n$ fixées, $aX_i+b$ est considérée comme une constante, et donc ce terme a une contribution à la variance conditionnellement à $X_1,\dots X_n$.
+
+\noindent On a donc
+
+```{=tex}
+\begin{align}
+\mathbb{V}(\widehat{a}|X_1,\dots X_n) &= \mathbb{V}\left(\left.\frac{\sum\limits_{i=1}^n (X_i-\overline{X}_n)Y_i}{\sum\limits_{i=1}^n (X_i-\overline{X}_n)^2}\right|X_1,\dots, X_n\right) \\
+&= \frac{\sum\limits_{i=1}^n (X_i-\overline{X}_n)^2\mathbb{V}(Y_i|X_1,\dots,X_n)}{\left(\sum\limits_{i=1}^n (X_i-\overline{X}_n)^2\right)^2} \\
+& \text{ (somme de VA i.i.d.)} \\
+&= \frac{\sum\limits_{i=1}^n (X_i-\overline{X}_n)^2\sigma_u^2}{\left(\sum\limits_{i=1}^n (X_i-\overline{X}_n)^2\right)^2} \\
+&= \frac{\sigma_u^2}{\sum\limits_{i=1}^n (X_i-\overline{X}_n)^2}
+\end{align}
+```
+\noindent et
+
+```{=tex}
+\begin{align}
+\mathbb{V}(\widehat{b}|X_1,\dots,X_n) &= \mathbb{V}(\overline{Y}_n-\widehat{a}\overline{X}_n|X_1,\dots,X_n) \\
+&= \mathbb{V}(a\overline{X}_n+b+\overline{u}_n-\widehat{a}\overline{X}_n|X_1,\dots,X_n) \\
+&= \mathbb{V}((a-\widehat{a}\overline{X}_n)+b+\overline{u}_n|X_1,\dots, X_n) \\
+&= \overline{X}_n^2\underbrace{\mathbb{V}(\widehat{a}|X_1,\dots,X_n)}_{=\frac{\sigma_u^2}{\sum\limits_{i=1}^n (X_i-\overline{X}_n)^2}}+\underbrace{\mathbb{V}(\overline{u}_n|X_1,\dots,X_n)}_{=\frac{\sigma_u^2}{n} \text{ car } u_i \text{ i.i.d. de variance } \sigma_u^2} \\
+&= \overline{X}_n^2\frac{\sigma_u^2}{\sum\limits_{i=1}^n (X_i-\overline{X}_n)^2}+\frac{\sigma_u^2}{n} \\
+&= \sigma_u^2\left(\frac{1}{n}+\frac{\overline{X}_n^2}{\sum\limits_{i=1}^n (X_i-\overline{X}_n)^2}\right)
+\end{align}
+```
+$\square$
+
+\noindent
+
+#### Résidus
+
+\noindent La variance $\sigma_u^2$ des termes d'erreur $u_i$ n'est pas connue. Cependant, elle peut être estimée. Pour cela, on introduit la notion de **résidu**.
+
+\noindent Le résidu $\widehat{u}_i$ est défini comme l'écart entre la vraie valeur $Y_i$ et sa prédiction $\widehat{Y}_i=\widehat{a}X_i+\widehat{b}$ :
+
+$$\widehat{u}_i\equiv Y_i-\widehat{Y}_i$$ \noindent On a donc $$\widehat{u}_i=Y_i-\widehat{a}X_i-\widehat{b}$$ \noindent Il s'agit d'une estimation (sans biais) de la vraie erreur
+
+$$u_i=Y_i-aX_i-b$$
+
+::: {.callout-note collapse="false" title="Estimateurs"}
+<center>**Estimation de la variance** $\sigma_u^2$</center>
+
+\noindent La variance $\sigma_u^2$ est estimée par
+
+$$s^2=\frac{1}{n-2}\sum\limits_{i=1}^n \widehat{u}_i^2$$
+:::
+
+#### Distributions des estimateurs $\widehat{a}$ et $\widehat{b}$
+
+\noindent On admet alors le résultat suivant
+
+::: {.callout-note collapse="false" title="Estimateurs"}
+\noindent Sous l'hypothèse de normalité des termes d'erreur $u_i$, on a
+
+$$\frac{(n-2)s^2}{\sigma_u^2}\sim\chi^2_{(n-2)}$$ \noindent et les statistiques
+
+$$\frac{\widehat{a}-a}{s\sqrt{\frac{1}{\sum\limits_{i=1}^n (X_i-\overline{X}_n)^2}}}$$ et
+
+$$\frac{\widehat{b}-b}{s\sqrt{\frac{1}{n}+\frac{\overline{X}_n^2}{\sum\limits_{i=1}^n (X_i-\overline{X}_n)^2}}}$$ \noindent suivent une loi de Student à $n-2$ degrés de liberté.
+:::
+
+#### Convergence des estimateurs $\widehat{a}$ et $\widehat{b}$
+
+\noindent Si on suppose que les $X_i$ admettent des moments d'ordre $1$ et $2$, alors on peut montrer que les estimateurs $\widehat{a}$ et $\widehat{b}$ sont des estimateurs convergents.
+
+\noindent On sait déjà qu'ils sont sans biais, il suffit donc de démontrer que leurs variances tendent vers $0$.
+
+\noindent Or, comme $X_i$ admet des moments d'ordres $1$ et $2$ on a, conditionnellement à $X_1,\dots,X_n$ :
+
+$$\overline{X}_n\approx\mathbb{E}(X)$$ \noindent et $$\sum\limits_{i=1}^n(X_i-\overline{X}_n)^2\approx n\mathbb{V}(X_1)$$ \noindent On en déduit que
+
+$$\mathbb{V}(\widehat{a}|X_1,\dots, X_n)\approx\frac{\sigma_u^2}{n\mathbb{V}(X_1)}\longrightarrow 0$$
+
+et
+
+$$\mathbb{V}(\widehat{b}|X_1,\dots,X_n)\approx\sigma_u^2\left(\frac{1}{n}+\frac{\overline{X}_n^2}{n\mathbb{V}(X_1)}\right)\longrightarrow 0$$
+
+\noindent $\widehat{a}$ et $\widehat{b}$ sont des estimateurs sans biais de $a$ et $b$ de variances asymptotiquement nulles. Ce sont donc des estimateurs convergents de $a$ et $b$.
+
+### Intervalles de confiance
+
+-   jusqu'à présent : estimation ponctuelle
+
+-   on veut être plus informatif et calculer la précision de cette estimation ponctuelle --\> intervalle de confiance
+
+-   méthode de construction classique d'un intervalle de confiance : utiliser le TCL
+
+    -   permet de se ramener à une hypothèse de quasi-normalité
+    -   donner plusieurs exemples
+
+## Tests statistiques
+
+### Définition et principes
+
+-   approche très intuitive (d'après le programme du concours)
+
+### Exemples de test
+
+-   le but est avant tout de montrer la démarche générale d'un test statistique à travers quelques exemples simples
