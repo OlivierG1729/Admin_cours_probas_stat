@@ -78,6 +78,9 @@ exemples-classiques-2
 méthodes-de-construction-des-estimateurs
 la-méthode-des-moments
 la-méthode-du-maximum-de-vraisemblance
+compléments-hors-programme
+information-de-fisher
+borne-de-cramer-rao
 estimation-des-coefficients-dune-régression-linéaire
 présentation-du-modèle
 rappels-utiles
@@ -92,3 +95,5 @@ intervalles-de-confiance
 tests-statistiques
 définition-et-principes
 exemples-de-test
+tip-with-title
+expand-to-learn-about-collapse
