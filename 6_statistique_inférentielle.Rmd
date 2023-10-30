@@ -45,7 +45,7 @@ been noted, and _will be reported to the authorities_!
 \noindent L'erreur quadratique moyenne s'écrit à l'aide de l'espérance et de la variance :
 
 :::: {.thmbox .thm data-latex="important"}
-\noindent Soit $\widehat{\theta}_n$ un estimateur de $\theta$ admettant des moments d'ordres $1$ et $2$. Son erreur quadratique moyenne peut se décomposer en biais au carré/variance :
+**Théorème :** Soit $\widehat{\theta}_n$ un estimateur de $\theta$ admettant des moments d'ordres $1$ et $2$. Son erreur quadratique moyenne peut se décomposer en biais au carré/variance :
 
 $$\text{EQM}_{\theta}(\widehat{\theta}_n)=b_{\theta}^2(\widehat{\theta}_n)+\mathbb{V}(\widehat{\theta}_n)$$
 :::

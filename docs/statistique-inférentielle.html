@@ -244,7 +244,7 @@ been noted, and <em>will be reported to the authorities</em>!</p>
 <p><strong>Définition :</strong> Soit <span class="math inline">\(Y\)</span> une variable aléatoire de loi <span class="math inline">\(\mathcal{L}(Y)\)</span>, paramétrée par un réel <span class="math inline">\(\theta\)</span> inconnu. Soit <span class="math inline">\((Y_1,\dots, Y_n)\)</span> un échantillon i.i.d. de loi <span class="math inline">\(\mathcal{L}(Y)\)</span>. On appelle <em>estimateur</em> de <span class="math inline">\(\theta\)</span> toute fonction de <span class="math inline">\(Y_1,\dots, Y_n\)</span>, i.e. <span class="math display">\[\widehat{\theta}_n=S(Y_1,\dots, Y_n)\]</span></p>
 </div>
 <p>On veut estimer la moyenne d’une loi normale <span class="math inline">\(\mathcal{N}(\mu\,;\,1)\)</span>, à partir d’un échantillon d’observations i.i.d. <span class="math inline">\((Y_1,\dots, Y_n)\)</span> tirées sous cette loi. Une façon naturelle d’estimer <span class="math inline">\(\mu=\mathbb{E}(Y_1)\)</span> est de poser <span class="math inline">\(\widehat{\mu}_n=\frac{Y_1+\dots Y_n}{n}\)</span>. Ici, on estime donc une moyenne théorique par sa contrepartie <em>empirique</em>.</p>
-<div class="callout-note" collapse="false" title="Estimateurs">
+<div class="defbox def">
 <p><strong>Définition :</strong> Soit <span class="math inline">\(\widehat{\theta}_n\)</span> un estimateur de <span class="math inline">\(\theta\)</span> admettant un moment d’ordre <span class="math inline">\(1\)</span>.</p>
 <ul>
 <li><p>On appelle <strong>biais</strong> de <span class="math inline">\(\widehat{\theta}_n\)</span> la quantité <span class="math inline">\(b_{\theta}(\widehat{\theta}_n)=\mathbb{E}(\widehat{\theta}_n)-\theta\)</span>.</p></li>
@@ -254,7 +254,7 @@ been noted, and <em>will be reported to the authorities</em>!</p>
 </ul>
 </div>
 <p>L’erreur quadratique moyenne s’écrit à l’aide de l’espérance et de la variance :</p>
-<div class="callout-note" collapse="false" title="Estimateurs">
+<div class="thmbox thm">
 <p>Soit <span class="math inline">\(\widehat{\theta}_n\)</span> un estimateur de <span class="math inline">\(\theta\)</span> admettant des moments d’ordres <span class="math inline">\(1\)</span> et <span class="math inline">\(2\)</span>. Son erreur quadratique moyenne peut se décomposer en biais au carré/variance :</p>
 <p><span class="math display">\[\text{EQM}_{\theta}(\widehat{\theta}_n)=b_{\theta}^2(\widehat{\theta}_n)+\mathbb{V}(\widehat{\theta}_n)\]</span></p>
 </div>
