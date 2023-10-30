@@ -30,7 +30,7 @@ been noted, and _will be reported to the authorities_!
 
 \noindent On veut estimer la moyenne d'une loi normale $\mathcal{N}(\mu\,;\,1)$, à partir d'un échantillon d'observations i.i.d. $(Y_1,\dots, Y_n)$ tirées sous cette loi. Une façon naturelle d'estimer $\mu=\mathbb{E}(Y_1)$ est de poser $\widehat{\mu}_n=\frac{Y_1+\dots Y_n}{n}$. Ici, on estime donc une moyenne théorique par sa contrepartie *empirique*.
 
-::: {.callout-note collapse="false" title="Estimateurs"}
+:::: {.defbox .def data-latex="important"}
 **Définition :** Soit $\widehat{\theta}_n$ un estimateur de $\theta$ admettant un moment d'ordre $1$.
 
 -   On appelle **biais** de $\widehat{\theta}_n$ la quantité $b_{\theta}(\widehat{\theta}_n)=\mathbb{E}(\widehat{\theta}_n)-\theta$.
@@ -40,11 +40,11 @@ been noted, and _will be reported to the authorities_!
 -   Il est dit **asymptotiquement sans biais** lorsque son biais tend vers $0$, i.e. $b_{\theta}(\widehat{\theta}_n)\underset{n\to +\infty}{\longrightarrow}0$.
 
 -   Pour un estimateur des moments d'ordre $1$ et $2$, on appelle **erreur quadratique moyenne** la quantité (positive) $\text{EQM}_{\theta}(\widehat{\theta}_n)=\mathbb{E}\left(\left(\widehat{\theta}_n-\theta\right)^2\right)$
-:::
+::::
 
 \noindent L'erreur quadratique moyenne s'écrit à l'aide de l'espérance et de la variance :
 
-::: {.callout-note collapse="false" title="Estimateurs"}
+:::: {.thmbox .thm data-latex="important"}
 \noindent Soit $\widehat{\theta}_n$ un estimateur de $\theta$ admettant des moments d'ordres $1$ et $2$. Son erreur quadratique moyenne peut se décomposer en biais au carré/variance :
 
 $$\text{EQM}_{\theta}(\widehat{\theta}_n)=b_{\theta}^2(\widehat{\theta}_n)+\mathbb{V}(\widehat{\theta}_n)$$

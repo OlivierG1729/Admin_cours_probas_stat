@@ -236,14 +236,11 @@
 <p>Thank you for noticing this <strong>new notice</strong>! Your noticing it has
 been noted, and <em>will be reported to the authorities</em>!</p>
 </div>
-<div class="infobox caution">
-<p>Include the actual content here.</p>
-</div>
 <p>On s’intéresse à une loi probabiliste <span class="math inline">\(\mathcal{L}_{\theta}\)</span>, qui est entièrement décrite par la donnée d’un paramètre inconnu <span class="math inline">\(\theta\)</span>. Pour mieux appréhender cette loi, il serait intéressant de connaître la valeur de <span class="math inline">\(\theta\)</span>. Plutôt que de chercher à déterminer la valeur exacte de <span class="math inline">\(\theta\)</span>, on peut essayer de l’approcher. Dans le cadre de la statistique inférentielle, on suppose qu’on dispose d’un <strong>échantillon i.i.d.</strong> de <span class="math inline">\(\mathcal{L}_{\theta}\)</span>, autrement dit d’un certain nombre de réalisations <span class="math inline">\((Y_1,\dots, Y_n)\)</span> indépendantes et identiquement distribuées de la loi <span class="math inline">\(\mathcal{L}_{\theta}\)</span>.</p>
 <p>La donnée d’un tel échantillon constitue un ensemble d’<strong>informations</strong> qui vont nous être utiles pour <strong>estimer</strong> le paramètre <span class="math inline">\(\theta\)</span>. on fait donc bien ici de l’<em>inférence</em> - ou encore de l’<em>induction</em> - dans le sens où on part d’observations particulières (les réalisations <span class="math inline">\(Y_1,\dots, Y_n)\)</span> pour énoncer une règle générale (le fait que ces réalisations sont issues de la loi <span class="math inline">\(\mathcal{L}_{\theta}\)</span>).</p>
 <div id="premières-définitions" class="section level3 hasAnchor" number="7.1.1">
 <h3><span class="header-section-number">7.1.1</span> Premières définitions<a href="statistique-inférentielle.html#premières-définitions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="callout-note" collapse="false" title="blablabla">
+<div class="defbox def">
 <p><strong>Définition :</strong> Soit <span class="math inline">\(Y\)</span> une variable aléatoire de loi <span class="math inline">\(\mathcal{L}(Y)\)</span>, paramétrée par un réel <span class="math inline">\(\theta\)</span> inconnu. Soit <span class="math inline">\((Y_1,\dots, Y_n)\)</span> un échantillon i.i.d. de loi <span class="math inline">\(\mathcal{L}(Y)\)</span>. On appelle <em>estimateur</em> de <span class="math inline">\(\theta\)</span> toute fonction de <span class="math inline">\(Y_1,\dots, Y_n\)</span>, i.e. <span class="math display">\[\widehat{\theta}_n=S(Y_1,\dots, Y_n)\]</span></p>
 </div>
 <p>On veut estimer la moyenne d’une loi normale <span class="math inline">\(\mathcal{N}(\mu\,;\,1)\)</span>, à partir d’un échantillon d’observations i.i.d. <span class="math inline">\((Y_1,\dots, Y_n)\)</span> tirées sous cette loi. Une façon naturelle d’estimer <span class="math inline">\(\mu=\mathbb{E}(Y_1)\)</span> est de poser <span class="math inline">\(\widehat{\mu}_n=\frac{Y_1+\dots Y_n}{n}\)</span>. Ici, on estime donc une moyenne théorique par sa contrepartie <em>empirique</em>.</p>

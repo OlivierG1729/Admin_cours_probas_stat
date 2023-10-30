@@ -25,7 +25,7 @@ pre code {
 }
 
 
-.infobox {
+.defbox {
   padding: 1em 1em 1em 4em;
   margin-bottom: 10px;
   border: 2px solid orange;
@@ -37,4 +37,8 @@ pre code {
   background-image: url("images/icone_important.png");
 }
 
+.def{
+    background-image: url("images/icone_def.png");
+}
+}
 
