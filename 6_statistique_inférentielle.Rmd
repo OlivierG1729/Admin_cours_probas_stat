@@ -2,20 +2,6 @@
 
 ## Estimation
 
-
-Blablabla
-
-
-:::: {.blackbox data-latex=""}
-::: {.center data-latex=""}
-**NOTICE!**
-:::
-
-Thank you for noticing this **new notice**! Your noticing it has
-been noted, and _will be reported to the authorities_!
-::::
-
-
 \noindent On s'intéresse à une loi probabiliste $\mathcal{L}_{\theta}$, qui est entièrement décrite par la donnée d'un paramètre inconnu $\theta$. Pour mieux appréhender cette loi, il serait intéressant de connaître la valeur de $\theta$. Plutôt que de chercher à déterminer la valeur exacte de $\theta$, on peut essayer de l'approcher. Dans le cadre de la statistique inférentielle, on suppose qu'on dispose d'un **échantillon i.i.d.** de $\mathcal{L}_{\theta}$, autrement dit d'un certain nombre de réalisations $(Y_1,\dots, Y_n)$ indépendantes et identiquement distribuées de la loi $\mathcal{L}_{\theta}$.
 
 \noindent La donnée d'un tel échantillon constitue un ensemble d'**informations** qui vont nous être utiles pour **estimer** le paramètre $\theta$. on fait donc bien ici de l'*inférence* - ou encore de l'*induction* - dans le sens où on part d'observations particulières (les réalisations $Y_1,\dots, Y_n)$ pour énoncer une règle générale (le fait que ces réalisations sont issues de la loi $\mathcal{L}_{\theta}$).
@@ -24,14 +10,21 @@ been noted, and _will be reported to the authorities_!
 
 
 :::: {.defbox .def data-latex="important"}
-**Définition :** Soit $Y$ une variable aléatoire de loi $\mathcal{L}(Y)$, paramétrée par un réel $\theta$ inconnu. Soit $(Y_1,\dots, Y_n)$ un échantillon i.i.d. de loi $\mathcal{L}(Y)$. On appelle *estimateur* de $\theta$ toute fonction de $Y_1,\dots, Y_n$, i.e. $$\widehat{\theta}_n=S(Y_1,\dots, Y_n)$$
+<center>**Estimateurs**</center>
+
+\vpsace{0.5cm}
+
+\noindent Soit $Y$ une variable aléatoire de loi $\mathcal{L}(Y)$, paramétrée par un réel $\theta$ inconnu. Soit $(Y_1,\dots, Y_n)$ un échantillon i.i.d. de loi $\mathcal{L}(Y)$. On appelle *estimateur* de $\theta$ toute fonction de $Y_1,\dots, Y_n$, i.e. $$\widehat{\theta}_n=S(Y_1,\dots, Y_n)$$
 ::::
 
 
 \noindent On veut estimer la moyenne d'une loi normale $\mathcal{N}(\mu\,;\,1)$, à partir d'un échantillon d'observations i.i.d. $(Y_1,\dots, Y_n)$ tirées sous cette loi. Une façon naturelle d'estimer $\mu=\mathbb{E}(Y_1)$ est de poser $\widehat{\mu}_n=\frac{Y_1+\dots Y_n}{n}$. Ici, on estime donc une moyenne théorique par sa contrepartie *empirique*.
 
 :::: {.defbox .def data-latex="important"}
-**Définition :** Soit $\widehat{\theta}_n$ un estimateur de $\theta$ admettant un moment d'ordre $1$.
+<center>**Biais, erreur quadratique**</center>
+\vspace{0.5cm}
+
+\noindent Soit $\widehat{\theta}_n$ un estimateur de $\theta$ admettant un moment d'ordre $1$.
 
 -   On appelle **biais** de $\widehat{\theta}_n$ la quantité $b_{\theta}(\widehat{\theta}_n)=\mathbb{E}(\widehat{\theta}_n)-\theta$.
 
@@ -48,31 +41,34 @@ been noted, and _will be reported to the authorities_!
 **Théorème :** Soit $\widehat{\theta}_n$ un estimateur de $\theta$ admettant des moments d'ordres $1$ et $2$. Son erreur quadratique moyenne peut se décomposer en biais au carré/variance :
 
 $$\text{EQM}_{\theta}(\widehat{\theta}_n)=b_{\theta}^2(\widehat{\theta}_n)+\mathbb{V}(\widehat{\theta}_n)$$
-:::
+::::
 
 \noindent Autrement dit, réduire l'erreur (quadratique moyenne) d'un estimateur revient à essayer de réduire son biais et/ou sa variance. En pratique, uune réduction du biais implique souvent une augmentation de la variance (et vice-versa) et il faut trouver un compromis entre les deux, i.e. un estimateur pour lequel la combinaison (biais, variance) implique une faible erreur quadratique moyenne. On parle alors de **compromis biais-variance**.
 
 ### Convergence d'un estimateur
 
-::: {.callout-note collapse="false" title="Estimateurs"}
+:::: {.defbox .def data-latex="important"}
+<center>**Estimateurs convergents**</center>
 \noindent Un estimateur $\widehat{\theta}_n$ de $\theta$ est dit **convergent** lorsqu'il converge en probabilité vers $\theta$ i.e. lorsque
 
 $$\forall\varepsilon >0, \mathbb{P}\left(|\widehat{\theta}_n-\theta|>\varepsilon\right)\longrightarrow 0$$
-:::
+::::
 
 \noindent La convergence d'un estimateur sans biais peut se montrer à l'aide du critère pratique suivant :
 
-::: {.callout-note collapse="false" title="Estimateurs"}
-\noindent Un estimateur $\widehat{\theta}_n$ sans biais de $\theta$ est **convergent** dès que sa variance tend vers $0$, i.e. $$\left(\mathbb{E}_{\theta}(\widehat{\theta}_n)=0 \text{ et } \mathbb{V}_{\theta}(\widehat{\theta}_n)\longrightarrow 0\right)\Rightarrow \left(\widehat{\theta}_n \underset{n \to +\infty}{\overset{\mathbb{P}}{\longrightarrow}}\theta\right)$$
-:::
+:::: {.thmbox .thm data-latex="important"}
+\noindent
+**Théorème (critère pratique de convergence) :** Un estimateur $\widehat{\theta}_n$ sans biais de $\theta$ est **convergent** dès que sa variance tend vers $0$, i.e. $$\left(\mathbb{E}_{\theta}(\widehat{\theta}_n)=0 \text{ et } \mathbb{V}_{\theta}(\widehat{\theta}_n)\longrightarrow 0\right)\Rightarrow \left(\widehat{\theta}_n \underset{n \to +\infty}{\overset{\mathbb{P}}{\longrightarrow}}\theta\right)$$
+::::
 
 \noindent \*\*Démonstration.\*\* Compte-tenu du fait que $\widehat{\theta}_n$ est un estimateur sans biais pour $\theta$, l'inégalité de Bieanymé-Tchebychev s'écrit $\mathbb{P}(|\widehat{\theta}_n-\theta|>\varepsilon)\leq\frac{\mathbb{V}_{\theta}(\widehat{\theta}_n)}{\varepsilon^2}$, ce qui permet de conclure. $\square$
 
 \noindent On peut même affaiblir un peu l'hypothèse d'absence de biais par une hypothèse de biais asymptotiquement nul :
 
-::: {.callout-note collapse="false" title="Estimateurs"}
-\noindent Un estimateur $\widehat{\theta}_n$ asymtotiquement sans biais de $\theta$ est **convergent** dès que sa variance tend vers $0$, i.e. $$\left(\mathbb{E}_{\theta}(\widehat{\theta}_n)\underset{n\to +\infty}{\longrightarrow}\theta \text{ et } \mathbb{V}_{\theta}(\widehat{\theta}_n)\longrightarrow 0\right)\Rightarrow \left(\widehat{\theta}_n \underset{n \to +\infty}{\overset{\mathbb{P}}{\longrightarrow}}\theta\right)$$
-:::
+:::: {.thmbox .thm data-latex="important"}
+\noindent
+**Théorème (critère pratique de convergence (suite)) :** Un estimateur $\widehat{\theta}_n$ asymtotiquement sans biais de $\theta$ est **convergent** dès que sa variance tend vers $0$, i.e. $$\left(\mathbb{E}_{\theta}(\widehat{\theta}_n)\underset{n\to +\infty}{\longrightarrow}\theta \text{ et } \mathbb{V}_{\theta}(\widehat{\theta}_n)\longrightarrow 0\right)\Rightarrow \left(\widehat{\theta}_n \underset{n \to +\infty}{\overset{\mathbb{P}}{\longrightarrow}}\theta\right)$$
+::::
 
 ### Exemples classiques
 
@@ -80,15 +76,15 @@ $$\forall\varepsilon >0, \mathbb{P}\left(|\widehat{\theta}_n-\theta|>\varepsilon
 
 \noindent \*\*Exemple 1 : moyenne empirique.\*\* Soit $X_1,\dots X_n$ une suite de $VAR$ i.i.d. de même loi que $X$, admettant une espérance $\mu$. La *moyenne empirique* est l'estimateur $$\overline{X_n}=\frac{X_1+\dots + X_n}{n}$$
 
-::: {.callout-note collapse="false" title="Estimateurs"}
+:::: {.thmbox .thm data-latex="important"}
 **Théorème :** Quelle que soit la loi suivie par $X$, la moyenne empirique $\overline{X_n}$ est un **estimateur sans biais** de l'espérance $\mu=\mathbb{E}(X)$. Si, de plus, $X$ admet une variance $\sigma^2$, alors $\overline{X_n}$ admet également une variance et celle-ci est donnée par $\mathbb{V}(\overline{X_n})=\frac{\sigma^2}{n}$.
-:::
+::::
 
 \noindent \*\*Démonstration.\*\* Par linéarité de l'espérance : $\mathbb{E}(\overline{X_n})=\frac{1}{n}\sum\limits_{i=1}^n\mathbb{E}(X_i)=\frac{1}{n}\sum\limits_{i=1}^n\mu=\mu$. Si $X$ admet une variance, alors $\overline{X_n}$ aussi et $\mathbb{V}(\overline{X_n})=\frac{1}{n^2}\sum\limits_{i=1}^n\mathbb{V}(X_i)=\frac{\sigma^2}{n}$, par indépendance de $X_1,\dots X_n$. $\square$
 
-::: {.callout-note collapse="false" title="Estimateurs"}
+:::: {.thmbox .thm data-latex="important"}
 **Corollaire :** La moyenne empirique est un estimateur convergent de l'espérance (lorsqu'elle existe).
-:::
+::::
 
 \noindent \*\*Démonstration.\*\* L'estimateur $\overline{X_n}$ est sans biais et $\mathbb{V}(\overline{X_n})=\frac{\sigma^2}{n}\longrightarrow 0$. C'est donc un estimateur convergent de l'espérance. $\square$.
 
@@ -96,11 +92,11 @@ $$\forall\varepsilon >0, \mathbb{P}\left(|\widehat{\theta}_n-\theta|>\varepsilon
 
 \noindent \*\*Exemple 3 : variance empirique.\*\* Si $X$ admet une variance $\sigma^2$ et $X_1,\dots, X_n$ sont i.i.d. de même loi que $X$, alors un estimateur de $\sigma^2$ est donné par la variance empirique $S_n^{'2}=\frac{1}{n}\sum\limits_{i=1}^n(X_i-\overline{X_n})^2$.
 
-::: {.callout-note collapse="false" title="Estimateurs"}
-\noindent La variance empirique $S_n^{'2}$ est un estimateur biaisé de la variance $\sigma^2$. Plus précisément, on a
+:::: {.thmbox .thm data-latex="important"}
+**Théorème :** La variance empirique $S_n^{'2}$ est un estimateur biaisé de la variance $\sigma^2$. Plus précisément, on a
 
 $$\mathbb{E}(S_n^{'2})=\frac{n-1}{n}\sigma^2$$
-:::
+::::
 
 \noindent \*\*Démonstration.\*\*
 
@@ -131,11 +127,11 @@ $$S_n^2=\frac{1}{n-1}\sum\limits_{i=1}^n(X_i-\overline{X_n})^2$$
 
 \noindent Cet estimateur s'appelle la **variance empirique corrigée**.
 
-::: {.callout-note collapse="false" title="Estimateurs"}
-\noindent La variance empirique corrigée $S_n^2=\frac{1}{n-1}\sum\limits_{i=1}^n (X_i-\overline{X_n})^2$ est un estimateur sans biais de la variance $\sigma^2=\mathbb{V}(X)$ :
+:::: {.thmbox .thm data-latex="important"}
+**Théorème :** La variance empirique corrigée $S_n^2=\frac{1}{n-1}\sum\limits_{i=1}^n (X_i-\overline{X_n})^2$ est un estimateur sans biais de la variance $\sigma^2=\mathbb{V}(X)$ :
 
 $$\mathbb{E}(S_n^2)=\sigma^2$$
-:::
+::::
 
 ### Méthodes de construction des estimateurs
 
@@ -143,8 +139,10 @@ $$\mathbb{E}(S_n^2)=\sigma^2$$
 
 #### La méthode des moments
 
-::: {.callout-note collapse="false" title="Estimateurs"}
+:::: {.defbox .def data-latex="important"}
 <center>**La méthode des moments**</center>
+
+\vspace{0.5cm}
 
 Soit $X$ une variable aléatoire réelle de loi $\mathcal{L}_{\theta}$, où $\theta$ est un paramètre inconnu. On considère une fonction $f$ de $I\subset\mathbb{R}$ dans $\mathbb{R}$ telle que $f(X)$ admette une espérance. Comme la loi de $X$ dépend de $\theta$, il en est de même de $\mathbb{E}(f(X))$. La méthode des moments suppose qu'on sait expliciter une telle dépendance, i.e. qu'on connaisse une fonction $g$ telle que
 
@@ -153,7 +151,7 @@ $$\mathbb{E}(f(X))=g(\theta)$$
 La contrepartie empirique du membre de gauche de cette égalité est $\frac{1}{n}\sum\limits_{i=1}^n f(X_i)$, et la méthode des moments consiste alors à résoudre l'équation en $\widehat{\theta}$ :
 
 $$g(\widehat{\theta})=\frac{1}{n}\sum\limits_{i=1}^n f(X_i)$$
-:::
+::::
 
 \noindent \*\*Exemple 5 : estimation du paramètre d'une loi exponentielle.\*\* Soit $X\sim\mathcal{E}(\lambda)$, où $\lambda>0$ est un paramètre inconnu que l'on veut estimer. La variable aléatoire $X$ admet une espérance, et celle-ci est donnée par $\mathcal{E}(X)=\frac{1}{\lambda}$. La méthode des moments consiste alors à résoudre l'équation
 
@@ -197,8 +195,10 @@ $$L(x;\theta)=L(x_1,\dots,x_n ; \theta) \left\{
 
 \noindent La méthode du maximum de vraisemblance consiste juste à dire que si toute l'information dont on dispose sur la variable aléatoire $X$ est l'observation de l'échantillon $(x_1, \dots, x_n)$, alors la meilleure estimation que l'on puisse faire de $\theta$ à partir de cette information est celle qui maximise la fonction de vraisemblance. Autrement dit, on cherche la valeur de $\theta$ qui rend l'observation $(x_1,\dots, x_n)$ la plus plausible. Formellement :
 
-::: {.callout-note collapse="false" title="Estimateurs"}
+:::: {.methbox .meth data-latex="important"}
 <center>**Méthode du maximum de vraisemblance**</center>
+
+\vspace{0.5cm}
 
 \noindent Etant donné une collection de $n$ réalisations $x=(x_1,\dots, x_n)$ des VA $(X_1,\dots X_n)$ de même loi $\mathcal{L}_{\theta}$ de paramètre inconnu $\theta$, on appelle *estimation du maximum de vraisemblance* toute estimation $\widehat{\theta}_n=\widehat{\theta}_n(x_1,\dots,x_n)$ vérifiant
 
@@ -210,11 +210,11 @@ $$\left\{
 \frac{\partial^2}{\partial\theta^2}L(x;\theta)<0 \\
 \end{array}
 \right.$$ \noindent Les solutions de ce système fournissent des estimations par maximum de vraisemblance.
-:::
+::::
 
 \noindent \*\*Log-vraisemblance.\*\* Il est souvent plus commode de considérer la log-vraisemblance $l(x;\theta)=\ln L(x;\theta)=\sum\limits_{i=1}^n \ln L(x_i;\theta)$. La fonction $\ln$ étant croissante sur $\mathbb{R}_{+}^*$, maximiser la vraisemblance équivaut à maximiser la log-vraisemblance.
 
-::: {.callout-note collapse="false" title="Estimateurs"}
+:::: {.methbox .meth data-latex="important"}
 <center>**Méthode du maximum de vraisemblance (version log-vraisemblance)**</center>
 
 \noindent En supposant que $L(x;\theta)>0$ pour tout $\theta\in\Theta$, on note $l(x;\theta)=\ln L(x;\theta)$ la log-vraisemblance. Sous les mêmes hypothèses que ci-dessus, on cherche
@@ -227,7 +227,7 @@ $$\left\{
 \frac{\partial^2}{\partial\theta^2}l(x;\theta)<0 \\
 \end{array}
 \right.$$ \noindent Les solutions de ce système fournissent des estimations par maximum de vraisemblance.
-:::
+::::
 
 \noindent \*\*Exemple 6 : loi normale\*\* $\mathcal{N}(\mu, 1)$. On veut estimer le paramètre inconnu $\mu$ par maximum de vraisemblance. La vraisemblance est donnée par
 
@@ -285,8 +285,8 @@ $$l(x;\lambda)=n\ln(\lambda)-\lambda\sum_{i=1}^n x_i$$
 
 \noindent On appelle alors **score** la quantité $\frac{\partial \ln L_n}{\partial\theta}$, i.e. la dérivée de la log-vraisemblance par rapport à $\theta$.
 
-::: {.callout-note collapse="false" title="Estimateurs"}
-\noindent On a 
+:::: {.thmbox .thm data-latex="important"}
+**Théorème :** On a 
 
 $$\mathcal{E}_{\theta}\left(\frac{\partial f}{\partial\theta}(x;\theta)\right)$$
 
@@ -294,9 +294,11 @@ i.e. le score est d'espérance nulle.
 :::
 
 
-::: {.callout-note collapse="false" title="Estimateurs"}
+:::: {.defhbox .def data-latex="important"}
 
 <center>**Information de Fisher**</center>
+
+\vspace{0.5cm}
 
 \noindent L'**information de Fisher** est la quantité définie par 
 
@@ -305,22 +307,11 @@ $$I(\theta)\equiv\mathbb{E}_{\theta}\left(\left(\frac{\partial }{\partial\theta}
 \noindent L'information de Fisher est aussi égale à 
 
 $$I(\theta)=-\mathbb{E}_{\theta}\left(\frac{\partial^2}{\partial\theta^2} f(x;\theta)\right)$$
-$$
-:::
+::::
 
 #### Borne de Cramer-Rao
 
 \noindent Sous certaines hypothèses, on peut montrer que la variance d'un estimateur sans biais ne peut être inférieure à une certaine borne, appelée borne de Cramer-Rao. Cette borne est liée à l'information de Fisher.
-
-{: .important-title }
-> My important title
->
-> A paragraph
->
-> Another paragraph
->
-> The last paragraph
-
 
 
 
@@ -350,8 +341,10 @@ $$Y_i=aX_i+b+u_i$$
 
 \noindent Avant de présenter cette méthode, on rappelle des égalités qui àa la fois très utiles et très classiques. Il faut les connaître pour le concours et savoir les redémontrer.
 
-::: {.callout-note collapse="false" title="Estimateurs"}
+:::: {.methbox .meth data-latex="important"}
 <center>**Moyenne, covariance, variance**</center>
+
+\vspace{0.5cm}
 
 \noindent Pour $x=(x_1,\dots, x_n)\in\mathbb{R}^n$ on note
 
@@ -383,7 +376,7 @@ $$Y_i=aX_i+b+u_i$$
 &= \frac{1}{n}\sum\limits_{i=1}^n x_i^2-(\overline{x}_n)^2
 \end{align}
 ```
-:::
+::::
 
 **Démonstration.**
 
@@ -424,8 +417,10 @@ $$\frac{1}{n}\sum\limits_{i=1}^n (x_i-\overline{x}_n)^2=\frac{1}{n}\sum\limits_{
 
 \noindent On montre maintenant les formules des estimateurs de $a$ et $b$ par application de la méthode des moindres carrés :
 
-::: {.callout-note collapse="false" title="Estimateurs"}
+:::: {.methbox .meth data-latex="important"}
 <center>**Estimation de** $a$ et $b$ par la méthode des moindres carrés</center>
+
+\vspace{0.5cm}
 
 \noindent La méthode des moindres carrés consiste à minimiser l'erreur quadratique globale
 
@@ -444,7 +439,7 @@ $$E(\alpha,\beta)\equiv\sum\limits_{i=1}^n (Y_i-\alpha X_i-\beta)^2$$ \noindent 
 \end{align}
 ```
 \noindent où on note $\overline{\sigma_{XY}}=\frac{1}{n}\sum\limits_{i=1}^n(X_i-\overline{X}_n)(Y_i-\overline{Y}_n)$ et $\overline{\sigma^2_X}=\overline{\sigma_{XX}}=\frac{1}{n}\sum\limits_{i=1}^n (X_i-\overline{X}_n)^2$.
-:::
+::::
 
 \noindent \*\*Démonstration.\*\* La fonction $(\alpha, \beta)\mapsto E(\alpha, \beta)$ est deux fois dérivable par rapport à chacune de ses variables. \noindent
 
@@ -508,8 +503,10 @@ $\square$
 
 \noindent La méthode par maximum de vraisemblance requiert une information supplémentaire : celle de la distribution de la variable de terme d'erreur $u$. Or, une telle information est justement donnée ici par l'hypothèse (H5) de distribution normale du terme d'erreur.
 
-::: {.callout-note collapse="false" title="Estimateurs"}
+:::: {.methbox .meth data-latex="important"}
 <center>**Estimation de** $a$ et $b$ par la méthode du maximum de vraisemblance.</center>
+
+\vspace{0.5cm}
 
 \noindent Sous l'hypothèse $(H5)$ de distribution normale des termes d'erreur, la méthode par maximum de vraisemblance fournit les mêmes estimateurs $\widehat{a}$ et $\widehat{b}$ que la méthode des moindres carrés.
 :::
@@ -546,11 +543,11 @@ $\square$
 
 #### Absence de biais des estimateurs $\widehat{a}$ et $\widehat{b}$
 
-::: {.callout-note collapse="false" title="Estimateurs"}
+:::: {.thmbox .thm data-latex="important"}
 \noindent Les estimateurs
 
 $$\widehat{a}=\frac{\overline{\sigma_{XY}}}{\overline{\sigma_X^2}}$$ et $$\widehat{b}=\overline{Y}_n-\widehat{a}\overline{X}_n$$ \noindent sont des estimateurs **sans biais** de $a$ et $b$.
-:::
+::::
 
 \noindent \*\*Démonstration.\*\* On remarque d'abord qu'avec l'hypothèse d'exogénéité (H3) $\mathbb{E}(u_i|X_i)=0$ on a $\mathbb{E}(Y_i|X_i)=aX_i+b$ et donc $\mathbb{E}(Y_i-\overline{Y}_n|X_1,\dots, X_n)=a(X_i-\overline{X}_n)$. D'où
 
@@ -575,10 +572,8 @@ $$\widehat{a}=\frac{\overline{\sigma_{XY}}}{\overline{\sigma_X^2}}$$ et $$\wideh
 
 #### Variance des estimateurs $\widehat{a}$ et $\widehat{b}$
 
-::: {.callout-note collapse="false" title="Estimateurs"}
-<center>**Variance des estimateurs** $\widehat{a}$ et $\widehat{b}$</center>
-
-Les estimateurs $\widehat{a}$ et $\widehat{b}$ ont pour variances
+:::: {.thmbox .thm data-latex="important"}
+**Théorème (variance)** Les estimateurs $\widehat{a}$ et $\widehat{b}$ ont pour variances
 
 ```{=tex}
 \begin{align}
@@ -586,7 +581,7 @@ Les estimateurs $\widehat{a}$ et $\widehat{b}$ ont pour variances
 \mathbb{V}(\widehat{b}|X_1,\dots,X_n) &=\sigma_u^2\left(\frac{1}{n}+ \frac{\overline{X}_n^2}{\sum\limits_{i=1}^n (X_i-\overline{X}_n)^2}\right)
 \end{align}
 ```
-:::
+::::
 
 \noindent \*\*Démonstration.\*\* On remarque tout d'abord que
 
@@ -640,27 +635,27 @@ $$\widehat{u}_i\equiv Y_i-\widehat{Y}_i$$ \noindent On a donc $$\widehat{u}_i=Y_
 
 $$u_i=Y_i-aX_i-b$$
 
-::: {.callout-note collapse="false" title="Estimateurs"}
-<center>**Estimation de la variance** $\sigma_u^2$</center>
+:::: {.thmbox thm data-latex="important"}
+**Théorème (estimation de la variance) : ** $\sigma_u^2$</center>
 
 \noindent La variance $\sigma_u^2$ est estimée par
 
 $$s^2=\frac{1}{n-2}\sum\limits_{i=1}^n \widehat{u}_i^2$$
-:::
+::::
 
 #### Distributions des estimateurs $\widehat{a}$ et $\widehat{b}$
 
 \noindent On admet alors le résultat suivant
 
-::: {.callout-note collapse="false" title="Estimateurs"}
-\noindent Sous l'hypothèse de normalité des termes d'erreur $u_i$, on a
+:::: {.thmbox .thm data-latex="important"}
+**Théorème :** Sous l'hypothèse de normalité des termes d'erreur $u_i$, on a
 
 $$\frac{(n-2)s^2}{\sigma_u^2}\sim\chi^2_{(n-2)}$$ \noindent et les statistiques
 
 $$\frac{\widehat{a}-a}{s\sqrt{\frac{1}{\sum\limits_{i=1}^n (X_i-\overline{X}_n)^2}}}$$ et
 
 $$\frac{\widehat{b}-b}{s\sqrt{\frac{1}{n}+\frac{\overline{X}_n^2}{\sum\limits_{i=1}^n (X_i-\overline{X}_n)^2}}}$$ \noindent suivent une loi de Student à $n-2$ degrés de liberté.
-:::
+::::
 
 #### Convergence des estimateurs $\widehat{a}$ et $\widehat{b}$
 
@@ -701,28 +696,4 @@ $$\mathbb{V}(\widehat{b}|X_1,\dots,X_n)\approx\sigma_u^2\left(\frac{1}{n}+\frac{
 
 -   le but est avant tout de montrer la démarche générale d'un test statistique à travers quelques exemples simples
 
-
-::: {.callout-note}
-Note that there are five types of callouts, including:
-`note`, `warning`, `important`, `tip`, and `caution`.
-:::
-
-::: {.callout-tip}
-## Tip with Title
-
-This is an example of a callout with a title.
-:::
-
-::: {.callout-caution collapse="true"}
-## Expand To Learn About Collapse
-
-This is an example of a 'folded' caution callout that can be expanded by the user. You can use `collapse="true"` to collapse it by default or `collapse="false"` to make a collapsible callout that is expanded by default.
-:::
-
-
-
-
-::: {#hello .greeting .message style="color: red;"}
-Hello **world**!
-:::
 

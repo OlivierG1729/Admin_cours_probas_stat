@@ -228,24 +228,22 @@
 <h1><span class="header-section-number">Chapitre 7</span> Statistique inférentielle<a href="statistique-inférentielle.html#statistique-inférentielle" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <div id="estimation" class="section level2 hasAnchor" number="7.1">
 <h2><span class="header-section-number">7.1</span> Estimation<a href="statistique-inférentielle.html#estimation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Blablabla</p>
-<div class="blackbox">
-<div class="center">
-<p><strong>NOTICE!</strong></p>
-</div>
-<p>Thank you for noticing this <strong>new notice</strong>! Your noticing it has
-been noted, and <em>will be reported to the authorities</em>!</p>
-</div>
 <p>On s’intéresse à une loi probabiliste <span class="math inline">\(\mathcal{L}_{\theta}\)</span>, qui est entièrement décrite par la donnée d’un paramètre inconnu <span class="math inline">\(\theta\)</span>. Pour mieux appréhender cette loi, il serait intéressant de connaître la valeur de <span class="math inline">\(\theta\)</span>. Plutôt que de chercher à déterminer la valeur exacte de <span class="math inline">\(\theta\)</span>, on peut essayer de l’approcher. Dans le cadre de la statistique inférentielle, on suppose qu’on dispose d’un <strong>échantillon i.i.d.</strong> de <span class="math inline">\(\mathcal{L}_{\theta}\)</span>, autrement dit d’un certain nombre de réalisations <span class="math inline">\((Y_1,\dots, Y_n)\)</span> indépendantes et identiquement distribuées de la loi <span class="math inline">\(\mathcal{L}_{\theta}\)</span>.</p>
 <p>La donnée d’un tel échantillon constitue un ensemble d’<strong>informations</strong> qui vont nous être utiles pour <strong>estimer</strong> le paramètre <span class="math inline">\(\theta\)</span>. on fait donc bien ici de l’<em>inférence</em> - ou encore de l’<em>induction</em> - dans le sens où on part d’observations particulières (les réalisations <span class="math inline">\(Y_1,\dots, Y_n)\)</span> pour énoncer une règle générale (le fait que ces réalisations sont issues de la loi <span class="math inline">\(\mathcal{L}_{\theta}\)</span>).</p>
 <div id="premières-définitions" class="section level3 hasAnchor" number="7.1.1">
 <h3><span class="header-section-number">7.1.1</span> Premières définitions<a href="statistique-inférentielle.html#premières-définitions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="defbox def">
-<p><strong>Définition :</strong> Soit <span class="math inline">\(Y\)</span> une variable aléatoire de loi <span class="math inline">\(\mathcal{L}(Y)\)</span>, paramétrée par un réel <span class="math inline">\(\theta\)</span> inconnu. Soit <span class="math inline">\((Y_1,\dots, Y_n)\)</span> un échantillon i.i.d. de loi <span class="math inline">\(\mathcal{L}(Y)\)</span>. On appelle <em>estimateur</em> de <span class="math inline">\(\theta\)</span> toute fonction de <span class="math inline">\(Y_1,\dots, Y_n\)</span>, i.e. <span class="math display">\[\widehat{\theta}_n=S(Y_1,\dots, Y_n)\]</span></p>
+<center>
+<strong>Estimateurs</strong>
+</center>
+<p>Soit <span class="math inline">\(Y\)</span> une variable aléatoire de loi <span class="math inline">\(\mathcal{L}(Y)\)</span>, paramétrée par un réel <span class="math inline">\(\theta\)</span> inconnu. Soit <span class="math inline">\((Y_1,\dots, Y_n)\)</span> un échantillon i.i.d. de loi <span class="math inline">\(\mathcal{L}(Y)\)</span>. On appelle <em>estimateur</em> de <span class="math inline">\(\theta\)</span> toute fonction de <span class="math inline">\(Y_1,\dots, Y_n\)</span>, i.e. <span class="math display">\[\widehat{\theta}_n=S(Y_1,\dots, Y_n)\]</span></p>
 </div>
 <p>On veut estimer la moyenne d’une loi normale <span class="math inline">\(\mathcal{N}(\mu\,;\,1)\)</span>, à partir d’un échantillon d’observations i.i.d. <span class="math inline">\((Y_1,\dots, Y_n)\)</span> tirées sous cette loi. Une façon naturelle d’estimer <span class="math inline">\(\mu=\mathbb{E}(Y_1)\)</span> est de poser <span class="math inline">\(\widehat{\mu}_n=\frac{Y_1+\dots Y_n}{n}\)</span>. Ici, on estime donc une moyenne théorique par sa contrepartie <em>empirique</em>.</p>
 <div class="defbox def">
-<p><strong>Définition :</strong> Soit <span class="math inline">\(\widehat{\theta}_n\)</span> un estimateur de <span class="math inline">\(\theta\)</span> admettant un moment d’ordre <span class="math inline">\(1\)</span>.</p>
+<center>
+<strong>Biais, erreur quadratique</strong>
+</center>
+<p>Soit <span class="math inline">\(\widehat{\theta}_n\)</span> un estimateur de <span class="math inline">\(\theta\)</span> admettant un moment d’ordre <span class="math inline">\(1\)</span>.</p>
 <ul>
 <li><p>On appelle <strong>biais</strong> de <span class="math inline">\(\widehat{\theta}_n\)</span> la quantité <span class="math inline">\(b_{\theta}(\widehat{\theta}_n)=\mathbb{E}(\widehat{\theta}_n)-\theta\)</span>.</p></li>
 <li><p>Un estimateur est dit <strong>sans biais</strong> lorsque son biais est nul, i.e. <span class="math inline">\(\mathbb{E}(\widehat{\theta}_n)=\theta\)</span>.</p></li>
@@ -255,43 +253,48 @@ been noted, and <em>will be reported to the authorities</em>!</p>
 </div>
 <p>L’erreur quadratique moyenne s’écrit à l’aide de l’espérance et de la variance :</p>
 <div class="thmbox thm">
-<p>Soit <span class="math inline">\(\widehat{\theta}_n\)</span> un estimateur de <span class="math inline">\(\theta\)</span> admettant des moments d’ordres <span class="math inline">\(1\)</span> et <span class="math inline">\(2\)</span>. Son erreur quadratique moyenne peut se décomposer en biais au carré/variance :</p>
+<p><strong>Théorème :</strong> Soit <span class="math inline">\(\widehat{\theta}_n\)</span> un estimateur de <span class="math inline">\(\theta\)</span> admettant des moments d’ordres <span class="math inline">\(1\)</span> et <span class="math inline">\(2\)</span>. Son erreur quadratique moyenne peut se décomposer en biais au carré/variance :</p>
 <p><span class="math display">\[\text{EQM}_{\theta}(\widehat{\theta}_n)=b_{\theta}^2(\widehat{\theta}_n)+\mathbb{V}(\widehat{\theta}_n)\]</span></p>
 </div>
 <p>Autrement dit, réduire l’erreur (quadratique moyenne) d’un estimateur revient à essayer de réduire son biais et/ou sa variance. En pratique, uune réduction du biais implique souvent une augmentation de la variance (et vice-versa) et il faut trouver un compromis entre les deux, i.e. un estimateur pour lequel la combinaison (biais, variance) implique une faible erreur quadratique moyenne. On parle alors de <strong>compromis biais-variance</strong>.</p>
 </div>
 <div id="convergence-dun-estimateur" class="section level3 hasAnchor" number="7.1.2">
 <h3><span class="header-section-number">7.1.2</span> Convergence d’un estimateur<a href="statistique-inférentielle.html#convergence-dun-estimateur" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="callout-note" collapse="false" title="Estimateurs">
+<div class="defbox def">
+<center>
+<strong>Estimateurs convergents</strong>
+</center>
 <p>Un estimateur <span class="math inline">\(\widehat{\theta}_n\)</span> de <span class="math inline">\(\theta\)</span> est dit <strong>convergent</strong> lorsqu’il converge en probabilité vers <span class="math inline">\(\theta\)</span> i.e. lorsque</p>
 <p><span class="math display">\[\forall\varepsilon &gt;0, \mathbb{P}\left(|\widehat{\theta}_n-\theta|&gt;\varepsilon\right)\longrightarrow 0\]</span></p>
 </div>
 <p>La convergence d’un estimateur sans biais peut se montrer à l’aide du critère pratique suivant :</p>
-<div class="callout-note" collapse="false" title="Estimateurs">
-<p>Un estimateur <span class="math inline">\(\widehat{\theta}_n\)</span> sans biais de <span class="math inline">\(\theta\)</span> est <strong>convergent</strong> dès que sa variance tend vers <span class="math inline">\(0\)</span>, i.e. <span class="math display">\[\left(\mathbb{E}_{\theta}(\widehat{\theta}_n)=0 \text{ et } \mathbb{V}_{\theta}(\widehat{\theta}_n)\longrightarrow 0\right)\Rightarrow \left(\widehat{\theta}_n \underset{n \to +\infty}{\overset{\mathbb{P}}{\longrightarrow}}\theta\right)\]</span></p>
+<div class="thmbox thm">
+<p>
+<strong>Théorème (critère pratique de convergence) :</strong> Un estimateur <span class="math inline">\(\widehat{\theta}_n\)</span> sans biais de <span class="math inline">\(\theta\)</span> est <strong>convergent</strong> dès que sa variance tend vers <span class="math inline">\(0\)</span>, i.e. <span class="math display">\[\left(\mathbb{E}_{\theta}(\widehat{\theta}_n)=0 \text{ et } \mathbb{V}_{\theta}(\widehat{\theta}_n)\longrightarrow 0\right)\Rightarrow \left(\widehat{\theta}_n \underset{n \to +\infty}{\overset{\mathbb{P}}{\longrightarrow}}\theta\right)\]</span></p>
 </div>
 <p>**Démonstration.** Compte-tenu du fait que <span class="math inline">\(\widehat{\theta}_n\)</span> est un estimateur sans biais pour <span class="math inline">\(\theta\)</span>, l’inégalité de Bieanymé-Tchebychev s’écrit <span class="math inline">\(\mathbb{P}(|\widehat{\theta}_n-\theta|&gt;\varepsilon)\leq\frac{\mathbb{V}_{\theta}(\widehat{\theta}_n)}{\varepsilon^2}\)</span>, ce qui permet de conclure. <span class="math inline">\(\square\)</span></p>
 <p>On peut même affaiblir un peu l’hypothèse d’absence de biais par une hypothèse de biais asymptotiquement nul :</p>
-<div class="callout-note" collapse="false" title="Estimateurs">
-<p>Un estimateur <span class="math inline">\(\widehat{\theta}_n\)</span> asymtotiquement sans biais de <span class="math inline">\(\theta\)</span> est <strong>convergent</strong> dès que sa variance tend vers <span class="math inline">\(0\)</span>, i.e. <span class="math display">\[\left(\mathbb{E}_{\theta}(\widehat{\theta}_n)\underset{n\to +\infty}{\longrightarrow}\theta \text{ et } \mathbb{V}_{\theta}(\widehat{\theta}_n)\longrightarrow 0\right)\Rightarrow \left(\widehat{\theta}_n \underset{n \to +\infty}{\overset{\mathbb{P}}{\longrightarrow}}\theta\right)\]</span></p>
+<div class="thmbox thm">
+<p>
+<strong>Thorème (critère pratique de convergence (suite)) :</strong> Un estimateur <span class="math inline">\(\widehat{\theta}_n\)</span> asymtotiquement sans biais de <span class="math inline">\(\theta\)</span> est <strong>convergent</strong> dès que sa variance tend vers <span class="math inline">\(0\)</span>, i.e. <span class="math display">\[\left(\mathbb{E}_{\theta}(\widehat{\theta}_n)\underset{n\to +\infty}{\longrightarrow}\theta \text{ et } \mathbb{V}_{\theta}(\widehat{\theta}_n)\longrightarrow 0\right)\Rightarrow \left(\widehat{\theta}_n \underset{n \to +\infty}{\overset{\mathbb{P}}{\longrightarrow}}\theta\right)\]</span></p>
 </div>
 </div>
 <div id="exemples-classiques-2" class="section level3 hasAnchor" number="7.1.3">
 <h3><span class="header-section-number">7.1.3</span> Exemples classiques<a href="statistique-inférentielle.html#exemples-classiques-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Quelques exemples très classiques d’estimateurs :</p>
 <p>**Exemple 1 : moyenne empirique.** Soit <span class="math inline">\(X_1,\dots X_n\)</span> une suite de <span class="math inline">\(VAR\)</span> i.i.d. de même loi que <span class="math inline">\(X\)</span>, admettant une espérance <span class="math inline">\(\mu\)</span>. La <em>moyenne empirique</em> est l’estimateur <span class="math display">\[\overline{X_n}=\frac{X_1+\dots + X_n}{n}\]</span></p>
-<div class="callout-note" collapse="false" title="Estimateurs">
+<div class="thmbox thm">
 <p><strong>Théorème :</strong> Quelle que soit la loi suivie par <span class="math inline">\(X\)</span>, la moyenne empirique <span class="math inline">\(\overline{X_n}\)</span> est un <strong>estimateur sans biais</strong> de l’espérance <span class="math inline">\(\mu=\mathbb{E}(X)\)</span>. Si, de plus, <span class="math inline">\(X\)</span> admet une variance <span class="math inline">\(\sigma^2\)</span>, alors <span class="math inline">\(\overline{X_n}\)</span> admet également une variance et celle-ci est donnée par <span class="math inline">\(\mathbb{V}(\overline{X_n})=\frac{\sigma^2}{n}\)</span>.</p>
 </div>
 <p>**Démonstration.** Par linéarité de l’espérance : <span class="math inline">\(\mathbb{E}(\overline{X_n})=\frac{1}{n}\sum\limits_{i=1}^n\mathbb{E}(X_i)=\frac{1}{n}\sum\limits_{i=1}^n\mu=\mu\)</span>. Si <span class="math inline">\(X\)</span> admet une variance, alors <span class="math inline">\(\overline{X_n}\)</span> aussi et <span class="math inline">\(\mathbb{V}(\overline{X_n})=\frac{1}{n^2}\sum\limits_{i=1}^n\mathbb{V}(X_i)=\frac{\sigma^2}{n}\)</span>, par indépendance de <span class="math inline">\(X_1,\dots X_n\)</span>. <span class="math inline">\(\square\)</span></p>
-<div class="callout-note" collapse="false" title="Estimateurs">
+<div class="thmbox thm">
 <p><strong>Corollaire :</strong> La moyenne empirique est un estimateur convergent de l’espérance (lorsqu’elle existe).</p>
 </div>
 <p>**Démonstration.** L’estimateur <span class="math inline">\(\overline{X_n}\)</span> est sans biais et <span class="math inline">\(\mathbb{V}(\overline{X_n})=\frac{\sigma^2}{n}\longrightarrow 0\)</span>. C’est donc un estimateur convergent de l’espérance. <span class="math inline">\(\square\)</span>.</p>
 <p>**Exemple 2 : estimation d’une proportion.** Au sein d’une population, une proportion <span class="math inline">\(p\)</span> d’individus présente une caractéristique. On suppose que la présence de cette caractéristique est distribuée de façon identique et indépendante d’un individu à l’autre suivant la loi de Bernoulli de paramètre <span class="math inline">\(p\)</span>. On peut donc estimer la proportion <span class="math inline">\(p\)</span> au niveau population par la proportion <span class="math inline">\(\widehat{p_n}\)</span> au niveau échantillon : cet estimateur est la moyenne empirique, il est sans biais et de variance (inconnue) <span class="math inline">\(\frac{p(1-p)}{n}\)</span>.</p>
 <p>**Exemple 3 : variance empirique.** Si <span class="math inline">\(X\)</span> admet une variance <span class="math inline">\(\sigma^2\)</span> et <span class="math inline">\(X_1,\dots, X_n\)</span> sont i.i.d. de même loi que <span class="math inline">\(X\)</span>, alors un estimateur de <span class="math inline">\(\sigma^2\)</span> est donné par la variance empirique <span class="math inline">\(S_n^{&#39;2}=\frac{1}{n}\sum\limits_{i=1}^n(X_i-\overline{X_n})^2\)</span>.</p>
-<div class="callout-note" collapse="false" title="Estimateurs">
-<p>La variance empirique <span class="math inline">\(S_n^{&#39;2}\)</span> est un estimateur biaisé de la variance <span class="math inline">\(\sigma^2\)</span>. Plus précisément, on a</p>
+<div class="thmbox thm">
+<p><strong>Théorème :</strong> La variance empirique <span class="math inline">\(S_n^{&#39;2}\)</span> est un estimateur biaisé de la variance <span class="math inline">\(\sigma^2\)</span>. Plus précisément, on a</p>
 <p><span class="math display">\[\mathbb{E}(S_n^{&#39;2})=\frac{n-1}{n}\sigma^2\]</span></p>
 </div>
 <p>**Démonstration.**</p>
