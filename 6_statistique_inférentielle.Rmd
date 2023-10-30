@@ -16,22 +16,17 @@ been noted, and _will be reported to the authorities_!
 ::::
 
 
-
-:::: {.infobox .caution data-latex="important"}
-
-Include the actual content here.
-
-::::
-
 \noindent On s'intéresse à une loi probabiliste $\mathcal{L}_{\theta}$, qui est entièrement décrite par la donnée d'un paramètre inconnu $\theta$. Pour mieux appréhender cette loi, il serait intéressant de connaître la valeur de $\theta$. Plutôt que de chercher à déterminer la valeur exacte de $\theta$, on peut essayer de l'approcher. Dans le cadre de la statistique inférentielle, on suppose qu'on dispose d'un **échantillon i.i.d.** de $\mathcal{L}_{\theta}$, autrement dit d'un certain nombre de réalisations $(Y_1,\dots, Y_n)$ indépendantes et identiquement distribuées de la loi $\mathcal{L}_{\theta}$.
 
 \noindent La donnée d'un tel échantillon constitue un ensemble d'**informations** qui vont nous être utiles pour **estimer** le paramètre $\theta$. on fait donc bien ici de l'*inférence* - ou encore de l'*induction* - dans le sens où on part d'observations particulières (les réalisations $Y_1,\dots, Y_n)$ pour énoncer une règle générale (le fait que ces réalisations sont issues de la loi $\mathcal{L}_{\theta}$).
 
 ### Premières définitions
 
-::: {.callout-note collapse="false" title="blablabla"}
+
+:::: {.defbox .def data-latex="important"}
 **Définition :** Soit $Y$ une variable aléatoire de loi $\mathcal{L}(Y)$, paramétrée par un réel $\theta$ inconnu. Soit $(Y_1,\dots, Y_n)$ un échantillon i.i.d. de loi $\mathcal{L}(Y)$. On appelle *estimateur* de $\theta$ toute fonction de $Y_1,\dots, Y_n$, i.e. $$\widehat{\theta}_n=S(Y_1,\dots, Y_n)$$
-:::
+::::
+
 
 \noindent On veut estimer la moyenne d'une loi normale $\mathcal{N}(\mu\,;\,1)$, à partir d'un échantillon d'observations i.i.d. $(Y_1,\dots, Y_n)$ tirées sous cette loi. Une façon naturelle d'estimer $\mu=\mathbb{E}(Y_1)$ est de poser $\widehat{\mu}_n=\frac{Y_1+\dots Y_n}{n}$. Ici, on estime donc une moyenne théorique par sa contrepartie *empirique*.
 
