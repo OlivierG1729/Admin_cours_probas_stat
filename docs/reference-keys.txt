@@ -95,5 +95,3 @@ intervalles-de-confiance
 tests-statistiques
 définition-et-principes
 exemples-de-test
-tip-with-title
-expand-to-learn-about-collapse

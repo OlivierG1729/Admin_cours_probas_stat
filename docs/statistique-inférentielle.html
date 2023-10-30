@@ -201,8 +201,6 @@
 <li class="chapter" data-level="7.2.1" data-path="statistique-inférentielle.html"><a href="statistique-inférentielle.html#définition-et-principes"><i class="fa fa-check"></i><b>7.2.1</b> Définition et principes</a></li>
 <li class="chapter" data-level="7.2.2" data-path="statistique-inférentielle.html"><a href="statistique-inférentielle.html#exemples-de-test"><i class="fa fa-check"></i><b>7.2.2</b> Exemples de test</a></li>
 </ul></li>
-<li class="chapter" data-level="7.3" data-path="statistique-inférentielle.html"><a href="statistique-inférentielle.html#tip-with-title"><i class="fa fa-check"></i><b>7.3</b> Tip with Title</a></li>
-<li class="chapter" data-level="7.4" data-path="statistique-inférentielle.html"><a href="statistique-inférentielle.html#expand-to-learn-about-collapse"><i class="fa fa-check"></i><b>7.4</b> Expand To Learn About Collapse</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -272,32 +270,39 @@
 <p>
 <strong>Théorème (critère pratique de convergence) :</strong> Un estimateur <span class="math inline">\(\widehat{\theta}_n\)</span> sans biais de <span class="math inline">\(\theta\)</span> est <strong>convergent</strong> dès que sa variance tend vers <span class="math inline">\(0\)</span>, i.e. <span class="math display">\[\left(\mathbb{E}_{\theta}(\widehat{\theta}_n)=0 \text{ et } \mathbb{V}_{\theta}(\widehat{\theta}_n)\longrightarrow 0\right)\Rightarrow \left(\widehat{\theta}_n \underset{n \to +\infty}{\overset{\mathbb{P}}{\longrightarrow}}\theta\right)\]</span></p>
 </div>
-<p>**Démonstration.** Compte-tenu du fait que <span class="math inline">\(\widehat{\theta}_n\)</span> est un estimateur sans biais pour <span class="math inline">\(\theta\)</span>, l’inégalité de Bieanymé-Tchebychev s’écrit <span class="math inline">\(\mathbb{P}(|\widehat{\theta}_n-\theta|&gt;\varepsilon)\leq\frac{\mathbb{V}_{\theta}(\widehat{\theta}_n)}{\varepsilon^2}\)</span>, ce qui permet de conclure. <span class="math inline">\(\square\)</span></p>
+<p>
+<strong>Démonstration.</strong> Compte-tenu du fait que <span class="math inline">\(\widehat{\theta}_n\)</span> est un estimateur sans biais pour <span class="math inline">\(\theta\)</span>, l’inégalité de Bieanymé-Tchebychev s’écrit <span class="math inline">\(\mathbb{P}(|\widehat{\theta}_n-\theta|&gt;\varepsilon)\leq\frac{\mathbb{V}_{\theta}(\widehat{\theta}_n)}{\varepsilon^2}\)</span>, ce qui permet de conclure. <span class="math inline">\(\square\)</span></p>
 <p>On peut même affaiblir un peu l’hypothèse d’absence de biais par une hypothèse de biais asymptotiquement nul :</p>
 <div class="thmbox thm">
 <p>
-<strong>Thorème (critère pratique de convergence (suite)) :</strong> Un estimateur <span class="math inline">\(\widehat{\theta}_n\)</span> asymtotiquement sans biais de <span class="math inline">\(\theta\)</span> est <strong>convergent</strong> dès que sa variance tend vers <span class="math inline">\(0\)</span>, i.e. <span class="math display">\[\left(\mathbb{E}_{\theta}(\widehat{\theta}_n)\underset{n\to +\infty}{\longrightarrow}\theta \text{ et } \mathbb{V}_{\theta}(\widehat{\theta}_n)\longrightarrow 0\right)\Rightarrow \left(\widehat{\theta}_n \underset{n \to +\infty}{\overset{\mathbb{P}}{\longrightarrow}}\theta\right)\]</span></p>
+<strong>Théorème (critère pratique de convergence (suite)) :</strong> Un estimateur <span class="math inline">\(\widehat{\theta}_n\)</span> asymtotiquement sans biais de <span class="math inline">\(\theta\)</span> est <strong>convergent</strong> dès que sa variance tend vers <span class="math inline">\(0\)</span>, i.e. <span class="math display">\[\left(\mathbb{E}_{\theta}(\widehat{\theta}_n)\underset{n\to +\infty}{\longrightarrow}\theta \text{ et } \mathbb{V}_{\theta}(\widehat{\theta}_n)\longrightarrow 0\right)\Rightarrow \left(\widehat{\theta}_n \underset{n \to +\infty}{\overset{\mathbb{P}}{\longrightarrow}}\theta\right)\]</span></p>
 </div>
 </div>
 <div id="exemples-classiques-2" class="section level3 hasAnchor" number="7.1.3">
 <h3><span class="header-section-number">7.1.3</span> Exemples classiques<a href="statistique-inférentielle.html#exemples-classiques-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Quelques exemples très classiques d’estimateurs :</p>
-<p>**Exemple 1 : moyenne empirique.** Soit <span class="math inline">\(X_1,\dots X_n\)</span> une suite de <span class="math inline">\(VAR\)</span> i.i.d. de même loi que <span class="math inline">\(X\)</span>, admettant une espérance <span class="math inline">\(\mu\)</span>. La <em>moyenne empirique</em> est l’estimateur <span class="math display">\[\overline{X_n}=\frac{X_1+\dots + X_n}{n}\]</span></p>
+<p>
+<strong>Exemple 1 : moyenne empirique.</strong> Soit <span class="math inline">\(X_1,\dots X_n\)</span> une suite de <span class="math inline">\(VAR\)</span> i.i.d. de même loi que <span class="math inline">\(X\)</span>, admettant une espérance <span class="math inline">\(\mu\)</span>. La <em>moyenne empirique</em> est l’estimateur <span class="math display">\[\overline{X_n}=\frac{X_1+\dots + X_n}{n}\]</span></p>
 <div class="thmbox thm">
 <p><strong>Théorème :</strong> Quelle que soit la loi suivie par <span class="math inline">\(X\)</span>, la moyenne empirique <span class="math inline">\(\overline{X_n}\)</span> est un <strong>estimateur sans biais</strong> de l’espérance <span class="math inline">\(\mu=\mathbb{E}(X)\)</span>. Si, de plus, <span class="math inline">\(X\)</span> admet une variance <span class="math inline">\(\sigma^2\)</span>, alors <span class="math inline">\(\overline{X_n}\)</span> admet également une variance et celle-ci est donnée par <span class="math inline">\(\mathbb{V}(\overline{X_n})=\frac{\sigma^2}{n}\)</span>.</p>
 </div>
-<p>**Démonstration.** Par linéarité de l’espérance : <span class="math inline">\(\mathbb{E}(\overline{X_n})=\frac{1}{n}\sum\limits_{i=1}^n\mathbb{E}(X_i)=\frac{1}{n}\sum\limits_{i=1}^n\mu=\mu\)</span>. Si <span class="math inline">\(X\)</span> admet une variance, alors <span class="math inline">\(\overline{X_n}\)</span> aussi et <span class="math inline">\(\mathbb{V}(\overline{X_n})=\frac{1}{n^2}\sum\limits_{i=1}^n\mathbb{V}(X_i)=\frac{\sigma^2}{n}\)</span>, par indépendance de <span class="math inline">\(X_1,\dots X_n\)</span>. <span class="math inline">\(\square\)</span></p>
+<p>
+<strong>Démonstration.</strong> Par linéarité de l’espérance : <span class="math inline">\(\mathbb{E}(\overline{X_n})=\frac{1}{n}\sum\limits_{i=1}^n\mathbb{E}(X_i)=\frac{1}{n}\sum\limits_{i=1}^n\mu=\mu\)</span>. Si <span class="math inline">\(X\)</span> admet une variance, alors <span class="math inline">\(\overline{X_n}\)</span> aussi et <span class="math inline">\(\mathbb{V}(\overline{X_n})=\frac{1}{n^2}\sum\limits_{i=1}^n\mathbb{V}(X_i)=\frac{\sigma^2}{n}\)</span>, par indépendance de <span class="math inline">\(X_1,\dots X_n\)</span>. <span class="math inline">\(\square\)</span></p>
 <div class="thmbox thm">
 <p><strong>Corollaire :</strong> La moyenne empirique est un estimateur convergent de l’espérance (lorsqu’elle existe).</p>
 </div>
-<p>**Démonstration.** L’estimateur <span class="math inline">\(\overline{X_n}\)</span> est sans biais et <span class="math inline">\(\mathbb{V}(\overline{X_n})=\frac{\sigma^2}{n}\longrightarrow 0\)</span>. C’est donc un estimateur convergent de l’espérance. <span class="math inline">\(\square\)</span>.</p>
-<p>**Exemple 2 : estimation d’une proportion.** Au sein d’une population, une proportion <span class="math inline">\(p\)</span> d’individus présente une caractéristique. On suppose que la présence de cette caractéristique est distribuée de façon identique et indépendante d’un individu à l’autre suivant la loi de Bernoulli de paramètre <span class="math inline">\(p\)</span>. On peut donc estimer la proportion <span class="math inline">\(p\)</span> au niveau population par la proportion <span class="math inline">\(\widehat{p_n}\)</span> au niveau échantillon : cet estimateur est la moyenne empirique, il est sans biais et de variance (inconnue) <span class="math inline">\(\frac{p(1-p)}{n}\)</span>.</p>
-<p>**Exemple 3 : variance empirique.** Si <span class="math inline">\(X\)</span> admet une variance <span class="math inline">\(\sigma^2\)</span> et <span class="math inline">\(X_1,\dots, X_n\)</span> sont i.i.d. de même loi que <span class="math inline">\(X\)</span>, alors un estimateur de <span class="math inline">\(\sigma^2\)</span> est donné par la variance empirique <span class="math inline">\(S_n^{&#39;2}=\frac{1}{n}\sum\limits_{i=1}^n(X_i-\overline{X_n})^2\)</span>.</p>
+<p>
+<strong>Démonstration.</strong> L’estimateur <span class="math inline">\(\overline{X_n}\)</span> est sans biais et <span class="math inline">\(\mathbb{V}(\overline{X_n})=\frac{\sigma^2}{n}\longrightarrow 0\)</span>. C’est donc un estimateur convergent de l’espérance. <span class="math inline">\(\square\)</span>.</p>
+<p>
+<strong>Exemple 2 : estimation d’une proportion.</strong> Au sein d’une population, une proportion <span class="math inline">\(p\)</span> d’individus présente une caractéristique. On suppose que la présence de cette caractéristique est distribuée de façon identique et indépendante d’un individu à l’autre suivant la loi de Bernoulli de paramètre <span class="math inline">\(p\)</span>. On peut donc estimer la proportion <span class="math inline">\(p\)</span> au niveau population par la proportion <span class="math inline">\(\widehat{p_n}\)</span> au niveau échantillon : cet estimateur est la moyenne empirique, il est sans biais et de variance (inconnue) <span class="math inline">\(\frac{p(1-p)}{n}\)</span>.</p>
+<p>
+<strong>Exemple 3 : variance empirique.</strong> Si <span class="math inline">\(X\)</span> admet une variance <span class="math inline">\(\sigma^2\)</span> et <span class="math inline">\(X_1,\dots, X_n\)</span> sont i.i.d. de même loi que <span class="math inline">\(X\)</span>, alors un estimateur de <span class="math inline">\(\sigma^2\)</span> est donné par la variance empirique <span class="math inline">\(S_n^{&#39;2}=\frac{1}{n}\sum\limits_{i=1}^n(X_i-\overline{X_n})^2\)</span>.</p>
 <div class="thmbox thm">
 <p><strong>Théorème :</strong> La variance empirique <span class="math inline">\(S_n^{&#39;2}\)</span> est un estimateur biaisé de la variance <span class="math inline">\(\sigma^2\)</span>. Plus précisément, on a</p>
 <p><span class="math display">\[\mathbb{E}(S_n^{&#39;2})=\frac{n-1}{n}\sigma^2\]</span></p>
 </div>
-<p>**Démonstration.**</p>
+<p>
+<strong>Démonstration.</strong></p>
 <span class="math display">\[\begin{align}
 \mathbb{E}(S_n^{&#39;2}) &amp;= \frac{1}{n}\sum\limits_{i=1}^n\mathbb{E}(X_i^2)-\frac{2\overline{X_n}}{n}\sum\limits_{i=1}^n\mathbb{E}(X_i)+\frac{1}{n}\sum\limits_{i=1}^n\mathbb{E}(\overline{X_n}^2) \\
 &amp;= \mathbb{E}(X^2)-\mathbb{E}(\overline{X_n}^2)
@@ -310,12 +315,14 @@
 \end{align}\]</span>
 <p>Avec la formule de Huygens <span class="math inline">\(\mathbb{V}(X)=\mathbb{E}(X^2)-\mathbb{E}(X)^2\)</span>, on en déduit que</p>
 <p><span class="math display">\[\mathbb{E}(S_n^{&#39;2})=\frac{n-1}{n}\sigma^2\]</span> <span class="math inline">\(\square\)</span></p>
-<p>**Remarque.** Le biais de l’estimateur <span class="math inline">\(S_n^{&#39;2}\)</span> devient cependant très faible pour <span class="math inline">\(n\)</span> suffisamment grand. Il s’agit d’un estimateur asymptotiquement sans biais de la variance <span class="math inline">\(\sigma^2\)</span> : <span class="math inline">\(\mathbb{E}(S_n^{&#39;2})\longrightarrow \sigma^2\)</span>.</p>
-<p>**Exemple 4 : variance empirique corrigée.** En modifiant l’estimateur de la variance empirique par un petit facteur correctif, on obtient un estimateur sans biais de la variance. Il suffit de poser</p>
+<p>
+<strong>Remarque.</strong> Le biais de l’estimateur <span class="math inline">\(S_n^{&#39;2}\)</span> devient cependant très faible pour <span class="math inline">\(n\)</span> suffisamment grand. Il s’agit d’un estimateur asymptotiquement sans biais de la variance <span class="math inline">\(\sigma^2\)</span> : <span class="math inline">\(\mathbb{E}(S_n^{&#39;2})\longrightarrow \sigma^2\)</span>.</p>
+<p>
+<strong>Exemple 4 : variance empirique corrigée.</strong> En modifiant l’estimateur de la variance empirique par un petit facteur correctif, on obtient un estimateur sans biais de la variance. Il suffit de poser</p>
 <p><span class="math display">\[S_n^2=\frac{1}{n-1}\sum\limits_{i=1}^n(X_i-\overline{X_n})^2\]</span></p>
 <p>Cet estimateur s’appelle la <strong>variance empirique corrigée</strong>.</p>
-<div class="callout-note" collapse="false" title="Estimateurs">
-<p>La variance empirique corrigée <span class="math inline">\(S_n^2=\frac{1}{n-1}\sum\limits_{i=1}^n (X_i-\overline{X_n})^2\)</span> est un estimateur sans biais de la variance <span class="math inline">\(\sigma^2=\mathbb{V}(X)\)</span> :</p>
+<div class="thmbox thm">
+<p><strong>Théorème :</strong> La variance empirique corrigée <span class="math inline">\(S_n^2=\frac{1}{n-1}\sum\limits_{i=1}^n (X_i-\overline{X_n})^2\)</span> est un estimateur sans biais de la variance <span class="math inline">\(\sigma^2=\mathbb{V}(X)\)</span> :</p>
 <p><span class="math display">\[\mathbb{E}(S_n^2)=\sigma^2\]</span></p>
 </div>
 </div>
@@ -324,7 +331,7 @@
 <p>On présente ici deux méthodes classiques de construction des estimateurs ; la <strong>méthode des moments</strong> et la <strong>méthode du maximum de vraisemblance</strong>.</p>
 <div id="la-méthode-des-moments" class="section level4 hasAnchor" number="7.1.4.1">
 <h4><span class="header-section-number">7.1.4.1</span> La méthode des moments<a href="statistique-inférentielle.html#la-méthode-des-moments" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="callout-note" collapse="false" title="Estimateurs">
+<div class="methbox meth">
 <center>
 <strong>La méthode des moments</strong>
 </center>
@@ -333,12 +340,14 @@
 <p>La contrepartie empirique du membre de gauche de cette égalité est <span class="math inline">\(\frac{1}{n}\sum\limits_{i=1}^n f(X_i)\)</span>, et la méthode des moments consiste alors à résoudre l’équation en <span class="math inline">\(\widehat{\theta}\)</span> :</p>
 <p><span class="math display">\[g(\widehat{\theta})=\frac{1}{n}\sum\limits_{i=1}^n f(X_i)\]</span></p>
 </div>
-<p>**Exemple 5 : estimation du paramètre d’une loi exponentielle.** Soit <span class="math inline">\(X\sim\mathcal{E}(\lambda)\)</span>, où <span class="math inline">\(\lambda&gt;0\)</span> est un paramètre inconnu que l’on veut estimer. La variable aléatoire <span class="math inline">\(X\)</span> admet une espérance, et celle-ci est donnée par <span class="math inline">\(\mathcal{E}(X)=\frac{1}{\lambda}\)</span>. La méthode des moments consiste alors à résoudre l’équation</p>
+<p>
+<strong>Exemple 5 : estimation du paramètre d’une loi exponentielle.</strong> Soit <span class="math inline">\(X\sim\mathcal{E}(\lambda)\)</span>, où <span class="math inline">\(\lambda&gt;0\)</span> est un paramètre inconnu que l’on veut estimer. La variable aléatoire <span class="math inline">\(X\)</span> admet une espérance, et celle-ci est donnée par <span class="math inline">\(\mathcal{E}(X)=\frac{1}{\lambda}\)</span>. La méthode des moments consiste alors à résoudre l’équation</p>
 <p><span class="math display">\[\frac{1}{\widehat{\lambda_n}}=\frac{1}{n}\sum\limits_{i=1}^n X_i\]</span></p>
 <p>Cette équation est très simple, elle admet pour solution</p>
 <p><span class="math display">\[\widehat{\lambda_n}=\frac{1}{\overline{X_n}}\]</span></p>
 <p>C’est l’estimateur que l’on obtient par la méthode des moments.</p>
-<p>**Remarque.** En reprenant les notations explicitées ci-dessus, on peut identifier les fonctions <span class="math inline">\(f\)</span> et <span class="math inline">\(g\)</span> :</p>
+<p>
+<strong>Remarque.</strong> En reprenant les notations explicitées ci-dessus, on peut identifier les fonctions <span class="math inline">\(f\)</span> et <span class="math inline">\(g\)</span> :</p>
 <p><span class="math display">\[f(x)=x\]</span> <span class="math display">\[g(x)=\frac{1}{x}\]</span> et ici évidemment <span class="math inline">\(\theta=\lambda\)</span>. En général, la méthode des moments s’utilise de façon complètement intuitive sans qu’on ait même à expliciter forcément les fonctions <span class="math inline">\(f\)</span> et <span class="math inline">\(g\)</span>.</p>
 </div>
 <div id="la-méthode-du-maximum-de-vraisemblance" class="section level4 hasAnchor" number="7.1.4.2">
@@ -352,7 +361,8 @@
 f(x;\theta) &amp;\text{; si } X \text{ est une continue de densité } f(.;\theta) \\
 \end{array}
 \right.\]</span></p>
-<p>**Remarque :** D’autres notations existent dans la littérature, comme <span class="math inline">\(L(x|\theta), \mathbb{P}(X=x|\theta), f(x|\theta)\)</span>. Ces notations viennent de la statistique bayésienne (hors programme du concours) qui envisage <span class="math inline">\(\theta\)</span> comme une variable aléatoire de distribution inconnue. Dans ce cas, la vraisemblance s’interprète comme une probabilité ou une densité de probabilité.</p>
+<p>
+<strong>Remarque :</strong> D’autres notations existent dans la littérature, comme <span class="math inline">\(L(x|\theta), \mathbb{P}(X=x|\theta), f(x|\theta)\)</span>. Ces notations viennent de la statistique bayésienne (hors programme du concours) qui envisage <span class="math inline">\(\theta\)</span> comme une variable aléatoire de distribution inconnue. Dans ce cas, la vraisemblance s’interprète comme une probabilité ou une densité de probabilité.</p>
 <p>La définition précédente s’étend au cas d’un échantillon <span class="math inline">\((X_1,\dots X_n)\)</span> de VA de même loi que <span class="math inline">\(X\)</span>. Un cas particulier important est celui où ces VA sont i.i.d. Dans ce cas, la vraisemblance est définie par</p>
 <p><span class="math display">\[L(x;\theta)=L(x_1,\dots,x_n ; \theta) \left\{
 \begin{array}{lll}
@@ -361,7 +371,7 @@ f(x;\theta) &amp;\text{; si } X \text{ est une continue de densité } f(.;\theta
 \end{array}
 \right.\]</span></p>
 <p>La méthode du maximum de vraisemblance consiste juste à dire que si toute l’information dont on dispose sur la variable aléatoire <span class="math inline">\(X\)</span> est l’observation de l’échantillon <span class="math inline">\((x_1, \dots, x_n)\)</span>, alors la meilleure estimation que l’on puisse faire de <span class="math inline">\(\theta\)</span> à partir de cette information est celle qui maximise la fonction de vraisemblance. Autrement dit, on cherche la valeur de <span class="math inline">\(\theta\)</span> qui rend l’observation <span class="math inline">\((x_1,\dots, x_n)\)</span> la plus plausible. Formellement :</p>
-<div class="callout-note" collapse="false" title="Estimateurs">
+<div class="methbox meth">
 <center>
 <strong>Méthode du maximum de vraisemblance</strong>
 </center>
@@ -372,10 +382,12 @@ f(x;\theta) &amp;\text{; si } X \text{ est une continue de densité } f(.;\theta
 \frac{\partial}{\partial\theta}L(x;\theta)=0 \\
 \frac{\partial^2}{\partial\theta^2}L(x;\theta)&lt;0 \\
 \end{array}
-\right.\]</span> Les solutions de ce système fournissent des estimations par maximum de vraisemblance.</p>
+\right.\]</span>
+Les solutions de ce système fournissent des estimations par maximum de vraisemblance.</p>
 </div>
-<p>**Log-vraisemblance.** Il est souvent plus commode de considérer la log-vraisemblance <span class="math inline">\(l(x;\theta)=\ln L(x;\theta)=\sum\limits_{i=1}^n \ln L(x_i;\theta)\)</span>. La fonction <span class="math inline">\(\ln\)</span> étant croissante sur <span class="math inline">\(\mathbb{R}_{+}^*\)</span>, maximiser la vraisemblance équivaut à maximiser la log-vraisemblance.</p>
-<div class="callout-note" collapse="false" title="Estimateurs">
+<p>
+<strong>Log-vraisemblance.</strong> Il est souvent plus commode de considérer la log-vraisemblance <span class="math inline">\(l(x;\theta)=\ln L(x;\theta)=\sum\limits_{i=1}^n \ln L(x_i;\theta)\)</span>. La fonction <span class="math inline">\(\ln\)</span> étant croissante sur <span class="math inline">\(\mathbb{R}_{+}^*\)</span>, maximiser la vraisemblance équivaut à maximiser la log-vraisemblance.</p>
+<div class="methbox meth">
 <center>
 <strong>Méthode du maximum de vraisemblance (version log-vraisemblance)</strong>
 </center>
@@ -388,7 +400,8 @@ f(x;\theta) &amp;\text{; si } X \text{ est une continue de densité } f(.;\theta
 \end{array}
 \right.\]</span> Les solutions de ce système fournissent des estimations par maximum de vraisemblance.</p>
 </div>
-<p>**Exemple 6 : loi normale** <span class="math inline">\(\mathcal{N}(\mu, 1)\)</span>. On veut estimer le paramètre inconnu <span class="math inline">\(\mu\)</span> par maximum de vraisemblance. La vraisemblance est donnée par</p>
+<p>
+<strong>Exemple 6 : loi normale.</strong> <span class="math inline">\(\mathcal{N}(\mu, 1)\)</span>. On veut estimer le paramètre inconnu <span class="math inline">\(\mu\)</span> par maximum de vraisemblance. La vraisemblance est donnée par</p>
 <span class="math display">\[\begin{align}
 L(x;\mu)&amp;=\prod\limits_{i=1}^n\left(\frac{e^{-\frac{(x_i-\mu)^2}{2}}}{\sqrt{2\pi}}\right)\\
 &amp;=\frac{1}{(2\pi)^{\frac{n}{2}}}e^{-\sum\limits_{i=1}^n (x_i-\mu)^2}
@@ -401,8 +414,10 @@ l(x;\mu)&amp;=\ln L(x;\mu) \\
 <p>La fonction <span class="math inline">\(\mu\mapsto l(x;\mu)\)</span> est deux fois dérivable sur <span class="math inline">\(\mathbb{R}\)</span> et <span class="math inline">\(\frac{\partial}{\partial\mu}l(x;\mu)=2\sum_{i=1}^n(\mu-x_i)\)</span>. Une seule valeur de <span class="math inline">\(\mu\)</span> l’annule :</p>
 <p><span class="math display">\[\widehat{\mu}_n=\frac{1}{n}\sum\limits_{i=1}^n x_i=\overline{x}_n\]</span> Par ailleurs <span class="math inline">\(\frac{\partial^2}{\partial\mu^2}l(x;\mu)=2n&gt;0\)</span>, et donc <span class="math inline">\(\widehat{\mu}_n\in\arg\max\limits_{\mu\in\mathbb{R}}l(x;\mu)\)</span>. Finalement, un estimateur par maximum de vraisemblance est donné par</p>
 <p><span class="math display">\[\widehat{\mu}_n=\overline{X}_n=\frac{1}{n}\sum\limits_{i=1}^n X_i\]</span></p>
-<p>**Remarque.** Comme souvent en statistique, on commet un léger abus de notation en désignant par la même lettre l’estimateur <span class="math inline">\(\widehat{\mu}_n=\frac{X_1+\dots+X_n}{n}=\widehat{\mu}_n(X_1,\dots,X_n)\)</span> (qui est une statistique, i.e. une fonction de <span class="math inline">\((X_1,\dots,X_n\)</span>) et l’estimation <span class="math inline">\(\widehat{\mu}_n=\frac{x_1+\dots+x_n}{n}=\widehat{\mu}_n(x_1,\dots, X_n)\)</span> qui en est une réalisation. Conditionnellement à <span class="math inline">\((X_1,\dots,X_n)\)</span> (i.e. si l’on suppose que l’on observe <span class="math inline">\((X_1,\dots, X_n)\)</span>) ces deux objets sont bien les mêmes.</p>
-<p>**Exemple 7 : loi expoentielle.** Soit <span class="math inline">\((X_1,\dots,X_n)\)</span> un échantillon i.i.d. tiré selon une loi exponentielle <span class="math inline">\(\mathcal{E}(\lambda)\)</span> de paramètre <span class="math inline">\(\lambda&gt;0\)</span> inconnu. La vraisemblance est donnée par <span class="math display">\[\begin{align}
+<p>
+<strong>Remarque.</strong> Comme souvent en statistique, on commet un léger abus de notation en désignant par la même lettre l’estimateur <span class="math inline">\(\widehat{\mu}_n=\frac{X_1+\dots+X_n}{n}=\widehat{\mu}_n(X_1,\dots,X_n)\)</span> (qui est une statistique, i.e. une fonction de <span class="math inline">\((X_1,\dots,X_n\)</span>) et l’estimation <span class="math inline">\(\widehat{\mu}_n=\frac{x_1+\dots+x_n}{n}=\widehat{\mu}_n(x_1,\dots, X_n)\)</span> qui en est une réalisation. Conditionnellement à <span class="math inline">\((X_1,\dots,X_n)\)</span> (i.e. si l’on suppose que l’on observe <span class="math inline">\((X_1,\dots, X_n)\)</span>) ces deux objets sont bien les mêmes.</p>
+<p>
+<strong>Exemple 7 : loi expoentielle.</strong> Soit <span class="math inline">\((X_1,\dots,X_n)\)</span> un échantillon i.i.d. tiré selon une loi exponentielle <span class="math inline">\(\mathcal{E}(\lambda)\)</span> de paramètre <span class="math inline">\(\lambda&gt;0\)</span> inconnu. La vraisemblance est donnée par <span class="math display">\[\begin{align}
 L(x;\lambda)&amp;=\prod\limits_{i=1}^n (\lambda e^{-\lambda x_i}\mathbb{1}_{x_i\geq 0}) \\
 \end{align}\]</span></p>
 <p>Si l’un des <span class="math inline">\(x_i\)</span> est négatif elle vaut <span class="math inline">\(0\)</span>. Sinon on calcule la log-vraisemblance</p>
@@ -428,34 +443,38 @@ L(x;\lambda)&amp;=\prod\limits_{i=1}^n (\lambda e^{-\lambda x_i}\mathbb{1}_{x_i\
 <li>existence de <span class="math inline">\(\frac{\partial f}{\partial\theta}(x;\theta)\)</span> et de <span class="math inline">\(\frac{\partial^2}{\partial\theta^2}f(x;\theta)\)</span></li>
 <li>on peut échanger tous les opérateurs de dérivation (à l’ordre <span class="math inline">\(1\)</span> et <span class="math inline">\(2\)</span>) et d’intégration</li>
 </ul>
-<p>On appelle alors <strong>score</strong> la quantité <span class="math inline">\(\frac{\partial \ln L_n}{\partial\theta}\)</span>, i.e. la dérivée de la log-vraisemblance par rapport à <span class="math inline">\(\theta\)</span>.</p>
-<div class="callout-note" collapse="false" title="Estimateurs">
-<p>On a</p>
-<p><span class="math display">\[\mathcal{E}_{\theta}\left(\frac{\partial f}{\partial\theta}(x;\theta)\right)\]</span></p>
+<p>On appelle alors <strong>score</strong> la quantité (aléatoire) <span class="math inline">\(\frac{\partial}{\partial\theta}\,\ln f(X;\theta)\)</span>, i.e. la dérivée de la log-vraisemblance par rapport à <span class="math inline">\(\theta\)</span>.</p>
+<div class="thmbox thm">
+<p><strong>Théorème :</strong> On a</p>
+<p><span class="math display">\[\mathbb{E}_{\theta}\left(\frac{\partial }{\partial\theta}\,\ln f(X;\theta)\right)=0\]</span></p>
 <p>i.e. le score est d’espérance nulle.</p>
 </div>
-<div class="callout-note" collapse="false" title="Estimateurs">
+<p>
+<strong>Démonstration.</strong>
+<span class="math display">\[\begin{align}
+\mathbb{E}_{\theta}\left(\frac{\partial}{\partial\theta}\,\ln f(X ; \theta)\right) &amp;= \int_{\mathbb{R}} \frac{\partial}{\partial\theta}\ln f(x;\theta)\,f(x;\theta)\,dx \\
+&amp;=\int_{\mathbb{R}}\frac{\frac{\partial f}{\partial\theta}(x;\theta)}{f(x;\theta)}\,f(x;\theta)\,dx \\
+&amp;= \int_{\mathbb{R}} \frac{\partial f}{\partial\theta}(x;\theta)\,dx \\
+&amp;=\frac{\partial}{\partial\theta}\int_{\mathbb{R}} f(x;\theta) \, dx \text{ (on permute intégrale et dérivée)} \\
+&amp;= 0 \text{ (car } \int_{\mathbb{R}} f(x;\theta)\,dx=1\text{)} \\
+\end{align}\]</span>
+<span class="math inline">\(\square\)</span></p>
+<p>L’information de Fisher est définie à partir du score de la façon suivante :</p>
+<div class="defbox def">
 <center>
 <strong>Information de Fisher</strong>
 </center>
 <p>L’<strong>information de Fisher</strong> est la quantité définie par</p>
-<p><span class="math display">\[I(\theta)\equiv\mathbb{E}_{\theta}\left(\left(\frac{\partial }{\partial\theta}\,\ln f(x;\theta)\right)^2\right)=\mathbb{V}_{\theta}\left(\frac{\partial}{\partial\theta}\ln f(x;\theta)\right)\]</span></p>
+<p><span class="math display">\[I(\theta)\equiv\mathbb{E}_{\theta}\left(\left(\frac{\partial }{\partial\theta}\,\ln f(X;\theta)\right)^2\right)=\mathbb{V}_{\theta}\left(\frac{\partial}{\partial\theta}\ln f(X;\theta)\right)\]</span></p>
 <p>L’information de Fisher est aussi égale à</p>
-<p><span class="math display">\[I(\theta)=-\mathbb{E}_{\theta}\left(\frac{\partial^2}{\partial\theta^2} f(x;\theta)\right)\]</span>
-$$</p>
+<p><span class="math display">\[I(\theta)=-\mathbb{E}_{\theta}\left(\frac{\partial^2}{\partial\theta^2} \ln f(X;\theta)\right)\]</span></p>
 </div>
+<p>
+<strong>Interprétation de l’information de Fisher.</strong> On utilise généralement l’information de Fisher lorsqu’on veut inférer sur un paramètre inconnu <span class="math inline">\(\theta\)</span> par maximum de vraisemblance. Par construction, l’estimation <span class="math inline">\(\widehat{\theta}\)</span> que l’on obtient par cette méthode est celle qui maximise la log-vraisemblance <span class="math inline">\(\ln f(X;\theta)\)</span>, pour une observation de <span class="math inline">\(X\)</span> donnée. L’expression <span class="math inline">\(I(\theta)=-\mathbb{E}_{\theta}\left(\frac{\partial^2}{\partial\theta^2}\ln f(X;\theta)\right)\)</span> montre que l’information de Fisher correspond (au signe près) à la courbure de la log-vraisemblance. Plus celle-ci est importante, plus la courbe présente un “pic” autour du maximum, et donc plus la valeur estimée de ce maximum est précise. Au contraire, si la courbure est faible, la courbe est aplatie autour du maximum, et donc l’estimation de <span class="math inline">\(\theta\)</span> sera moins précise. Dit autrement, l’information de Fisher quantifie le niveau d’information que nous apporte l’observation relativement au paramètre <span class="math inline">\(\theta\)</span>.</p>
 </div>
 <div id="borne-de-cramer-rao" class="section level4 hasAnchor" number="7.1.5.2">
 <h4><span class="header-section-number">7.1.5.2</span> Borne de Cramer-Rao<a href="statistique-inférentielle.html#borne-de-cramer-rao" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Sous certaines hypothèses, on peut montrer que la variance d’un estimateur sans biais ne peut être inférieure à une certaine borne, appelée borne de Cramer-Rao. Cette borne est liée à l’information de Fisher.</p>
-<p>{: .important-title }
-&gt; My important title
-&gt;
-&gt; A paragraph
-&gt;
-&gt; Another paragraph
-&gt;
-&gt; The last paragraph</p>
 </div>
 </div>
 <div id="estimation-des-coefficients-dune-régression-linéaire" class="section level3 hasAnchor" number="7.1.6">
@@ -465,7 +484,8 @@ $$</p>
 <p><span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span> sont deux variables aléatoires pour lesquelles on dispose d’observations <span class="math inline">\(x_1,\dots, x_n\)</span> et <span class="math inline">\(y_1,\dots y_n\)</span>. On considère le modèle</p>
 <p><span class="math display">\[Y_i=aX_i+b+u_i\]</span></p>
 <p>où <span class="math inline">\((a,b)\)</span> est un couple de réels inconnus et <span class="math inline">\(u_i\)</span> est un terme d’erreur (inconnu lui aussi). Le but est d’estimer des coefficients <span class="math inline">\((a,b)\)</span> à partir de l’échantillons d’observations <span class="math inline">\((x_i, y_i)\)</span> et de donner des propriétés des estimateurs obtenus sous certaines hypothèses.</p>
-<p>**Hypothèses du modèle.** On fait les hypothèses suivantes :</p>
+<p>
+<strong>Hypothèses du modèle.</strong> On fait les hypothèses suivantes :</p>
 <ul>
 <li><strong>(H1) :</strong> Les couples <span class="math inline">\((X_i, Y_i)\)</span> sont i.i.d.</li>
 <li><strong>(H2) :</strong> Les termes d’erreur <span class="math inline">\(u_i\)</span> sont indépendants des <span class="math inline">\(X_i\)</span></li>
@@ -479,7 +499,7 @@ $$</p>
 <div id="rappels-utiles" class="section level4 hasAnchor" number="7.1.6.2">
 <h4><span class="header-section-number">7.1.6.2</span> Rappels utiles<a href="statistique-inférentielle.html#rappels-utiles" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Avant de présenter cette méthode, on rappelle des égalités qui àa la fois très utiles et très classiques. Il faut les connaître pour le concours et savoir les redémontrer.</p>
-<div class="callout-note" collapse="false" title="Estimateurs">
+<div class="methbox meth">
 <center>
 <strong>Moyenne, covariance, variance</strong>
 </center>
@@ -506,7 +526,8 @@ $$</p>
 \end{align}\]</span>
 </div>
 <p><strong>Démonstration.</strong></p>
-<p>**1.** Evidente</p>
+<p>
+<strong>1.</strong> Evidente</p>
 <p><strong>2.</strong> <span class="math display">\[\begin{align}
 \sum\limits_{i=1}^n (x_i-\overline{x}_n) &amp;= \sum\limits_{i=1}^n x_i -n\overline{x}_n \\
 &amp;= n\overline{x}_n-n\overline{x}_n \\
@@ -533,9 +554,9 @@ $$</p>
 <div id="estimation-de-a-et-b-par-la-méthode-des-moindres-carrés" class="section level4 hasAnchor" number="7.1.6.3">
 <h4><span class="header-section-number">7.1.6.3</span> Estimation de <span class="math inline">\(a\)</span> et <span class="math inline">\(b\)</span> par la méthode des moindres carrés<a href="statistique-inférentielle.html#estimation-de-a-et-b-par-la-méthode-des-moindres-carrés" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>On montre maintenant les formules des estimateurs de <span class="math inline">\(a\)</span> et <span class="math inline">\(b\)</span> par application de la méthode des moindres carrés :</p>
-<div class="callout-note" collapse="false" title="Estimateurs">
+<div class="methbox meth">
 <center>
-<strong>Estimation de</strong> <span class="math inline">\(a\)</span> et <span class="math inline">\(b\)</span> par la méthode des moindres carrés
+<strong>Estimation de <span class="math inline">\(a\)</span> et <span class="math inline">\(b\)</span> par la méthode des moindres carrés</strong>
 </center>
 <p>La méthode des moindres carrés consiste à minimiser l’erreur quadratique globale</p>
 <p><span class="math display">\[E(\alpha,\beta)\equiv\sum\limits_{i=1}^n (Y_i-\alpha X_i-\beta)^2\]</span> qui représente l’erreur globale faite en approchant <span class="math inline">\(Y_i\)</span> par <span class="math inline">\(\alpha X_i+\beta\)</span>.</p>
@@ -550,7 +571,8 @@ $$</p>
 \end{align}\]</span>
 <p>où on note <span class="math inline">\(\overline{\sigma_{XY}}=\frac{1}{n}\sum\limits_{i=1}^n(X_i-\overline{X}_n)(Y_i-\overline{Y}_n)\)</span> et <span class="math inline">\(\overline{\sigma^2_X}=\overline{\sigma_{XX}}=\frac{1}{n}\sum\limits_{i=1}^n (X_i-\overline{X}_n)^2\)</span>.</p>
 </div>
-<p>**Démonstration.** La fonction <span class="math inline">\((\alpha, \beta)\mapsto E(\alpha, \beta)\)</span> est deux fois dérivable par rapport à chacune de ses variables. </p>
+<p>
+<strong>Démonstration.</strong> La fonction <span class="math inline">\((\alpha, \beta)\mapsto E(\alpha, \beta)\)</span> est deux fois dérivable par rapport à chacune de ses variables. </p>
 <p><strong>Conditions de premier ordre (CPO) :</strong> Les conditions du premier ordre s’écrivent</p>
 <span class="math display">\[\begin{align}
 \left\{
@@ -594,13 +616,14 @@ $$</p>
 <div id="estimation-de-a-et-b-par-la-méthode-du-maximum-de-vraisemblance" class="section level4 hasAnchor" number="7.1.6.4">
 <h4><span class="header-section-number">7.1.6.4</span> Estimation de <span class="math inline">\(a\)</span> et <span class="math inline">\(b\)</span> par la méthode du maximum de vraisemblance<a href="statistique-inférentielle.html#estimation-de-a-et-b-par-la-méthode-du-maximum-de-vraisemblance" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>La méthode par maximum de vraisemblance requiert une information supplémentaire : celle de la distribution de la variable de terme d’erreur <span class="math inline">\(u\)</span>. Or, une telle information est justement donnée ici par l’hypothèse (H5) de distribution normale du terme d’erreur.</p>
-<div class="callout-note" collapse="false" title="Estimateurs">
+<div class="methbox meth">
 <center>
-<strong>Estimation de</strong> <span class="math inline">\(a\)</span> et <span class="math inline">\(b\)</span> par la méthode du maximum de vraisemblance.
+<strong>Estimation de <span class="math inline">\(a\)</span> et <span class="math inline">\(b\)</span> par la méthode du maximum de vraisemblance.</strong>
 </center>
 <p>Sous l’hypothèse <span class="math inline">\((H5)\)</span> de distribution normale des termes d’erreur, la méthode par maximum de vraisemblance fournit les mêmes estimateurs <span class="math inline">\(\widehat{a}\)</span> et <span class="math inline">\(\widehat{b}\)</span> que la méthode des moindres carrés.</p>
 </div>
-<p>**Démonstration.** La vraisemblance est donnée par</p>
+<p>
+<strong>Démonstration.</strong> La vraisemblance est donnée par</p>
 <p><span class="math display">\[L((\alpha,\beta);u)=\prod_{i=1}^n\frac{1}{\sqrt{2\pi}\sigma_u}e^{-\frac{(Y_i-\alpha X_i-\beta)^2}{2\sigma_u^2}}\]</span></p>
 <p>On passe à la log-vraisemblance, qui est plus simple à dériver</p>
 <p><span class="math display">\[l((\alpha,\beta);u)=-n\ln(\sqrt{2\pi}\sigma_u^2)-\frac{(Y_i-\alpha X_i-\beta)^2}{2\sigma_u^2}\]</span></p>
@@ -616,15 +639,17 @@ $$</p>
 \end{align}\]</span>
 <p>On vérifie facilement qu’on obtient le même couple de solution qu’avec la méthode des moindres carrés, et que ce couple constitue bien un maximum de la log-vraisemblance.</p>
 <p><span class="math inline">\(\square\)</span></p>
-<p>**Remarque :** Dans des approches plus générales que celle présentée ici, aucune hypothèse n’est faite sur la distribution des termes d’erreur. Dans ce cas, la méthode par maximum de vraisemblance n’est plus applicable. On peut cependant toujours utiliser la méthode des moindres carrés.</p>
+<p>
+<strong>Remarque :</strong> Dans des approches plus générales que celle présentée ici, aucune hypothèse n’est faite sur la distribution des termes d’erreur. Dans ce cas, la méthode par maximum de vraisemblance n’est plus applicable. On peut cependant toujours utiliser la méthode des moindres carrés.</p>
 </div>
 <div id="absence-de-biais-des-estimateurs-widehata-et-widehatb" class="section level4 hasAnchor" number="7.1.6.5">
 <h4><span class="header-section-number">7.1.6.5</span> Absence de biais des estimateurs <span class="math inline">\(\widehat{a}\)</span> et <span class="math inline">\(\widehat{b}\)</span><a href="statistique-inférentielle.html#absence-de-biais-des-estimateurs-widehata-et-widehatb" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="callout-note" collapse="false" title="Estimateurs">
-<p>Les estimateurs</p>
+<div class="thmbox thm">
+<p><strong>Théorème : (absence de biais des estimateurs MCO)</strong> Les estimateurs</p>
 <p><span class="math display">\[\widehat{a}=\frac{\overline{\sigma_{XY}}}{\overline{\sigma_X^2}}\]</span> et <span class="math display">\[\widehat{b}=\overline{Y}_n-\widehat{a}\overline{X}_n\]</span> sont des estimateurs <strong>sans biais</strong> de <span class="math inline">\(a\)</span> et <span class="math inline">\(b\)</span>.</p>
 </div>
-<p>**Démonstration.** On remarque d’abord qu’avec l’hypothèse d’exogénéité (H3) <span class="math inline">\(\mathbb{E}(u_i|X_i)=0\)</span> on a <span class="math inline">\(\mathbb{E}(Y_i|X_i)=aX_i+b\)</span> et donc <span class="math inline">\(\mathbb{E}(Y_i-\overline{Y}_n|X_1,\dots, X_n)=a(X_i-\overline{X}_n)\)</span>. D’où</p>
+<p>
+<strong>Démonstration.</strong> On remarque d’abord qu’avec l’hypothèse d’exogénéité (H3) <span class="math inline">\(\mathbb{E}(u_i|X_i)=0\)</span> on a <span class="math inline">\(\mathbb{E}(Y_i|X_i)=aX_i+b\)</span> et donc <span class="math inline">\(\mathbb{E}(Y_i-\overline{Y}_n|X_1,\dots, X_n)=a(X_i-\overline{X}_n)\)</span>. D’où</p>
 <span class="math display">\[\begin{align}
 \mathbb{E}(\widehat{a}|X_1,\dots, X_n) &amp;= \mathbb{E}\left(\left.\frac{\frac{1}{n}\sum\limits_{i=1}^n (X_i-\overline{X}_n)(Y_i-\overline{Y}_n)}{\overline{\sigma_X^2}}\right|X_1,\dots, X_n\right) \\
 &amp;=\frac{1}{\overline{\sigma_X^2}}\frac{1}{n}\sum\limits_{i=1}^n(X_i-\overline{X}_n)\mathbb{E}(\left. Y_i-\overline{Y}_n\right|X_1\,\dots,X_n) \\
@@ -643,17 +668,15 @@ $$</p>
 </div>
 <div id="variance-des-estimateurs-widehata-et-widehatb" class="section level4 hasAnchor" number="7.1.6.6">
 <h4><span class="header-section-number">7.1.6.6</span> Variance des estimateurs <span class="math inline">\(\widehat{a}\)</span> et <span class="math inline">\(\widehat{b}\)</span><a href="statistique-inférentielle.html#variance-des-estimateurs-widehata-et-widehatb" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="callout-note" collapse="false" title="Estimateurs">
-<center>
-<strong>Variance des estimateurs</strong> <span class="math inline">\(\widehat{a}\)</span> et <span class="math inline">\(\widehat{b}\)</span>
-</center>
-<p>Les estimateurs <span class="math inline">\(\widehat{a}\)</span> et <span class="math inline">\(\widehat{b}\)</span> ont pour variances</p>
+<div class="thmbox thm">
+<p><strong>Théorème (variance des estimateurs MCO)</strong> Les estimateurs <span class="math inline">\(\widehat{a}\)</span> et <span class="math inline">\(\widehat{b}\)</span> ont pour variances</p>
 <span class="math display">\[\begin{align}
 \mathbb{V}(\widehat{a}|X_1,\dots, X_n) &amp;= \frac{\sigma_u^2}{\sum\limits_{i=1}^n (X_i-\overline{X}_n)^2} \\
 \mathbb{V}(\widehat{b}|X_1,\dots,X_n) &amp;=\sigma_u^2\left(\frac{1}{n}+ \frac{\overline{X}_n^2}{\sum\limits_{i=1}^n (X_i-\overline{X}_n)^2}\right)
 \end{align}\]</span>
 </div>
-<p>**Démonstration.** On remarque tout d’abord que</p>
+<p>
+<strong>Démonstration.</strong> On remarque tout d’abord que</p>
 <p><span class="math display">\[\mathbb{V}(Y_i|X_1,\dots,X_n)=\sigma_u^2\]</span></p>
 <p>En effet</p>
 <span class="math display">\[\begin{align}
@@ -686,11 +709,11 @@ $$</p>
 <h4><span class="header-section-number">7.1.6.7</span> Résidus<a href="statistique-inférentielle.html#résidus" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>La variance <span class="math inline">\(\sigma_u^2\)</span> des termes d’erreur <span class="math inline">\(u_i\)</span> n’est pas connue. Cependant, elle peut être estimée. Pour cela, on introduit la notion de <strong>résidu</strong>.</p>
 <p>Le résidu <span class="math inline">\(\widehat{u}_i\)</span> est défini comme l’écart entre la vraie valeur <span class="math inline">\(Y_i\)</span> et sa prédiction <span class="math inline">\(\widehat{Y}_i=\widehat{a}X_i+\widehat{b}\)</span> :</p>
-<p><span class="math display">\[\widehat{u}_i\equiv Y_i-\widehat{Y}_i\]</span> On a donc <span class="math display">\[\widehat{u}_i=Y_i-\widehat{a}X_i-\widehat{b}\]</span> Il s’agit d’une estimation (sans biais) de la vraie erreur</p>
+<p><span class="math display">\[\widehat{u}_i\equiv Y_i-\widehat{Y}_i\]</span> On a donc <span class="math display">\[\widehat{u}_i=Y_i-\widehat{a}X_i-\widehat{b}\]</span></p>
+<p>Il s’agit d’une estimation (sans biais) de la vraie erreur</p>
 <p><span class="math display">\[u_i=Y_i-aX_i-b\]</span></p>
-<div class="callout-note" collapse="false" title="Estimateurs">
-<center>
-<strong>Estimation de la variance</strong> <span class="math inline">\(\sigma_u^2\)</span>
+<div class="thmbox thm">
+<strong>Théorème (estimation de la variance) : </strong> <span class="math inline">\(\sigma_u^2\)</span>
 </center>
 <p>La variance <span class="math inline">\(\sigma_u^2\)</span> est estimée par</p>
 <p><span class="math display">\[s^2=\frac{1}{n-2}\sum\limits_{i=1}^n \widehat{u}_i^2\]</span></p>
@@ -699,8 +722,8 @@ $$</p>
 <div id="distributions-des-estimateurs-widehata-et-widehatb" class="section level4 hasAnchor" number="7.1.6.8">
 <h4><span class="header-section-number">7.1.6.8</span> Distributions des estimateurs <span class="math inline">\(\widehat{a}\)</span> et <span class="math inline">\(\widehat{b}\)</span><a href="statistique-inférentielle.html#distributions-des-estimateurs-widehata-et-widehatb" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>On admet alors le résultat suivant</p>
-<div class="callout-note" collapse="false" title="Estimateurs">
-<p>Sous l’hypothèse de normalité des termes d’erreur <span class="math inline">\(u_i\)</span>, on a</p>
+<div class="thmbox thm">
+<p><strong>Théorème :</strong> Sous l’hypothèse de normalité des termes d’erreur <span class="math inline">\(u_i\)</span>, on a</p>
 <p><span class="math display">\[\frac{(n-2)s^2}{\sigma_u^2}\sim\chi^2_{(n-2)}\]</span> et les statistiques</p>
 <p><span class="math display">\[\frac{\widehat{a}-a}{s\sqrt{\frac{1}{\sum\limits_{i=1}^n (X_i-\overline{X}_n)^2}}}\]</span> et</p>
 <p><span class="math display">\[\frac{\widehat{b}-b}{s\sqrt{\frac{1}{n}+\frac{\overline{X}_n^2}{\sum\limits_{i=1}^n (X_i-\overline{X}_n)^2}}}\]</span> suivent une loi de Student à <span class="math inline">\(n-2\)</span> degrés de liberté.</p>
@@ -744,24 +767,9 @@ $$</p>
 <ul>
 <li>le but est avant tout de montrer la démarche générale d’un test statistique à travers quelques exemples simples</li>
 </ul>
-<div class="callout-note">
-<p>Note that there are five types of callouts, including:
-<code>note</code>, <code>warning</code>, <code>important</code>, <code>tip</code>, and <code>caution</code>.</p>
-</div>
-</div>
-</div>
-<div id="tip-with-title" class="section level2 hasAnchor callout-tip" number="7.3">
-<h2><span class="header-section-number">7.3</span> Tip with Title<a href="statistique-inférentielle.html#tip-with-title" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>This is an example of a callout with a title.</p>
-</div>
-<div id="expand-to-learn-about-collapse" class="section level2 hasAnchor callout-caution" number="7.4" collapse="true">
-<h2><span class="header-section-number">7.4</span> Expand To Learn About Collapse<a href="statistique-inférentielle.html#expand-to-learn-about-collapse" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>This is an example of a ‘folded’ caution callout that can be expanded by the user. You can use <code>collapse="true"</code> to collapse it by default or <code>collapse="false"</code> to make a collapsible callout that is expanded by default.</p>
-</div>
-<div id="hello" class="greeting message" style="color: red;">
-<p>Hello <strong>world</strong>!</p>
-</div>
 
+</div>
+</div>
 </div>
             </section>
 
