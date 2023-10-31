@@ -23,7 +23,7 @@
 <meta name="author" content="Olivier Guin" />
 
 
-<meta name="date" content="2023-10-30" />
+<meta name="date" content="2023-10-31" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -363,8 +363,8 @@ f(x;\theta) &amp;\text{; si } X \text{ est une continue de densité } f(.;\theta
 \right.\]</span></p>
 <p>
 <strong>Remarque :</strong> D’autres notations existent dans la littérature, comme <span class="math inline">\(L(x|\theta), \mathbb{P}(X=x|\theta), f(x|\theta)\)</span>. Ces notations viennent de la statistique bayésienne (hors programme du concours) qui envisage <span class="math inline">\(\theta\)</span> comme une variable aléatoire de distribution inconnue. Dans ce cas, la vraisemblance s’interprète comme une probabilité ou une densité de probabilité.</p>
-<p>La définition précédente s’étend au cas d’un échantillon <span class="math inline">\((X_1,\dots X_n)\)</span> de VA de même loi que <span class="math inline">\(X\)</span>. Un cas particulier important est celui où ces VA sont i.i.d. Dans ce cas, la vraisemblance est définie par</p>
-<p><span class="math display">\[L(x;\theta)=L(x_1,\dots,x_n ; \theta) \left\{
+<p>La définition précédente s’étend au cas d’un échantillon <span class="math inline">\((X_1,\dots X_n)\)</span> de VA de même loi que <span class="math inline">\(X\)</span>. Dans ce cas, on note souvent <span class="math inline">\(L_n(x;\theta)\)</span> la vraisemblance, pour faire apparaître la dépendance en <span class="math inline">\(n\)</span>. Un cas particulier important est celui où ces VA sont i.i.d. Dans ce cas, la vraisemblance est définie par</p>
+<p><span class="math display">\[L_n(x;\theta)=L_n(x_1,\dots,x_n ; \theta)=\left\{
 \begin{array}{lll}
 \prod\limits_{i=1}^n\mathbb{P}_{\theta}(X_i=x_i) &amp;\text{; si } X \text{ est discrète} \\
 \prod\limits_{i=1}^n f(x_i,\theta) &amp;\text{; si } X \text{ est une continue de densité } f(.;\theta) \\
@@ -376,53 +376,56 @@ f(x;\theta) &amp;\text{; si } X \text{ est une continue de densité } f(.;\theta
 <strong>Méthode du maximum de vraisemblance</strong>
 </center>
 <p>Etant donné une collection de <span class="math inline">\(n\)</span> réalisations <span class="math inline">\(x=(x_1,\dots, x_n)\)</span> des VA <span class="math inline">\((X_1,\dots X_n)\)</span> de même loi <span class="math inline">\(\mathcal{L}_{\theta}\)</span> de paramètre inconnu <span class="math inline">\(\theta\)</span>, on appelle <em>estimation du maximum de vraisemblance</em> toute estimation <span class="math inline">\(\widehat{\theta}_n=\widehat{\theta}_n(x_1,\dots,x_n)\)</span> vérifiant</p>
-<p><span class="math display">\[\widehat{\theta}_n\in \arg\max\limits_{\theta\in\Theta}L(x;\theta)\]</span> **Cas particulier :** si la fonction <span class="math inline">\(\theta\mapsto L(x;\theta)\)</span> est deux fois dérivable sur <span class="math inline">\(\Theta\)</span>, alors on peut chercher à résoudre (en $) le système</p>
+<p><span class="math display">\[\widehat{\theta}_n\in \arg\max\limits_{\theta\in\Theta}L_n(x;\theta)\]</span>
+<strong>Cas particulier :</strong> si la fonction <span class="math inline">\(\theta\mapsto L_n(x;\theta)\)</span> est deux fois dérivable sur <span class="math inline">\(\Theta\)</span>, alors on peut chercher à résoudre (en <span class="math inline">\(\theta\)</span>) le système</p>
 <p><span class="math display">\[\left\{
 \begin{array}{lll}
-\frac{\partial}{\partial\theta}L(x;\theta)=0 \\
-\frac{\partial^2}{\partial\theta^2}L(x;\theta)&lt;0 \\
+\frac{\partial}{\partial\theta}L_n(x;\theta)=0 \\
+\frac{\partial^2}{\partial\theta^2}L_n(x;\theta)&lt;0 \\
 \end{array}
 \right.\]</span>
 Les solutions de ce système fournissent des estimations par maximum de vraisemblance.</p>
 </div>
-<p>
-<strong>Log-vraisemblance.</strong> Il est souvent plus commode de considérer la log-vraisemblance <span class="math inline">\(l(x;\theta)=\ln L(x;\theta)=\sum\limits_{i=1}^n \ln L(x_i;\theta)\)</span>. La fonction <span class="math inline">\(\ln\)</span> étant croissante sur <span class="math inline">\(\mathbb{R}_{+}^*\)</span>, maximiser la vraisemblance équivaut à maximiser la log-vraisemblance.</p>
+<p></p>
+<p><strong>Log-vraisemblance.</strong> Il est souvent plus commode de considérer la log-vraisemblance <span class="math inline">\(l_n(x;\theta)=\ln L_n(x;\theta)=\sum\limits_{i=1}^n \ln L_n(x_i;\theta)\)</span>. La fonction <span class="math inline">\(\ln\)</span> étant croissante sur <span class="math inline">\(\mathbb{R}_{+}^*\)</span>, maximiser la vraisemblance équivaut à maximiser la log-vraisemblance.</p>
 <div class="methbox meth">
 <center>
-<strong>Méthode du maximum de vraisemblance (version log-vraisemblance)</strong>
+<strong>Maximisation de la log-vraisemblance</strong>
 </center>
-<p>En supposant que <span class="math inline">\(L(x;\theta)&gt;0\)</span> pour tout <span class="math inline">\(\theta\in\Theta\)</span>, on note <span class="math inline">\(l(x;\theta)=\ln L(x;\theta)\)</span> la log-vraisemblance. Sous les mêmes hypothèses que ci-dessus, on cherche</p>
-<p><span class="math display">\[\widehat{\theta}_n\in\arg\max\limits_{\theta\in\Theta}\left(\ln L(x;\theta)\right)\]</span> **Cas particulier :** si la fonction <span class="math inline">\(\theta\mapsto L(x;\theta)\)</span> est deux fois dérivable sur <span class="math inline">\(\Theta\)</span>, alors la fonction <span class="math inline">\(\theta\mapsto l(x;\theta)\)</span> l’est aussi et on peut chercher à résoudre (en <span class="math inline">\(\theta\)</span>) le système</p>
+<p>En supposant que <span class="math inline">\(L_n(x;\theta)&gt;0\)</span> pour tout <span class="math inline">\(\theta\in\Theta\)</span>, on note <span class="math inline">\(l_n(x;\theta)=\ln L_n(x;\theta)\)</span> la log-vraisemblance. Sous les mêmes hypothèses que ci-dessus, on cherche</p>
+<p><span class="math display">\[\widehat{\theta}_n\in\arg\max\limits_{\theta\in\Theta}\left(l_n(x;\theta)\right)\]</span></p>
+<p></p>
+<p><strong>Cas particulier :</strong> si la fonction <span class="math inline">\(\theta\mapsto L_n(x;\theta)\)</span> est deux fois dérivable sur <span class="math inline">\(\Theta\)</span>, alors la fonction <span class="math inline">\(\theta\mapsto l_n(x;\theta)\)</span> l’est aussi et on peut chercher à résoudre (en <span class="math inline">\(\theta\)</span>) le système</p>
 <p><span class="math display">\[\left\{
 \begin{array}{lll}
-\frac{\partial}{\partial\theta}l(x;\theta)=0 \\
-\frac{\partial^2}{\partial\theta^2}l(x;\theta)&lt;0 \\
+\frac{\partial}{\partial\theta}l_n(x;\theta)=0 \\
+\frac{\partial^2}{\partial\theta^2}l_n(x;\theta)&lt;0 \\
 \end{array}
 \right.\]</span> Les solutions de ce système fournissent des estimations par maximum de vraisemblance.</p>
 </div>
 <p>
 <strong>Exemple 6 : loi normale.</strong> <span class="math inline">\(\mathcal{N}(\mu, 1)\)</span>. On veut estimer le paramètre inconnu <span class="math inline">\(\mu\)</span> par maximum de vraisemblance. La vraisemblance est donnée par</p>
 <span class="math display">\[\begin{align}
-L(x;\mu)&amp;=\prod\limits_{i=1}^n\left(\frac{e^{-\frac{(x_i-\mu)^2}{2}}}{\sqrt{2\pi}}\right)\\
+L_n(x;\mu)&amp;=\prod\limits_{i=1}^n\left(\frac{e^{-\frac{(x_i-\mu)^2}{2}}}{\sqrt{2\pi}}\right)\\
 &amp;=\frac{1}{(2\pi)^{\frac{n}{2}}}e^{-\sum\limits_{i=1}^n (x_i-\mu)^2}
 \end{align}\]</span>
 <p>La log-vraisemblance est plus facile à manipuler :</p>
 <span class="math display">\[\begin{align}
-l(x;\mu)&amp;=\ln L(x;\mu) \\
+l_n(x;\mu)&amp;=\ln L_n(x;\mu) \\
 &amp;= -\frac{n}{2}\ln(2\pi)-\sum\limits_{i=1}^n(x_i-\mu)^2
 \end{align}\]</span>
-<p>La fonction <span class="math inline">\(\mu\mapsto l(x;\mu)\)</span> est deux fois dérivable sur <span class="math inline">\(\mathbb{R}\)</span> et <span class="math inline">\(\frac{\partial}{\partial\mu}l(x;\mu)=2\sum_{i=1}^n(\mu-x_i)\)</span>. Une seule valeur de <span class="math inline">\(\mu\)</span> l’annule :</p>
-<p><span class="math display">\[\widehat{\mu}_n=\frac{1}{n}\sum\limits_{i=1}^n x_i=\overline{x}_n\]</span> Par ailleurs <span class="math inline">\(\frac{\partial^2}{\partial\mu^2}l(x;\mu)=2n&gt;0\)</span>, et donc <span class="math inline">\(\widehat{\mu}_n\in\arg\max\limits_{\mu\in\mathbb{R}}l(x;\mu)\)</span>. Finalement, un estimateur par maximum de vraisemblance est donné par</p>
+<p>La fonction <span class="math inline">\(\mu\mapsto l_n(x;\mu)\)</span> est deux fois dérivable sur <span class="math inline">\(\mathbb{R}\)</span> et <span class="math inline">\(\frac{\partial}{\partial\mu}l_n(x;\mu)=2\sum_{i=1}^n(\mu-x_i)\)</span>. Une seule valeur de <span class="math inline">\(\mu\)</span> l’annule :</p>
+<p><span class="math display">\[\widehat{\mu}_n=\frac{1}{n}\sum\limits_{i=1}^n x_i=\overline{x}_n\]</span> Par ailleurs <span class="math inline">\(\frac{\partial^2}{\partial\mu^2}l_n(x;\mu)=2n&gt;0\)</span>, et donc <span class="math inline">\(\widehat{\mu}_n\in\arg\max\limits_{\mu\in\mathbb{R}}l(x;\mu)\)</span>. Finalement, un estimateur par maximum de vraisemblance est donné par</p>
 <p><span class="math display">\[\widehat{\mu}_n=\overline{X}_n=\frac{1}{n}\sum\limits_{i=1}^n X_i\]</span></p>
 <p>
 <strong>Remarque.</strong> Comme souvent en statistique, on commet un léger abus de notation en désignant par la même lettre l’estimateur <span class="math inline">\(\widehat{\mu}_n=\frac{X_1+\dots+X_n}{n}=\widehat{\mu}_n(X_1,\dots,X_n)\)</span> (qui est une statistique, i.e. une fonction de <span class="math inline">\((X_1,\dots,X_n\)</span>) et l’estimation <span class="math inline">\(\widehat{\mu}_n=\frac{x_1+\dots+x_n}{n}=\widehat{\mu}_n(x_1,\dots, X_n)\)</span> qui en est une réalisation. Conditionnellement à <span class="math inline">\((X_1,\dots,X_n)\)</span> (i.e. si l’on suppose que l’on observe <span class="math inline">\((X_1,\dots, X_n)\)</span>) ces deux objets sont bien les mêmes.</p>
 <p>
 <strong>Exemple 7 : loi expoentielle.</strong> Soit <span class="math inline">\((X_1,\dots,X_n)\)</span> un échantillon i.i.d. tiré selon une loi exponentielle <span class="math inline">\(\mathcal{E}(\lambda)\)</span> de paramètre <span class="math inline">\(\lambda&gt;0\)</span> inconnu. La vraisemblance est donnée par <span class="math display">\[\begin{align}
-L(x;\lambda)&amp;=\prod\limits_{i=1}^n (\lambda e^{-\lambda x_i}\mathbb{1}_{x_i\geq 0}) \\
+L_n(x;\lambda)&amp;=\prod\limits_{i=1}^n (\lambda e^{-\lambda x_i}\mathbb{1}_{x_i\geq 0}) \\
 \end{align}\]</span></p>
 <p>Si l’un des <span class="math inline">\(x_i\)</span> est négatif elle vaut <span class="math inline">\(0\)</span>. Sinon on calcule la log-vraisemblance</p>
-<p><span class="math display">\[l(x;\lambda)=n\ln(\lambda)-\lambda\sum_{i=1}^n x_i\]</span></p>
-<p>La fonction <span class="math inline">\(\lambda\in\mathbb{R}_{+}^*\mapsto l(x;\lambda)\)</span> est deux fois dérivable et <span class="math inline">\(\frac{\partial}{\partial\lambda}l(x;\lambda)=\frac{n}{\lambda}-\sum\limits_{i=1}^n x_i\)</span>, qui s’annule en <span class="math inline">\(\lambda=\frac{n}{\sum\limits_{i=1}^n x_i}=\frac{1}{\overline{x}_n}\)</span>. De plus, <span class="math inline">\(\frac{\partial^2}{\partial\lambda^2}l(x;\lambda)=-\frac{n}{\lambda^2}&lt;0\)</span> et donc à <span class="math inline">\(x\)</span> fixé, <span class="math inline">\(l(x;\lambda)\)</span> atteint son maximum en <span class="math inline">\(\frac{1}{\overline{x_n}}\)</span>. L’estimateur du maximum de vraisemblance est donc <span class="math inline">\(\widehat{\lambda}_n=\frac{1}{\overline{X}_n}\)</span>. On remarque qu’on retrouve ici le même estimateur que celui obtenu par la méthode des moments.</p>
+<p><span class="math display">\[l_n(x;\lambda)=n\ln(\lambda)-\lambda\sum_{i=1}^n x_i\]</span></p>
+<p>La fonction <span class="math inline">\(\lambda\in\mathbb{R}_{+}^*\mapsto l_n(x;\lambda)\)</span> est deux fois dérivable et <span class="math inline">\(\frac{\partial}{\partial\lambda}l_n(x;\lambda)=\frac{n}{\lambda}-\sum\limits_{i=1}^n x_i\)</span>, qui s’annule en <span class="math inline">\(\lambda=\frac{n}{\sum\limits_{i=1}^n x_i}=\frac{1}{\overline{x}_n}\)</span>. De plus, <span class="math inline">\(\frac{\partial^2}{\partial\lambda^2}l_n(x;\lambda)=-\frac{n}{\lambda^2}&lt;0\)</span> et donc à <span class="math inline">\(x\)</span> fixé, <span class="math inline">\(l_n(x;\lambda)\)</span> atteint son maximum en <span class="math inline">\(\frac{1}{\overline{x_n}}\)</span>. L’estimateur du maximum de vraisemblance est donc <span class="math inline">\(\widehat{\lambda}_n=\frac{1}{\overline{X}_n}\)</span>. On remarque qu’on retrouve ici le même estimateur que celui obtenu par la méthode des moments.</p>
 </div>
 </div>
 <div id="compléments-hors-programme" class="section level3 hasAnchor" number="7.1.5">
@@ -438,25 +441,27 @@ L(x;\lambda)&amp;=\prod\limits_{i=1}^n (\lambda e^{-\lambda x_i}\mathbb{1}_{x_i\
 <p>Ces notions ne sont pas au programme du concours, mais elles sont clairement dans sa périphérie immédiate. On les retrouve d’ailleurs dans le sujet d’interne 2022, mais leur connaissance n’est pas requise pour traiter le sujet.</p>
 <div id="information-de-fisher" class="section level4 hasAnchor" number="7.1.5.1">
 <h4><span class="header-section-number">7.1.5.1</span> Information de Fisher<a href="statistique-inférentielle.html#information-de-fisher" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Soient <span class="math inline">\(X\)</span> une variable aléatoire à valeurs dans <span class="math inline">\(\mathcal{X}\)</span> de loi <span class="math inline">\(f(x;\theta)&gt;0\)</span>, <span class="math inline">\(\theta\in\mathbb{R}\)</span>. On fait les hypothèses suivantes :</p>
+<p>Soient <span class="math inline">\(X\)</span> une variable aléatoire (discrète ou continue) à valeurs dans <span class="math inline">\(\mathcal{X}\)</span> de loi <span class="math inline">\(L(x;\theta)&gt;0\)</span>, avec <span class="math inline">\(\theta\in\mathbb{R}\)</span>. On fait les hypothèses suivantes :</p>
 <ul>
-<li>existence de <span class="math inline">\(\frac{\partial f}{\partial\theta}(x;\theta)\)</span> et de <span class="math inline">\(\frac{\partial^2}{\partial\theta^2}f(x;\theta)\)</span></li>
+<li>existence de <span class="math inline">\(\frac{\partial L}{\partial\theta}(x;\theta)\)</span> et de <span class="math inline">\(\frac{\partial^2}{\partial\theta^2}L(x;\theta)\)</span></li>
 <li>on peut échanger tous les opérateurs de dérivation (à l’ordre <span class="math inline">\(1\)</span> et <span class="math inline">\(2\)</span>) et d’intégration</li>
 </ul>
-<p>On appelle alors <strong>score</strong> la quantité (aléatoire) <span class="math inline">\(\frac{\partial}{\partial\theta}\,\ln f(X;\theta)\)</span>, i.e. la dérivée de la log-vraisemblance par rapport à <span class="math inline">\(\theta\)</span>.</p>
+<p>On considère un échantillon i.i.d. <span class="math inline">\((X_1,\dots,X_n)\)</span> tel que chacun des <span class="math inline">\(X_i\)</span> suit la même loi que <span class="math inline">\(X\)</span>. Pour <span class="math inline">\(x=(x_1,\dots,x_n)\)</span> une réalisation de l’échantillon aléatoire <span class="math inline">\((X_1,\dots, X_n)\)</span>, On note <span class="math inline">\(L_n(x;\theta)\)</span> la vraisemblance de <span class="math inline">\((x_1,\dots, x_n)\)</span> :</p>
+<p><span class="math display">\[L_n(x;\theta)=\prod\limits_{i=1}^n L(x_i;\theta)\]</span></p>
+<p>On appelle alors <strong>score</strong> la quantité (aléatoire) <span class="math inline">\(\frac{\partial}{\partial\theta}\,\ln L_n(X;\theta)=\frac{\partial}{\partial\theta}\, l_n(X;\theta)\)</span>, i.e. la dérivée de la log-vraisemblance par rapport à <span class="math inline">\(\theta\)</span>.</p>
 <div class="thmbox thm">
 <p><strong>Théorème :</strong> On a</p>
-<p><span class="math display">\[\mathbb{E}_{\theta}\left(\frac{\partial }{\partial\theta}\,\ln f(X;\theta)\right)=0\]</span></p>
+<p><span class="math display">\[\mathbb{E}_{\theta}\left(\frac{\partial }{\partial\theta}\, l_n(X;\theta)\right)=0\]</span></p>
 <p>i.e. le score est d’espérance nulle.</p>
 </div>
 <p>
-<strong>Démonstration.</strong>
+<strong>Démonstration.</strong> On démontre cette égalité dans le cas à densité :
 <span class="math display">\[\begin{align}
-\mathbb{E}_{\theta}\left(\frac{\partial}{\partial\theta}\,\ln f(X ; \theta)\right) &amp;= \int_{\mathbb{R}} \frac{\partial}{\partial\theta}\ln f(x;\theta)\,f(x;\theta)\,dx \\
-&amp;=\int_{\mathbb{R}}\frac{\frac{\partial f}{\partial\theta}(x;\theta)}{f(x;\theta)}\,f(x;\theta)\,dx \\
-&amp;= \int_{\mathbb{R}} \frac{\partial f}{\partial\theta}(x;\theta)\,dx \\
-&amp;=\frac{\partial}{\partial\theta}\int_{\mathbb{R}} f(x;\theta) \, dx \text{ (on permute intégrale et dérivée)} \\
-&amp;= 0 \text{ (car } \int_{\mathbb{R}} f(x;\theta)\,dx=1\text{)} \\
+\mathbb{E}_{\theta}\left(\frac{\partial}{\partial\theta}\, l_n(X ; \theta)\right) &amp;= \int_{\mathbb{R}^n} \frac{\partial}{\partial\theta} \,l_n(x;\theta)\,L_n(x;\theta)\,dx \\
+&amp;=\int_{\mathbb{R}^n}\frac{\frac{\partial L_n}{\partial\theta}(x;\theta)}{L_n(x;\theta)}\,L_n(x;\theta)\,dx \\
+&amp;= \int_{\mathbb{R}^n} \frac{\partial L_n}{\partial\theta}(x;\theta)\,dx \\
+&amp;=\frac{\partial}{\partial\theta}\int_{\mathbb{R}^n} L_n(x;\theta) \, dx \text{ (on permute intégrale et dérivée)} \\
+&amp;= 0 \text{ (car } \int_{\mathbb{R}^n} L_n(x;\theta)\,dx=1\text{)} \\
 \end{align}\]</span>
 <span class="math inline">\(\square\)</span></p>
 <p>L’information de Fisher est définie à partir du score de la façon suivante :</p>
@@ -465,12 +470,12 @@ L(x;\lambda)&amp;=\prod\limits_{i=1}^n (\lambda e^{-\lambda x_i}\mathbb{1}_{x_i\
 <strong>Information de Fisher</strong>
 </center>
 <p>L’<strong>information de Fisher</strong> est la quantité définie par</p>
-<p><span class="math display">\[I(\theta)\equiv\mathbb{E}_{\theta}\left(\left(\frac{\partial }{\partial\theta}\,\ln f(X;\theta)\right)^2\right)=\mathbb{V}_{\theta}\left(\frac{\partial}{\partial\theta}\ln f(X;\theta)\right)\]</span></p>
+<p><span class="math display">\[I_n(\theta)\equiv\mathbb{E}_{\theta}\left(\left(\frac{\partial }{\partial\theta}\, l_n(X;\theta)\right)^2\right)=\mathbb{V}_{\theta}\left(\frac{\partial}{\partial\theta}l_n(X;\theta)\right)\]</span></p>
 <p>L’information de Fisher est aussi égale à</p>
-<p><span class="math display">\[I(\theta)=-\mathbb{E}_{\theta}\left(\frac{\partial^2}{\partial\theta^2} \ln f(X;\theta)\right)\]</span></p>
+<p><span class="math display">\[I_n(\theta)=-\mathbb{E}_{\theta}\left(\frac{\partial^2}{\partial\theta^2} l_n(X;\theta)\right)\]</span></p>
 </div>
 <p>
-<strong>Interprétation de l’information de Fisher.</strong> On utilise généralement l’information de Fisher lorsqu’on veut inférer sur un paramètre inconnu <span class="math inline">\(\theta\)</span> par maximum de vraisemblance. Par construction, l’estimation <span class="math inline">\(\widehat{\theta}\)</span> que l’on obtient par cette méthode est celle qui maximise la log-vraisemblance <span class="math inline">\(\ln f(X;\theta)\)</span>, pour une observation de <span class="math inline">\(X\)</span> donnée. L’expression <span class="math inline">\(I(\theta)=-\mathbb{E}_{\theta}\left(\frac{\partial^2}{\partial\theta^2}\ln f(X;\theta)\right)\)</span> montre que l’information de Fisher correspond (au signe près) à la courbure de la log-vraisemblance. Plus celle-ci est importante, plus la courbe présente un “pic” autour du maximum, et donc plus la valeur estimée de ce maximum est précise. Au contraire, si la courbure est faible, la courbe est aplatie autour du maximum, et donc l’estimation de <span class="math inline">\(\theta\)</span> sera moins précise. Dit autrement, l’information de Fisher quantifie le niveau d’information que nous apporte l’observation relativement au paramètre <span class="math inline">\(\theta\)</span>.</p>
+<strong>Interprétation de l’information de Fisher.</strong> On utilise généralement l’information de Fisher lorsqu’on veut inférer sur un paramètre inconnu <span class="math inline">\(\theta\)</span> par maximum de vraisemblance. Par construction, l’estimation <span class="math inline">\(\widehat{\theta}\)</span> que l’on obtient par cette méthode est celle qui maximise la log-vraisemblance <span class="math inline">\(\ln L_n(X;\theta)\)</span>, pour une observation de <span class="math inline">\(X\)</span> donnée. L’expression <span class="math inline">\(I_n(\theta)=-\mathbb{E}_{\theta}\left(\frac{\partial^2}{\partial\theta^2}\ln L_n(X;\theta)\right)\)</span> montre que l’information de Fisher correspond (au signe près) à la courbure de la log-vraisemblance. Plus celle-ci est importante, plus la courbe présente un “pic” autour du maximum, et donc plus la valeur estimée de ce maximum est précise. Au contraire, si la courbure est faible, la courbe est aplatie autour du maximum, et donc l’estimation de <span class="math inline">\(\theta\)</span> sera moins précise. Dit autrement, l’information de Fisher quantifie le niveau d’information que nous apporte l’observation relativement au paramètre <span class="math inline">\(\theta\)</span>.</p>
 </div>
 <div id="borne-de-cramer-rao" class="section level4 hasAnchor" number="7.1.5.2">
 <h4><span class="header-section-number">7.1.5.2</span> Borne de Cramer-Rao<a href="statistique-inférentielle.html#borne-de-cramer-rao" class="anchor-section" aria-label="Anchor link to header"></a></h4>
