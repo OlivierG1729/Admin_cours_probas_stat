@@ -345,21 +345,167 @@ $\square$
 $$I_n(\theta)\equiv\mathbb{E}_{\theta}\left(\left(\frac{\partial }{\partial\theta}\, l_n(X;\theta)\right)^2\right)=\mathbb{V}_{\theta}\left(\frac{\partial}{\partial\theta}l_n(X;\theta)\right)$$
 
 
-\noindent L'information de Fisher est aussi égale à 
+\noindent Lorsque le domaine de $X$ ne dépend pas de $\theta$, l'information de Fisher est aussi égale à 
 
 $$I_n(\theta)=-\mathbb{E}_{\theta}\left(\frac{\partial^2}{\partial\theta^2} l_n(X;\theta)\right)$$
+\noindent Cette dernière expression est généralement plus facile à calculer.
+::::
+
+
+\vspace{0.5cm}
+
+\noindent
+**Interprétation de l'information de Fisher.** On utilise généralement l'information de Fisher lorsqu'on veut inférer sur un paramètre inconnu $\theta$ par maximum de vraisemblance. Par construction, l'estimation $\widehat{\theta}$ que l'on obtient par cette méthode est celle qui maximise la log-vraisemblance $\ln L_n(X;\theta)$, pour une observation de $X$ donnée. L'expression $I_n(\theta)=-\mathbb{E}_{\theta}\left(\frac{\partial^2}{\partial\theta^2}\ln L_n(X;\theta)\right)$ montre que l'information de Fisher correspond (au signe près) à la courbure de la log-vraisemblance. Plus celle-ci est importante, plus la courbe présente un "pic" autour du maximum, et donc plus la valeur estimée de ce maximum est précise. Au contraire, si la courbure est faible, la courbe est aplatie autour du maximum, et donc l'estimation de $\theta$ sera moins précise. Dit autrement, l'information de Fisher quantifie le niveau d'information que nous apporte l'observation relativement au paramètre $\theta$.
+
+\vspace{0.5cm}
+
+\noindent 
+**Démonstration.** Etant donné que $\mathbb{E}_{\theta}\left(\frac{\partial}{\partial\theta} \,l_n(X;\theta)\right)=0$ on a $\mathbb{V}_{\theta}\left(\frac{\partial}{\partial\theta} \,l_n(X;\theta)\right)=\mathbb{E}_\theta\left(\left(\frac{\partial}{\partial\theta} \,l_n(X;\theta\right)^2\right)$, ce qui démontre la première égalité.
+\noindent Pour démontrer la deuxième égalité, on dérive par rapport à $\theta$ l'égalité $\mathbb{E}_{\theta}\left(\frac{\partial}{\partial\theta} \,l_n(X;\theta)\right)=0$. Pour cela, on utilise la permutation $\frac{\partial}{\partial\theta}\int=\int\frac{\partial}{\partial\theta}$ qui est possible car le domaine de $X$ ne dépend pas de $\theta$. On obtient donc :
+
+\begin{align}
+0 &= \frac{\partial}{\partial\theta}\mathbb{E}_{\theta}\left(\frac{\partial}{\partial\theta} \,l_n(X;\theta)\right) \\
+&= \frac{\partial}{\partial\theta}\int_{\mathbb{R}^n}\left(\frac{\partial}{\partial\theta} \,l_n(X;\theta)\right) L_n(x;\theta)\,dx \\
+&=\int_{\mathbb{R}^n}\frac{\partial}{\partial\theta}\left(\left(\frac{\partial}{\partial\theta} \,l_n(X;\theta)\right) L_n(x;\theta)\right)\,dx \\
+&=\int_{\mathbb{R}^n}\left(\frac{\partial^2}{\partial\theta^2}l_n(x;\theta)\right)L_n(x;\theta)\,dx+\int_{\mathbb{R}^n}\frac{\partial}{\partial\theta}l_n(x;\theta)\frac{\partial}{\partial\theta}L_n(x;\theta)\,dx \\
+&= \int_{\mathbb{R}^n}\left(\frac{\partial^2}{\partial\theta^2}l_n(x;\theta)\right)L_n(x;\theta)\,dx+\int_{\mathbb{R}^n}\left(\frac{\partial}{\partial\theta}l_n(x;\theta)\right)^2 L_n(x;\theta)\,dx \\
+&= \mathbb{E}_{\theta}\left(\frac{\partial^2}{\partial\theta^2} l_n(X;\theta)\right)+\mathbb{E}_{\theta}\left(\left(\frac{\partial}{\partial\theta} l_n(X;\theta)\right)^2\right)
+\end{align}
+
+\noindent d'où
+
+$$\mathbb{E}_{\theta}\left(\frac{\partial^2}{\partial\theta^2} l_n(X;\theta)\right)=-\mathbb{E}_{\theta}\left(\left(\frac{\partial}{\partial\theta} l_n(X;\theta)\right)^2\right)$$
+
+\noindent ce qui achève la démonstration.
+$\square$
+
+\noindent L'information de Fisher vérifie une propriété d'additivité :
+
+:::: {.thmbox .thm data-latex="important"}
+\noindent
+**Théorème (additivité de l'information de Fisher) :** Si l'ensemble $\left\{x\in\mathbb{R}^n, f(x;\theta)>0\right\}$ ne dépend pas de $\theta$, alors l'information de Fisher est additive, i.e.
+
+$$I_n(\theta)=n\,I_1(\theta)$$
+:::
+
+\noindent Si le domaine de $X$ ne dépend pas de $\theta$, l'information de Fisher apportée par un échantillon $(X_1,\dots,X_n)$ est donc égale à $n$ fois l'information de Fisher apportée par chacune des observations $X_i$. Cela signifie que chaque observation apporte la même information de Fisher.
+
+#### Borne de Fréchet-Darmois-Cramer-Rao
+
+\noindent Sous certaines hypothèses, on peut montrer que la variance d'un estimateur sans biais ne peut être inférieure à une certaine borne, appelée borne de Fréchet-Darmois-Cramer-Rao, liée à l'information de Fisher :
+
+:::: {.thmbox .thm data-latex="important"}
+**Théorème :** On suppose que les hypothèses suivantes, appelées **hypothèses de Cramer-Rao**, sont vérifiées :
+
+- **(H1) :** $\Theta$ est un ouvert sur lequel $f(x;\theta)>0$ et $\theta\mapsto f(x;\theta)$ est dérivable pour tout $x$ 
+
+- **(H2) :** on peut permuter $\int$ et $\frac{\partial}{\partial\theta}$ 
+
+- **(H3) :** $\forall\theta\in\Theta, \, I_n(\theta)>0$
+
+- **(H4) :** $g:\Theta\longrightarrow\mathbb{R}$ est une fonction dérivable 
+
+\noindent Alors, pour tout estimateur **sans biais** $T_n=T_n(X_1,\dots, X_n)$ de $g(\theta)$ on a l'inégalité
+
+$$\mathbb{V}_{\theta}(T_n)\geq\frac{\left(g'(\theta)\right)^2}{I_n(\theta)}$$
+
+\noindent Le nombre $\frac{\left(g'(\theta)\right)^2}{I_n(\theta)}$ s'appelle la **borne de Fréchet-Darmois-Cramer-Rao (FDCR)**.
+
+\noindent Dans le cas particulier où $T_n=\widehat{\theta}_n$ est un estimateur sans biais de $\theta$ (cas où $g(\theta)=\theta$) on a $\mathbb{V}_{\theta}(\widehat{\theta}_n)\geq\frac{1}{I_n(\theta)}$.
+:::
+
+\vaspace{0.5cm}
+
+\noindent Ce théorème est admis.
+
+\noindent La borne FDCR n'est pas nécessairement atteinte. Quand elle l'est, l'estimateur qui l'atteint est dit **efficace** :
+
+:::: {.defbox .def data-latex="important"}
+<center>**Estimateurs efficaces**</center>
+
+\vspace{0.5cm}
+
+\noindent Un estimateur $T_n$ *sans biais* de $g(\theta)$ tel que $\mathbb{V}_{\theta}(T_n)=\frac{\left(g'(\theta)\right)^2}{I_n(\theta)}$ est appelé un **estimateur efficace**.
+:::
+
+
+
+#### Statistiques exhaustives
+
+\noindent Tout échantillon $(X_1,\dots, X_n)$ tel que $X_i\sim\mathcal{L}_{\theta}$ apporte de l'information sur le paramètre inconnu $\theta$, et donc sur la loi inconnue $\mathcal{L}_{\theta}$. Plutôt que de faire de l'inférence à partir de l'échantillon $(X_1,\dots, X_n)$ on préfère en général utiliser une statistique $T_n=T(X_1,\dots,X_n)$, qui est une sorte de résumé de l'échantillon tout entier. La contrepartie est qu'en général, le passage de $(X_1,\dots,X_n)$ à son résumé $T_n$ génère une perte d'information sur $\theta$. Une statistique exhaustive est une statistique qui n'engendre pas de telle perte, autrement dit elle contient toute l'information sur $\theta$ contenue dans l'échantillon $(X_1,\dots, X_n)$. On formalise cette idée de la façon suivante :
+
+:::: {.defbox .def data-latex="important"}
+<center>**Statistiques exhaustives**</center>
+
+\noindent Une statistique $T_n$ est dite **exhaustive** si la loi conditionnelle $\mathcal{L}(X|T_n=t)$ est indépendante de $\theta$. Conditionnellement à l'observation $T=t$, la loi de $X$ ne dépend plus de $\theta$ :
+
+$$\mathbb{P}(X=x|T=t,\theta)=\mathbb{P}(X=x|T=t) \text{    (pour une loi discrète)}$$
+
+$$f(x|T=t,\theta)=f(x|T=t) \text{    (pour une loi continue)}$$
+::::
+
+\noindent Dit autrement, une fois que l'on sait que $T_n=t$, ajouter la connaissance de $X$ n'apporte plus aucune information supplémentaire sur $\theta$.
+
+\noindent Cette définition n'est pas très commode à manipuler, et en pratique pour démontrer qu'une statistique est (ou n'est pas) exhaustive on utilise plutôt le théorème de factorisation de Neyman-Fisher :
+
+:::: {.defbox .def data-latex="important"}
+**Théorème (factorisation de Neyman-Fisher) :** Une statistique $T_n$ est exhaustive si, et seulement s'il existe deux fonctions mesurables positives $g$ et $h$ telles qu'on ait la factorisation suivante :
+
+$$L_n(x;\theta)=g(T_n(x);\theta).h(x)$$
 ::::
 
 \noindent
-\vspace{0.5cm}
-**Interprétation de l'information de Fisher.** On utilise généralement l'information de Fisher lorsqu'on veut inférer sur un paramètre inconnu $\theta$ par maximum de vraisemblance. Par construction, l'estimation $\widehat{\theta}$ que l'on obtient par cette méthode est celle qui maximise la log-vraisemblance $\ln L_n(X;\theta)$, pour une observation de $X$ donnée. L'expression $I_n(\theta)=-\mathbb{E}_{\theta}\left(\frac{\partial^2}{\partial\theta^2}\ln L_n(X;\theta)\right)$ montre que l'information de Fisher correspond (au signe près) à la courbure de la log-vraisemblance. Plus celle-ci est importante, plus la courbe présente un "pic" autour du maximum, et donc plus la valeur estimée de ce maximum est précise. Au contraire, si la courbure est faible, la courbe est aplatie autour du maximum, et donc l'estimation de $\theta$ sera moins précise. Dit autrement, l'information de Fisher quantifie le niveau d'information que nous apporte l'observation relativement au paramètre $\theta$.
+**Remarques : i.** La notion de mesurabilité n'est pas au programme du concours. Il s'agit d'une classe très générale de fonctions, qui englobe en particulier les fonctions continues, continues par morceaux etc. Il est même assez compliqué de construire une fonction non mesurable. En pratique :
+
+- pour démontrer qu'une statistique est exhaustive, il suffit de montrer qu'une telle décomposition existe avec $g$ et $h$ continues (car continue implique mesurable) ;
+
+- pour démontrer qu'une telle statistique n'est pas exhaustive, il suffit de démontrer qu'une telle décomposition avec $g$ et $h$ quelconques est impossible (elle sera en particulier impossible avec $g$ et $h$ mesurables).
+
+\noindent 
+**ii.** Il n'y a pas unicité du couple $(g,h)$. Par exemple, si $(g,h)$ permet une factorisation, alors pour tout $\lambda$ strictement positif $\left(\lambda g, \frac{h}{\lambda}\right)$ aussi.
+
+#### Famille exponentielle
+
+\noindent Les densités suivantes assurent l'existence d'une statistique exhaustive :
+
+:::: {.thmbox .thm data-latex="important"}
+**Théorème de Darmois :** Soit $\theta\in\Theta\subset\mathbb{R}$. Soit $f(x;\theta)$ une densité telle que l'ensemble $\{x\in\mathbb{R}^n, \, f(x;\theta)>0\}$ ne dépend pas de $\theta$. Alors, l'échantillon $(X_1,\dots,X_n)$ admet une statistique exhaustive si et seulement si $f(x;\theta)$ est de la forme
+
+$$f(x;\theta)=\exp\left(a(x)\alpha(\theta)+b(x)+\beta(\theta)\right)$$
+
+\noindent Par ailleurs, si l'application $a$ est de classe $\mathcal{C}^1$, alors $T_n\equiv\sum\limits_{i=1}^n a(X_i)$ est une statistique exhaustive.
+
+\noindent La famille des densités $f(x;\theta)$ vérifiant ces propriétés s'appelle la **famille exponentielle**.
+:::
+
+\noindent 
+**Remarque.** Ici, on convient de parler de *densité* aussi bien pour une variable discrète que pour une variable continue. Pour une variable discrète, la densité est par définition $f(x;\theta)\equiv\mathbb{P}_{\theta}(X=x)$.
+
+\noindent 
+**Exemple (loi de Poisson).** La densité d'une loi de Poisson de paramètre $\lambda$ est $f(x;\lambda)=e^{-\lambda}\frac{\lambda^x}{x!}\mathbb{1}_{x\in\mathbb{N}}$. L'ensemble $\left\{x\in\mathbb{R},\,f(x;\theta)>0\right\}$ est $\mathbb{N}$, qui ne dépend pas de $\lambda$. Par ailleurs :
+$$f(x;\lambda)=\exp\left(-\lambda+x\,\ln(\lambda)-\sum\limits_{i=1}^x \ln i\right)$$
+
+\noindent On reconnait bien la forme générale d'une densité de la famille exponentielle, avec $a(x)=x$, $\alpha(\lambda)=\ln(\lambda)$, $b(x)=\sum\limits_{i=1}^x \ln i$, $\beta(\lambda)=-\lambda$. L'application $a$ est par ailleurs de classe $\mathcal{C}^1$. On en déduit avec le théorème de Darmois que la statistique $T_n=\sum\limits_{i=1}^n X_i$ est une statistique exhaustive pour $\theta$.
+
+\noindent La famille exponentielle permet de construire des estimateurs **efficaces**.
+
+:::: {.thmbox .thm data-latex="important"}
+\noindent
+**Théorème :** On suppose les hypothèses de Cramer-Rao vérifiées. On suppose également que $\theta\mapsto \frac{\partial}{\partial\theta}f(x;\theta)$ est continue en $\theta$. Soit $T_n$ un estimateur **sans biais** de $g(\theta)$.
+ 
+\noindent Alors, $T_n$ est un estimateur efficace si et seulement si la densité $f(x;\theta)$ appartient à la famille exponentielle.
+:::
 
 
-#### Borne de Cramer-Rao
+#### Rao-Blackwellisation d'un estimateur
 
-\noindent Sous certaines hypothèses, on peut montrer que la variance d'un estimateur sans biais ne peut être inférieure à une certaine borne, appelée borne de Cramer-Rao. Cette borne est liée à l'information de Fisher.
+\noindent Le théorème de Rao-Blacwell montre comment améliorer un estimateur.
 
+:::: {.thmbox .thm data-latex="important"}
+**Théorème de Rao-Blackwell :** Soient $T_n$ une statistique exhaustive et $S$ un estimateur sans biais de $g(\theta)$. Alors, l'estimateur $\mathbb{E}_{\theta}(S|T_n)$ est sans biais et $\mathbb{V}_{\theta}(\mathbb{E}_{\theta}(S|T_n))\leq\mathbb{V}_{\theta}(S)$.
+::::
 
+\noindent L'estimateur $\mathbb{E}_{\theta}(S|T_n)$ est dit **préférable** à l'estimateur $S$.
 
 ### Estimation des coefficients d'une régression linéaire
 
@@ -563,18 +709,18 @@ $\square$
 \noindent 
 **Démonstration.** La vraisemblance est donnée par
 
-$$L((\alpha,\beta);u)=\prod_{i=1}^n\frac{1}{\sqrt{2\pi}\sigma_u}e^{-\frac{(Y_i-\alpha X_i-\beta)^2}{2\sigma_u^2}}$$
+$$L_n((\alpha,\beta);u)=\prod_{i=1}^n\frac{1}{\sqrt{2\pi}\sigma_u}e^{-\frac{(Y_i-\alpha X_i-\beta)^2}{2\sigma_u^2}}$$
 
 \noindent On passe à la log-vraisemblance, qui est plus simple à dériver
 
-$$l((\alpha,\beta);u)=-n\ln(\sqrt{2\pi}\sigma_u^2)-\frac{(Y_i-\alpha X_i-\beta)^2}{2\sigma_u^2}$$
+$$l_n((\alpha,\beta);u)=-n\ln(\sqrt{2\pi}\sigma_u^2)-\frac{(Y_i-\alpha X_i-\beta)^2}{2\sigma_u^2}$$
 
 \noindent On résout alors en $(\alpha, \beta)$ le système d'équations
 
 ```{=tex}
 \begin{align}
-\frac{\partial l}{\partial\alpha}l((\alpha,\beta);u) &= 0 \\
-\frac{\partial l}{\partial\beta}l((\alpha,\beta);u) &= 0 \\
+\frac{\partial l_n}{\partial\alpha}l((\alpha,\beta);u) &= 0 \\
+\frac{\partial l_n}{\partial\beta}l((\alpha,\beta);u) &= 0 \\
 \end{align}
 ```
 \noindent soit

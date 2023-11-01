@@ -23,7 +23,7 @@
 <meta name="author" content="Olivier Guin" />
 
 
-<meta name="date" content="2023-10-31" />
+<meta name="date" content="2023-11-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -420,7 +420,7 @@ l_n(x;\mu)&amp;=\ln L_n(x;\mu) \\
 <p>
 <strong>Remarque.</strong> Comme souvent en statistique, on commet un léger abus de notation en désignant par la même lettre l’estimateur <span class="math inline">\(\widehat{\mu}_n=\frac{X_1+\dots+X_n}{n}=\widehat{\mu}_n(X_1,\dots,X_n)\)</span> (qui est une statistique, i.e. une fonction de <span class="math inline">\((X_1,\dots,X_n\)</span>) et l’estimation <span class="math inline">\(\widehat{\mu}_n=\frac{x_1+\dots+x_n}{n}=\widehat{\mu}_n(x_1,\dots, X_n)\)</span> qui en est une réalisation. Conditionnellement à <span class="math inline">\((X_1,\dots,X_n)\)</span> (i.e. si l’on suppose que l’on observe <span class="math inline">\((X_1,\dots, X_n)\)</span>) ces deux objets sont bien les mêmes.</p>
 <p>
-<strong>Exemple 7 : loi expoentielle.</strong> Soit <span class="math inline">\((X_1,\dots,X_n)\)</span> un échantillon i.i.d. tiré selon une loi exponentielle <span class="math inline">\(\mathcal{E}(\lambda)\)</span> de paramètre <span class="math inline">\(\lambda&gt;0\)</span> inconnu. La vraisemblance est donnée par <span class="math display">\[\begin{align}
+<strong>Exemple 7 : loi exponentielle.</strong> Soit <span class="math inline">\((X_1,\dots,X_n)\)</span> un échantillon i.i.d. tiré selon une loi exponentielle <span class="math inline">\(\mathcal{E}(\lambda)\)</span> de paramètre <span class="math inline">\(\lambda&gt;0\)</span> inconnu. La vraisemblance est donnée par <span class="math display">\[\begin{align}
 L_n(x;\lambda)&amp;=\prod\limits_{i=1}^n (\lambda e^{-\lambda x_i}\mathbb{1}_{x_i\geq 0}) \\
 \end{align}\]</span></p>
 <p>Si l’un des <span class="math inline">\(x_i\)</span> est négatif elle vaut <span class="math inline">\(0\)</span>. Sinon on calcule la log-vraisemblance</p>
@@ -471,15 +471,115 @@ L_n(x;\lambda)&amp;=\prod\limits_{i=1}^n (\lambda e^{-\lambda x_i}\mathbb{1}_{x_
 </center>
 <p>L’<strong>information de Fisher</strong> est la quantité définie par</p>
 <p><span class="math display">\[I_n(\theta)\equiv\mathbb{E}_{\theta}\left(\left(\frac{\partial }{\partial\theta}\, l_n(X;\theta)\right)^2\right)=\mathbb{V}_{\theta}\left(\frac{\partial}{\partial\theta}l_n(X;\theta)\right)\]</span></p>
-<p>L’information de Fisher est aussi égale à</p>
-<p><span class="math display">\[I_n(\theta)=-\mathbb{E}_{\theta}\left(\frac{\partial^2}{\partial\theta^2} l_n(X;\theta)\right)\]</span></p>
+<p>Lorsque le domaine de <span class="math inline">\(X\)</span> ne dépend pas de <span class="math inline">\(\theta\)</span>, l’information de Fisher est aussi égale à</p>
+<p><span class="math display">\[I_n(\theta)=-\mathbb{E}_{\theta}\left(\frac{\partial^2}{\partial\theta^2} l_n(X;\theta)\right)\]</span>
+Cette dernière expression est généralement plus facile à calculer.</p>
 </div>
 <p>
 <strong>Interprétation de l’information de Fisher.</strong> On utilise généralement l’information de Fisher lorsqu’on veut inférer sur un paramètre inconnu <span class="math inline">\(\theta\)</span> par maximum de vraisemblance. Par construction, l’estimation <span class="math inline">\(\widehat{\theta}\)</span> que l’on obtient par cette méthode est celle qui maximise la log-vraisemblance <span class="math inline">\(\ln L_n(X;\theta)\)</span>, pour une observation de <span class="math inline">\(X\)</span> donnée. L’expression <span class="math inline">\(I_n(\theta)=-\mathbb{E}_{\theta}\left(\frac{\partial^2}{\partial\theta^2}\ln L_n(X;\theta)\right)\)</span> montre que l’information de Fisher correspond (au signe près) à la courbure de la log-vraisemblance. Plus celle-ci est importante, plus la courbe présente un “pic” autour du maximum, et donc plus la valeur estimée de ce maximum est précise. Au contraire, si la courbure est faible, la courbe est aplatie autour du maximum, et donc l’estimation de <span class="math inline">\(\theta\)</span> sera moins précise. Dit autrement, l’information de Fisher quantifie le niveau d’information que nous apporte l’observation relativement au paramètre <span class="math inline">\(\theta\)</span>.</p>
+<p>
+<strong>Démonstration.</strong> Etant donné que <span class="math inline">\(\mathbb{E}_{\theta}\left(\frac{\partial}{\partial\theta} \,l_n(X;\theta)\right)=0\)</span> on a <span class="math inline">\(\mathbb{V}_{\theta}\left(\frac{\partial}{\partial\theta} \,l_n(X;\theta)\right)=\mathbb{E}_\theta\left(\left(\frac{\partial}{\partial\theta} \,l_n(X;\theta\right)^2\right)\)</span>, ce qui démontre la première égalité.
+Pour démontrer la deuxième égalité, on dérive par rapport à <span class="math inline">\(\theta\)</span> l’égalité <span class="math inline">\(\mathbb{E}_{\theta}\left(\frac{\partial}{\partial\theta} \,l_n(X;\theta)\right)=0\)</span>. Pour cela, on utilise la permutation <span class="math inline">\(\frac{\partial}{\partial\theta}\int=\int\frac{\partial}{\partial\theta}\)</span> qui est possible car le domaine de <span class="math inline">\(X\)</span> ne dépend pas de <span class="math inline">\(\theta\)</span>. On obtient donc :</p>
+<p><span class="math display">\[\begin{align}
+0 &amp;= \frac{\partial}{\partial\theta}\mathbb{E}_{\theta}\left(\frac{\partial}{\partial\theta} \,l_n(X;\theta)\right) \\
+&amp;= \frac{\partial}{\partial\theta}\int_{\mathbb{R}^n}\left(\frac{\partial}{\partial\theta} \,l_n(X;\theta)\right) L_n(x;\theta)\,dx \\
+&amp;=\int_{\mathbb{R}^n}\frac{\partial}{\partial\theta}\left(\left(\frac{\partial}{\partial\theta} \,l_n(X;\theta)\right) L_n(x;\theta)\right)\,dx \\
+&amp;=\int_{\mathbb{R}^n}\left(\frac{\partial^2}{\partial\theta^2}l_n(x;\theta)\right)L_n(x;\theta)\,dx+\int_{\mathbb{R}^n}\frac{\partial}{\partial\theta}l_n(x;\theta)\frac{\partial}{\partial\theta}L_n(x;\theta)\,dx \\
+&amp;= \int_{\mathbb{R}^n}\left(\frac{\partial^2}{\partial\theta^2}l_n(x;\theta)\right)L_n(x;\theta)\,dx+\int_{\mathbb{R}^n}\left(\frac{\partial}{\partial\theta}l_n(x;\theta)\right)^2 L_n(x;\theta)\,dx \\
+&amp;= \mathbb{E}_{\theta}\left(\frac{\partial^2}{\partial\theta^2} l_n(X;\theta)\right)+\mathbb{E}_{\theta}\left(\left(\frac{\partial}{\partial\theta} l_n(X;\theta)\right)^2\right)
+\end{align}\]</span></p>
+<p>d’où</p>
+<p><span class="math display">\[\mathbb{E}_{\theta}\left(\frac{\partial^2}{\partial\theta^2} l_n(X;\theta)\right)=-\mathbb{E}_{\theta}\left(\left(\frac{\partial}{\partial\theta} l_n(X;\theta)\right)^2\right)\]</span></p>
+<p>ce qui achève la démonstration.
+<span class="math inline">\(\square\)</span></p>
+<p>L’information de Fisher vérifie une propriété d’additivité :</p>
+<div class="thmbox thm">
+<p>
+<strong>Théorème (additivité de l’information de Fisher) :</strong> Si l’ensemble <span class="math inline">\(\left\{x\in\mathbb{R}^n, f(x;\theta)&gt;0\right\}\)</span> ne dépend pas de <span class="math inline">\(\theta\)</span>, alors l’information de Fisher est additive, i.e.</p>
+<p><span class="math display">\[I_n(\theta)=n\,I_1(\theta)\]</span></p>
 </div>
-<div id="borne-de-cramer-rao" class="section level4 hasAnchor" number="7.1.5.2">
-<h4><span class="header-section-number">7.1.5.2</span> Borne de Cramer-Rao<a href="statistique-inférentielle.html#borne-de-cramer-rao" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Sous certaines hypothèses, on peut montrer que la variance d’un estimateur sans biais ne peut être inférieure à une certaine borne, appelée borne de Cramer-Rao. Cette borne est liée à l’information de Fisher.</p>
+<p>Si le domaine de <span class="math inline">\(X\)</span> ne dépend pas de <span class="math inline">\(\theta\)</span>, l’information de Fisher apportée par un échantillon <span class="math inline">\((X_1,\dots,X_n)\)</span> est donc égale à <span class="math inline">\(n\)</span> fois l’information de Fisher apportée par chacune des observations <span class="math inline">\(X_i\)</span>. Cela signifie que chaque observation apporte la même information de Fisher.</p>
+</div>
+<div id="borne-de-fréchet-darmois-cramer-rao" class="section level4 hasAnchor" number="7.1.5.2">
+<h4><span class="header-section-number">7.1.5.2</span> Borne de Fréchet-Darmois-Cramer-Rao<a href="statistique-inférentielle.html#borne-de-fréchet-darmois-cramer-rao" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Sous certaines hypothèses, on peut montrer que la variance d’un estimateur sans biais ne peut être inférieure à une certaine borne, appelée borne de Fréchet-Darmois-Cramer-Rao, liée à l’information de Fisher :</p>
+<div class="thmbox thm">
+<p><strong>Théorème :</strong> On suppose que les hypothèses suivantes, appelées <strong>hypothèses de Cramer-Rao</strong>, sont vérifiées :</p>
+<ul>
+<li><p><strong>(H1) :</strong> <span class="math inline">\(\Theta\)</span> est un ouvert sur lequel <span class="math inline">\(f(x;\theta)&gt;0\)</span> et <span class="math inline">\(\theta\mapsto f(x;\theta)\)</span> est dérivable pour tout <span class="math inline">\(x\)</span></p></li>
+<li><p><strong>(H2) :</strong> on peut permuter <span class="math inline">\(\int\)</span> et <span class="math inline">\(\frac{\partial}{\partial\theta}\)</span></p></li>
+<li><p><strong>(H3) :</strong> <span class="math inline">\(\forall\theta\in\Theta, \, I_n(\theta)&gt;0\)</span></p></li>
+<li><p><strong>(H4) :</strong> <span class="math inline">\(g:\Theta\longrightarrow\mathbb{R}\)</span> est une fonction dérivable</p></li>
+</ul>
+<p>Alors, pour tout estimateur <strong>sans biais</strong> <span class="math inline">\(T_n=T_n(X_1,\dots, X_n)\)</span> de <span class="math inline">\(g(\theta)\)</span> on a l’inégalité</p>
+<p><span class="math display">\[\mathbb{V}_{\theta}(T_n)\geq\frac{\left(g&#39;(\theta)\right)^2}{I_n(\theta)}\]</span></p>
+<p>Le nombre <span class="math inline">\(\frac{\left(g&#39;(\theta)\right)^2}{I_n(\theta)}\)</span> s’appelle la <strong>borne de Fréchet-Darmois-Cramer-Rao (FDCR)</strong>.</p>
+<p>Dans le cas particulier où <span class="math inline">\(T_n=\widehat{\theta}_n\)</span> est un estimateur sans biais de <span class="math inline">\(\theta\)</span> (cas où <span class="math inline">\(g(\theta)=\theta\)</span>) on a <span class="math inline">\(\mathbb{V}_{\theta}(\widehat{\theta}_n)\geq\frac{1}{I_n(\theta)}\)</span>.</p>
+</div>
+<p>Ce théorème est admis.</p>
+<p>La borne FDCR n’est pas nécessairement atteinte. Quand elle l’est, l’estimateur qui l’atteint est dit <strong>efficace</strong> :</p>
+<div class="defbox def">
+<center>
+<strong>Estimateurs efficaces</strong>
+</center>
+<p>Un estimateur <span class="math inline">\(T_n\)</span> <em>sans biais</em> de <span class="math inline">\(g(\theta)\)</span> tel que <span class="math inline">\(\mathbb{V}_{\theta}(T_n)=\frac{\left(g&#39;(\theta)\right)^2}{I_n(\theta)}\)</span> est appelé un <strong>estimateur efficace</strong>.</p>
+</div>
+</div>
+<div id="statistiques-exhaustives" class="section level4 hasAnchor" number="7.1.5.3">
+<h4><span class="header-section-number">7.1.5.3</span> Statistiques exhaustives<a href="statistique-inférentielle.html#statistiques-exhaustives" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Tout échantillon <span class="math inline">\((X_1,\dots, X_n)\)</span> tel que <span class="math inline">\(X_i\sim\mathcal{L}_{\theta}\)</span> apporte de l’information sur le paramètre inconnu <span class="math inline">\(\theta\)</span>, et donc sur la loi inconnue <span class="math inline">\(\mathcal{L}_{\theta}\)</span>. Plutôt que de faire de l’inférence à partir de l’échantillon <span class="math inline">\((X_1,\dots, X_n)\)</span> on préfère en général utiliser une statistique <span class="math inline">\(T_n=T(X_1,\dots,X_n)\)</span>, qui est une sorte de résumé de l’échantillon tout entier. La contrepartie est qu’en général, le passage de <span class="math inline">\((X_1,\dots,X_n)\)</span> à son résumé <span class="math inline">\(T_n\)</span> génère une perte d’information sur <span class="math inline">\(\theta\)</span>. Une statistique exhaustive est une statistique qui n’engendre pas de telle perte, autrement dit elle contient toute l’information sur <span class="math inline">\(\theta\)</span> contenue dans l’échantillon <span class="math inline">\((X_1,\dots, X_n)\)</span>. On formalise cette idée de la façon suivante :</p>
+<div class="defbox def">
+<center>
+<strong>Statistiques exhaustives</strong>
+</center>
+<p>Une statistique <span class="math inline">\(T_n\)</span> est dite <strong>exhaustive</strong> si la loi conditionnelle <span class="math inline">\(\mathcal{L}(X|T_n=t)\)</span> est indépendante de <span class="math inline">\(\theta\)</span>. Conditionnellement à l’observation <span class="math inline">\(T=t\)</span>, la loi de <span class="math inline">\(X\)</span> ne dépend plus de <span class="math inline">\(\theta\)</span> :</p>
+<p><span class="math display">\[\mathbb{P}(X=x|T=t,\theta)=\mathbb{P}(X=x|T=t) \text{    (pour une loi discrète)}\]</span></p>
+<p><span class="math display">\[f(x|T=t,\theta)=f(x|T=t) \text{    (pour une loi continue)}\]</span></p>
+</div>
+<p>Dit autrement, une fois que l’on sait que <span class="math inline">\(T_n=t\)</span>, ajouter la connaissance de <span class="math inline">\(X\)</span> n’apporte plus aucune information supplémentaire sur <span class="math inline">\(\theta\)</span>.</p>
+<p>Cette définition n’est pas très commode à manipuler, et en pratique pour démontrer qu’une statistique est (ou n’est pas) exhaustive on utilise plutôt le théorème de factorisation de Neyman-Fisher :</p>
+<div class="defbox def">
+<p><strong>Théorème (factorisation de Neyman-Fisher) :</strong> Une statistique <span class="math inline">\(T_n\)</span> est exhaustive si, et seulement s’il existe deux fonctions mesurables positives <span class="math inline">\(g\)</span> et <span class="math inline">\(h\)</span> telles qu’on ait la factorisation suivante :</p>
+<p><span class="math display">\[L_n(x;\theta)=g(T_n(x);\theta).h(x)\]</span></p>
+</div>
+<p>
+<strong>Remarques : i.</strong> La notion de mesurabilité n’est pas au programme du concours. Il s’agit d’une classe très générale de fonctions, qui englobe en particulier les fonctions continues, continues par morceaux etc. Il est même assez compliqué de construire une fonction non mesurable. En pratique :</p>
+<ul>
+<li><p>pour démontrer qu’une statistique est exhaustive, il suffit de montrer qu’une telle décomposition existe avec <span class="math inline">\(g\)</span> et <span class="math inline">\(h\)</span> continues (car continue implique mesurable) ;</p></li>
+<li><p>pour démontrer qu’une telle statistique n’est pas exhaustive, il suffit de démontrer qu’une telle décomposition avec <span class="math inline">\(g\)</span> et <span class="math inline">\(h\)</span> quelconques est impossible (elle sera en particulier impossible avec <span class="math inline">\(g\)</span> et <span class="math inline">\(h\)</span> mesurables).</p></li>
+</ul>
+<p>
+<strong>ii.</strong> Il n’y a pas unicité du couple <span class="math inline">\((g,h)\)</span>. Par exemple, si <span class="math inline">\((g,h)\)</span> permet une factorisation, alors pour tout <span class="math inline">\(\lambda\)</span> strictement positif <span class="math inline">\(\left(\lambda g, \frac{h}{\lambda}\right)\)</span> aussi.</p>
+</div>
+<div id="famille-exponentielle" class="section level4 hasAnchor" number="7.1.5.4">
+<h4><span class="header-section-number">7.1.5.4</span> Famille exponentielle<a href="statistique-inférentielle.html#famille-exponentielle" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Les densités suivantes assurent l’existence d’une statistique exhaustive :</p>
+<div class="thmbox thm">
+<p><strong>Théorème de Darmois :</strong> Soit <span class="math inline">\(\theta\in\Theta\subset\mathbb{R}\)</span>. Soit <span class="math inline">\(f(x;\theta)\)</span> une densité telle que l’ensemble <span class="math inline">\(\{x\in\mathbb{R}^n, \, f(x;\theta)&gt;0\}\)</span> ne dépend pas de <span class="math inline">\(\theta\)</span>. Alors, l’échantillon <span class="math inline">\((X_1,\dots,X_n)\)</span> admet une statistique exhaustive si et seulement si <span class="math inline">\(f(x;\theta)\)</span> est de la forme</p>
+<p><span class="math display">\[f(x;\theta)=\exp\left(a(x)\alpha(\theta)+b(x)+\beta(\theta)\right)\]</span></p>
+<p>Par ailleurs, si l’application <span class="math inline">\(a\)</span> est de classe <span class="math inline">\(\mathcal{C}^1\)</span>, alors <span class="math inline">\(T_n\equiv\sum\limits_{i=1}^n a(X_i)\)</span> est une statistique exhaustive.</p>
+<p>La famille des densités <span class="math inline">\(f(x;\theta)\)</span> vérifiant ces propriétés s’appelle la <strong>famille exponentielle</strong>.</p>
+</div>
+<p>
+<strong>Remarque.</strong> Ici, on convient de parler de <em>densité</em> aussi bien pour une variable discrète que pour une variable continue. Pour une variable discrète, la densité est par définition <span class="math inline">\(f(x;\theta)\equiv\mathbb{P}_{\theta}(X=x)\)</span>.</p>
+<p>
+<strong>Exemple (loi de Poisson).</strong> La densité d’une loi de Poisson de paramètre <span class="math inline">\(\lambda\)</span> est <span class="math inline">\(f(x;\lambda)=e^{-\lambda}\frac{\lambda^x}{x!}\mathbb{1}_{x\in\mathbb{N}}\)</span>. L’ensemble <span class="math inline">\(\left\{x\in\mathbb{R},\,f(x;\theta)&gt;0\right\}\)</span> est <span class="math inline">\(\mathbb{N}\)</span>, qui ne dépend pas de <span class="math inline">\(\lambda\)</span>. Par ailleurs :
+<span class="math display">\[f(x;\lambda)=\exp\left(-\lambda+x\,\ln(\lambda)-\sum\limits_{i=1}^x \ln i\right)\]</span></p>
+<p>On reconnait bien la forme générale d’une densité de la famille exponentielle, avec <span class="math inline">\(a(x)=x\)</span>, <span class="math inline">\(\alpha(\lambda)=\ln(\lambda)\)</span>, <span class="math inline">\(b(x)=\sum\limits_{i=1}^x \ln i\)</span>, <span class="math inline">\(\beta(\lambda)=-\lambda\)</span>. L’application <span class="math inline">\(a\)</span> est par ailleurs de classe <span class="math inline">\(\mathcal{C}^1\)</span>. On en déduit avec le théorème de Darmois que la statistique <span class="math inline">\(T_n=\sum\limits_{i=1}^n X_i\)</span> est une statistique exhaustive pour <span class="math inline">\(\theta\)</span>.</p>
+<p>La famille exponentielle permet de construire des estimateurs <strong>efficaces</strong>.</p>
+<div class="thmbox thm">
+<p>
+<strong>Théorème :</strong> On suppose les hypothèses de Cramer-Rao vérifiées. On suppose également que <span class="math inline">\(\theta\mapsto \frac{\partial}{\partial\theta}f(x;\theta)\)</span> est continue en <span class="math inline">\(\theta\)</span>. Soit <span class="math inline">\(T_n\)</span> un estimateur <strong>sans biais</strong> de <span class="math inline">\(g(\theta)\)</span>.</p>
+<p>Alors, <span class="math inline">\(T_n\)</span> est un estimateur efficace si et seulement si la densité <span class="math inline">\(f(x;\theta)\)</span> appartient à la famille exponentielle.</p>
+</div>
+</div>
+<div id="rao-blackwellisation-dun-estimateur" class="section level4 hasAnchor" number="7.1.5.5">
+<h4><span class="header-section-number">7.1.5.5</span> Rao-Blackwellisation d’un estimateur<a href="statistique-inférentielle.html#rao-blackwellisation-dun-estimateur" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Le théorème de Rao-Blacwell montre comment améliorer un estimateur.</p>
+<div class="thmbox thm">
+<p><strong>Théorème de Rao-Blackwell :</strong> Soient <span class="math inline">\(T_n\)</span> une statistique exhaustive et <span class="math inline">\(S\)</span> un estimateur sans biais de <span class="math inline">\(g(\theta)\)</span>. Alors, l’estimateur <span class="math inline">\(\mathbb{E}_{\theta}(S|T_n)\)</span> est sans biais et <span class="math inline">\(\mathbb{V}_{\theta}(\mathbb{E}_{\theta}(S|T_n))\leq\mathbb{V}_{\theta}(S)\)</span>.</p>
+</div>
+<p>L’estimateur <span class="math inline">\(\mathbb{E}_{\theta}(S|T_n)\)</span> est dit <strong>préférable</strong> à l’estimateur <span class="math inline">\(S\)</span>.</p>
 </div>
 </div>
 <div id="estimation-des-coefficients-dune-régression-linéaire" class="section level3 hasAnchor" number="7.1.6">
@@ -629,13 +729,13 @@ L_n(x;\lambda)&amp;=\prod\limits_{i=1}^n (\lambda e^{-\lambda x_i}\mathbb{1}_{x_
 </div>
 <p>
 <strong>Démonstration.</strong> La vraisemblance est donnée par</p>
-<p><span class="math display">\[L((\alpha,\beta);u)=\prod_{i=1}^n\frac{1}{\sqrt{2\pi}\sigma_u}e^{-\frac{(Y_i-\alpha X_i-\beta)^2}{2\sigma_u^2}}\]</span></p>
+<p><span class="math display">\[L_n((\alpha,\beta);u)=\prod_{i=1}^n\frac{1}{\sqrt{2\pi}\sigma_u}e^{-\frac{(Y_i-\alpha X_i-\beta)^2}{2\sigma_u^2}}\]</span></p>
 <p>On passe à la log-vraisemblance, qui est plus simple à dériver</p>
-<p><span class="math display">\[l((\alpha,\beta);u)=-n\ln(\sqrt{2\pi}\sigma_u^2)-\frac{(Y_i-\alpha X_i-\beta)^2}{2\sigma_u^2}\]</span></p>
+<p><span class="math display">\[l_n((\alpha,\beta);u)=-n\ln(\sqrt{2\pi}\sigma_u^2)-\frac{(Y_i-\alpha X_i-\beta)^2}{2\sigma_u^2}\]</span></p>
 <p>On résout alors en <span class="math inline">\((\alpha, \beta)\)</span> le système d’équations</p>
 <span class="math display">\[\begin{align}
-\frac{\partial l}{\partial\alpha}l((\alpha,\beta);u) &amp;= 0 \\
-\frac{\partial l}{\partial\beta}l((\alpha,\beta);u) &amp;= 0 \\
+\frac{\partial l_n}{\partial\alpha}l((\alpha,\beta);u) &amp;= 0 \\
+\frac{\partial l_n}{\partial\beta}l((\alpha,\beta);u) &amp;= 0 \\
 \end{align}\]</span>
 <p>soit</p>
 <span class="math display">\[\begin{align}

@@ -80,7 +80,10 @@ la-méthode-des-moments
 la-méthode-du-maximum-de-vraisemblance
 compléments-hors-programme
 information-de-fisher
-borne-de-cramer-rao
+borne-de-fréchet-darmois-cramer-rao
+statistiques-exhaustives
+famille-exponentielle
+rao-blackwellisation-dun-estimateur
 estimation-des-coefficients-dune-régression-linéaire
 présentation-du-modèle
 rappels-utiles
