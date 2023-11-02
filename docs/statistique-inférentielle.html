@@ -23,7 +23,7 @@
 <meta name="author" content="Olivier Guin" />
 
 
-<meta name="date" content="2023-11-01" />
+<meta name="date" content="2023-11-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -848,6 +848,86 @@ Pour démontrer la deuxième égalité, on dérive par rapport à <span class="m
 </div>
 <div id="intervalles-de-confiance" class="section level3 hasAnchor" number="7.1.7">
 <h3><span class="header-section-number">7.1.7</span> Intervalles de confiance<a href="statistique-inférentielle.html#intervalles-de-confiance" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Jusqu’à présent, l’estimation était uniquement envisagée du point de vue de l’estimation <em>ponctuelle</em> : il s’agissait, à partir de l’observation d’un échantillon <span class="math inline">\((X_1,\dots,X_n)\)</span> de fournir une valeur ponctuelle <span class="math inline">\(\widehat{\theta}_n\)</span> approchant la vraie valeur inconnue d’un paramètre <span class="math inline">\(\theta\)</span>. Cependant, la valeur estimée dépend de l’échantillon tiré. En effet, si l’on tire <span class="math inline">\(1,000\)</span> échantillons différents, on va obtenir <span class="math inline">\(1\,000\)</span> estimations <span class="math inline">\(\widehat{\theta}^{(1)}_n,\dots,\widehat{\theta}^{(1\,000)}_n\)</span> <em>a priori</em> différentes également. Certaines de ces estimations peuvent être des valeurs atypiques. Se pose donc la question de la <em>confiance</em> que l’on peut accorder à l’estimation obtenue à partir d’une seule réalisation particulière <span class="math inline">\((x_1,\dots,x_n)\)</span> de l’échantillon, puisqu’en pratique c’est tout ce dont on dispose pour inférer sur <span class="math inline">\(\theta\)</span>.</p>
+<p>L’approche présentée jusqu’ici ne répond pas à cette question. Le bon outil pour aborder ce problème est la notion d’<em>intervalle de confiance</em>.</p>
+<div class="defbox def">
+<center>
+<strong>Intervalles de confiance</strong>
+</center>
+<p>Soit <span class="math inline">\(\theta\)</span> un paramètre inconnu et <span class="math inline">\(\alpha\)</span> un réel compris entre <span class="math inline">\(0\)</span> et <span class="math inline">\(1\)</span>. On appelle <strong>intervalle de confiance de niveau <span class="math inline">\(1-\alpha\)</span> du paramètre <span class="math inline">\(\theta\)</span></strong> tout intervalle <span class="math inline">\([a;b]\)</span> tel que <span class="math display">\[\mathbb{P}\left(\theta\in [a;b]\, \right)=1-\alpha\]</span></p>
+</div>
+<p>
+<strong>Remarques : i.</strong> Les réels <span class="math inline">\(a\)</span> et <span class="math inline">\(b\)</span> dépendent de <span class="math inline">\(\theta\)</span>, du niveau de confiance <span class="math inline">\(1-\alpha\)</span>. En pratique, pour les déterminer on utilise l’échantillon <span class="math inline">\((X_1,\dots, X_n)\)</span>, ou plus précisément un résumé <span class="math inline">\(T_n\)</span> de cet échantillon, i.e. une statistique <span class="math inline">\(T_n=T_n(X_1,\dots,X_n)\)</span>. On a donc</p>
+<p><span class="math display">\[\begin{align}
+a &amp;= a_n(T_n\,;\,\theta\,;\,\alpha) \\
+b &amp;= b_n(T_n\,;\,\theta\,;\,\alpha) \\
+\end{align}\]</span></p>
+<p>Ce sont donc des <strong>variables aléatoires</strong>, que l’on notera désormais plus simplement <span class="math inline">\(a_n\)</span> et <span class="math inline">\(b_n\)</span>. L’intervalle de confiance est donc lui-même un objet aléatoire.</p>
+<p>
+<strong>ii.</strong> Idéalement, on aimerait savoir avec certitude que <span class="math inline">\(\theta\in [a,b]\)</span>. Comme les réels <span class="math inline">\(a\)</span> et <span class="math inline">\(b\)</span> dépendent de l’échantillon tiré, on ne peut espérer mieux qu’une probabilité d’appartenance de <span class="math inline">\(\theta\)</span> à <span class="math inline">\([a,b]\)</span>. A défaut qu’elle soit égale à 1, on la veut proche de <span class="math inline">\(1\)</span>, autrement dit on veut <span class="math inline">\(\alpha\)</span> proche de <span class="math inline">\(0\)</span>. En pratique, on prendra souvent <span class="math inline">\(\alpha=0,05\)</span>, parfois <span class="math inline">\(\alpha=0,01\)</span>.</p>
+<p><strong>iii.</strong> Le réel <span class="math inline">\(\alpha\)</span> représente un <em>risque</em> : celui de donner un intervalle de confiance qui ne contienne pas la vraie valeur de <span class="math inline">\(\theta\)</span>.</p>
+<p>
+<strong>iv.</strong> Réduire la valeur de <span class="math inline">\(\alpha\)</span> n’est pas gratuit. Le prix à payer est un élargissement de l’intervalle de confiance <span class="math inline">\([a,b]\)</span>, ce qui signifie des intervalles de confiance moins fins et donc moins informatifs sur la vraie valeur de <span class="math inline">\(\theta\)</span>. Inversement, si on veut des intervalles de confiance plus fins, il faut assumer un risque plus grand d’avoir un intervalle de confiance laissant échapper le vrai <span class="math inline">\(\theta\)</span>.</p>
+<p>On voit maintenant une méthode générale de construction de <span class="math inline">\([a_n\,;\,b_n]\)</span>.</p>
+<div class="methbox meth">
+<center>
+<strong>Construction d’un intervalle de confiance</strong>
+</center>
+<p>On cherche un couple de réels <span class="math inline">\((a_n,b_n)\)</span> tel que <span class="math display">\[\mathbb{P}\left(a_n\leq \theta\leq b_n\right)=1-\alpha\]</span>
+On suppose qu’on dispose d’une statistique <span class="math inline">\(T_n\)</span> à partir de laquelle on calcule ces réels :</p>
+<p><span class="math display">\[\begin{align}
+a_n &amp;= a_n(T_n) \\
+b_n &amp;= b_n(T_n)
+\end{align}\]</span></p>
+<p>On cherche alors à transformer l’écriture <span class="math inline">\(\theta\in[a_n(T_n)\,;\,b_n(T_n)]\)</span> en une écriture équivalente du type <span class="math inline">\(T_n\in[\alpha_n(\theta)\,;\,\beta_n(\theta)]\)</span>, autrement dit on veut</p>
+<p><span class="math display">\[\theta\in[a_n(T_n)\,;\,b_n(T_n)]\Leftrightarrow T_n\in[\alpha_n(\theta)\,;\,\beta_n(\theta)]\]</span></p>
+<p>Dans ce cas, on doit avoir</p>
+<p><span class="math display">\[\mathbb{P}\left(T_n\in[\alpha_n(\theta)\,;\,\beta_n(\theta)]\right)=1-\alpha\]</span>
+Il s’agit donc de trouver un couple de réels <span class="math inline">\((\alpha_n,\beta_n)=(\alpha_n(\theta),\beta_n(\theta))\)</span> tel que</p>
+<p><span class="math display">\[F_{T_n}(\beta_n)-F_{T_n}(\alpha_n)=1-\alpha\]</span>
+ou, de façon équivalente</p>
+<p><span class="math display">\[\mathbb{P}(T_n&lt;\alpha_n)+\mathbb{P}(T_n&gt;\beta_n)=\alpha\]</span></p>
+</div>
+<p>
+<strong>Remarque.</strong> La dernière égalité s’interprète comme un <em>risque</em> à répartir entre <span class="math inline">\(\mathbb{P}(T_n&lt;\alpha_n)\)</span> et <span class="math inline">\(\mathbb{P}(T_n&gt;\alpha_n)\)</span>.</p>
+<p>Pour le concours d’administrateur, il est précisé que la construction d’intervalle de confiances est abordée dans un contexte d’application du théorème central limite (<em>Construction d’un intervalle de confiance dans le cadre des modèles d’échantillonnage, dans le cas où le théorème central limite s’applique.</em>). En d’autres termes, il s’agit de se ramener - si l’on n’y est pas déjà - au cas d’une loi normale et d’en déduire un intervalle de confiance (asymptotique).</p>
+<p>On commence par considérer le cas où la statistique <span class="math inline">\(T_n\)</span> est gaussienne.</p>
+<div class="methbox meth">
+<center>
+<strong>Construction d’intervalles de confiance dans le cas gaussien</strong>
+</center>
+<p>Supposons que <span class="math inline">\(X_n\)</span> suive une loi normale :</p>
+<p><span class="math display">\[X_n\sim\mathcal{N}(m,\sigma^2)\]</span></p>
+<p>On considère deux problèmes différents</p>
+<center>
+<strong>Problème 1 : estimation de <span class="math inline">\(m\)</span> lorsque <span class="math inline">\(\sigma\)</span> est connu</strong>
+</center>
+<p><span class="math inline">\(m\)</span> est l’espérance de <span class="math inline">\(X_n\)</span>, on peut l’estimer par la moyenne empirique</p>
+<p><span class="math display">\[\overline{X}_n\sim\mathcal{N}\left(m\,;\,\frac{\sigma^2}{n}\right)\]</span></p>
+<ul>
+<li>on commence par centrer et réduire <span class="math inline">\(\overline{X}_n\)</span> pour se ramener à une loi normale standard <span class="math inline">\(\mathcal{N}(0,1)\)</span>. On pose donc</li>
+</ul>
+<p><span class="math display">\[Z_n\equiv\frac{\overline{X}_n-m}{\frac{\sigma}{\sqrt{n}}}\]</span></p>
+<ul>
+<li>on cherche ensuite un intervalle <span class="math inline">\([-v,v]\)</span> de niveau de confiance <span class="math inline">\(1-\alpha\)</span> pour <span class="math inline">\(Z_n\)</span>. Comme <span class="math inline">\(Z_n\)</span> est symétrique par rapport à <span class="math inline">\(0\)</span>, il est plus simple de le chercher sous la forme <span class="math inline">\([-v,v]\)</span>. On résout donc, en notant <span class="math inline">\(\Phi\)</span> la fonction de répartition d’un loi normale standard et en remarquant que <span class="math inline">\(\Phi(-x)=1-\Phi(x)\)</span> :</li>
+</ul>
+<p><span class="math display">\[\begin{align}
+\Phi(v)-\Phi(-v) &amp;= 1-\alpha  \\
+2\Phi(v)-1 &amp;= 1-\alpha \\
+\Phi(v) &amp;= 1-\frac{\alpha}{2} \\
+v &amp;= \Phi^{-1}\left(1-\frac{\alpha}{2}\right)
+\end{align}\]</span></p>
+<ul>
+<li>on en déduit un intervalle de confiance de niveau <span class="math inline">\(1-\alpha\)</span> pour <span class="math inline">\(m\)</span> :</li>
+</ul>
+<p><span class="math display">\[\begin{align}
+&amp; -v\leq Z_n \leq v  \\
+\text{ssi } &amp; -v\leq\frac{\overline{X}_n-m}{\frac{\sigma}{\sqrt{n}}}\leq n \\
+\text{ssi } &amp; \overline{X}_n-\frac{\sigma}{\sqrt{n}}v\leq m\leq \overline{X}_n+\frac{\sigma}{\sqrt{n}}v &amp; \\
+\end{align}\]</span></p>
+<p>Un intervalle de confiance de <span class="math inline">\(m\)</span> au niveau <span class="math inline">\(1-\alpha\)</span> est donc</p>
+<p><span class="math display">\[\text{IC}^m_{1-\alpha}\equiv\left[\overline{X}_n-\frac{\sigma}{\sqrt{n}}\Phi^{-1}\left(1-\frac{\alpha}{2}\right) \, , \,  \overline{X}_n+\frac{\sigma}{\sqrt{n}}\Phi^{-1}\left(1-\frac{\alpha}{2}\right)\right]\]</span></p>
+</div>
 <ul>
 <li><p>jusqu’à présent : estimation ponctuelle</p></li>
 <li><p>on veut être plus informatif et calculer la précision de cette estimation ponctuelle –&gt; intervalle de confiance</p></li>

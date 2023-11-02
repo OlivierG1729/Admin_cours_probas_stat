@@ -878,6 +878,118 @@ $$\mathbb{V}(\widehat{b}|X_1,\dots,X_n)\approx\sigma_u^2\left(\frac{1}{n}+\frac{
 
 ### Intervalles de confiance
 
+\noindent Jusqu'à présent, l'estimation était uniquement envisagée du point de vue de l'estimation *ponctuelle* : il s'agissait, à partir de l'observation d'un échantillon $(X_1,\dots,X_n)$ de fournir une valeur ponctuelle $\widehat{\theta}_n$ approchant la vraie valeur inconnue d'un paramètre $\theta$. Cependant, la valeur estimée dépend de l'échantillon tiré. En effet, si l'on tire $1,000$ échantillons différents, on va obtenir $1\,000$ estimations $\widehat{\theta}^{(1)}_n,\dots,\widehat{\theta}^{(1\,000)}_n$ *a priori* différentes également. Certaines de ces estimations peuvent être des valeurs atypiques. Se pose donc la question de la *confiance* que l'on peut accorder à l'estimation obtenue à partir d'une seule réalisation particulière $(x_1,\dots,x_n)$ de l'échantillon, puisqu'en pratique c'est tout ce dont on dispose pour inférer sur $\theta$. 
+
+\noindent L'approche présentée jusqu'ici ne répond pas à cette question. Le bon outil pour aborder ce problème est la notion d'*intervalle de confiance*.
+
+:::: {.defbox .def data-latex="important"}
+<center>**Intervalles de confiance**</center>
+
+\vspace{0.5cm}
+
+\noindent Soit $\theta$ un paramètre inconnu et $\alpha$ un réel compris entre $0$ et $1$. On appelle **intervalle de confiance de niveau $1-\alpha$ du paramètre $\theta$** tout intervalle $[a;b]$ tel que $$\mathbb{P}\left(\theta\in [a;b]\, \right)=1-\alpha$$
+:::
+
+\noindent
+**Remarques : i.** Les réels $a$ et $b$ dépendent de $\theta$, du niveau de confiance $1-\alpha$. En pratique, pour les déterminer on utilise l'échantillon $(X_1,\dots, X_n)$, ou plus précisément un résumé $T_n$ de cet échantillon, i.e. une statistique $T_n=T_n(X_1,\dots,X_n)$. On a donc 
+
+\begin{align}
+a &= a_n(T_n\,;\,\theta\,;\,\alpha) \\
+b &= b_n(T_n\,;\,\theta\,;\,\alpha) \\
+\end{align}
+
+\noindent Ce sont donc des **variables aléatoires**, que l'on notera désormais plus simplement $a_n$ et $b_n$. L'intervalle de confiance est donc lui-même un objet aléatoire.
+
+\vspace{0.5cm}
+
+\noindent 
+**ii.** Idéalement, on aimerait savoir avec certitude que $\theta\in [a,b]$. Comme les réels $a$ et $b$ dépendent de l'échantillon tiré, on ne peut espérer mieux qu'une probabilité d'appartenance de $\theta$ à $[a,b]$. A défaut qu'elle soit égale à 1, on la veut proche de $1$, autrement dit on veut $\alpha$ proche de $0$. En pratique, on prendra souvent $\alpha=0,05$, parfois $\alpha=0,01$.
+
+**iii.** Le réel $\alpha$ représente un *risque* : celui de donner un intervalle de confiance qui ne contienne pas la vraie valeur de $\theta$.
+
+\noindent
+**iv.** Réduire la valeur de $\alpha$ n'est pas gratuit. Le prix à payer est un élargissement de l'intervalle de confiance $[a,b]$, ce qui signifie des intervalles de confiance moins fins et donc moins informatifs sur la vraie valeur de $\theta$. Inversement, si on veut des intervalles de confiance plus fins, il faut assumer un risque plus grand d'avoir un intervalle de confiance laissant échapper le vrai $\theta$.
+
+
+\noindent On voit maintenant une méthode générale de construction de $[a_n\,;\,b_n]$.
+
+:::: {.methbox .meth data-latex="important"}
+<center>**Construction d'un intervalle de confiance**</center>
+
+\noindent On cherche un couple de réels $(a_n,b_n)$ tel que $$\mathbb{P}\left(a_n\leq \theta\leq b_n\right)=1-\alpha$$
+\noindent On suppose qu'on dispose d'une statistique $T_n$ à partir de laquelle on calcule ces réels :
+
+\begin{align}
+a_n &= a_n(T_n) \\
+b_n &= b_n(T_n)
+\end{align}
+
+\noindent On cherche alors à transformer l'écriture $\theta\in[a_n(T_n)\,;\,b_n(T_n)]$ en une écriture équivalente du type $T_n\in[\alpha_n(\theta)\,;\,\beta_n(\theta)]$, autrement dit on veut
+
+$$\theta\in[a_n(T_n)\,;\,b_n(T_n)]\Leftrightarrow T_n\in[\alpha_n(\theta)\,;\,\beta_n(\theta)]$$
+
+\noindent Dans ce cas, on doit avoir
+
+$$\mathbb{P}\left(T_n\in[\alpha_n(\theta)\,;\,\beta_n(\theta)]\right)=1-\alpha$$
+\noindent Il s'agit donc de trouver un couple de réels $(\alpha_n,\beta_n)=(\alpha_n(\theta),\beta_n(\theta))$ tel que
+
+$$F_{T_n}(\beta_n)-F_{T_n}(\alpha_n)=1-\alpha$$
+\noindent ou, de façon équivalente
+
+$$\mathbb{P}(T_n<\alpha_n)+\mathbb{P}(T_n>\beta_n)=\alpha$$
+::::
+
+\noindent
+**Remarque.** La dernière égalité s'interprète comme un *risque* à répartir entre $\mathbb{P}(T_n<\alpha_n)$ et $\mathbb{P}(T_n>\alpha_n)$.
+
+\noindent Pour le concours d'administrateur, il est précisé que la construction d'intervalle de confiances est abordée dans un contexte d'application du théorème central limite (*Construction d’un intervalle de confiance dans le cadre des modèles d’échantillonnage, dans le cas où le théorème central limite s’applique.*). En d'autres termes, il s'agit de se ramener - si l'on n'y est pas déjà - au cas d'une loi normale et d'en déduire un intervalle de confiance (asymptotique).
+
+\noindent On commence par considérer le cas où la statistique $T_n$ est gaussienne.
+
+:::: {.methbox .meth data-latex="important"}
+<center>**Construction d'intervalles de confiance dans le cas gaussien**</center>
+
+\noindent Supposons que $X_n$ suive une loi normale :
+
+$$X_n\sim\mathcal{N}(m,\sigma^2)$$
+
+\noindent On considère deux problèmes différents
+
+<center>**Problème 1 : estimation de $m$ lorsque $\sigma$ est connu**</center>
+
+\noindent $m$ est l'espérance de $X_n$, on peut l'estimer par la moyenne empirique
+
+$$\overline{X}_n\sim\mathcal{N}\left(m\,;\,\frac{\sigma^2}{n}\right)$$
+
+- on commence par centrer et réduire $\overline{X}_n$ pour se ramener à une loi normale standard $\mathcal{N}(0,1)$. On pose donc 
+
+$$Z_n\equiv\frac{\overline{X}_n-m}{\frac{\sigma}{\sqrt{n}}}$$
+
+- on cherche ensuite un intervalle $[-v,v]$ de niveau de confiance $1-\alpha$ pour $Z_n$. Comme $Z_n$ est symétrique par rapport à $0$, il est plus simple de le chercher sous la forme $[-v,v]$. On résout donc, en notant $\Phi$ la fonction de répartition d'un loi normale standard et en remarquant que $\Phi(-x)=1-\Phi(x)$ :
+
+\begin{align}
+\Phi(v)-\Phi(-v) &= 1-\alpha  \\
+2\Phi(v)-1 &= 1-\alpha \\
+\Phi(v) &= 1-\frac{\alpha}{2} \\
+v &= \Phi^{-1}\left(1-\frac{\alpha}{2}\right)
+\end{align}
+
+- on en déduit un intervalle de confiance de niveau $1-\alpha$ pour $m$ :
+
+\begin{align}
+& -v\leq Z_n \leq v  \\
+\text{ssi } & -v\leq\frac{\overline{X}_n-m}{\frac{\sigma}{\sqrt{n}}}\leq n \\
+\text{ssi } & \overline{X}_n-\frac{\sigma}{\sqrt{n}}v\leq m\leq \overline{X}_n+\frac{\sigma}{\sqrt{n}}v & \\
+\end{align}
+
+\noindent Un intervalle de confiance de $m$ au niveau $1-\alpha$ est donc
+
+$$\text{IC}^m_{1-\alpha}\equiv\left[\overline{X}_n-\frac{\sigma}{\sqrt{n}}\Phi^{-1}\left(1-\frac{\alpha}{2}\right) \, , \,  \overline{X}_n+\frac{\sigma}{\sqrt{n}}\Phi^{-1}\left(1-\frac{\alpha}{2}\right)\right]$$
+:::
+
+
+
+
 -   jusqu'à présent : estimation ponctuelle
 
 -   on veut être plus informatif et calculer la précision de cette estimation ponctuelle --\> intervalle de confiance
