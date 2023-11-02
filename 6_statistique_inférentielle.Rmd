@@ -995,7 +995,7 @@ $$\text{IC}^m_{1-\alpha}\equiv\left[\overline{X}_n-\frac{\sigma}{\sqrt{n}}\Phi^{
 
 $$X_n\sim\mathcal{N}(0,\sigma^2)$$
 
-<center>**Problème 2 : estimation de $\sigma**</center>
+<center>**Problème 2 : estimation de $\sigma$**</center>
 
 \noindent On considère la statistique 
 

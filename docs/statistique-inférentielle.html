@@ -896,13 +896,12 @@ ou, de façon équivalente</p>
 <center>
 <strong>Construction d’intervalles de confiance dans le cas gaussien</strong>
 </center>
-<p>Supposons que <span class="math inline">\(X_n\)</span> suive une loi normale :</p>
-<p><span class="math display">\[X_n\sim\mathcal{N}(m,\sigma^2)\]</span></p>
-<p>On considère deux problèmes différents</p>
+<p>Supposons que <span class="math inline">\(X\)</span> suive une loi normale :</p>
+<p><span class="math display">\[X\sim\mathcal{N}(m,\sigma^2)\]</span></p>
 <center>
 <strong>Problème 1 : estimation de <span class="math inline">\(m\)</span> lorsque <span class="math inline">\(\sigma\)</span> est connu</strong>
 </center>
-<p><span class="math inline">\(m\)</span> est l’espérance de <span class="math inline">\(X_n\)</span>, on peut l’estimer par la moyenne empirique</p>
+<p><span class="math inline">\(m\)</span> est l’espérance de <span class="math inline">\(X\)</span>, on peut l’estimer par la moyenne empirique</p>
 <p><span class="math display">\[\overline{X}_n\sim\mathcal{N}\left(m\,;\,\frac{\sigma^2}{n}\right)\]</span></p>
 <ul>
 <li>on commence par centrer et réduire <span class="math inline">\(\overline{X}_n\)</span> pour se ramener à une loi normale standard <span class="math inline">\(\mathcal{N}(0,1)\)</span>. On pose donc</li>
@@ -927,6 +926,38 @@ v &amp;= \Phi^{-1}\left(1-\frac{\alpha}{2}\right)
 \end{align}\]</span></p>
 <p>Un intervalle de confiance de <span class="math inline">\(m\)</span> au niveau <span class="math inline">\(1-\alpha\)</span> est donc</p>
 <p><span class="math display">\[\text{IC}^m_{1-\alpha}\equiv\left[\overline{X}_n-\frac{\sigma}{\sqrt{n}}\Phi^{-1}\left(1-\frac{\alpha}{2}\right) \, , \,  \overline{X}_n+\frac{\sigma}{\sqrt{n}}\Phi^{-1}\left(1-\frac{\alpha}{2}\right)\right]\]</span></p>
+</div>
+<p>On considère maintenant un cas où la stastistique n’est plus gaussienne, mais où il est possible d’appliquer le théorème central-limite, et donc se ramener à une loi approximativement gaussienne.</p>
+<div class="methbox meth">
+<center>
+<strong>Construction d’intervalles de confiance dans un cas d’application du TCL</strong>
+</center>
+<p>On suppose que <span class="math inline">\(X\)</span> suit une loi normale centrée :</p>
+<p><span class="math display">\[X_n\sim\mathcal{N}(0,\sigma^2)\]</span></p>
+<center>
+**Problème 2 : estimation de $*
+</center>
+<p>On considère la statistique</p>
+<p><span class="math display">\[D_n\equiv\frac{1}{n}\sum\limits_{i=1}^n |X_i|\]</span></p>
+<p>On vérifie facilement que L’intégrale <span class="math inline">\(\int_{\mathbb{R}} |x|\frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{x^2}{2\sigma^2}}\,dx\)</span> est convergente et vaut <span class="math inline">\(\sqrt{\frac{2}{\pi}}\sigma\)</span>. Ainsi, la variable aléatoire <span class="math inline">\(|X|\)</span> admet une espérance et</p>
+<p><span class="math display">\[\mathbb{E}(|X|)=\sqrt{\frac{2}{\pi}}\,\sigma\]</span>
+On en déduit un estimateur sans biais de <span class="math inline">\(\sigma\)</span> :</p>
+<p><span class="math display">\[T_n\equiv\sqrt{\frac{\pi}{2}}\,D_n\]</span>
+Avec la loi faible des grands nombres, <span class="math inline">\(T_n\)</span> est un estimateur convergent de <span class="math inline">\(\sigma\)</span>. Par ailleurs, <span class="math inline">\(|X|\)</span> admet un moment d’ordre <span class="math inline">\(2\)</span> (<span class="math inline">\(\mathbb{E}(|X|^2)=\mathbb{E}(X^2)=\sigma^2\)</span>) et</p>
+<p><span class="math display">\[\begin{align}
+\mathbb{V}(|X|) &amp;= \mathbb{E}(X^2)-(\mathbb{E}(|X|))^2 \\
+&amp;= \left(1-\frac{2}{\pi}\right)\sigma^2
+\end{align}\]</span></p>
+<p>On en déduit que <span class="math inline">\(T_n\)</span> admet une variance et que</p>
+<p><span class="math display">\[\mathbb{V}(T_n)=\left(\frac{\pi}{2}-1\right)\frac{\sigma^2}{n}\]</span>
+Avec le théorème central limite on a l’approximation en loi</p>
+<p><span class="math display">\[\frac{T_n-\sigma}{\frac{\sigma}{\sqrt{n}}\sqrt{\frac{\pi}{2}-1}}\approx\mathcal{N}(0,1)\]</span>
+En posant <span class="math inline">\(u_{\alpha}=\Phi^{-1}\left(1-\frac{\alpha}{2}\right)\)</span>, avec toujours <span class="math inline">\(\Phi\)</span> la fonction de répartition de la loi normale standard, on a donc</p>
+<p><span class="math display">\[\mathbb{P}\left(-u_{\alpha}\leq\sqrt{n}\frac{T_n-\sigma}{\sigma\sqrt{\frac{\pi}{2}-1}}\leq u_{\alpha}\right)\approx 1-\alpha\]</span>
+Or</p>
+<p><span class="math display">\[-u_{\alpha}\leq\sqrt{n}\frac{T_n-\sigma}{\sigma\sqrt{\frac{\pi}{2}-1}}\leq u_{\alpha}\Leftrightarrow \frac{T_n}{1+\frac{u_{\alpha}}{\sqrt{n}}\sqrt{\frac{\pi}{2}-1}}\leq\sigma\leq\frac{T_n}{1-\frac{u_{\alpha}}{\sqrt{n}}\sqrt{\frac{\pi}{2}-1}}\]</span>
+On en déduit un intervalle de confiance de <span class="math inline">\(\sigma\)</span> au niveau de confiance <span class="math inline">\(1-\alpha\)</span> :</p>
+<p><span class="math display">\[\text{IC}^{1-\alpha}_{\sigma}\equiv\left[\frac{T_n}{1+\frac{u_{\alpha}}{\sqrt{n}}\sqrt{\frac{\pi}{2}-1}}\, ;\, \frac{T_n}{1-\frac{u_{\alpha}}{\sqrt{n}}\sqrt{\frac{\pi}{2}-1}}\right]\]</span></p>
 </div>
 <ul>
 <li><p>jusqu’à présent : estimation ponctuelle</p></li>
