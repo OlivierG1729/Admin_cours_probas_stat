@@ -949,15 +949,13 @@ $$\mathbb{P}(T_n<\alpha_n)+\mathbb{P}(T_n>\beta_n)=\alpha$$
 :::: {.methbox .meth data-latex="important"}
 <center>**Construction d'intervalles de confiance dans le cas gaussien**</center>
 
-\noindent Supposons que $X_n$ suive une loi normale :
+\noindent Supposons que $X$ suive une loi normale :
 
-$$X_n\sim\mathcal{N}(m,\sigma^2)$$
-
-\noindent On considère deux problèmes différents
+$$X\sim\mathcal{N}(m,\sigma^2)$$
 
 <center>**Problème 1 : estimation de $m$ lorsque $\sigma$ est connu**</center>
 
-\noindent $m$ est l'espérance de $X_n$, on peut l'estimer par la moyenne empirique
+\noindent $m$ est l'espérance de $X$, on peut l'estimer par la moyenne empirique
 
 $$\overline{X}_n\sim\mathcal{N}\left(m\,;\,\frac{\sigma^2}{n}\right)$$
 
@@ -985,6 +983,52 @@ v &= \Phi^{-1}\left(1-\frac{\alpha}{2}\right)
 \noindent Un intervalle de confiance de $m$ au niveau $1-\alpha$ est donc
 
 $$\text{IC}^m_{1-\alpha}\equiv\left[\overline{X}_n-\frac{\sigma}{\sqrt{n}}\Phi^{-1}\left(1-\frac{\alpha}{2}\right) \, , \,  \overline{X}_n+\frac{\sigma}{\sqrt{n}}\Phi^{-1}\left(1-\frac{\alpha}{2}\right)\right]$$
+::::
+
+\noindent On considère maintenant un cas où la stastistique n'est plus gaussienne, mais où il est possible d'appliquer le théorème central-limite, et donc se ramener à une loi approximativement gaussienne.
+
+
+:::: {.methbox .meth data-latex="important"}
+<center>**Construction d'intervalles de confiance dans un cas d'application du TCL**</center>
+
+\noindent On suppose que $X$ suit une loi normale centrée :
+
+$$X_n\sim\mathcal{N}(0,\sigma^2)$$
+
+<center>**Problème 2 : estimation de $\sigma**</center>
+
+\noindent On considère la statistique 
+
+$$D_n\equiv\frac{1}{n}\sum\limits_{i=1}^n |X_i|$$
+
+\noindent On vérifie facilement que L'intégrale $\int_{\mathbb{R}} |x|\frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{x^2}{2\sigma^2}}\,dx$ est convergente et vaut $\sqrt{\frac{2}{\pi}}\sigma$. Ainsi, la variable aléatoire $|X|$ admet une espérance et 
+
+$$\mathbb{E}(|X|)=\sqrt{\frac{2}{\pi}}\,\sigma$$
+\noindent On en déduit un estimateur sans biais de $\sigma$ :
+
+$$T_n\equiv\sqrt{\frac{\pi}{2}}\,D_n$$
+\noindent Avec la loi faible des grands nombres, $T_n$ est un estimateur convergent de $\sigma$. Par ailleurs, $|X|$ admet un moment d'ordre $2$ ($\mathbb{E}(|X|^2)=\mathbb{E}(X^2)=\sigma^2$) et 
+
+\begin{align}
+\mathbb{V}(|X|) &= \mathbb{E}(X^2)-(\mathbb{E}(|X|))^2 \\
+&= \left(1-\frac{2}{\pi}\right)\sigma^2
+\end{align}
+
+\noindent On en déduit que $T_n$ admet une variance et que 
+
+$$\mathbb{V}(T_n)=\left(\frac{\pi}{2}-1\right)\frac{\sigma^2}{n}$$
+\noindent Avec le théorème central limite on a l'approximation en loi
+
+$$\frac{T_n-\sigma}{\frac{\sigma}{\sqrt{n}}\sqrt{\frac{\pi}{2}-1}}\approx\mathcal{N}(0,1)$$
+\noindent En posant $u_{\alpha}=\Phi^{-1}\left(1-\frac{\alpha}{2}\right)$, avec toujours $\Phi$ la fonction de répartition de la loi normale standard, on a donc
+
+$$\mathbb{P}\left(-u_{\alpha}\leq\sqrt{n}\frac{T_n-\sigma}{\sigma\sqrt{\frac{\pi}{2}-1}}\leq u_{\alpha}\right)\approx 1-\alpha$$
+\noindent Or
+
+$$-u_{\alpha}\leq\sqrt{n}\frac{T_n-\sigma}{\sigma\sqrt{\frac{\pi}{2}-1}}\leq u_{\alpha}\Leftrightarrow \frac{T_n}{1+\frac{u_{\alpha}}{\sqrt{n}}\sqrt{\frac{\pi}{2}-1}}\leq\sigma\leq\frac{T_n}{1-\frac{u_{\alpha}}{\sqrt{n}}\sqrt{\frac{\pi}{2}-1}}$$
+\noindent On en déduit un intervalle de confiance de $\sigma$ au niveau de confiance $1-\alpha$ :
+
+$$\text{IC}^{1-\alpha}_{\sigma}\equiv\left[\frac{T_n}{1+\frac{u_{\alpha}}{\sqrt{n}}\sqrt{\frac{\pi}{2}-1}}\, ;\, \frac{T_n}{1-\frac{u_{\alpha}}{\sqrt{n}}\sqrt{\frac{\pi}{2}-1}}\right]$$
 :::
 
 
