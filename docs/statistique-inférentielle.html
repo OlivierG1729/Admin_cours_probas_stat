@@ -890,6 +890,22 @@ ou, de façon équivalente</p>
 </div>
 <p>
 <strong>Remarque.</strong> La dernière égalité s’interprète comme un <em>risque</em> à répartir entre <span class="math inline">\(\mathbb{P}(T_n&lt;\alpha_n)\)</span> et <span class="math inline">\(\mathbb{P}(T_n&gt;\alpha_n)\)</span>.</p>
+<p>Une première approche pour construire des intervalles de confiance consiste à utiliser, lorsque cela est possible, l’inégalité de Bienaymé-Tchebychev :</p>
+<div class="methbox meth">
+<center>
+<strong>Construction d’intervalles de confiance par application de l’inégalité de Bienaymé-Tchebychev</strong>
+</center>
+<p>Soit <span class="math inline">\(\widehat{\theta}_n\)</span> un estimateur sans biais de <span class="math inline">\(\theta\)</span> et admettant une variance <span class="math inline">\(\sigma^2\)</span>. On peut donc appliquer l’inégalité de Bienaymé-Tchebychev :</p>
+<p><span class="math display">\[\mathbb{P}\left(|\widehat{\theta}_n-\theta|\geq\varepsilon\right)\leq\frac{\sigma^2}{\varepsilon^2}\]</span></p>
+<p>soit</p>
+<p><span class="math display">\[\mathbb{P}\left(|\widehat{\theta}_n-\theta|&lt;\varepsilon \right)&gt;1-\frac{\sigma^2}{\varepsilon^2}\]</span></p>
+<p>On choisit <span class="math inline">\(\varepsilon\)</span> de façon à avoir <span class="math inline">\(\alpha=\frac{\sigma^2}{\varepsilon^2}\)</span>, i.e. on pose</p>
+<p><span class="math display">\[\varepsilon=\frac{\sigma}{\sqrt{\alpha}}\]</span>
+Par inversion des inégalités on a <span class="math inline">\(|\widehat{\theta}_n-\theta|&lt;\varepsilon\Leftrightarrow\widehat{\theta}_n-\varepsilon&lt;\theta&lt;\widehat{\theta}_n+\varepsilon\)</span>. On en déduit un intervalle de confiance de <span class="math inline">\(\theta\)</span> au niveau de confiance <span class="math inline">\(1-\alpha\)</span> :</p>
+<p><span class="math display">\[IC^{1-\alpha}_m=\left[\widehat{\theta}_n-\frac{\sigma}{\sqrt{\alpha}}\,;\,\widehat{\theta}_n+\frac{\sigma}{\sqrt{\alpha}}\right]\]</span>
+<strong>Exemple (moyenne empirique).</strong> Soient <span class="math inline">\(X\)</span> une VA admettant une espérance <span class="math inline">\(m\)</span> et une variance <span class="math inline">\(\sigma^2\)</span>, et <span class="math inline">\((X_1,\dots, X_n)\)</span> des VA i.i.d. de même loi que <span class="math inline">\(X\)</span>. La moyenne empirique <span class="math inline">\(\widehat{\theta}_n\equiv\overline{X}_n\)</span> est un estimateur sans biais de <span class="math inline">\(\theta\equiv m\)</span> et admettant comme variance <span class="math inline">\(\frac{\sigma^2}{n}\)</span>, on peut donc appliquer ce qui précède et obtenir un intervalle de confiance de <span class="math inline">\(m\)</span> au niveau de confiance <span class="math inline">\(1-\alpha\)</span> :</p>
+<p><span class="math display">\[IC^{1-\alpha}_m=\left[\overline{X}_n-\frac{\sigma}{\sqrt{n\alpha}}\,;\,\overline{X}_n+\frac{\sigma}{\sqrt{n\alpha}}\right]\]</span></p>
+</div>
 <p>Pour le concours d’administrateur, il est précisé que la construction d’intervalle de confiances est abordée dans un contexte d’application du théorème central limite (<em>Construction d’un intervalle de confiance dans le cadre des modèles d’échantillonnage, dans le cas où le théorème central limite s’applique.</em>). En d’autres termes, il s’agit de se ramener - si l’on n’y est pas déjà - au cas d’une loi normale et d’en déduire un intervalle de confiance (asymptotique).</p>
 <p>On commence par considérer le cas où la statistique <span class="math inline">\(T_n\)</span> est gaussienne.</p>
 <div class="methbox meth">
@@ -898,10 +914,8 @@ ou, de façon équivalente</p>
 </center>
 <p>Supposons que <span class="math inline">\(X\)</span> suive une loi normale :</p>
 <p><span class="math display">\[X\sim\mathcal{N}(m,\sigma^2)\]</span></p>
-<center>
-<strong>Problème 1 : estimation de <span class="math inline">\(m\)</span> lorsque <span class="math inline">\(\sigma\)</span> est connu</strong>
-</center>
-<p><span class="math inline">\(m\)</span> est l’espérance de <span class="math inline">\(X\)</span>, on peut l’estimer par la moyenne empirique</p>
+<p>
+<strong>Exemple : estimation de <span class="math inline">\(m\)</span> lorsque <span class="math inline">\(\sigma\)</span> est connu.</strong> <span class="math inline">\(m\)</span> est l’espérance de <span class="math inline">\(X\)</span>, on peut l’estimer par la moyenne empirique</p>
 <p><span class="math display">\[\overline{X}_n\sim\mathcal{N}\left(m\,;\,\frac{\sigma^2}{n}\right)\]</span></p>
 <ul>
 <li>on commence par centrer et réduire <span class="math inline">\(\overline{X}_n\)</span> pour se ramener à une loi normale standard <span class="math inline">\(\mathcal{N}(0,1)\)</span>. On pose donc</li>
@@ -927,17 +941,15 @@ v &amp;= \Phi^{-1}\left(1-\frac{\alpha}{2}\right)
 <p>Un intervalle de confiance de <span class="math inline">\(m\)</span> au niveau <span class="math inline">\(1-\alpha\)</span> est donc</p>
 <p><span class="math display">\[\text{IC}^m_{1-\alpha}\equiv\left[\overline{X}_n-\frac{\sigma}{\sqrt{n}}\Phi^{-1}\left(1-\frac{\alpha}{2}\right) \, , \,  \overline{X}_n+\frac{\sigma}{\sqrt{n}}\Phi^{-1}\left(1-\frac{\alpha}{2}\right)\right]\]</span></p>
 </div>
-<p>On considère maintenant un cas où la stastistique n’est plus gaussienne, mais où il est possible d’appliquer le théorème central-limite, et donc se ramener à une loi approximativement gaussienne.</p>
+<p>On considère maintenant un cas où la stastistique n’est plus gaussienne, mais où il est possible d’appliquer le théorème central-limite, et donc se ramener à une loi approximativement gaussienne. Dans ce cas, peut obtenir des <strong>intervalles de confiance asymptotiques</strong> :</p>
 <div class="methbox meth">
 <center>
-<strong>Construction d’intervalles de confiance dans un cas d’application du TCL</strong>
+<strong>Construction d’intervalles de confiance asymptotiques dans un cas d’application du TCL</strong>
 </center>
 <p>On suppose que <span class="math inline">\(X\)</span> suit une loi normale centrée :</p>
 <p><span class="math display">\[X_n\sim\mathcal{N}(0,\sigma^2)\]</span></p>
-<center>
-<strong>Problème 2 : estimation de <span class="math inline">\(\sigma\)</span></strong>
-</center>
-<p>On considère la statistique</p>
+<p>
+<strong>Exemple : estimation de <span class="math inline">\(\sigma\)</span>.</strong> On considère la statistique</p>
 <p><span class="math display">\[D_n\equiv\frac{1}{n}\sum\limits_{i=1}^n |X_i|\]</span></p>
 <p>On vérifie facilement que l’intégrale <span class="math inline">\(\int_{\mathbb{R}} |x|\frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{x^2}{2\sigma^2}}\,dx\)</span> est convergente et vaut <span class="math inline">\(\sqrt{\frac{2}{\pi}}\sigma\)</span>. Ainsi, la variable aléatoire <span class="math inline">\(|X|\)</span> admet une espérance et</p>
 <p><span class="math display">\[\mathbb{E}(|X|)=\sqrt{\frac{2}{\pi}}\,\sigma\]</span>
@@ -956,18 +968,9 @@ En posant <span class="math inline">\(u_{\alpha}=\Phi^{-1}\left(1-\frac{\alpha}{
 <p><span class="math display">\[\mathbb{P}\left(-u_{\alpha}\leq\sqrt{n}\frac{T_n-\sigma}{\sigma\sqrt{\frac{\pi}{2}-1}}\leq u_{\alpha}\right)\approx 1-\alpha\]</span>
 Or</p>
 <p><span class="math display">\[-u_{\alpha}\leq\sqrt{n}\frac{T_n-\sigma}{\sigma\sqrt{\frac{\pi}{2}-1}}\leq u_{\alpha}\Leftrightarrow \frac{T_n}{1+\frac{u_{\alpha}}{\sqrt{n}}\sqrt{\frac{\pi}{2}-1}}\leq\sigma\leq\frac{T_n}{1-\frac{u_{\alpha}}{\sqrt{n}}\sqrt{\frac{\pi}{2}-1}}\]</span>
-On en déduit un intervalle de confiance de <span class="math inline">\(\sigma\)</span> au niveau de confiance <span class="math inline">\(1-\alpha\)</span> :</p>
+On en déduit un intervalle de confiance asymptotique de <span class="math inline">\(\sigma\)</span> au niveau de confiance <span class="math inline">\(1-\alpha\)</span> :</p>
 <p><span class="math display">\[\text{IC}^{1-\alpha}_{\sigma}\equiv\left[\frac{T_n}{1+\frac{u_{\alpha}}{\sqrt{n}}\sqrt{\frac{\pi}{2}-1}}\, ;\, \frac{T_n}{1-\frac{u_{\alpha}}{\sqrt{n}}\sqrt{\frac{\pi}{2}-1}}\right]\]</span></p>
 </div>
-<ul>
-<li><p>jusqu’à présent : estimation ponctuelle</p></li>
-<li><p>on veut être plus informatif et calculer la précision de cette estimation ponctuelle –&gt; intervalle de confiance</p></li>
-<li><p>méthode de construction classique d’un intervalle de confiance : utiliser le TCL</p>
-<ul>
-<li>permet de se ramener à une hypothèse de quasi-normalité</li>
-<li>donner plusieurs exemples</li>
-</ul></li>
-</ul>
 </div>
 </div>
 <div id="tests-statistiques" class="section level2 hasAnchor" number="7.2">

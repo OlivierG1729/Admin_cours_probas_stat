@@ -942,6 +942,35 @@ $$\mathbb{P}(T_n<\alpha_n)+\mathbb{P}(T_n>\beta_n)=\alpha$$
 \noindent
 **Remarque.** La dernière égalité s'interprète comme un *risque* à répartir entre $\mathbb{P}(T_n<\alpha_n)$ et $\mathbb{P}(T_n>\alpha_n)$.
 
+
+\noindent Une première approche pour construire des intervalles de confiance consiste à utiliser, lorsque cela est possible, l'inégalité de Bienaymé-Tchebychev :
+
+:::: {.methbox .meth data-latex="important"}
+<center>**Construction d'intervalles de confiance par application de l'inégalité de Bienaymé-Tchebychev**</center>
+
+\vspace{0.5cm}
+
+\noindent  Soit $\widehat{\theta}_n$ un estimateur sans biais de $\theta$ et admettant une variance $\sigma^2$. On peut donc appliquer l'inégalité de Bienaymé-Tchebychev :
+
+$$\mathbb{P}\left(|\widehat{\theta}_n-\theta|\geq\varepsilon\right)\leq\frac{\sigma^2}{\varepsilon^2}$$
+
+\noindent soit
+
+$$\mathbb{P}\left(|\widehat{\theta}_n-\theta|<\varepsilon \right)>1-\frac{\sigma^2}{\varepsilon^2}$$
+
+\noindent On choisit $\varepsilon$ de façon à avoir $\alpha=\frac{\sigma^2}{\varepsilon^2}$, i.e. on pose
+
+$$\varepsilon=\frac{\sigma}{\sqrt{\alpha}}$$
+\noindent Par inversion des inégalités on a $|\widehat{\theta}_n-\theta|<\varepsilon\Leftrightarrow\widehat{\theta}_n-\varepsilon<\theta<\widehat{\theta}_n+\varepsilon$. On en déduit un intervalle de confiance de $\theta$ au niveau de confiance $1-\alpha$ :
+
+$$IC^{1-\alpha}_m=\left[\widehat{\theta}_n-\frac{\sigma}{\sqrt{\alpha}}\,;\,\widehat{\theta}_n+\frac{\sigma}{\sqrt{\alpha}}\right]$$
+\noindent 
+**Exemple (moyenne empirique).** Soient $X$ une VA admettant une espérance $m$ et une variance $\sigma^2$, et $(X_1,\dots, X_n)$ des VA i.i.d. de même loi que $X$. La moyenne empirique $\widehat{\theta}_n\equiv\overline{X}_n$ est un estimateur sans biais de $\theta\equiv m$ et admettant comme variance $\frac{\sigma^2}{n}$, on peut donc appliquer ce qui précède et obtenir un intervalle de confiance de $m$ au niveau de confiance $1-\alpha$ :
+
+$$IC^{1-\alpha}_m=\left[\overline{X}_n-\frac{\sigma}{\sqrt{n\alpha}}\,;\,\overline{X}_n+\frac{\sigma}{\sqrt{n\alpha}}\right]$$
+::::
+
+
 \noindent Pour le concours d'administrateur, il est précisé que la construction d'intervalle de confiances est abordée dans un contexte d'application du théorème central limite (*Construction d’un intervalle de confiance dans le cadre des modèles d’échantillonnage, dans le cas où le théorème central limite s’applique.*). En d'autres termes, il s'agit de se ramener - si l'on n'y est pas déjà - au cas d'une loi normale et d'en déduire un intervalle de confiance (asymptotique).
 
 \noindent On commence par considérer le cas où la statistique $T_n$ est gaussienne.
@@ -953,9 +982,8 @@ $$\mathbb{P}(T_n<\alpha_n)+\mathbb{P}(T_n>\beta_n)=\alpha$$
 
 $$X\sim\mathcal{N}(m,\sigma^2)$$
 
-<center>**Problème 1 : estimation de $m$ lorsque $\sigma$ est connu**</center>
-
-\noindent $m$ est l'espérance de $X$, on peut l'estimer par la moyenne empirique
+\noindent
+**Exemple : estimation de $m$ lorsque $\sigma$ est connu.** $m$ est l'espérance de $X$, on peut l'estimer par la moyenne empirique
 
 $$\overline{X}_n\sim\mathcal{N}\left(m\,;\,\frac{\sigma^2}{n}\right)$$
 
@@ -985,19 +1013,18 @@ v &= \Phi^{-1}\left(1-\frac{\alpha}{2}\right)
 $$\text{IC}^m_{1-\alpha}\equiv\left[\overline{X}_n-\frac{\sigma}{\sqrt{n}}\Phi^{-1}\left(1-\frac{\alpha}{2}\right) \, , \,  \overline{X}_n+\frac{\sigma}{\sqrt{n}}\Phi^{-1}\left(1-\frac{\alpha}{2}\right)\right]$$
 ::::
 
-\noindent On considère maintenant un cas où la stastistique n'est plus gaussienne, mais où il est possible d'appliquer le théorème central-limite, et donc se ramener à une loi approximativement gaussienne.
+\noindent On considère maintenant un cas où la stastistique n'est plus gaussienne, mais où il est possible d'appliquer le théorème central-limite, et donc se ramener à une loi approximativement gaussienne. Dans ce cas, peut obtenir des **intervalles de confiance asymptotiques** :
 
 
 :::: {.methbox .meth data-latex="important"}
-<center>**Construction d'intervalles de confiance dans un cas d'application du TCL**</center>
+<center>**Construction d'intervalles de confiance asymptotiques dans un cas d'application du TCL**</center>
 
 \noindent On suppose que $X$ suit une loi normale centrée :
 
 $$X_n\sim\mathcal{N}(0,\sigma^2)$$
 
-<center>**Problème 2 : estimation de $\sigma$**</center>
-
-\noindent On considère la statistique 
+\noindent
+**Exemple : estimation de $\sigma$.** On considère la statistique 
 
 $$D_n\equiv\frac{1}{n}\sum\limits_{i=1}^n |X_i|$$
 
@@ -1026,22 +1053,11 @@ $$\mathbb{P}\left(-u_{\alpha}\leq\sqrt{n}\frac{T_n-\sigma}{\sigma\sqrt{\frac{\pi
 \noindent Or
 
 $$-u_{\alpha}\leq\sqrt{n}\frac{T_n-\sigma}{\sigma\sqrt{\frac{\pi}{2}-1}}\leq u_{\alpha}\Leftrightarrow \frac{T_n}{1+\frac{u_{\alpha}}{\sqrt{n}}\sqrt{\frac{\pi}{2}-1}}\leq\sigma\leq\frac{T_n}{1-\frac{u_{\alpha}}{\sqrt{n}}\sqrt{\frac{\pi}{2}-1}}$$
-\noindent On en déduit un intervalle de confiance de $\sigma$ au niveau de confiance $1-\alpha$ :
+\noindent On en déduit un intervalle de confiance asymptotique de $\sigma$ au niveau de confiance $1-\alpha$ :
 
 $$\text{IC}^{1-\alpha}_{\sigma}\equiv\left[\frac{T_n}{1+\frac{u_{\alpha}}{\sqrt{n}}\sqrt{\frac{\pi}{2}-1}}\, ;\, \frac{T_n}{1-\frac{u_{\alpha}}{\sqrt{n}}\sqrt{\frac{\pi}{2}-1}}\right]$$
 :::
 
-
-
-
--   jusqu'à présent : estimation ponctuelle
-
--   on veut être plus informatif et calculer la précision de cette estimation ponctuelle --\> intervalle de confiance
-
--   méthode de construction classique d'un intervalle de confiance : utiliser le TCL
-
-    -   permet de se ramener à une hypothèse de quasi-normalité
-    -   donner plusieurs exemples
 
 ## Tests statistiques
 
