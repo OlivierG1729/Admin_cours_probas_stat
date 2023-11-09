@@ -1001,7 +1001,7 @@ $$X_n\sim\mathcal{N}(0,\sigma^2)$$
 
 $$D_n\equiv\frac{1}{n}\sum\limits_{i=1}^n |X_i|$$
 
-\noindent On vérifie facilement que L'intégrale $\int_{\mathbb{R}} |x|\frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{x^2}{2\sigma^2}}\,dx$ est convergente et vaut $\sqrt{\frac{2}{\pi}}\sigma$. Ainsi, la variable aléatoire $|X|$ admet une espérance et 
+\noindent On vérifie facilement que l'intégrale $\int_{\mathbb{R}} |x|\frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{x^2}{2\sigma^2}}\,dx$ est convergente et vaut $\sqrt{\frac{2}{\pi}}\sigma$. Ainsi, la variable aléatoire $|X|$ admet une espérance et 
 
 $$\mathbb{E}(|X|)=\sqrt{\frac{2}{\pi}}\,\sigma$$
 \noindent On en déduit un estimateur sans biais de $\sigma$ :
