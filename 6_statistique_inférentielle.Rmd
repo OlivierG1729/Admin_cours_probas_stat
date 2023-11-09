@@ -950,7 +950,7 @@ $$\mathbb{P}(T_n<\alpha_n)+\mathbb{P}(T_n>\beta_n)=\alpha$$
 
 \vspace{0.5cm}
 
-\noindent  Soit $\widehat{\theta}_n$ un estimateur sans biais de $\theta$ et admettant une variance $\sigma^2$. On peut donc appliquer l'inégalité de Bienaymé-Tchebychev :
+\noindent  Soit $\widehat{\theta}_n$ un estimateur sans biais de $\theta$ et admettant une variance $\sigma^2$ que l'on suppose connue. On peut donc appliquer l'inégalité de Bienaymé-Tchebychev :
 
 $$\mathbb{P}\left(|\widehat{\theta}_n-\theta|\geq\varepsilon\right)\leq\frac{\sigma^2}{\varepsilon^2}$$
 
@@ -964,6 +964,9 @@ $$\varepsilon=\frac{\sigma}{\sqrt{\alpha}}$$
 \noindent Par inversion des inégalités on a $|\widehat{\theta}_n-\theta|<\varepsilon\Leftrightarrow\widehat{\theta}_n-\varepsilon<\theta<\widehat{\theta}_n+\varepsilon$. On en déduit un intervalle de confiance de $\theta$ au niveau de confiance $1-\alpha$ :
 
 $$IC^{1-\alpha}_m=\left[\widehat{\theta}_n-\frac{\sigma}{\sqrt{\alpha}}\,;\,\widehat{\theta}_n+\frac{\sigma}{\sqrt{\alpha}}\right]$$
+
+\noindent Cet intervalle de confiance est bien calculable en pratique puisqu'on a supposé $\sigma^2$ connue.
+
 \noindent 
 **Exemple (moyenne empirique).** Soient $X$ une VA admettant une espérance $m$ et une variance $\sigma^2$, et $(X_1,\dots, X_n)$ des VA i.i.d. de même loi que $X$. La moyenne empirique $\widehat{\theta}_n\equiv\overline{X}_n$ est un estimateur sans biais de $\theta\equiv m$ et admettant comme variance $\frac{\sigma^2}{n}$, on peut donc appliquer ce qui précède et obtenir un intervalle de confiance de $m$ au niveau de confiance $1-\alpha$ :
 
@@ -1011,6 +1014,7 @@ v &= \Phi^{-1}\left(1-\frac{\alpha}{2}\right)
 \noindent Un intervalle de confiance de $m$ au niveau $1-\alpha$ est donc
 
 $$\text{IC}^m_{1-\alpha}\equiv\left[\overline{X}_n-\frac{\sigma}{\sqrt{n}}\Phi^{-1}\left(1-\frac{\alpha}{2}\right) \, , \,  \overline{X}_n+\frac{\sigma}{\sqrt{n}}\Phi^{-1}\left(1-\frac{\alpha}{2}\right)\right]$$
+\noindent On peut calculer cet intervalle de confiance à partir de l'échantillon pusiqu'on a supposé $\sigma$ connu.
 ::::
 
 \noindent On considère maintenant un cas où la stastistique n'est plus gaussienne, mais où il est possible d'appliquer le théorème central-limite, et donc se ramener à une loi approximativement gaussienne. Dans ce cas, peut obtenir des **intervalles de confiance asymptotiques** :
