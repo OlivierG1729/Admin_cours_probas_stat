@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapitre 5 Convergence | Cours de probabilités-statistiques pour le concours interne d’administrateur Insee</title>
+  <title>Chapitre 9 Convergence | Cours de probabilités-statistiques pour le concours interne d’administrateur Insee</title>
   <meta name="description" content="Cours de probabilités et statistiques" />
   <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapitre 5 Convergence | Cours de probabilités-statistiques pour le concours interne d’administrateur Insee" />
+  <meta property="og:title" content="Chapitre 9 Convergence | Cours de probabilités-statistiques pour le concours interne d’administrateur Insee" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Cours de probabilités et statistiques" />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapitre 5 Convergence | Cours de probabilités-statistiques pour le concours interne d’administrateur Insee" />
+  <meta name="twitter:title" content="Chapitre 9 Convergence | Cours de probabilités-statistiques pour le concours interne d’administrateur Insee" />
   
   <meta name="twitter:description" content="Cours de probabilités et statistiques" />
   
@@ -23,15 +23,15 @@
 <meta name="author" content="Olivier Guin" />
 
 
-<meta name="date" content="2023-11-25" />
+<meta name="date" content="2023-11-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="variables-aléatoires-à-densité.html"/>
-<link rel="next" href="statistique-descriptive.html"/>
+<link rel="prev" href="méthodologie.html"/>
+
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -202,10 +202,8 @@
 <li class="chapter" data-level="7.2.2" data-path="statistique-inférentielle.html"><a href="statistique-inférentielle.html#exemples-de-test"><i class="fa fa-check"></i><b>7.2.2</b> Exemples de test</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="méthodologie.html"><a href="méthodologie.html"><i class="fa fa-check"></i><b>8</b> Méthodologie</a>
-<ul>
-<li class="chapter" data-level="8.1" data-path="méthodologie.html"><a href="méthodologie.html#convergence-1"><i class="fa fa-check"></i><b>8.1</b> Convergence</a></li>
-</ul></li>
+<li class="chapter" data-level="8" data-path="méthodologie.html"><a href="méthodologie.html"><i class="fa fa-check"></i><b>8</b> Méthodologie</a></li>
+<li class="chapter" data-level="9" data-path="convergence-1.html"><a href="convergence-1.html"><i class="fa fa-check"></i><b>9</b> Convergence</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -226,63 +224,17 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="convergence" class="section level1 hasAnchor" number="5">
-<h1><span class="header-section-number">Chapitre 5</span> Convergence<a href="convergence.html#convergence" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="différents-modes-de-convergence" class="section level2 hasAnchor" number="5.1">
-<h2><span class="header-section-number">5.1</span> Différents modes de convergence<a href="convergence.html#différents-modes-de-convergence" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="convergence-en-probabilité" class="section level3 hasAnchor" number="5.1.1">
-<h3><span class="header-section-number">5.1.1</span> Convergence en probabilité<a href="convergence.html#convergence-en-probabilité" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-</div>
-<div id="convergence-dans-les-espaces-lp" class="section level3 hasAnchor" number="5.1.2">
-<h3><span class="header-section-number">5.1.2</span> Convergence dans les espaces <span class="math inline">\(L^p\)</span><a href="convergence.html#convergence-dans-les-espaces-lp" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li>focus sur les cas <span class="math inline">\(p=1\)</span> et <span class="math inline">\(p=2\)</span></li>
-</ul>
-</div>
-<div id="convergence-en-loi" class="section level3 hasAnchor" number="5.1.3">
-<h3><span class="header-section-number">5.1.3</span> Convergence en loi<a href="convergence.html#convergence-en-loi" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-</div>
-<div id="convergence-presque-sûre-hors-prgramme" class="section level3 hasAnchor" number="5.1.4">
-<h3><span class="header-section-number">5.1.4</span> Convergence presque-sûre (hors-prgramme ?)<a href="convergence.html#convergence-presque-sûre-hors-prgramme" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-</div>
-<div id="liens-entre-les-différents-modes-de-convergence" class="section level3 hasAnchor" number="5.1.5">
-<h3><span class="header-section-number">5.1.5</span> Liens entre les différents modes de convergence<a href="convergence.html#liens-entre-les-différents-modes-de-convergence" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-</div>
-<div id="approximations" class="section level3 hasAnchor" number="5.1.6">
-<h3><span class="header-section-number">5.1.6</span> Approximations<a href="convergence.html#approximations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li>approximation de la loi binomiale <span class="math inline">\(\mathcal{B}(n\,;\,p)\approx\mathcal{N}(np\,;\,np(1-p))\)</span></li>
-<li>approximation de la loi de Poisson <span class="math inline">\(\mathcal{P}(\lambda)\approx\mathcal{N}(\lambda\,;\,\lambda)\)</span></li>
-</ul>
-<p>(bien préciser les hypothèses sous-jcantes à ces approximations)</p>
-</div>
-</div>
-<div id="loi-faible-des-grands-nombres-loi-forte-des-grands-nombres" class="section level2 hasAnchor" number="5.2">
-<h2><span class="header-section-number">5.2</span> Loi Faible des Grands Nombres, Loi Forte des Grands Nombres<a href="convergence.html#loi-faible-des-grands-nombres-loi-forte-des-grands-nombres" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li>énoncé théorique</li>
-<li>exemples avec illustration en R</li>
-</ul>
-</div>
-<div id="théorème-central-limite-tcl" class="section level2 hasAnchor" number="5.3">
-<h2><span class="header-section-number">5.3</span> Théorème Central Limite (TCL)<a href="convergence.html#théorème-central-limite-tcl" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li>énoncé théorique</li>
-<li>exemples avec illustration en R</li>
-</ul>
-</div>
-<div id="variantes-du-tcl-hors-programme" class="section level2 hasAnchor" number="5.4">
-<h2><span class="header-section-number">5.4</span> Variantes du TCL (hors-programme)<a href="convergence.html#variantes-du-tcl-hors-programme" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="convergence-1" class="section level1 hasAnchor" number="9">
+<h1><span class="header-section-number">Chapitre 9</span> Convergence<a href="convergence-1.html#convergence-1" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 
-</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="variables-aléatoires-à-densité.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="statistique-descriptive.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="méthodologie.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -313,7 +265,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/4_convergence.Rmd",
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/7_méthodologie.Rmd",
 "text": "Edit"
 },
 "history": {

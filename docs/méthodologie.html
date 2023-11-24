@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapitre 5 Convergence | Cours de probabilités-statistiques pour le concours interne d’administrateur Insee</title>
+  <title>Chapitre 8 Méthodologie | Cours de probabilités-statistiques pour le concours interne d’administrateur Insee</title>
   <meta name="description" content="Cours de probabilités et statistiques" />
   <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapitre 5 Convergence | Cours de probabilités-statistiques pour le concours interne d’administrateur Insee" />
+  <meta property="og:title" content="Chapitre 8 Méthodologie | Cours de probabilités-statistiques pour le concours interne d’administrateur Insee" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Cours de probabilités et statistiques" />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapitre 5 Convergence | Cours de probabilités-statistiques pour le concours interne d’administrateur Insee" />
+  <meta name="twitter:title" content="Chapitre 8 Méthodologie | Cours de probabilités-statistiques pour le concours interne d’administrateur Insee" />
   
   <meta name="twitter:description" content="Cours de probabilités et statistiques" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="variables-aléatoires-à-densité.html"/>
-<link rel="next" href="statistique-descriptive.html"/>
+<link rel="prev" href="statistique-inférentielle.html"/>
+
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -226,53 +226,146 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="convergence" class="section level1 hasAnchor" number="5">
-<h1><span class="header-section-number">Chapitre 5</span> Convergence<a href="convergence.html#convergence" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="différents-modes-de-convergence" class="section level2 hasAnchor" number="5.1">
-<h2><span class="header-section-number">5.1</span> Différents modes de convergence<a href="convergence.html#différents-modes-de-convergence" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="convergence-en-probabilité" class="section level3 hasAnchor" number="5.1.1">
-<h3><span class="header-section-number">5.1.1</span> Convergence en probabilité<a href="convergence.html#convergence-en-probabilité" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="méthodologie" class="section level1 hasAnchor" number="8">
+<h1><span class="header-section-number">Chapitre 8</span> Méthodologie<a href="méthodologie.html#méthodologie" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Le but de cette partie est de recenser des méthodes qui reviennent fréquemment dans les sujets de concours. La liste n’est pas exhaustive, mais l’idée est surtout de construire (progressivement) une boite à outils qui devrait être utile autant pour les écrits que les oraux.</p>
+<div id="convergence-1" class="section level2 hasAnchor" number="8.1">
+<h2><span class="header-section-number">8.1</span> Convergence<a href="méthodologie.html#convergence-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Les sujets du concours d’administrateur regorgent de questions sur la convergence en loi et la convergence en probabilité. Les techniques qui reviennent souvent sont les suivantes :</p>
+<div class="methbox meth">
+<center>
+<strong>Comment démontrer la convergence en loi d’une suite de variables aléatoires ?</strong>
+</center>
+<p><br></p>
+<center>
+<strong>Méthode 1 : revenir à la définition</strong>
+</center>
+<p>Si on montre que pour toute fonction <span class="math inline">\(\phi\)</span> <strong>continue</strong> et <strong>bornée</strong> <span class="math display">\[\lim\limits_{n\to +\infty}\mathbb{E}(\phi(X_n))\underset{n\to +\infty}\longrightarrow\mathbb{E}(\phi(X))\]</span>
+on peut alors conclure que
+<span class="math display">\[X_n\underset{n\to +\infty}{\overset{\mathcal{L}}\longrightarrow} X\]</span></p>
+<p><br></p>
+<center>
+<strong>Méthode 2 : utiliser la fonction de répartition</strong>
+</center>
+<p>On considère la fonction de répartition <span class="math inline">\(F_n\)</span> de <span class="math inline">\(X_n\)</span>. Si on peut montrer que <span class="math inline">\(\lim\limits_{n\to +\infty}F_n(x) = F(x)\)</span> en tout point où <span class="math inline">\(F\)</span> est continue, et que <span class="math inline">\(F\)</span> est une fonction de répartition (éventuellement la fonction de répartition d’une loi usuelle), alors on peut conclure que <span class="math inline">\((X_n)_n\)</span> converge en loi vers la loi associée à cette fonction de répartition.</p>
+<p>
+<strong>Exemple.</strong> On suppose que <span class="math inline">\(X_n\)</span> suit une loi uniforme sur <span class="math inline">\(\left\{\frac{1}{n},\dots,\frac{n-1}{n}, 1\right\}\)</span> et on veut montrer que <span class="math inline">\((X_n)_n\)</span> converge en loi vers la loi uniforme <span class="math inline">\(\mathcal{U}([0\,,\,1])\)</span>. Soit <span class="math inline">\(x\in [0\,;\,1]\)</span>. Il existe un unique entier naturel <span class="math inline">\(k\in [0\,;\,n]\)</span> tel que <span class="math inline">\(\frac{k}{n}\leq x &lt;\frac{k+1}{n}\)</span>. Cet encadrement s’écrit aussi <span class="math inline">\(nx-1 &lt;k\leq nx\)</span>, i.e. <span class="math inline">\(nx\leq k &lt;nx+1\)</span>. On en déduit que <span class="math inline">\(k=\lfloor nx\rfloor\)</span>. Comme <span class="math inline">\(X_n\)</span> est entier, on a donc</p>
+<p><span class="math display">\[X_n\leq x \Leftrightarrow X_n\leq\frac{\lfloor nx \rfloor}{n}\]</span>
+et donc <span class="math inline">\(F_{X_n}(x)=F_{X_n}\left(\frac{\lfloor nx \rfloor}{n}\right)=\frac{\lfloor nx\rfloor}{n}\)</span>. On en déduit que
+<span class="math display">\[x\leq F_{X_n}(x)&lt;x+\frac{1}{n}\]</span>
+et donc</p>
+<p><span class="math display">\[\lim\limits_{n\to +\infty} F_{X_n}(x)=x\]</span>
+Or, la fonction <span class="math inline">\(F\)</span> définie par <span class="math inline">\(F(x)=x\)</span> est la fonction de répartition de la loi uniforme sur <span class="math inline">\(\mathcal{U}([0\,;\,1])\)</span>. On a donc finalement</p>
+<p><span class="math display">\[X_n\underset{n\to +\infty}{\overset{\mathcal{L}}\longrightarrow}\mathcal{U}([0\,;\,1])\]</span>
+<br></p>
+<center>
+<strong>Méthode 3 : utiliser le théorème central limite</strong>
+</center>
+<p>C’est le résultat auquel il faut penser lorsqu’on voit une somme <span class="math inline">\(S_n\equiv\sum\limits_{i=1}^n X_i\)</span> de variables aléatoires i.i.d. Pour pouvoir l’appliquer, les <span class="math inline">\(X_i\)</span> doivent admettre une espérance <span class="math inline">\(\mu\)</span> et une variance <span class="math inline">\(\sigma^2&gt;0\)</span>. La version centrée-réduite de <span class="math inline">\(S_n\)</span> converge alors en loi vers la loi normale standard <span class="math inline">\(\mathcal{N}(0,1)\)</span> :</p>
+<p><span class="math display">\[\frac{S_n-n\mu}{n\,\sigma}\underset{n\to +\infty}{\overset{\mathcal{L}}{\longrightarrow}}\mathcal{N}(0\,;1)\]</span>
+De façon équivalente, on a aussi</p>
+<p><span class="math display">\[\sqrt{n}\,\frac{\overline{X_n}-\mu}{\sigma}\underset{n\to +\infty}{\overset{\mathcal{L}}{\longrightarrow}}\mathcal{N}(0\,;1)\]</span>
+ou encore</p>
+<p><span class="math display">\[\sqrt{n}\left(\overline{X_n}-\mu\right)\underset{n\to +\infty}{\overset{\mathcal{L}}{\longrightarrow}}\mathcal{N}(0\,;\sigma^2)\]</span></p>
+<p>
+<strong>Exemple.</strong> Soit <span class="math inline">\((X_n)_n\)</span> une suite de variables aléatoires i.i.d. de loi <span class="math inline">\(\mathcal{E}(b)\)</span>. On pose</p>
+<p><span class="math display">\[Z_n\equiv\sqrt{n}\left(\frac{1}{n}\sum\limits_{i=1}^n X_i-\frac{1}{b}\right)\]</span>
+et on nous demande de démontrer que <span class="math inline">\((Z_n)_n\)</span> converge en loi, et de déterminer sa limite. On reconnaît une expression du type <span class="math inline">\(\sqrt{n}(\overline{X}_n-\mu)\)</span>, qui doit activer l’automatisme <em>utilisation du TCL</em>…
+On a en effet <span class="math inline">\(\mathbb{E}(X_n)=\frac{1}{b}\)</span> et <span class="math inline">\(\mathbb{V}(X_n)=\frac{1}{b^2}\)</span> avec des variables <span class="math inline">\(X_i\)</span> i.i.d., et donc le théorème central limite permet d’écrire</p>
+<p><span class="math display">\[\sqrt{n}\left(\frac{1}{n}\sum\limits_{i=1}^n X_i-\frac{1}{b}\right)\underset{n\to +\infty}{\overset{\mathcal{L}}{\longrightarrow}}\mathcal{N}\left(0\,;\,\frac{1}{b^2} \right)\]</span></p>
+<p><br></p>
+<center>
+<strong>Méthode 4 : Montrer la convergence en probabilité</strong>
+</center>
+<p>Si <span class="math inline">\(X_n\underset{n\to +\infty}{\overset{\mathbb{P}}{\longrightarrow}}X\)</span> alors <span class="math inline">\(X_n\underset{n\to +\infty}{\overset{\mathcal{L}}{\longrightarrow}}X\)</span>.</p>
+<p><br></p>
+<center>
+<strong>Méthode 5 : Utiliser le continuous mapping theorem</strong>
+</center>
+<p>Si on a déjà montré que <span class="math inline">\(X_n\underset{n\to +\infty}{\overset{\mathcal{L}}{\longrightarrow}}X\)</span> et qu’on veut montrer que <span class="math inline">\(Y_n\underset{n\to +\infty}{\overset{\mathcal{L}}{\longrightarrow}}Y\)</span> (la recherche de <span class="math inline">\(Y\)</span> pouvant éventuellement être laissée à la charge du candidat…), on peut regarder si on peut écrire <span class="math inline">\(X_n\)</span> sous la forme <span class="math inline">\(X_n=f(Y_n)\)</span>. Si c’est le cas et si <span class="math inline">\(f\)</span> est une fonction continue, alors le <em>continuous mapping theorem</em> permet de conclure que <span class="math inline">\(X_n=f(Y_n)\underset{n\to +\infty}{\overset{\mathcal{L}}{\longrightarrow}}f(Y)=:X\)</span>. Ce théorème peut s’utiliser en invoquant simplement la <em>stabilité de la convergence en loi par les applications continues</em>.</p>
+<p>
+<strong>Exemples.</strong> Si <span class="math inline">\(X_n\underset{n\to +\infty}{\overset{\mathcal{L}}{\longrightarrow}}X\)</span>, alors <span class="math inline">\(X_n^2\underset{n\to +\infty}{\overset{\mathcal{L}}{\longrightarrow}}X^2\)</span>, <span class="math inline">\(\sqrt{X_n}\underset{n\to +\infty}{\overset{\mathcal{L}}{\longrightarrow}}\sqrt{X}\)</span> (sous réserve d’existence), <span class="math inline">\(\frac{1}{X_n}\underset{n\to +\infty}{\overset{\mathcal{L}}{\longrightarrow}}\frac{1}{X}\)</span> (sous réserve d’existence), etc.</p>
+<p><br></p>
+<center>
+<strong>Méthode 6 : Utiliser le lemme de Slutsky</strong>
+</center>
+<p>Pour rappel, ce lemme affirme que si <span class="math inline">\((X_n)\)</span> <strong>converge en loi</strong> vers <span class="math inline">\(X\)</span> et <span class="math inline">\(Y_n\)</span> <strong>converge en probabilité</strong> vers <span class="math inline">\(Y\)</span>, alors le couple aléatoire <span class="math inline">\((X_n, \, Y_n)\)</span> <strong>converge en loi</strong> vers le couple <span class="math inline">\((X,\, Y)\)</span>. On utilise en général plutôt une conséquence de ce lemme : pour toute fonction continue <span class="math inline">\(f:\mathcal{U}\subset\mathbb{R}^2\longrightarrow\mathbb{R}\)</span> (en fait mesurable suffit, mais c’est hors-programme…) la variable aléatoire <span class="math inline">\(Z_n=f(X_n\,Y_n)\)</span> converge en loi vers <span class="math inline">\(Z=f(X,\,Y)\)</span>.</p>
+<p>
+<strong>Exemples.</strong> Typiquement, on a donc <span class="math inline">\(X_n+Y_n\underset{n\to +\infty}{\overset{\mathcal{L}}{\longrightarrow}}X+Y\)</span>, <span class="math inline">\(X_nY_n\underset{n\to +\infty}{\overset{\mathcal{L}}{\longrightarrow}}XY\)</span>, <span class="math inline">\(\frac{X_n}{Y_n}\underset{n\to +\infty}{\overset{\mathcal{L}}{\longrightarrow}}\frac{X}{Y}\)</span>, etc.</p>
 </div>
-<div id="convergence-dans-les-espaces-lp" class="section level3 hasAnchor" number="5.1.2">
-<h3><span class="header-section-number">5.1.2</span> Convergence dans les espaces <span class="math inline">\(L^p\)</span><a href="convergence.html#convergence-dans-les-espaces-lp" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math inline">\(\fbox{Concours}\)</span> L’exercice 1 du sujet du concours externe de 2022 est un bon exemple d’exercice mobilisant ces techniques, parfois de façon combinée.</p>
+<div class="methbox meth">
+<center>
+<strong>Comment montrer la convergence en probabilité d’une suite de variables aléatoires ?</strong>
+</center>
+<p><br></p>
+<center>
+<strong>Méthode 1 : revenir à la défintion</strong>
+</center>
+<p>Autrement dit si on parvient à montrer que pour tout réel <span class="math inline">\(\varepsilon &gt;0\)</span> quelconque</p>
+<p><span class="math display">\[\mathbb{P}(|X_n-X|\geq\varepsilon)\underset{n\to +\infty}\longrightarrow 0\]</span>
+alors on peut conclure que <span class="math inline">\((X_n)_n\)</span> converge en probabilité vers <span class="math inline">\(X\)</span>.</p>
+<p>
+<strong>Exemple.</strong> <span class="math inline">\((X_n)_n\)</span> est une suite de variables aléatoires telles que</p>
+<p><span class="math display">\[\begin{align}
+\mathbb{P}(X_n=0) &amp;= 1-\frac{1}{n} \\
+\mathbb{P}(X_n=n) &amp;= \frac{1}{n}
+\end{align}\]</span></p>
+<p>et on veut montrer que <span class="math inline">\((X_n)_n\)</span> converge en probabilité. On fixe donc un <span class="math inline">\(\varepsilon &gt;0\)</span> quelconque. <span class="math inline">\((X_n)_n\)</span> est à valeurs dans <span class="math inline">\(\{0, n\}\)</span> car <span class="math inline">\(\mathbb{P}(X_n=0)+\mathbb{P}(X_n=n)=1\)</span>, donc</p>
+<p><span class="math display">\[\begin{align}
+\mathbb{P}(|X_n|&gt;\varepsilon) &amp;= \mathbb{P}(X_n=n) \\
+&amp;= \frac{1}{n}
+\end{align}\]</span></p>
+<p>Ainsi, <span class="math inline">\(\mathbb{P}(|X_n|\geq\varepsilon)\underset{n\to +\infty}\longrightarrow 0\)</span>, et donc la suite <span class="math inline">\((X_n)\)</span> converge en probabilité vers <span class="math inline">\(0\)</span>.</p>
+<p><br></p>
+<center>
+<strong>Méthode 2 : utiliser la loi faible des grands nombres</strong>
+</center>
+<p>Pour rappel, la loi faible des grands nombres affirme que si les <span class="math inline">\(X_i\)</span> sont des variables aléatoires i.i.d. admettant une espérance <span class="math inline">\(\mu\)</span>, alors la suite des moyennes empiriques <span class="math inline">\(\overline{X}_n\)</span> converge en probabilité vers <span class="math inline">\(\mu\)</span> :</p>
+<p><span class="math display">\[\overline{X}_n\underset{n\to +\infty}{\overset{\mathbb{P}}{\longrightarrow}}\mu=\mathbb{E}(X)\]</span></p>
+<p>C’est un outil auquel il faut donc penser dès que l’on nous demande de montrer la convergence en probabilité d’une moyenne empirique vers une constante.</p>
+<p></p>
+<p><strong>Exemple.</strong> Si les <span class="math inline">\(X_i\)</span> sont i.i.d. de loi <span class="math inline">\(\mathcal{E}(2)\)</span>, alors</p>
+<p><span class="math display">\[\frac{X_1+\dots +X_n}{n}\underset{n\to +\infty}{\overset{\mathbb{P}}{\longrightarrow}}\frac{1}{2}\]</span></p>
+<p><br></p>
+<center>
+<strong>Méthode 3 : utiliser une inégalité de concentration</strong>
+</center>
+<p>Intuitivement, une inégalité de concentration nous dit qu’une variable aléatoire a peu de chance de prendre une valeur trop éloignée de la moyenne, ou une valeur trop grande (en valeur absolue). Le programme du concours suppose connues deux inégalités de concentration :</p>
 <ul>
-<li>focus sur les cas <span class="math inline">\(p=1\)</span> et <span class="math inline">\(p=2\)</span></li>
+<li><p>l’<strong>inégalité de Markov</strong> : si <span class="math inline">\(X\)</span> est <strong>positive</strong> et admet une espérance, alors pour tout <span class="math inline">\(\varepsilon &gt;0\)</span>, on a <span class="math display">\[\mathbb{P}(X&gt;\varepsilon)\leq\frac{\mathbb{E}(X)}{\varepsilon}\]</span></p></li>
+<li><p>l’<strong>inégalité de Bieanymé-Tchebychev</strong> qui est une conséquence de l’inégalité de Markov (appliquée à <span class="math inline">\(Y\equiv (X-\mathbb{E}(X))^2\)</span>) : si <span class="math inline">\(X\)</span> admet une espérance et une variance, alors pour tout <span class="math inline">\(\varepsilon &gt;0\)</span> :</p></li>
 </ul>
-</div>
-<div id="convergence-en-loi" class="section level3 hasAnchor" number="5.1.3">
-<h3><span class="header-section-number">5.1.3</span> Convergence en loi<a href="convergence.html#convergence-en-loi" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-</div>
-<div id="convergence-presque-sûre-hors-prgramme" class="section level3 hasAnchor" number="5.1.4">
-<h3><span class="header-section-number">5.1.4</span> Convergence presque-sûre (hors-prgramme ?)<a href="convergence.html#convergence-presque-sûre-hors-prgramme" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-</div>
-<div id="liens-entre-les-différents-modes-de-convergence" class="section level3 hasAnchor" number="5.1.5">
-<h3><span class="header-section-number">5.1.5</span> Liens entre les différents modes de convergence<a href="convergence.html#liens-entre-les-différents-modes-de-convergence" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-</div>
-<div id="approximations" class="section level3 hasAnchor" number="5.1.6">
-<h3><span class="header-section-number">5.1.6</span> Approximations<a href="convergence.html#approximations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math display">\[\mathbb{P}(|X-\mathbb{E}(X)|\geq\varepsilon)\leq\frac{\mathbb{V}(X)}{\varepsilon^2}\]</span>
+</p>
+<p><strong>Exemple.</strong> On sait que <span class="math inline">\(X_n\)</span> (de signe quelconque) est telle que <span class="math inline">\(\mathbb{E}(|X_n|)\underset{n\to +\infty}\longrightarrow 0\)</span> et on veut montrer que la suite <span class="math inline">\((X_n)_n\)</span> converge en probabilité et déterminer sa limite. D’après l’inégalité de Markov appliquée à <span class="math inline">\(Y_n\equiv|X_n|\)</span>, pour tout <span class="math inline">\(\varepsilon &gt;0\)</span> on a</p>
+<p><span class="math display">\[0\leq \mathbb{P}(|X_n|\geq\varepsilon)\leq\frac{\mathbb{E}(|X_n|)}{\varepsilon}\]</span>
+et le théorème des gendarmes nous permet de conclure que, pour tout <span class="math inline">\(\varepsilon &gt;0\)</span> on a <span class="math inline">\(\lim\limits_{n\to +\infty}\mathbb{P}(|X_n|\geq\varepsilon)=0\)</span>, et donc <span class="math inline">\((X_n)\)</span> converge en probabilité vers <span class="math inline">\(0\)</span>.</p>
+<p><br></p>
+<center>
+<strong>Méthode 4 : montrer la convergence en loi vers une constante</strong>
+</center>
+<p>Pour rappel :</p>
 <ul>
-<li>approximation de la loi binomiale <span class="math inline">\(\mathcal{B}(n\,;\,p)\approx\mathcal{N}(np\,;\,np(1-p))\)</span></li>
-<li>approximation de la loi de Poisson <span class="math inline">\(\mathcal{P}(\lambda)\approx\mathcal{N}(\lambda\,;\,\lambda)\)</span></li>
+<li>la convergence en probabilité implique toujours la convergence en loi</li>
+<li>la réciproque est fausse dans le cas général. Toutefois, elle est vraie si la limite est constante.</li>
 </ul>
-<p>(bien préciser les hypothèses sous-jcantes à ces approximations)</p>
-</div>
-</div>
-<div id="loi-faible-des-grands-nombres-loi-forte-des-grands-nombres" class="section level2 hasAnchor" number="5.2">
-<h2><span class="header-section-number">5.2</span> Loi Faible des Grands Nombres, Loi Forte des Grands Nombres<a href="convergence.html#loi-faible-des-grands-nombres-loi-forte-des-grands-nombres" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>D’après le deuxième point, pour montrer que <span class="math inline">\(X_n\underset{n\to +\infty}{\overset{\mathbb{P}}{\longrightarrow}}a\)</span> avec <span class="math inline">\(a\in\mathbb{R}\)</span> une constante, il suffit de démontrer que <span class="math inline">\(X_n\underset{n\to +\infty}{\overset{\mathcal{L}}{\longrightarrow}}a\)</span></p>
+<p>
+<strong>Exemple.</strong> On sait que <span class="math inline">\(X_n\)</span> admet pour fonction de répartition la fonction <span class="math inline">\(F_n\)</span> telle que <span class="math inline">\(F_n(x)=0\)</span> si <span class="math inline">\(x\leq 1-\frac{1}{n}\)</span>, <span class="math inline">\(F_n(x)=1\)</span> si <span class="math inline">\(x\geq 1\)</span> et <span class="math inline">\(F_n\)</span> est affine sur <span class="math inline">\(\left[1-\frac{1}{n}\,;\,1\right]\)</span>. On veut montrer que <span class="math inline">\((X_n)_n\)</span> converge en probabilité vers <span class="math inline">\(1\)</span>. Pour cela, il suffit donc de démontrer que <span class="math inline">\((X_n)_n\)</span> converge en loi vers <span class="math inline">\(1\)</span>. Or, pour tout réel <span class="math inline">\(x\)</span>, <span class="math inline">\(F_n(x)\underset{n\to +\infty}\longrightarrow F(x)=\mathbb{1}_{x\leq 1}\)</span>. On reconnait la fonction de répartition de la variable aléatoire constante égale à <span class="math inline">\(1\)</span> : la suite <span class="math inline">\((X_n)_n\)</span> converge donc en loi vers la constante 1, et donc elle converge en probabilité vers <span class="math inline">\(1\)</span>.</p>
+<p><br></p>
+<center>
+<strong>Méthode 5 : utiliser le continuous mapping theorem</strong>
+</center>
+<p>Ce théorème fonctionne aussi pour la convergence en probabilité Autrement dit, la convergence en probabilité est stable par les applications continues: si <span class="math inline">\(X_n\underset{n\to +\infty}{\overset{\mathbb{P}}{\longrightarrow}}X\)</span>, alors pour toute fonction continue <span class="math inline">\(f\)</span> on a aussi <span class="math inline">\(f(X_n)\underset{n\to +\infty}{\overset{\mathbb{P}}{\longrightarrow}}f(X)\)</span>.</p>
+<p><strong>Exemple.</strong> On sait que <span class="math inline">\(X_n\)</span> est telle que <span class="math inline">\(\mathbb{E}(|X_n|)\underset{n\to +\infty}\longrightarrow 0\)</span> et on veut montrer que la suite <span class="math inline">\((Y_n)_n\)</span> définie par <span class="math inline">\(Y_n=e^{X_n}\)</span> converge en probabilité et déterminer sa limite. On a déjà démontré dans l’exemple de la méthode 3 que <span class="math inline">\((X_n)_n\)</span> converge en probabilité vers <span class="math inline">\(0\)</span> via l’inégalité de Markov. Par application de la fonction exponentielle, qui est continue, la suite <span class="math inline">\((Y_n)_n\)</span> converge donc en probabilité vers <span class="math inline">\(1\)</span>.</p>
+<p><strong>Un autre exemple.</strong> Supposons que l’on ait une suite de variables aléatoires i.i.d. <span class="math inline">\(X_1,\dots, X_n,\dots\)</span>, avec <span class="math inline">\(\mathbb{E}(X_i)=0\)</span> et que l’on veuille montrer que la suite <span class="math inline">\((Y_n)_n\)</span> définie par <span class="math inline">\(Y_n\equiv e^{\frac{1}{n}\sum\limits_{i=1}^n X_i}\)</span> converge en probabilité. Alors on peut procéder ainsi :</p>
 <ul>
-<li>énoncé théorique</li>
-<li>exemples avec illustration en R</li>
+<li>les <span class="math inline">\(X_i\)</span> étant i.i.d. et admettant une espérance, on peut appliquer la loi faible des grands nombres :</li>
 </ul>
+<p><span class="math display">\[\frac{1}{n}\sum\limits_{i=1}^n X_i\underset{n\to +\infty}{\overset{\mathbb{P}}\longrightarrow}0\]</span>
+- l’application <span class="math inline">\(\exp\)</span> étant continue en <span class="math inline">\(0\)</span>, on a d’après le continuous mapping theorem <span class="math inline">\(e^{\frac{1}{n}\sum\limits_{i=1}^n X_i}\underset{n\to +\infty}{\overset{\mathbb{P}}\longrightarrow}e^0=1\)</span>.</p>
 </div>
-<div id="théorème-central-limite-tcl" class="section level2 hasAnchor" number="5.3">
-<h2><span class="header-section-number">5.3</span> Théorème Central Limite (TCL)<a href="convergence.html#théorème-central-limite-tcl" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li>énoncé théorique</li>
-<li>exemples avec illustration en R</li>
-</ul>
-</div>
-<div id="variantes-du-tcl-hors-programme" class="section level2 hasAnchor" number="5.4">
-<h2><span class="header-section-number">5.4</span> Variantes du TCL (hors-programme)<a href="convergence.html#variantes-du-tcl-hors-programme" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 
 </div>
 </div>
@@ -281,8 +374,8 @@
           </div>
         </div>
       </div>
-<a href="variables-aléatoires-à-densité.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="statistique-descriptive.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="statistique-inférentielle.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -313,7 +406,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/4_convergence.Rmd",
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/7_méthodologie.Rmd",
 "text": "Edit"
 },
 "history": {

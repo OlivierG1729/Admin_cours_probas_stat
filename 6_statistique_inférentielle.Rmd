@@ -499,7 +499,7 @@ $$f(x;\lambda)=\exp\left(-\lambda+x\,\ln(\lambda)-\sum\limits_{i=1}^x \ln i\righ
 
 #### Rao-Blackwellisation d'un estimateur
 
-\noindent Le théorème de Rao-Blacwell montre comment améliorer un estimateur.
+\noindent Le théorème de Rao-Blackwell montre comment améliorer un estimateur.
 
 :::: {.thmbox .thm data-latex="important"}
 **Théorème de Rao-Blackwell :** Soient $T_n$ une statistique exhaustive et $S$ un estimateur sans biais de $g(\theta)$. Alors, l'estimateur $\mathbb{E}_{\theta}(S|T_n)$ est sans biais et $\mathbb{V}_{\theta}(\mathbb{E}_{\theta}(S|T_n))\leq\mathbb{V}_{\theta}(S)$.

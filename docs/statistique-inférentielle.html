@@ -23,7 +23,7 @@
 <meta name="author" content="Olivier Guin" />
 
 
-<meta name="date" content="2023-11-09" />
+<meta name="date" content="2023-11-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="statistique-descriptive.html"/>
-
+<link rel="next" href="méthodologie.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -201,6 +201,10 @@
 <li class="chapter" data-level="7.2.1" data-path="statistique-inférentielle.html"><a href="statistique-inférentielle.html#définition-et-principes"><i class="fa fa-check"></i><b>7.2.1</b> Définition et principes</a></li>
 <li class="chapter" data-level="7.2.2" data-path="statistique-inférentielle.html"><a href="statistique-inférentielle.html#exemples-de-test"><i class="fa fa-check"></i><b>7.2.2</b> Exemples de test</a></li>
 </ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="méthodologie.html"><a href="méthodologie.html"><i class="fa fa-check"></i><b>8</b> Méthodologie</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="méthodologie.html"><a href="méthodologie.html#convergence-1"><i class="fa fa-check"></i><b>8.1</b> Convergence</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -575,7 +579,7 @@ Pour démontrer la deuxième égalité, on dérive par rapport à <span class="m
 </div>
 <div id="rao-blackwellisation-dun-estimateur" class="section level4 hasAnchor" number="7.1.5.5">
 <h4><span class="header-section-number">7.1.5.5</span> Rao-Blackwellisation d’un estimateur<a href="statistique-inférentielle.html#rao-blackwellisation-dun-estimateur" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Le théorème de Rao-Blacwell montre comment améliorer un estimateur.</p>
+<p>Le théorème de Rao-Blackwell montre comment améliorer un estimateur.</p>
 <div class="thmbox thm">
 <p><strong>Théorème de Rao-Blackwell :</strong> Soient <span class="math inline">\(T_n\)</span> une statistique exhaustive et <span class="math inline">\(S\)</span> un estimateur sans biais de <span class="math inline">\(g(\theta)\)</span>. Alors, l’estimateur <span class="math inline">\(\mathbb{E}_{\theta}(S|T_n)\)</span> est sans biais et <span class="math inline">\(\mathbb{V}_{\theta}(\mathbb{E}_{\theta}(S|T_n))\leq\mathbb{V}_{\theta}(S)\)</span>.</p>
 </div>
@@ -895,14 +899,16 @@ ou, de façon équivalente</p>
 <center>
 <strong>Construction d’intervalles de confiance par application de l’inégalité de Bienaymé-Tchebychev</strong>
 </center>
-<p>Soit <span class="math inline">\(\widehat{\theta}_n\)</span> un estimateur sans biais de <span class="math inline">\(\theta\)</span> et admettant une variance <span class="math inline">\(\sigma^2\)</span>. On peut donc appliquer l’inégalité de Bienaymé-Tchebychev :</p>
+<p>Soit <span class="math inline">\(\widehat{\theta}_n\)</span> un estimateur sans biais de <span class="math inline">\(\theta\)</span> et admettant une variance <span class="math inline">\(\sigma^2\)</span> que l’on suppose connue. On peut donc appliquer l’inégalité de Bienaymé-Tchebychev :</p>
 <p><span class="math display">\[\mathbb{P}\left(|\widehat{\theta}_n-\theta|\geq\varepsilon\right)\leq\frac{\sigma^2}{\varepsilon^2}\]</span></p>
 <p>soit</p>
 <p><span class="math display">\[\mathbb{P}\left(|\widehat{\theta}_n-\theta|&lt;\varepsilon \right)&gt;1-\frac{\sigma^2}{\varepsilon^2}\]</span></p>
 <p>On choisit <span class="math inline">\(\varepsilon\)</span> de façon à avoir <span class="math inline">\(\alpha=\frac{\sigma^2}{\varepsilon^2}\)</span>, i.e. on pose</p>
 <p><span class="math display">\[\varepsilon=\frac{\sigma}{\sqrt{\alpha}}\]</span>
 Par inversion des inégalités on a <span class="math inline">\(|\widehat{\theta}_n-\theta|&lt;\varepsilon\Leftrightarrow\widehat{\theta}_n-\varepsilon&lt;\theta&lt;\widehat{\theta}_n+\varepsilon\)</span>. On en déduit un intervalle de confiance de <span class="math inline">\(\theta\)</span> au niveau de confiance <span class="math inline">\(1-\alpha\)</span> :</p>
-<p><span class="math display">\[IC^{1-\alpha}_m=\left[\widehat{\theta}_n-\frac{\sigma}{\sqrt{\alpha}}\,;\,\widehat{\theta}_n+\frac{\sigma}{\sqrt{\alpha}}\right]\]</span>
+<p><span class="math display">\[IC^{1-\alpha}_m=\left[\widehat{\theta}_n-\frac{\sigma}{\sqrt{\alpha}}\,;\,\widehat{\theta}_n+\frac{\sigma}{\sqrt{\alpha}}\right]\]</span></p>
+<p>Cet intervalle de confiance est bien calculable en pratique puisqu’on a supposé <span class="math inline">\(\sigma^2\)</span> connue.</p>
+<p>
 <strong>Exemple (moyenne empirique).</strong> Soient <span class="math inline">\(X\)</span> une VA admettant une espérance <span class="math inline">\(m\)</span> et une variance <span class="math inline">\(\sigma^2\)</span>, et <span class="math inline">\((X_1,\dots, X_n)\)</span> des VA i.i.d. de même loi que <span class="math inline">\(X\)</span>. La moyenne empirique <span class="math inline">\(\widehat{\theta}_n\equiv\overline{X}_n\)</span> est un estimateur sans biais de <span class="math inline">\(\theta\equiv m\)</span> et admettant comme variance <span class="math inline">\(\frac{\sigma^2}{n}\)</span>, on peut donc appliquer ce qui précède et obtenir un intervalle de confiance de <span class="math inline">\(m\)</span> au niveau de confiance <span class="math inline">\(1-\alpha\)</span> :</p>
 <p><span class="math display">\[IC^{1-\alpha}_m=\left[\overline{X}_n-\frac{\sigma}{\sqrt{n\alpha}}\,;\,\overline{X}_n+\frac{\sigma}{\sqrt{n\alpha}}\right]\]</span></p>
 </div>
@@ -939,7 +945,8 @@ v &amp;= \Phi^{-1}\left(1-\frac{\alpha}{2}\right)
 \text{ssi } &amp; \overline{X}_n-\frac{\sigma}{\sqrt{n}}v\leq m\leq \overline{X}_n+\frac{\sigma}{\sqrt{n}}v &amp; \\
 \end{align}\]</span></p>
 <p>Un intervalle de confiance de <span class="math inline">\(m\)</span> au niveau <span class="math inline">\(1-\alpha\)</span> est donc</p>
-<p><span class="math display">\[\text{IC}^m_{1-\alpha}\equiv\left[\overline{X}_n-\frac{\sigma}{\sqrt{n}}\Phi^{-1}\left(1-\frac{\alpha}{2}\right) \, , \,  \overline{X}_n+\frac{\sigma}{\sqrt{n}}\Phi^{-1}\left(1-\frac{\alpha}{2}\right)\right]\]</span></p>
+<p><span class="math display">\[\text{IC}^m_{1-\alpha}\equiv\left[\overline{X}_n-\frac{\sigma}{\sqrt{n}}\Phi^{-1}\left(1-\frac{\alpha}{2}\right) \, , \,  \overline{X}_n+\frac{\sigma}{\sqrt{n}}\Phi^{-1}\left(1-\frac{\alpha}{2}\right)\right]\]</span>
+On peut calculer cet intervalle de confiance à partir de l’échantillon pusiqu’on a supposé <span class="math inline">\(\sigma\)</span> connu.</p>
 </div>
 <p>On considère maintenant un cas où la stastistique n’est plus gaussienne, mais où il est possible d’appliquer le théorème central-limite, et donc se ramener à une loi approximativement gaussienne. Dans ce cas, peut obtenir des <strong>intervalles de confiance asymptotiques</strong> :</p>
 <div class="methbox meth">
@@ -995,8 +1002,8 @@ On en déduit un intervalle de confiance asymptotique de <span class="math inlin
           </div>
         </div>
       </div>
-<a href="statistique-descriptive.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="statistique-descriptive.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="méthodologie.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

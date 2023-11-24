@@ -1,0 +1,328 @@
+# Méthodologie
+
+\noindent Le but de cette partie est de recenser des méthodes qui reviennent fréquemment dans les sujets de concours. La liste n'est pas exhaustive, mais l'idée est surtout de construire (progressivement) une boite à outils qui devrait être utile autant pour les écrits que les oraux. 
+
+## Convergence
+
+
+\noindent Les sujets du concours d'administrateur regorgent de questions sur la convergence en loi et la convergence en probabilité. Les techniques qui reviennent souvent sont les suivantes :
+
+:::: {.methbox .meth data-latex="important"}
+<center>**Comment démontrer la convergence en loi d'une suite de variables aléatoires ?**</center>
+
+<br>
+
+<center>**Méthode 1 : revenir à la définition**</center>
+
+\vspace{1cm}
+
+\noindent Si on montre que pour toute fonction $\phi$ **continue** et **bornée**  $$\lim\limits_{n\to +\infty}\mathbb{E}(\phi(X_n))\underset{n\to +\infty}\longrightarrow\mathbb{E}(\phi(X))$$
+on peut alors conclure que 
+$$X_n\underset{n\to +\infty}{\overset{\mathcal{L}}\longrightarrow} X$$
+
+<br>
+
+<center>**Méthode 2 : utiliser la fonction de répartition**</center>
+
+\vspace{1cm}
+
+\noindent On considère la fonction de répartition $F_n$ de $X_n$. Si on peut montrer que $\lim\limits_{n\to +\infty}F_n(x) = F(x)$ en tout point où $F$ est continue, et que $F$ est une fonction de répartition (éventuellement la fonction de répartition d'une loi usuelle), alors on peut conclure que $(X_n)_n$ converge en loi vers la loi associée à cette fonction de répartition.
+
+
+\vspace{1cm}
+
+\noindent
+**Exemple.** On suppose que $X_n$ suit une loi uniforme sur $\left\{\frac{1}{n},\dots,\frac{n-1}{n}, 1\right\}$ et on veut montrer que $(X_n)_n$ converge en loi vers la loi uniforme $\mathcal{U}([0\,,\,1])$. Soit $x\in [0\,;\,1]$. Il existe un unique entier naturel $k\in [0\,;\,n]$ tel que $\frac{k}{n}\leq x <\frac{k+1}{n}$. Cet encadrement s'écrit aussi $nx-1 <k\leq nx$, i.e. $nx\leq k <nx+1$. On en déduit que $k=\lfloor nx\rfloor$. Comme $X_n$ est entier, on a donc 
+
+$$X_n\leq x \Leftrightarrow X_n\leq\frac{\lfloor nx \rfloor}{n}$$
+\noindent et donc $F_{X_n}(x)=F_{X_n}\left(\frac{\lfloor nx \rfloor}{n}\right)=\frac{\lfloor nx\rfloor}{n}$. On en déduit que 
+$$x\leq F_{X_n}(x)<x+\frac{1}{n}$$
+et donc 
+
+$$\lim\limits_{n\to +\infty} F_{X_n}(x)=x$$
+\noindent Or, la fonction $F$ définie par $F(x)=x$ est la fonction de répartition de la loi uniforme sur $\mathcal{U}([0\,;\,1])$. On a donc finalement
+
+$$X_n\underset{n\to +\infty}{\overset{\mathcal{L}}\longrightarrow}\mathcal{U}([0\,;\,1])$$
+<br>
+
+<center>**Méthode 3 : utiliser le théorème central limite**</center>
+
+\vspace{1cm}
+
+\noindent C'est le résultat auquel il faut penser lorsqu'on voit une somme $S_n\equiv\sum\limits_{i=1}^n X_i$ de variables aléatoires i.i.d. Pour pouvoir l'appliquer, les $X_i$ doivent admettre une espérance $\mu$ et une variance $\sigma^2>0$. La version centrée-réduite de $S_n$ converge alors en loi vers la loi normale standard $\mathcal{N}(0,1)$ : 
+
+$$\frac{S_n-n\mu}{n\,\sigma}\underset{n\to +\infty}{\overset{\mathcal{L}}{\longrightarrow}}\mathcal{N}(0\,;1)$$
+\noindent De façon équivalente, on a aussi
+
+$$\sqrt{n}\,\frac{\overline{X_n}-\mu}{\sigma}\underset{n\to +\infty}{\overset{\mathcal{L}}{\longrightarrow}}\mathcal{N}(0\,;1)$$
+ou encore
+
+$$\sqrt{n}\left(\overline{X_n}-\mu\right)\underset{n\to +\infty}{\overset{\mathcal{L}}{\longrightarrow}}\mathcal{N}(0\,;\sigma^2)$$
+
+\noindent 
+**Exemple.** Soit $(X_n)_n$ une suite de variables aléatoires i.i.d. de loi $\mathcal{E}(b)$. On pose 
+
+$$Z_n\equiv\sqrt{n}\left(\frac{1}{n}\sum\limits_{i=1}^n X_i-\frac{1}{b}\right)$$
+\noindent et on nous demande de démontrer que $(Z_n)_n$ converge en loi, et de déterminer sa limite. On reconnaît une expression du type $\sqrt{n}(\overline{X}_n-\mu)$, qui doit activer l'automatisme *utilisation du TCL*...
+\noindent On a en effet $\mathbb{E}(X_n)=\frac{1}{b}$ et $\mathbb{V}(X_n)=\frac{1}{b^2}$ avec des variables $X_i$ i.i.d., et donc le théorème central limite permet d'écrire
+
+$$Z_n=\sqrt{n}\left(\frac{1}{n}\sum\limits_{i=1}^n X_i-\frac{1}{b}\right)\underset{n\to +\infty}{\overset{\mathcal{L}}{\longrightarrow}}\mathcal{N}\left(0\,;\,\frac{1}{b^2} \right)$$
+
+<br>
+
+<center>**Méthode 4 : Montrer la convergence en probabilité**</center>
+
+\vspace{1cm}
+
+\noindent Si $X_n\underset{n\to +\infty}{\overset{\mathbb{P}}{\longrightarrow}}X$ alors $X_n\underset{n\to +\infty}{\overset{\mathcal{L}}{\longrightarrow}}X$.
+
+<br>
+
+<center>**Méthode 5 : Utiliser le continuous mapping theorem**</center>
+
+\vspace{1cm}
+
+\noindent Si on a déjà montré que $X_n\underset{n\to +\infty}{\overset{\mathcal{L}}{\longrightarrow}}X$ et qu'on veut montrer que $Y_n\underset{n\to +\infty}{\overset{\mathcal{L}}{\longrightarrow}}Y$ (la recherche de $Y$ pouvant éventuellement être laissée à la charge du candidat...), on peut regarder si on peut écrire $X_n$ sous la forme $X_n=f(Y_n)$. Si c'est le cas et si $f$ est une fonction continue, alors le *continuous mapping theorem* permet de conclure que $X_n=f(Y_n)\underset{n\to +\infty}{\overset{\mathcal{L}}{\longrightarrow}}f(Y)=:X$. Ce théorème peut s'utiliser en invoquant simplement la *stabilité de la convergence en loi par les applications continues*.
+
+\noindent 
+**Exemples.** Si $X_n\underset{n\to +\infty}{\overset{\mathcal{L}}{\longrightarrow}}X$, alors $X_n^2\underset{n\to +\infty}{\overset{\mathcal{L}}{\longrightarrow}}X^2$, $\sqrt{X_n}\underset{n\to +\infty}{\overset{\mathcal{L}}{\longrightarrow}}\sqrt{X}$ (sous réserve d'existence), $\frac{1}{X_n}\underset{n\to +\infty}{\overset{\mathcal{L}}{\longrightarrow}}\frac{1}{X}$ (sous réserve d'existence), etc.
+
+
+<br>
+
+<center>**Méthode 6 : Utiliser le lemme de Slutsky**</center>
+
+\vspace{1cm}
+
+\noindent Pour rappel, ce lemme affirme que si $(X_n)$ **converge en loi** vers $X$ et $Y_n$ **converge en probabilité** vers $Y$, alors le couple aléatoire $(X_n, \, Y_n)$ **converge en loi** vers le couple $(X,\, Y)$. On utilise en général plutôt une conséquence de ce lemme : pour toute fonction continue $f:\mathcal{U}\subset\mathbb{R}^2\longrightarrow\mathbb{R}$ (en fait mesurable suffit, mais c'est hors-programme...) la variable aléatoire $Z_n=f(X_n\,Y_n)$ converge en loi vers $Z=f(X,\,Y)$. 
+
+\noindent
+**Exemples.** Typiquement, on a donc $X_n+Y_n\underset{n\to +\infty}{\overset{\mathcal{L}}{\longrightarrow}}X+Y$, $X_nY_n\underset{n\to +\infty}{\overset{\mathcal{L}}{\longrightarrow}}XY$, $\frac{X_n}{Y_n}\underset{n\to +\infty}{\overset{\mathcal{L}}{\longrightarrow}}\frac{X}{Y}$, etc.
+
+:::
+
+\noindent $\fbox{Concours}$ L'exercice  1 du sujet du concours externe de 2022 est un bon exemple d'exercice mobilisant ces techniques, parfois de façon combinée.
+
+
+:::: {.methbox .meth data-latex="important"}
+<center>**Comment montrer la convergence en probabilité d'une suite de variables aléatoires ?**</center>
+
+<br>
+
+<center>**Méthode 1 : revenir à la défintion**</center>
+
+\noindent Autrement dit si on parvient à montrer que pour tout réel $\varepsilon >0$ quelconque
+
+$$\mathbb{P}(|X_n-X|\geq\varepsilon)\underset{n\to +\infty}\longrightarrow 0$$
+\noindent alors on peut conclure que $(X_n)_n$ converge en probabilité vers $X$.
+
+\vspace{1cm}
+
+\noindent
+**Exemple.** $(X_n)_n$ est une suite de variables aléatoires telles que 
+
+\begin{align}
+\mathbb{P}(X_n=0) &= 1-\frac{1}{n} \\
+\mathbb{P}(X_n=n) &= \frac{1}{n}
+\end{align}
+
+\noindent et on veut montrer que $(X_n)_n$ converge en probabilité. On fixe donc un $\varepsilon >0$ quelconque. $(X_n)_n$ est à valeurs dans $\{0, n\}$ car $\mathbb{P}(X_n=0)+\mathbb{P}(X_n=n)=1$, donc 
+
+\begin{align}
+\mathbb{P}(|X_n|>\varepsilon) &= \mathbb{P}(X_n=n) \\
+&= \frac{1}{n}
+\end{align}
+
+\noindent Ainsi, $\mathbb{P}(|X_n|\geq\varepsilon)\underset{n\to +\infty}\longrightarrow 0$, et donc la suite $(X_n)$ converge en probabilité vers $0$.
+
+
+<br>
+
+<center>**Méthode 2 : utiliser la loi faible des grands nombres**</center>
+
+\vspace{1cm}
+
+\noindent Pour rappel, la loi faible des grands nombres affirme que si les $X_i$ sont des variables aléatoires i.i.d. admettant une espérance $\mu$, alors la suite des moyennes empiriques $\overline{X}_n$ converge en probabilité vers $\mu$ :
+
+$$\overline{X}_n\underset{n\to +\infty}{\overset{\mathbb{P}}{\longrightarrow}}\mu=\mathbb{E}(X)$$
+
+\vspace{1cm}
+
+\noindent C'est un outil auquel il faut donc penser dès que l'on nous demande de montrer la convergence en probabilité d'une moyenne empirique vers une constante. 
+
+\vspace{1cm}
+
+\noindent
+
+**Exemple.** Si les $X_i$ sont i.i.d. de loi $\mathcal{E}(2)$, alors 
+
+$$\frac{X_1+\dots +X_n}{n}\underset{n\to +\infty}{\overset{\mathbb{P}}{\longrightarrow}}\frac{1}{2}$$
+
+<br>
+
+<center>**Méthode 3 : utiliser une inégalité de concentration**</center>
+
+\vspace{1cm}
+
+\noindent Intuitivement, une inégalité de concentration nous dit qu'une variable aléatoire a peu de chance de prendre une valeur trop éloignée de la moyenne, ou une valeur trop grande (en valeur absolue). Le programme du concours suppose connues deux inégalités de concentration : 
+
+- l'**inégalité de Markov** : si $X$ est **positive** et admet une espérance, alors pour tout $\varepsilon >0$, on a $$\mathbb{P}(X>\varepsilon)\leq\frac{\mathbb{E}(X)}{\varepsilon}$$
+
+- l'**inégalité de Bieanymé-Tchebychev** qui est une conséquence de l'inégalité de Markov (appliquée à $Y\equiv (X-\mathbb{E}(X))^2$) : si $X$ admet une espérance et une variance, alors pour tout $\varepsilon >0$ :
+
+$$\mathbb{P}(|X-\mathbb{E}(X)|\geq\varepsilon)\leq\frac{\mathbb{V}(X)}{\varepsilon^2}$$
+\noindent 
+
+**Exemple.** On sait que $X_n$ (de signe quelconque) est telle que $\mathbb{E}(|X_n|)\underset{n\to +\infty}\longrightarrow 0$ et on veut montrer que la suite $(X_n)_n$ converge en probabilité et déterminer sa limite. D'après l'inégalité de Markov appliquée à $Y_n\equiv|X_n|$, pour tout $\varepsilon >0$ on a 
+
+$$0\leq \mathbb{P}(|X_n|\geq\varepsilon)\leq\frac{\mathbb{E}(|X_n|)}{\varepsilon}$$
+et le théorème des gendarmes nous permet de conclure que, pour tout $\varepsilon >0$ on a $\lim\limits_{n\to +\infty}\mathbb{P}(|X_n|\geq\varepsilon)=0$, et donc $(X_n)$ converge en probabilité vers $0$.
+
+<br>
+
+<center>**Méthode 4 : montrer la convergence en loi vers une constante**</center>
+
+\vspace{1cm}
+
+\noindent Pour rappel :
+
+- la convergence en probabilité implique toujours la convergence en loi
+- la réciproque est fausse dans le cas général. Toutefois, elle est vraie si la limite est constante. 
+
+D'après le deuxième point, pour montrer que $X_n\underset{n\to +\infty}{\overset{\mathbb{P}}{\longrightarrow}}a$ avec $a\in\mathbb{R}$ une constante, il suffit de démontrer que $X_n\underset{n\to +\infty}{\overset{\mathcal{L}}{\longrightarrow}}a$
+
+\vspace{1cm}
+
+\noindent 
+**Exemple.** On sait que $X_n$ admet pour fonction de répartition la fonction $F_n$ telle que $F_n(x)=0$ si $x\leq 1-\frac{1}{n}$, $F_n(x)=1$ si $x\geq 1$ et $F_n$ est affine sur $\left[1-\frac{1}{n}\,;\,1\right]$. On veut montrer que $(X_n)_n$ converge en probabilité vers $1$. Pour cela, il suffit donc de démontrer que $(X_n)_n$ converge en loi vers $1$. Or, pour tout réel $x$, $F_n(x)\underset{n\to +\infty}\longrightarrow F(x)=\mathbb{1}_{x\leq 1}$. On reconnait la fonction de répartition de la variable aléatoire constante égale à $1$ : la suite $(X_n)_n$ converge donc en loi vers la constante 1, et donc elle converge en probabilité vers $1$. 
+
+<br>
+
+<center>**Méthode 5 : utiliser le continuous mapping theorem**</center>
+
+\noindent Ce théorème fonctionne aussi pour la convergence en probabilité Autrement dit, la convergence en probabilité est stable par les applications continues: si $X_n\underset{n\to +\infty}{\overset{\mathbb{P}}{\longrightarrow}}X$, alors pour toute fonction continue $f$ on a aussi $f(X_n)\underset{n\to +\infty}{\overset{\mathbb{P}}{\longrightarrow}}f(X)$.
+
+\vspace{1cm}
+
+**Exemple.** On sait que $X_n$ est telle que $\mathbb{E}(|X_n|)\underset{n\to +\infty}\longrightarrow 0$ et on veut montrer que la suite $(Y_n)_n$ définie par $Y_n=e^{X_n}$ converge en probabilité et déterminer sa limite. On a déjà démontré dans l'exemple de la méthode 3 que $(X_n)_n$ converge en probabilité vers $0$ via l'inégalité de Markov. Par application de la fonction exponentielle, qui est continue, la suite $(Y_n)_n$ converge donc en probabilité vers $1$. 
+
+\vspace{1cm}
+
+**Un autre exemple.** Supposons que l'on ait une suite de variables aléatoires i.i.d. $X_1,\dots, X_n,\dots$, avec $\mathbb{E}(X_i)=0$ et que l'on veuille montrer que la suite $(Y_n)_n$ définie par $Y_n\equiv e^{\frac{1}{n}\sum\limits_{i=1}^n X_i}$ converge en probabilité. Alors on peut procéder ainsi : 
+
+- les $X_i$ étant i.i.d. et admettant une espérance, on peut appliquer la loi faible des grands nombres :
+
+$$\frac{1}{n}\sum\limits_{i=1}^n X_i\underset{n\to +\infty}{\overset{\mathbb{P}}\longrightarrow}0$$
+- l'application $\exp$ étant continue en $0$, on a d'après le continuous mapping theorem $e^{\frac{1}{n}\sum\limits_{i=1}^n X_i}\underset{n\to +\infty}{\overset{\mathbb{P}}\longrightarrow}e^0=1$.
+:::
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

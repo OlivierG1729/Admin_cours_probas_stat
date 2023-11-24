@@ -98,3 +98,5 @@ intervalles-de-confiance
 tests-statistiques
 définition-et-principes
 exemples-de-test
+méthodologie
+convergence-1
