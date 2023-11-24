@@ -101,8 +101,6 @@ $$Z_n=\sqrt{n}\left(\frac{1}{n}\sum\limits_{i=1}^n X_i-\frac{1}{b}\right)\unders
 
 :::
 
-\noindent $\fbox{Concours}$ L'exercice  1 du sujet du concours externe de 2022 est un bon exemple d'exercice mobilisant ces techniques, parfois de façon combinée.
-
 
 :::: {.methbox .meth data-latex="important"}
 <center>**Comment montrer la convergence en probabilité d'une suite de variables aléatoires ?**</center>
@@ -213,10 +211,13 @@ D'après le deuxième point, pour montrer que $X_n\underset{n\to +\infty}{\overs
 - les $X_i$ étant i.i.d. et admettant une espérance, on peut appliquer la loi faible des grands nombres :
 
 $$\frac{1}{n}\sum\limits_{i=1}^n X_i\underset{n\to +\infty}{\overset{\mathbb{P}}\longrightarrow}0$$
+
 - l'application $\exp$ étant continue en $0$, on a d'après le continuous mapping theorem $e^{\frac{1}{n}\sum\limits_{i=1}^n X_i}\underset{n\to +\infty}{\overset{\mathbb{P}}\longrightarrow}e^0=1$.
 :::
 
+<br>
 
+\noindent $\fbox{Concours}$ L'exercice  1 du sujet du concours externe de 2022 est un bon exemple d'exercice mobilisant ces techniques, parfois de façon combinée.
 
 
 
