@@ -23,7 +23,7 @@
 <meta name="author" content="Olivier Guin" />
 
 
-<meta name="date" content="2023-11-25" />
+<meta name="date" content="2024-01-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -199,7 +199,8 @@
 <li class="chapter" data-level="7.2" data-path="statistique-inférentielle.html"><a href="statistique-inférentielle.html#tests-statistiques"><i class="fa fa-check"></i><b>7.2</b> Tests statistiques</a>
 <ul>
 <li class="chapter" data-level="7.2.1" data-path="statistique-inférentielle.html"><a href="statistique-inférentielle.html#définition-et-principes"><i class="fa fa-check"></i><b>7.2.1</b> Définition et principes</a></li>
-<li class="chapter" data-level="7.2.2" data-path="statistique-inférentielle.html"><a href="statistique-inférentielle.html#exemples-de-test"><i class="fa fa-check"></i><b>7.2.2</b> Exemples de test</a></li>
+<li class="chapter" data-level="7.2.2" data-path="statistique-inférentielle.html"><a href="statistique-inférentielle.html#tests-unilatéraux-tests-bilatéraux"><i class="fa fa-check"></i><b>7.2.2</b> Tests unilatéraux, tests bilatéraux</a></li>
+<li class="chapter" data-level="7.2.3" data-path="statistique-inférentielle.html"><a href="statistique-inférentielle.html#exemples"><i class="fa fa-check"></i><b>7.2.3</b> Exemples</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="méthodologie.html"><a href="méthodologie.html"><i class="fa fa-check"></i><b>8</b> Méthodologie</a>
@@ -984,15 +985,162 @@ On en déduit un intervalle de confiance asymptotique de <span class="math inlin
 <h2><span class="header-section-number">7.2</span> Tests statistiques<a href="statistique-inférentielle.html#tests-statistiques" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="définition-et-principes" class="section level3 hasAnchor" number="7.2.1">
 <h3><span class="header-section-number">7.2.1</span> Définition et principes<a href="statistique-inférentielle.html#définition-et-principes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>On s’intéresse à un phénomène réel que l’on modélise par une variable aléatoire <span class="math inline">\(X\)</span> dont la loi est modélisée statistiquement par une famille paramétrique de distributions <span class="math inline">\(\{P_{\theta}, \theta\in\Theta\}\)</span>. On suppose que l’espace <span class="math inline">\(\Theta\)</span> de tous les paramètres possibles est partitionné en deux sous-ensembles <span class="math inline">\(\Theta_0\)</span> et <span class="math inline">\(\Theta_1\)</span>. On note <span class="math inline">\(\theta\)</span> la vraie valeur associée à la loi de <span class="math inline">\(X\)</span>. On considère alors les deux hypothèses suivantes :</p>
+<p><span class="math display">\[(H_0):\,\theta\in\Theta_0\]</span>
+<span class="math display">\[(H_1):\,\theta\in\Theta_1\]</span></p>
+<p>L’hypothèse <span class="math inline">\((H_0)\)</span> s’appelle l’<strong>hypothèse nulle</strong> alors que l’hypothèse <span class="math inline">\((H_1)\)</span> s’appelle l’<strong>hypothèse alternative</strong>.</p>
+<p>Construire un test revient à construire une partition de <span class="math inline">\(\mathbb{R}^n\)</span> :</p>
+<p><span class="math display">\[\mathbb{R}^n=W\cup\overline{W}\]</span>
+tel que, pour toute réalisation <span class="math inline">\((x_1,\dots,x_n)\)</span> d’un échantillon aléatoire <span class="math inline">\((X_1,\dots,X_n)\)</span> de variables aléatoires i.i.d. <span class="math inline">\(X_i\)</span> de loi <span class="math inline">\(P_{\theta}\)</span>, on suive la <strong>règle de décision</strong> suivante :</p>
+<p><span class="math display">\[\hbox{Si } (x_1,\dots, x_n)\in W \hbox{ alors on rejette l&#39;hypothèse nulle } (H_0)\]</span>
+<span class="math display">\[\hbox{Si } (x_1,\dots, x_n)\in \overline{W} \hbox{ alors on ne rejette pas l&#39;hypothèse nulle } (H_0)\]</span>
+La partie <span class="math inline">\(W\)</span> s’appelle la <strong>région de rejet</strong> de <span class="math inline">\((H_0)\)</span>, ou encore la <strong>région critique</strong>. La partie <span class="math inline">\(\overline{W}\)</span> s’appelle la <strong>région d’acceptation</strong> de l’hypothèse nulle <span class="math inline">\((H_0)\)</span>.</p>
+<p>Construire un test, c’est donc décider d’une partition particulière <span class="math inline">\((W, \overline{W})\)</span> de <span class="math inline">\(\mathbb{R}^n\)</span>.</p>
+<p>Les tests constituent un outil d’aide à la décision. On en présente ici une méthodlogie générale :</p>
+<div class="methbox meth">
+<center>
+<strong>Méthodologie des tests d’hypothèse</strong>
+</center>
+<p>On suit généralement les étapes suivantes :</p>
 <ul>
-<li>approche très intuitive (d’après le programme du concours)</li>
+<li>on définit l’hypothèse nulle <span class="math inline">\((H_0)\)</span> et l’hypothèse alternative <span class="math inline">\((H_1)\)</span> ;</li>
+<li>on choisit une <strong>statistique de test</strong> <span class="math inline">\(T=T(X_1,\dots, X_n)\)</span> ;</li>
+<li>on détermine la distribution de <span class="math inline">\(T\)</span> sous l’hypothèse nulle <span class="math inline">\((H_0)\)</span> ;</li>
+<li>on choisit un <strong>niveau de significativité</strong> <span class="math inline">\(\alpha\)</span> du test, et on calcule, à partir de la distibution de <span class="math inline">\(T\)</span> obtenue à l’étape précédente, la <strong>région de rejet</strong> de <span class="math inline">\((H_0)\)</span> ;</li>
+<li>on calcule, à partir des données observées <span class="math inline">\((x_1,\dots x_n)\)</span> (qui constituent une réalisation de l’échantillon aléatoire <span class="math inline">\((X_1,\dots, X_n)\)</span>) la valeur <span class="math inline">\(T(x_1,\dots, x_n)\)</span> prise par <span class="math inline">\(T\)</span> ;</li>
+<li>à partir de cette dernière valeur et de la région de rejet, on prend une décision.</li>
 </ul>
 </div>
-<div id="exemples-de-test" class="section level3 hasAnchor" number="7.2.2">
-<h3><span class="header-section-number">7.2.2</span> Exemples de test<a href="statistique-inférentielle.html#exemples-de-test" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Cette méthodologie correspond en gros à un <strong>raisonnement par l’absurde probabiliste</strong>. En effet, dans un raisonnement par l’absurde classique :</p>
 <ul>
-<li>le but est avant tout de montrer la démarche générale d’un test statistique à travers quelques exemples simples</li>
+<li>on veut démontrer une certaine affirmation <span class="math inline">\(A\)</span> ;</li>
+<li>sous l’hypothèse contraire <span class="math inline">\(\overline{A}\)</span>, on en déduit quelque chose que l’on sait faux ;</li>
+<li>on conclut que notre hypothèse de départ <span class="math inline">\(\overline{A}\)</span> est fausse, i.e. on rejette <span class="math inline">\(\overline{A}\)</span>, ou, de façon équivalente, on conclut que <span class="math inline">\(A\)</span> est vraie.</li>
 </ul>
+<p>Lorsqu’on fait un test :</p>
+<ul>
+<li>on définit une hypothèse nulle <span class="math inline">\((H_0)\)</span>, qui est l’hypothèse que l’on aimerait pouvoir rejeter ;</li>
+<li>on calcule la distribution de <span class="math inline">\(T\)</span> et on calcule par ailleurs la valeur <span class="math inline">\(T(x_1,\dots, x_n)\)</span> ;</li>
+<li>si la probabilité <strong>sous l’hypothèse nulle</strong> que <span class="math inline">\(T\)</span> prenne cette valeur est très faible, i.e. en dessous d’un certain seuil (le seuil standard étant 5 %), on rejette l’hypothèse nulle. Si en revanche cette probabilité est au-dessus de ce seuil, on ne rejette pas l’hypothèse nulle.</li>
+</ul>
+<p>
+<strong>Remarques. i</strong> En résumé, on suit donc le principe suivant : je suppose <span class="math inline">\((H_0)\)</span> vraie, j’arrive à un résultat très improbable, je conclus que <span class="math inline">\((H_0)\)</span> est fausse.</p>
+<p>
+<strong>ii.</strong> A la différence d’un raisonnement par l’absurde classique, cette conclusion peut toutefois être erronée. Autrement dit, il est possible de rejeter à tort <span class="math inline">\((H_0)\)</span>. Toutefois, ce risque de rejet à tort est maitrisable : il s’agit du seuil de significativité <span class="math inline">\(\alpha=\mathbb{P}(\hbox{on rejette } H_0\,|\, H_0)\)</span>. Donc, si on choisit <span class="math inline">\(\alpha\)</span> petit, ce risque -appelé <strong>risque de première espèce</strong>- sera très limité.</p>
+<p>
+<strong>iii.</strong> Lorsqu’on tente de faire un raisonnement par l’absurde, mais qu’on ne parvient pas à aboutir à une contradiction, il est incorrect de conclure que l’hypothèse initiale est vraie. Notre raisonnement ne nous a juste pas permis de conclure qu’elle était fausse… ce qui ne signifie pas qu’elle est vraie. Dans un tel cas, on ne peut tout simplement rien conclure. De manière analogue, si la probabilité calculée dans un test est au-dessus du seuil de significativité, il serait incorrect d’<em>accepter</em> l’hypothèse nulle. Même si on trouve parfois l’expression <em>accepter <span class="math inline">\((H_0)\)</span></em> dans la littérature, il s’agit d’un abus de langage et on lui préfèrera l’expression <em>ne pas rejeter <span class="math inline">\((H_0)\)</span></em>. Cela ne signifie pas que <span class="math inline">\((H_1)\)</span> est probablement vraie, mais plutôt que notre test ne nous a pas permis de conclure que <span class="math inline">\((H_0)\)</span> était probablement fausse, ce qui est assez différent.</p>
+<p>
+<strong>iv.</strong> De la même façon que l’on peut rejeter à tort l’hypothèse nulle <span class="math inline">\((H_0)\)</span>, il est possible de ne pas rejeter à tort <span class="math inline">\((H_0)\)</span>. La probabilité d’un tel événement est <span class="math inline">\(\mathbb{P}(\hbox{ne pas rejeter } H_0\,|\, H_1)\)</span>. Cette probabilité s’appelle le <strong>risque de deuxième espèce</strong>.</p>
+<p>
+<strong>v.</strong> Tout test présente une dyssymétrie dans sa façon de traiter <span class="math inline">\((H_0)\)</span> et <span class="math inline">\((H_1)\)</span>. Parmi les deux types d’erreurs que l’on peut commettre dans la conclusion d’un test, il y en a généralement l’une des deux que l’on veut éviter en priorité. Par exemple, un test médical peut amener deux types d’erreurs : les faux positifs et les faux négatifs. On préfère en général avoir des tests pour lesquels la probabilité de faux négatif est faible, car conclure que le patient n’est pas malade (et donc ne pas le traiter) alors qu’il l’est est en général plus ennuyeux que conclure qu’il est malade (et donc le traiter) alors qu’il ne l’est pas. On retient le plus souvent la convention suivante : l’erreur de première espèce est celle que l’on veut éviter, on veut donc maitriser le risque de première espèce <span class="math inline">\(\alpha=\mathbb{P}(\hbox{rejeter } H_0\,|\,H_0)\)</span>. On choisit un <span class="math inline">\(\alpha\)</span> petit et on en déduit une région de rejet <span class="math inline">\(W=W_{\alpha}\)</span>. La valeur <span class="math inline">\(\beta=\mathbb{P}(\hbox{ne pas rejeter } H_0\,|\, H_1)\)</span> dépend alors du choix de <span class="math inline">\(\alpha\)</span>, on ne la contrôle pas.</p>
+</div>
+<div id="tests-unilatéraux-tests-bilatéraux" class="section level3 hasAnchor" number="7.2.2">
+<h3><span class="header-section-number">7.2.2</span> Tests unilatéraux, tests bilatéraux<a href="statistique-inférentielle.html#tests-unilatéraux-tests-bilatéraux" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>On note <span class="math inline">\(\theta\)</span> le paramètre inconnu associé à la loi de <span class="math inline">\(X\)</span>.</p>
+<div class="defbox def">
+<center>
+<strong>Test bilatéral</strong>
+</center>
+<p>Un <strong>test bilatéral</strong> est un test dont les hypothèses nulle <span class="math inline">\((H_0)\)</span> et alternative <span class="math inline">\((H_1)\)</span> sont de la forme</p>
+<p><span class="math display">\[(H_0):\,\theta=\theta_0\]</span>
+<span class="math display">\[(H_1):\,\theta\neq\theta_0\]</span></p>
+</div>
+<p>
+<strong>Exemple : tester si une pièce est équilibrée.</strong> On veut s’assurer qu’une pièce est équilibrée en utilisant un test statistique.</p>
+<p>On note <span class="math inline">\(p\)</span> sa probabilité de tomber sur pile. La pièce est équilibrée si et seulement si <span class="math inline">\(p=\frac{1}{2}\)</span>.</p>
+<p>On définit alors le test suivant :</p>
+<p><span class="math display">\[(H_0):\,p=\frac{1}{2}\]</span>
+<span class="math display">\[(H_1):\, p\neq\frac{1}{2}\]</span>
+Il s’agit d’un test bilatéral.</p>
+<p>De même, il existe des tests unilatéraux :</p>
+<div class="defbox def">
+<center>
+<strong>Test unilatéral</strong>
+</center>
+<p>Un <strong>test unilatéral</strong> est un test dont les hypothèses nulle <span class="math inline">\((H_0)\)</span> et alternative <span class="math inline">\((H_1)\)</span> sont soit de la forme</p>
+<p><span class="math display">\[(H_0):\,\theta=\theta_0\]</span>
+<span class="math display">\[(H_1):\,\theta&gt;\theta_0\]</span></p>
+<p>soit de la forme</p>
+<p><span class="math display">\[(H_0):\,\theta=\theta_0\]</span>
+<span class="math display">\[(H_1):\,\theta&lt;\theta_0\]</span></p>
+</div>
+<p>Un test unilatéral suppose donc connu le signe de la différence <span class="math inline">\(\theta-\theta_0\)</span>, contrairement à un test bilatéral.</p>
+<p></p>
+<p><strong>Exemple : tester l’efficacité d’un médicament.</strong> Le fabricant d’un médicament annonce une efficacité à <span class="math inline">\(90/,/%\)</span> pour l’un de ses produits. Sur un échantillon de 200 personnes, ce médicament a fonctionné pour 160 personnes. On souhaite déterminer si l’afformation du fabrication est exacte au seuil de significativité <span class="math inline">\(\alpha=1\,\%\)</span>.</p>
+<p>On va ici prendre pour hypothèses</p>
+<p><span class="math display">\[(H_0):\,p=0,9\]</span></p>
+<p><span class="math display">\[(H_1):\,p&lt;0,9\]</span></p>
+<p>où <span class="math inline">\(p\)</span> est la probabilité que le médicament soit efficace.</p>
+<p>Il s’agit d’un test unilatéral gauche.</p>
+</div>
+<div id="exemples" class="section level3 hasAnchor" number="7.2.3">
+<h3><span class="header-section-number">7.2.3</span> Exemples<a href="statistique-inférentielle.html#exemples" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>On reprend les deux exemples précédents.</p>
+<div class="methbox meth">
+<center>
+<strong>Exemple 1 : tester si une pièce est équilibrée.</strong>
+</center>
+<p>
+On effectue <span class="math inline">\(n=1\,000\)</span> lancers de cette pièce. Sur ces <span class="math inline">\(10\,000\)</span> lancers, la pièce est tombée <span class="math inline">\(4\,880\)</span> fois sur pile.</p>
+<p><strong>On veut déterminer si cette pièce est équilirée au seuil de significativité <span class="math inline">\(\alpha = 5\,\%\)</span>.</strong></p>
+<p>Pour <span class="math inline">\(1\leq i\leq n\)</span>, on note <span class="math inline">\(X_i\in\{0,1\}\)</span> la variable aléatoire qui prend la valeur <span class="math inline">\(1\)</span> si la pièce est tombée sur pile au lancer numéro <span class="math inline">\(i\)</span>, qui prend la valeur <span class="math inline">\(0\)</span> si elle est tombée sur face. Les variables aléatoires <span class="math inline">\(X_1,\dots,X_n\)</span> sont i.i.d. de loi de Bernoulli <span class="math inline">\(\mathcal{B}(p)\)</span> où <span class="math inline">\(p\)</span> est la probabilité que la pièce tombe sur pile : <span class="math inline">\(p=\mathbb{P}(X_i=1)\)</span>. La variable aléatoire <span class="math inline">\(S_n\equiv\sum\limits_{i=1}^n X_i\)</span> suit une loi binomiale <span class="math inline">\(\mathcal{B}(n, p)\)</span>.</p>
+<p>On rappelle l’énoncé du <strong>théorème de Moivre-Laplace</strong>, qui n’est qu’un cas particulier du théorème central limite :</p>
+<div class="thmbox thm">
+<p><strong>Théorème de Moivre-Laplace.</strong> Si la variable aléatoire <span class="math inline">\(X_n\)</span> suit une loi binomiale</p>
+<p><span class="math display">\[X_n\sim\mathcal{B}(n, \,p)\]</span></p>
+<p>alors la variable aléatoire <span class="math display">\[Z_n\equiv\frac{X_n-np}{\sqrt{np(1-p)}}\]</span>
+converge en loi vers la loi normale standard <span class="math inline">\(\mathcal{N}(0,1)\)</span>.</p>
+<p>En pratique, dès lors que les conditions suivantes sont vérifiées :</p>
+<ul>
+<li><span class="math inline">\(n\geq 30\)</span></li>
+<li><span class="math inline">\(np\geq 5\)</span></li>
+<li><span class="math inline">\(n(1-p)\geq 5\)</span>$</li>
+</ul>
+<p>on peut écrire l’approximation en loi</p>
+<p><span class="math display">\[Z_n\equiv\frac{X_n-np}{\sqrt{np(1-p)}}\approx\mathcal{N}(0,1)\]</span></p>
+</div>
+<p>Sous l’hypothèse nulle <span class="math inline">\((H_0):\,p=\frac{1}{2}\)</span>, on a</p>
+<p><span class="math display">\[S_n\sim\mathcal{B}\left(n, \frac{1}{2}\right)\]</span>
+Les trois conditions à vérifier sont bien satisfaites :</p>
+<ul>
+<li><span class="math inline">\(n=10\,000\geq 30\)</span></li>
+<li><span class="math inline">\(np=5\,000\geq 5\)</span></li>
+<li><span class="math inline">\(n(1-p)=5\,000\geq 5\)</span></li>
+</ul>
+<p>si bien que</p>
+<p><span class="math display">\[Z_n\equiv\frac{S_n-np}{\sqrt{np(1-p)}}\approx\mathcal{N}(0,1)\]</span>
+i.e.</p>
+<p><span class="math display">\[Z_n\equiv\frac{S_n-5\,000}{50}\approx\mathcal{N}(0,1)\]</span>
+La variable aléatoire <span class="math inline">\(Z_n\)</span> est notre <strong>statistique de test</strong>. On vient de déterminer sa loi, on peut donc en déduire la <strong>zone de rejet</strong> de notre test. Pour une loi normale standard <span class="math inline">\(Z_n\)</span>, on a</p>
+<p><span class="math display">\[\mathbb{P}\left(-1,96\leq Z_n\leq 1,96\right)\approx 0,95\]</span></p>
+<p>La <strong>région d’acceptation</strong> du test au seuil de significativité <span class="math inline">\(\alpha=5\,\%\)</span> est donc <span class="math inline">\(\overline{W}=[-1,96\,;\,1,96]\)</span> et son complémentaire <span class="math inline">\(W=]-\infty\;\,-1,96[\cup]1,96\,;\,+\infty[\)</span> est donc la <strong>région de rejet</strong>.</p>
+<p>On applique donc la <strong>règle de décision</strong> suivante :</p>
+<p><span class="math display">\[\hbox{Si } z_n\not\in \overline{W}=[-1,96\,;\,1,96] \hbox{ on rejette l&#39;hypothèse nulle} (H_0)\]</span>
+<span class="math display">\[\hbox{Si } z_n\in\overline{W}=[-1,96\,;\,1,96] \hbox{ on ne rejette pas l&#39;hypothèse nulle} (H_0)\]</span>
+Or, la valeur observée de <span class="math inline">\(Z_n\)</span> sur l’échantillon tiré est <span class="math inline">\(z_n=\frac{4\,880-5\,000}{50}=-2,4\)</span>. Elle appartient à la région de rejet.</p>
+<p>
+<strong>Conclusion. Au seuil de significativité <span class="math inline">\(5\,\%\)</span> on rejette donc l’hypothèse nulle, ce qui revient à dire qu’on conclut que la pièce est désiquilibrée.</strong></p>
+<p>
+<strong>Remarque.</strong> Si on avait obtenu <span class="math inline">\(4,\920\)</span> fois pile sur nos <span class="math inline">\(5\,000\)</span> tirages, on aurait calculé <span class="math inline">\(z_n=-1,6\)</span> qui est dans la zone d’acceptation. On n’aurait donc pas rejeté l’hypothèse nulle, autrement dit on n’aurait pas rejeté l’hypothèse d’une pièce équilibrée.</p>
+</div>
+<div class="methbox meth">
+<center>
+<strong>Exemple 2 : tester l’efficacité d’un médicament.</strong>
+</center>
+<p>Pour <span class="math inline">\(i\)</span> compris entre <span class="math inline">\(1\)</span> et <span class="math inline">\(200\)</span>, on pose <span class="math inline">\(X_i=1\)</span> si le médicament a été efficace pour l’individu numéro <span class="math inline">\(i\)</span>, et <span class="math inline">\(X_i=0\)</span> dans le cas contraire.</p>
+<p>Comme dans l’exemple 1, sous l’hypothèse nulle <span class="math inline">\((H_0):\,p=0,9\)</span> les <span class="math inline">\(X_i\)</span> sont i.i.d. et suivent une loi de Benoulli, de paramètre <span class="math inline">\(p\)</span>. On en déduit que leur somme <span class="math inline">\(S_n=\sum\limits_{i=1}^{200}X_i\)</span> suit une loi binomiale de paramètre <span class="math inline">\(np=180\)</span>. On a</p>
+<ul>
+<li><span class="math inline">\(n=200\geq 30\)</span></li>
+<li><span class="math inline">\(np=180\geq 5\)</span></li>
+<li><span class="math inline">\(n(1-p)=20\geq 5\)</span></li>
+</ul>
+<p>On a donc</p>
+<p><span class="math display">\[Z_n\equiv\frac{S_n-180}{\sqrt{18}}\approx\mathcal{N}(0,1)\]</span>
+Il s’agit de notre statistique de test.
+Sur l’échantillon observé, elle prend comme valeur</p>
+<p><span class="math display">\[z_n=\frac{160-180}{\sqrt{0.5}}\approx -4,71\]</span>
+La région de rejet est <span class="math inline">\(W=]-\infty, t]\)</span> avec <span class="math inline">\(t\)</span> l’unique réel tel que <span class="math inline">\(\mathbb{P}(Z_n\leq t)=0,01\)</span>. Grâce à la table de la loi normale standard, on obtient <span class="math inline">\(t\approx -2,33\)</span>, donc <span class="math inline">\(W=]-\infty\,;\,-2,33]\)</span>. Ainsi, <span class="math inline">\(z_n\)</span> est dans la région de rejet. On rejette donc l’hypothèse nulle : l’affirmation du fabricant est fausse au seuil de significativité <span class="math inline">\(1\,\%\)</span>.</p>
+</div>
 
 </div>
 </div>

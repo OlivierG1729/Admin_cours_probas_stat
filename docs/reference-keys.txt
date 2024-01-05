@@ -97,6 +97,7 @@ convergence-des-estimateurs-widehata-et-widehatb
 intervalles-de-confiance
 tests-statistiques
 définition-et-principes
-exemples-de-test
+tests-unilatéraux-tests-bilatéraux
+exemples
 méthodologie
 convergence-1

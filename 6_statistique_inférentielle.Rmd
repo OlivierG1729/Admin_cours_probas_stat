@@ -1067,10 +1067,222 @@ $$\text{IC}^{1-\alpha}_{\sigma}\equiv\left[\frac{T_n}{1+\frac{u_{\alpha}}{\sqrt{
 
 ### Définition et principes
 
--   approche très intuitive (d'après le programme du concours)
+\noindent On s'intéresse à un phénomène réel que l'on modélise par une variable aléatoire $X$ dont la loi est modélisée statistiquement par une famille paramétrique de distributions $\{P_{\theta}, \theta\in\Theta\}$. On suppose que l'espace $\Theta$ de tous les paramètres possibles est partitionné en deux sous-ensembles $\Theta_0$ et $\Theta_1$. On note $\theta$ la vraie valeur associée à la loi de $X$. On considère alors les deux hypothèses suivantes :
 
-### Exemples de test
+$$(H_0):\,\theta\in\Theta_0$$
+$$(H_1):\,\theta\in\Theta_1$$
 
--   le but est avant tout de montrer la démarche générale d'un test statistique à travers quelques exemples simples
+\noindent L'hypothèse $(H_0)$ s'appelle l'**hypothèse nulle** alors que l'hypothèse $(H_1)$ s'appelle l'**hypothèse alternative**.
+
+\noindent Construire un test revient à construire une partition de $\mathbb{R}^n$ :
+
+$$\mathbb{R}^n=W\cup\overline{W}$$
+\noindent tel que, pour toute réalisation $(x_1,\dots,x_n)$ d'un échantillon aléatoire $(X_1,\dots,X_n)$ de variables aléatoires i.i.d. $X_i$ de loi $P_{\theta}$, on suive la **règle de décision** suivante :
+
+$$\hbox{Si } (x_1,\dots, x_n)\in W \hbox{ alors on rejette l'hypothèse nulle } (H_0)$$
+$$\hbox{Si } (x_1,\dots, x_n)\in \overline{W} \hbox{ alors on ne rejette pas l'hypothèse nulle } (H_0)$$
+\noindent La partie $W$ s'appelle la **région de rejet** de $(H_0)$, ou encore la **région critique**. La partie $\overline{W}$ s'appelle la **région d'acceptation** de l'hypothèse nulle $(H_0)$.
+
+\noindent Construire un test, c'est donc décider d'une partition particulière $(W, \overline{W})$ de $\mathbb{R}^n$. 
+
+\noindent Les tests constituent un outil d'aide à la décision. On en présente ici une méthodlogie générale :
+
+:::: {.methbox .meth data-latex="important"}
+<center>**Méthodologie des tests d'hypothèse**</center>
+\noindent On suit généralement les étapes suivantes :
+
+- on définit l'hypothèse nulle $(H_0)$ et l'hypothèse alternative $(H_1)$ ;
+- on choisit une **statistique de test** $T=T(X_1,\dots, X_n)$ ;
+- on détermine la distribution de $T$ sous l'hypothèse nulle $(H_0)$ ;
+- on choisit un **niveau de significativité** $\alpha$ du test, et on calcule, à partir de la distibution de $T$ obtenue à l'étape précédente, la **région de rejet** de $(H_0)$ ;
+- on calcule, à partir des données observées $(x_1,\dots x_n)$ (qui constituent une réalisation de l'échantillon aléatoire $(X_1,\dots, X_n)$) la valeur $T(x_1,\dots, x_n)$ prise par $T$ ;
+- à partir de cette dernière valeur et de la région de rejet, on prend une décision.
+::::
+
+\noindent Cette méthodologie correspond en gros à un **raisonnement par l'absurde probabiliste**. En effet, dans un raisonnement par l'absurde classique :
+
+- on veut démontrer une certaine affirmation $A$ ;
+- sous l'hypothèse contraire $\overline{A}$, on en déduit quelque chose que l'on sait faux ;
+- on conclut que notre hypothèse de départ $\overline{A}$ est fausse, i.e. on rejette $\overline{A}$, ou, de façon équivalente, on conclut que $A$ est vraie.
+
+
+Lorsqu'on fait un test :
+
+- on définit une hypothèse nulle $(H_0)$, qui est l'hypothèse que l'on aimerait pouvoir rejeter ;
+- on calcule la distribution de $T$ et on calcule par ailleurs la valeur $T(x_1,\dots, x_n)$ ;
+- si la probabilité **sous l'hypothèse nulle** que $T$ prenne cette valeur est très faible, i.e. en dessous d'un certain seuil (le seuil standard étant 5 %), on rejette l'hypothèse nulle. Si en revanche cette probabilité est au-dessus de ce seuil, on ne rejette pas l'hypothèse nulle.
+
+\noindent 
+**Remarques. i** En résumé, on suit donc le principe suivant : je suppose $(H_0)$ vraie, j'arrive à un résultat très improbable, je conclus que $(H_0)$ est fausse.
+
+\noindent 
+**ii.** A la différence d'un raisonnement par l'absurde classique, cette conclusion peut toutefois être erronée. Autrement dit, il est possible de rejeter à tort $(H_0)$. Toutefois, ce risque de rejet à tort est maitrisable : il s'agit du seuil de significativité $\alpha=\mathbb{P}(\hbox{on rejette } H_0\,|\, H_0)$. Donc, si on choisit $\alpha$ petit, ce risque -appelé **risque de première espèce**- sera très limité.
+
+\noindent
+**iii.** Lorsqu'on tente de faire un raisonnement par l'absurde, mais qu'on ne parvient pas à aboutir à une contradiction, il est incorrect de conclure que l'hypothèse initiale est vraie. Notre raisonnement ne nous a juste pas permis de conclure qu'elle était fausse... ce qui ne signifie pas qu'elle est vraie. Dans un tel cas, on ne peut tout simplement rien conclure. De manière analogue, si la probabilité calculée dans un test est au-dessus du seuil de significativité, il serait incorrect d'*accepter* l'hypothèse nulle. Même si on trouve parfois l'expression *accepter $(H_0)$* dans la littérature, il s'agit d'un abus de langage et on lui préfèrera l'expression *ne pas rejeter $(H_0)$*. Cela ne signifie pas que $(H_1)$ est probablement vraie, mais plutôt que notre test ne nous a pas permis de conclure que $(H_0)$ était probablement fausse, ce qui est assez différent.
+
+\noindent
+**iv.** De la même façon que l'on peut rejeter à tort l'hypothèse nulle $(H_0)$, il est possible de ne pas rejeter à tort $(H_0)$. La probabilité d'un tel événement est $\mathbb{P}(\hbox{ne pas rejeter } H_0\,|\, H_1)$. Cette probabilité s'appelle le **risque de deuxième espèce**.
+
+\noindent 
+**v.** Tout test présente une dyssymétrie dans sa façon de traiter $(H_0)$ et $(H_1)$. Parmi les deux types d'erreurs que l'on peut commettre dans la conclusion d'un test, il y en a généralement l'une des deux que l'on veut éviter en priorité. Par exemple, un test médical peut amener deux types d'erreurs : les faux positifs et les faux négatifs. On préfère en général avoir des tests pour lesquels la probabilité de faux négatif est faible, car conclure que le patient n'est pas malade (et donc ne pas le traiter) alors qu'il l'est est en général plus ennuyeux que conclure qu'il est malade (et donc le traiter) alors qu'il ne l'est pas. On retient le plus souvent la convention suivante : l'erreur de première espèce est celle que l'on veut éviter, on veut donc maitriser le risque de première espèce $\alpha=\mathbb{P}(\hbox{rejeter } H_0\,|\,H_0)$. On choisit un $\alpha$ petit et on en déduit une région de rejet $W=W_{\alpha}$. La valeur $\beta=\mathbb{P}(\hbox{ne pas rejeter } H_0\,|\, H_1)$ dépend alors du choix de $\alpha$, on ne la contrôle pas. 
+
+
+### Tests unilatéraux, tests bilatéraux
+
+\noindent On note $\theta$ le paramètre inconnu associé à la loi de $X$.
+
+:::: {.defbox .def data-latex="important"}
+<center>**Test bilatéral**</center>
+
+\noindent Un **test bilatéral** est un test dont les hypothèses nulle $(H_0)$ et alternative $(H_1)$ sont de la forme
+
+$$(H_0):\,\theta=\theta_0$$
+$$(H_1):\,\theta\neq\theta_0$$
+::::
+
+\noindent
+**Exemple : tester si une pièce est équilibrée.** On veut s'assurer qu'une pièce est équilibrée en utilisant un test statistique.
+
+On note $p$ sa probabilité de tomber sur pile. La pièce est équilibrée si et seulement si $p=\frac{1}{2}$.
+
+On définit alors le test suivant :
+
+$$(H_0):\,p=\frac{1}{2}$$
+$$(H_1):\, p\neq\frac{1}{2}$$
+\noindent Il s'agit d'un test bilatéral.
+
+
+\vspace{0.5cm}
+
+\noindent De même, il existe des tests unilatéraux :
+
+:::: {.defbox .def data-latex="important"}
+<center>**Test unilatéral**</center>
+
+\noindent Un **test unilatéral** est un test dont les hypothèses nulle $(H_0)$ et alternative $(H_1)$ sont soit de la forme
+
+$$(H_0):\,\theta=\theta_0$$
+$$(H_1):\,\theta>\theta_0$$
+
+\noindent soit de la forme
+
+$$(H_0):\,\theta=\theta_0$$
+$$(H_1):\,\theta<\theta_0$$
+::::
+
+\noindent Un test unilatéral suppose donc connu le signe de la différence $\theta-\theta_0$, contrairement à un test bilatéral.
+
+\noindent
+
+**Exemple : tester l'efficacité d'un médicament.** Le fabricant d'un médicament annonce une efficacité à $90/,/%$ pour l'un de ses produits. Sur un échantillon de 200 personnes, ce médicament a fonctionné pour 160 personnes. On souhaite déterminer si l'afformation du fabrication est exacte au seuil de significativité $\alpha=1\,\%$.
+
+\noindent On va ici prendre pour hypothèses
+
+$$(H_0):\,p=0,9$$
+
+$$(H_1):\,p<0,9$$
+
+\noindent où $p$ est la probabilité que le médicament soit efficace.
+
+\noindent Il s'agit d'un test unilatéral gauche.
+
+
+### Exemples
+
+\noindent On reprend les deux exemples précédents.
+
+::: {.methbox .meth data-latex="important"}
+<center>**Exemple 1 : tester si une pièce est équilibrée.**</center>
+
+\vspace{0.5cm}
+
+\noindent
+On effectue $n=1\,000$ lancers de cette pièce. Sur ces $10\,000$ lancers, la pièce est tombée $4\,880$ fois sur pile.
+
+**On veut déterminer si cette pièce est équilirée au seuil de significativité $\alpha = 5\,\%$.**
+
+\noindent Pour $1\leq i\leq n$, on note $X_i\in\{0,1\}$ la variable aléatoire qui prend la valeur $1$ si la pièce est tombée sur pile au lancer numéro $i$, qui prend la valeur $0$ si elle est tombée sur face. Les variables aléatoires $X_1,\dots,X_n$ sont i.i.d. de loi de Bernoulli $\mathcal{B}(p)$ où $p$ est la probabilité que la pièce tombe sur pile : $p=\mathbb{P}(X_i=1)$. La variable aléatoire $S_n\equiv\sum\limits_{i=1}^n X_i$ suit une loi binomiale $\mathcal{B}(n, p)$.
+
+\noindent On rappelle l'énoncé du **théorème de Moivre-Laplace**, qui n'est qu'un cas particulier du théorème central limite :
+
+
+:::: {.thmbox .thm data-latex="important"}
+**Théorème de Moivre-Laplace.** Si la variable aléatoire $X_n$ suit une loi binomiale 
+
+$$X_n\sim\mathcal{B}(n, \,p)$$
+
+\noindent alors la variable aléatoire $$Z_n\equiv\frac{X_n-np}{\sqrt{np(1-p)}}$$
+\noindent converge en loi vers la loi normale standard $\mathcal{N}(0,1)$.
+
+\noindent En pratique, dès lors que les conditions suivantes sont vérifiées :
+
+- $n\geq 30$
+- $np\geq 5$
+- $n(1-p)\geq 5$$
+
+\noindent on peut écrire l'approximation en loi
+
+$$Z_n\equiv\frac{X_n-np}{\sqrt{np(1-p)}}\approx\mathcal{N}(0,1)$$
+::::
+
+\noindent Sous l'hypothèse nulle $(H_0):\,p=\frac{1}{2}$, on a 
+
+$$S_n\sim\mathcal{B}\left(n, \frac{1}{2}\right)$$
+\noindent Les trois conditions à vérifier sont bien satisfaites :
+
+- $n=10\,000\geq 30$
+- $np=5\,000\geq 5$
+- $n(1-p)=5\,000\geq 5$
+
+si bien que
+
+$$Z_n\equiv\frac{S_n-np}{\sqrt{np(1-p)}}\approx\mathcal{N}(0,1)$$
+\noindent i.e.
+
+$$Z_n\equiv\frac{S_n-5\,000}{50}\approx\mathcal{N}(0,1)$$
+La variable aléatoire $Z_n$ est notre **statistique de test**. On vient de déterminer sa loi, on peut donc en déduire la **zone de rejet** de notre test. Pour une loi normale standard $Z_n$, on a 
+
+$$\mathbb{P}\left(-1,96\leq Z_n\leq 1,96\right)\approx 0,95$$
+
+\noindent La **région d'acceptation** du test au seuil de significativité $\alpha=5\,\%$ est donc $\overline{W}=[-1,96\,;\,1,96]$ et son complémentaire $W=]-\infty\;\,-1,96[\cup]1,96\,;\,+\infty[$ est donc la **région de rejet**.
+
+\noindent On applique donc la **règle de décision** suivante :
+
+$$\hbox{Si } z_n\not\in \overline{W}=[-1,96\,;\,1,96] \hbox{ on rejette l'hypothèse nulle} (H_0)$$
+$$\hbox{Si } z_n\in\overline{W}=[-1,96\,;\,1,96] \hbox{ on ne rejette pas l'hypothèse nulle} (H_0)$$
+\noindent Or, la valeur observée de $Z_n$ sur l'échantillon tiré est $z_n=\frac{4\,880-5\,000}{50}=-2,4$. Elle appartient à la région de rejet. 
+
+\noindent
+**Conclusion. Au seuil de significativité $5\,\%$ on rejette donc l'hypothèse nulle, ce qui revient à dire qu'on conclut que la pièce est désiquilibrée.**
+
+\noindent 
+**Remarque.** Si on avait obtenu $4,\920$ fois pile sur nos $5\,000$ tirages, on aurait calculé $z_n=-1,6$ qui est dans la zone d'acceptation. On n'aurait donc pas rejeté l'hypothèse nulle, autrement dit on n'aurait pas rejeté l'hypothèse d'une pièce équilibrée.
+:::
+
+::: {.methbox .meth data-latex="important"}
+<center>**Exemple 2 : tester l'efficacité d'un médicament.**</center>
+
+\vspace{0.5cm}
+
+\noindent Pour $i$ compris entre $1$ et $200$, on pose $X_i=1$ si le médicament a été efficace pour l'individu numéro $i$, et $X_i=0$ dans le cas contraire.
+
+Comme dans l'exemple 1, sous l'hypothèse nulle $(H_0):\,p=0,9$ les $X_i$ sont i.i.d. et suivent une loi de Benoulli, de paramètre $p$. On en déduit que leur somme $S_n=\sum\limits_{i=1}^{200}X_i$ suit une loi binomiale de paramètre $np=180$. On a 
+
+- $n=200\geq 30$
+- $np=180\geq 5$
+- $n(1-p)=20\geq 5$
+
+\noindent On a donc 
+
+$$Z_n\equiv\frac{S_n-180}{\sqrt{18}}\approx\mathcal{N}(0,1)$$
+\noindent Il s'agit de notre statistique de test. 
+Sur l'échantillon observé, elle prend comme valeur
+
+$$z_n=\frac{160-180}{\sqrt{0.5}}\approx -4,71$$
+\noindent La région de rejet est $W=]-\infty, t]$ avec $t$ l'unique réel tel que $\mathbb{P}(Z_n\leq t)=0,01$. Grâce à la table de la loi normale standard, on obtient $t\approx -2,33$, donc  $W=]-\infty\,;\,-2,33]$. Ainsi, $z_n$ est dans la région de rejet. On rejette donc l'hypothèse nulle : l'affirmation du fabricant est fausse au seuil de significativité $1\,\%$.
+:::
+
+
 
 
