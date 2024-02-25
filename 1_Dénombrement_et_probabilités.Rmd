@@ -2,7 +2,22 @@
 
 ## Dénombrement
 
+\noindent Le dénombrement est au coeur du calcul de probabilités dans le cas où toutes les probabilités sont supposées égales (cas particulier important dit d'*équiprobablité*).
+
+\noindent La première partie de ce chapitre présente les types de dénombrements les plus classiques.
+
 ### Permutations
+
+:::: {.defbox .def data-latex="important"}
+<center>**Permutation d'un ensemble fini**</center> Soient $n$ un entier naturel et $E$ un ensemble fini à $n$ éléments. On appelle *permutation* de $E$ toute bijection de $E$ dans lui-même.
+\vspace{0.5cm}
+::::
+
+\noindent 
+
+:::: {.thmbox .thm data-latex="important"}
+**Théorème :** Le nombre de permtuations d'un ensemble fini à $n$ éléments est égal à $n!=1\times 2\times 3\times\dots\times n$.
+::::
 
 ### Arrangements
 
