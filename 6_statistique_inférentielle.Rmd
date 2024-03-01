@@ -1175,7 +1175,7 @@ $$(H_1):\,\theta<\theta_0$$
 
 \noindent
 
-**Exemple : tester l'efficacité d'un médicament.** Le fabricant d'un médicament annonce une efficacité à $90/,/%$ pour l'un de ses produits. Sur un échantillon de 200 personnes, ce médicament a fonctionné pour 160 personnes. On souhaite déterminer si l'afformation du fabrication est exacte au seuil de significativité $\alpha=1\,\%$.
+**Exemple : tester l'efficacité d'un médicament.** Le fabricant d'un médicament annonce une efficacité à $90/,/%$ pour l'un de ses produits. Sur un échantillon de 200 personnes, ce médicament a fonctionné pour 160 personnes. On souhaite déterminer si l'information du fabrication est exacte au seuil de significativité $\alpha=1\,\%$.
 
 \noindent On va ici prendre pour hypothèses
 
