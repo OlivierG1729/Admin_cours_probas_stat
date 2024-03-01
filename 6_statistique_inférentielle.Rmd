@@ -1219,7 +1219,7 @@ $$X_n\sim\mathcal{B}(n, \,p)$$
 
 - $n\geq 30$
 - $np\geq 5$
-- $n(1-p)\geq 5$$
+- $n(1-p)\geq 5$
 
 \noindent on peut écrire l'approximation en loi
 
