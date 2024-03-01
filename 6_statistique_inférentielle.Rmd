@@ -1198,7 +1198,7 @@ $$(H_1):\,p<0,9$$
 \vspace{0.5cm}
 
 \noindent
-On effectue $n=1\,000$ lancers de cette pièce. Sur ces $10\,000$ lancers, la pièce est tombée $4\,880$ fois sur pile.
+On effectue $n=10\,000$ lancers de cette pièce. Sur ces $10\,000$ lancers, la pièce est tombée $4\,880$ fois sur pile.
 
 **On veut déterminer si cette pièce est équilirée au seuil de significativité $\alpha = 5\,\%$.**
 
