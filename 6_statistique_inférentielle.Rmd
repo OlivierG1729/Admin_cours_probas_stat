@@ -1085,7 +1085,7 @@ $$\hbox{Si } (x_1,\dots, x_n)\in \overline{W} \hbox{ alors on ne rejette pas l'h
 
 \noindent Construire un test, c'est donc décider d'une partition particulière $(W, \overline{W})$ de $\mathbb{R}^n$. 
 
-\noindent Les tests constituent un outil d'aide à la décision. On en présente ici une méthodlogie générale :
+\noindent Les tests constituent un outil d'aide à la décision. On en présente ici une méthodologie générale :
 
 :::: {.methbox .meth data-latex="important"}
 <center>**Méthodologie des tests d'hypothèse**</center>
