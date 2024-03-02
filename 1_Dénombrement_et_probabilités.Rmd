@@ -20,10 +20,7 @@
 ::::
 
 
-Par récurrence sur $n$ :
 
-- pour $n=1$ : il existe une unique permutation de $E=\{x\}$ dans lui-même : l'application identité sur $E$ définie par $id_E(x)=x$.
-- supposons le résultat vrai pour tout ensemble à $n$ éléments, avec $n\geq 2$, et démontrons alors qu'il est vrai pour tout ensemble à $n+1$ éléments. 
 
 ### Arrangements
 
