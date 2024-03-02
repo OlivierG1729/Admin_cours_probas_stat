@@ -19,11 +19,6 @@
 **Théorème :** Soit $n$ un entier naturel non nul. Le nombre de permutations d'un ensemble fini à $n$ éléments est égal à $n!=1\times 2\times 3\times\dots\times n$.
 ::::
 
-\noindent **Démonstation.** On note $E=\{x_1,\dots, x_n\}$. Choisir une permutation de $E$, c'est choisir un n-uplet $(\sigma(x_1),\dots, \sigma(x_n))$ tel que :
-
-- $\forall i\in\{1,\dots n\}, \, \sigma(x_i)\in\{x_1,\dots, x_n\}$ ;
-- les éléments $\sigma(x_1),\dots, \sigma(x_n)$ sont deux à deux distincts, i.e. : $\forall (i,j)\in\{1,\dots, n\}^2 \hbox{ t.q. } i\neq j, \sigma(i)\neq\sigma(j)$.
-
 
 Par récurrence sur $n$ :
 
