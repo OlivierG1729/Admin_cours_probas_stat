@@ -2,22 +2,33 @@
 
 ## Dénombrement
 
-\noindent Le dénombrement est au coeur du calcul de probabilités dans le cas où toutes les probabilités sont supposées égales (cas particulier important dit d'*équiprobablité*).
+\noindent Le dénombrement est au coeur du calcul de probabilités dans le cas où toutes les probabilités sont supposées égales (cas particulier important dit d' **équiprobablité**).
 
 \noindent La première partie de ce chapitre présente les types de dénombrements les plus classiques.
 
 ### Permutations
 
 :::: {.defbox .def data-latex="important"}
-<center>**Permutation d'un ensemble fini**</center> Soient $n$ un entier naturel et $E$ un ensemble fini à $n$ éléments. On appelle *permutation* de $E$ toute bijection de $E$ dans lui-même.
+<center>**Permutation d'un ensemble fini**</center> Soient $n$ un entier naturel non nul et $E$ un ensemble fini à $n$ éléments. On appelle **permutation** de $E$ toute bijection de $E$ dans lui-même.
 \vspace{0.5cm}
 ::::
 
 \noindent 
 
 :::: {.thmbox .thm data-latex="important"}
-**Théorème :** Le nombre de permtuations d'un ensemble fini à $n$ éléments est égal à $n!=1\times 2\times 3\times\dots\times n$.
+**Théorème :** Soit $n$ un entier naturel non nul. Le nombre de permutations d'un ensemble fini à $n$ éléments est égal à $n!=1\times 2\times 3\times\dots\times n$.
 ::::
+
+\noindent **Démonstation.** On note $E=\{x_1,\dots, x_n\}$. Choisir une permutation de $E$, c'est choisir un n-uplet $(\sigma(x_1),\dots, \sigma(x_n))$ tel que :
+
+- $\forall i\in\{1,\dots n\}, \, \sigma(x_i)\in\{x_1,\dots, x_n\}$ ;
+- les éléments $\sigma(x_1),\dots, \sigma(x_n)$ sont deux à deux distincts, i.e. : $\forall (i,j)\in\{1,\dots, n\}^2 \hbox{ t.q. } i\neq j, \sigma(i)\neq\sigma(j)$.
+
+
+Par récurrence sur $n$ :
+
+- pour $n=1$ : il existe une unique permutation de $E=\{x\}$ dans lui-même : l'application identité sur $E$ définie par $id_E(x)=x$.
+- supposons le résultat vrai pour tout ensemble à $n$ éléments, avec $n\geq 2$, et démontrons alors qu'il est vrai pour tout ensemble à $n+1$ éléments. 
 
 ### Arrangements
 

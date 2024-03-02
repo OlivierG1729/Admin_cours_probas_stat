@@ -23,7 +23,7 @@
 <meta name="author" content="Olivier Guin" />
 
 
-<meta name="date" content="2024-01-05" />
+<meta name="date" content="2024-03-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -76,7 +76,7 @@
 <li><a href="./">Cours de probabilités et statistique pour le concours interne d'administrateur de l'Insee</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Présentation du cours</a>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> url: your book url like https://bookdown.org/yihui/bookdown</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#généralités"><i class="fa fa-check"></i><b>1.1</b> Généralités</a></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#coquilles-et-erreurs"><i class="fa fa-check"></i><b>1.2</b> Coquilles et erreurs</a></li>
@@ -231,8 +231,31 @@
 <h1><span class="header-section-number">Chapitre 2</span> Dénombrement et probabilités<a href="dénombrement-et-probabilités.html#dénombrement-et-probabilités" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <div id="dénombrement" class="section level2 hasAnchor" number="2.1">
 <h2><span class="header-section-number">2.1</span> Dénombrement<a href="dénombrement-et-probabilités.html#dénombrement" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Le dénombrement est au coeur du calcul de probabilités dans le cas où toutes les probabilités sont supposées égales (cas particulier important dit d’ <strong>équiprobablité</strong>).</p>
+<p>La première partie de ce chapitre présente les types de dénombrements les plus classiques.</p>
 <div id="permutations" class="section level3 hasAnchor" number="2.1.1">
 <h3><span class="header-section-number">2.1.1</span> Permutations<a href="dénombrement-et-probabilités.html#permutations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="defbox def">
+<center>
+<strong>Permutation d’un ensemble fini</strong>
+</center>
+<p>Soient <span class="math inline">\(n\)</span> un entier naturel non nul et <span class="math inline">\(E\)</span> un ensemble fini à <span class="math inline">\(n\)</span> éléments. On appelle <strong>permutation</strong> de <span class="math inline">\(E\)</span> toute bijection de <span class="math inline">\(E\)</span> dans lui-même.
+</p>
+</div>
+<p></p>
+<div class="thmbox thm">
+<p><strong>Théorème :</strong> Soit <span class="math inline">\(n\)</span> un entier naturel non nul. Le nombre de permutations d’un ensemble fini à <span class="math inline">\(n\)</span> éléments est égal à <span class="math inline">\(n!=1\times 2\times 3\times\dots\times n\)</span>.</p>
+</div>
+<p>*Démonstation.** On note <span class="math inline">\(E=\{x_1,\dots, x_n\}\)</span>. Choisir une permutation de <span class="math inline">\(E\)</span>, c’est choisir un n-uplet <span class="math inline">\((\sigma(x_1),\dots, \sigma(x_n))\)</span> tel que :</p>
+<ul>
+<li><span class="math inline">\(\forall i\in\{1,\dots n\}, \, \sigma(x_i)\in\{x_1,\dots, x_n\}\)</span> ;</li>
+<li>les éléments <span class="math inline">\(\sigma(x_1),\dots, \sigma(x_n)\)</span> sont deux à deux distincts, i.e. : <span class="math inline">\(\forall (i,j)\in\{1,\dots, n\}^2 \hbox{ t.q. } i\neq j, \sigma(i)\neq\sigma(j)\)</span>.</li>
+</ul>
+<p>Par récurrence sur <span class="math inline">\(n\)</span> :</p>
+<ul>
+<li>pour <span class="math inline">\(n=1\)</span> : il existe une unique permutation de <span class="math inline">\(E=\{x\}\)</span> dans lui-même : l’application identité sur <span class="math inline">\(E\)</span> définie par <span class="math inline">\(id_E(x)=x\)</span>.</li>
+<li>supposons le résultat vrai pour tout ensemble à <span class="math inline">\(n\)</span> éléments, avec <span class="math inline">\(n\geq 2\)</span>, et démontrons alors qu’il est vrai pour tout ensemble à <span class="math inline">\(n+1\)</span> éléments.</li>
+</ul>
 </div>
 <div id="arrangements" class="section level3 hasAnchor" number="2.1.2">
 <h3><span class="header-section-number">2.1.2</span> Arrangements<a href="dénombrement-et-probabilités.html#arrangements" class="anchor-section" aria-label="Anchor link to header"></a></h3>
