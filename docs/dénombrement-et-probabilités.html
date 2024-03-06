@@ -23,7 +23,7 @@
 <meta name="author" content="Olivier Guin" />
 
 
-<meta name="date" content="2024-03-02" />
+<meta name="date" content="2024-03-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -76,7 +76,7 @@
 <li><a href="./">Cours de probabilités et statistique pour le concours interne d'administrateur de l'Insee</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> url: your book url like https://bookdown.org/yihui/bookdown</a>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Présentation du cours</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#généralités"><i class="fa fa-check"></i><b>1.1</b> Généralités</a></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#coquilles-et-erreurs"><i class="fa fa-check"></i><b>1.2</b> Coquilles et erreurs</a></li>
@@ -85,11 +85,13 @@
 <ul>
 <li class="chapter" data-level="2.1" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#dénombrement"><i class="fa fa-check"></i><b>2.1</b> Dénombrement</a>
 <ul>
-<li class="chapter" data-level="2.1.1" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#permutations"><i class="fa fa-check"></i><b>2.1.1</b> Permutations</a></li>
-<li class="chapter" data-level="2.1.2" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#arrangements"><i class="fa fa-check"></i><b>2.1.2</b> Arrangements</a></li>
-<li class="chapter" data-level="2.1.3" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#combinaisons"><i class="fa fa-check"></i><b>2.1.3</b> Combinaisons</a></li>
-<li class="chapter" data-level="2.1.4" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#formule-du-binôme-de-newton"><i class="fa fa-check"></i><b>2.1.4</b> Formule du binôme de Newton</a></li>
-<li class="chapter" data-level="2.1.5" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#triangle-de-pascal"><i class="fa fa-check"></i><b>2.1.5</b> Triangle de Pascal</a></li>
+<li class="chapter" data-level="2.1.1" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#produit-cartésien-et-principe-multiplicatif"><i class="fa fa-check"></i><b>2.1.1</b> Produit cartésien et principe multiplicatif</a></li>
+<li class="chapter" data-level="2.1.2" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#principe-additif"><i class="fa fa-check"></i><b>2.1.2</b> Principe additif</a></li>
+<li class="chapter" data-level="2.1.3" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#formule-de-poincaré"><i class="fa fa-check"></i><b>2.1.3</b> Formule de Poincaré</a></li>
+<li class="chapter" data-level="2.1.4" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#dénombrement-par-bijection"><i class="fa fa-check"></i><b>2.1.4</b> Dénombrement par bijection</a></li>
+<li class="chapter" data-level="2.1.5" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#permutations"><i class="fa fa-check"></i><b>2.1.5</b> Permutations</a></li>
+<li class="chapter" data-level="2.1.6" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#arrangements"><i class="fa fa-check"></i><b>2.1.6</b> Arrangements</a></li>
+<li class="chapter" data-level="2.1.7" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#combinaisons"><i class="fa fa-check"></i><b>2.1.7</b> Combinaisons</a></li>
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#evénements-et-probabilités"><i class="fa fa-check"></i><b>2.2</b> Evénements et probabilités</a>
 <ul>
@@ -231,33 +233,306 @@
 <h1><span class="header-section-number">Chapitre 2</span> Dénombrement et probabilités<a href="dénombrement-et-probabilités.html#dénombrement-et-probabilités" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <div id="dénombrement" class="section level2 hasAnchor" number="2.1">
 <h2><span class="header-section-number">2.1</span> Dénombrement<a href="dénombrement-et-probabilités.html#dénombrement" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Le dénombrement est au coeur du calcul de probabilités dans le cas où toutes les probabilités sont supposées égales (cas particulier important dit d’ <strong>équiprobablité</strong>).</p>
-<p>La première partie de ce chapitre présente les types de dénombrements les plus classiques.</p>
-<div id="permutations" class="section level3 hasAnchor" number="2.1.1">
-<h3><span class="header-section-number">2.1.1</span> Permutations<a href="dénombrement-et-probabilités.html#permutations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>On commence par quelques éléments d’<strong>analyse combinatoire</strong>. Ces résultats sont utilisés dans le cas où, lors d’une expérience aléatoire, tous les <em>événements élémentaires</em> (on parle aussi d’<em>issues</em>) sont de même probabilité. On parle dans ce cas d’<strong>équiprobabilité</strong> ou d’<strong>équirépartition</strong> des résultats.</p>
+<p>
+<strong>Des exemples classiques de tirages équirépartis :</strong></p>
+<ul>
+<li><p>lancer d’un dé à 6 faces non truqué. Dans ce cas, chaque face a une probabilité d’apparition de <span class="math inline">\(\frac{1}{6}\)</span>.</p></li>
+<li><p>dans une urne composée de 10 boules rouges, 10 boules blanches et 10 boules noires, tirage au hasard d’une boule. Les trois couleurs que l’on peut obtenir sont équiprobables, de probabilité commune <span class="math inline">\(\frac{1}{3}\)</span>.</p></li>
+</ul>
+<p>L’utilité du dénombrement dans le cas équiprobable vient de la formule que l’on apprend au lycée :</p>
+<p><span class="math display">\[\mathbb{P}(A)=\frac{\text{Nombre de cas favorables à } A}{\text{Nombre total de cas}}\]</span></p>
+<p>Cette formule, <strong>qui n’est valable que dans le cas équiréparti</strong>, suppose de savoir compter le nombre de cas où l’événement <span class="math inline">\(A\)</span> se réalise ainsi que de savoir compter le nombre total d’issues de l’expérience aléatoire que l’on étudie, autrement dit il s’agit bien de savoir <strong>dénombrer</strong>.</p>
+<p>Cette première partie présente les types de dénombrements les plus classiques. Si les concepts sont très simples (on reste vraiment sur du niveau lycée), on peut assez facilement mal s’y prendre (ce qui voudra dire essentiellement : oublier de compter des cas, ou au contraire compter plusieurs fois le même cas) et passer complètement à côté du résultat. Bref, malgré les apparences, les questions de dénombrement (assez peu courantes au concours ces dernières années cela dit) sont potentiellement piégeuses… C’est donc typiquement le genre de questions qu’il ne faut pas sous-estimer et qu’il faut traiter en prenant son temps, à plus forte raison si elle est posée en début de sujet, et qu’elle est donc potentiellement structurante pour la suite.</p>
+<div id="produit-cartésien-et-principe-multiplicatif" class="section level3 hasAnchor" number="2.1.1">
+<h3><span class="header-section-number">2.1.1</span> Produit cartésien et principe multiplicatif<a href="dénombrement-et-probabilités.html#produit-cartésien-et-principe-multiplicatif" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="defbox def">
+<center>
+<strong>Produit cartésien</strong>
+</center>
+<p>Soient <span class="math inline">\(k\)</span> un entier naturel non nul et <span class="math inline">\(E_1,\dots E_k\)</span> des ensembles finis de cardinaux respectifs <span class="math inline">\(n_1,\dots, n_k\)</span>. Le <strong>produit cartésien</strong> de <span class="math inline">\(E_1,\dots, E_k\)</span> est l’ensemble noté <span class="math inline">\(E_1\times\dots\times E_k\)</span> de toutes les <strong>listes ordonnées</strong> <span class="math inline">\((x_1,\dots,x_k)\)</span> telles que, pour tout <span class="math inline">\(i\in\{1,\dots, k\}\)</span> l’élément numéro <span class="math inline">\(i\)</span> noté <span class="math inline">\(x_i\)</span> appartient à l’ensemble <span class="math inline">\(E_i\)</span>. On dit aussi que <span class="math inline">\((x_1,\dots, x_k)\)</span> est un <strong>k-uplet</strong>.
+</p>
+<p><strong>Cas particuliers : i.</strong> Les listes ordonnées à 2 éléments sont appelées des <strong>couples</strong>, celles à 3 élements sont appelées des <strong>triplets</strong> et les listes à 4 éléments sont les <strong>quadruplets</strong>.</p>
+<p>
+<strong>ii.</strong> Lorsque tous les ensembles <span class="math inline">\(E_1,\dots E_k\)</span> sont égaux, i.e. <span class="math inline">\(E_1=\dots=E_k=E\)</span>, le produit cartésien <span class="math inline">\(E\times\dots\times E\)</span> est noté plus simplement <span class="math inline">\(E^k\)</span>.</p>
+</div>
+<p>
+<strong>Remarques.</strong> Le mot important dans cette définition est <em>ordonnée</em>. L’ordre a en effet une importance ici, autrement dit <span class="math inline">\((1, 2)\in\mathbb{R}^2\)</span> et <span class="math inline">\((2, 1)\in\mathbb{R}^2\)</span> sont bien considérés comme deux couples distincts de réels.</p>
+<p>Le premier résultat de ce cours, qui est absolument fondamental lorsqu’on pratique le dénombrement, et donc lorsqu’on est en situation d’équiprobabilité, est le <strong>principe multiplicatif</strong>. Ce principe, à la fois très simple et très intuitif, répond à la question <em>Combien existe-t-il de k-uplets ?</em></p>
+<div class="thmbox thm">
+<p><strong>Principe multiplicatif :</strong> Avec les notations de la définition précédente, le nombre d’élements du produit cartésien <span class="math inline">\(E_1\times \dots\times E_k\)</span> est égal à <span class="math inline">\(n_1\times\dots\times E_k\)</span>. Formule que l’on peut aussi écrire (en notant <span class="math inline">\(\text{Card}\,(E)\)</span> le cardinal d’un ensemble <span class="math inline">\(E\)</span>, i.e. le nombre d’éléments de <span class="math inline">\(E\)</span>) :</p>
+<p><span class="math display">\[\text{Card }(E_1\times\dots\times E_k)=\text{Card }(E_1)\times\dots\times\text{Card }(E_k)\]</span></p>
+<p>Si on veut faire chic, on peut dire aussi que</p>
+<p><span class="math display">\[\textit{Le cardinal d&#39;un produit est le produit des cardinaux}\]</span></p>
+</div>
+<p>
+<strong>Exemple 1 : expériences aléatoires successives.</strong> On réalise successivement les deux expériences aléatoires suivantes :</p>
+<ul>
+<li>lancer d’une pièce : 2 résultats possibles P ou F ;</li>
+<li>puis lancer d’un dé cubique : 6 résultats possibles notés de 1 à 6.</li>
+</ul>
+<p>L’ensemble des issues de cette double expérience aléatoire peut être modélisé par le produit cartésien <span class="math inline">\(\{P, F\}\times\{1,2,3,4,5,6\}\)</span>. C’est un ensemble à 12 éléments :
+<span class="math display">\[(P,1), (P,2), (P,3), (P, 4), (P,5), (P, 6), (F,1), (F,2), (F,3), (F, 4), (F,5), (F, 6)\]</span></p>
+<p>Cet ensemble peut facilement être représenté par un <strong>arbre de dénombrement</strong> :</p>
+<center>
+<img src="images/arbre.svg" /><!-- -->
+</center>
+<p></p>
+<p><strong>Exemple 2 : compter des poignées de mains.</strong> Soit <span class="math inline">\(n\geq 2\)</span> un entier. Compter le nombre de poignées de mains possibles dans un groupe de <span class="math inline">\(n\)</span> personnes.</p>
+<p></p>
+<p><strong>Solution 2.a.</strong> On note <span class="math inline">\(1,\dots n\)</span> les personnes de ce groupe, et le couple <span class="math inline">\((i, j)\)</span> modélise le fait que <span class="math inline">\(i\)</span> sert la main de <span class="math inline">\(j\)</span>. On compte alors successivement :</p>
+<ul>
+<li>le nombre de couples : il y en a <span class="math inline">\(n^2\)</span> d’après le principe multiplicatif ;</li>
+<li>le nombre de couples <span class="math inline">\((i, i)\)</span> qui représenteraient le fait que <span class="math inline">\(i\)</span> se sert la man à lui-même, situtation qu’on ne veut pas dénombrer et dont il faut donc soustraire le nombre d’occurences au nombre précédent. Il y en a <span class="math inline">\(n\)</span>, donc il y a <span class="math inline">\(n^2-n=n(n-1)\)</span> façons qu’une personne <span class="math inline">\(i\)</span> serre la main d’une autre personne <span class="math inline">\(j\)</span> du goupe ;</li>
+<li>le nombre de couples correspondant à <em>une</em> poignée de mains : il s’agit de <span class="math inline">\(2\)</span>, puisque une poignée de mains entre deux personnes <span class="math inline">\(i\)</span> et <span class="math inline">\(j\)</span> correspond à exactement deux couples : <span class="math inline">\((i,j)\)</span> et <span class="math inline">\((j,i)\)</span>. Il faut donc diviser par deux le nombre trouvé précédemment, ce qui fait un total de <span class="math inline">\(\frac{n(n-1)}{2}\)</span> poignées de mains.</li>
+</ul>
+<p></p>
+<p><strong>Solution 2.b.(plus directe)</strong> Une poignée de mains implique deux personnes différentes. On a <span class="math inline">\(n\)</span> choix possibles pour la première personne, et <span class="math inline">\(n-1\)</span> choix possibles pour la deuxième personne, soit <span class="math inline">\(n(n-1)\)</span> choix de couples possibles. En l’état, on compte deux fois trop de poignées de mains (même raisonnement que dans l’exemple 2.a.), donc il y a en réalité <span class="math inline">\(\frac{n(n-1)}{2}\)</span> poignées de mans possibles.$</p>
+</div>
+<div id="principe-additif" class="section level3 hasAnchor" number="2.1.2">
+<h3><span class="header-section-number">2.1.2</span> Principe additif<a href="dénombrement-et-probabilités.html#principe-additif" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Un deuxième grand principe de dénombrement, tout aussi intuitif et tout aussi fondamental, est le <strong>principe additif</strong> :</p>
+<div class="thmbox thm">
+<p><strong>Principe additif :</strong> Si <span class="math inline">\(E_1,\dots E_k\)</span> sont <span class="math inline">\(k\)</span> ensembles <strong>deux à deux disjoints</strong> (i.e. <span class="math inline">\(i\neq j\Rightarrow E_i\cap E_j=\emptyset\)</span>) alors (en reprenant les mêmes notations que dans la définition précédente) leur union <span class="math inline">\(E_1\cup\dots\cup E_k\)</span> a pour cardinal <span class="math inline">\(n_1+\dots+n_k\)</span>, ce que l’on peut aussi écrire :</p>
+<p><span class="math display">\[\text{Card }\left(E_1\cup\dots\cup E_k\right)=\text{Card }(E_1)+\dots+\text{Card }(E_k)\]</span></p>
+<p>On pourra retenir que :</p>
+<p><span class="math display">\[\textit{Le cardinal d&#39;une union disjointe est la somme des cardinaux}\]</span></p>
+<p></p>
+<p><strong>Remarque.</strong> Lorsqu’un ensemble <span class="math inline">\(E\)</span> peut s’écrire sous la forme</p>
+<p><span class="math display">\[E=E_1\cup E_2\cup\dots\cup E_k\]</span></p>
+<p>avec <span class="math inline">\(E_1, E_2, \dots, E_k\)</span> deux à deux disjoints, on dit que <span class="math inline">\(E_1, E_2,\dots E_k\)</span> forment une <strong>partition</strong> de l’ensemble <span class="math inline">\(E\)</span>.</p>
+</div>
+<p><strong>Exemple 3 : compter des carrés.</strong> Combien la figure suivante compte-t-elle de carrés ?</p>
+<center>
+<img src="images/carres.PNG" /><!-- -->
+</center>
+<p></p>
+<p><strong>Solution.</strong> Tout carré de cette figure a pour côté 1, 2, 3 ou 4 (en supposant avoir fixé une unité de longueur, correspondant au côté d’un “petit” carré). L’ensemble <span class="math inline">\(E\)</span> des carrés de cette figure peut donc s’écrire</p>
+<p><span class="math display">\[E=E_1\cup E_2\cup E_3\cup E_4\]</span></p>
+<p>où, pour <span class="math inline">\(k\in\{1,2,3,4\}\)</span>, <span class="math inline">\(E_k\)</span> désigne l’ensemble des carrés de côté <span class="math inline">\(k\)</span> de cette figure. Les <span class="math inline">\(E_k\)</span> sont deux à deux disjoints (un carré de la figure ne peut pas avoir un côté de deux longueurs différentes) et donc pour compter le nombre de carrés possibles, il suffit de compter les carrés de côté 1, de côté 2, de côté 3, de côté 4 et d’ajouter tous ces nombres. On trouve :</p>
+<p><span class="math display">\[\begin{align}
+\text{Card }(E_1) &amp;= 16 \\
+\text{Card }(E_2) &amp;= 9 \\
+\text{Card }(E_3) &amp;= 4 \\
+\text{Card }(E_4) &amp;= 1 \\
+\end{align}\]</span></p>
+<p>d’où <span class="math inline">\(\text{Card }(E)=16+9+4+1=30\)</span>.</p>
+<p></p>
+<p><strong>Exemple 4 (poignées de mains, à nouveau).</strong> On peut répondre à cette question en utilisant le principe additif. On note <span class="math inline">\(E_1\)</span> l’ensemble des poignées de mains de la personne <span class="math inline">\(1\)</span>. Puis on note <span class="math inline">\(E_2\)</span> l’ensemble des poignées de mains de la personne <span class="math inline">\(2\)</span>, hormis celle avec la personne <span class="math inline">\(1\)</span> qui a déjà été comptée, <span class="math inline">\(E_3\)</span> l’ensemble des poignées de mains de la personne <span class="math inline">\(3\)</span> hormis celles avec les personnes <span class="math inline">\(1\)</span> et <span class="math inline">\(2\)</span> qui ont déjà été comptées, et ainsi de suite jusqu’à <span class="math inline">\(E_{n}\)</span>. Alors, <span class="math inline">\(E_1,E_2,\dots, E_n\)</span> forment une partition de l’ensemble <span class="math inline">\(E\)</span> de toutes les poignées de mains du groupe, on va donc compter les cardinaux de <span class="math inline">\(E_1,E_2,\dots, E_n\)</span> et utiliser le principe additif :</p>
+<ul>
+<li>la personne <span class="math inline">\(1\)</span> serre la main des <span class="math inline">\(2\)</span> à <span class="math inline">\(n\)</span>, donc <span class="math inline">\(E_1=n-1\)</span> ;</li>
+<li>les poignées de mains non encore comptées de la personne <span class="math inline">\(2\)</span> sont celles avec les personnes <span class="math inline">\(3\)</span> à <span class="math inline">\(n\)</span> donc <span class="math inline">\(E_2=n-2\)</span> ;</li>
+<li>les poignées de mains non encore comptées de la personne <span class="math inline">\(3\)</span> sont celles avec les personnes <span class="math inline">\(4\)</span> à <span class="math inline">\(n\)</span> donc <span class="math inline">\(E_2=n-3\)</span> ;</li>
+<li>…</li>
+<li>une seule poignée de mains n’a pas été comptée pour la personne <span class="math inline">\(n-1\)</span>, celle avec la personnes <span class="math inline">\(n\)</span> donc <span class="math inline">\(E_{n-1}=1\)</span> ;</li>
+<li>enfin, toutes les poignées de mains de la personne <span class="math inline">\(n\)</span> ont été comptées, donc <span class="math inline">\(E_n=0\)</span>.</li>
+</ul>
+<p>En vertu du principe additif, le nombre de poignées de mains est donc égal à <span class="math display">\[0+1+2+\dots+(n-1)=\frac{n(n-1)}{2}\]</span></p>
+</div>
+<div id="formule-de-poincaré" class="section level3 hasAnchor" number="2.1.3">
+<h3><span class="header-section-number">2.1.3</span> Formule de Poincaré<a href="dénombrement-et-probabilités.html#formule-de-poincaré" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Il existe une formule lorsqu’on relâche l’hypothèse de non-djsjonction deux à deux, connue sous le nom de <em>formule de Poincaré</em>. C’est une formule que l’on utilise souvent dans le cas <span class="math inline">\(k=2\)</span>, de temps en temps dans le cas <span class="math inline">\(k=3\)</span>, plus rarement (mais ça peut arriver dans un sujet du concours) dans le cas <span class="math inline">\(k\geq 4\)</span> voire dans le cas général.</p>
+<div class="thmbox thm">
+<p><strong>Formule de Poincaré.</strong> Soit <span class="math inline">\(E\)</span> un ensemble fini, qui peut s’écrire sous la forme</p>
+<p><span class="math display">\[E=E_1\cup E_2\cup\dots\cup E_k\]</span></p>
+<p>avec <span class="math inline">\(E_1,E_2,\dots E_k\)</span> des sous-ensembles de <span class="math inline">\(E\)</span> <strong>non nécessairement disjoints deux à deux</strong>. Alors :</p>
+<p><span class="math display">\[\text{Card }(E)=\sum\limits_{i=1}^k (-1)^i \sum\limits_{1\leq j_1 &lt; j_2 &lt;...&lt; j_i\leq n} \text{Card }\left(E_{j_1}\cap E_{j_2}\cap\dots\cap E_{j_i}\right)\]</span>
+<strong>Cas particulier <span class="math inline">\(k=2\)</span> :</strong></p>
+<p><span class="math display">\[\text{Card }(A\cup B)=\text{Card }(A)+\text{Card }(B)-\text{Card }(A\cap B)\]</span></p>
+<p>
+<strong>Cas particulier <span class="math inline">\(k=3\)</span> :</strong></p>
+<p><span class="math display">\[\begin{align}
+\text{Card }(A\cup B\cup C)&amp;=\text{Card }(A)+\text{Card }(B)+\text{Card }(C) \\
+&amp;-\text{Card }(A\cap B)-\text{Card }(A\cap C)-\text{Card }(B\cap C) \\
+&amp;+\text{Card }(A\cap B\cap C)
+\end{align}\]</span></p>
+</div>
+<p>
+<strong>Démonstration dans le cas <span class="math inline">\(k=2\)</span>.</strong> L’intutition de la démonstration est évidente : pour compter tout ce qu’il y a dans la réunion de <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span>, on compte tout ce qu’il y a dans <span class="math inline">\(A\)</span>, tout ce qu’il y a dans <span class="math inline">\(B\)</span> et on ajoute le tout. Mais en faisant cela, on compte deux fois - c’est-à-dire une fois de trop - tout ce qui est à la fois dans <span class="math inline">\(A\)</span> et dans <span class="math inline">\(B\)</span>, donc on doit ensuite soustraire l’excédent.</p>
+<p>Plus formellement, on écrit <span class="math inline">\(A\cup B\)</span> comme une union disjointe, puis on applique le principe additif. On a, en posant <span class="math inline">\(A\backslash B=A\cap\overline{B}\)</span> et <span class="math inline">\(B\backslash A=B\cap\overline{A}\)</span> :</p>
+<p><span class="math display">\[A\cup B = (A\backslash B)\cup(A\cap B)\cup (B\backslash A)\]</span></p>
+<center>
+<img src="images/Venn.PNG" /><!-- -->
+</center>
+<p>Les trois ensembles du membre de droite de cette égalité dont deux à deux disjoints, donc on peut appliquer le principe additif :</p>
+<p><span class="math display">\[\text{Card }(A\cup B)=\text{Card }(A\backslash B)+\text{Card }(A\cap B)+\text{Card }(B\backslash A)\]</span>
+Par ailleurs</p>
+<p><span class="math display">\[A=(A\backslash B)\cup (A\cap B)\]</span></p>
+<p><span class="math display">\[B=(B\backslash A)\cup (B\cap A)\]</span>
+avec à nouveau des ensembles deux à disjoints dans les membres de droite. Donc, en appliquant deux fois le principe additif</p>
+<p><span class="math display">\[\text{Card }(A\backslash B)=\text{Card }(A)-\text{Card }(A\cap B)\]</span></p>
+<p><span class="math display">\[\text{Card }(B\backslash A)=\text{Card }(B)-\text{Card }(A\cap B)\]</span></p>
+<p>et donc finalement</p>
+<p><span class="math display">\[\begin{align}
+\text{Card }(A\cup B)&amp;=\text{Card }(A\backslash B)+\text{Card }(A\cap B)+\text{Card }(B\backslash A) \\
+&amp;=\text{Card }(A)-\text{Card }(A\cap B)+\text{Card }(A\cap B)+\text{Card }(B)-\text{Card }(A\cap B) \\
+&amp;=\text{Card }(A)+\text{Card }(B)-\text{Card }(A\cap B)
+\end{align}\]</span></p>
+<p><span class="math inline">\(\square\)</span></p>
+</div>
+<div id="dénombrement-par-bijection" class="section level3 hasAnchor" number="2.1.4">
+<h3><span class="header-section-number">2.1.4</span> Dénombrement par bijection<a href="dénombrement-et-probabilités.html#dénombrement-par-bijection" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Une technique classique de dénombrement d’un ensemble fini <span class="math inline">\(E\)</span> est l’utilisation d’un bijection entre <span class="math inline">\(E\)</span> et un ensemble fini <span class="math inline">\(F\)</span> dont on connaît le cardinal :</p>
+<div class="thmbox thm">
+<p><strong>Conservation du cardinal par bijection.</strong> Soient <span class="math inline">\(E\)</span> un ensemble, <span class="math inline">\(F\)</span> un ensemble fini. S’il existe une bijection <span class="math inline">\(\varphi : E\longrightarrow F\)</span>, alors <span class="math inline">\(E\)</span> est un ensemble fini et il est de même cardinal que <span class="math inline">\(F\)</span>.</p>
+</div>
+<p></p>
+<p><strong>Application classique : nombre de parties d’un ensemble fini.</strong> Soit <span class="math inline">\(E\)</span> un ensemble de cardinal <span class="math inline">\(n\)</span>. Alors l’ensemble <span class="math inline">\(\mathcal{P}(E)\)</span> des parties de <span class="math inline">\(E\)</span> (i.e. l’ensemble de tous les sous-ensembles de <span class="math inline">\(E\)</span>, y compris l’ensemble vide et <span class="math inline">\(E\)</span> lui-même) est égal à <span class="math inline">\(2^n\)</span> :</p>
+<p><span class="math display">\[\text{Card }(E)=n\Rightarrow\text{Card }(\mathcal{P}(E))=2^n\]</span></p>
+<p>En effet, notons <span class="math inline">\(\{0,1\}^E\)</span> l’ensemble de toutes les fonctions possibles de <span class="math inline">\(E\)</span> dans <span class="math inline">\(\{0,1\}\)</span>. Soit alors <span class="math inline">\(\varphi\)</span> l’application <span class="math inline">\(\varphi:\{0,1\}^E\longrightarrow\mathcal{P}(E)\)</span> définie, pour toute fonction <span class="math inline">\(f\in\{0,1\}^E\)</span> par</p>
+<p><span class="math display">\[\varphi(f)=\{x\in E, \,f(x)=1\}\]</span></p>
+<p>L’application <span class="math inline">\(\varphi\)</span> est bien définie (si <span class="math inline">\(f=g\)</span> on a clairement <span class="math inline">\(\varphi(f)=\varphi(g)\)</span>). Elle est injective : si <span class="math inline">\(\varphi(f)=\varphi(g)\)</span>, alors <span class="math inline">\(f(x)=1\)</span> si et seulement si <span class="math inline">\(g(x)=1\)</span>, et donc <span class="math inline">\(f\)</span> et <span class="math inline">\(g\)</span> ne pouvant prendre que <span class="math inline">\(0\)</span> et <span class="math inline">\(1\)</span> comme valeurs on en déduit que <span class="math inline">\(f=g\)</span>. Enfin, <span class="math inline">\(\varphi\)</span> est surjective. En effet, si <span class="math inline">\(P\in\mathcal{P}(E)\)</span>, alors en posant, pour tout <span class="math inline">\(x\)</span> dans <span class="math inline">\(E\)</span>, <span class="math inline">\(f(x)=1\)</span> si <span class="math inline">\(x\in P\)</span> et <span class="math inline">\(f(x)=0\)</span> si <span class="math inline">\(x\not\in P\)</span>, on a <span class="math inline">\(f\in\{0,1\}^E\)</span> et <span class="math inline">\(\varphi(f)=P\)</span>.</p>
+<p>Enfin, en vertu du principe multiplicatif on a <span class="math inline">\(\text{Card }(\{0,1\}^E)=2^n\)</span>. On en déduit que <span class="math inline">\(\text{Card }(\mathcal{P}(E))=2^n\)</span>.</p>
+<p><span class="math inline">\(\square\)</span></p>
+<p>Intutivement, la démonstration précédente montre que toute partie <span class="math inline">\(P\)</span> d’un ensemble fini <span class="math inline">\(E\)</span> peut être <em>codé</em> de façon unique en une fonction sur <span class="math inline">\(E\)</span> à valeurs dans <span class="math inline">\(\{0,1\}\)</span>, prenant la valeur <span class="math inline">\(1\)</span> pour les éléments de <span class="math inline">\(P\)</span> et <span class="math inline">\(0\)</span> pour les élements qui ne sont pas dans <span class="math inline">\(P\)</span>.</p>
+</div>
+<div id="permutations" class="section level3 hasAnchor" number="2.1.5">
+<h3><span class="header-section-number">2.1.5</span> Permutations<a href="dénombrement-et-probabilités.html#permutations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="defbox def">
 <center>
 <strong>Permutation d’un ensemble fini</strong>
 </center>
-<p>Soient <span class="math inline">\(n\)</span> un entier naturel non nul et <span class="math inline">\(E\)</span> un ensemble fini à <span class="math inline">\(n\)</span> éléments. On appelle <strong>permutation</strong> de <span class="math inline">\(E\)</span> toute bijection de <span class="math inline">\(E\)</span> dans lui-même.
+<p>Soient <span class="math inline">\(n\)</span> un entier naturel non nul et <span class="math inline">\(E=\{x_1,\dots, x_n\}\)</span>} un ensemble fini à <span class="math inline">\(n\)</span> éléments. On appelle <strong>permutation</strong> de <span class="math inline">\(E\)</span> tout réarragement <strong>ordonné</strong> et <strong>sans répétition</strong> des éléments de <span class="math inline">\(E\)</span>. De façon équivalente, une permutation est une bijection de <span class="math inline">\(E\)</span> dans lui-même.
 </p>
 </div>
 <p></p>
+<p><strong>Notation.</strong> L’ensemble des permutations d’un ensemble fini <span class="math inline">\(E\)</span> est noté <span class="math inline">\(\mathfrak{S}(E)\)</span>. Dans le cas particulier où <span class="math inline">\(E=\{1,2,\dots, n\}\)</span>, on le note plus simplement <span class="math inline">\(\mathfrak{S}_n\)</span>.</p>
+<p></p>
+<p><strong>Exemple.</strong> <span class="math inline">\(E=\{a,b,c\}\)</span>, les permutations de <span class="math inline">\(E\)</span> sont</p>
+<p><span class="math display">\[(a,b,c), (a,c,b), (b,a,c), (b,c,a), (c,a,b), (c,b,a)\]</span></p>
+<p>Ces permutations peuvent aussi s’écrire comme des bijections <span class="math inline">\(\sigma_1,\dots,\sigma_6\)</span> de <span class="math inline">\(E\)</span> dans lui-même :</p>
+<p><span class="math display">\[\sigma_1(a)=a,\,\sigma_1(b)=b,\,\sigma_1(c)=c\]</span>
+<span class="math display">\[\sigma_2(a)=a,\,\sigma_2(b)=c,\,\sigma_2(c)=b\]</span>
+<span class="math display">\[\sigma_3(a)=b,\,\sigma_3(b)=a,\,\sigma_3(c)=c\]</span>
+<span class="math display">\[\sigma_4(a)=b,\,\sigma_4(b)=c,\,\sigma_4(c)=a\]</span>
+<span class="math display">\[\sigma_5(a)=c,\,\sigma_5(b)=a,\,\sigma_5(c)=b\]</span>
+<span class="math display">\[\sigma_6(a)=a,\,\sigma_6(b)=b,\,\sigma_6(c)=a\]</span></p>
+<p>Le nombre de permutations d’un ensemble fini est facile à dénombrer :</p>
 <div class="thmbox thm">
-<p><strong>Théorème :</strong> Soit <span class="math inline">\(n\)</span> un entier naturel non nul. Le nombre de permutations d’un ensemble fini à <span class="math inline">\(n\)</span> éléments est égal à <span class="math inline">\(n!=1\times 2\times 3\times\dots\times n\)</span>.</p>
+<p><strong>Théorème (nombre de permutations) :</strong> Soit <span class="math inline">\(n\)</span> un entier naturel non nul. Le nombre de permutations d’un ensemble fini à <span class="math inline">\(n\)</span> éléments est égal à <span class="math inline">\(n!=1\times 2\times 3\times\dots\times n\)</span>.</p>
 </div>
+<p></p>
+<p><strong>Démonstration.</strong> On note <span class="math inline">\(x_1,\dots,x_n\)</span> les éléments d’un ensemble de cardinal <span class="math inline">\(n\)</span>. Choisir une permutation <span class="math inline">\(\sigma\)</span> de <span class="math inline">\(E\)</span>, c’est choisir successivement :</p>
+<ul>
+<li><p>l’image <span class="math inline">\(\sigma(x_1)\)</span> parmi les <span class="math inline">\(n\)</span> éléments <span class="math inline">\(x_1,\dots,x_n\)</span> : <span class="math inline">\(n\)</span> choix possibles ;</p></li>
+<li><p>l’image <span class="math inline">\(\sigma(x_2)\)</span> parmi les <span class="math inline">\(n-1\)</span> éléments restants : <span class="math inline">\(n-1\)</span> choix possibles ;</p></li>
+<li><p>l’image <span class="math inline">\(\sigma(x_3)\)</span> parmi les <span class="math inline">\(n-2\)</span> éléments restants : <span class="math inline">\(n-2\)</span> choix possibles ;</p></li>
+<li><p>…</p></li>
+<li><p>l’image <span class="math inline">\(\sigma(x_n)\)</span> parmi le seul élément de <span class="math inline">\(x_1,\dots, x_n\)</span> qui n’a pas encore été choisi : <span class="math inline">\(1\)</span> seul choix possible.</p></li>
+</ul>
+<p>D’après le principe multiplicatif, le nombre de permutations de <span class="math inline">\(E\)</span> est donc égal à <span class="math display">\[n\times(n-1)\times(n-2)\times\dots\times 1=n!\]</span></p>
+<p><span class="math inline">\(\square\)</span></p>
+<p></p>
+<p><strong>Remarque.</strong> En filigrane, le théorème précédént dit aussi que le nombre de permutations d’un ensemble fini <span class="math inline">\(E\)</span> ne dépend de <span class="math inline">\(E\)</span> qu’à travers son cardinal. Autrement dit, peu importe l’ensemble <span class="math inline">\(E\)</span> que l’on choisit, dès lors qu’il a <span class="math inline">\(n\)</span> éléments le nombre de permutations de cet ensemble est <span class="math inline">\(n!\)</span>. Ce résultat est une simple conséquence du principe de dénombrement par bijection évoqué plus haut.</p>
+<p></p>
+<p><strong>Exemple : nombre d’anagrammes.</strong> Quel est le nombre d’anagrammes du mot MATHS ? Du mot ANAGRAMME ?</p>
+<p></p>
+<p><strong>Solution. i.</strong> Une anagramme du mot MATHS correspond à une permutation de l’ensemble <span class="math inline">\(\{M,A,T,H,S\}\)</span>. Il y en a donc <span class="math inline">\(4!=24\)</span>.</p>
+<p></p>
+<p><strong>ii.</strong> Pour le mot ANAGRAMME c’est un peu plus compliqué car certaines lettres apparaissent plusieurs fois. On commence par numéroter ces lettres-là, en les traitant comme des lettres différentes, autrement dit on commence par compter le nombre de permutations de l’ensemble <span class="math inline">\(\{A_1,N,A_2,G,R,A_3,M_1,M_2,E\}\)</span> : il y en a <span class="math inline">\(8!\)</span>. Les lettres n’étant en réalité pas numérotées dans notre problème, il n’y a pas lieu de distinguer, par exemple, l’anagramme <span class="math inline">\(A_1NA_2GRA_3M_1M_2E\)</span> de l’anagramme <span class="math inline">\(A_2NA_1GRA_3M_1M_2E\)</span>. Ainsi, la lettre <span class="math inline">\(A\)</span> étant de multiplicité <span class="math inline">\(3\)</span> dans le mot ANAGRAMME, chacune des <span class="math inline">\(3!=6\)</span> permutations de cette lettre fournit exactement le même mot, de sorte que la numérotation de la lettre <span class="math inline">\(A\)</span> conduit à compter <span class="math inline">\(6\)</span> fois plus de permutations qu’il n’y en a en réalité. De même, la lettre <span class="math inline">\(M\)</span> est de multiplicité <span class="math inline">\(2\)</span>, et donc en la numérotant on compte <span class="math inline">\(2!=2\)</span> fois plus de permutations qu’il y en a réellement. Finalement, on en déduit que le nombre d’anagrammes du mot ANAGRAMME est égal à <span class="math inline">\(\frac{8!}{3!2!}=420\)</span>.</p>
 </div>
-<div id="arrangements" class="section level3 hasAnchor" number="2.1.2">
-<h3><span class="header-section-number">2.1.2</span> Arrangements<a href="dénombrement-et-probabilités.html#arrangements" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="arrangements" class="section level3 hasAnchor" number="2.1.6">
+<h3><span class="header-section-number">2.1.6</span> Arrangements<a href="dénombrement-et-probabilités.html#arrangements" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="defbox def">
+<center>
+<strong>Arrangements</strong>
+</center>
+<p>Soient <span class="math inline">\(n\)</span> et <span class="math inline">\(0\leq k\leq n\)</span> deux entiers naturels, et <span class="math inline">\(E\)</span> un ensemble à <span class="math inline">\(n\)</span> éléments. On appelle <strong>arrangement</strong> de <span class="math inline">\(k\)</span> éléments pris parmi les <span class="math inline">\(n\)</span> éléments de <span class="math inline">\(E\)</span>, tout sous-ensemble <strong>ordonné</strong> à <span class="math inline">\(k\)</span> éléments de <span class="math inline">\(E\)</span>.</p>
 </div>
-<div id="combinaisons" class="section level3 hasAnchor" number="2.1.3">
-<h3><span class="header-section-number">2.1.3</span> Combinaisons<a href="dénombrement-et-probabilités.html#combinaisons" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>De la même façon qu’on peut définir les permutations par la notion de bijection, on peut définir les arrangements par la notion d’injection :</p>
+<div class="defbox def">
+<center>
+<strong>Définition équivalente des arrangements</strong>
+</center>
+<p>Soient <span class="math inline">\(n\)</span> et <span class="math inline">\(0\leq k\leq n\)</span> deux entiers naturels, et <span class="math inline">\(E\)</span> un ensemble à <span class="math inline">\(n\)</span> éléments. Un <strong>arrangement</strong> de <span class="math inline">\(k\)</span> éléments pris parmi les <span class="math inline">\(n\)</span> éléments de <span class="math inline">\(E\)</span> peut aussi être vu comme une <strong>injection</strong> de <span class="math inline">\(\{1,2,\dots, k\}\)</span> dans <span class="math inline">\(E\)</span>.</p>
 </div>
-<div id="formule-du-binôme-de-newton" class="section level3 hasAnchor" number="2.1.4">
-<h3><span class="header-section-number">2.1.4</span> Formule du binôme de Newton<a href="dénombrement-et-probabilités.html#formule-du-binôme-de-newton" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p></p>
+<p><strong>Exemple.</strong> Si <span class="math inline">\(E=\{1,2,3\}\)</span>, les arrangements à <span class="math inline">\(2\)</span> éléments de <span class="math inline">\(E\)</span> sont les couples <span class="math inline">\((1,2), (1,3), (2,1), (2,3), (3, 1), (3,2)\)</span>. On utilise bien la notion de couple pour modéliser les arrangements car l’ordre a une importance : les arrangements <span class="math inline">\((1,2)\)</span> et <span class="math inline">\((2,1)\)</span> sont bien considérés comme différents. Il y a donc six arrangements de <span class="math inline">\(2\)</span> éléments de <span class="math inline">\(E\)</span>.</p>
+<p>Plus généralement, on a une formule qui permet de calculer le nombre d’arrangements de <span class="math inline">\(k\)</span> éléments pris parmi <span class="math inline">\(n\)</span> éléments :</p>
+<div class="thmbox thm">
+<p><strong>Théorème (nombre d’arrangements).</strong> On note <span class="math inline">\(A_n^k\)</span> le nombre d’arrangements à <span class="math inline">\(k\)</span> éléments pris dans un ensemble à <span class="math inline">\(n\)</span> éléments. Alors, on a la formule :</p>
+<p><span class="math display">\[A_n^k=\frac{n!}{(n-k)!}\]</span></p>
 </div>
-<div id="triangle-de-pascal" class="section level3 hasAnchor" number="2.1.5">
-<h3><span class="header-section-number">2.1.5</span> Triangle de Pascal<a href="dénombrement-et-probabilités.html#triangle-de-pascal" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>
+<strong>Remarque.</strong> Ici aussi, le nombre d’arrangements à <span class="math inline">\(k\)</span> éléments pris dans un ensemble à <span class="math inline">\(n\)</span> éléments ne dépend que de <span class="math inline">\(n\)</span> (et de <span class="math inline">\(k\)</span>).</p>
+<p>
+<strong>Démonstration.</strong> C’est exactement la même démarche que pour le dénombrement des permutations :</p>
+<ul>
+<li><span class="math inline">\(n\)</span> façons de choisir le premier élément ;</li>
+<li><span class="math inline">\(n-1\)</span> façons de choisir le deuxième élément ;</li>
+<li>…</li>
+<li><span class="math inline">\(n-k+1\)</span> façons de choisir l’élément numéro <span class="math inline">\(k\)</span>.</li>
+</ul>
+<p>D’après le principe multiplicatif on a donc :</p>
+<p><span class="math display">\[\begin{align}
+A_n^k &amp;= n(n-1)\dots(n-k+1) \\
+&amp;= \frac{n!}{(n-k)!}
+\end{align}\]</span></p>
+<p><span class="math inline">\(\square\)</span></p>
+<p></p>
+<p><strong>Remarque.</strong> Dans le cas où <span class="math inline">\(k=n\)</span>, on a <span class="math inline">\(A_n^n=n!\)</span>. Ce résultat était prévisible, puisqu’un arrangement de <span class="math inline">\(n\)</span> éléments parmi <span class="math inline">\(n\)</span> éléments est une injection de <span class="math inline">\(\{1,2,\dots, n\}\)</span> dans lui-même, autrement dit une <strong>bijection</strong> de <span class="math inline">\(\{1,2,\dots,n\}\)</span> dans lui-même. Il s’agit donc d’une permutation de <span class="math inline">\(\{1,2,\dots,n\}\)</span>.</p>
+</div>
+<div id="combinaisons" class="section level3 hasAnchor" number="2.1.7">
+<h3><span class="header-section-number">2.1.7</span> Combinaisons<a href="dénombrement-et-probabilités.html#combinaisons" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Les combinaisons sont l’équivalent <strong>non ordonné</strong> des arrangements :</p>
+<div class="defbox def">
+<center>
+<strong>Combinaisons</strong>
+</center>
+<p>Soient <span class="math inline">\(n\)</span> et <span class="math inline">\(0\leq k\leq n\)</span> deux entiers naturels, et <span class="math inline">\(E\)</span> un ensemble à <span class="math inline">\(n\)</span> éléments. On appelle <strong>combinaison</strong> de <span class="math inline">\(k\)</span> éléments pris parmi les <span class="math inline">\(n\)</span> éléments de <span class="math inline">\(E\)</span>, tout sous-ensemble <strong>non ordonné</strong> à <span class="math inline">\(k\)</span> éléments de <span class="math inline">\(E\)</span>.</p>
+</div>
+<p></p>
+<p><strong>Exemples.</strong> Si <span class="math inline">\(E=\{1,2,3\}\)</span>, on a vu que les arrangements à <span class="math inline">\(2\)</span> éléments de <span class="math inline">\(E\)</span> sont les couples
+<span class="math display">\[(1,2), (1,3), (2,1), (2,3), (3, 1), (3,2)\]</span>
+Du point de vue des combinaisons, les couples <span class="math inline">\((1,2)\)</span> et <span class="math inline">\((2,1)\)</span> (resp. <span class="math inline">\((1,3)\)</span> et <span class="math inline">\((3,1)\)</span>, <span class="math inline">\((2,3)\)</span> et <span class="math inline">\((3,2)\)</span>) sont considérés comme équivalents.</p>
+<p>Il y a donc trois combinaisons à <span class="math inline">\(2\)</span> éléments de <span class="math inline">\(E\)</span> :</p>
+<p><span class="math display">\[\{1,2\}, \{1,3\} \text{ et } \{2,3\}\]</span></p>
+<p>
+<strong>Remarque.</strong> Bien faire attention à la différence de notation : la notation avec parenthèses <span class="math inline">\((a_1, a_2,\dots, a_n)\)</span> désigne un <span class="math inline">\(n-\)</span>uplet, c’est-à-dire un objet ordonné. Alors que la notation ensembliste <span class="math inline">\(\{a_1,a_2,\dots a_n\}\)</span> désigne un objet non ordonné. On a donc, pour toute permutation <span class="math inline">\(\sigma\in\mathfrak{S}_n\)</span> différente de l’identité :</p>
+<p><span class="math display">\[(a_{\sigma(1)},a_{\sigma(Z)},\dots, a_{\sigma_(n)})\neq (a_1,a_2,\dots, a_n)\]</span>
+mais</p>
+<p><span class="math display">\[\{a_{\sigma(1)},a_{\sigma(Z)},\dots, a_{\sigma_(n)}\}=\{a_1,a_2,\dots, a_n\}\]</span></p>
+<p>Comme pour les permutations et les arrangements, on a une formule simple pour compter les combinaisons :</p>
+<div class="thmbox thm">
+<p><strong>Théorème (nombre de combinaisons).</strong> Soient <span class="math inline">\(n\)</span> et <span class="math inline">\(0\leq k\leq n\)</span> des entiers naturels. Le nombre de combinaisons de <span class="math inline">\(k\)</span> éléments pris parmi les <span class="math inline">\(n\)</span> éléments d’un ensemnble <span class="math inline">\(E\)</span> quelconque est noté <span class="math inline">\(C_n^k\)</span> ou <span class="math inline">\(\binom{n}{k}\)</span>. Ce nombre, appelé <strong>coefficient binomial</strong>, est égal à :</p>
+<p><span class="math display">\[\binom{n}{k}=\frac{n!}{k!\,(n-k)!}\]</span></p>
+<p>On peut aussi définir de façon cohérente le coefficient binomial pour <span class="math inline">\(k\)</span> et <span class="math inline">\(n\)</span> des entiers naturels avec <span class="math inline">\(k&gt;n\)</span> en posant</p>
+<p><span class="math display">\[\binom{n}{k}=0\]</span></p>
+</div>
+<p></p>
+<p><strong>Démonstration.</strong> On commence par compter les arrangements de <span class="math inline">\(k\)</span> éléments parmi <span class="math inline">\(n\)</span> : il y en a <span class="math inline">\(A_n^k=\frac{n!}{(n-k)!}\)</span>. Par ailleurs, toute combinaison <span class="math inline">\((a_1,\dots, a_k)\)</span> de <span class="math inline">\(k\)</span> éléments parmi <span class="math inline">\(n\)</span> génère <span class="math inline">\(k!\)</span> arrangements distincts <span class="math inline">\((a_{\sigma(1)},\dots, a_{\sigma(k)})\)</span> distincts <span class="math inline">\((\sigma\in\mathfrak{S}_k)\)</span>. Il y a donc <span class="math inline">\(k!\)</span> fois plus d’arrangements que de combinaisons. D’où :</p>
+<p><span class="math display">\[\begin{align}
+\binom{n}{k} &amp;= \frac{A_n^k}{k!} \\
+&amp;= \frac{n!}{k!(n-k)!}
+\end{align}\]</span></p>
+<p><span class="math inline">\(\square\)</span></p>
+<p>Plusieurs formules impliquent les combinaisons :</p>
+<div class="thmbox thm">
+<p><strong>Formules usuelles sur les combinaisons.</strong> Soient <span class="math inline">\(n\)</span> et <span class="math inline">\(0\leq k\leq n\)</span> deux entiers naturels. Alors :</p>
+<p></p>
+<p><strong>i. (Cas particuliers)</strong>
+<span class="math display">\[\binom{n}{0}=1\]</span>
+<span class="math display">\[\binom{n}{n}=1\]</span>
+<span class="math display">\[\binom{n}{1}=n\]</span>
+<span class="math display">\[\binom{n}{2}=\frac{n(n-1)}{2}\]</span></p>
+<p></p>
+<p><strong>ii. (Complémentaire)</strong></p>
+<p><span class="math display">\[\binom{n}{k}=\binom{n}{n-k}\]</span></p>
+<p></p>
+<p><strong>iii. (Triangle de Pascal)</strong></p>
+<p><span class="math display">\[\binom{n}{k}+\binom{n}{k+1}=\binom{n+1}{k+1}\]</span>
+</p>
+<p><strong>iv. (Formule du binôme de Newton)</strong> Pour <span class="math inline">\(a\)</span> et <span class="math inline">\(b\)</span> des réels quelconques et <span class="math inline">\(n\)</span> un entier naturel :</p>
+<p><span class="math display">\[(a+b)^n=\sum\limits_{k=0}^n \binom{n}{k}a^k b^{n-k}\]</span></p>
+<p>En particulier, pour <span class="math inline">\(a=b=1\)</span> on obtient :</p>
+<p><span class="math display">\[\sum\limits_{k=0}^n \binom{n}{k}=2^n\]</span>
+Pour <span class="math inline">\(a=-1\)</span> et <span class="math inline">\(b=1\)</span> on obtient :</p>
+<p><span class="math display">\[\sum\limits_{k=0}^n (-1)^k\binom{n}{k}=0\]</span></p>
+<p>Pour <span class="math inline">\(a=x\)</span> et <span class="math inline">\(b=1\)</span> on obtient :</p>
+<p><span class="math display">\[\sum\limits_{k=0}^n \binom{n}{k}x^k=(x+1)^n\]</span></p>
+<p>Pour <span class="math inline">\(a=-1\)</span> et <span class="math inline">\(b=x\)</span> on obtient :</p>
+<p><span class="math display">\[\sum\limits_{k=0}^n \binom{n}{k}(-1)^kx^{n-k}=(x-1)^n\]</span></p>
+</div>
 </div>
 </div>
 <div id="evénements-et-probabilités" class="section level2 hasAnchor" number="2.2">
