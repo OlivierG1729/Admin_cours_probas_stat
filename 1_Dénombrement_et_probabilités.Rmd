@@ -689,7 +689,7 @@ $\square$
 
 - *Quelle est la probabilité que l'un au moins de ces événements se produise ?*
 
-- *Quelle est la probabilité que tous les événements se produise ?*
+- *Quelle est la probabilité que tous les événements se produisent ?*
 
 - *Quelle est la probabilité qu'aucun de ces événements ne se produise ?* 
 
