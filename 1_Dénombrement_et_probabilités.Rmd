@@ -1,5 +1,116 @@
 # Dénombrement et probabilités
 
+## Rappels sur les opérations ensemblistes
+
+
+\noindent Un ensemble est une collection d'objets, dont la nature peut être extrêment variée : des nombres, des droites, des matrices, etc. Pour $E$ un ensemble, la notation $x\in E$ signifie que $x$ est un élément de $E$, et se lit *x appartient à E*.
+
+:::: {.defbox .def data-latex="important"}
+<center>**Inclusion, réunion, intersection, complémentaire**</center>
+
+\noindent Soient $E$ et $F$ deux ensembles quelconques. 
+
+- **Ensemble vide.** L'ensemble vide est l'ensemble n'admettant aucun élément.
+
+- **Inclusion.** On dit que $F$ est *inclus* dans $E$, et on note $F\subset E$ si dès que $x$ appartient à $F$, il appartient aussi à $E$ :
+
+$$(F\subset E) \Leftrightarrow \left((x\in F)\Rightarrow (x\in E)\right)$$
+
+- **Réunion.** $E\cup F$ est l'ensemble des éléments qui appartiennent à au moins l'un des deux ensembles $E$ et $F$ :
+
+$$E\cup F=\{x, \, x\in E \text{ ou } x\in F\}$$
+
+- **Intersection.** $E\cap F$ est l'ensemble des éléments qui appartiennent à la fois à $E$ et à $F$ :
+
+$$E\cap F=\{x, \, x\in E \text{ et } x\in F\}$$
+
+- **Complémentaire.** Si $F\subset E$, le **complémentaire** de $F$ dans $E$, noté $\overline{F}^E$ est défini par 
+$$\overline{F}^E=\{x\in E, \, x\not\in F\}$$
+
+
+\noindent Lorsque le contexte n'est pas ambigu, on allège la notation en l'écrivant plus simplement $\overline{F}$. D'autres notations existent : $F^c$, $E\backslash F$, etc.
+::::
+
+\noindent Toutes les propriétés qu'on présente ici (sans démonstration) sont d'un usage très fréquent dans les calculs des probabilités.
+
+
+:::: {.thmbox .thm data-latex="important"}
+
+**Commutativité de $\cup$ et $\cap$.** Soient $A$ et $B$ deux ensembles. Alors :
+
+$$A\cup B=B\cup A$$
+
+$$A\cap B=B\cap A$$
+
+**Associativité de $\cup$ et $\cap$.** Soient $A, B, C$ trois ensembles. Alors on a :
+
+$$A\cup(B\cup C)=(A\cup B)\cup C$$
+
+$$A\cup(B\cap C)=(A\cap B)\cap C$$
+
+\noindent Autrement dit, on peut calculer une succession de réunions ou d'intersections d'ensemble dans l'ordre qu'on veut, ce qui nous autorise à enlever les parenthèses :
+
+$$A\cup B\cup C$$
+
+$$A\cap B\cap C$$
+
+\noindent Plus généralement, étant donné une famille quelconque d'ensembles $(E_i)_{i\in I}$, on peut définir de façon complètement analogue et sans amibuité leur réunion $\bigcup\limits_{i\in I}E_i$ et leur intersection $\bigcap\limits_{i\in I}E_i$
+
+\noindent 
+
+**L'ensemble vide est un minorant de tout ensemble.** Pour tout ensemble $E$, on a :
+
+$$\emptyset\subset E$$
+
+\noindent 
+
+**L'ensemble vide est neutre pour la réunion.** Pour tout ensemble $E$, on a 
+
+$$E\cup\emptyset=\emptyset\cup E=E$$
+
+\noindent 
+
+**L'ensemble vide est absorbant pour l'intersection.** Pour tout ensemble $E$, on a 
+
+$$E\cap\emptyset=\emptyset\cap E=\emptyset$$
+
+\noindent
+
+**Le passage au complémentaire est involutif.** Pour tout ensemble $E$ et pour tout sous-ensemble $F$ de $E$, on a :
+
+$$\overline{\overline{F}}=F$$
+::::
+
+
+\noindent Les propriétés suivantes précisent comment la réunion, l'intersection et le passage complémentaire interagissent :
+
+:::: {.thmbox .thm data-latex="important"}
+
+\noindent 
+
+**Lois de Morgan.** Pour tout ensemble $E$, pour tout couple $(A, B)$ de sous-ensembles de $E$, on a :
+
+$$\overline{A\cup B}=\overline{A}\cap\overline{B}$$
+$$\overline{A\cap B}=\overline{A}\cup\overline{B}$$
+\noindent Cette propriété se généralise à toute famille $(F_i)_{i\in, I}$ d'un ensemble $E$ quelconque :
+
+$$\overline{\bigcup\limits_{i\in I} F_i}=\bigcap\limits_{i\in I}\overline{F_i}$$
+
+$$\overline{\bigcap\limits_{i\in I} F_i}=\bigcup\limits_{i\in I}\overline{F_i}$$
+\noindent On peut résumer ces propriétés que l'opération de passage au complémentaire inverse la réunion et l'intersection.
+
+\noindent 
+
+**Distributivité.** Soient $A, B, C$ trois ensembles. Alors on a :
+
+$$A\cap(B\cup C)=(A\cap B)\cup(A\cap C)$$
+$$A\cup(B\cap C)=(A\cup B)\cap(A\cup C)$$
+
+
+::::
+
+
+
 ## Dénombrement
 
 \noindent On commence par quelques éléments d'**analyse combinatoire**. Ces résultats sont utilisés dans le cas où, lors d'une expérience aléatoire, tous les *événements élémentaires* (on parle aussi d'*issues*) sont de même probabilité. On parle dans ce cas d'**équiprobabilité** ou d'**équirépartition** des résultats. 
