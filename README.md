@@ -1,6 +1,6 @@
 Bienvenue !
 
- **Généralités.** Ce document est un cours de probabilités et statistiques à destination des candidats au concours interne d'administrateur de l'Insee. Il est encore en construction et pour le moment très incomplet. Seule la partie Statistique inférentielle est à ce jour disponible.
+ **Généralités.** Ce document est un cours de probabilités et statistiques à destination des candidats au concours interne d'administrateur de l'Insee. Il est encore en construction et pour le moment très incomplet. Seule la partie Statistique inférentielle est à ce jour complète. La première partie sur le dénombrement et l'introduction des probablités est en cours de rédaction.
   
   A terme, il devrait contenir les parties suivantes :
   
