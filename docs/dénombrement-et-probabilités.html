@@ -676,11 +676,36 @@ on obtient une somme de termes de la forme <span class="math inline">\(a^kb^{n-k
 </div>
 <div id="evénements-et-probabilités" class="section level2 hasAnchor" number="2.3">
 <h2><span class="header-section-number">2.3</span> Evénements et probabilités<a href="dénombrement-et-probabilités.html#evénements-et-probabilités" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>On introduit maintenant les notions de base des probabilités. On suppose mener une <strong>expérience aléatoire</strong>, i.e. une expérience dont l’issue est incertaine, comme le lancer d’une pièce. La première chose à faire est de dresser la liste de tous les résultats potentiellement réalisables. Un tel résultat s’appelle une <strong>issue</strong> ou un <strong>événement élémentaire</strong>. Par exemple, si on lance un dé cubique dont les faces sont numérotées de <span class="math inline">\(1\)</span> à <span class="math inline">\(6\)</span> et que l’on relève le numéro de la face obtenue, alors les événements élémentaires sont les entiers de <span class="math inline">\(1\)</span> à <span class="math inline">\(6\)</span>. La liste des événements élémentaires d’une expérience aléatoire est souvent désignée par la nom d’<strong>univers</strong>, et on le note généralement <span class="math inline">\(\Omega\)</span>. Dans notre exemple de dé cubique, on a donc <span class="math inline">\(\Omega=\{1, 2, 3, 4, 5, 6\}\)</span>.</p>
+<p>Souvent, on définira des événements plus complexes que les événements élémentaires, par exemple des événements comme l’événement A : <em>Le nombre obtenu est un nombre impair</em> ou encore l’événement B: <em>Le nombre obtenu est un nombre premier</em>. De tels événements ne sont plus nécessairement des événements élémentaires. La théorie des probabilités consiste à formaliser la notion de <strong>crédibilité</strong> que l’on peut accorder aux événements qui sont susceptibles de se produire et que l’on peut observer (on parle aussi d’<strong>observables</strong>). Ce niveau de crédibilité sera représenté par un nombre réel appelé <strong>probabilité</strong> et compris entre <span class="math inline">\(0\)</span> (événement de probabilité nulle) et <span class="math inline">\(1\)</span> (événement certain).</p>
+<p>Etant donné une famille d’événements observables dont on connaît les probabilités individuelles, il semble alors naturel de se poser des questions comme :</p>
+<ul>
+<li><p><em>Quelle est la probabilité que l’un au moins de ces événements se produise ?</em></p></li>
+<li><p><em>Quelle est la probabilité que tous les événements se produise ?</em></p></li>
+<li><p><em>Quelle est la probabilité qu’aucun de ces événements ne se produise ?</em></p></li>
+</ul>
+<p>Il faut donc pouvoir calculer des probabilités pour des événements composites du type <em>Au moins un événement</em>, <em>Tous les événements</em>, <em>Aucun événement</em>.</p>
+<p>Ceci nous emmène à la défintion suivante.</p>
 <div id="evénements" class="section level3 hasAnchor" number="2.3.1">
 <h3><span class="header-section-number">2.3.1</span> Evénements<a href="dénombrement-et-probabilités.html#evénements" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="thmbox thm">
+<center>
+<strong>Espace probabilisable</strong>
+</center>
+<p>On appelle <strong>espace probabilisable</strong> tout couple <span class="math inline">\((\Omega, \mathcal{A})\)</span> où <span class="math inline">\(\Omega\)</span> est un ensemble (fini ou non) et <span class="math inline">\(\mathcal{A}\subset\mathcal{P}(\Omega)\)</span> est une famille de parties de <span class="math inline">\(\Omega\)</span> vérifiant les propriétés suivantes :</p>
 <ul>
-<li><p>Définition</p></li>
-<li><p>Opérations sur les événements : réunion, intersection, événement contraire</p></li>
+<li><span class="math inline">\(\emptyset\in\mathcal{A}\)</span> et <span class="math inline">\(\Omega\in\mathcal{A}\)</span></li>
+<li>si <span class="math inline">\((A_n)_{n\in\mathbb{N}}\)</span> est une famille dénombrable d’éléments de <span class="math inline">\(\mathcal{A}\)</span> (i.e. : <span class="math inline">\(\forall n\in\mathbb{N}, A_n\in\mathcal{A}\)</span>), alors leur réunion est encore dans <span class="math inline">\(\mathcal{A}\)</span> :</li>
+</ul>
+<p><span class="math display">\[\bigcup\limits_{n\in\mathbb{N}} A_n\in\mathcal{A}\]</span></p>
+<ul>
+<li>si <span class="math inline">\(A\in\mathcal{A}\)</span> alors <span class="math inline">\(\overline{A}\in\mathcal{A}\)</span>.</li>
+</ul>
+<p>On dit aussi que <span class="math inline">\(\mathcal{A}\)</span> est une <strong>tribu</strong> et les éléments de <span class="math inline">\(\mathcal{A}\)</span> sont appelés des <strong>événements</strong>.</p>
+</div>
+<p>La famille <span class="math inline">\(\mathcal{A}\)</span> formalise tous les observables relatifs à une expérience aléatoire, autrement dit tout ce qu’on est susceptible d’observer relativement à cette expérience et dont on aimerait mesurer le niveau de crédibilité.</p>
+<ul>
+<li>Opérations sur les événements : réunion, intersection, événement contraire</li>
 </ul>
 </div>
 <div id="probabilités" class="section level3 hasAnchor" number="2.3.2">

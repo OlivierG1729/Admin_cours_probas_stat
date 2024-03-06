@@ -681,11 +681,48 @@ $\square$
 
 ## Evénements et probabilités
 
+\noindent On introduit maintenant les notions de base des probabilités. On suppose mener une **expérience aléatoire**, i.e. une expérience dont l'issue est incertaine, comme le lancer d'une pièce. La première chose à faire est de dresser la liste de tous les résultats potentiellement réalisables. Un tel résultat s'appelle une **issue** ou un **événement élémentaire**. Par exemple, si on lance un dé cubique dont les faces sont numérotées de $1$ à $6$ et que l'on relève le numéro de la face obtenue, alors les événements élémentaires sont les entiers de $1$ à $6$. La liste des événements élémentaires d'une expérience aléatoire est souvent désignée par la nom d'**univers**, et on le note généralement $\Omega$. Dans notre exemple de dé cubique, on a donc $\Omega=\{1, 2, 3, 4, 5, 6\}$. 
+
+\noindent Souvent, on définira des événements plus complexes que les événements élémentaires, par exemple des événements comme l'événement A : *Le nombre obtenu est un nombre impair* ou encore l'événement B: *Le nombre obtenu est un nombre premier*. De tels événements ne sont plus nécessairement des événements élémentaires. La théorie des probabilités consiste à formaliser la notion de **crédibilité** que l'on peut accorder aux événements qui sont susceptibles de se produire et que l'on peut observer (on parle aussi d'**observables**). Ce niveau de crédibilité sera représenté par un nombre réel appelé **probabilité** et compris entre $0$ (événement de probabilité nulle) et $1$ (événement certain). 
+
+\noindent Etant donné une famille d'événements observables dont on connaît les probabilités individuelles, il semble alors naturel de se poser des questions comme :
+
+- *Quelle est la probabilité que l'un au moins de ces événements se produise ?*
+
+- *Quelle est la probabilité que tous les événements se produise ?*
+
+- *Quelle est la probabilité qu'aucun de ces événements ne se produise ?* 
+
+
+\vspace{1cm}
+
+\noindent Il faut donc pouvoir calculer des probabilités pour des événements composites du type *Au moins un événement*, *Tous les événements*, *Aucun événement*.
+
+\vspace{1cm}
+
+\noindent Ceci nous emmène à la défintion suivante.
+
 ### Evénements
 
--   Définition
+:::: {.thmbox .thm data-latex="important"}
+<center>**Espace probabilisable**</center>
+
+\noindent On appelle **espace probabilisable** tout couple $(\Omega, \mathcal{A})$ où $\Omega$ est un ensemble (fini ou non) et $\mathcal{A}\subset\mathcal{P}(\Omega)$ est une famille de parties de $\Omega$ vérifiant les propriétés suivantes :
+
+- $\emptyset\in\mathcal{A}$ et $\Omega\in\mathcal{A}$
+- si $(A_n)_{n\in\mathbb{N}}$ est une famille dénombrable d'éléments de $\mathcal{A}$ (i.e. : $\forall n\in\mathbb{N}, A_n\in\mathcal{A}$), alors leur réunion est encore dans $\mathcal{A}$ :
+
+$$\bigcup\limits_{n\in\mathbb{N}} A_n\in\mathcal{A}$$
+
+- si $A\in\mathcal{A}$ alors $\overline{A}\in\mathcal{A}$.
+
+\noindent On dit aussi que $\mathcal{A}$ est une **tribu** et les éléments de $\mathcal{A}$ sont appelés des **événements**.
+::::
+
+\noindent La famille $\mathcal{A}$ formalise tous les observables relatifs à une expérience aléatoire, autrement dit tout ce qu'on est susceptible d'observer relativement à cette expérience et dont on aimerait mesurer le niveau de crédibilité.
 
 -   Opérations sur les événements : réunion, intersection, événement contraire
+
 
 ### Probabilités
 
