@@ -76,7 +76,7 @@
 <li><a href="./">Cours de probabilités et statistique pour le concours interne d'administrateur de l'Insee</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Présentation du cours</a>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> url: your book url like https://bookdown.org/yihui/bookdown</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#généralités"><i class="fa fa-check"></i><b>1.1</b> Généralités</a></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#coquilles-et-erreurs"><i class="fa fa-check"></i><b>1.2</b> Coquilles et erreurs</a></li>
@@ -522,8 +522,9 @@ mais</p>
 <p><strong>iii. (Triangle de Pascal)</strong></p>
 <p><span class="math display">\[\binom{n}{k}+\binom{n}{k+1}=\binom{n+1}{k+1}\]</span>
 </p>
-<p><strong>iv. (Formule du binôme de Newton)</strong> Pour <span class="math inline">\(a\)</span> et <span class="math inline">\(b\)</span> des réels quelconques et <span class="math inline">\(n\)</span> un entier naturel :</p>
+<p><strong>iv. (Formule du binôme de Newton)</strong> Sous la convention <span class="math inline">\(0^0=1\)</span>, pour <span class="math inline">\(a\)</span> et <span class="math inline">\(b\)</span> des réels quelconques et <span class="math inline">\(n\)</span> un entier naturel :</p>
 <p><span class="math display">\[(a+b)^n=\sum\limits_{k=0}^n \binom{n}{k}a^k b^{n-k}\]</span></p>
+<p>(si on rejette la convention <span class="math inline">\(0^0=1\)</span>, alors la formule est toujours vraie sauf dans le cas où <span class="math inline">\(n=0\)</span> et <span class="math inline">\(a=-b\)</span>).</p>
 <p>En particulier, pour <span class="math inline">\(a=b=1\)</span> on obtient :</p>
 <p><span class="math display">\[\sum\limits_{k=0}^n \binom{n}{k}=2^n\]</span>
 Pour <span class="math inline">\(a=-1\)</span> et <span class="math inline">\(b=1\)</span> on obtient :</p>
@@ -533,6 +534,75 @@ Pour <span class="math inline">\(a=-1\)</span> et <span class="math inline">\(b=
 <p>Pour <span class="math inline">\(a=-1\)</span> et <span class="math inline">\(b=x\)</span> on obtient :</p>
 <p><span class="math display">\[\sum\limits_{k=0}^n \binom{n}{k}(-1)^kx^{n-k}=(x-1)^n\]</span></p>
 </div>
+<p></p>
+<p><strong>Démonstration. i.</strong> <span class="math inline">\(\binom{n}{0}=\frac{n!}{0!(n-0)!}=\frac{n!}{n!}=1\)</span></p>
+<p>L’égalité <span class="math inline">\(\binom{n}{n}=1\)</span> est une conséquence de la formule précédente et de la formule ii. qui va être montrée après.</p>
+<p><span class="math inline">\(\binom{n}{1}=\frac{n!}{1!(n-1)!}=\frac{n(n-1)!}{(n-1)!}=n\)</span></p>
+<p><span class="math inline">\(\binom{n}{2}=\frac{n!}{2! (n-2)!}=\frac{n(n-1)(n-2)!}{2(n-2)!}=\frac{n(n-1)}{2}\)</span></p>
+<p></p>
+<p><strong>Autre méthode.</strong> Soit <span class="math inline">\(E=\{1,2, \dots, n\}\)</span>. Le seul sous-ensemble de <span class="math inline">\(E\)</span> à zéro élément est <span class="math inline">\(\emptyset\)</span>, donc <span class="math inline">\(\binom{n}{0}=1\)</span>.</p>
+<p>Le seul sous-ensemble de <span class="math inline">\(E\)</span> à <span class="math inline">\(n\)</span> éléments est <span class="math inline">\(E\)</span> lui-même, donc <span class="math inline">\(\binom{n}{n}=1\)</span>.</p>
+<p>Les seuls sous-ensembles de <span class="math inline">\(E\)</span> à un élément sont les <span class="math inline">\(n\)</span> singletons <span class="math inline">\(\{1\}, \{2\}, \dots, \{n\}\)</span>, donc <span class="math inline">\(\binom{n}{1}=n\)</span>.</p>
+<p>Enfin, les sous-ensembles à deux éléments de <span class="math inline">\(E\)</span> sont :</p>
+<p><span class="math display">\[\begin{align}
+&amp;\{1,2\}, \{1,3\}, \dots, \{1,n\} \\
+&amp;\{2,3\}, \dots ,\{2,n\} \\
+&amp;\dots \\
+&amp;\{n-1, n\}
+\end{align}\]</span></p>
+<p>Il y en a donc <span class="math inline">\(n+(n-1)+\dots+1=\frac{n(n-1)}{2}\)</span></p>
+<p></p>
+<p><strong>ii.</strong>
+<span class="math display">\[\begin{align}
+\binom{n}{k}&amp;=\frac{n!}{k!(n-k)!} \\
+&amp;=\frac{n!}{(n-k)! k!} \\
+&amp;=\frac{n!}{(n-k)!(n-(n-k))!} \\
+&amp;=\binom{n}{n-k}
+\end{align}\]</span></p>
+<p></p>
+<p><strong>Autre méthode.</strong> Choisir un sous-ensemble <span class="math inline">\(F\subset E\)</span> à <span class="math inline">\(k\)</span> éléments revient à choisir son complémentaire <span class="math inline">\(\overline{F}\)</span> dans <span class="math inline">\(E\)</span>, qui contient <span class="math inline">\(n-k\)</span> éléments. Donc <span class="math inline">\(\binom{n}{k}=\binom{n}{n-k}\)</span>.</p>
+<p></p>
+<p><strong>iii.</strong></p>
+<p><span class="math display">\[\begin{align}
+\binom{n}{k}+\binom{n}{k+1}&amp;=\frac{n!}{k!(n-k)!}+\frac{n!}{(k+1)!(n-k-1)!} \\
+&amp;=\frac{n!(k+1)}{(k+1)!(n-k)!}+\frac{n!(n-k)}{(k+1)!(n-k)!} \\
+&amp;=\frac{n!(k+1+n-k)}{(k+1)!(n-k)!} \\
+&amp;=\frac{n!(n+1)}{(k+1)!(n-k)!} \\
+&amp;=\frac{(n+1)!}{(k+1)!((n+1)-(k+1))!} \\
+&amp;=\binom{n+1}{k+1}
+\end{align}\]</span></p>
+<p></p>
+<p><strong>Autre méthode.</strong> On sépare les sous-ensembles à <span class="math inline">\(k+1\)</span> éléments de <span class="math inline">\(E=\{1,2,\dots, n, n+1\}\)</span> en deux parties disjointes :</p>
+<ul>
+<li><p>les sous-ensembles <span class="math inline">\(F\)</span> qui contiennent <span class="math inline">\(n+1\)</span>. Ils sont de la forme <span class="math inline">\(\{x_1,\dots, x_k\}\cup\{n+1\}\)</span>, et il y en a donc autant que de façons de choisir un sous-ensemble à <span class="math inline">\(k\)</span> éléments <span class="math inline">\(\{x_1,\dots, x_k\}\)</span> de l’ensemble <span class="math inline">\(E&#39;=\{1,2,\dots, n\}\)</span>, i.e. il y en a exactement <span class="math inline">\(\binom{n}{k}\)</span>.</p></li>
+<li><p>les sous-ensembles <span class="math inline">\(F\)</span> qui ne contiennent pas <span class="math inline">\(n+1\)</span>. Ils s’écrivent donc sous la forme <span class="math inline">\(F=\{x_1,x_2,\dots, x_{k+1}\}\)</span>, avec les <span class="math inline">\(x_{k+1}\)</span> pris dans <span class="math inline">\(E&#39;=\{1,2,\dots, n\}\)</span>. Il y en a donc exactement <span class="math inline">\(\binom{n}{k+1}\)</span>.</p></li>
+</ul>
+<p>Commes ces deux parties sont disjointes, on peut appliquer le principe additif, pour affirmer que le nombre de sous-ensembles à <span class="math inline">\(k+1\)</span> éléments d’un ensemble à <span class="math inline">\(n+1\)</span> éléments est égal à <span class="math inline">\(\binom{n}{k}+\binom{n}{k+1}\)</span>.</p>
+<p>Par ailleurs, le nombre de sous-ensembles à <span class="math inline">\(k+1\)</span> éléments d’un ensemble à <span class="math inline">\(n+1\)</span> éléments est égal à <span class="math inline">\(\binom{n+1}{k+1}\)</span> (par défintion des coefficients binomiaux). D’où l’égalité <span class="math inline">\(\binom{n}{k}+\binom{n}{k+1}=\binom{n+1}{k+1}\)</span>.</p>
+<p></p>
+<p><strong>iv.</strong> On montre la formule par récurrence sur <span class="math inline">\(n\)</span>.</p>
+<p>Pour <span class="math inline">\(n=0\)</span>, cette formule s’écrit <span class="math inline">\((a+b)^0=\binom{0}{0}a^0b^0\)</span>, soit <span class="math inline">\(1=1\)</span> (sous la convention <span class="math inline">\(0^0=1\)</span>, on a quel que soit <span class="math inline">\(x\)</span> réel, <span class="math inline">\(x^0=1\)</span>).</p>
+<p>Supposons la formule établie pour un entier naturel <span class="math inline">\(n\)</span> donné. Alors :</p>
+<p><span class="math display">\[\begin{align}
+(a+b)^{n+1} &amp;= (a+b)(a+b)^n \\
+&amp;= (a+b).\sum\limits_{k=0}^n \binom{n}{k} a^k b^{n-k} \\
+&amp;\text{(d&#39;après l&#39;hypothèse de récurrence)} \\
+&amp;= \sum\limits_{k=0}^n \binom{n}{k} a^{k+1} b^{n-k}+\sum\limits_{k=0}^n \binom{n}{k} a^{k} b^{n-k+1} \\
+&amp;=\sum\limits_{k=1}^{n+1} \binom{n}{k-1} a^{k} b^{n-k+1}+\sum\limits_{k=0}^n \binom{n}{k} a^{k} b^{n-k+1} \\
+&amp;=\binom{n}{n} a^{n+1}+\sum\limits_{k=1}^n \left(\binom{n}{k-1}+\binom{n}{k}\right) a^kb^{n-k+1}+\binom{n}{0}b^{n+1} \\
+&amp;=a^{n+1}+\sum\limits_{k=1}^n \binom{n+1}{k} a^k b^{n+1-k} +b^{n+1} \\
+&amp;\text{(d&#39;après la formule du triangle de Pascal)} \\
+&amp;= \sum\limits_{k=0}^{n+1}\binom{n+1}{k} a^k b^{n+1-k} \\
+\end{align}\]</span></p>
+<p>qui est la formule attendue au rang <span class="math inline">\(n+1\)</span>.</p>
+<p></p>
+<p><strong>Autre méthode.</strong> En développant le produit <span class="math display">\[(a+b)^n=(a+b).(a+b)\dots (a+b)\]</span>
+on obtient une somme de termes de la forme <span class="math inline">\(a^kb^{n-k}\)</span>. Pour obtenir un tel terme, on doit choisir <span class="math inline">\(k\)</span> fois le terme <span class="math inline">\(a\)</span> parmi les <span class="math inline">\(n\)</span> facteurs <span class="math inline">\((a+b)\)</span> (et donc, de façon complémentaire, <span class="math inline">\(n-k\)</span> fois le terme <span class="math inline">\(b\)</span> parmi ces mêmes facteurs). On en déduit, par définition des coefficients binomiaux, que le terme <span class="math inline">\(a^kb^{n-k}\)</span> apparaît exactement <span class="math inline">\(\binom{n}{k}\)</span> fois dans la somme. Autrement dit on a bien <span class="math inline">\((a+b)^n=\sum\limits_{k=0}^n \binom{n}{k}a^k b^{n-k}\)</span>.
+<span class="math inline">\(\square\)</span></p>
+<p></p>
+<p><strong>Remarques. i.</strong> Comme souvent en analyse combinatoire, la démonstration d’une égalité peut se faire soit par le calcul, soit en utilisant une approche de dénombrement pur (qui en général est plus élégante mais peut-être un peu moins évidente à trouver).</p>
+<p></p>
+<p><strong>ii.</strong> La deuxième démonstration de la formule du triangle de Pascal repose sur une approche classique en dénombrement : compter la même chose de deux façons différentes.</p>
 </div>
 </div>
 <div id="evénements-et-probabilités" class="section level2 hasAnchor" number="2.2">
