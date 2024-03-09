@@ -713,7 +713,7 @@ $\square$
 - si $(A_n)_{n\in\mathbb{N}}$ est une famille dénombrable d'éléments de $\mathcal{A}$ (i.e. : $\forall n\in\mathbb{N}, A_n\in\mathcal{A}$), alors leur réunion est encore dans $\mathcal{A}$ :
 
 $$\bigcup\limits_{n\in\mathbb{N}} A_n\in\mathcal{A}$$
-
+a
 - si $A\in\mathcal{A}$ alors $\overline{A}\in\mathcal{A}$.
 
 \noindent On dit aussi que $\mathcal{A}$ est une **tribu** et les éléments de $\mathcal{A}$ sont appelés des **événements**.
