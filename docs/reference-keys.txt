@@ -2,12 +2,15 @@ présentation-du-cours
 généralités
 coquilles-et-erreurs
 dénombrement-et-probabilités
+rappels-sur-les-opérations-ensemblistes
 dénombrement
+produit-cartésien-et-principe-multiplicatif
+principe-additif
+formule-de-poincaré
+dénombrement-par-bijection
 permutations
 arrangements
 combinaisons
-formule-du-binôme-de-newton
-triangle-de-pascal
 evénements-et-probabilités
 evénements
 probabilités
