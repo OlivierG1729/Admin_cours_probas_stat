@@ -695,7 +695,7 @@ $$(\Omega, \mathcal{A},\mathbb{P})$$
 
 - $\mathcal{A}$ s'appellera une **tribu** :  dans le cadre du programme c'est en fait un mot que nous n'utiliserons quasiment jamais, et sauf cas particulier nous n'expliciterons pas cet élément ;
 
-- $\mathbb{P}$ s'appellera une **probabilté**.
+- $\mathbb{P}$ s'appellera une **probabilité**.
 
 \noindent On va donc construire successivement :
 
