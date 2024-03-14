@@ -11,10 +11,12 @@ dénombrement-par-bijection
 permutations
 arrangements
 combinaisons
-evénements-et-probabilités
-evénements
-probabilités
+langage-des-probabilités
+lunivers-omega-dune-expérience-aléatoire
+lespace-probabilisable-omega-mathcala
+lespace-probabilisé-omega-mathcala-mathbbp
 probabilités-conditionnelles
+indépendance-deux-à-deux-mutuelle
 variables-aléatoires-discrètes
 définition-et-premières-propriétés
 définition
@@ -104,11 +106,3 @@ tests-unilatéraux-tests-bilatéraux
 exemples
 méthodologie
 convergence-1
-url-your-book-url-like-httpsbookdown.orgyihuibookdown
-langage-des-probabilités
-univers-dune-expérience-aléatoire
-tribus-et-événements
-lunivers-omega-dune-expérience-aléatoire
-lespace-probabilisable-omega-mathcala
-lespace-probabilisé-omega-mathcala-mathbbp
-indépendance-deux-à-deux-mutuelle

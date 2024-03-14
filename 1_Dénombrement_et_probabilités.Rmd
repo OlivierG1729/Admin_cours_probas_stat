@@ -697,6 +697,14 @@ $$(\Omega, \mathcal{A},\mathbb{P})$$
 
 - $\mathbb{P}$ s'appellera une **probabilté**.
 
+\noindent On va donc construire successivement :
+
+- l'univers $\Omega$ ;
+
+- l'espace probablisable $(\Omega, \mathcal{A})$, qui est un enrichissement de $\Omega$ ;
+
+- l'espace probabilisé $(\Omega, \mathcal{A}, \mathbb{P})$, qui est un enrichissement de $(\Omega, \mathcal{A})$.
+
 
 ### L'univers $\Omega$ d'une expérience aléatoire
 
