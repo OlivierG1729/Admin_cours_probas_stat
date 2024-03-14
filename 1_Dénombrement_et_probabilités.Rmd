@@ -1009,12 +1009,51 @@ $$A\cap(B\cap\overline{A})=\emptyset$$
 
 $\square$
 
+\noindent Un cas particulier important est celui de l'**équiprobabilité** :
 
-- Exemples
+:::: {.thmbox .def data-latex="important"}
+<center>**Equiprobabilité**</center>
+\noindent Soit $(\Omega, \mathcal{A}, \mathbb{P})$ un espace probabilisé tel que $\Omega$ soit fini à $n$ éléments. On dit qu'il y a **équiprobabilité** lorsque toutes les probabilités des événements élémentaires $\{\omega\}, \omega\in\Omega$ sont égales. Dans ce cas on a :
 
-- Equiprobabilité
-    
+$$\forall\omega\in\Omega, \,\mathbb{P}(\{\omega\})=\frac{1}{n}$$
+\noindent et plus généralement :
 
+$$\text{Pour tout événement } A, \,\mathbb{P}(A)=\frac{\text{Card }(A)}{\text{Card }(\Omega)}=\frac{\text{Card }(A)}{n}$$
+::::
+
+\noindent
+
+**Démonstration.** On note $\Omega=\{\omega_1,\dots,\omega_n\}$ et $p$ la probabilité commune des événements élémentaires $\{\omega_i\}$. Les $\{\omega_i\}$ étant deux à deux incompatibles, on a alors :
+
+\begin{align}
+1 &= \mathbb{P}(\Omega) \\
+&= \mathbb{P}\left(\bigcup\limits_{i=1}^n \{\omega_i\}\right) \\
+&= \sum\limits_{i=1}^n \mathbb{P}(\{\omega_i\}) \\
+&= \sum\limits_{i=1}^n p \\
+&= np \\
+\end{align}
+
+\noindent et donc 
+
+$$\forall i\in\{1,\dots,n\}, \,\mathbb{P}(\{\omega_i\})=\frac{1}{n}$$
+\noindent Soit maintenant $A=\{\omega_{i_1},\dots,\omega_{i_k}\}$ un événement (son cardinal est donc égal à $k$). Par un raisonnement analogue, on a :
+
+\begin{align}
+\mathbb{P}(A) &= \mathbb{P}\left(\bigcup\limits_{j=1}^k \{\omega_{i_j}\}\right) \\
+&= \sum\limits_{j=1}^k \mathbb{P}(\{\omega_{i_j}\}) \\
+&= \sum\limits_{i=1}^k \frac{1}{n}  \\
+&= \frac{k}{n} \\
+&= \frac{\text{Card }(A)}{\text{Card }(\Omega)} \\
+\end{align}
+
+
+$\square$
+
+\noindent Cette formule montre donc que, en situtation d'équiprobabilité, calculer des probabilités revient à dénombrer. C'est typiquement la façon dont les probabilités étaient introduites avant dans les classes de lycée, avec les applications classiques  sur les  cartes, les boules dans des urnes, etc. 
+
+\noindent
+
+**Exemples. i.** 
 
 ### Probabilités conditionnelles
 

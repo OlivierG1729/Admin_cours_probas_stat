@@ -76,7 +76,7 @@
 <li><a href="./">Cours de probabilités et statistique pour le concours interne d'administrateur de l'Insee</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Présentation du cours</a>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> url: your book url like https://bookdown.org/yihui/bookdown</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#généralités"><i class="fa fa-check"></i><b>1.1</b> Généralités</a></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#coquilles-et-erreurs"><i class="fa fa-check"></i><b>1.2</b> Coquilles et erreurs</a></li>
@@ -684,7 +684,7 @@ où :</p>
 <ul>
 <li><p><span class="math inline">\(\Omega\)</span> s’appellera l’<strong>univers</strong> ;</p></li>
 <li><p><span class="math inline">\(\mathcal{A}\)</span> s’appellera une <strong>tribu</strong> : dans le cadre du programme c’est en fait un mot que nous n’utiliserons quasiment jamais, et sauf cas particulier nous n’expliciterons pas cet élément ;</p></li>
-<li><p><span class="math inline">\(\mathbb{P}\)</span> s’appellera une <strong>probabilté</strong>.</p></li>
+<li><p><span class="math inline">\(\mathbb{P}\)</span> s’appellera une <strong>probabilité</strong>.</p></li>
 </ul>
 <p>On va donc construire successivement :</p>
 <ul>
@@ -894,10 +894,36 @@ Avec ce qui précède on a donc</p>
 <p>car <span class="math inline">\(\mathbb{P}(B\cap\overline{A})\geq 0\)</span> (une probabilté est toujours positive).</p>
 <p>D’où le résultat.</p>
 <p><span class="math inline">\(\square\)</span></p>
-<ul>
-<li><p>Exemples</p></li>
-<li><p>Equiprobabilité</p></li>
-</ul>
+<p>Un cas particulier important est celui de l’<strong>équiprobabilité</strong> :</p>
+<div class="thmbox def">
+<center>
+<strong>Equiprobabilité</strong>
+</center>
+<p>Soit <span class="math inline">\((\Omega, \mathcal{A}, \mathbb{P})\)</span> un espace probabilisé tel que <span class="math inline">\(\Omega\)</span> soit fini à <span class="math inline">\(n\)</span> éléments. On dit qu’il y a <strong>équiprobabilité</strong> lorsque toutes les probabilités des événements élémentaires <span class="math inline">\(\{\omega\}, \omega\in\Omega\)</span> sont égales. Dans ce cas on a :</p>
+<p><span class="math display">\[\forall\omega\in\Omega, \,\mathbb{P}(\{\omega\})=\frac{1}{n}\]</span>
+et plus généralement :</p>
+<p><span class="math display">\[\text{Pour tout événement } A, \,\mathbb{P}(A)=\frac{\text{Card }(A)}{\text{Card }(\Omega)}=\frac{\text{Card }(A)}{n}\]</span></p>
+</div>
+<p></p>
+<p><strong>Démonstration.</strong> On note <span class="math inline">\(\Omega=\{\omega_1,\dots,\omega_n\}\)</span> et <span class="math inline">\(p\)</span> la probabilité commune des événements élémentaires <span class="math inline">\(\{\omega_i\}\)</span>. Les <span class="math inline">\(\{\omega_i\}\)</span> étant deux à deux incompatibles, on a alors :</p>
+<p><span class="math display">\[\begin{align}
+1 &amp;= \mathbb{P}(\Omega) \\
+&amp;= \mathbb{P}\left(\bigcup\limits_{i=1}^n \{\omega_i\}\right) \\
+&amp;= \sum\limits_{i=1}^n \mathbb{P}(\{\omega_i\}) \\
+&amp;= \sum\limits_{i=1}^n p \\
+&amp;= np \\
+\end{align}\]</span></p>
+<p>et donc</p>
+<p><span class="math display">\[\forall i\in\{1,\dots,n\}, \,\mathbb{P}(\{\omega_i\})=\frac{1}{n}\]</span>
+Soit maintenant <span class="math inline">\(A=\{\omega_{i_1},\dots,\omega_{i_k}\}\)</span> un événement (son cardinal est donc égal à <span class="math inline">\(k\)</span>). Par un raisonnement analogue, on a :</p>
+<p><span class="math display">\[\begin{align}
+\mathbb{P}(A) &amp;= \mathbb{P}\left(\bigcup\limits_{j=1}^k \{\omega_{i_j}\}\right) \\
+&amp;= \sum\limits_{j=1}^k \mathbb{P}(\{\omega_{i_j}\}) \\
+&amp;= \sum\limits_{i=1}^k \frac{1}{n}  \\
+&amp;= \frac{k}{n} \\
+&amp;= \frac{\text{Card }(A)}{\text{Card }(\Omega)} \\
+\end{align}\]</span></p>
+<p><span class="math inline">\(\square\)</span></p>
 </div>
 <div id="probabilités-conditionnelles" class="section level3 hasAnchor" number="2.3.4">
 <h3><span class="header-section-number">2.3.4</span> Probabilités conditionnelles<a href="dénombrement-et-probabilités.html#probabilités-conditionnelles" class="anchor-section" aria-label="Anchor link to header"></a></h3>
