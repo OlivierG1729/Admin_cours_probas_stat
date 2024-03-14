@@ -1,3 +1,8 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
 # Dénombrement et probabilités
 
 ## Rappels sur les opérations ensemblistes
@@ -679,66 +684,329 @@ $\square$
 **ii.** La deuxième démonstration de la formule du triangle de Pascal repose sur une approche classique en dénombrement : compter la même chose de deux façons différentes. 
 
 
-## Evénements et probabilités
+## Langage des probabilités
 
-\noindent On introduit maintenant les notions de base des probabilités. On suppose mener une **expérience aléatoire**, i.e. une expérience dont l'issue est incertaine, comme le lancer d'une pièce. La première chose à faire est de dresser la liste de tous les résultats potentiellement réalisables. Un tel résultat s'appelle une **issue** ou un **événement élémentaire**. Par exemple, si on lance un dé cubique dont les faces sont numérotées de $1$ à $6$ et que l'on relève le numéro de la face obtenue, alors les événements élémentaires sont les entiers de $1$ à $6$. La liste des événements élémentaires d'une expérience aléatoire est souvent désignée par la nom d'**univers**, et on le note généralement $\Omega$. Dans notre exemple de dé cubique, on a donc $\Omega=\{1, 2, 3, 4, 5, 6\}$. 
+\noindent On introduit maintenant les notions de base des probabilités. Le but est de construire progressivement un triplet de la forme
 
-\noindent Souvent, on définira des événements plus complexes que les événements élémentaires, par exemple des événements comme l'événement A : *Le nombre obtenu est un nombre impair* ou encore l'événement B: *Le nombre obtenu est un nombre premier*. De tels événements ne sont plus nécessairement des événements élémentaires. La théorie des probabilités consiste à formaliser la notion de **crédibilité** que l'on peut accorder aux événements qui sont susceptibles de se produire et que l'on peut observer (on parle aussi d'**observables**). Ce niveau de crédibilité sera représenté par un nombre réel appelé **probabilité** et compris entre $0$ (événement de probabilité nulle) et $1$ (événement certain). 
+$$(\Omega, \mathcal{A},\mathbb{P})$$
+\noindent où :
 
-\noindent Etant donné une famille d'événements observables dont on connaît les probabilités individuelles, il semble alors naturel de se poser des questions comme :
+- $\Omega$ s'appellera l'**univers** ;
 
-- *Quelle est la probabilité que l'un au moins de ces événements se produise ?*
+- $\mathcal{A}$ s'appellera une **tribu** :  dans le cadre du programme c'est en fait un mot que nous n'utiliserons quasiment jamais, et sauf cas particulier nous n'expliciterons pas cet élément ;
 
-- *Quelle est la probabilité que tous les événements se produisent ?*
-
-- *Quelle est la probabilité qu'aucun de ces événements ne se produise ?* 
+- $\mathbb{P}$ s'appellera une **probabilté**.
 
 
-\vspace{1cm}
+### L'univers $\Omega$ d'une expérience aléatoire
 
-\noindent Il faut donc pouvoir calculer des probabilités pour des événements composites du type *Au moins un événement*, *Tous les événements*, *Aucun événement*.
+\noindent Tout commence avec la notion d'**expérience aléatoire**, i.e. une expérience dont l'issue est incertaine. La première chose à faire est de dresser la liste de tous les résultats potentiellement réalisables à lorsqu'on effectue une telle expérience. Un tel résultat s'appelle une **issue** ou un **événement élémentaire**. L'ensemble des issues est appelé **univers** de l'expérience, il est généralement noté $\Omega$.
 
-\vspace{1cm}
+\noindent
 
-\noindent Ceci nous emmène à la défintion suivante.
+**Exemples. i. Lancer d'un dé cubique.** On note ses faces par des entiers de $1$ à $6$. Dans ce cas, l'univers $\Omega$ est fini et $$\Omega=\{1,2,3,4,5,6\}$$
 
-### Evénements
+**ii. Echantillonnage d'une population.** Afin d'estimer les revenus moyens au sein d'une population $\mathcal{U}=\{1,2,\dots, N\}$, on tire un échantillon aléatoire de taille $n$ au sein de cette population. Pour l'expérience aléatoire consistant à tirer un tel échantillon, l'univers $\Omega$ est l'ensemble de toutes les parties de $\mathcal{U}$ à $n$ éléments :
 
-:::: {.thmbox .thm data-latex="important"}
-<center>**Espace probabilisable**</center>
+$$\Omega=\{S\in\mathcal{P}(\mathcal{U}), \, \text{Card }(S)=n\}$$
 
-\noindent On appelle **espace probabilisable** tout couple $(\Omega, \mathcal{A})$ où $\Omega$ est un ensemble (fini ou non) et $\mathcal{A}\subset\mathcal{P}(\Omega)$ est une famille de parties de $\Omega$ vérifiant les propriétés suivantes :
+\noindent L'univers $\Omega$ est fini et
 
-- $\emptyset\in\mathcal{A}$ et $\Omega\in\mathcal{A}$
-- si $(A_n)_{n\in\mathbb{N}}$ est une famille dénombrable d'éléments de $\mathcal{A}$ (i.e. : $\forall n\in\mathbb{N}, A_n\in\mathcal{A}$), alors leur réunion est encore dans $\mathcal{A}$ :
+$$\text{Card }(\Omega)=\binom{N}{n}$$
 
-$$\bigcup\limits_{n\in\mathbb{N}} A_n\in\mathcal{A}$$
-a
+\noindent
+
+**iii. Répétition de lancers avec condition d'arrêt.** On lance une pièce dont les faces sont notées $P$ et $F$. On relance la pièce tant que PILE n'est pas obtenue. Les issues de cette expérience sont tous les lancers possibles. Comme on ne sait pas à l'avance combien de lancers vont être nécessaires pour stoper l'expérience, il s'agit bien d'une expérience aléatoire. Son univers est infini dénombrable : 
+
+$$\Omega=\{P, FP, FFP, FFFP, \dots, FFFFFFFFFP, \dots \}$$
+
+**iv. Nombre de lancers.** On reprend l'expérience précédente, mais cette fois on s'intéresse au nombre de lancers effectués. Il s'agit toujours d'une expérience aléatoire, mais cette fois :
+
+$$\Omega=\{1,2,3,4,\dots, 1\,000,\dots\}=\mathbb{N}^*$$
+
+\noindent L'univers est donc là aussi infini dénombrable.
+
+**v. Durée de vie d'une lampe.** On observe la durée de vie d'une lampe, exprimée en jours. On peut à nouveau assimiler cette expérience à une expérience aléatoire. Cette fois, l'univers associé n'est ni fini ni dénombrable :
+
+$$\Omega=[0\,;\,+\infty[=\mathbb{R}_+$$
+
+### L'espace probabilisable $(\Omega, \mathcal{A})$
+
+\noindent Souvent, on définira des événements plus complexes que les événements élémentaires, par exemple des événements composites comme l'événement A : *Le nombre obtenu est un nombre impair* ou encore l'événement B: *Le nombre obtenu est un nombre premier*.
+
+\noindent Il faut donc enrichir l'univers $\Omega$ d'un ensemble qui décrit précisément quels sont les événements observables associés à une expérience aléatoire.
+
+
+:::: {.defbox .def data-latex="important"}
+<center>**Evénements, tribu, espace probabilisable**</center>
+
+\noindent Soit $\Omega$ l'univers d'une expérience aléatoire. On appelle **tribu** sur $\Omega$ tout sous-ensemble de l'ensemble des parties de $\Omega$ :
+
+$$\mathcal{A}\subset\mathcal{P}(\Omega)$$
+
+\noindent vérifiant les propriétés suivantes :
+
+- $\Omega\in\mathcal{A}$
+
+- si $(A_n)_{n\in\mathbb{N}}$ est une famille finie ou dénombrable d'éléments de $\mathcal{A}$ (i.e. chacun des $A_n$ est un élement de $\mathcal{A}$), alors leur réunion est encore dans $\mathcal{A}$ :
+
+$$\bigcup\limits_{n} A_n\in\mathcal{A}$$
+
 - si $A\in\mathcal{A}$ alors $\overline{A}\in\mathcal{A}$.
 
-\noindent On dit aussi que $\mathcal{A}$ est une **tribu** et les éléments de $\mathcal{A}$ sont appelés des **événements**.
+\noindent Les éléments de $\mathcal{A}$ sont appelés des **événements** ou des **observables**. En particulier :
+
+- $\Omega$ s'appelle l'**événement certain** ;
+
+- Pour tout événement $A$, l'événement $\overline{A}$ s'appelle l'**événement contraire** de $A$.
+
+\noindent On dit que le couple $(\Omega, \mathcal{A})$ est un **espace probabilsable**.
 ::::
 
-\noindent La famille $\mathcal{A}$ formalise tous les observables relatifs à une expérience aléatoire, autrement dit tout ce qu'on est susceptible d'observer relativement à cette expérience et dont on aimerait mesurer le niveau de crédibilité.
 
--   Opérations sur les événements : réunion, intersection, événement contraire
+\noindent La famille $\mathcal{A}$ formalise tous les observables relatifs à une expérience aléatoire, autrement dit tout ce qu'on est susceptible d'observer relativement à cette expérience (et dont on aimerait ensuite mesurer le niveau de crédibilité).
 
 
-### Probabilités
+\noindent 
 
--   Définition d'une probabilité
+**Exemples.** On reprend les exemples i. à v. de la section précédente. Dans les exemples i. et ii., $\Omega$ est fini. Dans les exemples iii. et iv., $\Omega$ est infini dénombrable. Dans ce cas on peut prendre $\mathcal{A}=\mathcal{P}(\Omega)$, comme c'est l'usage pour les univers finis ou dénombrables.
 
--   Propriétés :
+\noindent L'exemple v. est plus complexe car $\Omega$ est infini et **non dénombrable**. On pourrait prendre $\mathcal{A}=\mathbb{P}(\Omega)$, mais cela ferait une tribu extrêmement grande, sur laquelle il serait certainement plus difficile par la suite de définir une probabilté. Dans ce genre de cas, on essaie en général de réduire la taille de la tribu à quelque chose de plus raisonnable. De manière un peu floue, on définit une classe d'événemenents que l'on aimerait pouvoir mesurer (i.e. dont on aimerait pouvoir calculer la probabilité) et on définit notre tribu comme *la plus petite tribu* contenant cette classe d'ensembles (on parle alors de *tribu engendrée*). Dans le cas présent, comme souvent lorsque $\Omega$ est un sous-ensemble de $\mathbb{R}$ non dénombrable, on prend pour $\mathcal{A}$ la tribu engendrée par les *ouverts* de $\mathbb{R_+}$. Une telle tribu s'appelle une *tribu borélienne* (plus généralement, pour un espace topologique $(X, \mathcal{T})$ donné, la tribu borélienne est définie comme la tribu engendrée par les ouverts de cette topologie, i.e. les éléments de $\mathcal{T}$). Il est difficile, pour ne pas dire impossible, de se représenter exactement à quoi cette tribu ressemble. En pratique, on s'y intérresse de toute façon assez peu. Tout cela étant largement hors-programme du concours d'administrateur, vous n'aurez pas du tout à vous en soucier dans votre préparation !
 
-    -   probabilité d'un événement contraire, d'une union disjointe
+\noindent
 
-    -   $0\leq p(A)\leq 1$
+**D'autres exemples. i. Lancer d'une pièce.** L'univers associé au lancer d'une pièce est $\Omega=\{P,F\}$. On pose $\mathcal{A}=\left\{\emptyset, \{P\},\{F\}, \{P,F\}\right\}=\mathcal{P}(\Omega)$. Alors, $\mathcal{A}$ est une tribu et donc le couple $(\Omega, \mathcal{A})$ est un espace probabilisable.
 
-    -   propriété de croisssance
+\noindent
 
-    -   crible de Poincaré
+**ii.** Si $\Omega=\{1,2,3,4\}$ alors $\mathcal{A}=\left\{\emptyset, \{1\}, \{2,3,4\}, \Omega\right\}$ est une tribu. $\mathcal{A}'=\left\{\emptyset, \{1,2\}, \{3, 4\}, \Omega\right\}$ est une autre tribu.
 
-    -   Equiprobabilité
+\noindent 
+
+**Remarques. i.** Pour tout ensemble $\Omega$ modélisant l'univers d'une expérience aléatoire, on peut toujours poser $\mathcal{A}=\mathcal{P}(\Omega)$ et défnir ainsi une tribu, et donc un espace probabilisable $(\Omega, \mathcal{P}(\Omega))$. C'est d'ailleurs assez souvent ce qui est fait lorsque l'ensemble $\Omega$ est fin ou dénombrable. Une telle tribu s'appelle la **tribu discrète**. Il s'agit de la plus grande tribu (au sens de l'inclusion) sur $\Omega$.
+
+\noindent 
+
+**ii.** On peut aussi définir la **tribu grossière** : 
+
+$$\mathcal{A}=\{\emptyset, \Omega\}$$
+
+\noindent Il s'agit de la plus petite tribu (au sens de l'inclusion) sur $\Omega$.
+
+
+\noindent
+
+**iii.** Même si la notion de tribu n'est pas explicitement au programme (voire même est explicitement hors-programme), il faut tout de même retenir que la notion d'événement est *stable* par réunion dénombrable et par passage au complémentaire. Autrement dit :
+
+- on est toujours capable d'observer la survenue ou non de $\emptyset$ et $\Omega$ ;
+
+- si on est capable d'observer la survenue d'un événement $A$, alors on est capable d'observer la survenue de l'événement contraire $\overline{A}$ ;
+
+- si on est capable, pour tout entier naturel $n$, d'observer la survenue d'un événement $A_n$, alors on est capable d'observer la survenue de la réunion dénombrable $\bigcup\limits_{n\in\mathbb{N}} A_n$ (et donc, à plus forte raison on est capable d'observer la survenue d'une réunion finie $\bigcup\limits_{n=0}^N A_n$, puisqu'une réunion finie de $0$ à $N$ est un cas particulier d'une réunion finie sur $\mathbb{N}$ en posant $A_n=\emptyset$ pour $n\geq N+1$).
+
+\noindent On peut en fait aller un peu plus loin : 
+
+:::: {.thmbox .thm data-latex="important"}
+
+\noindent
+
+**Stabilité de la notion d'événement.** La notion d'événement est stable par toute opération de réunion finie ou dénombrable, d'intersection finie ou dénombrable et par passage au complémentaire. Autrement dit, si $(A_n)_{n\in \mathcal{I}}$ est une suite d'événements finie (cas où $\mathcal{I}$ est fini) ou infinie dénombrable (cas où $\mathcal{I}$ est infini dénombrable), alors $\bigcup\limits_{n\in\mathcal{I}} A_n$, $\bigcap\limits_{n\in\mathcal{I}} A_n$ et les $\overline{A_n}$ sont des événements.
+::::
+
+\noindent
+
+**Démonstration.** La notion d'événement est, par définition, stable par réunion dénombrable et par passage au complémentaire. Il reste donc à démontrer qu'elle est aussi stable par intersection dénombrable. Or
+
+$$\bigcap\limits_{n\in\mathcal{I}} A_n=\overline{\bigcup\limits_{n\in\mathcal{I}}\overline{A_n}}$$
+
+\noindent En effet, d'après l'une des lois de Morgan on a
+
+$$\overline{\bigcup\limits_{n\in\mathcal{I}}\overline{A_n}}=\bigcap\limits_{n\in\mathcal{I}} \overline{\overline{A_n}}$$
+
+\noindent et comme $\overline{\overline{A_n}}=A_n$ on en déduit l'égalité annoncée. 
+
+\noindent Par ailleurs :
+
+- pour tout $n$ dans $\mathcal{I}$, $\overline{A_n}$ est un événement (stabilité par passage au complémentaire) 
+
+- donc $\bigcup\limits_{n\in\mathcal{I}}\overline{A_n}$ est un événement  (stabilité par réunion dénombrable)
+
+- d'où l'on déduit que $\overline{\bigcup\limits_{n\in\mathcal{I}}\overline{A_n}}$ est aussi un événement (stabilité par passage au complémentaire)
+
+\noindent Avec l'égalité démontrée plus haut, on obtient finalement que $\bigcap\limits_{n\in\mathcal{I}} A_n$ est un événement.
+
+$\square$
+
+
+\noindent 
+
+**Conséquence.** Cette proposition a pour conséquence immédiate que si les $(A_n)_{n\in \mathcal{I}}$ forment une suite finie ou dénombrable d'événements, alors toute combinaison - aussi complexe sot-elle - de ces événements à partir des opérateurs $\bigcup, \bigcap$ et de passage au complémentaire est encore un événement. Par exemple :
+
+- $\overline{\bigcup_{n\in\mathcal{I}}\bigcap_{k\geq n}\overline{A_k}}$ est encore un événement ;
+
+- $\bigcap\limits_{n\in\mathcal{I}}\overline{\bigcup_{k\leq 2n} \overline{A_k}}$ est encore un événement ;
+
+- $\bigcup\limits_{n\in\mathcal{I}}\bigcup\limits_{5\leq p\leq n}\bigcap\limits_{k\geq p}\bigcup\limits_{l\leq k}\overline{A_l}$ est encore un événement.
+
+\nondent On voit maintenant des exemples de combinaisons d'événements qui reviennent fréquemment dans les sujets du concours d'administrateur :
+
+:::: {.defbox .def data-latex="important"}
+<center>**Exemples classiques d'événements complexes**</center>
+
+\noindent Soit $A_1,A_2,\dots,A_n,\dots$ une suite d'événements.
+
+- $\bigcup\limits_{n=1}^{\infty}A_n$ est l'événement *L'un au moins des $A_n$ est réalisé*
+
+- $\bigcup\limits_{n=1}^{\infty}\overline{A_n}$ est l'événement *L'un au moins des $A_n$ n'est pas réalisé*
+
+- $\bigcap\limits_{n=1}^{\infty}A_n$ est l'événement *Tous les $A_n$ sont réalisés*
+
+- $\bigcap\limits_{n=1}^{\infty}\overline{A_n}$ est l'événement *Aucun $A_n$ n'est réalisé*
+
+- $\bigcup\limits_{n=0}^{\infty}\bigcap\limits_{k\geq n}A_k$ est l'événement *Tous les $A_n$ sont réalisés à partir d'un certain rang*. Cet événement est aussi la **limite inférieure** des $A_n$ :
+
+$$\lim\inf\limits_{n\to\infty}A_n=\bigcup\limits_{n=0}^{\infty}\bigcap\limits_{k\geq n}A_k$$
+
+- $\bigcap\limits_{n=0}^{\infty}\bigcup\limits_{k\geq n}A_k$ est l'événement *Les $A_n$ sont réalisés un nombre infini de fois*. Cet événement est aussi la **limite supérieure** des $A_n$ :
+
+$$\lim\sup\limits_{n\to\infty}A_n=\bigcap\limits_{n=0}^{\infty}\bigcup\limits_{k\geq n}A_k$$
+::::
+
+\noindent 
+
+**Exercice.** Ecrire l'événement *Les $A_n$ ne sont réalisés qu'un nombre fini de fois* à partir des $\overline{A_k}$.
+
+\noindent
+
+**Solution.** Soit $B$ l'événement *Les $A_n$ ne sont réalisés qu'un nombre fini de fois*. 
+
+\noindent Avec ce qui précède, on a, par application des lois de Morgan :
+
+\begin{align}
+B &= \overline{\bigcap\limits_{n\to\infty}\bigcup\limits_{k\geq n}A_k} \\
+&= \bigcup\limits_{n\to\infty}\bigcap\limits_{k\geq n}\overline{A_k}
+\end{align}
+
+
+\noindent
+
+
+
+### L'espace probabilisé $(\Omega, \mathcal{A}, \mathbb{P})$
+
+\noindent Maintenant qu'on a défini la notion d'événement, on a envie de pouvoir mesurer le niveau de crédibilité de survenue d'un événement donné. Pour cela, on part d'une expérience aléatoire et on définit une application sur l'ensemble de tous les événements associés à cette expérience, et à valeurs dans $[0,1]$. Cela revient à enrichir l'espace probabilisable $(\Omega, \mathcal{A})$ pour le transformer en un espace *probabilisé* $(\Omega, \mathcal{A}, \mathbb{P})$ : 
+
+:::: {.defbox .def data-latex="important"}
+<center>**Probabilité, espace probabilisé**</center>
+
+\noindent
+
+Soit $(\Omega,\mathcal{A})$ un espace probabilisable.
+
+\noindent On appelle **probabilité** (ou **mesure de probabilité**) sur cet espace toute application $$\mathbb{P}:\mathcal{A}\longrightarrow [0,1]$$ vérifiant les axiomes suivants :
+
+- **L'univers est certain : ** $\mathbb{P}(\Omega)=1$ 
+
+- **$\sigma-$additivité : ** si $(A_n)_n$ est une suite d'événements **deux à deux incompatibles** (i.e. si $A_n\cap A_p=\emptyset$ dès que $n\neq p$) alors la série $\sum\limits_{n}\mathbb{P}(A_n)$ est convergente et 
+
+$$\mathbb{P}\left(\bigcup\limits_{n\to\infty}A_n\right)=\sum\limits_{n=0}^{\infty}\mathbb{P}(A_n)$$
+
+\noindent On dit alors que le triplet $(\Omega, \mathcal{A}, \mathbb{P})$ est un **espace probabilisé**.
+::::
+
+\noindent 
+
+**Remarque.** Le $\sigma$ de la $\sigma-$additivité fait référence au caractère infini de la propriété additivité. On peut aussi parler d'additivité (sans le $\sigma$) d'une application $P$ mais dans ce cas on parle plutôt d'une application $P$ telle que 
+
+$$P\left(\bigcup\limits_{n=0}^N A_n\right)=\sum\limits_{n=0}^N P(A_n)$$
+\noindent La $\sigma-$additivité est  strictement plus forte que l'additivité :
+
+$$(P \text{ est } \sigma-\text{ additive}) \Rightarrow (P \text{ est additive})$$
+
+$$\text{mais}$$
+
+$$(P \text{ est additive}) \not\Rightarrow (P \text{ est } \sigma-\text{ additive})$$
+
+\noindent Comme on souhaite considérer des événements composites s'écrivant comme réunion disjointe d'un nombre *infini* d'événements, il est plus naturel d'exiger d'une mesure de probabilité la propriété de $\sigma-$additivité.
+
+\noindent On déduit de façon immédiate un certain nombre de propriétés des mesures de probabilité :
+
+:::: {.thmbox .thm data-latex="important"}
+<center>**Propriétés élémentaires des mesures de probabilité**</center>
+
+\noindent Soit $(\Omega, \mathcal{A}, \mathbb{P})$ un espace probabilisé. Alors :
+
+- **L'événement impossible est de probabilité nulle.** Autrement dit : $$\mathbb{P}(\emptyset)=0$$
+
+- **Probabilité de l'événement complémentaire.** Pour tout événement $A$, la probabilité de l'événement complémentaire $\overline{A}$ est donnée par
+
+$$\mathbb{P}(\overline{A})=1-\mathbb{P}(A)$$
+
+- **Croissance de la probablité.** Soient $A$ et $B$ deux événements tels que $A\subset B$. Alors :
+
+$$\mathbb{P}(A)\leq\mathbb{P}(B)$$
+
+- **Crible de Poincaré.** Soient $A$ et $B$ deux événements tels que $A\subset B$. Alors :
+
+$$\mathbb{P}(A\cup B)=\mathbb{P}(A)+\mathbb{P}(B)-\mathbb{P}(A\cap B)$$
+
+\noindent Plus généralement, étant donné une suite finie $A_1,A_2,\dots A_n$ d'événements, on a la formule
+
+$$\mathbb{P}\left(\bigcup\limits_{k=1}^{n} A_k\right)=\sum\limits_{k=1}^{n}(-1)^{k+1}\sum\limits_{1\leq i_1<i_2<\dots <i_k}\mathbb{P}\left(\bigcap\limits_{j=1}^k A_{i_j}\right)$$
+
+::::
+
+\noindent 
+
+**Démonstration.** 
+
+- Pour tout événement $A$, $A$ et $\overline{A}$ sont incompatibles, et par ailleurs $A\cup\overline{A}=\Omega$, donc :
+
+\begin{align}
+1 &= \mathbb{P}(\Omega) \\
+&= \mathbb{P}(A\cup\overline{A}) \\
+&= \mathbb{P}(A)+\mathbb{P}(\overline{A})
+\end{align}
+
+\noindent et donc on a bien 
+
+$$\mathbb{P}(\overline{A})=1-\mathbb{P}(A)$$
+\noindent Par ailleurs, comme $\emptyset=\overline{\Omega}$ et $\mathbb{P}(\Omega)=1$, on en déduit que 
+
+$$\mathbb{P}(\emptyset)=0$$
+
+- la formule du crible de Poincaré se démontre exactement comme la formule déjà vue pour le cardinal. Le point important de la démonstration - celui qui fait que tout fonctionne bien - dans la formule avec le cardinal est le fait que l'application *cardinal* :
+
+$$\text{Card }:A\in\mathcal{A}\longrightarrow\text{Card }(A)$$
+
+est additive. Or, l'additivité (et même la $\sigma-$additivité) est au coeur même de la construction des probabilités : l'application
+
+$$\mathbb{P}:A\in\mathcal{A}\longrightarrow\mathbb{P}(A)$$
+\noindent est elle aussi additive (et même $\sigma-$additive). Donc la démonstration de la formule de Poincaré pour les probabilités est une recopie exacte de celle pour les cardinaux, en remplaçant simplement l'application $\text{Card}$ par l'application $\mathbb{P}$.
+
+- enfin, soient $A$ et $B$ des événements tels que $A\subset B$. Alors :
+
+$$B= A\cup (B\cap\overline{A})$$
+$$A\cap(B\cap\overline{A})=\emptyset$$
+\noindent Avec ce qui précède on a donc
+
+\begin{align}
+\mathbb{P}(B) &= \mathbb{P}(A)+\mathbb{P}(B\cap\overline{A}) \\
+& \geq\mathbb{P}(A)
+\end{align}
+
+\noindent car $\mathbb{P}(B\cap\overline{A})\geq 0$ (une probabilté est toujours positive).
+
+\noindent D'où le résultat.
+
+$\square$
+
+
+- Exemples
+
+- Equiprobabilité
+    
+
 
 ### Probabilités conditionnelles
 
@@ -753,4 +1021,5 @@ a
 
 -   Formule de Bayes
 
--   Indépendance (deux à deux, mutuelle)
+
+### Indépendance (deux à deux, mutuelle)

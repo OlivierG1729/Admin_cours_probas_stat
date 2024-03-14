@@ -23,7 +23,7 @@
 <meta name="author" content="Olivier Guin" />
 
 
-<meta name="date" content="2024-03-06" />
+<meta name="date" content="2024-03-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -76,7 +76,7 @@
 <li><a href="./">Cours de probabilités et statistique pour le concours interne d'administrateur de l'Insee</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Présentation du cours</a>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> url: your book url like https://bookdown.org/yihui/bookdown</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#généralités"><i class="fa fa-check"></i><b>1.1</b> Généralités</a></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#coquilles-et-erreurs"><i class="fa fa-check"></i><b>1.2</b> Coquilles et erreurs</a></li>
@@ -94,11 +94,13 @@
 <li class="chapter" data-level="2.2.6" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#arrangements"><i class="fa fa-check"></i><b>2.2.6</b> Arrangements</a></li>
 <li class="chapter" data-level="2.2.7" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#combinaisons"><i class="fa fa-check"></i><b>2.2.7</b> Combinaisons</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#evénements-et-probabilités"><i class="fa fa-check"></i><b>2.3</b> Evénements et probabilités</a>
+<li class="chapter" data-level="2.3" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#langage-des-probabilités"><i class="fa fa-check"></i><b>2.3</b> Langage des probabilités</a>
 <ul>
-<li class="chapter" data-level="2.3.1" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#evénements"><i class="fa fa-check"></i><b>2.3.1</b> Evénements</a></li>
-<li class="chapter" data-level="2.3.2" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#probabilités"><i class="fa fa-check"></i><b>2.3.2</b> Probabilités</a></li>
-<li class="chapter" data-level="2.3.3" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#probabilités-conditionnelles"><i class="fa fa-check"></i><b>2.3.3</b> Probabilités conditionnelles</a></li>
+<li class="chapter" data-level="2.3.1" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#lunivers-omega-dune-expérience-aléatoire"><i class="fa fa-check"></i><b>2.3.1</b> L’univers <span class="math inline">\(\Omega\)</span> d’une expérience aléatoire</a></li>
+<li class="chapter" data-level="2.3.2" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#lespace-probabilisable-omega-mathcala"><i class="fa fa-check"></i><b>2.3.2</b> L’espace probabilisable <span class="math inline">\((\Omega, \mathcal{A})\)</span></a></li>
+<li class="chapter" data-level="2.3.3" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#lespace-probabilisé-omega-mathcala-mathbbp"><i class="fa fa-check"></i><b>2.3.3</b> L’espace probabilisé <span class="math inline">\((\Omega, \mathcal{A}, \mathbb{P})\)</span></a></li>
+<li class="chapter" data-level="2.3.4" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#probabilités-conditionnelles"><i class="fa fa-check"></i><b>2.3.4</b> Probabilités conditionnelles</a></li>
+<li class="chapter" data-level="2.3.5" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#indépendance-deux-à-deux-mutuelle"><i class="fa fa-check"></i><b>2.3.5</b> Indépendance (deux à deux, mutuelle)</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html"><i class="fa fa-check"></i><b>3</b> Variables aléatoires discrètes</a>
@@ -674,64 +676,235 @@ on obtient une somme de termes de la forme <span class="math inline">\(a^kb^{n-k
 <p><strong>ii.</strong> La deuxième démonstration de la formule du triangle de Pascal repose sur une approche classique en dénombrement : compter la même chose de deux façons différentes.</p>
 </div>
 </div>
-<div id="evénements-et-probabilités" class="section level2 hasAnchor" number="2.3">
-<h2><span class="header-section-number">2.3</span> Evénements et probabilités<a href="dénombrement-et-probabilités.html#evénements-et-probabilités" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>On introduit maintenant les notions de base des probabilités. On suppose mener une <strong>expérience aléatoire</strong>, i.e. une expérience dont l’issue est incertaine, comme le lancer d’une pièce. La première chose à faire est de dresser la liste de tous les résultats potentiellement réalisables. Un tel résultat s’appelle une <strong>issue</strong> ou un <strong>événement élémentaire</strong>. Par exemple, si on lance un dé cubique dont les faces sont numérotées de <span class="math inline">\(1\)</span> à <span class="math inline">\(6\)</span> et que l’on relève le numéro de la face obtenue, alors les événements élémentaires sont les entiers de <span class="math inline">\(1\)</span> à <span class="math inline">\(6\)</span>. La liste des événements élémentaires d’une expérience aléatoire est souvent désignée par la nom d’<strong>univers</strong>, et on le note généralement <span class="math inline">\(\Omega\)</span>. Dans notre exemple de dé cubique, on a donc <span class="math inline">\(\Omega=\{1, 2, 3, 4, 5, 6\}\)</span>.</p>
-<p>Souvent, on définira des événements plus complexes que les événements élémentaires, par exemple des événements comme l’événement A : <em>Le nombre obtenu est un nombre impair</em> ou encore l’événement B: <em>Le nombre obtenu est un nombre premier</em>. De tels événements ne sont plus nécessairement des événements élémentaires. La théorie des probabilités consiste à formaliser la notion de <strong>crédibilité</strong> que l’on peut accorder aux événements qui sont susceptibles de se produire et que l’on peut observer (on parle aussi d’<strong>observables</strong>). Ce niveau de crédibilité sera représenté par un nombre réel appelé <strong>probabilité</strong> et compris entre <span class="math inline">\(0\)</span> (événement de probabilité nulle) et <span class="math inline">\(1\)</span> (événement certain).</p>
-<p>Etant donné une famille d’événements observables dont on connaît les probabilités individuelles, il semble alors naturel de se poser des questions comme :</p>
+<div id="langage-des-probabilités" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Langage des probabilités<a href="dénombrement-et-probabilités.html#langage-des-probabilités" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>On introduit maintenant les notions de base des probabilités. Le but est de construire progressivement un triplet de la forme</p>
+<p><span class="math display">\[(\Omega, \mathcal{A},\mathbb{P})\]</span>
+où :</p>
 <ul>
-<li><p><em>Quelle est la probabilité que l’un au moins de ces événements se produise ?</em></p></li>
-<li><p><em>Quelle est la probabilité que tous les événements se produisent ?</em></p></li>
-<li><p><em>Quelle est la probabilité qu’aucun de ces événements ne se produise ?</em></p></li>
+<li><p><span class="math inline">\(\Omega\)</span> s’appellera l’<strong>univers</strong> ;</p></li>
+<li><p><span class="math inline">\(\mathcal{A}\)</span> s’appellera une <strong>tribu</strong> : dans le cadre du programme c’est en fait un mot que nous n’utiliserons quasiment jamais, et sauf cas particulier nous n’expliciterons pas cet élément ;</p></li>
+<li><p><span class="math inline">\(\mathbb{P}\)</span> s’appellera une <strong>probabilté</strong>.</p></li>
 </ul>
-<p>Il faut donc pouvoir calculer des probabilités pour des événements composites du type <em>Au moins un événement</em>, <em>Tous les événements</em>, <em>Aucun événement</em>.</p>
-<p>Ceci nous emmène à la défintion suivante.</p>
-<div id="evénements" class="section level3 hasAnchor" number="2.3.1">
-<h3><span class="header-section-number">2.3.1</span> Evénements<a href="dénombrement-et-probabilités.html#evénements" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="thmbox thm">
+<div id="lunivers-omega-dune-expérience-aléatoire" class="section level3 hasAnchor" number="2.3.1">
+<h3><span class="header-section-number">2.3.1</span> L’univers <span class="math inline">\(\Omega\)</span> d’une expérience aléatoire<a href="dénombrement-et-probabilités.html#lunivers-omega-dune-expérience-aléatoire" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Tout commence avec la notion d’<strong>expérience aléatoire</strong>, i.e. une expérience dont l’issue est incertaine. La première chose à faire est de dresser la liste de tous les résultats potentiellement réalisables à lorsqu’on effectue une telle expérience. Un tel résultat s’appelle une <strong>issue</strong> ou un <strong>événement élémentaire</strong>. L’ensemble des issues est appelé <strong>univers</strong> de l’expérience, il est généralement noté <span class="math inline">\(\Omega\)</span>.</p>
+<p></p>
+<p><strong>Exemples. i. Lancer d’un dé cubique.</strong> On note ses faces par des entiers de <span class="math inline">\(1\)</span> à <span class="math inline">\(6\)</span>. Dans ce cas, l’univers <span class="math inline">\(\Omega\)</span> est fini et <span class="math display">\[\Omega=\{1,2,3,4,5,6\}\]</span></p>
+<p><strong>ii. Echantillonnage d’une population.</strong> Afin d’estimer les revenus moyens au sein d’une population <span class="math inline">\(\mathcal{U}=\{1,2,\dots, N\}\)</span>, on tire un échantillon aléatoire de taille <span class="math inline">\(n\)</span> au sein de cette population. Pour l’expérience aléatoire consistant à tirer un tel échantillon, l’univers <span class="math inline">\(\Omega\)</span> est l’ensemble de toutes les parties de <span class="math inline">\(\mathcal{U}\)</span> à <span class="math inline">\(n\)</span> éléments :</p>
+<p><span class="math display">\[\Omega=\{S\in\mathcal{P}(\mathcal{U}), \, \text{Card }(S)=n\}\]</span></p>
+<p>L’univers <span class="math inline">\(\Omega\)</span> est fini et</p>
+<p><span class="math display">\[\text{Card }(\Omega)=\binom{N}{n}\]</span></p>
+<p></p>
+<p><strong>iii. Répétition de lancers avec condition d’arrêt.</strong> On lance une pièce dont les faces sont notées <span class="math inline">\(P\)</span> et <span class="math inline">\(F\)</span>. On relance la pièce tant que PILE n’est pas obtenue. Les issues de cette expérience sont tous les lancers possibles. Comme on ne sait pas à l’avance combien de lancers vont être nécessaires pour stoper l’expérience, il s’agit bien d’une expérience aléatoire. Son univers est infini dénombrable :</p>
+<p><span class="math display">\[\Omega=\{P, FP, FFP, FFFP, \dots, FFFFFFFFFP, \dots \}\]</span></p>
+<p><strong>iv. Nombre de lancers.</strong> On reprend l’expérience précédente, mais cette fois on s’intéresse au nombre de lancers effectués. Il s’agit toujours d’une expérience aléatoire, mais cette fois :</p>
+<p><span class="math display">\[\Omega=\{1,2,3,4,\dots, 1\,000,\dots\}=\mathbb{N}^*\]</span></p>
+<p>L’univers est donc là aussi infini dénombrable.</p>
+<p><strong>v. Durée de vie d’une lampe.</strong> On observe la durée de vie d’une lampe, exprimée en jours. On peut à nouveau assimiler cette expérience à une expérience aléatoire. Cette fois, l’univers associé n’est ni fini ni dénombrable :</p>
+<p><span class="math display">\[\Omega=[0\,;\,+\infty[=\mathbb{R}_+\]</span></p>
+</div>
+<div id="lespace-probabilisable-omega-mathcala" class="section level3 hasAnchor" number="2.3.2">
+<h3><span class="header-section-number">2.3.2</span> L’espace probabilisable <span class="math inline">\((\Omega, \mathcal{A})\)</span><a href="dénombrement-et-probabilités.html#lespace-probabilisable-omega-mathcala" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Souvent, on définira des événements plus complexes que les événements élémentaires, par exemple des événements composites comme l’événement A : <em>Le nombre obtenu est un nombre impair</em> ou encore l’événement B: <em>Le nombre obtenu est un nombre premier</em>.</p>
+<p>Il faut donc enrichir l’univers <span class="math inline">\(\Omega\)</span> d’un ensemble qui décrit précisément quels sont les événements observables associés à une expérience aléatoire.</p>
+<div class="defbox def">
 <center>
-<strong>Espace probabilisable</strong>
+<strong>Evénements, tribu, espace probabilisable</strong>
 </center>
-<p>On appelle <strong>espace probabilisable</strong> tout couple <span class="math inline">\((\Omega, \mathcal{A})\)</span> où <span class="math inline">\(\Omega\)</span> est un ensemble (fini ou non) et <span class="math inline">\(\mathcal{A}\subset\mathcal{P}(\Omega)\)</span> est une famille de parties de <span class="math inline">\(\Omega\)</span> vérifiant les propriétés suivantes :</p>
+<p>Soit <span class="math inline">\(\Omega\)</span> l’univers d’une expérience aléatoire. On appelle <strong>tribu</strong> sur <span class="math inline">\(\Omega\)</span> tout sous-ensemble de l’ensemble des parties de <span class="math inline">\(\Omega\)</span> :</p>
+<p><span class="math display">\[\mathcal{A}\subset\mathcal{P}(\Omega)\]</span></p>
+<p>vérifiant les propriétés suivantes :</p>
 <ul>
-<li><span class="math inline">\(\emptyset\in\mathcal{A}\)</span> et <span class="math inline">\(\Omega\in\mathcal{A}\)</span></li>
-<li>si <span class="math inline">\((A_n)_{n\in\mathbb{N}}\)</span> est une famille dénombrable d’éléments de <span class="math inline">\(\mathcal{A}\)</span> (i.e. : <span class="math inline">\(\forall n\in\mathbb{N}, A_n\in\mathcal{A}\)</span>), alors leur réunion est encore dans <span class="math inline">\(\mathcal{A}\)</span> :</li>
+<li><p><span class="math inline">\(\Omega\in\mathcal{A}\)</span></p></li>
+<li><p>si <span class="math inline">\((A_n)_{n\in\mathbb{N}}\)</span> est une famille finie ou dénombrable d’éléments de <span class="math inline">\(\mathcal{A}\)</span> (i.e. chacun des <span class="math inline">\(A_n\)</span> est un élement de <span class="math inline">\(\mathcal{A}\)</span>), alors leur réunion est encore dans <span class="math inline">\(\mathcal{A}\)</span> :</p></li>
 </ul>
-<p><span class="math display">\[\bigcup\limits_{n\in\mathbb{N}} A_n\in\mathcal{A}\]</span></p>
+<p><span class="math display">\[\bigcup\limits_{n} A_n\in\mathcal{A}\]</span></p>
 <ul>
 <li>si <span class="math inline">\(A\in\mathcal{A}\)</span> alors <span class="math inline">\(\overline{A}\in\mathcal{A}\)</span>.</li>
 </ul>
-<p>On dit aussi que <span class="math inline">\(\mathcal{A}\)</span> est une <strong>tribu</strong> et les éléments de <span class="math inline">\(\mathcal{A}\)</span> sont appelés des <strong>événements</strong>.</p>
-</div>
-<p>La famille <span class="math inline">\(\mathcal{A}\)</span> formalise tous les observables relatifs à une expérience aléatoire, autrement dit tout ce qu’on est susceptible d’observer relativement à cette expérience et dont on aimerait mesurer le niveau de crédibilité.</p>
+<p>Les éléments de <span class="math inline">\(\mathcal{A}\)</span> sont appelés des <strong>événements</strong> ou des <strong>observables</strong>. En particulier :</p>
 <ul>
-<li>Opérations sur les événements : réunion, intersection, événement contraire</li>
+<li><p><span class="math inline">\(\Omega\)</span> s’appelle l’<strong>événement certain</strong> ;</p></li>
+<li><p>Pour tout événement <span class="math inline">\(A\)</span>, l’événement <span class="math inline">\(\overline{A}\)</span> s’appelle l’<strong>événement contraire</strong> de <span class="math inline">\(A\)</span>.</p></li>
 </ul>
+<p>On dit que le couple <span class="math inline">\((\Omega, \mathcal{A})\)</span> est un <strong>espace probabilsable</strong>.</p>
 </div>
-<div id="probabilités" class="section level3 hasAnchor" number="2.3.2">
-<h3><span class="header-section-number">2.3.2</span> Probabilités<a href="dénombrement-et-probabilités.html#probabilités" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>La famille <span class="math inline">\(\mathcal{A}\)</span> formalise tous les observables relatifs à une expérience aléatoire, autrement dit tout ce qu’on est susceptible d’observer relativement à cette expérience (et dont on aimerait ensuite mesurer le niveau de crédibilité).</p>
+<p></p>
+<p><strong>Exemples.</strong> On reprend les exemples i. à v. de la section précédente. Dans les exemples i. et ii., <span class="math inline">\(\Omega\)</span> est fini. Dans les exemples iii. et iv., <span class="math inline">\(\Omega\)</span> est infini dénombrable. Dans ce cas on peut prendre <span class="math inline">\(\mathcal{A}=\mathcal{P}(\Omega)\)</span>, comme c’est l’usage pour les univers finis ou dénombrables.</p>
+<p>L’exemple v. est plus complexe car <span class="math inline">\(\Omega\)</span> est infini et <strong>non dénombrable</strong>. On pourrait prendre <span class="math inline">\(\mathcal{A}=\mathbb{P}(\Omega)\)</span>, mais cela ferait une tribu extrêmement grande, sur laquelle il serait certainement plus difficile par la suite de définir une probabilté. Dans ce genre de cas, on essaie en général de réduire la taille de la tribu à quelque chose de plus raisonnable. De manière un peu floue, on définit une classe d’événemenents que l’on aimerait pouvoir mesurer (i.e. dont on aimerait pouvoir calculer la probabilité) et on définit notre tribu comme <em>la plus petite tribu</em> contenant cette classe d’ensembles (on parle alors de <em>tribu engendrée</em>). Dans le cas présent, comme souvent lorsque <span class="math inline">\(\Omega\)</span> est un sous-ensemble de <span class="math inline">\(\mathbb{R}\)</span> non dénombrable, on prend pour <span class="math inline">\(\mathcal{A}\)</span> la tribu engendrée par les <em>ouverts</em> de <span class="math inline">\(\mathbb{R_+}\)</span>. Une telle tribu s’appelle une <em>tribu borélienne</em> (plus généralement, pour un espace topologique <span class="math inline">\((X, \mathcal{T})\)</span> donné, la tribu borélienne est définie comme la tribu engendrée par les ouverts de cette topologie, i.e. les éléments de <span class="math inline">\(\mathcal{T}\)</span>). Il est difficile, pour ne pas dire impossible, de se représenter exactement à quoi cette tribu ressemble. En pratique, on s’y intérresse de toute façon assez peu. Tout cela étant largement hors-programme du concours d’administrateur, vous n’aurez pas du tout à vous en soucier dans votre préparation !</p>
+<p></p>
+<p><strong>D’autres exemples. i. Lancer d’une pièce.</strong> L’univers associé au lancer d’une pièce est <span class="math inline">\(\Omega=\{P,F\}\)</span>. On pose <span class="math inline">\(\mathcal{A}=\left\{\emptyset, \{P\},\{F\}, \{P,F\}\right\}=\mathcal{P}(\Omega)\)</span>. Alors, <span class="math inline">\(\mathcal{A}\)</span> est une tribu et donc le couple <span class="math inline">\((\Omega, \mathcal{A})\)</span> est un espace probabilisable.</p>
+<p></p>
+<p><strong>ii.</strong> Si <span class="math inline">\(\Omega=\{1,2,3,4\}\)</span> alors <span class="math inline">\(\mathcal{A}=\left\{\emptyset, \{1\}, \{2,3,4\}, \Omega\right\}\)</span> est une tribu. <span class="math inline">\(\mathcal{A}&#39;=\left\{\emptyset, \{1,2\}, \{3, 4\}, \Omega\right\}\)</span> est une autre tribu.</p>
+<p></p>
+<p><strong>Remarques. i.</strong> Pour tout ensemble <span class="math inline">\(\Omega\)</span> modélisant l’univers d’une expérience aléatoire, on peut toujours poser <span class="math inline">\(\mathcal{A}=\mathcal{P}(\Omega)\)</span> et défnir ainsi une tribu, et donc un espace probabilisable <span class="math inline">\((\Omega, \mathcal{P}(\Omega))\)</span>. C’est d’ailleurs assez souvent ce qui est fait lorsque l’ensemble <span class="math inline">\(\Omega\)</span> est fin ou dénombrable. Une telle tribu s’appelle la <strong>tribu discrète</strong>. Il s’agit de la plus grande tribu (au sens de l’inclusion) sur <span class="math inline">\(\Omega\)</span>.</p>
+<p></p>
+<p><strong>ii.</strong> On peut aussi définir la <strong>tribu grossière</strong> :</p>
+<p><span class="math display">\[\mathcal{A}=\{\emptyset, \Omega\}\]</span></p>
+<p>Il s’agit de la plus petite tribu (au sens de l’inclusion) sur <span class="math inline">\(\Omega\)</span>.</p>
+<p></p>
+<p><strong>iii.</strong> Même si la notion de tribu n’est pas explicitement au programme (voire même est explicitement hors-programme), il faut tout de même retenir que la notion d’événement est <em>stable</em> par réunion dénombrable et par passage au complémentaire. Autrement dit :</p>
 <ul>
-<li><p>Définition d’une probabilité</p></li>
-<li><p>Propriétés :</p>
+<li><p>on est toujours capable d’observer la survenue ou non de <span class="math inline">\(\emptyset\)</span> et <span class="math inline">\(\Omega\)</span> ;</p></li>
+<li><p>si on est capable d’observer la survenue d’un événement <span class="math inline">\(A\)</span>, alors on est capable d’observer la survenue de l’événement contraire <span class="math inline">\(\overline{A}\)</span> ;</p></li>
+<li><p>si on est capable, pour tout entier naturel <span class="math inline">\(n\)</span>, d’observer la survenue d’un événement <span class="math inline">\(A_n\)</span>, alors on est capable d’observer la survenue de la réunion dénombrable <span class="math inline">\(\bigcup\limits_{n\in\mathbb{N}} A_n\)</span> (et donc, à plus forte raison on est capable d’observer la survenue d’une réunion finie <span class="math inline">\(\bigcup\limits_{n=0}^N A_n\)</span>, puisqu’une réunion finie de <span class="math inline">\(0\)</span> à <span class="math inline">\(N\)</span> est un cas particulier d’une réunion finie sur <span class="math inline">\(\mathbb{N}\)</span> en posant <span class="math inline">\(A_n=\emptyset\)</span> pour <span class="math inline">\(n\geq N+1\)</span>).</p></li>
+</ul>
+<p>On peut en fait aller un peu plus loin :</p>
+<div class="thmbox thm">
+<p></p>
+<p><strong>Stabilité de la notion d’événement.</strong> La notion d’événement est stable par toute opération de réunion finie ou dénombrable, d’intersection finie ou dénombrable et par passage au complémentaire. Autrement dit, si <span class="math inline">\((A_n)_{n\in \mathcal{I}}\)</span> est une suite d’événements finie (cas où <span class="math inline">\(\mathcal{I}\)</span> est fini) ou infinie dénombrable (cas où <span class="math inline">\(\mathcal{I}\)</span> est infini dénombrable), alors <span class="math inline">\(\bigcup\limits_{n\in\mathcal{I}} A_n\)</span>, <span class="math inline">\(\bigcap\limits_{n\in\mathcal{I}} A_n\)</span> et les <span class="math inline">\(\overline{A_n}\)</span> sont des événements.</p>
+</div>
+<p></p>
+<p><strong>Démonstration.</strong> La notion d’événement est, par définition, stable par réunion dénombrable et par passage au complémentaire. Il reste donc à démontrer qu’elle est aussi stable par intersection dénombrable. Or</p>
+<p><span class="math display">\[\bigcap\limits_{n\in\mathcal{I}} A_n=\overline{\bigcup\limits_{n\in\mathcal{I}}\overline{A_n}}\]</span></p>
+<p>En effet, d’après l’une des lois de Morgan on a</p>
+<p><span class="math display">\[\overline{\bigcup\limits_{n\in\mathcal{I}}\overline{A_n}}=\bigcap\limits_{n\in\mathcal{I}} \overline{\overline{A_n}}\]</span></p>
+<p>et comme <span class="math inline">\(\overline{\overline{A_n}}=A_n\)</span> on en déduit l’égalité annoncée.</p>
+<p>Par ailleurs :</p>
 <ul>
-<li><p>probabilité d’un événement contraire, d’une union disjointe</p></li>
-<li><p><span class="math inline">\(0\leq p(A)\leq 1\)</span></p></li>
-<li><p>propriété de croisssance</p></li>
-<li><p>crible de Poincaré</p></li>
+<li><p>pour tout <span class="math inline">\(n\)</span> dans <span class="math inline">\(\mathcal{I}\)</span>, <span class="math inline">\(\overline{A_n}\)</span> est un événement (stabilité par passage au complémentaire)</p></li>
+<li><p>donc <span class="math inline">\(\bigcup\limits_{n\in\mathcal{I}}\overline{A_n}\)</span> est un événement (stabilité par réunion dénombrable)</p></li>
+<li><p>d’où l’on déduit que <span class="math inline">\(\overline{\bigcup\limits_{n\in\mathcal{I}}\overline{A_n}}\)</span> est aussi un événement (stabilité par passage au complémentaire)</p></li>
+</ul>
+<p>Avec l’égalité démontrée plus haut, on obtient finalement que <span class="math inline">\(\bigcap\limits_{n\in\mathcal{I}} A_n\)</span> est un événement.</p>
+<p><span class="math inline">\(\square\)</span></p>
+<p></p>
+<p><strong>Conséquence.</strong> Cette proposition a pour conséquence immédiate que si les <span class="math inline">\((A_n)_{n\in \mathcal{I}}\)</span> forment une suite finie ou dénombrable d’événements, alors toute combinaison - aussi complexe sot-elle - de ces événements à partir des opérateurs <span class="math inline">\(\bigcup, \bigcap\)</span> et de passage au complémentaire est encore un événement. Par exemple :</p>
+<ul>
+<li><p><span class="math inline">\(\overline{\bigcup_{n\in\mathcal{I}}\bigcap_{k\geq n}\overline{A_k}}\)</span> est encore un événement ;</p></li>
+<li><p><span class="math inline">\(\bigcap\limits_{n\in\mathcal{I}}\overline{\bigcup_{k\leq 2n} \overline{A_k}}\)</span> est encore un événement ;</p></li>
+<li><p><span class="math inline">\(\bigcup\limits_{n\in\mathcal{I}}\bigcup\limits_{5\leq p\leq n}\bigcap\limits_{k\geq p}\bigcup\limits_{l\leq k}\overline{A_l}\)</span> est encore un événement.</p></li>
+</ul>
+<p>On voit maintenant des exemples de combinaisons d’événements qui reviennent fréquemment dans les sujets du concours d’administrateur :</p>
+<div class="defbox def">
+<center>
+<strong>Exemples classiques d’événements complexes</strong>
+</center>
+<p>Soit <span class="math inline">\(A_1,A_2,\dots,A_n,\dots\)</span> une suite d’événements.</p>
+<ul>
+<li><p><span class="math inline">\(\bigcup\limits_{n=1}^{\infty}A_n\)</span> est l’événement <em>L’un au moins des <span class="math inline">\(A_n\)</span> est réalisé</em></p></li>
+<li><p><span class="math inline">\(\bigcup\limits_{n=1}^{\infty}\overline{A_n}\)</span> est l’événement <em>L’un au moins des <span class="math inline">\(A_n\)</span> n’est pas réalisé</em></p></li>
+<li><p><span class="math inline">\(\bigcap\limits_{n=1}^{\infty}A_n\)</span> est l’événement <em>Tous les <span class="math inline">\(A_n\)</span> sont réalisés</em></p></li>
+<li><p><span class="math inline">\(\bigcap\limits_{n=1}^{\infty}\overline{A_n}\)</span> est l’événement <em>Aucun <span class="math inline">\(A_n\)</span> n’est réalisé</em></p></li>
+<li><p><span class="math inline">\(\bigcup\limits_{n=0}^{\infty}\bigcap\limits_{k\geq n}A_k\)</span> est l’événement <em>Tous les <span class="math inline">\(A_n\)</span> sont réalisés à partir d’un certain rang</em>. Cet événement est aussi la <strong>limite inférieure</strong> des <span class="math inline">\(A_n\)</span> :</p></li>
+</ul>
+<p><span class="math display">\[\lim\inf\limits_{n\to\infty}A_n=\bigcup\limits_{n=0}^{\infty}\bigcap\limits_{k\geq n}A_k\]</span></p>
+<ul>
+<li><span class="math inline">\(\bigcap\limits_{n=0}^{\infty}\bigcup\limits_{k\geq n}A_k\)</span> est l’événement <em>Les <span class="math inline">\(A_n\)</span> sont réalisés un nombre infini de fois</em>. Cet événement est aussi la <strong>limite supérieure</strong> des <span class="math inline">\(A_n\)</span> :</li>
+</ul>
+<p><span class="math display">\[\lim\sup\limits_{n\to\infty}A_n=\bigcap\limits_{n=0}^{\infty}\bigcup\limits_{k\geq n}A_k\]</span></p>
+</div>
+<p></p>
+<p><strong>Exercice.</strong> Ecrire l’événement <em>Les <span class="math inline">\(A_n\)</span> ne sont réalisés qu’un nombre fini de fois</em> à partir des <span class="math inline">\(\overline{A_k}\)</span>.</p>
+<p></p>
+<p><strong>Solution.</strong> Soit <span class="math inline">\(B\)</span> l’événement <em>Les <span class="math inline">\(A_n\)</span> ne sont réalisés qu’un nombre fini de fois</em>.</p>
+<p>Avec ce qui précède, on a, par application des lois de Morgan :</p>
+<p><span class="math display">\[\begin{align}
+B &amp;= \overline{\bigcap\limits_{n\to\infty}\bigcup\limits_{k\geq n}A_k} \\
+&amp;= \bigcup\limits_{n\to\infty}\bigcap\limits_{k\geq n}\overline{A_k}
+\end{align}\]</span></p>
+<p></p>
+</div>
+<div id="lespace-probabilisé-omega-mathcala-mathbbp" class="section level3 hasAnchor" number="2.3.3">
+<h3><span class="header-section-number">2.3.3</span> L’espace probabilisé <span class="math inline">\((\Omega, \mathcal{A}, \mathbb{P})\)</span><a href="dénombrement-et-probabilités.html#lespace-probabilisé-omega-mathcala-mathbbp" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Maintenant qu’on a défini la notion d’événement, on a envie de pouvoir mesurer le niveau de crédibilité de survenue d’un événement donné. Pour cela, on part d’une expérience aléatoire et on définit une application sur l’ensemble de tous les événements associés à cette expérience, et à valeurs dans <span class="math inline">\([0,1]\)</span>. Cela revient à enrichir l’espace probabilisable <span class="math inline">\((\Omega, \mathcal{A})\)</span> pour le transformer en un espace <em>probabilisé</em> <span class="math inline">\((\Omega, \mathcal{A}, \mathbb{P})\)</span> :</p>
+<div class="defbox def">
+<center>
+<strong>Probabilité, espace probabilisé</strong>
+</center>
+<p></p>
+<p>Soit <span class="math inline">\((\Omega,\mathcal{A})\)</span> un espace probabilisable.</p>
+<p>On appelle <strong>probabilité</strong> (ou <strong>mesure de probabilité</strong>) sur cet espace toute application <span class="math display">\[\mathbb{P}:\mathcal{A}\longrightarrow [0,1]\]</span> vérifiant les axiomes suivants :</p>
+<ul>
+<li><p><strong>L’univers est certain : </strong> <span class="math inline">\(\mathbb{P}(\Omega)=1\)</span></p></li>
+<li><p><strong><span class="math inline">\(\sigma-\)</span>additivité : </strong> si <span class="math inline">\((A_n)_n\)</span> est une suite d’événements <strong>deux à deux incompatibles</strong> (i.e. si <span class="math inline">\(A_n\cap A_p=\emptyset\)</span> dès que <span class="math inline">\(n\neq p\)</span>) alors la série <span class="math inline">\(\sum\limits_{n}\mathbb{P}(A_n)\)</span> est convergente et</p></li>
+</ul>
+<p><span class="math display">\[\mathbb{P}\left(\bigcup\limits_{n\to\infty}A_n\right)=\sum\limits_{n=0}^{\infty}\mathbb{P}(A_n)\]</span></p>
+<p>On dit alors que le triplet <span class="math inline">\((\Omega, \mathcal{A}, \mathbb{P})\)</span> est un <strong>espace probabilisé</strong>.</p>
+</div>
+<p></p>
+<p><strong>Remarque.</strong> Le <span class="math inline">\(\sigma\)</span> de la <span class="math inline">\(\sigma-\)</span>additivité fait référence au caractère infini de la propriété additivité. On peut aussi parler d’additivité (sans le <span class="math inline">\(\sigma\)</span>) d’une application <span class="math inline">\(P\)</span> mais dans ce cas on parle plutôt d’une application <span class="math inline">\(P\)</span> telle que</p>
+<p><span class="math display">\[P\left(\bigcup\limits_{n=0}^N A_n\right)=\sum\limits_{n=0}^N P(A_n)\]</span>
+La <span class="math inline">\(\sigma-\)</span>additivité est strictement plus forte que l’additivité :</p>
+<p><span class="math display">\[(P \text{ est } \sigma-\text{ additive}) \Rightarrow (P \text{ est additive})\]</span></p>
+<p><span class="math display">\[\text{mais}\]</span></p>
+<p><span class="math display">\[(P \text{ est additive}) \not\Rightarrow (P \text{ est } \sigma-\text{ additive})\]</span></p>
+<p>Comme on souhaite considérer des événements composites s’écrivant comme réunion disjointe d’un nombre <em>infini</em> d’événements, il est plus naturel d’exiger d’une mesure de probabilité la propriété de <span class="math inline">\(\sigma-\)</span>additivité.</p>
+<p>On déduit de façon immédiate un certain nombre de propriétés des mesures de probabilité :</p>
+<div class="thmbox thm">
+<center>
+<strong>Propriétés élémentaires des mesures de probabilité</strong>
+</center>
+<p>Soit <span class="math inline">\((\Omega, \mathcal{A}, \mathbb{P})\)</span> un espace probabilisé. Alors :</p>
+<ul>
+<li><p><strong>L’événement impossible est de probabilité nulle.</strong> Autrement dit : <span class="math display">\[\mathbb{P}(\emptyset)=0\]</span></p></li>
+<li><p><strong>Probabilité de l’événement complémentaire.</strong> Pour tout événement <span class="math inline">\(A\)</span>, la probabilité de l’événement complémentaire <span class="math inline">\(\overline{A}\)</span> est donnée par</p></li>
+</ul>
+<p><span class="math display">\[\mathbb{P}(\overline{A})=1-\mathbb{P}(A)\]</span></p>
+<ul>
+<li><strong>Croissance de la probablité.</strong> Soient <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> deux événements tels que <span class="math inline">\(A\subset B\)</span>. Alors :</li>
+</ul>
+<p><span class="math display">\[\mathbb{P}(A)\leq\mathbb{P}(B)\]</span></p>
+<ul>
+<li><strong>Crible de Poincaré.</strong> Soient <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> deux événements tels que <span class="math inline">\(A\subset B\)</span>. Alors :</li>
+</ul>
+<p><span class="math display">\[\mathbb{P}(A\cup B)=\mathbb{P}(A)+\mathbb{P}(B)-\mathbb{P}(A\cap B)\]</span></p>
+<p>Plus généralement, étant donné une suite finie <span class="math inline">\(A_1,A_2,\dots A_n\)</span> d’événements, on a la formule</p>
+<p><span class="math display">\[\mathbb{P}\left(\bigcup\limits_{k=1}^{n} A_k\right)=\sum\limits_{k=1}^{n}(-1)^{k+1}\sum\limits_{1\leq i_1&lt;i_2&lt;\dots &lt;i_k}\mathbb{P}\left(\bigcap\limits_{j=1}^k A_{i_j}\right)\]</span></p>
+</div>
+<p></p>
+<p><strong>Démonstration.</strong></p>
+<ul>
+<li>Pour tout événement <span class="math inline">\(A\)</span>, <span class="math inline">\(A\)</span> et <span class="math inline">\(\overline{A}\)</span> sont incompatibles, et par ailleurs <span class="math inline">\(A\cup\overline{A}=\Omega\)</span>, donc :</li>
+</ul>
+<p><span class="math display">\[\begin{align}
+1 &amp;= \mathbb{P}(\Omega) \\
+&amp;= \mathbb{P}(A\cup\overline{A}) \\
+&amp;= \mathbb{P}(A)+\mathbb{P}(\overline{A})
+\end{align}\]</span></p>
+<p>et donc on a bien</p>
+<p><span class="math display">\[\mathbb{P}(\overline{A})=1-\mathbb{P}(A)\]</span>
+Par ailleurs, comme <span class="math inline">\(\emptyset=\overline{\Omega}\)</span> et <span class="math inline">\(\mathbb{P}(\Omega)=1\)</span>, on en déduit que</p>
+<p><span class="math display">\[\mathbb{P}(\emptyset)=0\]</span></p>
+<ul>
+<li>la formule du crible de Poincaré se démontre exactement comme la formule déjà vue pour le cardinal. Le point important de la démonstration - celui qui fait que tout fonctionne bien - dans la formule avec le cardinal est le fait que l’application <em>cardinal</em> :</li>
+</ul>
+<p><span class="math display">\[\text{Card }:A\in\mathcal{A}\longrightarrow\text{Card }(A)\]</span></p>
+<p>est additive. Or, l’additivité (et même la <span class="math inline">\(\sigma-\)</span>additivité) est au coeur même de la construction des probabilités : l’application</p>
+<p><span class="math display">\[\mathbb{P}:A\in\mathcal{A}\longrightarrow\mathbb{P}(A)\]</span>
+est elle aussi additive (et même <span class="math inline">\(\sigma-\)</span>additive). Donc la démonstration de la formule de Poincaré pour les probabilités est une recopie exacte de celle pour les cardinaux, en remplaçant simplement l’application <span class="math inline">\(\text{Card}\)</span> par l’application <span class="math inline">\(\mathbb{P}\)</span>.</p>
+<ul>
+<li>enfin, soient <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> des événements tels que <span class="math inline">\(A\subset B\)</span>. Alors :</li>
+</ul>
+<p><span class="math display">\[B= A\cup (B\cap\overline{A})\]</span>
+<span class="math display">\[A\cap(B\cap\overline{A})=\emptyset\]</span>
+Avec ce qui précède on a donc</p>
+<p><span class="math display">\[\begin{align}
+\mathbb{P}(B) &amp;= \mathbb{P}(A)+\mathbb{P}(B\cap\overline{A}) \\
+&amp; \geq\mathbb{P}(A)
+\end{align}\]</span></p>
+<p>car <span class="math inline">\(\mathbb{P}(B\cap\overline{A})\geq 0\)</span> (une probabilté est toujours positive).</p>
+<p>D’où le résultat.</p>
+<p><span class="math inline">\(\square\)</span></p>
+<ul>
+<li><p>exemples</p></li>
 <li><p>Equiprobabilité</p></li>
-</ul></li>
 </ul>
 </div>
-<div id="probabilités-conditionnelles" class="section level3 hasAnchor" number="2.3.3">
-<h3><span class="header-section-number">2.3.3</span> Probabilités conditionnelles<a href="dénombrement-et-probabilités.html#probabilités-conditionnelles" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="probabilités-conditionnelles" class="section level3 hasAnchor" number="2.3.4">
+<h3><span class="header-section-number">2.3.4</span> Probabilités conditionnelles<a href="dénombrement-et-probabilités.html#probabilités-conditionnelles" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li><p>Définition</p></li>
 <li><p>Propriétés : les mêmes que pour une probabilité “non conditionnelle”</p></li>
 <li><p>Formule des probabilités composées</p></li>
 <li><p>Formule des probabilités totales</p></li>
 <li><p>Formule de Bayes</p></li>
-<li><p>Indépendance (deux à deux, mutuelle)</p></li>
 </ul>
+</div>
+<div id="indépendance-deux-à-deux-mutuelle" class="section level3 hasAnchor" number="2.3.5">
+<h3><span class="header-section-number">2.3.5</span> Indépendance (deux à deux, mutuelle)<a href="dénombrement-et-probabilités.html#indépendance-deux-à-deux-mutuelle" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 
 </div>
 </div>
