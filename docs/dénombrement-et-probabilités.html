@@ -23,7 +23,7 @@
 <meta name="author" content="Olivier Guin" />
 
 
-<meta name="date" content="2024-03-14" />
+<meta name="date" content="2024-03-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -76,7 +76,7 @@
 <li><a href="./">Cours de probabilités et statistique pour le concours interne d'administrateur de l'Insee</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Présentation du cours</a>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> url: your book url like https://bookdown.org/yihui/bookdown</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#généralités"><i class="fa fa-check"></i><b>1.1</b> Généralités</a></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#coquilles-et-erreurs"><i class="fa fa-check"></i><b>1.2</b> Coquilles et erreurs</a></li>
@@ -99,8 +99,8 @@
 <li class="chapter" data-level="2.3.1" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#lunivers-omega-dune-expérience-aléatoire"><i class="fa fa-check"></i><b>2.3.1</b> L’univers <span class="math inline">\(\Omega\)</span> d’une expérience aléatoire</a></li>
 <li class="chapter" data-level="2.3.2" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#lespace-probabilisable-omega-mathcala"><i class="fa fa-check"></i><b>2.3.2</b> L’espace probabilisable <span class="math inline">\((\Omega, \mathcal{A})\)</span></a></li>
 <li class="chapter" data-level="2.3.3" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#lespace-probabilisé-omega-mathcala-mathbbp"><i class="fa fa-check"></i><b>2.3.3</b> L’espace probabilisé <span class="math inline">\((\Omega, \mathcal{A}, \mathbb{P})\)</span></a></li>
-<li class="chapter" data-level="2.3.4" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#probabilités-conditionnelles"><i class="fa fa-check"></i><b>2.3.4</b> Probabilités conditionnelles</a></li>
-<li class="chapter" data-level="2.3.5" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#indépendance-deux-à-deux-mutuelle"><i class="fa fa-check"></i><b>2.3.5</b> Indépendance (deux à deux, mutuelle)</a></li>
+<li class="chapter" data-level="2.3.4" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#indépendance"><i class="fa fa-check"></i><b>2.3.4</b> Indépendance</a></li>
+<li class="chapter" data-level="2.3.5" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#probabilités-conditionnelles"><i class="fa fa-check"></i><b>2.3.5</b> Probabilités conditionnelles</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html"><i class="fa fa-check"></i><b>3</b> Variables aléatoires discrètes</a>
@@ -926,10 +926,214 @@ Soit maintenant <span class="math inline">\(A=\{\omega_{i_1},\dots,\omega_{i_k}\
 <p><span class="math inline">\(\square\)</span></p>
 <p>Cette formule montre donc que, en situtation d’équiprobabilité, calculer des probabilités revient à dénombrer. C’est typiquement la façon dont les probabilités étaient introduites avant dans les classes de lycée, avec les applications classiques sur les cartes, les boules dans des urnes, etc.</p>
 <p></p>
-<p><strong>Exemples. i.</strong></p>
+<p><strong>Remarque.</strong> Lorsqu’on effectue un tirage alétoire dans un ensemble fini de façon équiprobable, on dit souvent qu’on effectue un <em>tirage au hasard</em>.</p>
+<p></p>
+<p><strong>Exemples. i. Course hippique.</strong> Lors d’une course hippique, on suppose que les <span class="math inline">\(n\)</span> chevaux au départ ont la même probabilité de gagner. Quelle est la probabilité d’avoir un tiercé gagnant avec un ticket :</p>
+<ul>
+<li>dans l’ordre d’arrivée ?</li>
+<li>dans l’ordre d’arrivée ou dans un ordre différent ?</li>
+<li>dans un ordre différent ?</li>
+</ul>
+<p></p>
+<p><strong>Solution.</strong> On calcule d’abord le nombre de tiercés possibles. C’est le nombre de façons ordonnées de choisir tros chevaux parmi un ensemble de <span class="math inline">\(n\)</span> chevaux. Il y en a donc</p>
+<p><span class="math display">\[\begin{align}
+A_n^3 &amp;= \frac{n!}{(n-3)!} \\
+&amp;= n(n-1)(n-2) \\
+\end{align}\]</span></p>
+<ul>
+<li>il n’y a qu’un seul tiercé gagnant dans l’ordre, la probabilité <span class="math inline">\(p_1\)</span> cherchée est</li>
+</ul>
+<p><span class="math display">\[p_1=\frac{1}{n(n-1)(n-2)}\]</span>
+- le nombre de tiercés gagnant dans l’ordre ou dans un ordre différent est égal au nombre de permutations d’un ensemble à trois éléments, soit <span class="math inline">\(3!=6\)</span>. La probabilité <span class="math inline">\(p_2\)</span> cherchée est donc égale à</p>
+<p><span class="math display">\[p_2=\frac{6}{n(n-1)(n-2)}\]</span></p>
+<ul>
+<li>le nombre de tiercés gagnants dans le désordre est <span class="math inline">\(6-1=5\)</span> donc la probabilité <span class="math inline">\(p_3\)</span> cherchée est</li>
+</ul>
+<p><span class="math display">\[p_3=\frac{5}{n(n-1)(n-2)}\]</span></p>
+<p><strong>ii. Permutations avec <span class="math inline">\(n-2\)</span> points fixes.</strong> Soit <span class="math inline">\(n\)</span> entier naturel tel que <span class="math inline">\(n\geq 3\)</span>. On tire au hasard une permutation aléatoire <span class="math inline">\(\sigma\)</span> de <span class="math inline">\(\mathfrak{S}_n\)</span>. Quelle est la probablité qu’elle ait exactement <span class="math inline">\(n-2\)</span> points fixes ? (on dit qu’un entier <span class="math inline">\(i\in\{1,2,\dots, n\}\)</span> est un point fixe de <span class="math inline">\(\sigma\)</span> lorsque <span class="math inline">\(\sigma(i)=i\)</span>).</p>
+<p></p>
+<p><strong>Solution.</strong> Soit <span class="math inline">\(A_n\)</span> l’événement <em>La permutation <span class="math inline">\(\sigma\)</span> a exactement <span class="math inline">\(n-2\)</span> points fixes</em>.</p>
+<p>Choisir une telle permutation <span class="math inline">\(\sigma\)</span> revient exactement à :</p>
+<ul>
+<li><p>choisir <span class="math inline">\(n-2\)</span> points fixes parmi les <span class="math inline">\(n\)</span> entiers de <span class="math inline">\(1\)</span> à <span class="math inline">\(n\)</span> : il y a <span class="math inline">\(\binom{n}{n-2}=\binom{n}{2}=\frac{n(n-1)}{2}\)</span> choix possibles ;</p></li>
+<li><p>choisir les deux points non fixes : mais le choix des <span class="math inline">\(n-2\)</span> points fixes à l’étape précédente détermine de façon unique celui des deux points restants ;</p></li>
+<li><p>choisir les images des entiers <span class="math inline">\(1,2,\dots, n\)</span>. Mais une fois qu’on a fait les choix précédents, il n’y a plus qu’une seule permutation <span class="math inline">\(\sigma\)</span> qui convienne :</p>
+<ul>
+<li><p>pour les <span class="math inline">\(n-2\)</span> points fixes <span class="math inline">\(i_1, i_2,\dots i_{n-2}\)</span> on a, par définition <span class="math inline">\(\sigma(i_j)=i_j\)</span> ;</p></li>
+<li><p>pour les deux points <span class="math inline">\((i_{n-1}, i_n)\)</span> qui ne sont pas fixes, on a <span class="math inline">\(\sigma(i_{n-1})=i_n\)</span> et <span class="math inline">\(\sigma(i_n)=i_{n-1}\)</span>.</p></li>
+</ul></li>
+</ul>
+<p>D’après le principe multiplicatif, il y a donc <span class="math inline">\(\frac{n(n-1)}{2}\)</span> permutations de <span class="math inline">\(\mathfrak{S}_n\)</span> à <span class="math inline">\(n-2\)</span> points fixes.</p>
+<p>Par ailleurs, il y a exactement <span class="math inline">\(n!\)</span> permutations de <span class="math inline">\(\mathfrak{S}_n\)</span>.</p>
+<p>On en déduit que</p>
+<p><span class="math display">\[\mathbb{P}(A_n)=\frac{n(n-1)}{2\,n!}=\frac{1}{2\,(n-2)!}\]</span></p>
 </div>
-<div id="probabilités-conditionnelles" class="section level3 hasAnchor" number="2.3.4">
-<h3><span class="header-section-number">2.3.4</span> Probabilités conditionnelles<a href="dénombrement-et-probabilités.html#probabilités-conditionnelles" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="indépendance" class="section level3 hasAnchor" number="2.3.4">
+<h3><span class="header-section-number">2.3.4</span> Indépendance<a href="dénombrement-et-probabilités.html#indépendance" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="defbox def">
+<center>
+<strong>Indépendance de deux événements</strong>
+</center>
+<p>Soit <span class="math inline">\((\Omega, \mathcal{A},\mathbb{P})\)</span> un espace probabilisé. Deux événements <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> sont dits <strong>indépendants</strong> si <span class="math inline">\(\mathbb{P}(A\cap B)=\mathbb{P}(A)\,\mathbb{P}(B)\)</span>.</p>
+</div>
+<p></p>
+<p><strong>Remarque.</strong> La notion d’indépendance est relative à un espace probabilisé <span class="math inline">\((\Omega, \mathcal{A},\mathbb{P})\)</span>. Dit autrement, si on a deux espaces probabilisés <span class="math inline">\((\Omega, \mathcal{A},\mathbb{P})\)</span> et <span class="math inline">\((\Omega&#39;, \mathcal{A}&#39;,\mathbb{P}&#39;)\)</span> et <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> qui sont des événements pour ces deux espaces probabilisés à la fois, alors <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> peuvent être indépendants pour l’un des espaces mais pas pour l’autre. Cela peut notamment arriver si on prend deux mesures de probabilité dfférentes <span class="math inline">\(\mathbb{P}\)</span> et <span class="math inline">\(\mathbb{P}&#39;\)</span> pour un même espace probabilisable <span class="math inline">\((\Omega, \mathcal{A})\)</span>.</p>
+<p></p>
+<p><strong>Exemple.</strong> On lance deux dés cubiques équilibrés. On note :</p>
+<ul>
+<li><span class="math inline">\(A\)</span> l’événement <em>La somme des deux numéros obtenus est 7</em></li>
+<li><span class="math inline">\(B\)</span> l’événement <em>Le produit des deux nombres obtenus est 6</em>.</li>
+</ul>
+<p>Les événements <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> sont-ils indépendants ?</p>
+<p></p>
+<p><strong>Solution.</strong> L’univers <span class="math inline">\(\Omega\)</span> de cette expérience aléatoire est <span class="math inline">\(\Omega=\{1,2,3,4,5,6\}^2\)</span>, de cardinal <span class="math inline">\(36\)</span>. Par ailleurs :</p>
+<p><span class="math display">\[A=\{(1,6),(2,5),(3,4),(4,3),(5,2), (6,1)\}\]</span>
+<span class="math display">\[B=\{(1,6), (2,3), (3,2), (6,1)\}\]</span>
+<span class="math display">\[A\cap B=\{(1,6), (6,1)\}\]</span></p>
+<p>Les dés étant équililibrés, les événements élémentaires de <span class="math inline">\(\Omega\)</span> ont tous la même probabilité <span class="math inline">\(p=\frac{1}{36}\)</span>, donc :</p>
+<p><span class="math display">\[\mathbb{P}(A\cap B)=\frac{2}{36}=\frac{1}{18}\]</span>
+<span class="math display">\[\mathbb{P}(A)\mathbb{P}(B)=\frac{6}{36}\frac{4}{36}=\frac{1}{54}\]</span>
+Donc, <span class="math inline">\(\mathbb{P}(A\cap B)\neq\mathbb{P}(A)\mathbb{P}(B)\)</span> : les événements <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> ne sont pas indépendants.</p>
+<p>Si on considère plus de deux événements, on peut définir deux notions d’indépendance :</p>
+<div class="defbox def">
+<center>
+<strong>Indépendance mutuelle, indépendance deux à deux</strong>
+</center>
+<p>Soient <span class="math inline">\((\Omega, \mathcal{A}, \mathbb{P})\)</span> un espace probabilisé et <span class="math inline">\(A_1,\dots A_m\)</span> des événements.</p>
+<ul>
+<li><span class="math inline">\(A_1,\dots, A_m\)</span> sont dits <strong>mutuellement indépendants</strong> lorsque pour toute partie <span class="math inline">\(\{i_1,\dots i_p\}\subset\{1,\dots, m\}\)</span> on a</li>
+</ul>
+<p><span class="math display">\[\mathbb{P}\left(\bigcap\limits_{j=1}^p A_{i_j}\right)=\prod\limits_{j=1}^p\mathbb{P}(A_{i_j})\]</span></p>
+<ul>
+<li><span class="math inline">\(A_1,\dots, A_m\)</span> sont dits <strong>deux à deux indépendants</strong> lorsque pour tout couple <span class="math inline">\((j,k)\in\{1,\dots, m\}^2\)</span> tel que <span class="math inline">\(j\neq k\)</span>, on a</li>
+</ul>
+<p><span class="math display">\[\mathbb{P}(A_j\cap A_k)=\mathbb{P}(A_j)\mathbb{P}(A_k)\]</span></p>
+</div>
+<p></p>
+<p><strong>Remarques. i.</strong> L’indépendance mutuelle est une notion plus forte que l’indépendance deux à deux :</p>
+<ul>
+<li><p>l’indépendance deux à deux dit que pour toute partie <span class="math inline">\(\{i_1, i_2\}\subset\{1,\dots, m\}\)</span>, <span class="math inline">\(\mathbb{P}(A_{i_1}\cap A_{i_2})=\mathbb{P}(A_{i_1})\mathbb{P}(A_{i_2})\)</span>, alors que l’indépendance mutuelle généralise ce type d’égalité à un nombre <span class="math inline">\(p\)</span> quelconque d’événements, <span class="math inline">\(p\)</span> étant compris entre <span class="math inline">\(1\)</span> et <span class="math inline">\(n\)</span>. Autrement dit, l’indépendance mutuelle implique l’indépendance deux à deux.</p></li>
+<li><p>on peut trouver des exemples où trois événements <span class="math inline">\(A_1, A_2, A_3\)</span> sont deux à deux indépendants sans être mutuellement indépendants. Si on lance une pièce équilibrée deux fois, et que l’on note</p></li>
+<li><p><span class="math inline">\(A_1\)</span> l’événement <em>Obtenir PILE au premier lancer</em></p></li>
+<li><p><span class="math inline">\(A_2\)</span> l’événement <em>Obtenir FACE au deuxième lancer</em></p></li>
+<li><p><span class="math inline">\(A_3\)</span> l’événement <em>Obtenir le même résultat aux deux lancers</em></p></li>
+</ul>
+<p>alors on a</p>
+<p><span class="math display">\[\mathbb{P}(A_1)=\mathbb{P}(A_2)=\mathbb{P}(A_3)=\frac{1}{2}\]</span>
+<span class="math display">\[\mathbb{P}(A_1\cap A_2)=\mathbb{P}(A_1\cap A_3)=\mathbb{P}(A_2\cap A_3)=\frac{1}{4}\]</span>
+<span class="math display">\[\mathbb{P}(A_1\cap A_2\cap A_3)=0\]</span></p>
+<p>Ainsi, pour <span class="math inline">\(i\neq j\)</span> :</p>
+<p><span class="math display">\[\mathbb{P}(A_i\cap A_j)=\mathbb{P}(A_i)\mathbb{P}(A_j)=\frac{1}{4}\]</span>
+donc <span class="math inline">\(A_1,A_2,A_3\)</span> sont deux à deux indépendants.</p>
+<p>Mais</p>
+<p><span class="math display">\[\mathbb{P}(A_1\cap A_2\cap A_3)=0\neq\mathbb{P}(A_1)\mathbb{P}(A_2)\mathbb{P}(A_3)=\frac{1}{8}\]</span></p>
+<p>donc <span class="math inline">\(A_1, A_2, A_3\)</span> ne sont pas mutuellement indépendants.</p>
+<p>L’indépendance deux à deux n’implique donc pas nécessairement l’indépendance mutuelle.</p>
+<p></p>
+<p><strong>ii.</strong> Ces deux notions coïncident cependant de façon évidente pour deux événements.</p>
+</div>
+<div id="probabilités-conditionnelles" class="section level3 hasAnchor" number="2.3.5">
+<h3><span class="header-section-number">2.3.5</span> Probabilités conditionnelles<a href="dénombrement-et-probabilités.html#probabilités-conditionnelles" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Supposons qu’on lance deux dés équilibrés et que l’on relève leurs numéros respectifs. La probabilité que leur somme soit égale à <span class="math inline">\(8\)</span> est égale à <span class="math inline">\(\frac{5}{36}\)</span>. Si maintenant quelqu’un nous dit que leur produit est égal à <span class="math inline">\(12\)</span>, alors avec la connaissance de cette information supplémentaire cette probabilité monte à <span class="math inline">\(\frac{1}{2}\)</span>.</p>
+<p>Dans le premier cas, l’univers est <span class="math inline">\(\Omega=\{1,2,3,4,5,6\}^2\)</span> (de cardinal <span class="math inline">\(36\)</span>) et l’événement <span class="math inline">\(A=\)</span> <em>La somme vaut <span class="math inline">\(8\)</span></em> est réalisé par les couples <span class="math inline">\((2,6), (3,5), (4,4), (5,3)\)</span> et <span class="math inline">\((6,2)\)</span>, et il est donc de cardinal <span class="math inline">\(5\)</span>. Donc on a bien <span class="math inline">\(\mathbb{P}(A)=\frac{5}{36}\)</span>.</p>
+<p>Dans le second cas, l’information sur le produit nous fait changer d’univers. Le nouvel univers est l’événement <span class="math inline">\(B=\)</span> <em>Le produit vaut 12</em> <span class="math inline">\(=B=\{(2,6), (3,4), (4,3), (6,2)\}\)</span>, de cardinal <span class="math inline">\(4\)</span>. Dans ce nouvel univers, l’événement <span class="math inline">\(A\)</span> est réalisé par deux couples de <span class="math inline">\(B\)</span> : <span class="math inline">\((2, 6)\)</span> et <span class="math inline">\((6, 2)\)</span>. La probabilité de <span class="math inline">\(A\)</span> est donc mise à jour suite à l’information apportée par la réalisation de <span class="math inline">\(B\)</span>. Cette nouvelle probabilité est notée <span class="math inline">\(\mathbb{P}(A|B)\)</span> et elle vaut donc <span class="math inline">\(\mathbb{P}(A|B)=\frac{1}{2}\)</span>.</p>
+<center>
+<img src="images/somme_des.PNG" /><!-- -->
+</center>
+<p>Comment l’a-t’on-calculée ?</p>
+<ul>
+<li><p>on a compté le cardinal <span class="math inline">\(\text{Card }(B)\)</span> du nouvel univers <span class="math inline">\(B\)</span> ;</p></li>
+<li><p>on a compté le nombre d’événements élémentaires de <span class="math inline">\(B\)</span> qui réalisent l’événement <span class="math inline">\(A\)</span>, autrement dit on a compté <span class="math inline">\(\text{Card }(A\cap B)\)</span> ;</p></li>
+<li><p>étant en situation d’équiprobabilité, on a calculé <span class="math inline">\(\mathbb{P}(A|B)=\frac{\text{Card }(A\cap B)}{\text{Card }(B)}\)</span>, que l’on peut aussi écrire</p></li>
+</ul>
+<p><span class="math display">\[\mathbb{P}(A|B)=\frac{\mathbb{P}(A\cap B)}{\mathbb{P}(B)}\]</span>
+La définition qui suit est une extension de cette formule au cas général, i.e. sans faire d’hypothèse d’équirépartition des événements élémentaires.</p>
+<div class="defbox def">
+<center>
+<strong>Probabilité conditionelle</strong>
+</center>
+<p>Soient <span class="math inline">\((\Omega, \mathcal{A}, \mathbb{P})\)</span> un espace probabilisé, et <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> deux événements tels que <span class="math inline">\(\mathbb{P}(B)&gt;0\)</span>. On appelle <strong>probabilité conditionnelle de <span class="math inline">\(B\)</span> sachant <span class="math inline">\(A\)</span></strong>, ou encore <strong>probabilité de <span class="math inline">\(B\)</span> conditionnellement à <span class="math inline">\(A\)</span></strong>, le nombre</p>
+<p><span class="math display">\[\mathbb{P}(A|B)=\frac{\mathbb{P}(A\cap B)}{\mathbb{P}(B)}\]</span>
+Cette probabilité conditionnelle est parfois aussi notée <span class="math inline">\(\mathbb{P}_B(A)\)</span>.</p>
+</div>
+<p>Une probabilité conditionnelle est en fait une probabilité comme une autre :</p>
+<div class="thmbox def">
+<p></p>
+<p><strong>Théorème.</strong> Avec les notations précédentes, l’application</p>
+<p><span class="math display">\[\mathbb{P}(\,.\,|B):A\in\mathcal{A}\mapsto\mathbb{P}(A|B)=\frac{\mathbb{P}(A\cap B)}{\mathbb{P}(B)}\]</span>
+est une mesure de probabilité sur l’espace probabilisable <span class="math inline">\((\Omega, \mathcal{A})\)</span> (et donc, <span class="math inline">\((\Omega, \mathcal{A}, \mathbb{P}(\,.\,|B))\)</span> est un espace probabilisé).</p>
+</div>
+<p></p>
+<p><strong>Démonstation.</strong> Tout d’abord, on a</p>
+<p><span class="math display">\[\begin{align}
+\mathbb{P}(\Omega|B) &amp;= \frac{\mathbb{P}(\Omega\cap B)}{\mathbb{P}(B)} \\
+&amp;= \frac{\mathbb{P}(B)}{\mathbb{P}(B)} \\
+&amp;= 1
+\end{align}\]</span></p>
+<p>Par ailleurs, pour <span class="math inline">\((A_n)_n\)</span> une suite d’événements deux à deux incompatibles, on a</p>
+<p><span class="math display">\[\begin{align}
+\mathbb{P}\left(\bigcup\limits_{n=0}^{\infty} A_n\vert B\right) &amp;=\frac{\mathbb{P}\left(\left(\bigcup\limits_{n=0}^{\infty}
+A_n\right)\cap B\right)}{\mathbb{P}(B)} \\
+&amp;=\frac{\mathbb{P}\left(\bigcup\limits_{n=0}^{\infty} \left(A_n\cap B\right)\right)}{\mathbb{P}(B)} \\
+&amp;= \frac{\sum\limits_{n=0}^{\infty}\mathbb{P}\left(A_n\cap B\right)}{\mathbb{P}(B)} \\
+&amp; \text{(car les } A_n\cap B \text{ sont deux à deux incompatibles)} \\
+&amp;=\sum\limits_{n=0}^{\infty}\frac{\mathbb{P}\left(A_n\cap B\right)}{\mathbb{P}(B)} \\
+&amp;=\sum\limits_{n=0}^{\infty}\mathbb{P}\left(A_n | B\right)
+\end{align}\]</span></p>
+<p>D’où le résultat.</p>
+<p><span class="math inline">\(\square\)</span></p>
+<p></p>
+<p><strong>Remarques. i.</strong> On vient de montrer qu’une probabilité conditionnelle est une probabilité. La réciproque est également vraie : une probabilité est une probabilité conditionnelle. Plus précisément, pour tout espace probabilisé <span class="math inline">\((\Omega, \mathcal{A}, \mathbb{P})\)</span>, on a</p>
+<p><span class="math display">\[\mathbb{P}=\mathbb{P}(\,.\,\vert\Omega)\]</span></p>
+<p>Les probabilités et les probabilités conditionnelles sont donc exactement les mêmes objets. Conditionner par <span class="math inline">\(A\)</span>, c’est juste passer d’un univers <span class="math inline">\(\Omega\)</span> à l’univers <span class="math inline">\(A\)</span>.</p>
+<p></p>
+<p><strong>ii.</strong> Puisqu’une probabilité conditionnelle est une probabilité, toutes les propriétés des probabilités sont également vraies pour les probabilités conditionnelles. Par exemple, si <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> sont deux événements tels que <span class="math inline">\(\mathbb{P}(B)&gt;0\)</span> (ce qui autorise à conditionner par <span class="math inline">\(A\)</span>), alors <span class="math inline">\(\mathbb{P}(\overline{A}\vert B)=1-\mathbb{P}(A\vert B)\)</span>.</p>
+<p></p>
+<p><strong>iii.</strong> Dans l’expression <span class="math inline">\(\frac{\mathbb{P}(A\cap B)}{\mathbb{P}(B)}\)</span>, la partie <span class="math inline">\(A\)</span> que l’on mesure apparaît uniquement au numérateur. Le terme au dénominateur est uniquement un facteur de normalisation, qui permet de s’assurer que l’application <span class="math inline">\(A\in\mathcal{A}\mapsto\mathbb{P}(A\vert B)\)</span> somme bien à <span class="math inline">\(1\)</span>.</p>
+<p>La notion d’indépendance présentée plus haut s’interprète de façon très intuitive :</p>
+<div class="thmbox def">
+<p><strong>Théorème (indépendance et conditionnement).</strong> Soient <span class="math inline">\((\Omega, \mathcal{A}, \mathbb{P})\)</span> un espace probabilisé, et <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> deux événements tels que <span class="math inline">\(\mathbb{P}(A)&gt;0\)</span> et <span class="math inline">\(\mathbb{P}(B)&gt;0\)</span>. Alors :</p>
+<p><span class="math display">\[\text{(}A \text{ et } B \text{ sont indépendants )} \Leftrightarrow\text{( }\mathbb{P}(A\vert B)=\mathbb{P}(A) \text{ et } \mathbb{P}(B\vert A)=\mathbb{P}(B)\text{ )}\]</span></p>
+</div>
+<p>Autrement dit, dire que <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> sont indépendants revient à dire que l’information apportée par la survenue de l’un de ces deux événements n’affecte en rien celle de la survenue de l’autre.</p>
+<p></p>
+<p><strong>Démonstration.</strong> Supposons <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> indépendants. Alors</p>
+<p><span class="math display">\[\begin{align}
+\mathbb{P}(A\vert B) &amp;= \frac{\mathbb{P}(A\cap B)}{\mathbb{P}(B)} \\
+&amp;= \frac{\mathbb{P}(A)\mathbb{P}(B)}{\mathbb{P}(B)} \\
+&amp; \text{(par indépendance de} A \text{ et } B\text{)} \\
+&amp;= \mathbb{P}(A) \\
+\end{align}\]</span></p>
+<p>En inversant les rôles joués par <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> (et étant donné que <span class="math inline">\(A\cap B=B\cap A\)</span>) on en déduit l’autre égalité <span class="math inline">\(\mathbb{P}(B\vert A)=\mathbb{P}(B)\)</span>.</p>
+<p>Réciproquement, supposons que <span class="math inline">\(\mathbb{P}(A\vert B)=\mathbb{P}(A)\)</span> et <span class="math inline">\(\mathbb{P}(B\vert A)=\mathbb{P}(B)\)</span>. De la première égalité on déduit que</p>
+<p><span class="math display">\[\frac{\mathbb{P}(A\cap B)}{\mathbb{P}(B)}=\mathbb{P}(A)\]</span>
+autrement dit</p>
+<p><span class="math display">\[\mathbb{P}(A\cap B)=\mathbb{P}(A)\mathbb{P}(B)\]</span></p>
+<p>et <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> sont donc indépendants.</p>
+<p><span class="math inline">\(\square\)</span></p>
+<p>La formule <span class="math inline">\(\mathbb{P}(A\cap B)=\mathbb{P}(A\vert B)\mathbb{P}(B)\)</span> (pour <span class="math inline">\(B\)</span> tel que <span class="math inline">\(\mathbb{P}(B)&gt;0\)</span>), qui découle de la définition de <span class="math inline">\(\mathbb{P}(A\vert B)\)</span>, admet une généralisation au cas où l’on intersecte un nombre quelconque <span class="math inline">\(n\)</span> événements.</p>
+<div class="thmbox thm">
+<p></p>
+<p><strong>Théorème (formule des probabilités composées).</strong> Soient <span class="math inline">\((\Omega, \mathcal{A}, \mathbb{P})\)</span> un espace probabilisé et <span class="math inline">\(A_1, A_2,\dots, A_n\)</span> des événements tels que <span class="math inline">\(\mathbb{P}(A_1\cap A_2\cap\dots A_n)&gt;0\)</span>. Alors on a la formule de chaînage :</p>
+<p><span class="math display">\[\mathbb{P}(A_1\cap A_2\cap\dots\cap A_n)=\mathbb{P}(A_1)\mathbb{P}(A_2\vert A_1)\mathbb{P}(A_3\vert A_1\cap A_2)\dots\mathbb{P}(A_n\vert A_1\cap A_2\dots\cap A_{n-1})\]</span></p>
+</div>
+<p></p>
+<p><strong>Démonstration.</strong> Par récurrence sur <span class="math inline">\(n\in\mathbb{N}^*\)</span> :</p>
+<ul>
+<li><p>pour <span class="math inline">\(n=1\)</span> c’est évident (l’égalité s’écrit <span class="math inline">\(\mathbb{P}(A_1)=\mathbb{P}(A_1)\)</span>. Pour <span class="math inline">\(n=2\)</span>, c’est une conséquence de la définition de <span class="math inline">\(\mathbb{P}(A_1\vert A_2)\)</span>.</p></li>
+<li><p>supposons l’égalité vraie pour <span class="math inline">\(n\)</span> événements quelconques, montrons qu’elle est vraie pour <span class="math inline">\(n+1\)</span> événements quelconques. On considère donc <span class="math inline">\(n+1\)</span> événements <span class="math inline">\(A_1, A_2,\dots, A_n, A_{n+1}\)</span>. Alors</p></li>
+</ul>
+<p><span class="math display">\[\begin{align}
+\mathbb{P}(A_1\cap\dots\cap A_n\dots\cap A_{n+1}) &amp;= \mathbb{P}((A_1\cap A_2\dots\cap A_n)\cap A_{n+1}) \\
+&amp;= \mathbb{P}(A_{n+1} \cap (A_1\cap\dots\cap A_n)) \\
+&amp;= \mathbb{P}(A_{n+1}\vert A_1\dots\cap A_n)\mathbb{P}(A_1\cap\dots\cap A_n) \\
+&amp; \text{(formule pour deux événements)} \\
+&amp;= \mathbb{P}(A_{n+1}\vert A_1\cap\dots\cap A_n)\mathbb{P}(A_1)\mathbb{P}(A_2\vert A_1)\dots\mathbb{P}(A_n\vert A_1\cap\dots\cap A_{n-1}) \\
+&amp; \text{(hypothèse de récurrence)} \\
+&amp;= \mathbb{P}(A_1)\mathbb{P}(A_2\vert A_1)\dots\mathbb{P}(A_n\vert A_1\cap\dots\cap A_{n-1})\mathbb{P}(A_{n+1}\vert A_1\cap\dots\cap A_n) \\
+\end{align}\]</span></p>
+<p>ce qui permet de conclure.</p>
+<p><span class="math inline">\(\square\)</span></p>
 <ul>
 <li><p>Définition</p></li>
 <li><p>Propriétés : les mêmes que pour une probabilité “non conditionnelle”</p></li>
@@ -937,9 +1141,6 @@ Soit maintenant <span class="math inline">\(A=\{\omega_{i_1},\dots,\omega_{i_k}\
 <li><p>Formule des probabilités totales</p></li>
 <li><p>Formule de Bayes</p></li>
 </ul>
-</div>
-<div id="indépendance-deux-à-deux-mutuelle" class="section level3 hasAnchor" number="2.3.5">
-<h3><span class="header-section-number">2.3.5</span> Indépendance (deux à deux, mutuelle)<a href="dénombrement-et-probabilités.html#indépendance-deux-à-deux-mutuelle" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 
 </div>
 </div>

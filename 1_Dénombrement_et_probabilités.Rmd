@@ -1053,9 +1053,304 @@ $\square$
 
 \noindent
 
-**Exemples. i.** 
+**Remarque.** Lorsqu'on effectue un tirage alétoire dans un ensemble fini de façon équiprobable, on dit souvent qu'on effectue un *tirage au hasard*.
+
+\noindent
+
+**Exemples. i. Course hippique.** Lors d'une course hippique, on suppose que les $n$ chevaux au départ ont la même probabilité de gagner. Quelle est la probabilité d'avoir un tiercé gagnant avec un ticket :
+
+- dans l'ordre d'arrivée ?
+- dans l'ordre d'arrivée ou dans un ordre différent ?
+- dans un ordre différent ?
+
+\noindent
+
+**Solution.** On calcule d'abord le nombre de tiercés possibles. C'est le nombre de façons ordonnées de choisir tros chevaux parmi un ensemble de $n$ chevaux. Il y en a donc 
+
+\begin{align}
+A_n^3 &= \frac{n!}{(n-3)!} \\
+&= n(n-1)(n-2) \\
+\end{align}
+
+- il n'y a qu'un seul tiercé gagnant dans l'ordre, la probabilité $p_1$ cherchée est 
+
+$$p_1=\frac{1}{n(n-1)(n-2)}$$
+- le nombre de tiercés gagnant dans l'ordre ou dans un ordre différent est égal au nombre de permutations d'un ensemble à trois éléments, soit $3!=6$. La probabilité $p_2$ cherchée est donc égale à 
+
+$$p_2=\frac{6}{n(n-1)(n-2)}$$
+
+- le nombre de tiercés gagnants dans le désordre est $6-1=5$ donc la probabilité $p_3$ cherchée est 
+
+$$p_3=\frac{5}{n(n-1)(n-2)}$$
+
+**ii. Permutations avec $n-2$ points fixes.** Soit $n$ entier naturel tel que $n\geq 3$. On tire au hasard une permutation aléatoire $\sigma$ de $\mathfrak{S}_n$. Quelle est la probablité qu'elle ait exactement $n-2$ points fixes ? (on dit qu'un entier $i\in\{1,2,\dots, n\}$ est un point fixe de $\sigma$ lorsque $\sigma(i)=i$).
+
+\noindent
+
+**Solution.** Soit $A_n$ l'événement *La permutation $\sigma$ a exactement $n-2$ points fixes*.
+
+\noindent Choisir une telle permutation $\sigma$ revient exactement à :
+
+- choisir $n-2$ points fixes parmi les $n$ entiers de $1$ à $n$ : il y a $\binom{n}{n-2}=\binom{n}{2}=\frac{n(n-1)}{2}$ choix possibles ;
+
+- choisir les deux points non fixes : mais le choix des $n-2$ points fixes à l'étape précédente détermine de façon unique celui des deux points restants ;
+
+- choisir les images des entiers $1,2,\dots, n$. Mais une fois qu'on a fait les choix précédents, il n'y a plus qu'une seule permutation $\sigma$ qui convienne :
+
+  - pour les $n-2$ points fixes $i_1, i_2,\dots i_{n-2}$ on a, par définition $\sigma(i_j)=i_j$ ;
+  
+  - pour les deux points $(i_{n-1}, i_n)$ qui ne sont pas fixes, on a $\sigma(i_{n-1})=i_n$ et $\sigma(i_n)=i_{n-1}$.
+  
+\noindent D'après le principe multiplicatif, il y a donc $\frac{n(n-1)}{2}$ permutations de $\mathfrak{S}_n$ à $n-2$ points fixes. 
+
+\noindent Par ailleurs, il y a exactement $n!$ permutations de $\mathfrak{S}_n$.
+
+\noindent On en déduit que 
+
+$$\mathbb{P}(A_n)=\frac{n(n-1)}{2\,n!}=\frac{1}{2\,(n-2)!}$$
+
+### Indépendance
+
+:::: {.defbox .def data-latex="important"}
+<center>**Indépendance de deux événements**</center>
+
+\noindent Soit $(\Omega, \mathcal{A},\mathbb{P})$ un espace probabilisé. Deux événements $A$ et $B$ sont dits **indépendants** si $\mathbb{P}(A\cap B)=\mathbb{P}(A)\,\mathbb{P}(B)$.
+::::
+
+\noindent 
+
+**Remarque.** La notion d'indépendance est relative à un espace probabilisé $(\Omega, \mathcal{A},\mathbb{P})$. Dit autrement, si on a deux espaces probabilisés $(\Omega, \mathcal{A},\mathbb{P})$ et $(\Omega', \mathcal{A}',\mathbb{P}')$ et $A$ et $B$ qui sont des événements pour ces deux espaces probabilisés à la fois, alors $A$ et $B$ peuvent être indépendants pour l'un des espaces mais pas pour l'autre. Cela peut notamment arriver si on prend deux mesures de probabilité dfférentes $\mathbb{P}$ et $\mathbb{P}'$ pour un même espace probabilisable $(\Omega, \mathcal{A})$. 
+
+
+\noindent
+
+**Exemple.** On lance deux dés cubiques équilibrés. On note :
+
+- $A$ l'événement *La somme des deux numéros obtenus est 7*
+- $B$ l'événement *Le produit des deux nombres obtenus est 6*.
+
+\noindent Les événements $A$ et $B$ sont-ils indépendants ?
+
+\noindent
+
+**Solution.** L'univers $\Omega$ de cette expérience aléatoire est $\Omega=\{1,2,3,4,5,6\}^2$, de cardinal $36$. Par ailleurs : 
+
+$$A=\{(1,6),(2,5),(3,4),(4,3),(5,2), (6,1)\}$$
+$$B=\{(1,6), (2,3), (3,2), (6,1)\}$$
+$$A\cap B=\{(1,6), (6,1)\}$$
+
+\noident Les dés étant équililibrés, les événements élémentaires de $\Omega$ ont tous la même probabilité $p=\frac{1}{36}$, donc :
+
+$$\mathbb{P}(A\cap B)=\frac{2}{36}=\frac{1}{18}$$
+$$\mathbb{P}(A)\mathbb{P}(B)=\frac{6}{36}\frac{4}{36}=\frac{1}{54}$$
+\noindent Donc, $\mathbb{P}(A\cap B)\neq\mathbb{P}(A)\mathbb{P}(B)$ : les événements $A$ et $B$ ne sont pas indépendants.
+
+\noindent Si on considère plus de deux événements, on peut définir deux notions d'indépendance :
+
+:::: {.defbox .def data-latex="important"}
+<center>**Indépendance mutuelle, indépendance deux à deux**</center>
+
+\noindent Soient $(\Omega, \mathcal{A}, \mathbb{P})$ un espace probabilisé et $A_1,\dots A_m$ des événements. 
+
+- $A_1,\dots, A_m$ sont dits **mutuellement indépendants** lorsque pour toute partie $\{i_1,\dots i_p\}\subset\{1,\dots, m\}$ on a 
+
+$$\mathbb{P}\left(\bigcap\limits_{j=1}^p A_{i_j}\right)=\prod\limits_{j=1}^p\mathbb{P}(A_{i_j})$$
+
+-  $A_1,\dots, A_m$ sont dits **deux à deux indépendants** lorsque pour tout couple $(j,k)\in\{1,\dots, m\}^2$ tel que $j\neq k$, on a
+
+$$\mathbb{P}(A_j\cap A_k)=\mathbb{P}(A_j)\mathbb{P}(A_k)$$
+::::
+
+\noindent
+
+**Remarques. i.** L'indépendance mutuelle est une notion plus forte que l'indépendance deux à deux :
+
+- l'indépendance deux à deux dit que pour toute partie $\{i_1, i_2\}\subset\{1,\dots, m\}$, $\mathbb{P}(A_{i_1}\cap A_{i_2})=\mathbb{P}(A_{i_1})\mathbb{P}(A_{i_2})$, alors que l'indépendance mutuelle généralise ce type d'égalité à un nombre $p$ quelconque d'événements, $p$ étant compris entre $1$ et $n$. Autrement dit, l'indépendance mutuelle implique l'indépendance deux à deux.
+
+- on peut trouver des exemples où trois événements $A_1, A_2, A_3$ sont deux à deux indépendants sans être mutuellement indépendants. Si on lance une pièce équilibrée deux fois, et que l'on note 
+
+- $A_1$ l'événement *Obtenir PILE au premier lancer*
+- $A_2$ l'événement *Obtenir FACE au deuxième lancer*
+- $A_3$ l'événement *Obtenir le même résultat aux deux lancers*
+
+\noindent alors on a 
+
+$$\mathbb{P}(A_1)=\mathbb{P}(A_2)=\mathbb{P}(A_3)=\frac{1}{2}$$
+$$\mathbb{P}(A_1\cap A_2)=\mathbb{P}(A_1\cap A_3)=\mathbb{P}(A_2\cap A_3)=\frac{1}{4}$$
+$$\mathbb{P}(A_1\cap A_2\cap A_3)=0$$
+
+\noindent Ainsi, pour $i\neq j$ :
+
+$$\mathbb{P}(A_i\cap A_j)=\mathbb{P}(A_i)\mathbb{P}(A_j)=\frac{1}{4}$$
+donc $A_1,A_2,A_3$ sont deux à deux indépendants. 
+
+\noindent Mais 
+
+$$\mathbb{P}(A_1\cap A_2\cap A_3)=0\neq\mathbb{P}(A_1)\mathbb{P}(A_2)\mathbb{P}(A_3)=\frac{1}{8}$$
+
+\noindent donc $A_1, A_2, A_3$ ne sont pas mutuellement indépendants. 
+
+\noindent L'indépendance deux à deux n'implique donc pas nécessairement l'indépendance mutuelle.
+
+\noindent 
+
+**ii.** Ces deux notions coïncident cependant de façon évidente pour deux événements.
+
 
 ### Probabilités conditionnelles
+
+\noindent Supposons qu'on lance deux dés équilibrés et que l'on relève leurs numéros respectifs. La probabilité que leur somme soit égale à $8$ est égale à $\frac{5}{36}$. Si maintenant quelqu'un nous dit que leur produit est égal à $12$, alors avec la connaissance de cette information supplémentaire cette probabilité monte à $\frac{1}{2}$.
+
+\noindent Dans le premier cas, l'univers est $\Omega=\{1,2,3,4,5,6\}^2$ (de cardinal $36$) et l'événement $A=$ *La somme vaut $8$* est réalisé par les couples $(2,6), (3,5), (4,4), (5,3)$ et $(6,2)$, et il est donc de cardinal $5$. Donc on a bien $\mathbb{P}(A)=\frac{5}{36}$.
+
+\noindent Dans le second cas, l'information sur le produit nous fait changer d'univers. Le nouvel univers est l'événement $B=$ *Le produit vaut 12* $=B=\{(2,6), (3,4), (4,3), (6,2)\}$, de cardinal $4$. Dans ce nouvel univers, l'événement $A$ est réalisé par deux couples de $B$ : $(2, 6)$ et $(6, 2)$. La probabilité de $A$ est donc mise à jour suite à l'information apportée par la réalisation de $B$. Cette nouvelle probabilité est notée $\mathbb{P}(A|B)$ et elle vaut donc $\mathbb{P}(A|B)=\frac{1}{2}$. 
+
+<center>
+```{r, echo = FALSE}
+knitr::include_graphics("C:/Users/olivier.guin/Travail/Formation_Administrateur/Cours/Cours_probabilités_statistique/images/somme_des.png") 
+```
+</center>
+
+\noindent Comment l'a-t'on-calculée ?
+
+- on a compté le cardinal $\text{Card }(B)$ du nouvel univers $B$ ;
+
+- on a compté le nombre d'événements élémentaires de $B$ qui réalisent l'événement $A$, autrement dit on a compté $\text{Card }(A\cap B)$ ;
+- étant en situation d'équiprobabilité, on a calculé $\mathbb{P}(A|B)=\frac{\text{Card }(A\cap B)}{\text{Card }(B)}$, que l'on peut aussi écrire
+
+$$\mathbb{P}(A|B)=\frac{\mathbb{P}(A\cap B)}{\mathbb{P}(B)}$$
+\noindent La définition qui suit est une extension de cette formule au cas général, i.e. sans faire d'hypothèse d'équirépartition des événements élémentaires.
+
+:::: {.defbox .def data-latex="important"}
+<center>**Probabilité conditionelle**</center>
+
+\noindent Soient $(\Omega, \mathcal{A}, \mathbb{P})$ un espace probabilisé, et $A$ et $B$ deux événements tels que $\mathbb{P}(B)>0$. On appelle **probabilité conditionnelle de $B$ sachant $A$**, ou encore **probabilité de $B$ conditionnellement à $A$**, le nombre 
+
+$$\mathbb{P}(A|B)=\frac{\mathbb{P}(A\cap B)}{\mathbb{P}(B)}$$
+\noindent Cette probabilité conditionnelle est parfois aussi notée $\mathbb{P}_B(A)$.
+::::
+
+\noindent Une probabilité conditionnelle est en fait une probabilité comme une autre :
+
+:::: {.thmbox .def data-latex="important"}
+\noindent
+
+**Théorème.** Avec les notations précédentes, l'application
+
+$$\mathbb{P}(\,.\,|B):A\in\mathcal{A}\mapsto\mathbb{P}(A|B)=\frac{\mathbb{P}(A\cap B)}{\mathbb{P}(B)}$$
+\noindent est une mesure de probabilité sur l'espace probabilisable $(\Omega, \mathcal{A})$ (et donc, $(\Omega, \mathcal{A}, \mathbb{P}(\,.\,|B))$ est un espace probabilisé).
+::::
+
+\noindent
+
+**Démonstation.** Tout d'abord, on a 
+
+\begin{align}
+\mathbb{P}(\Omega|B) &= \frac{\mathbb{P}(\Omega\cap B)}{\mathbb{P}(B)} \\
+&= \frac{\mathbb{P}(B)}{\mathbb{P}(B)} \\
+&= 1
+\end{align}
+
+\noindent Par ailleurs, pour $(A_n)_n$ une suite d'événements deux à deux incompatibles, on a 
+
+\begin{align}
+\mathbb{P}\left(\bigcup\limits_{n=0}^{\infty} A_n\vert B\right) &=\frac{\mathbb{P}\left(\left(\bigcup\limits_{n=0}^{\infty} 
+A_n\right)\cap B\right)}{\mathbb{P}(B)} \\
+&=\frac{\mathbb{P}\left(\bigcup\limits_{n=0}^{\infty} \left(A_n\cap B\right)\right)}{\mathbb{P}(B)} \\
+&= \frac{\sum\limits_{n=0}^{\infty}\mathbb{P}\left(A_n\cap B\right)}{\mathbb{P}(B)} \\
+& \text{(car les } A_n\cap B \text{ sont deux à deux incompatibles)} \\
+&=\sum\limits_{n=0}^{\infty}\frac{\mathbb{P}\left(A_n\cap B\right)}{\mathbb{P}(B)} \\
+&=\sum\limits_{n=0}^{\infty}\mathbb{P}\left(A_n | B\right)
+\end{align}
+
+\noindent D'où le résultat.
+
+$\square$
+
+\noindent 
+
+**Remarques. i.** On vient de montrer qu'une probabilité conditionnelle est une probabilité. La réciproque est également vraie : une probabilité est une probabilité conditionnelle. Plus précisément, pour tout espace probabilisé $(\Omega, \mathcal{A}, \mathbb{P})$, on a 
+
+$$\mathbb{P}=\mathbb{P}(\,.\,\vert\Omega)$$
+
+\noindent Les probabilités et les probabilités conditionnelles sont donc exactement les mêmes objets. Conditionner par $A$, c'est juste passer d'un univers $\Omega$ à l'univers $A$.
+
+\noindent 
+
+**ii.** Puisqu'une probabilité conditionnelle est une probabilité, toutes les propriétés des probabilités sont également vraies pour les probabilités conditionnelles. Par exemple, si $A$ et $B$ sont deux événements tels que $\mathbb{P}(B)>0$ (ce qui autorise à conditionner par $A$), alors $\mathbb{P}(\overline{A}\vert B)=1-\mathbb{P}(A\vert B)$.
+
+\noindent
+
+**iii.** Dans l'expression $\frac{\mathbb{P}(A\cap B)}{\mathbb{P}(B)}$, la partie $A$ que l'on mesure apparaît uniquement au numérateur. Le terme au dénominateur est uniquement un facteur de normalisation, qui permet de s'assurer que l'application $A\in\mathcal{A}\mapsto\mathbb{P}(A\vert B)$ somme bien à $1$.
+
+
+
+\noindent La notion d'indépendance présentée plus haut s'interprète de façon très intuitive :
+
+:::: {.thmbox .def data-latex="important"}
+**Théorème (indépendance et conditionnement).** Soient $(\Omega, \mathcal{A}, \mathbb{P})$ un espace probabilisé, et $A$ et $B$ deux événements tels que $\mathbb{P}(A)>0$ et $\mathbb{P}(B)>0$. Alors :
+
+$$\text{(}A \text{ et } B \text{ sont indépendants )} \Leftrightarrow\text{( }\mathbb{P}(A\vert B)=\mathbb{P}(A) \text{ et } \mathbb{P}(B\vert A)=\mathbb{P}(B)\text{ )}$$
+::::
+
+\noindent Autrement dit, dire que $A$ et $B$ sont indépendants revient à dire que l'information apportée par la survenue de l'un de ces deux événements n'affecte en rien celle de la survenue de l'autre.
+
+\noindent 
+
+**Démonstration.** Supposons $A$ et $B$ indépendants. Alors 
+
+\begin{align}
+\mathbb{P}(A\vert B) &= \frac{\mathbb{P}(A\cap B)}{\mathbb{P}(B)} \\
+&= \frac{\mathbb{P}(A)\mathbb{P}(B)}{\mathbb{P}(B)} \\
+& \text{(par indépendance de} A \text{ et } B\text{)} \\
+&= \mathbb{P}(A) \\
+\end{align}
+
+\noindent En inversant les rôles joués par $A$ et $B$ (et étant donné que $A\cap B=B\cap A$) on en déduit l'autre égalité $\mathbb{P}(B\vert A)=\mathbb{P}(B)$.
+
+\noindent Réciproquement, supposons que  $\mathbb{P}(A\vert B)=\mathbb{P}(A)$ et $\mathbb{P}(B\vert A)=\mathbb{P}(B)$. De la première égalité on déduit que 
+
+$$\frac{\mathbb{P}(A\cap B)}{\mathbb{P}(B)}=\mathbb{P}(A)$$
+\noindent autrement dit 
+
+$$\mathbb{P}(A\cap B)=\mathbb{P}(A)\mathbb{P}(B)$$
+
+et $A$ et $B$ sont donc indépendants.
+
+$\square$
+
+\noindent La formule $\mathbb{P}(A\cap B)=\mathbb{P}(A\vert B)\mathbb{P}(B)$ (pour $B$ tel que $\mathbb{P}(B)>0$), qui découle de la définition de $\mathbb{P}(A\vert B)$, admet une généralisation au cas où l'on intersecte un nombre quelconque $n$ événements.
+
+:::: {.thmbox .thm data-latex="important"}
+
+\noindent
+
+**Théorème (formule des probabilités composées).** Soient $(\Omega, \mathcal{A}, \mathbb{P})$ un espace probabilisé et $A_1, A_2,\dots, A_n$ des événements tels que $\mathbb{P}(A_1\cap A_2\cap\dots A_n)>0$. Alors on a la formule de chaînage :
+
+$$\mathbb{P}(A_1\cap A_2\cap\dots\cap A_n)=\mathbb{P}(A_1)\mathbb{P}(A_2\vert A_1)\mathbb{P}(A_3\vert A_1\cap A_2)\dots\mathbb{P}(A_n\vert A_1\cap A_2\dots\cap A_{n-1})$$
+::::
+
+\noindent
+
+**Démonstration.** Par récurrence sur $n\in\mathbb{N}^*$ :
+
+- pour $n=1$ c'est évident (l'égalité s'écrit $\mathbb{P}(A_1)=\mathbb{P}(A_1)$. Pour $n=2$, c'est une conséquence de la définition de $\mathbb{P}(A_1\vert A_2)$.
+
+- supposons l'égalité vraie pour $n$ événements quelconques, montrons qu'elle est vraie pour $n+1$ événements quelconques. On considère donc $n+1$ événements $A_1, A_2,\dots, A_n, A_{n+1}$. Alors
+
+\begin{align}
+\mathbb{P}(A_1\cap\dots\cap A_n\dots\cap A_{n+1}) &= \mathbb{P}((A_1\cap A_2\dots\cap A_n)\cap A_{n+1}) \\
+&= \mathbb{P}(A_{n+1} \cap (A_1\cap\dots\cap A_n)) \\
+&= \mathbb{P}(A_{n+1}\vert A_1\dots\cap A_n)\mathbb{P}(A_1\cap\dots\cap A_n) \\
+& \text{(formule pour deux événements)} \\
+&= \mathbb{P}(A_{n+1}\vert A_1\cap\dots\cap A_n)\mathbb{P}(A_1)\mathbb{P}(A_2\vert A_1)\dots\mathbb{P}(A_n\vert A_1\cap\dots\cap A_{n-1}) \\
+& \text{(hypothèse de récurrence)} \\
+&= \mathbb{P}(A_1)\mathbb{P}(A_2\vert A_1)\dots\mathbb{P}(A_n\vert A_1\cap\dots\cap A_{n-1})\mathbb{P}(A_{n+1}\vert A_1\cap\dots\cap A_n) \\
+\end{align}
+
+\noindent ce qui permet de conclure.
+
+$\square$
 
 
 -   Définition
@@ -1069,4 +1364,3 @@ $\square$
 -   Formule de Bayes
 
 
-### Indépendance (deux à deux, mutuelle)

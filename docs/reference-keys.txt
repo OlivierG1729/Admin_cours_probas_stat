@@ -106,3 +106,5 @@ tests-unilatéraux-tests-bilatéraux
 exemples
 méthodologie
 convergence-1
+url-your-book-url-like-httpsbookdown.orgyihuibookdown
+indépendance
