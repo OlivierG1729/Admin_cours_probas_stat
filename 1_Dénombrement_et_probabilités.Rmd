@@ -684,7 +684,7 @@ $\square$
 **ii.** La deuxième démonstration de la formule du triangle de Pascal repose sur une approche classique en dénombrement : compter la même chose de deux façons différentes. 
 
 
-## Langage des probabilités
+## Langage et formalisme des probabilités
 
 \noindent On introduit maintenant les notions de base des probabilités. Le but est de construire progressivement un triplet de la forme
 
@@ -1109,7 +1109,7 @@ $$p_3=\frac{5}{n(n-1)(n-2)}$$
 
 $$\mathbb{P}(A_n)=\frac{n(n-1)}{2\,n!}=\frac{1}{2\,(n-2)!}$$
 
-### Indépendance
+## Indépendance
 
 :::: {.defbox .def data-latex="important"}
 <center>**Indépendance de deux événements**</center>
@@ -1197,7 +1197,7 @@ $$\mathbb{P}(A_1\cap A_2\cap A_3)=0\neq\mathbb{P}(A_1)\mathbb{P}(A_2)\mathbb{P}(
 **ii.** Ces deux notions coïncident cependant de façon évidente pour deux événements.
 
 
-### Probabilités conditionnelles
+## Probabilités conditionnelles
 
 \noindent Supposons qu'on lance deux dés équilibrés et que l'on relève leurs numéros respectifs. La probabilité que leur somme soit égale à $8$ est égale à $\frac{5}{36}$. Si maintenant quelqu'un nous dit que leur produit est égal à $12$, alors avec la connaissance de cette information supplémentaire cette probabilité monte à $\frac{1}{2}$.
 
@@ -1381,7 +1381,7 @@ $$\mathbb{P}(A_1\cap A_2\cap A_3)=\mathbb{P}(A_1)\mathbb{P}(A_2\vert A_1)\mathbb
 \end{align}
 
 
-### Formule des probabilités totales
+## Formule des probabilités totales
 
 \noindent La formule des probabilités totales est très utile pour calculer une probabilité lorsque l'on dispose d'un **système complet d'événements** :
 
@@ -1510,7 +1510,7 @@ $$\mathbb{P}(B_1\cap N_2)=\mathbb{P}(B_1\cap N_2\cap A)+\mathbb{P}(B_1\cap N_2\c
 
 \noindent On fait ensuite exactement le même type de calcul pour $\mathbb{P}(N_1\cap B_2)$.
 
-### Formule de Bayes
+## Formule de Bayes
 
 \noindent La formule de Bayes a ceci de particulier qu'elle est à la fois extrêmement simple et pourtant absolument fondamentale.
 
