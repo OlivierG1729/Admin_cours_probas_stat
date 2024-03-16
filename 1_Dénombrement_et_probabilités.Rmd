@@ -1600,4 +1600,30 @@ $$\mathbb{P}(B\vert B_1)>\mathbb{P}(C\vert B_1)>\mathbb{P}(A\vert B_1)$$
 $$\mathbb{P}(A\vert B_1)=\frac{3}{15}$$
 $$\mathbb{P}(B\vert B_1)=\frac{8}{15}$$
 $$\mathbb{P}(C\vert B_1)=\frac{4}{15}$$
+\noindent
 
+:::: {.defbox .def data-latex="important"}
+<center>**Probabilité a priori, probabilité a posteriori, vraisemblance**</center>
+
+Dans la formule de Bayes
+
+$$\mathbb{P}(B\vert A)=\frac{\mathbb{P}(A\vert B)\,\mathbb{P}(B)}{\mathbb{P}(A)}$$
+\noindent chaque terme a un nom :
+
+- $\mathbb{P}(B)$ est la **probabilité a priori de $B$** : ce terme  modélise notre croyance sur $B$ en l'absence de toute information ; 
+- $\mathbb{P}(B\vert A)$ est la **probabilité a posteriori de $B$** sachant l'événement $A$ : il s'agit de notre niveau de notre confiance en $B$ après avoir pris connaissance de l'information $A$ ;
+
+- $\mathbb{P}(A\vert B)$ est la **fonction de vraisemblance de $A$** : ce terme nous dit à quel point l'événement $B$ rend $A$ vraisemblable ;
+
+- $\mathbb{P}(B)$ est la **marginale** ou **probabilité a priori de $B$** : il s'agit juste d'un terme de normalisation, qui est souvent ignoré en statistique bayésienne (les calculs étant alors faits à une constante près).
+::::
+
+**Remarques. i.** La mise à jour de la probabilité de $B$ repose donc sur deux termes : la probabilité *a priori* de $B$ et la fonction de vraisemblance. Ces deux termes ont des rôles bien spécfiques :
+
+- une probabilité *a priori* élevée tend à augmenter la probabilité *a posteriori*. Ce terme favorise donc une persistance de nos croyances ;
+
+- il peut être contrebalancé par une vraisemblance faible. Si je crois en $B$, mais que je sais par ailleurs que $B$ rend l'événement $A$ peu probable, toutes choses égales par ailleurs la survenue de $A$ va réduire mon niveau de croyance en $B$.
+
+\noindent 
+
+**ii.** La formule de Bayes est aussi appelée **formule de probabilité des causes**, car elle permet de calculer la probabilité d'une cause à partir de l'observation de ses conséquences. Cette formule est le point de départ de l'**inférence bayésienne**, qui envisage les probabilités comme des niveaux de croyance qui sont sans cesse remis à jour au fur et à mesure que de nouvelles données sont disponibles. Elle diffère de l'**inférence fréquentiste** qui considère une probabilité comme une fréquence limite, via l'utilisation de la loi des grands nombres. L'inférence bayésienne repose sur l'utilisation de probabilités *a priori*, qui sont souvent considérées comme des probabilités à dire d'expert.  Ses détracteurs y voient là une faiblesse de la théorie, qui laisse à leurs yeux une place trop importante à la subjectivité.

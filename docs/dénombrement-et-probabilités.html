@@ -1304,7 +1304,29 @@ Imaginons maintenant qu’on nous donne une information supplémentaire. La pers
 <p>L’information apportée a donc modifié nos croyances de la façon suivante :</p>
 <p><span class="math display">\[\mathbb{P}(A\vert B_1)=\frac{3}{15}\]</span>
 <span class="math display">\[\mathbb{P}(B\vert B_1)=\frac{8}{15}\]</span>
-<span class="math display">\[\mathbb{P}(C\vert B_1)=\frac{4}{15}\]</span></p>
+<span class="math display">\[\mathbb{P}(C\vert B_1)=\frac{4}{15}\]</span>
+</p>
+<div class="defbox def">
+<center>
+<strong>Probabilité a priori, probabilité a posteriori, vraisemblance</strong>
+</center>
+<p>Dans la formule de Bayes</p>
+<p><span class="math display">\[\mathbb{P}(B\vert A)=\frac{\mathbb{P}(A\vert B)\,\mathbb{P}(B)}{\mathbb{P}(A)}\]</span>
+chaque terme a un nom :</p>
+<ul>
+<li><p><span class="math inline">\(\mathbb{P}(B)\)</span> est la <strong>probabilité a priori de <span class="math inline">\(B\)</span></strong> : ce terme modélise notre croyance sur <span class="math inline">\(B\)</span> en l’absence de toute information ; ;</p></li>
+<li><p><span class="math inline">\(\mathbb{P}(B\vert A)\)</span> est la <strong>probabilité a posteriori de <span class="math inline">\(B\)</span></strong> sachant l’événement <span class="math inline">\(A\)</span> : il s’agit de notre niveau de notre confiance en <span class="math inline">\(B\)</span> après avoir pris connaissance de l’information <span class="math inline">\(A\)</span> ;</p></li>
+<li><p><span class="math inline">\(\mathbb{P}(A\vert B)\)</span> est la <strong>fonction de vraisemblance de <span class="math inline">\(A\)</span></strong> : ce terme nous dit à quel point l’événement <span class="math inline">\(B\)</span> rend <span class="math inline">\(A\)</span> vraisemblable ;</p></li>
+<li><p><span class="math inline">\(\mathbb{P}(B)\)</span> est la <strong>marginale</strong> ou <strong>probabilité a priori de <span class="math inline">\(B\)</span></strong> : il s’agit juste d’un terme de normalisation, qui est souvent ignoré en statistique bayésienne (les calculs étant alors faits à une constante près).</p></li>
+</ul>
+</div>
+<p><strong>Remarques. i.</strong> La mise à jour de la probabilité de <span class="math inline">\(B\)</span> repose donc sur deux termes : la probabilité <em>a priori</em> de <span class="math inline">\(B\)</span> et la fonction de vraisemblance. Ces deux termes ont des rôles bien spécfiques :</p>
+<ul>
+<li><p>une probabilité <em>a priori</em> élevée tend à augmenter la probabilité <em>a posteriori</em>. Ce terme favorise donc une persistance de nos croyances ;</p></li>
+<li><p>il peut être contrebalancé par une vraisemblance faible. Si je crois en <span class="math inline">\(B\)</span>, mais que je sais par ailleurs que <span class="math inline">\(B\)</span> rend l’événement <span class="math inline">\(A\)</span> peu probable, toutes choses égales par ailleurs la survenue de <span class="math inline">\(A\)</span> va réduire mon niveau de croyance en <span class="math inline">\(B\)</span>.</p></li>
+</ul>
+<p></p>
+<p><strong>ii.</strong> La formule de Bayes est aussi appelée <strong>formule de probabilité des causes</strong>, car elle permet de calculer la probabilité d’une cause à partir de l’observation de ses conséquences. Cette formule est le point de départ de l’<strong>inférence bayésienne</strong>, qui envisage les probabilités comme des niveaux de croyance qui sont sans cesse remis à jour au fur et à mesure que de nouvelles données sont disponibles. Elle diffère de l’<strong>inférence fréquentiste</strong> qui considère une probabilité comme une fréquence limite, via l’utilisation de la loi des grands nombres. L’inférence bayésienne repose sur l’utilisation de probabilités <em>a priori</em>, qui sont souvent considérées comme des probabilités à dire d’expert. Ses détracteurs y voient là une faiblesse de la théorie, qui laisse à leurs yeux une place trop importante à la subjectivité.</p>
 
 </div>
 </div>
