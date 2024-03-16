@@ -1277,6 +1277,34 @@ et donc en appliquant la formule de Bayes avec <span class="math inline">\(B=B_i
 <p>En particulier, <span class="math inline">\(\{B, \overline{B}\}\)</span> étant un système complet d’événements, on a donc</p>
 <p><span class="math display">\[\mathbb{P}(B\vert A)=\frac{\mathbb{P}(A\vert B)\,\mathbb{P}(B)}{\mathbb{P}(A\vert B)\,\mathbb{P}(B)+\mathbb{P}(A\vert\overline{B})\,\mathbb{P}(\overline{B})}\]</span></p>
 <p><span class="math inline">\(\square\)</span></p>
+<p></p>
+<p><strong>Interprétation de la formule de Bayes.</strong> On peut voir la formule de Bayes comme une mise à jour de nos croyances, lorsqu’on acquière de l’information. Pour illustrer ce point, on reprend l’exemple des trois urnes <span class="math inline">\(A, B\)</span> et <span class="math inline">\(C\)</span> vu plus haut. Imaginons un jeu dans lequel on doit deviner l’urne choisie secrètement par une autre personne. En l’absence de toute information, nous n’avons aucune raison de privilégier une urne à l’autre, et donc on décide de retenir un modèle de choix d’urne équiprobabiliste :</p>
+<p><span class="math display">\[\mathbb{P}(A)=\mathbb{P}(B)=\mathbb{P}(C)=\frac{1}{3}\]</span>
+Imaginons maintenant qu’on nous donne une information supplémentaire. La personne qui a choisi l’urne y a tiré une boule au hasard, et elle a obtenu une boule blanche. Cette information va affecter notre modèle probabliste du choix de l’urne. Intutivement, sans faire explicitement de calcul, on a envie d’attribuer une probabilité plus grande à l’urne <span class="math inline">\(B\)</span>. Plus formellement, les niveaux de crédibilité qu’on va attribuer aux trois urnes <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span> et <span class="math inline">\(C\)</span> sont désormais <span class="math inline">\(\mathbb{P}(A\vert B_1)\)</span>, <span class="math inline">\(\mathbb{P}(B\vert B_1)\)</span> et <span class="math inline">\(\mathbb{P}(C\vert B_1)\)</span> et on a :</p>
+<p><span class="math display">\[\mathbb{P}(B\vert B_1)&gt;\mathbb{P}(C\vert B_1)&gt;\mathbb{P}(A\vert B_1)\]</span></p>
+<p>L’ajout de cette information a donc modifié notre système de croyances sur l’urne choisie, en mettant à jour les probabilités associées à chacune des urnes. Le calcul de ces probablités via l’utilisation de la formule de Bayes confirme notre intuition :</p>
+<p><span class="math display">\[\begin{align}
+\mathbb{P}(A\vert B_1) &amp;= \frac{\mathbb{P}(B_1\vert A)\mathbb{P}(A)}{\mathbb{P}(B_1\vert A)\mathbb{P}(A)+\mathbb{P}(B_1\vert B)\mathbb{P}(B)+\mathbb{P}(B_1\vert C)\mathbb{P}(C)} \\
+&amp;= \frac{\mathbb{P}(B_1\vert A)}{\mathbb{P}(B_1\vert A)+\mathbb{P}(B_1\vert B)+\mathbb{P}(B_1\vert C)} \\
+&amp;= \frac{\frac{3}{10}}{\frac{3}{10}+\frac{8}{10}+\frac{4}{10}} \\
+&amp;= \frac{3}{15}
+\end{align}\]</span></p>
+<p><span class="math display">\[\begin{align}
+\mathbb{P}(B\vert B_1) &amp;= \frac{\mathbb{P}(B_1\vert B)\mathbb{P}(B)}{\mathbb{P}(B_1\vert A)\mathbb{P}(A)+\mathbb{P}(B_1\vert B)\mathbb{P}(B)+\mathbb{P}(B_1\vert C)\mathbb{P}(C)} \\
+&amp;= \frac{\mathbb{P}(B_1\vert B)}{\mathbb{P}(B_1\vert A)+\mathbb{P}(B_1\vert B)+\mathbb{P}(B_1\vert C)} \\
+&amp;= \frac{\frac{3}{10}}{\frac{3}{10}+\frac{8}{10}+\frac{4}{10}} \\
+&amp;= \frac{8}{15}
+\end{align}\]</span></p>
+<p><span class="math display">\[\begin{align}
+\mathbb{P}(C\vert B_1) &amp;= \frac{\mathbb{P}(B_1\vert C)\mathbb{P}(C)}{\mathbb{P}(B_1\vert A)\mathbb{P}(A)+\mathbb{P}(B_1\vert B)\mathbb{P}(B)+\mathbb{P}(B_1\vert C)\mathbb{P}(C)} \\
+&amp;= \frac{\mathbb{P}(B_1\vert C)}{\mathbb{P}(B_1\vert A)+\mathbb{P}(B_1\vert B)+\mathbb{P}(B_1\vert C)} \\
+&amp;= \frac{\frac{4}{10}}{\frac{3}{10}+\frac{8}{10}+\frac{4}{10}} \\
+&amp;= \frac{4}{15}
+\end{align}\]</span></p>
+<p>L’information apportée a donc modifié nos croyances de la façon suivante :</p>
+<p><span class="math display">\[\mathbb{P}(A\vert B_1)=\frac{3}{15}\]</span>
+<span class="math display">\[\mathbb{P}(B\vert B_1)=\frac{8}{15}\]</span>
+<span class="math display">\[\mathbb{P}(C\vert B_1)=\frac{4}{15}\]</span></p>
 
 </div>
 </div>

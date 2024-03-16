@@ -1561,7 +1561,43 @@ $$\mathbb{P}(B\vert A)=\frac{\mathbb{P}(A\vert B)\,\mathbb{P}(B)}{\mathbb{P}(A\v
 
 $\square$
 
+\noindent
+
+**Interprétation de la formule de Bayes.** On peut voir la formule de Bayes comme une mise à jour de nos croyances, lorsqu'on acquière de l'information. Pour illustrer ce point, on reprend l'exemple des trois urnes $A, B$ et $C$ vu plus haut. Imaginons un jeu dans lequel on doit deviner l'urne choisie secrètement par une autre personne. En l'absence de toute information, nous n'avons aucune raison de privilégier une urne à l'autre, et donc on décide de retenir un modèle de choix d'urne équiprobabiliste :
+
+$$\mathbb{P}(A)=\mathbb{P}(B)=\mathbb{P}(C)=\frac{1}{3}$$
+\noindent Imaginons maintenant qu'on nous donne une information supplémentaire. La personne qui a choisi l'urne y a tiré une boule au hasard, et elle a obtenu une boule blanche. Cette information va affecter notre modèle probabliste du choix de l'urne. Intutivement, sans faire explicitement de calcul, on a envie d'attribuer une probabilité plus grande à l'urne $B$. Plus formellement, les niveaux de crédibilité qu'on va attribuer aux trois urnes $A$, $B$ et $C$ sont désormais $\mathbb{P}(A\vert B_1)$, $\mathbb{P}(B\vert B_1)$ et $\mathbb{P}(C\vert B_1)$ et on a :
+
+$$\mathbb{P}(B\vert B_1)>\mathbb{P}(C\vert B_1)>\mathbb{P}(A\vert B_1)$$
+
+\noindent L'ajout de cette information a donc modifié notre système de croyances sur l'urne choisie, en mettant à jour les probabilités associées à chacune des urnes. Le calcul de ces probablités via l'utilisation de la formule de Bayes confirme notre intuition :
 
 
+\begin{align}
+\mathbb{P}(A\vert B_1) &= \frac{\mathbb{P}(B_1\vert A)\mathbb{P}(A)}{\mathbb{P}(B_1\vert A)\mathbb{P}(A)+\mathbb{P}(B_1\vert B)\mathbb{P}(B)+\mathbb{P}(B_1\vert C)\mathbb{P}(C)} \\
+&= \frac{\mathbb{P}(B_1\vert A)}{\mathbb{P}(B_1\vert A)+\mathbb{P}(B_1\vert B)+\mathbb{P}(B_1\vert C)} \\
+&= \frac{\frac{3}{10}}{\frac{3}{10}+\frac{8}{10}+\frac{4}{10}} \\
+&= \frac{3}{15}
+\end{align}
 
+
+\begin{align}
+\mathbb{P}(B\vert B_1) &= \frac{\mathbb{P}(B_1\vert B)\mathbb{P}(B)}{\mathbb{P}(B_1\vert A)\mathbb{P}(A)+\mathbb{P}(B_1\vert B)\mathbb{P}(B)+\mathbb{P}(B_1\vert C)\mathbb{P}(C)} \\
+&= \frac{\mathbb{P}(B_1\vert B)}{\mathbb{P}(B_1\vert A)+\mathbb{P}(B_1\vert B)+\mathbb{P}(B_1\vert C)} \\
+&= \frac{\frac{3}{10}}{\frac{3}{10}+\frac{8}{10}+\frac{4}{10}} \\
+&= \frac{8}{15}
+\end{align}
+
+\begin{align}
+\mathbb{P}(C\vert B_1) &= \frac{\mathbb{P}(B_1\vert C)\mathbb{P}(C)}{\mathbb{P}(B_1\vert A)\mathbb{P}(A)+\mathbb{P}(B_1\vert B)\mathbb{P}(B)+\mathbb{P}(B_1\vert C)\mathbb{P}(C)} \\
+&= \frac{\mathbb{P}(B_1\vert C)}{\mathbb{P}(B_1\vert A)+\mathbb{P}(B_1\vert B)+\mathbb{P}(B_1\vert C)} \\
+&= \frac{\frac{4}{10}}{\frac{3}{10}+\frac{8}{10}+\frac{4}{10}} \\
+&= \frac{4}{15}
+\end{align}
+
+\noindent L'information apportée a donc modifié nos croyances de la façon suivante :
+
+$$\mathbb{P}(A\vert B_1)=\frac{3}{15}$$
+$$\mathbb{P}(B\vert B_1)=\frac{8}{15}$$
+$$\mathbb{P}(C\vert B_1)=\frac{4}{15}$$
 
