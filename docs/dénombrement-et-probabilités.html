@@ -23,7 +23,7 @@
 <meta name="author" content="Olivier Guin" />
 
 
-<meta name="date" content="2024-03-15" />
+<meta name="date" content="2024-03-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -101,6 +101,8 @@
 <li class="chapter" data-level="2.3.3" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#lespace-probabilisé-omega-mathcala-mathbbp"><i class="fa fa-check"></i><b>2.3.3</b> L’espace probabilisé <span class="math inline">\((\Omega, \mathcal{A}, \mathbb{P})\)</span></a></li>
 <li class="chapter" data-level="2.3.4" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#indépendance"><i class="fa fa-check"></i><b>2.3.4</b> Indépendance</a></li>
 <li class="chapter" data-level="2.3.5" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#probabilités-conditionnelles"><i class="fa fa-check"></i><b>2.3.5</b> Probabilités conditionnelles</a></li>
+<li class="chapter" data-level="2.3.6" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#formule-des-probabilités-totales"><i class="fa fa-check"></i><b>2.3.6</b> Formule des probabilités totales</a></li>
+<li class="chapter" data-level="2.3.7" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#formule-de-bayes"><i class="fa fa-check"></i><b>2.3.7</b> Formule de Bayes</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html"><i class="fa fa-check"></i><b>3</b> Variables aléatoires discrètes</a>
@@ -1116,6 +1118,8 @@ autrement dit</p>
 <p></p>
 <p><strong>Théorème (formule des probabilités composées).</strong> Soient <span class="math inline">\((\Omega, \mathcal{A}, \mathbb{P})\)</span> un espace probabilisé et <span class="math inline">\(A_1, A_2,\dots, A_n\)</span> des événements tels que <span class="math inline">\(\mathbb{P}(A_1\cap A_2\cap\dots A_n)&gt;0\)</span>. Alors on a la formule de chaînage :</p>
 <p><span class="math display">\[\mathbb{P}(A_1\cap A_2\cap\dots\cap A_n)=\mathbb{P}(A_1)\mathbb{P}(A_2\vert A_1)\mathbb{P}(A_3\vert A_1\cap A_2)\dots\mathbb{P}(A_n\vert A_1\cap A_2\dots\cap A_{n-1})\]</span></p>
+<p>ce que l’on peut écrire de façon condensée :</p>
+<p><span class="math display">\[\mathbb{P}\left(\bigcap\limits_{i=1}^n A_i\right)=\prod\limits_{i=1}^n \mathbb{P}\left(A_i\vert\bigcap\limits_{j=1}^{i-1} A_j\right)\]</span></p>
 </div>
 <p></p>
 <p><strong>Démonstration.</strong> Par récurrence sur <span class="math inline">\(n\in\mathbb{N}^*\)</span> :</p>
@@ -1134,13 +1138,114 @@ autrement dit</p>
 \end{align}\]</span></p>
 <p>ce qui permet de conclure.</p>
 <p><span class="math inline">\(\square\)</span></p>
+<p></p>
+<p><strong>Exemple.</strong> Une urne contient six boules rouges et quatre boules blanches. On tire successivement trois boules sans remise dans l’urne. Quelle est la probabilité d’avoir tiré trois boules blanches ?</p>
+<p></p>
+<p><strong>Solution.</strong> Pour <span class="math inline">\(1\leq i\leq 3\)</span>, on note <span class="math inline">\(A_i\)</span> l’événement <em>La boule tirée lors du tirage numéro <span class="math inline">\(i\)</span> est blanche</em>. On veut donc calculer <span class="math inline">\(\mathbb{P}(A_1\cap A_2\cap A_3)\)</span>. D’après la formule des probablités composées, on a</p>
+<p><span class="math display">\[\mathbb{P}(A_1\cap A_2\cap A_3)=\mathbb{P}(A_1)\mathbb{P}(A_2\vert A_1)\mathbb{P}(A_3\vert A_1\cap A_2)\]</span></p>
+<p>Or :</p>
 <ul>
-<li><p>Définition</p></li>
-<li><p>Propriétés : les mêmes que pour une probabilité “non conditionnelle”</p></li>
-<li><p>Formule des probabilités composées</p></li>
-<li><p>Formule des probabilités totales</p></li>
-<li><p>Formule de Bayes</p></li>
+<li><span class="math inline">\(\mathbb{P}(A_1)=\frac{4}{10}=\frac{2}{5}\)</span></li>
+<li><span class="math inline">\(\mathbb{P}(A_2\vert A_1)=\frac{3}{9}=\frac{1}{3}\)</span></li>
+<li><span class="math inline">\(\mathbb{P}(A_3\vert A_1\cap A_2)=\frac{2}{8}=\frac{1}{4}\)</span></li>
 </ul>
+<p>On a donc</p>
+<p><span class="math display">\[\begin{align}
+\mathbb{P}(A_1\cap A_2\cap A_3) &amp;= \frac{2}{5}\times\frac{1}{3}\times\frac{1}{4} \\
+&amp; = \frac{1}{30} \\
+&amp; \approx 0,033
+\end{align}\]</span></p>
+</div>
+<div id="formule-des-probabilités-totales" class="section level3 hasAnchor" number="2.3.6">
+<h3><span class="header-section-number">2.3.6</span> Formule des probabilités totales<a href="dénombrement-et-probabilités.html#formule-des-probabilités-totales" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>La formule des probabilités totales est très utile pour calculer une probabilité lorsque l’on dispose d’un <strong>système complet d’événements</strong> :</p>
+<div class="defbox def">
+<center>
+<strong>Système complet d’événements</strong>
+</center>
+<p>Soit <span class="math inline">\((\Omega, \mathcal{A}, \mathbb{P})\)</span> un espace probabilisé. On dit qu’une suite finie ou dénombrable d’événements <span class="math inline">\((A_n)_n\)</span> est un <strong>système complet d’événements</strong>, ou un <strong>système exhaustif</strong> lorsque :</p>
+<ul>
+<li>la réunion des <span class="math inline">\(A_n\)</span> recouvre complètement l’univers <span class="math inline">\(\Omega\)</span> :</li>
+</ul>
+<p><span class="math display">\[\Omega=\bigcup\limits_{n}A_n\]</span>
+- les événements <span class="math inline">\(A_n\)</span> sont deux à deux incompatibles :</p>
+<p><span class="math display">\[\forall (m,n) \text{ t.q. } m\neq n, \, A_m\cap A_n=\emptyset\]</span></p>
+</div>
+<p></p>
+<p><strong>Remarque.</strong> Dans ce cas, pour tout événement <span class="math inline">\(B\)</span>, on peut écrire</p>
+<p><span class="math display">\[B=\bigcup\limits_{n}(B\cap A_n)\]</span>
+et les événements <span class="math inline">\(B\cap A_n\)</span> sont deux à deux incompatibles.</p>
+<p></p>
+<p><strong>Exemples. i.</strong> Pour tout événement <span class="math inline">\(A\)</span>, le système <span class="math inline">\(\{A, \overline{A}\}\)</span> est un système complet d’événements.</p>
+<p></p>
+<p><strong>ii.</strong> On tire aléatoirement deux nombres <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> dans <span class="math inline">\(\{0, 1, 2\}\)</span> et on relève le couple <span class="math inline">\((A, B)\)</span>. L’univers associé à cette expérience est <span class="math inline">\(\Omega=\{0, 1, 2\}^2\)</span>. On peut créer un système complet d’événements à partir de la somme <span class="math inline">\(S\)</span> de <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span>. Pour cela, on note <span class="math inline">\(\{S=i\}\)</span> l’événement</p>
+<p><span class="math display">\[\{S=i\}=\{(A, B)\in\Omega, \, S=A+B=i\}\]</span></p>
+<p>Alors, le système</p>
+<p><span class="math display">\[\left\{\{S=0\}, \{S=1\}, \{S=2\}, \{S=3\}, \{S=4\}\right\}\]</span></p>
+<p>est un système complet d’événements de <span class="math inline">\(\Omega\)</span>.</p>
+<div class="thmbox thm">
+<p></p>
+<p><strong>Formule des probabilités totales.</strong> Soit <span class="math inline">\((\Omega, \mathcal{A}, \mathbb{P})\)</span> un espace probabilisé. On suppose qu’on dispose d’un système complet d’événements <span class="math inline">\((A_n)_n\)</span>. Alors, pour tout événement <span class="math inline">\(B\)</span>, on a</p>
+<p><span class="math display">\[\mathbb{P}(B)=\sum\limits_{n}\mathbb{P}(B\cap A_n)=\sum\limits_{n}\mathbb{P}(B\vert A_n)\mathbb{P}(A_n)\]</span></p>
+</div>
+<p></p>
+<p><strong>Démonstration.</strong> Comme dit précémment, les événements <span class="math inline">\(B\cap A_n\)</span> sont deux à deux incompatibles, donc</p>
+<p><span class="math display">\[\begin{align}
+\mathbb{P}(B) &amp;= \mathbb{P}\left(\bigcup\limits_{n} B\cap A_n\right) \\
+&amp;= \sum\limits_{n}\mathbb{P}(B\cap A_n) \\
+&amp; \text{(par } \sigma-\text{addivité)} \\
+&amp;= \sum\limits_{n}\mathbb{P}(B\vert A_n)\mathbb{P}(A_n) \\
+&amp; \text{(par définition de la probabilité conditionnelle)} \\
+\end{align}\]</span>
+</p>
+<p><span class="math inline">\(\square\)</span></p>
+<p><strong>Exemple.</strong> On dispose de trois urnes <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span> et <span class="math inline">\(C\)</span> :</p>
+<ul>
+<li>l’urne <span class="math inline">\(A\)</span> contient <span class="math inline">\(3\)</span> boules blanches et <span class="math inline">\(7\)</span> boules noires ;</li>
+<li>l’urne <span class="math inline">\(B\)</span> contient <span class="math inline">\(8\)</span> boules blanches et <span class="math inline">\(2\)</span> boules noires ;</li>
+<li>l’urne <span class="math inline">\(C\)</span> contient <span class="math inline">\(4\)</span> boules blanches et <span class="math inline">\(6\)</span> boules noires.</li>
+</ul>
+<p>On choisit aléatoirement une urne, avec la même probabilité pour toutes les urnes. On tire successivement et sans remise deux boules dans cette urne. Quelle est la probabilité d’avoir une boule blanche et une boule noire ?</p>
+<p></p>
+<p><strong>Solution.</strong> On note <span class="math inline">\(A\)</span> (resp. <span class="math inline">\(B\)</span>, <span class="math inline">\(C\)</span>), l’événement <em>l’urne choisie est <span class="math inline">\(A\)</span></em> (resp. <span class="math inline">\(B\)</span>, <span class="math inline">\(C\)</span>). Pour <span class="math inline">\(i=1,2\)</span>, on note <span class="math inline">\(N_i\)</span> (resp. <span class="math inline">\(B_i\)</span>) l’événement <em>la boule tirée au tirage numéro <span class="math inline">\(i\)</span> est noire</em> (resp. <em>la boule tirée au tirage numéro <span class="math inline">\(i\)</span> est blanche</em>). L’événement <span class="math inline">\(E=\)</span> <em>Avoir une boule blanche et une boule noire</em> s’écrit donc</p>
+<p><span class="math display">\[E=\left(B_1\cap N_2\right)\cup\left(N_1\cap B_2\right)\]</span>
+Les événements <span class="math inline">\(B_1\cap N_2\)</span> et <span class="math inline">\(N_1\cap B_2\)</span> sont incompatibles. On a donc</p>
+<p><span class="math display">\[\begin{align}
+\mathbb{P}(E) &amp;= \mathbb{P}\left(\left(B_1\cap N_2\right)\cup\left(N_1\cap B_2\right)\right) \\
+&amp;= \mathbb{P}(B_1\cap N_2)+\mathbb{P}(N_1\cap B_2) \\
+\end{align}\]</span></p>
+<p><span class="math inline">\(\{A, B, C\}\)</span> est un système complet d’événements, donc d’après la formule des probabilités totales on a</p>
+<p><span class="math display">\[\begin{align}
+\mathbb{P}(B_1\cap N_2) &amp;= \mathbb{P}(B_1\cap N_2\vert A)\mathbb{P}(A)+\mathbb{P}(B_1\cap N_2\vert B)\mathbb{P}(B)+\mathbb{P}(B_1\cap N_2\vert C)\mathbb{P}(C) \\
+&amp;= \frac{1}{3}\left(\mathbb{P}(B_1\cap N_2\vert A)+ \mathbb{P}(B_1\cap N_2\vert B)+\mathbb{P}(B_1\cap N_2\vert C)\right) \\
+&amp;= \frac{1}{3}\left(\mathbb{P}(N_2\vert A\cap B_1)\mathbb{P}(B_1|A)+\mathbb{P}(N_2\vert B\cap B_1)\mathbb{P}(B_1|B)+\mathbb{P}(N_2\vert C\cap B_1)\mathbb{P}(B_1|C) \right) \\
+&amp;= \frac{1}{3}\left(\frac{7}{9}\times\frac{3}{10}+\frac{2}{9}\times\frac{8}{10}+\frac{6}{9}\times\frac{4}{10}\right) \\
+&amp;= \frac{61}{210} \\
+\end{align}\]</span></p>
+<p>et</p>
+<p><span class="math display">\[\begin{align}
+\mathbb{P}(N_1\cap B_2) &amp;= \mathbb{P}(N_1\cap B_2\vert A)\mathbb{P}(A)+\mathbb{P}(N_1\cap B_2\vert B)\mathbb{P}(B)+\mathbb{P}(N_1\cap B_2\vert C)\mathbb{P}(C) \\
+&amp;= \frac{1}{3}\left(\mathbb{P}(N_1\cap B_2\vert A)+ \mathbb{P}(N_1\cap B_2\vert B)+\mathbb{P}(N_1\cap B_2\vert C)\right) \\
+&amp;= \frac{1}{3}\left(\mathbb{P}(B_2\vert A\cap N_1)\mathbb{P}(N_1|A)+\mathbb{P}(B_2\vert B\cap N_1)\mathbb{P}(N_1|B)+\mathbb{P}(B_2\vert C\cap N_1)\mathbb{P}(N_1|C) \right) \\
+&amp;= \frac{1}{3}\left(\frac{3}{9}\times\frac{7}{10}+\frac{8}{9}\times\frac{2}{10}+\frac{4}{9}\times\frac{6}{10}\right) \\
+&amp;= \frac{61}{210} \\
+\end{align}\]</span></p>
+<p>On en déduit que</p>
+<p><span class="math display">\[\mathbb{P}(E)=\frac{61}{105}\approx 0,58\]</span>
+</p>
+<p><strong>Autre méthode.</strong> On peut aussi écrire</p>
+<p><span class="math display">\[\mathbb{P}(B_1\cap N_2)=\mathbb{P}(B_1\cap N_2\cap A)+\mathbb{P}(B_1\cap N_2\cap B)+\mathbb{P}(B_1\cap N_2\cap C)\]</span></p>
+<p>d’après la formule des probabilités totales.</p>
+<p>Puis, on utilise la formule des proabilités composées pour en déduire que</p>
+<p><span class="math display">\[\begin{align}
+\mathbb{P}(B_1\cap N_2) &amp;= \mathbb{P}(A)\mathbb{P}(B_1\vert A)\mathbb{P}(N_2\vert B_1\cap A) +\mathbb{P}(B)\mathbb{P}(B_1\vert B)\mathbb{P}(N_2\vert B_1\cap B) \\
+
+&amp; +\mathbb{P}(C)\mathbb{P}(B_1\vert C)\mathbb{P}(N_2\vert B_1\cap C)
+\end{align}\]</span></p>
+<p>On fait ensuite exactement le même type de calcul pour <span class="math inline">\(\mathbb{P}(N_1\cap B_2)\)</span>.</p>
+</div>
+<div id="formule-de-bayes" class="section level3 hasAnchor" number="2.3.7">
+<h3><span class="header-section-number">2.3.7</span> Formule de Bayes<a href="dénombrement-et-probabilités.html#formule-de-bayes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 
 </div>
 </div>

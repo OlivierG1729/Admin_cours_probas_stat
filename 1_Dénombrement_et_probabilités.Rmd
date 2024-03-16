@@ -1328,6 +1328,10 @@ $\square$
 **Théorème (formule des probabilités composées).** Soient $(\Omega, \mathcal{A}, \mathbb{P})$ un espace probabilisé et $A_1, A_2,\dots, A_n$ des événements tels que $\mathbb{P}(A_1\cap A_2\cap\dots A_n)>0$. Alors on a la formule de chaînage :
 
 $$\mathbb{P}(A_1\cap A_2\cap\dots\cap A_n)=\mathbb{P}(A_1)\mathbb{P}(A_2\vert A_1)\mathbb{P}(A_3\vert A_1\cap A_2)\dots\mathbb{P}(A_n\vert A_1\cap A_2\dots\cap A_{n-1})$$
+
+\noindent ce que l'on peut écrire de façon condensée :
+
+$$\mathbb{P}\left(\bigcap\limits_{i=1}^n A_i\right)=\prod\limits_{i=1}^n \mathbb{P}\left(A_i\vert\bigcap\limits_{j=1}^{i-1} A_j\right)$$
 ::::
 
 \noindent
@@ -1352,15 +1356,162 @@ $$\mathbb{P}(A_1\cap A_2\cap\dots\cap A_n)=\mathbb{P}(A_1)\mathbb{P}(A_2\vert A_
 
 $\square$
 
+\noindent
 
--   Définition
+**Exemple.** Une urne contient six boules rouges et quatre boules blanches. On tire successivement trois boules sans remise dans l'urne. Quelle est la probabilité d'avoir tiré trois boules blanches ?
 
--   Propriétés : les mêmes que pour une probabilité "non conditionnelle"
+\noindent
 
--   Formule des probabilités composées
+**Solution.** Pour $1\leq i\leq 3$, on note $A_i$ l'événement *La boule tirée lors du tirage numéro $i$ est blanche*. On veut donc calculer $\mathbb{P}(A_1\cap A_2\cap A_3)$. D'après la formule des probablités composées, on a 
 
--   Formule des probabilités totales
+$$\mathbb{P}(A_1\cap A_2\cap A_3)=\mathbb{P}(A_1)\mathbb{P}(A_2\vert A_1)\mathbb{P}(A_3\vert A_1\cap A_2)$$
 
--   Formule de Bayes
+\noindent Or :
+
+- $\mathbb{P}(A_1)=\frac{4}{10}=\frac{2}{5}$
+- $\mathbb{P}(A_2\vert A_1)=\frac{3}{9}=\frac{1}{3}$
+- $\mathbb{P}(A_3\vert A_1\cap A_2)=\frac{2}{8}=\frac{1}{4}$
+
+\noindent On a donc
+
+\begin{align}
+\mathbb{P}(A_1\cap A_2\cap A_3) &= \frac{2}{5}\times\frac{1}{3}\times\frac{1}{4} \\
+& = \frac{1}{30} \\
+& \approx 0,033
+\end{align}
+
+
+### Formule des probabilités totales
+
+\noindent La formule des probabilités totales est très utile pour calculer une probabilité lorsque l'on dispose d'un **système complet d'événements** :
+
+:::: {.defbox .def data-latex="important"}
+<center>**Système complet d'événements**</center>
+
+\noindent Soit $(\Omega, \mathcal{A}, \mathbb{P})$ un espace probabilisé. On dit qu'une suite finie ou dénombrable d'événements $(A_n)_n$ est un **système complet d'événements**, ou un **système exhaustif** lorsque :
+
+- la réunion des $A_n$ recouvre complètement l'univers $\Omega$ :
+
+$$\Omega=\bigcup\limits_{n}A_n$$
+- les événements $A_n$ sont deux à deux incompatibles :
+
+$$\forall (m,n) \text{ t.q. } m\neq n, \, A_m\cap A_n=\emptyset$$
+
+::::
+
+\noindent 
+
+**Remarque.** Dans ce cas, pour tout événement $B$, on peut écrire 
+
+$$B=\bigcup\limits_{n}(B\cap A_n)$$
+\noindent et les événements $B\cap A_n$ sont deux à deux incompatibles.
+
+
+\noindent 
+
+**Exemples. i.** Pour tout événement $A$, le système $\{A, \overline{A}\}$ est un système complet d'événements.
+
+\noindent
+
+**ii.** On tire aléatoirement deux nombres $A$ et $B$ dans $\{0, 1, 2\}$ et on relève le couple $(A, B)$. L'univers associé à cette expérience est $\Omega=\{0, 1, 2\}^2$. On peut créer un système complet d'événements à partir de la somme $S$ de $A$ et $B$. Pour cela, on note $\{S=i\}$ l'événement 
+
+$$\{S=i\}=\{(A, B)\in\Omega, \, S=A+B=i\}$$
+
+\noindent Alors, le système
+
+$$\left\{\{S=0\}, \{S=1\}, \{S=2\}, \{S=3\}, \{S=4\}\right\}$$ 
+
+est un système complet d'événements de $\Omega$.
+
+:::: {.thmbox .thm data-latex="important"}
+
+\noindent 
+
+**Formule des probabilités totales.** Soit $(\Omega, \mathcal{A}, \mathbb{P})$ un espace probabilisé. On suppose qu'on dispose d'un système complet d'événements $(A_n)_n$. Alors, pour tout événement $B$, on a 
+
+$$\mathbb{P}(B)=\sum\limits_{n}\mathbb{P}(B\cap A_n)=\sum\limits_{n}\mathbb{P}(B\vert A_n)\mathbb{P}(A_n)$$
+::::
+
+\noindent
+
+**Démonstration.** Comme dit précémment, les événements $B\cap A_n$ sont deux à deux incompatibles, donc 
+
+\begin{align}
+\mathbb{P}(B) &= \mathbb{P}\left(\bigcup\limits_{n} B\cap A_n\right) \\
+&= \sum\limits_{n}\mathbb{P}(B\cap A_n) \\
+& \text{(par } \sigma-\text{addivité)} \\
+&= \sum\limits_{n}\mathbb{P}(B\vert A_n)\mathbb{P}(A_n) \\
+& \text{(par définition de la probabilité conditionnelle)} \\ 
+\end{align}
+\noindent
+
+$\square$
+
+**Exemple.** On dispose de trois urnes $A$, $B$ et $C$ :
+
+- l'urne $A$ contient $3$ boules blanches et $7$ boules noires ;
+- l'urne $B$ contient $8$ boules blanches et $2$ boules noires ;
+- l'urne $C$ contient $4$ boules blanches et $6$ boules noires.
+
+On choisit aléatoirement une urne, avec la même probabilité pour toutes les urnes. On tire successivement et sans remise deux boules dans cette urne. Quelle est la probabilité d'avoir une boule blanche et une boule noire ?
+
+\noindent
+
+**Solution.** On note $A$ (resp. $B$, $C$), l'événement *l'urne choisie est $A$* (resp. $B$, $C$). Pour $i=1,2$, on note $N_i$ (resp. $B_i$) l'événement *la boule tirée au tirage numéro $i$ est noire* (resp. *la boule tirée au tirage numéro $i$ est blanche*). L'événement $E=$ *Avoir une boule blanche et une boule noire* s'écrit donc 
+
+$$E=\left(B_1\cap N_2\right)\cup\left(N_1\cap B_2\right)$$
+\noindent Les événements $B_1\cap N_2$ et $N_1\cap B_2$ sont incompatibles. On a donc 
+
+\begin{align}
+\mathbb{P}(E) &= \mathbb{P}\left(\left(B_1\cap N_2\right)\cup\left(N_1\cap B_2\right)\right) \\
+&= \mathbb{P}(B_1\cap N_2)+\mathbb{P}(N_1\cap B_2) \\
+\end{align}
+
+\noindent $\{A, B, C\}$ est un système complet d'événements, donc d'après la formule des probabilités totales on a 
+
+\begin{align}
+\mathbb{P}(B_1\cap N_2) &= \mathbb{P}(B_1\cap N_2\vert A)\mathbb{P}(A)+\mathbb{P}(B_1\cap N_2\vert B)\mathbb{P}(B)+\mathbb{P}(B_1\cap N_2\vert C)\mathbb{P}(C) \\
+&= \frac{1}{3}\left(\mathbb{P}(B_1\cap N_2\vert A)+ \mathbb{P}(B_1\cap N_2\vert B)+\mathbb{P}(B_1\cap N_2\vert C)\right) \\
+&= \frac{1}{3}\left(\mathbb{P}(N_2\vert A\cap B_1)\mathbb{P}(B_1|A)+\mathbb{P}(N_2\vert B\cap B_1)\mathbb{P}(B_1|B)+\mathbb{P}(N_2\vert C\cap B_1)\mathbb{P}(B_1|C) \right) \\
+&= \frac{1}{3}\left(\frac{7}{9}\times\frac{3}{10}+\frac{2}{9}\times\frac{8}{10}+\frac{6}{9}\times\frac{4}{10}\right) \\
+&= \frac{61}{210} \\
+\end{align}
+
+\noindent et
+
+\begin{align}
+\mathbb{P}(N_1\cap B_2) &= \mathbb{P}(N_1\cap B_2\vert A)\mathbb{P}(A)+\mathbb{P}(N_1\cap B_2\vert B)\mathbb{P}(B)+\mathbb{P}(N_1\cap B_2\vert C)\mathbb{P}(C) \\
+&= \frac{1}{3}\left(\mathbb{P}(N_1\cap B_2\vert A)+ \mathbb{P}(N_1\cap B_2\vert B)+\mathbb{P}(N_1\cap B_2\vert C)\right) \\
+&= \frac{1}{3}\left(\mathbb{P}(B_2\vert A\cap N_1)\mathbb{P}(N_1|A)+\mathbb{P}(B_2\vert B\cap N_1)\mathbb{P}(N_1|B)+\mathbb{P}(B_2\vert C\cap N_1)\mathbb{P}(N_1|C) \right) \\
+&= \frac{1}{3}\left(\frac{3}{9}\times\frac{7}{10}+\frac{8}{9}\times\frac{2}{10}+\frac{4}{9}\times\frac{6}{10}\right) \\
+&= \frac{61}{210} \\
+\end{align}
+
+\noindent On en déduit que 
+
+$$\mathbb{P}(E)=\frac{61}{105}\approx 0,58$$
+\noindent 
+
+**Autre méthode.** On peut aussi écrire 
+
+$$\mathbb{P}(B_1\cap N_2)=\mathbb{P}(B_1\cap N_2\cap A)+\mathbb{P}(B_1\cap N_2\cap B)+\mathbb{P}(B_1\cap N_2\cap C)$$
+
+\noindent d'après la formule des probabilités totales. 
+
+\noindent Puis, on utilise la formule des proabilités composées pour en déduire que 
+
+\begin{align}
+\mathbb{P}(B_1\cap N_2) &= \mathbb{P}(A)\mathbb{P}(B_1\vert A)\mathbb{P}(N_2\vert B_1\cap A) +\mathbb{P}(B)\mathbb{P}(B_1\vert B)\mathbb{P}(N_2\vert B_1\cap B) \\
+
+& +\mathbb{P}(C)\mathbb{P}(B_1\vert C)\mathbb{P}(N_2\vert B_1\cap C)
+\end{align}
+
+
+\noindent On fait ensuite exactement le même type de calcul pour $\mathbb{P}(N_1\cap B_2)$.
+
+### Formule de Bayes
+
+
+
 
 
