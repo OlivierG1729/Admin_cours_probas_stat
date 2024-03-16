@@ -17,6 +17,8 @@ lespace-probabilisable-omega-mathcala
 lespace-probabilisé-omega-mathcala-mathbbp
 indépendance
 probabilités-conditionnelles
+formule-des-probabilités-totales
+formule-de-bayes
 variables-aléatoires-discrètes
 définition-et-premières-propriétés
 définition
@@ -107,6 +109,3 @@ exemples
 méthodologie
 convergence-1
 url-your-book-url-like-httpsbookdown.orgyihuibookdown
-formule-des-probbailités-totales
-formule-des-probabilités-totales
-formule-de-bayes

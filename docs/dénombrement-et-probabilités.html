@@ -1167,8 +1167,10 @@ autrement dit</p>
 <ul>
 <li>la réunion des <span class="math inline">\(A_n\)</span> recouvre complètement l’univers <span class="math inline">\(\Omega\)</span> :</li>
 </ul>
-<p><span class="math display">\[\Omega=\bigcup\limits_{n}A_n\]</span>
-- les événements <span class="math inline">\(A_n\)</span> sont deux à deux incompatibles :</p>
+<p><span class="math display">\[\Omega=\bigcup\limits_{n}A_n\]</span></p>
+<ul>
+<li>les événements <span class="math inline">\(A_n\)</span> sont deux à deux incompatibles :</li>
+</ul>
 <p><span class="math display">\[\forall (m,n) \text{ t.q. } m\neq n, \, A_m\cap A_n=\emptyset\]</span></p>
 </div>
 <p></p>
@@ -1246,6 +1248,18 @@ Les événements <span class="math inline">\(B_1\cap N_2\)</span> et <span class
 </div>
 <div id="formule-de-bayes" class="section level3 hasAnchor" number="2.3.7">
 <h3><span class="header-section-number">2.3.7</span> Formule de Bayes<a href="dénombrement-et-probabilités.html#formule-de-bayes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>La formule de Bayes a ceci de particulier qu’elle est à la fois extrêmement simple et pourtant absolument fondamentale.</p>
+<div class="defbox def">
+<p></p>
+<p><strong>Formule de Bayes.</strong> Soit <span class="math inline">\((\Omega, \mathcal{A}, \mathbb{P})\)</span> un espace probabilisé.</p>
+<p>Soient <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> deux événements tels que <span class="math inline">\(\mathbb{P}(A)&gt;0\)</span> et <span class="math inline">\(\mathbb{P}(B)&gt;0\)</span>. Alors</p>
+<p><span class="math display">\[\mathbb{P}(B\vert A)=\frac{\mathbb{P}(A\vert B)\,\mathbb{P}(B)}{\mathbb{P}(A)}\]</span>
+</p>
+<p><strong>Variantes. i.</strong> On la trouve parfois sous cette forme :</p>
+<p><span class="math display">\[\mathbb{P}(B\vert A)=\frac{\mathbb{P}(A\vert B)\,\mathbb{P}(B)}{\mathbb{P}(A\vert B)\,\mathbb{P}(B)+\mathbb{P}(A\vert\overline{B})\,\mathbb{P}(\overline{B})}\]</span></p>
+<p><strong>ii.</strong> Plus généralement, si l’on dispose d’un système complet d’événements <span class="math inline">\(\{B_i\}_{i\in I}\)</span>, alors pour tout <span class="math inline">\(i\)</span> dans <span class="math inline">\(I\)</span> on a</p>
+<p><span class="math display">\[\mathbb{P}(B_i\vert A)=\frac{\mathbb{P}(A\vert B_i)\,\mathbb{P}(B_i)}{\sum\limits_{j\in I} \mathbb{P}(A\vert B_j)\,\mathbb{P}(B_j)}\]</span></p>
+</div>
 
 </div>
 </div>

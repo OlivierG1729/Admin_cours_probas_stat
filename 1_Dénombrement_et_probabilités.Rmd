@@ -1393,6 +1393,7 @@ $$\mathbb{P}(A_1\cap A_2\cap A_3)=\mathbb{P}(A_1)\mathbb{P}(A_2\vert A_1)\mathbb
 - la réunion des $A_n$ recouvre complètement l'univers $\Omega$ :
 
 $$\Omega=\bigcup\limits_{n}A_n$$
+
 - les événements $A_n$ sont deux à deux incompatibles :
 
 $$\forall (m,n) \text{ t.q. } m\neq n, \, A_m\cap A_n=\emptyset$$
@@ -1511,7 +1512,27 @@ $$\mathbb{P}(B_1\cap N_2)=\mathbb{P}(B_1\cap N_2\cap A)+\mathbb{P}(B_1\cap N_2\c
 
 ### Formule de Bayes
 
+\noindent La formule de Bayes a ceci de particulier qu'elle est à la fois extrêmement simple et pourtant absolument fondamentale.
 
+:::: {.defbox .def data-latex="important"}
+
+\noindent 
+
+**Formule de Bayes.** Soit $(\Omega, \mathcal{A}, \mathbb{P})$ un espace probabilisé.
+
+\noindent Soient $A$ et $B$ deux événements tels que $\mathbb{P}(A)>0$ et $\mathbb{P}(B)>0$. Alors
+
+$$\mathbb{P}(B\vert A)=\frac{\mathbb{P}(A\vert B)\,\mathbb{P}(B)}{\mathbb{P}(A)}$$
+\noindent 
+
+**Variantes. i.** On la trouve parfois sous cette forme :
+
+$$\mathbb{P}(B\vert A)=\frac{\mathbb{P}(A\vert B)\,\mathbb{P}(B)}{\mathbb{P}(A\vert B)\,\mathbb{P}(B)+\mathbb{P}(A\vert\overline{B})\,\mathbb{P}(\overline{B})}$$
+
+**ii.** Plus généralement, si l'on dispose d'un système complet d'événements $\{B_i\}_{i\in I}$, alors pour tout $i$ dans $I$ on a 
+
+$$\mathbb{P}(B_i\vert A)=\frac{\mathbb{P}(A\vert B_i)\,\mathbb{P}(B_i)}{\sum\limits_{j\in I} \mathbb{P}(A\vert B_j)\,\mathbb{P}(B_j)}$$
+::::
 
 
 
