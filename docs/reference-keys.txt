@@ -11,7 +11,7 @@ dénombrement-par-bijection
 permutations
 arrangements
 combinaisons
-langage-des-probabilités
+langage-et-formalisme-des-probabilités
 lunivers-omega-dune-expérience-aléatoire
 lespace-probabilisable-omega-mathcala
 lespace-probabilisé-omega-mathcala-mathbbp

@@ -94,7 +94,7 @@
 <li class="chapter" data-level="2.2.6" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#arrangements"><i class="fa fa-check"></i><b>2.2.6</b> Arrangements</a></li>
 <li class="chapter" data-level="2.2.7" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#combinaisons"><i class="fa fa-check"></i><b>2.2.7</b> Combinaisons</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#langage-des-probabilités"><i class="fa fa-check"></i><b>2.3</b> Langage des probabilités</a>
+<li class="chapter" data-level="2.3" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#langage-et-formalisme-des-probabilités"><i class="fa fa-check"></i><b>2.3</b> Langage et formalisme des probabilités</a>
 <ul>
 <li class="chapter" data-level="2.3.1" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#lunivers-omega-dune-expérience-aléatoire"><i class="fa fa-check"></i><b>2.3.1</b> L’univers <span class="math inline">\(\Omega\)</span> d’une expérience aléatoire</a></li>
 <li class="chapter" data-level="2.3.2" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#lespace-probabilisable-omega-mathcala"><i class="fa fa-check"></i><b>2.3.2</b> L’espace probabilisable <span class="math inline">\((\Omega, \mathcal{A})\)</span></a></li>
@@ -678,8 +678,8 @@ on obtient une somme de termes de la forme <span class="math inline">\(a^kb^{n-k
 <p><strong>ii.</strong> La deuxième démonstration de la formule du triangle de Pascal repose sur une approche classique en dénombrement : compter la même chose de deux façons différentes.</p>
 </div>
 </div>
-<div id="langage-des-probabilités" class="section level2 hasAnchor" number="2.3">
-<h2><span class="header-section-number">2.3</span> Langage des probabilités<a href="dénombrement-et-probabilités.html#langage-des-probabilités" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="langage-et-formalisme-des-probabilités" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Langage et formalisme des probabilités<a href="dénombrement-et-probabilités.html#langage-et-formalisme-des-probabilités" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>On introduit maintenant les notions de base des probabilités. Le but est de construire progressivement un triplet de la forme</p>
 <p><span class="math display">\[(\Omega, \mathcal{A},\mathbb{P})\]</span>
 où :</p>
@@ -1261,6 +1261,22 @@ Les événements <span class="math inline">\(B_1\cap N_2\)</span> et <span class
 <p><strong>ii.</strong> Plus généralement, si l’on dispose d’un système complet d’événements <span class="math inline">\(\{B_i\}_{i\in I}\)</span>, alors pour tout <span class="math inline">\(i\)</span> dans <span class="math inline">\(I\)</span> on a</p>
 <p><span class="math display">\[\mathbb{P}(B_i\vert A)=\frac{\mathbb{P}(A\vert B_i)\,\mathbb{P}(B_i)}{\sum\limits_{j\in I} \mathbb{P}(A\vert B_j)\,\mathbb{P}(B_j)}\]</span></p>
 </div>
+<p></p>
+<p><strong>Démonstration.</strong> Comme <span class="math inline">\(A\cap B=B\cap A\)</span>, on a</p>
+<p><span class="math display">\[\begin{align}
+\mathbb{P}(A\vert B)\mathbb{P}(B) &amp;= \mathbb{P}(A\cap B) \\
+&amp;= \mathbb{P}(B\cap A) \\
+&amp;= \mathbb{P}(B\vert A)\mathbb{P}(A) \\
+\end{align}\]</span></p>
+<p>d’où</p>
+<p><span class="math display">\[\mathbb{P}(B\vert A)=\frac{\mathbb{P}(A\vert B)\,\mathbb{P}(B)}{\mathbb{P}(A)}\]</span></p>
+<p>Si <span class="math inline">\(\{B_i\}_{i\in I}\)</span> est un système complet d’événements alors d’après la formule des probabilités totales</p>
+<p><span class="math display">\[\mathbb{P}(A)=\sum\limits_{j\in I}\mathbb{P}(A\vert B_j)\mathbb{P}(B_j)\]</span>
+et donc en appliquant la formule de Bayes avec <span class="math inline">\(B=B_i\)</span> et en remplaçant <span class="math inline">\(\mathbb{P}(A)\)</span> par l’expression ci-dessus, on obtient</p>
+<p><span class="math display">\[\mathbb{P}(B_i\vert A)=\frac{\mathbb{P}(A\vert B_i)\,\mathbb{P}(B_i)}{\sum\limits_{j\in I} \mathbb{P}(A\vert B_j)\,\mathbb{P}(B_j)}\]</span></p>
+<p>En particulier, <span class="math inline">\(\{B, \overline{B}\}\)</span> étant un système complet d’événements, on a donc</p>
+<p><span class="math display">\[\mathbb{P}(B\vert A)=\frac{\mathbb{P}(A\vert B)\,\mathbb{P}(B)}{\mathbb{P}(A\vert B)\,\mathbb{P}(B)+\mathbb{P}(A\vert\overline{B})\,\mathbb{P}(\overline{B})}\]</span></p>
+<p><span class="math inline">\(\square\)</span></p>
 
 </div>
 </div>

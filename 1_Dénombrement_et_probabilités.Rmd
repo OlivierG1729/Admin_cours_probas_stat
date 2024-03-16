@@ -1534,5 +1534,34 @@ $$\mathbb{P}(B\vert A)=\frac{\mathbb{P}(A\vert B)\,\mathbb{P}(B)}{\mathbb{P}(A\v
 $$\mathbb{P}(B_i\vert A)=\frac{\mathbb{P}(A\vert B_i)\,\mathbb{P}(B_i)}{\sum\limits_{j\in I} \mathbb{P}(A\vert B_j)\,\mathbb{P}(B_j)}$$
 ::::
 
+\noindent 
+
+**Démonstration.** Comme $A\cap B=B\cap A$, on a 
+
+\begin{align}
+\mathbb{P}(A\vert B)\mathbb{P}(B) &= \mathbb{P}(A\cap B) \\
+&= \mathbb{P}(B\cap A) \\
+&= \mathbb{P}(B\vert A)\mathbb{P}(A) \\
+\end{align}
+
+\noindent d'où
+
+$$\mathbb{P}(B\vert A)=\frac{\mathbb{P}(A\vert B)\,\mathbb{P}(B)}{\mathbb{P}(A)}$$
+
+\noindent Si $\{B_i\}_{i\in I}$ est un système complet d'événements alors d'après la formule des probabilités totales
+
+$$\mathbb{P}(A)=\sum\limits_{j\in I}\mathbb{P}(A\vert B_j)\mathbb{P}(B_j)$$
+\noindent et donc en appliquant la formule de Bayes avec $B=B_i$ et en remplaçant $\mathbb{P}(A)$ par l'expression ci-dessus, on obtient
+
+$$\mathbb{P}(B_i\vert A)=\frac{\mathbb{P}(A\vert B_i)\,\mathbb{P}(B_i)}{\sum\limits_{j\in I} \mathbb{P}(A\vert B_j)\,\mathbb{P}(B_j)}$$
+
+\noindent En particulier, $\{B, \overline{B}\}$ étant un système complet d'événements, on a donc
+
+$$\mathbb{P}(B\vert A)=\frac{\mathbb{P}(A\vert B)\,\mathbb{P}(B)}{\mathbb{P}(A\vert B)\,\mathbb{P}(B)+\mathbb{P}(A\vert\overline{B})\,\mathbb{P}(\overline{B})}$$
+
+$\square$
+
+
+
 
 
