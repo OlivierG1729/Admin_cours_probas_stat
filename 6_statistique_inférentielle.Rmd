@@ -1085,7 +1085,7 @@ $$\hbox{Si } (x_1,\dots, x_n)\in \overline{W} \hbox{ alors on ne rejette pas l'h
 
 \noindent Construire un test, c'est donc décider d'une partition particulière $(W, \overline{W})$ de $\mathbb{R}^n$. 
 
-\noindent Les tests constituent un outil d'aide à la décision. On en présente ici une méthodlogie générale :
+\noindent Les tests constituent un outil d'aide à la décision. On en présente ici une méthodologie générale :
 
 :::: {.methbox .meth data-latex="important"}
 <center>**Méthodologie des tests d'hypothèse**</center>
@@ -1175,7 +1175,7 @@ $$(H_1):\,\theta<\theta_0$$
 
 \noindent
 
-**Exemple : tester l'efficacité d'un médicament.** Le fabricant d'un médicament annonce une efficacité à $90/,/%$ pour l'un de ses produits. Sur un échantillon de 200 personnes, ce médicament a fonctionné pour 160 personnes. On souhaite déterminer si l'afformation du fabrication est exacte au seuil de significativité $\alpha=1\,\%$.
+**Exemple : tester l'efficacité d'un médicament.** Le fabricant d'un médicament annonce une efficacité à $90/,/%$ pour l'un de ses produits. Sur un échantillon de 200 personnes, ce médicament a fonctionné pour 160 personnes. On souhaite déterminer si l'information du fabrication est exacte au seuil de significativité $\alpha=1\,\%$.
 
 \noindent On va ici prendre pour hypothèses
 
@@ -1198,7 +1198,7 @@ $$(H_1):\,p<0,9$$
 \vspace{0.5cm}
 
 \noindent
-On effectue $n=1\,000$ lancers de cette pièce. Sur ces $10\,000$ lancers, la pièce est tombée $4\,880$ fois sur pile.
+On effectue $n=10\,000$ lancers de cette pièce. Sur ces $10\,000$ lancers, la pièce est tombée $4\,880$ fois sur pile.
 
 **On veut déterminer si cette pièce est équilirée au seuil de significativité $\alpha = 5\,\%$.**
 
@@ -1219,7 +1219,7 @@ $$X_n\sim\mathcal{B}(n, \,p)$$
 
 - $n\geq 30$
 - $np\geq 5$
-- $n(1-p)\geq 5$$
+- $n(1-p)\geq 5$
 
 \noindent on peut écrire l'approximation en loi
 
@@ -1254,10 +1254,10 @@ $$\hbox{Si } z_n\in\overline{W}=[-1,96\,;\,1,96] \hbox{ on ne rejette pas l'hypo
 \noindent Or, la valeur observée de $Z_n$ sur l'échantillon tiré est $z_n=\frac{4\,880-5\,000}{50}=-2,4$. Elle appartient à la région de rejet. 
 
 \noindent
-**Conclusion. Au seuil de significativité $5\,\%$ on rejette donc l'hypothèse nulle, ce qui revient à dire qu'on conclut que la pièce est désiquilibrée.**
+**Conclusion. Au seuil de significativité $5\,\%$ on rejette donc l'hypothèse nulle, ce qui revient à dire qu'on conclut que la pièce est déséquilibrée.**
 
 \noindent 
-**Remarque.** Si on avait obtenu $4\,920$ fois pile sur nos $5\,000$ tirages, on aurait calculé $z_n=-1,6$ qui est dans la zone d'acceptation. On n'aurait donc pas rejeté l'hypothèse nulle, autrement dit on n'aurait pas rejeté l'hypothèse d'une pièce équilibrée.
+**Remarque.** Si on avait obtenu $4\,920$ fois pile sur nos $10\,000$ tirages, on aurait calculé $z_n=-1,6$ qui est dans la zone d'acceptation. On n'aurait donc pas rejeté l'hypothèse nulle, autrement dit on n'aurait pas rejeté l'hypothèse d'une pièce équilibrée.
 :::
 
 ::: {.methbox .meth data-latex="important"}
