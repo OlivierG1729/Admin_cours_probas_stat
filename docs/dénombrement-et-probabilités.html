@@ -23,7 +23,7 @@
 <meta name="author" content="Olivier Guin" />
 
 
-<meta name="date" content="2024-03-16" />
+<meta name="date" content="2024-03-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -76,7 +76,7 @@
 <li><a href="./">Cours de probabilités et statistique pour le concours interne d'administrateur de l'Insee</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> url: your book url like https://bookdown.org/yihui/bookdown</a>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Présentation du cours</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#généralités"><i class="fa fa-check"></i><b>1.1</b> Généralités</a></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#coquilles-et-erreurs"><i class="fa fa-check"></i><b>1.2</b> Coquilles et erreurs</a></li>
@@ -213,6 +213,10 @@
 <li class="chapter" data-level="8" data-path="méthodologie.html"><a href="méthodologie.html"><i class="fa fa-check"></i><b>8</b> Méthodologie</a>
 <ul>
 <li class="chapter" data-level="8.1" data-path="méthodologie.html"><a href="méthodologie.html#convergence-1"><i class="fa fa-check"></i><b>8.1</b> Convergence</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="exercices.html"><a href="exercices.html"><i class="fa fa-check"></i><b>9</b> Exercices</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="exercices.html"><a href="exercices.html#dénombrement-et-probabilités-1"><i class="fa fa-check"></i><b>9.1</b> Dénombrement et probabilités</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -500,9 +504,9 @@ avec à nouveau des ensembles deux à disjoints dans les membres de droite. Donc
 <p></p>
 <p><strong>Exemple : nombre d’anagrammes.</strong> Quel est le nombre d’anagrammes du mot MATHS ? Du mot ANAGRAMME ?</p>
 <p></p>
-<p><strong>Solution. i.</strong> Une anagramme du mot MATHS correspond à une permutation de l’ensemble <span class="math inline">\(\{M,A,T,H,S\}\)</span>. Il y en a donc <span class="math inline">\(4!=24\)</span>.</p>
+<p><strong>Solution. i.</strong> Une anagramme du mot MATHS correspond à une permutation de l’ensemble <span class="math inline">\(\{M,A,T,H,S\}\)</span>. Il y en a donc <span class="math inline">\(5!=120\)</span>.</p>
 <p></p>
-<p><strong>ii.</strong> Pour le mot ANAGRAMME c’est un peu plus compliqué car certaines lettres apparaissent plusieurs fois. On commence par numéroter ces lettres-là, en les traitant comme des lettres différentes, autrement dit on commence par compter le nombre de permutations de l’ensemble <span class="math inline">\(\{A_1,N,A_2,G,R,A_3,M_1,M_2,E\}\)</span> : il y en a <span class="math inline">\(8!\)</span>. Les lettres n’étant en réalité pas numérotées dans notre problème, il n’y a pas lieu de distinguer, par exemple, l’anagramme <span class="math inline">\(A_1NA_2GRA_3M_1M_2E\)</span> de l’anagramme <span class="math inline">\(A_2NA_1GRA_3M_1M_2E\)</span>. Ainsi, la lettre <span class="math inline">\(A\)</span> étant de multiplicité <span class="math inline">\(3\)</span> dans le mot ANAGRAMME, chacune des <span class="math inline">\(3!=6\)</span> permutations de cette lettre fournit exactement le même mot, de sorte que la numérotation de la lettre <span class="math inline">\(A\)</span> conduit à compter <span class="math inline">\(6\)</span> fois plus de permutations qu’il n’y en a en réalité. De même, la lettre <span class="math inline">\(M\)</span> est de multiplicité <span class="math inline">\(2\)</span>, et donc en la numérotant on compte <span class="math inline">\(2!=2\)</span> fois plus de permutations qu’il y en a réellement. Finalement, on en déduit que le nombre d’anagrammes du mot ANAGRAMME est égal à <span class="math inline">\(\frac{8!}{3!2!}=420\)</span>.</p>
+<p><strong>ii.</strong> Pour le mot ANAGRAMME c’est un peu plus compliqué car certaines lettres apparaissent plusieurs fois. On commence par numéroter ces lettres-là, en les traitant comme des lettres différentes, autrement dit on commence par compter le nombre de permutations de l’ensemble <span class="math inline">\(\{A_1,N,A_2,G,R,A_3,M_1,M_2,E\}\)</span> : il y en a <span class="math inline">\(9!\)</span>. Les lettres n’étant en réalité pas numérotées dans notre problème, il n’y a pas lieu de distinguer, par exemple, l’anagramme <span class="math inline">\(A_1NA_2GRA_3M_1M_2E\)</span> de l’anagramme <span class="math inline">\(A_2NA_1GRA_3M_1M_2E\)</span>. Ainsi, la lettre <span class="math inline">\(A\)</span> étant de multiplicité <span class="math inline">\(3\)</span> dans le mot ANAGRAMME, chacune des <span class="math inline">\(3!=6\)</span> permutations de cette lettre fournit exactement le même mot, de sorte que la numérotation de la lettre <span class="math inline">\(A\)</span> conduit à compter <span class="math inline">\(6\)</span> fois plus de permutations qu’il n’y en a en réalité. De même, la lettre <span class="math inline">\(M\)</span> est de multiplicité <span class="math inline">\(2\)</span>, et donc en la numérotant on compte <span class="math inline">\(2!=2\)</span> fois plus de permutations qu’il y en a réellement. Finalement, on en déduit que le nombre d’anagrammes du mot ANAGRAMME est égal à <span class="math inline">\(\frac{9!}{3!2!}=3\780\)</span></p>
 </div>
 <div id="arrangements" class="section level3 hasAnchor" number="2.2.6">
 <h3><span class="header-section-number">2.2.6</span> Arrangements<a href="dénombrement-et-probabilités.html#arrangements" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -879,7 +883,7 @@ Par ailleurs, comme <span class="math inline">\(\emptyset=\overline{\Omega}\)</s
 <ul>
 <li>la formule du crible de Poincaré se démontre exactement comme la formule déjà vue pour le cardinal. Le point important de la démonstration - celui qui fait que tout fonctionne bien - dans la formule avec le cardinal est le fait que l’application <em>cardinal</em> :</li>
 </ul>
-<p><span class="math display">\[\text{Card }:A\in\mathcal{A}\longrightarrow\text{Card }(A)\]</span></p>
+<p><span class="math display">\[\text{Card }:A\in\mathcal{A}\mapsto\text{Card }(A)\]</span></p>
 <p>est additive. Or, l’additivité (et même la <span class="math inline">\(\sigma-\)</span>additivité) est au coeur même de la construction des probabilités : l’application</p>
 <p><span class="math display">\[\mathbb{P}:A\in\mathcal{A}\longrightarrow\mathbb{P}(A)\]</span>
 est elle aussi additive (et même <span class="math inline">\(\sigma-\)</span>additive). Donc la démonstration de la formule de Poincaré pour les probabilités est une recopie exacte de celle pour les cardinaux, en remplaçant simplement l’application <span class="math inline">\(\text{Card}\)</span> par l’application <span class="math inline">\(\mathbb{P}\)</span>.</p>
@@ -1314,7 +1318,7 @@ Imaginons maintenant qu’on nous donne une information supplémentaire. La pers
 <p><span class="math display">\[\mathbb{P}(B\vert A)=\frac{\mathbb{P}(A\vert B)\,\mathbb{P}(B)}{\mathbb{P}(A)}\]</span>
 chaque terme a un nom :</p>
 <ul>
-<li><p><span class="math inline">\(\mathbb{P}(B)\)</span> est la <strong>probabilité a priori de <span class="math inline">\(B\)</span></strong> : ce terme modélise notre croyance sur <span class="math inline">\(B\)</span> en l’absence de toute information ; ;</p></li>
+<li><p><span class="math inline">\(\mathbb{P}(B)\)</span> est la <strong>probabilité a priori de <span class="math inline">\(B\)</span></strong> : ce terme modélise notre croyance sur <span class="math inline">\(B\)</span> en l’absence de toute information ;</p></li>
 <li><p><span class="math inline">\(\mathbb{P}(B\vert A)\)</span> est la <strong>probabilité a posteriori de <span class="math inline">\(B\)</span></strong> sachant l’événement <span class="math inline">\(A\)</span> : il s’agit de notre niveau de notre confiance en <span class="math inline">\(B\)</span> après avoir pris connaissance de l’information <span class="math inline">\(A\)</span> ;</p></li>
 <li><p><span class="math inline">\(\mathbb{P}(A\vert B)\)</span> est la <strong>fonction de vraisemblance de <span class="math inline">\(A\)</span></strong> : ce terme nous dit à quel point l’événement <span class="math inline">\(B\)</span> rend <span class="math inline">\(A\)</span> vraisemblable ;</p></li>
 <li><p><span class="math inline">\(\mathbb{P}(B)\)</span> est la <strong>marginale</strong> ou <strong>probabilité a priori de <span class="math inline">\(B\)</span></strong> : il s’agit juste d’un terme de normalisation, qui est souvent ignoré en statistique bayésienne (les calculs étant alors faits à une constante près).</p></li>

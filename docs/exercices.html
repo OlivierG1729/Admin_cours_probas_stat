@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapitre 9 Exercices | Cours de probabilités-statistiques pour le concours interne d’administrateur Insee</title>
+  <meta name="description" content="Cours de probabilités et statistiques" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapitre 9 Exercices | Cours de probabilités-statistiques pour le concours interne d’administrateur Insee" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Cours de probabilités et statistiques" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapitre 9 Exercices | Cours de probabilités-statistiques pour le concours interne d’administrateur Insee" />
+  
+  <meta name="twitter:description" content="Cours de probabilités et statistiques" />
+  
+
+<meta name="author" content="Olivier Guin" />
+
+
+<meta name="date" content="2024-03-30" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="méthodologie.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Cours de probabilités et statistique pour le concours interne d'administrateur de l'Insee</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Présentation du cours</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#généralités"><i class="fa fa-check"></i><b>1.1</b> Généralités</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#coquilles-et-erreurs"><i class="fa fa-check"></i><b>1.2</b> Coquilles et erreurs</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html"><i class="fa fa-check"></i><b>2</b> Dénombrement et probabilités</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#rappels-sur-les-opérations-ensemblistes"><i class="fa fa-check"></i><b>2.1</b> Rappels sur les opérations ensemblistes</a></li>
+<li class="chapter" data-level="2.2" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#dénombrement"><i class="fa fa-check"></i><b>2.2</b> Dénombrement</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#produit-cartésien-et-principe-multiplicatif"><i class="fa fa-check"></i><b>2.2.1</b> Produit cartésien et principe multiplicatif</a></li>
+<li class="chapter" data-level="2.2.2" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#principe-additif"><i class="fa fa-check"></i><b>2.2.2</b> Principe additif</a></li>
+<li class="chapter" data-level="2.2.3" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#formule-de-poincaré"><i class="fa fa-check"></i><b>2.2.3</b> Formule de Poincaré</a></li>
+<li class="chapter" data-level="2.2.4" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#dénombrement-par-bijection"><i class="fa fa-check"></i><b>2.2.4</b> Dénombrement par bijection</a></li>
+<li class="chapter" data-level="2.2.5" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#permutations"><i class="fa fa-check"></i><b>2.2.5</b> Permutations</a></li>
+<li class="chapter" data-level="2.2.6" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#arrangements"><i class="fa fa-check"></i><b>2.2.6</b> Arrangements</a></li>
+<li class="chapter" data-level="2.2.7" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#combinaisons"><i class="fa fa-check"></i><b>2.2.7</b> Combinaisons</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#langage-et-formalisme-des-probabilités"><i class="fa fa-check"></i><b>2.3</b> Langage et formalisme des probabilités</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#lunivers-omega-dune-expérience-aléatoire"><i class="fa fa-check"></i><b>2.3.1</b> L’univers <span class="math inline">\(\Omega\)</span> d’une expérience aléatoire</a></li>
+<li class="chapter" data-level="2.3.2" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#lespace-probabilisable-omega-mathcala"><i class="fa fa-check"></i><b>2.3.2</b> L’espace probabilisable <span class="math inline">\((\Omega, \mathcal{A})\)</span></a></li>
+<li class="chapter" data-level="2.3.3" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#lespace-probabilisé-omega-mathcala-mathbbp"><i class="fa fa-check"></i><b>2.3.3</b> L’espace probabilisé <span class="math inline">\((\Omega, \mathcal{A}, \mathbb{P})\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#indépendance"><i class="fa fa-check"></i><b>2.4</b> Indépendance</a></li>
+<li class="chapter" data-level="2.5" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#probabilités-conditionnelles"><i class="fa fa-check"></i><b>2.5</b> Probabilités conditionnelles</a></li>
+<li class="chapter" data-level="2.6" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#formule-des-probabilités-totales"><i class="fa fa-check"></i><b>2.6</b> Formule des probabilités totales</a></li>
+<li class="chapter" data-level="2.7" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#formule-de-bayes"><i class="fa fa-check"></i><b>2.7</b> Formule de Bayes</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html"><i class="fa fa-check"></i><b>3</b> Variables aléatoires discrètes</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#définition-et-premières-propriétés"><i class="fa fa-check"></i><b>3.1</b> Définition et premières propriétés</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#définition"><i class="fa fa-check"></i><b>3.1.1</b> Définition</a></li>
+<li class="chapter" data-level="3.1.2" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#loi-dune-variable-aléatoire-discrète"><i class="fa fa-check"></i><b>3.1.2</b> Loi d’une variable aléatoire discrète</a></li>
+<li class="chapter" data-level="3.1.3" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#définition-de-pxin-a"><i class="fa fa-check"></i><b>3.1.3</b> Définition de <span class="math inline">\(p(X\in A)\)</span></a></li>
+<li class="chapter" data-level="3.1.4" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#fonction-de-répartition-quantiles"><i class="fa fa-check"></i><b>3.1.4</b> Fonction de répartition, quantiles</a></li>
+<li class="chapter" data-level="3.1.5" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#exemples-classiques"><i class="fa fa-check"></i><b>3.1.5</b> Exemples classiques :</a></li>
+<li class="chapter" data-level="3.1.6" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#moments-dune-variable-aléatoire"><i class="fa fa-check"></i><b>3.1.6</b> Moments d’une variable aléatoire</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#transformation-dune-variable-aléatoire-discrète"><i class="fa fa-check"></i><b>3.2</b> Transformation d’une variable aléatoire discrète</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#définition-1"><i class="fa fa-check"></i><b>3.2.1</b> Définition</a></li>
+<li class="chapter" data-level="3.2.2" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#théorème-de-transfert-cas-discret"><i class="fa fa-check"></i><b>3.2.2</b> Théorème de transfert (cas discret)</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#vecteurs-aléatoires"><i class="fa fa-check"></i><b>3.3</b> Vecteurs aléatoires</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#définition-2"><i class="fa fa-check"></i><b>3.3.1</b> Définition</a></li>
+<li class="chapter" data-level="3.3.2" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#loi-jointe-loi-marginales"><i class="fa fa-check"></i><b>3.3.2</b> Loi jointe, loi marginales</a></li>
+<li class="chapter" data-level="3.3.3" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#loi-conditionnelle-mathcallyx"><i class="fa fa-check"></i><b>3.3.3</b> Loi conditionnelle <span class="math inline">\(\mathcal{L}(Y|X)\)</span></a></li>
+<li class="chapter" data-level="3.3.4" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#loi-dun-couple-de-va-indépendantes"><i class="fa fa-check"></i><b>3.3.4</b> Loi d’un couple de VA indépendantes</a></li>
+<li class="chapter" data-level="3.3.5" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#espérance-conditionnelle-variance-conditionnelle"><i class="fa fa-check"></i><b>3.3.5</b> Espérance conditionnelle, variance conditionnelle</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html"><i class="fa fa-check"></i><b>4</b> Variables aléatoires à densité</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#définition-et-premières-propriétés-1"><i class="fa fa-check"></i><b>4.1</b> Définition et premières propriétés</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#définition-3"><i class="fa fa-check"></i><b>4.1.1</b> Définition</a></li>
+<li class="chapter" data-level="4.1.2" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#loi-dune-variable-aléatoire-à-densité"><i class="fa fa-check"></i><b>4.1.2</b> Loi d’une variable aléatoire à densité</a></li>
+<li class="chapter" data-level="4.1.3" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#définition-de-pxin-a-1"><i class="fa fa-check"></i><b>4.1.3</b> Définition de <span class="math inline">\(p(X\in A)\)</span></a></li>
+<li class="chapter" data-level="4.1.4" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#fonction-de-répartition-quantiles-1"><i class="fa fa-check"></i><b>4.1.4</b> Fonction de répartition, quantiles</a></li>
+<li class="chapter" data-level="4.1.5" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#exemples-classiques-1"><i class="fa fa-check"></i><b>4.1.5</b> Exemples classiques :</a></li>
+<li class="chapter" data-level="4.1.6" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#moments-dune-variable-aléatoire-1"><i class="fa fa-check"></i><b>4.1.6</b> Moments d’une variable aléatoire</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#transformation-dune-variable-aléatoire-à-densité"><i class="fa fa-check"></i><b>4.2</b> Transformation d’une variable aléatoire à densité</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#définition-4"><i class="fa fa-check"></i><b>4.2.1</b> Définition</a></li>
+<li class="chapter" data-level="4.2.2" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#théorème-de-transfert-cas-à-densité"><i class="fa fa-check"></i><b>4.2.2</b> Théorème de transfert (cas à densité)</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#vecteurs-aléatoires-1"><i class="fa fa-check"></i><b>4.3</b> Vecteurs aléatoires</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#définition-5"><i class="fa fa-check"></i><b>4.3.1</b> Définition</a></li>
+<li class="chapter" data-level="4.3.2" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#loi-jointe-loi-marginales-1"><i class="fa fa-check"></i><b>4.3.2</b> Loi jointe, loi marginales</a></li>
+<li class="chapter" data-level="4.3.3" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#loi-conditionnelle-mathcallyx-1"><i class="fa fa-check"></i><b>4.3.3</b> Loi conditionnelle <span class="math inline">\(\mathcal{L}(Y|X)\)</span></a></li>
+<li class="chapter" data-level="4.3.4" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#loi-dun-couple-de-va-indépendantes-1"><i class="fa fa-check"></i><b>4.3.4</b> Loi d’un couple de VA indépendantes</a></li>
+<li class="chapter" data-level="4.3.5" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#espérance-matrice-de-variance-covariance"><i class="fa fa-check"></i><b>4.3.5</b> Espérance, matrice de variance-covariance</a></li>
+<li class="chapter" data-level="4.3.6" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#espérance-conditionnelle-variance-conditionnelle-1"><i class="fa fa-check"></i><b>4.3.6</b> Espérance conditionnelle, variance conditionnelle</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="convergence.html"><a href="convergence.html"><i class="fa fa-check"></i><b>5</b> Convergence</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="convergence.html"><a href="convergence.html#différents-modes-de-convergence"><i class="fa fa-check"></i><b>5.1</b> Différents modes de convergence</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="convergence.html"><a href="convergence.html#convergence-en-probabilité"><i class="fa fa-check"></i><b>5.1.1</b> Convergence en probabilité</a></li>
+<li class="chapter" data-level="5.1.2" data-path="convergence.html"><a href="convergence.html#convergence-dans-les-espaces-lp"><i class="fa fa-check"></i><b>5.1.2</b> Convergence dans les espaces <span class="math inline">\(L^p\)</span></a></li>
+<li class="chapter" data-level="5.1.3" data-path="convergence.html"><a href="convergence.html#convergence-en-loi"><i class="fa fa-check"></i><b>5.1.3</b> Convergence en loi</a></li>
+<li class="chapter" data-level="5.1.4" data-path="convergence.html"><a href="convergence.html#convergence-presque-sûre-hors-prgramme"><i class="fa fa-check"></i><b>5.1.4</b> Convergence presque-sûre (hors-prgramme ?)</a></li>
+<li class="chapter" data-level="5.1.5" data-path="convergence.html"><a href="convergence.html#liens-entre-les-différents-modes-de-convergence"><i class="fa fa-check"></i><b>5.1.5</b> Liens entre les différents modes de convergence</a></li>
+<li class="chapter" data-level="5.1.6" data-path="convergence.html"><a href="convergence.html#approximations"><i class="fa fa-check"></i><b>5.1.6</b> Approximations</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="convergence.html"><a href="convergence.html#loi-faible-des-grands-nombres-loi-forte-des-grands-nombres"><i class="fa fa-check"></i><b>5.2</b> Loi Faible des Grands Nombres, Loi Forte des Grands Nombres</a></li>
+<li class="chapter" data-level="5.3" data-path="convergence.html"><a href="convergence.html#théorème-central-limite-tcl"><i class="fa fa-check"></i><b>5.3</b> Théorème Central Limite (TCL)</a></li>
+<li class="chapter" data-level="5.4" data-path="convergence.html"><a href="convergence.html#variantes-du-tcl-hors-programme"><i class="fa fa-check"></i><b>5.4</b> Variantes du TCL (hors-programme)</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="statistique-descriptive.html"><a href="statistique-descriptive.html"><i class="fa fa-check"></i><b>6</b> Statistique descriptive</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="statistique-descriptive.html"><a href="statistique-descriptive.html#vocabulaire"><i class="fa fa-check"></i><b>6.1</b> Vocabulaire</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="statistique-descriptive.html"><a href="statistique-descriptive.html#population-individus-échantillon"><i class="fa fa-check"></i><b>6.1.1</b> Population, individus, échantillon</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="statistique-descriptive.html"><a href="statistique-descriptive.html#analyse-statistique-univariée"><i class="fa fa-check"></i><b>6.2</b> Analyse statistique univariée</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="statistique-descriptive.html"><a href="statistique-descriptive.html#notion-de-série-statistique-univariée"><i class="fa fa-check"></i><b>6.2.1</b> Notion de série statistique univariée</a></li>
+<li class="chapter" data-level="6.2.2" data-path="statistique-descriptive.html"><a href="statistique-descriptive.html#indicateurs-dune-série-statistique-univariée"><i class="fa fa-check"></i><b>6.2.2</b> Indicateurs d’une série statistique univariée</a></li>
+<li class="chapter" data-level="6.2.3" data-path="statistique-descriptive.html"><a href="statistique-descriptive.html#représentations-graphiques"><i class="fa fa-check"></i><b>6.2.3</b> Représentations graphiques</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="statistique-descriptive.html"><a href="statistique-descriptive.html#analyse-statistique-bivariée"><i class="fa fa-check"></i><b>6.3</b> Analyse statistique bivariée</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="statistique-descriptive.html"><a href="statistique-descriptive.html#notion-de-série-statistique-bivariée"><i class="fa fa-check"></i><b>6.3.1</b> Notion de série statistique bivariée</a></li>
+<li class="chapter" data-level="6.3.2" data-path="statistique-descriptive.html"><a href="statistique-descriptive.html#indicateurs-propres-à-lanalyse-statistique-multivariée"><i class="fa fa-check"></i><b>6.3.2</b> Indicateurs propres à l’analyse statistique multivariée</a></li>
+<li class="chapter" data-level="6.3.3" data-path="statistique-descriptive.html"><a href="statistique-descriptive.html#nuage-de-points"><i class="fa fa-check"></i><b>6.3.3</b> Nuage de points</a></li>
+<li class="chapter" data-level="6.3.4" data-path="statistique-descriptive.html"><a href="statistique-descriptive.html#ajustement-des-moindres-carrés"><i class="fa fa-check"></i><b>6.3.4</b> Ajustement des moindres carrés</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="statistique-inférentielle.html"><a href="statistique-inférentielle.html"><i class="fa fa-check"></i><b>7</b> Statistique inférentielle</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="statistique-inférentielle.html"><a href="statistique-inférentielle.html#estimation"><i class="fa fa-check"></i><b>7.1</b> Estimation</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="statistique-inférentielle.html"><a href="statistique-inférentielle.html#premières-définitions"><i class="fa fa-check"></i><b>7.1.1</b> Premières définitions</a></li>
+<li class="chapter" data-level="7.1.2" data-path="statistique-inférentielle.html"><a href="statistique-inférentielle.html#convergence-dun-estimateur"><i class="fa fa-check"></i><b>7.1.2</b> Convergence d’un estimateur</a></li>
+<li class="chapter" data-level="7.1.3" data-path="statistique-inférentielle.html"><a href="statistique-inférentielle.html#exemples-classiques-2"><i class="fa fa-check"></i><b>7.1.3</b> Exemples classiques</a></li>
+<li class="chapter" data-level="7.1.4" data-path="statistique-inférentielle.html"><a href="statistique-inférentielle.html#méthodes-de-construction-des-estimateurs"><i class="fa fa-check"></i><b>7.1.4</b> Méthodes de construction des estimateurs</a></li>
+<li class="chapter" data-level="7.1.5" data-path="statistique-inférentielle.html"><a href="statistique-inférentielle.html#compléments-hors-programme"><i class="fa fa-check"></i><b>7.1.5</b> Compléments (hors-programme)</a></li>
+<li class="chapter" data-level="7.1.6" data-path="statistique-inférentielle.html"><a href="statistique-inférentielle.html#estimation-des-coefficients-dune-régression-linéaire"><i class="fa fa-check"></i><b>7.1.6</b> Estimation des coefficients d’une régression linéaire</a></li>
+<li class="chapter" data-level="7.1.7" data-path="statistique-inférentielle.html"><a href="statistique-inférentielle.html#intervalles-de-confiance"><i class="fa fa-check"></i><b>7.1.7</b> Intervalles de confiance</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="statistique-inférentielle.html"><a href="statistique-inférentielle.html#tests-statistiques"><i class="fa fa-check"></i><b>7.2</b> Tests statistiques</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="statistique-inférentielle.html"><a href="statistique-inférentielle.html#définition-et-principes"><i class="fa fa-check"></i><b>7.2.1</b> Définition et principes</a></li>
+<li class="chapter" data-level="7.2.2" data-path="statistique-inférentielle.html"><a href="statistique-inférentielle.html#tests-unilatéraux-tests-bilatéraux"><i class="fa fa-check"></i><b>7.2.2</b> Tests unilatéraux, tests bilatéraux</a></li>
+<li class="chapter" data-level="7.2.3" data-path="statistique-inférentielle.html"><a href="statistique-inférentielle.html#exemples"><i class="fa fa-check"></i><b>7.2.3</b> Exemples</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="méthodologie.html"><a href="méthodologie.html"><i class="fa fa-check"></i><b>8</b> Méthodologie</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="méthodologie.html"><a href="méthodologie.html#convergence-1"><i class="fa fa-check"></i><b>8.1</b> Convergence</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="exercices.html"><a href="exercices.html"><i class="fa fa-check"></i><b>9</b> Exercices</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="exercices.html"><a href="exercices.html#dénombrement-et-probabilités-1"><i class="fa fa-check"></i><b>9.1</b> Dénombrement et probabilités</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Cours de probabilités-statistiques pour le concours interne d’administrateur Insee</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="exercices" class="section level1 hasAnchor" number="9">
+<h1><span class="header-section-number">Chapitre 9</span> Exercices<a href="exercices.html#exercices" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="dénombrement-et-probabilités-1" class="section level2 hasAnchor" number="9.1">
+<h2><span class="header-section-number">9.1</span> Dénombrement et probabilités<a href="exercices.html#dénombrement-et-probabilités-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>On commence par quelques exercices de dénombrement, très classiques lorqu’on découvre le calcul des probabilités. Si ce type d’exercices a en soi très peu de chances de tomber au concours, on peut toujours imaginer un sujet dans lequel quelques questions isolées nécessitent des réflexes d’analyse combinatoire.</p>
+<div class="methbox meth">
+<p><strong>Exercice 2.1.</strong> Dans un jeu de 52 cartes, on tire 5 cartes sans remise. Quelle est la probabilité de tirer :</p>
+<p></p>
+<p><strong>1.</strong> 5 coeurs ?</p>
+<p></p>
+<p><strong>2.</strong> 2 piques et 3 coeurs ?</p>
+<p></p>
+<p><strong>3.</strong> 5 trèfles ou 5 coeurs ?</p>
+<p></p>
+<p><strong>4.</strong> 5 cartes de la même couleur (pique, coeur, carreau, trèfle) ?</p>
+<p></p>
+<p><strong>5.</strong> 3 cartes d’une couleur et 2 d’une autre ?</p>
+<p></p>
+<p><strong>6.</strong> les 4 as et une autre carte ?</p>
+</div>
+<p></p>
+<p><strong>Solution.</strong> Le nombre de main à <span class="math inline">\(5\)</span> cartes dans un jeu de <span class="math inline">\(52\)</span> cartes est <span class="math inline">\(\binom{52}{5}\)</span>.</p>
+<p></p>
+<p><strong>1.</strong> Il y a <span class="math inline">\(13\)</span> coeurs dans un jeu de <span class="math inline">\(52\)</span> cartes, donc il y a <span class="math inline">\(\binom{13}{5}\)</span> mains à <span class="math inline">\(5\)</span> coeurs. La probabilité de tirer <span class="math inline">\(5\)</span> coeurs est donc <span class="math inline">\(\frac{\binom{13}{5}}{\binom{52}{5}}\)</span>.</p>
+<p></p>
+<p><strong>2.</strong> Le nombre de façons de tirer <span class="math inline">\(2\)</span> piques et <span class="math inline">\(3\)</span> coeurs est <span class="math inline">\(\binom{8}{2}\times\binom{8}{3}\)</span>. La probabilité d’un tel tirage est donc <span class="math inline">\(\frac{\binom{8}{2}\times\binom{8}{3}}{\binom{52}{5}}\)</span>.</p>
+<p></p>
+<p><strong>3.</strong> Les événements <em>obtenir 5 trèfles</em> et <em>obtenir 5 coeurs</em> étant incompatibles, la probabilité que l’un ou l’autre soit réalisé est la somme des probabilités, soit <span class="math inline">\(\frac{\binom{13}{5}}{\binom{52}{5}}+\frac{\binom{13}{5}}{\binom{52}{5}}=\frac{2\,\binom{13}{5}}{\binom{52}{5}}\)</span>.</p>
+<p></p>
+<p><strong>4.</strong> Avec le même raisonnement qu’à la question 3., la probabilité d’avoir <span class="math inline">\(5\)</span> cartes de la même couleur est <span class="math inline">\(\frac{4\,\binom{13}{5}}{\binom{52}{5}}\)</span>.</p>
+<p></p>
+<p><strong>5.</strong></p>
+<ul>
+<li><p>choisir deux couleurs parmi quatre : <span class="math inline">\(A_4^2\)</span> possibilités (l’ordre des couleurs compte, puisque les nombres de cartes de chaque couleur sont différents) ;</p></li>
+<li><p>pour une couleur choisir <span class="math inline">\(3\)</span> cartes : <span class="math inline">\(\binom{13}{3}\)</span> possibilités ;</p></li>
+<li><p>pour l’autre couleur choisir <span class="math inline">\(2\)</span> cartes : <span class="math inline">\(\binom{13}{2}\)</span> possibilités.</p></li>
+</ul>
+<p>Donc, en vertu du principe mulitplicatif, il y a <span class="math inline">\(\binom{4}{2}\times\binom{13}{3}\times\binom{13}{2}\)</span> mains de <span class="math inline">\(5\)</span> cartes, avec <span class="math inline">\(3\)</span> cartes d’une couleur et <span class="math inline">\(2\)</span> cartes d’une autre. La probabilité d’un tel tirage est donc égale à <span class="math inline">\(\frac{\binom{4}{2}\times\binom{13}{3}\times\binom{13}{2}}{\binom{52}{5}}\)</span>.</p>
+<p></p>
+<p><strong>6.</strong></p>
+<ul>
+<li><p>choisir les quatre as : une seule possibilité ;</p></li>
+<li><p>choisir n’importe quelle carte parmi les <span class="math inline">\(48\)</span> cartes restantes : <span class="math inline">\(48\)</span> possibilités.</p></li>
+</ul>
+<p>Donc, la probabilité de tirer les quatre as et une autre carte (quelconque) est égale à <span class="math inline">\(\frac{48}{\binom{13}{5}}\)</span>.</p>
+<div class="methbox meth">
+<p><strong>Exercice 2.2.</strong> On s’intéresse à une famille et on considère les événements suivants :</p>
+<ul>
+<li><span class="math inline">\(A\)</span> : la famille a des enfants des deux sexes</li>
+<li><span class="math inline">\(B\)</span> : la famille a au plus un garçon</li>
+</ul>
+<p></p>
+<p><strong>1.</strong> Démontrer que si la famille a deux enfants, alors <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> sont dépendants.</p>
+<p></p>
+<p><strong>2.</strong> Démontrer que si la famille a trois enfants, alors <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> sont indépendants.</p>
+</div>
+<p></p>
+<p><strong>Solution.</strong> On suppose que la probabilité d’avoir une fille et celle d’avoir un garçon sont égales à <span class="math inline">\(\frac{1}{2}\)</span>. On note</p>
+<ul>
+<li><span class="math inline">\(G_i\)</span> l’événement : l’enfant numéro <span class="math inline">\(i\)</span> est un garçon ;</li>
+<li><span class="math inline">\(F_i\)</span> l’événement : l’enfant numéro <span class="math inline">\(i\)</span> est une fille.</li>
+</ul>
+<p></p>
+<p><strong>1.</strong> On vérifie facilement que <span class="math inline">\(A\cap B=A=(F_1\cap G_2)\cup (F_2\cap G_1)\)</span>. Il s’agit d’une réunion disjointe de deux événements de probabilité commune <span class="math inline">\(\frac{1}{4}\)</span>, donc <span class="math inline">\(\mathbb{P}(A\cap B)=\mathbb{P}(A)=\frac{1}{2}\)</span>. Comme <span class="math inline">\(\mathbb{P}(B)&gt;0\)</span>, on en déduit que <span class="math inline">\(\mathbb{P}(A\cap B)\neq\mathbb{P}(A)\mathbb{P}(B)\)</span>, et donc <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> sont dépendants.</p>
+<p><strong>2.</strong> <span class="math inline">\(\overline{A}=(F_1\cap F_2\cap F_3)\cup(G_1\cap G_2\cap G_3)\)</span> donc</p>
+<p><span class="math display">\[\mathbb{P}(A)=1-\mathbb{P}(F_1\cap F_2\cap F_3)-\mathbb{P}(G_1\cap G_2\cap G_3)=1-\frac{1}{8}-\frac{1}{8}=\frac{3}{4}\]</span></p>
+<p><span class="math inline">\(\overline{B}=(F_1\cap F_2\cap F_3)\cup(G_1\cap F_2\cap F_3)\cup (G_1\cap F_2\cap F_3)\cup (G_1\cap F_2\cap F_3)\)</span>.Il s’agit d’une réunion disjointe de quatre événements de probabilité commune <span class="math inline">\(\frac{1}{8}\)</span> donc <span class="math inline">\(\mathbb{P}(\overline{B})=\frac{4}{8}=\frac{1}{2}\)</span>. D’où <span class="math inline">\(\mathbb{P}(B)=\frac{1}{2}\)</span>.</p>
+<p><span class="math inline">\(A\cap B=(G_1\cap F_2\cap F_3)\cup (F_1\cap G_2\cap F_3)\cup (F_1\cap F_2\cap G_3)\)</span>. Il s’agit d’une réunion disjointe de trois événements de probabilité commune <span class="math inline">\(\frac{1}{8}\)</span>. Donc, <span class="math inline">\(\mathbb{P}(A\cap B)=\frac{3}{8}=\mathbb{P}(A)\mathbb{P}(B)\)</span>. Les événements <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> sont donc indépendants.</p>
+<div class="methbox meth">
+<p><strong>Exercice 2.3 (coefficients binomiaux). 1.</strong> Soit <span class="math inline">\(1\leq p\leq n\)</span>. On considère <span class="math inline">\(n\)</span> boules et deux boîtes <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> vides. Un échantillon est constitué d’une boule que l’on met dans la boîte <span class="math inline">\(A\)</span> et <span class="math inline">\(p-1\)</span> boules que l’on met dans la boîte <span class="math inline">\(B\)</span>. En dénombrant de deux façons différentes l’ensemble de tous les échantillons que l’on peut ainsi obtenir, établir la formule</p>
+<p><span class="math display">\[n\binom{n-1}{p-1}=p\binom{n}{p}\]</span>
+Démontrer cette formule par le calcul.</p>
+<p></p>
+<p><strong>2.</strong> Démontrer que pour <span class="math inline">\(1\leq p\leq n\)</span> on a la formule</p>
+<p><span class="math display">\[\sum\limits_{k=p}^n\binom{k}{p}=\binom{n+1}{p+1}\]</span></p>
+<p></p>
+<p><strong>3. (Extension de la formule de Pascal).</strong> Soient <span class="math inline">\(m, p, q\)</span> des entiers naturels tels que <span class="math inline">\(q\leq p\leq m\)</span>. Démontrer par un dénombrement la formule :</p>
+<p><span class="math display">\[\sum\limits_{j=0}^q \binom{q}{j}\binom{m-q}{p-j}=\binom{m}{p}\]</span></p>
+<p><strong>4.</strong> Soit <span class="math inline">\(n\)</span> un entier tel que <span class="math inline">\(n\geq 1\)</span>. Démontrer par un dénombrement la formule :</p>
+<p><span class="math display">\[\sum\limits_{k=0}^n \binom{n}{k}^2=\binom{2n}{n}\]</span></p>
+</div>
+<p></p>
+<p><strong>Solution. 1.</strong></p>
+<p></p>
+<p><strong>Première méthode de dénombrement des échantillons :</strong></p>
+<ul>
+<li>choisir une boule à mettre dans la boîte <span class="math inline">\(A\)</span> : <span class="math inline">\(n\)</span> choix possibles ;</li>
+<li>choisir <span class="math inline">\(p-1\)</span> boules parmi les <span class="math inline">\(n-1\)</span> boules restantes, à mettre dans la boîte <span class="math inline">\(B\)</span> : <span class="math inline">\(\binom{n-1}{p-1}\)</span> choix possibles.</li>
+</ul>
+<p>En appliquant le principe multiplicatif, on en déduit qu’il y a donc <span class="math inline">\(n\times\binom{n-1}{p-1}\)</span> échantillons.</p>
+<p></p>
+<p><strong>Deuxième méthode de dénombrement des échantillons :</strong></p>
+<ul>
+<li>choisir <span class="math inline">\(p\)</span> boules parmi <span class="math inline">\(n\)</span> boules à mettre dans l’ensemble des deux boîtes <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> : <span class="math inline">\(\binom{n}{p}\)</span> choix possibles ;</li>
+<li>choisir une boule parmi ces <span class="math inline">\(p\)</span> boules à mettre dans la boîte <span class="math inline">\(A\)</span> (les autres vont ditrectement dans la boîte <span class="math inline">\(B\)</span>) : <span class="math inline">\(p\)</span> choix possibles.</li>
+</ul>
+<p>En appliquant le principe multiplicatif, on en déduit qu’il y a donc <span class="math inline">\(p\times\binom{n}{p}\)</span> échantillons.</p>
+<p>Ces deux méthodes comptent le même nombre d’échantillons. On en déduit que</p>
+<p><span class="math display">\[n\times\binom{n-1}{p-1}=p\times\binom{n}{p}\]</span></p>
+<p></p>
+<p><strong>Approche calculatoire.</strong> On peut démontrer cette formule par le calcul (c’est plus simple mais moins élégant) :</p>
+<p><span class="math display">\[\begin{align}
+n\times\binom{n-1}{p-1} &amp;= n\frac{(n-1)!}{(p-1)!(n-p)!} \\
+&amp;= \frac{n!}{(p-1)!(n-p)!} \\
+&amp;=p\frac{n!}{p!(n-p)!} \\
+&amp;=p\times\binom{n}{p} \\
+\end{align}\]</span></p>
+<p></p>
+<p><strong>2.</strong> On choisit <span class="math inline">\(p+1\)</span> nombres parmi les entiers <span class="math inline">\(1,2,\dots,n+1\)</span> : <span class="math inline">\(\binom{n+1}{p+1}\)</span> choix possibles.</p>
+<p>On peut aussi dénombrer le nombre de choix possibles de la manière suivante :</p>
+<ul>
+<li>fixer le maximum <span class="math inline">\(k\)</span> des <span class="math inline">\(p+1\)</span> nombres tirés : ce maximum est nécessairement compris entre <span class="math inline">\(p+1\)</span> et <span class="math inline">\(n+1\)</span> (inclus) ;</li>
+<li>choisir les <span class="math inline">\(p\)</span> nombres restants parmi <span class="math inline">\(1,2,\dots, k-1\)</span> : à <span class="math inline">\(k\)</span> fixé, on a <span class="math inline">\(\binom{p}{k-1}\)</span> choix possibles.</li>
+</ul>
+<p>On en déduit que le nombre de façons de choisir <span class="math inline">\(p+1\)</span> nombres parmi les entiers <span class="math inline">\(1,2,\dots n+1\)</span> est égal à <span class="math inline">\(\sum\limits_{k=p+1}^{n+1}\binom{p}{k-1}=\sum\limits_{k=p}^n\binom{p}{k}\)</span>.</p>
+<p>Ces deux méthodes de dénombrement doivent mener au même résultat, donc</p>
+<p><span class="math display">\[\sum\limits_{k=p}^n\binom{p}{k}=\binom{n+1}{p+1}\]</span>
+</p>
+<p><strong>3.</strong> On choisit <span class="math inline">\(p\)</span> entiers parmi les entiers <span class="math inline">\(1,2,\dots,m\)</span> : <span class="math inline">\(\binom{m}{p}\)</span> choix possbles.</p>
+<p>Pour choisir ces <span class="math inline">\(p\)</span> entiers on peut aussi procéder de la manière suivante :</p>
+<ul>
+<li><p>on choisit <span class="math inline">\(j\)</span> entiers parmi les entiers <span class="math inline">\(1,2,\dots,q\)</span>. Cela n’est évidemment possible que pour <span class="math inline">\(0\leq j\leq q\)</span>, et pour chaque entier <span class="math inline">\(j\)</span> vérifiant cet encadrement on a <span class="math inline">\(\binom{q}{j}\)</span> façons différentes de choisir ces <span class="math inline">\(j\)</span> entiers.</p></li>
+<li><p>on complète notre sélection en choisissant les <span class="math inline">\(p-j\)</span> entiers restants parmi <span class="math inline">\(q+1,q+2,\dots, m\)</span> : <span class="math inline">\(\binom{m-q}{p-j}\)</span> choix possibles.</p></li>
+</ul>
+<p>En vertu du principe multiplicatif, à <span class="math inline">\(j\)</span> fixé compris entre <span class="math inline">\(0\)</span> et <span class="math inline">\(q\)</span> inclus, on a donc <span class="math inline">\(\binom{q}{j}\binom{m-q}{p-j}\)</span> façons de choisir <span class="math inline">\(p\)</span> entiers parmi <span class="math inline">\(1,2,\dots m\)</span> de sorte que <span class="math inline">\(j\)</span> de ces entiers soient compris entre <span class="math inline">\(1\)</span> et <span class="math inline">\(q\)</span> et les <span class="math inline">\(p-j\)</span> entiers restants soient compris entre <span class="math inline">\(q+1\)</span> et <span class="math inline">\(m\)</span>.</p>
+<p>Par ailleurs, l’entier <span class="math inline">\(j\)</span> peut prendre n’importe quelle valeur comprise entre <span class="math inline">\(0\)</span> et <span class="math inline">\(q\)</span>, et pour deux valeurs de <span class="math inline">\(j\)</span> distinctes on a deux sélections d’entiers distinctes. En vertu du principe additif, le nombre de façons de choisir <span class="math inline">\(p\)</span> entiers parmi <span class="math inline">\(1,2,\dots, q\)</span> est donc finalement égal à <span class="math inline">\(\sum\limits_{j=0}^q \binom{q}{j}\binom{m-q}{p-j}\)</span>.</p>
+<p>On a dénombré de deux façons différentes le même ensemble, ces deux approches doivent aboutir au même résultat. On a donc</p>
+<p><span class="math display">\[\sum\limits_{j=0}^q \binom{q}{j}\binom{m-q}{p-j}=\binom{m}{p}\]</span></p>
+<p></p>
+<p><strong>4.</strong> On applique la formule de la question précédente avec <span class="math inline">\(q=n\)</span>, <span class="math inline">\(p=n\)</span> et <span class="math inline">\(m=2n\)</span> :</p>
+<p><span class="math display">\[\sum\limits_{k=0}^n \binom{n}{k}\binom{n}{n-k}=\binom{2n}{n}\]</span></p>
+<p>Par la formule de symétrie des coefficients binomiaux <span class="math inline">\(\binom{n}{n-k}=\binom{n}{k}\)</span>, on en déduit que</p>
+<p><span class="math display">\[\sum\limits_{k=0}^n \binom{n}{k}^2=\binom{2n}{n}\]</span></p>
+<div class="methbox meth">
+<p><strong>Exercice 2.4 (Interne, 2023).</strong> Montrer que pour tout entier naturel <span class="math inline">\(n\)</span>, on a <span class="math inline">\(\sum\limits_{k=0}^n\binom{2n+1}{k}=\sum\limits_{k=0}^n\binom{2n+1}{n+k+1}\)</span>, et calculer la valeur commune de ces sommes.</p>
+<p></p>
+<p><strong>b.</strong> Montrer que pour tout entier naturel non nul <span class="math inline">\(n\)</span>, on a <span class="math inline">\(\sum\limits_{k=0}^{n-1}\binom{2n}{k}=\sum\limits_{k=1}^n\binom{2n}{n+k}=2^{2n-1}-\frac{1}{2}\binom{2n}{n}\)</span>.</p>
+<p></p>
+<p><strong>c.</strong> Déduire de ce qui précède le résultat suivant : <span class="math inline">\(\forall n\in\mathbb{N}^{*}, \sum\limits_{k=1}^n k\binom{2n}{n+k}=\frac{n}{2}\binom{2n}{n}\)</span>.</p>
+</div>
+<p></p>
+<p><strong>Solution. 1.</strong></p>
+<p><span class="math display">\[\begin{align}
+\sum\limits_{k=0}^n\binom{2n+1}{k}&amp;=\sum\limits_{k=0}^n\binom{2n+1}{n-k} \\
+&amp; \text{(changement de variable } k\mapsto n-k \text{)} \\
+&amp;=\sum\limits_{k=0}^n\binom{2n+1}{(2n+1)-(n-k)} \\
+&amp; \text{(symétrie des coefficients binomiaux : } \binom{n}{k}=\binom{n}{n-k} \text{)} \\
+&amp;=\sum\limits_{k=0}^n\binom{2n+1}{n+k+1} \\
+\end{align}\]</span></p>
+<p>On pose <span class="math inline">\(S_n:=\sum\limits_{k=0}^n\binom{2n+1}{k}\)</span>. On a donc</p>
+<p><span class="math display">\[\begin{align}
+2S_n&amp;=\sum\limits_{k=0}^n\binom{2n+1}{k}+\sum\limits_{k=0}^n\binom{2n+1}{n+k+1} \\
+&amp;=\sum\limits_{k=0}^{2n+1}\binom{2n+1}{k} \\
+&amp;=2^{2n+1} \\
+\end{align}\]</span></p>
+<p>D’où :</p>
+<p><span class="math display">\[S_n=2^{2n}\]</span></p>
+<p></p>
+<p><strong>2.</strong> L’égalité <span class="math inline">\(\sum\limits_{k=0}^{n-1}\binom{2n}{k}=\sum\limits_{k=1}^n\binom{2n}{n+k}\)</span> se démontre de façon tout à fait analogue. On note <span class="math inline">\(S&#39;_n\)</span> la valeur commune de ces deux sommes. Alors</p>
+<p><span class="math display">\[\begin{align}
+2S&#39;_n &amp;= \sum\limits_{k=0}^{n-1}\binom{2n}{k}+\sum\limits_{k=1}^n\binom{2n}{n+k} \\
+&amp;= \sum\limits_{k=0}^{2n}\binom{2n}{k}-\binom{2n}{n} \\
+&amp;= 2^{2n}-\binom{2n}{n} \\
+\end{align}\]</span></p>
+<p>On en déduit que</p>
+<p><span class="math display">\[S&#39;_n=2^{2n-1}-\frac{1}{2}\binom{2n}{n}\]</span></p>
+<p></p>
+<p><strong>3.</strong> Pour tout réel <span class="math inline">\(x\)</span>, on a d’après la formule du binôme de Newton <span class="math inline">\((1+x)^{2n}=\sum\limits_{k=0}^{2n}\binom{2n}{k}x^k\)</span>. En dérivant par rapport à <span class="math inline">\(x\)</span> on obtient donc</p>
+<p><span class="math display">\[2n(1+x)^{2n-1}=\sum\limits_{k=1}^{2n}k\binom{2n}{k}x^{k-1}\]</span></p>
+<p>On évalue cette égalité en <span class="math inline">\(x=1\)</span> :</p>
+<p><span class="math display">\[n2^{2n}=\sum\limits_{k=1}^{2n}k\binom{2n}{k}\]</span></p>
+<p>D’où</p>
+<p><span class="math display">\[\begin{align}
+n2^{2n}&amp;=\sum\limits_{k=1}^{n}k\binom{2n}{k}+\sum\limits_{k=n+1}^{2n}k\binom{2n}{k} \\
+&amp;=\sum\limits_{k=1}^{n}k\binom{2n}{k}+\sum\limits_{k=1}^{n}(n+k)\binom{2n}{n+k} \\
+&amp;=\sum\limits_{k=1}^{n}k\binom{2n}{k}+n\sum\limits_{k=1}^{n}\binom{2n}{n+k}+\sum\limits_{k=1}^{n}k\binom{2n}{n+k} \\
+&amp;=\sum\limits_{k=1}^{n}k\binom{2n}{k}+n\left(2^{2n-1}-\frac{1}{2}\binom{2n}{n}\right)+\sum\limits_{k=1}^{n}k\binom{2n}{n+k}
+\end{align}\]</span></p>
+<p>d’après 2.</p>
+<p>Par ailleurs, on a facilement</p>
+<p><span class="math display">\[k\binom{2n}{k}=2n\binom{2n-1}{k-1}\]</span></p>
+<p>D’où</p>
+<p><span class="math display">\[\begin{align}
+\sum\limits_{k=1}^n k\binom{2n}{k}&amp;=2n\sum\limits_{k=1}^n
+\binom{2n-1}{k-1} \\
+&amp;= 2n\sum\limits_{k=0}^{n-1}\binom{2n-1}{k} \\
+&amp;= n2^{2n-1} \\
+\end{align}\]</span></p>
+<p>Ainsi</p>
+<p><span class="math display">\[n2^{2n}=n2^{2n-1}+n2^{2n-1}-\frac{n}{2}\binom{2n}{n}+\sum\limits_{k=1}^n k\binom{2n}{n+k}\]</span></p>
+<p>et donc</p>
+<p><span class="math display">\[\sum\limits_{k=1}^n k\binom{2n}{n+k}=\frac{n}{2}\binom{2n}{n}\]</span></p>
+<p></p>
+<div class="methbox meth">
+<p><strong>Exercice 2.5 (Interne, 2012).</strong> On considère trois événements <span class="math inline">\(A, B, C\)</span> d’un espace probabilisé tels que</p>
+<p><span class="math display">\[\mathbb{P}(A)=0,4 \hspace{1cm} \mathbb{P}(B)=0,2 \hspace{1cm} \mathbb{P}(C)=0,3\]</span>
+<span class="math display">\[\mathbb{P}(A\cap B)=0,2 \hspace{1cm} \mathbb{P}(A\cap C)=0,12 \hspace{1cm} \mathbb{P}(B\cap C)=0\]</span></p>
+<p></p>
+<p><strong>1.</strong> Parmi les événements <span class="math inline">\(A, B\)</span> et <span class="math inline">\(C\)</span>, quels sont les deux événements indépendants ?</p>
+<p></p>
+<p><strong>2.</strong> La réalisation de l’un des trois événements implique la réalisation de l’un des deux autres. De quel événement s’agit-il ?</p>
+<p></p>
+<p><strong>3.</strong> Déterminer la probabilité <span class="math inline">\(\mathbb{P}(A\cap B\cap C)\)</span>.</p>
+<p></p>
+<p><strong>4.</strong> Calculer la probabilité qu’au moins l’un des événements <span class="math inline">\(A, B, C\)</span> se réalise.</p>
+<p></p>
+<p><strong>5.</strong> On considère maintenant l’expérience aléatoire pour laquelle les événements <span class="math inline">\(A, B\)</span> ou <span class="math inline">\(C\)</span>, et seulement eux, peuvent se réaliser.</p>
+<p></p>
+<p>On note <span class="math inline">\(X\)</span> le nombre d’événements qui se sont réalisés, parmi <span class="math inline">\(A, B, C\)</span>. Pour quelles valeurs de <span class="math inline">\(i\)</span> a-t-on <span class="math inline">\(\mathbb{P}(X=i)&gt;0\)</span> ? Pour chacune de ces valeurs <span class="math inline">\(i\)</span>, déterminer <span class="math inline">\(\mathbb{P}(X=i)\)</span>.</p>
+</div>
+<p><br />
+</p>
+<p></p>
+<p><strong>Solution. 1.</strong> <span class="math inline">\(\mathbb{P}(A\cap C)=\mathbb{P}(A)\mathbb{P}(C)=0,12\)</span>, donc <span class="math inline">\(A\)</span> et <span class="math inline">\(C\)</span> sont indépendants.</p>
+<p></p>
+<p><strong>2.</strong> <span class="math inline">\(\mathbb{P}(A\vert B)=\frac{\mathbb{P}(A\cap B)}{\mathbb{P}(B)}=\frac{0,2}{0,2}=1\)</span>, donc sachant que <span class="math inline">\(B\)</span> est réalisé, <span class="math inline">\(A\)</span> est réalisé avec probabilité <span class="math inline">\(1\)</span>.</p>
+<p></p>
+<p><strong>3.</strong> <span class="math inline">\(A\cap B\cap C\subset B\cap C\)</span>, et <span class="math inline">\(\mathbb{P}(B\cap C)=0\)</span>. D’après la propriété de croissance des probabilités, on en déduit que <span class="math inline">\(\mathbb{P}(A\cap B\cap C)=0\)</span>.</p>
+<p></p>
+<p><strong>4.</strong> On veut calculer <span class="math inline">\(\mathbb{P}(A\cup B\cup C)\)</span>. On peut utiliser la formule de Poincaré :</p>
+<p><span class="math display">\[\begin{align}
+\mathbb{P}(A\cup B\cup C)&amp;=\mathbb{P}(A)+\mathbb{P}(B)+\mathbb{P}(C)-\mathbb{P}(A\cap B)-\mathbb{P}(A\cap C)-\mathbb{P}(B\cap C)+\mathbb{P}(A\cap B\cap C) \\
+&amp;=0,4+0,2+0,3-0,2-0,12-0+0 \\
+&amp;=0,58 \\
+\end{align}\]</span></p>
+<p></p>
+<p><strong>5.</strong> Remarquons d’abord qu’<em>a priori</em> <span class="math inline">\(X\in\{0,1,2,3\}\)</span>. Par ailleurs :</p>
+<p><span class="math display">\[A\cup B\cup C=(X\geq 1)\]</span>
+<span class="math display">\[A\cap B\cap C=(X=3)\]</span></p>
+<p>On en déduit que</p>
+<p><span class="math display">\[\mathbb{P}(X=0\vert A\cup B\cup C)=\mathbb{P}(X=0\vert X\geq 1)=0\]</span></p>
+<p>et, d’après 3 :</p>
+<p><span class="math display">\[\mathbb{P}(X=3\vert A\cup B\cup C)=\frac{\mathbb{P}(X=3, X\geq 1)}{\mathbb{P}(X\geq 1)}=\frac{\mathbb{P}(X=3)}{\mathbb{P}(X\geq 1)}=\frac{\mathbb{P}(A\cap B\cap C)}{\mathbb{P}(X\geq 1)}=0\]</span></p>
+<p>De plus</p>
+<p><span class="math display">\[\begin{align}
+\mathbb{P}(X=2\vert A\cup B\cup C)&amp;=\frac{\mathbb{P}(X=2\vert  X\geq 1)}{\mathbb{P}(X\geq 1)} \\
+&amp;=\frac{\mathbb{P}(X=2, X\geq 1)}{\mathbb{P}(X\geq 1)} \\
+&amp;=\frac{\mathbb{P}(X=2)}{\mathbb{P}(X\geq 1)} \text{ ;  car } (X=2)\subset (X\geq 1) \\
+&amp;=\frac{\mathbb{P}(A\cap B\cap\overline{C})+\mathbb{P}(A\cap \overline{B}\cap C)+\mathbb{P}(\overline{A}\cap B\cap C)}{\mathbb{P}(X\geq 1)} \\
+&amp;=\frac{\mathbb{P}(A\cap B)+\mathbb{P}(A\cap C)+\mathbb{P}(B\cap C)}{\mathbb{P}(X\geq 1)} \text{ ; car } \mathbb{P}(A\cap B\cap C)=0 \\
+&amp;=\frac{0,32}{0,58} \\
+&amp;=\frac{16}{29} \\
+\end{align}\]</span></p>
+<p>On en déduit enfin que</p>
+<p><span class="math display">\[\begin{align}
+\mathbb{P}(X=1\vert A\cup B\cup C)&amp;=\mathbb{P}(X\geq 1\vert A\cup B\cup C)-\mathbb{P}(X=2\vert A\cup B\cup C)-\mathbb{P}(X=3\vert A\cup B\cup C) \\
+&amp;= \frac{0,58}{0,29}-\frac{0,32}{0,29}-0 \\
+&amp;= \frac{0,26}{0,39} \\
+&amp;=\frac{2}{3} \\
+\end{align}\]</span></p>
+<p></p>
+<p><strong>Commentaire sur cette dernière question.</strong> <em>Il s’agit typiquement du genre de question qui peut facilement devenir assez chronophage si l’on n’est pas un peu astucieux. Il y a plusieurs astuces / points à ne pas manquer pour s’économiser du temps de calcul :</em></p>
+<ul>
+<li><p><em>bien traduire <span class="math inline">\((X\geq 1)\)</span> par <span class="math inline">\(A\cup B\cup C\)</span> et <span class="math inline">\(X=3\)</span> par <span class="math inline">\(A\cap B\cap C\)</span>. </em></p></li>
+<li><p><em>constater que le calcul de <span class="math inline">\(\mathbb{P}(X=1\vert A\cup B\cup C)\)</span> et <span class="math inline">\(\mathbb{P}(X=2\vert A\cup B\cup C)\)</span> se ramène en fait au calcul d’un seul de ces deux termes. Pour voir cela, il faut penser à utiliser l’égalité <span class="math inline">\(\mathbb{P}(X\geq 1\vert A\cup B\cup C)=\mathbb{P}(X=1\vert A\cup B\cup C)+\mathbb{P}(X=2\vert A\cup B\cup C)\)</span> qui résulte de <span class="math inline">\(\mathbb{P}(X=3\vert A\cup B\cup C)=0\)</span>.</em></p></li>
+<li><p><em>remarquer que <span class="math inline">\(\mathbb{P}(X=1\vert A\cup B\cup C)\)</span> est plus rapide à calculer que <span class="math inline">\(\mathbb{P}(X=2\vert A\cup B\cup C)\)</span>. Pour s’en convaincre, il suffit de calculer directement <span class="math inline">\(\mathbb{P}(X=2\vert A\cup B\cup C)\)</span> : cela n’a rien de difficile, mais c’est plus long.</em></p></li>
+</ul>
+<div class="methbox meth">
+<p><strong>Exercice 2.6 (Interne, 2011). 1.</strong> Soit <span class="math inline">\(\Omega\)</span> un ensemble fondamental tel que <span class="math inline">\(\Omega=A_1\cup A_2\)</span>, où les <span class="math inline">\(A_i\)</span> (<span class="math inline">\(i=1,2\)</span>) sont des événements donnés. On suppose <span class="math inline">\(\Omega\)</span> muni d’une probabilité <span class="math inline">\(\mathbb{P}\)</span> telle que <span class="math inline">\(\mathbb{P}(A_1)=0,8\)</span> et <span class="math inline">\(\mathbb{P}(A_2)=0,5\)</span>. Donner la valeur de <span class="math inline">\(\mathbb{P}(A_1\cap A_2)\)</span>.</p>
+<p></p>
+<p><strong>2.</strong> Un individu oublie sa carte bancaire 10 % du temps, son chéquier 5 % du temps et ces deux instruments de paiement 2 % du temps. Calculer :</p>
+<ul>
+<li>la probabilité pour que, à un moment donné, il détienne ces deux instruments sur lui ;</li>
+<li>la probabilité qu’il trouve sa carte bancaire dans ses poches sachant qu’il a déjà trouvé son chéquier.</li>
+</ul>
+<p></p>
+<p><strong>3.</strong> Une automobile est classée comme étant “de luxe” si son moteur possède au moins 6 cylindres ou une cylindrée d’au moins 3 litres. On observe que 15 % des véhicules ont au moins 6 cylindres, que 10 % au moins 3 litres de cylindrées et que 80 % des véhicules d’au moins 3 litres ont au moins 6 cylindres. Calculer la proportion de véhicules de luxe dans le parc automobile.</p>
+<p></p>
+<p><strong>4.</strong> Soient <span class="math inline">\(\Omega\)</span> un ensemble fondamental et <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> deux parties de <span class="math inline">\(\Omega\)</span>. Montrer que</p>
+<p><span class="math display">\[\mathbb{P}(A\cap B)\leq\mathbb{P}(A)\leq\mathbb{P}(A\cup B)\leq\mathbb{P}(A)+\mathbb{P}(B)\]</span></p>
+<p></p>
+<p><strong>5.</strong> Soient <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> deux événements indépendants en probabilité et tels que <span class="math inline">\(\mathbb{P}(B)=2\,\mathbb{P}(A)\)</span> et <span class="math inline">\(\mathbb{P}(A\cup B)=5/8\)</span>. Calculer <span class="math inline">\(\mathbb{P}(A)\)</span> et <span class="math inline">\(\mathbb{P}(B)\)</span>.</p>
+<p></p>
+<p><strong>6.</strong> Chaque jour ouvrable de la semaine, le professeur Statys reçoit du courrier au collège avec une probabilité de <span class="math inline">\(1/3\)</span>. Par ailleurs, il a annoncé qu’il viendra aujourd’hui avec une probabilité de <span class="math inline">\(2/5\)</span>. Or, on observe que sa boite aux lettres est vide. Sachant cela, calculer la probabilité que Statys soit venu aujourd’hui.</p>
+<p></p>
+<p><strong>7.a.</strong> Démontrer que l’on peut généraliser (une récurrence est indiquée) la formule de base</p>
+<p><span class="math display">\[\mathbb{P}(A_1\cup A_2)=\mathbb{P}(A_1)+\mathbb{P}(A_2)-\mathbb{P}(A_1\cap A_2)\]</span></p>
+<p>au cas de <span class="math inline">\(N\)</span> événements <span class="math inline">\(A_n\)</span> (<span class="math inline">\(n=1\dots N\)</span>), autrement dit</p>
+<p><span class="math display">\[\begin{align}
+\mathbb{P}(A_1\cup\dots A_n)&amp;=\sum\limits_{n=1}^N\mathbb{P}(A_n)-\sum\limits_{i&lt;j}\mathbb{P}(A_i\cap A_j)+\sum\limits_{i&lt;j&lt;k}\mathbb{P}(A_i\cap A_j\cap A_k) \\
+
+&amp; +\dots+(-1)^{N-1}\mathbb{P}\left(\bigcap\limits_{n=1}^N A_n\right) \\
+\end{align}\]</span></p>
+<p></p>
+<p><strong>b.</strong> Que se passe-t-il :</p>
+<ul>
+<li><p>si la suite <span class="math inline">\((A_n)_{n=1\dots N}\)</span> est emboitée de façon décroissante (<span class="math inline">\(A_1\supset A_2\supset\dots\supset A_N\)</span>) ?</p></li>
+<li><p>si la suite <span class="math inline">\((A_n)_{n=1\dots N}\)</span> est emboitée de façon croissante (<span class="math inline">\(A_1\subset A_2\subset\dots\subset A_N\)</span>) ?</p></li>
+</ul>
+</div>
+<p></p>
+<p><strong>Solution. 1.</strong> <span class="math inline">\(\mathbb{P}(A_1\cup A_2)=\mathbb{P}(A_1)+\mathbb{P}(A_2)-\mathbb{P}(A_1\cap A_2)=0,8+0,5-1=0,3\)</span>.</p>
+<p></p>
+<p><strong>2.</strong> On note <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> les événements</p>
+<ul>
+<li><span class="math inline">\(A\)</span> : l’individu a sa carte bancaire</li>
+<li><span class="math inline">\(B\)</span> : l’individu a son chéquier</li>
+</ul>
+<p>On doit donc déterminer <span class="math inline">\(\mathbb{P}(A\cap B)\)</span> et <span class="math inline">\(\mathbb{P}(A\vert B)\)</span>. On a :</p>
+<p><span class="math display">\[\begin{align}
+\mathbb{P}(A\cap B)&amp;=1-\mathbb{P}(\overline{A}\cup\overline{B}) \\
+&amp;=1-\left(\mathbb{P}(\overline{A})+\mathbb{P}(\overline{B})-\mathbb{P}(\overline{A}\cap\overline{B})\right) \\
+&amp;=0,87
+\end{align}\]</span></p>
+<p>et</p>
+<p><span class="math display">\[\begin{align}
+\mathbb{P}(A\vert B)&amp;=\frac{\mathbb{P}(A\cap B)}{\mathbb{P}(B)} \\
+&amp;= \frac{\mathbb{P}(A\cap B)}{1-\mathbb{P}(\overline{B})} \\
+&amp;= \frac{0,87}{1-0,05} \\
+&amp;\approx 0,92 \\
+\end{align}\]</span></p>
+<p></p>
+<p><strong>3.</strong> On note :</p>
+<ul>
+<li><span class="math inline">\((N\geq 6)\)</span> l’événement : la voiture a au moins <span class="math inline">\(6\)</span> cylindres ;</li>
+<li><span class="math inline">\((C\geq 3)\)</span> l’événement : la voiture a une cylindrée d’au moins <span class="math inline">\(3\)</span> litres ;</li>
+<li><span class="math inline">\(L\)</span> l’événement : la voiture est un véhicule de luxe.</li>
+</ul>
+<p>On a donc <span class="math inline">\(L=(N\geq 6)\cup (C\geq 3)\)</span>, et</p>
+<p><span class="math display">\[\begin{align}
+\mathbb{P}(L)&amp;=\mathbb{P}\left((N\geq 6)\cup (C\geq 3)\right) \\
+&amp;= \mathbb{P}(N\geq 6)+\mathbb{P}(C\geq 3)-\mathbb{P}(N\geq 6, C\geq 3) \\
+&amp;= \mathbb{P}(N\geq 6)+\mathbb{P}(C\geq 3)-\mathbb{P}(N\geq 6\vert C\geq 3)\mathbb{P}(C\geq 3) \\
+&amp;= 0,15+0,10-0,80\times 0,10 \\
+&amp;= 0,17 \\
+\end{align}\]</span></p>
+<p>La proportion de véhicules de luxe dans le parc automobile est donc égale à <span class="math inline">\(17\,\%\)</span>.</p>
+<p></p>
+<p><strong>4.</strong> <span class="math inline">\((A\cap B)\subset A\subset (A\cup B)\)</span> donc <span class="math inline">\(\mathbb{P}(A\cap B)\leq\mathbb{P}(A)\leq\mathbb{P}(A\cup B)\)</span>.</p>
+<p>De plus, <span class="math inline">\(\mathbb{P}(A\cup B)=\mathbb{P}(A)+\mathbb{P}(B)-\mathbb{P}(A\cap B)\leq\mathbb{P}(A)+\mathbb{P}(B)\)</span>, d’où le résultat.</p>
+<p></p>
+<p><strong>5.</strong> Par indépendance de <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> et étant donné la relation <span class="math inline">\(\mathbb{P}(B)=2\mathbb{P}(A)\)</span>, on a</p>
+<p><span class="math display">\[\begin{align}
+\frac{5}{8}&amp;= \mathbb{P}(A\cup B) \\
+&amp;=\mathbb{P}(A)+\mathbb{P}(B)-\mathbb{P}(A\cap B) \\
+&amp;=\mathbb{P}(A)+\mathbb{P}(B)-\mathbb{P}(A)\mathbb{P}(B) \\
+&amp;=3\mathbb{P}(A)-2\mathbb{P}(A)^2 \\
+\end{align}\]</span></p>
+<p>Posons <span class="math inline">\(x=\mathbb{P}(A)\)</span>. Alors, <span class="math inline">\(x\)</span> est solution de l’équation</p>
+<p><span class="math display">\[3x-2x^2=\frac{5}{8}\]</span>
+soit</p>
+<p><span class="math display">\[16x^2-24x+5=0\]</span></p>
+<p>Il s’agit d’une équation du second degré, qui admet deux racines réelles :</p>
+<p><span class="math display">\[x_1=\frac{1}{4} \text{ et } x_2=\frac{5}{4}\]</span>
+Comme <span class="math inline">\(\frac{5}{4}&gt;1\)</span>, on en déduit que <span class="math inline">\(\mathbb{P}(A)=\frac{1}{4}\)</span>, et donc <span class="math inline">\(\mathbb{P}(B)=\frac{1}{2}\)</span>.</p>
+<p></p>
+<p><strong>6.</strong> La question a été posée telle quelle lors des écrits du concours interne de 2011. Toutefois, l’énoncé ne semble pas très clair, et en l’état il semble difficile de répondre.</p>
+<p>On peut commencer par noter <span class="math inline">\(V\)</span> et <span class="math inline">\(C\)</span> les événements</p>
+<ul>
+<li><span class="math inline">\(V\)</span> : M.Statys vient au collège ;</li>
+<li><span class="math inline">\(C\)</span> : M.Statys reçoit du courrier.</li>
+</ul>
+<p>On veut calculer <span class="math inline">\(\mathbb{P}(V\vert \overline{C})\)</span> :</p>
+<p><span class="math display">\[\begin{align}
+\mathbb{P}(V\vert\overline{C})&amp;=\frac{\mathbb{P}(V\cap\overline{C})}{\mathbb{P}(\overline{C})} \\
+&amp;=\frac{\mathbb{P}(V)-\mathbb{P}(V\cap C)}{1-\mathbb{P}(C)} \\
+\end{align}\]</span></p>
+<p>On connaît <span class="math inline">\(\mathbb{P}(V)\)</span> et <span class="math inline">\(\mathbb{P}(C)\)</span>, mais pas <span class="math inline">\(\mathbb{P}(V\cap C)\)</span>. Cette probabilité n’est pas donnée dans l’énoncé, et sa détemination semble impossible en l’absence d’hypothèse supplémentaire… Voici deux hypothèses que l’on pourrait envisager, et leurs conséquences sur le calcul de <span class="math inline">\(\mathbb{P}(V\vert\overline{C})\)</span> :</p>
+<ul>
+<li><p><strong>Hypothèse 1 : <span class="math inline">\(V\)</span> et <span class="math inline">\(C\)</span> sont indépendants.</strong> Dans ce cas, <span class="math inline">\(V\)</span> et <span class="math inline">\(\overline{C}\)</span> aussi sont indépendants, et l’exercice devient trivial : <span class="math inline">\(\mathbb{P}(V\vert\overline{C})=\mathbb{P}(V)=\frac{2}{5}\)</span>.</p></li>
+<li><p><strong>Hypothèse 2 : <span class="math inline">\(C\subset V\)</span>.</strong> On peut imaginer - mais c’est un peu tiré par les cheveux - que l’expression <em>M. Statys reçoit du courrier</em> comme <em>M. Statys ouvre son courrier</em>. Dans ce cas, pas le choix : s’il ouvre son courrier (le jour où il le reçoit), c’est qu’il est présent ! Et donc on a bien <span class="math inline">\(C\subset V\)</span>. Alors</p></li>
+</ul>
+<p><span class="math display">\[\begin{align}
+\mathbb{P}(V\vert\overline{C})&amp;=\frac{\mathbb{P}(V)-\mathbb{P}(V\cap C)}{1-\mathbb{P}(C)} \\
+&amp;=\frac{\mathbb{P}(V)-\mathbb{P}(C)}{1-\mathbb{P}(C)} \\
+&amp;=\frac{\frac{2}{5}-\frac{1}{3}}{1-\frac{1}{3}} \\
+&amp;=\frac{1}{10} \\
+\end{align}\]</span></p>
+<p>L’hypothèse <span class="math inline">\(2\)</span> me semble plus crédible que l’hypothèse <span class="math inline">\(1\)</span>, peut-être est-ce ainsi qu’il fallait interpréter l’énoncé ?</p>
+<p></p>
+<p><strong>7.a.</strong> Voir cours.</p>
+<p></p>
+<p><strong>b.</strong> Si la suite <span class="math inline">\((A_n)_{1\leq n\leq N}\)</span> est décroissante, alors <span class="math inline">\(\bigcup\limits_{n=1}^N A_n=A_1\)</span>, et donc dans le membre de droite de la formule de Poincaré, toutes les probablités s’annulent après simplification, sauf <span class="math inline">\(\mathbb{P}(A_1)\)</span>.</p>
+<p>De même, si la suite <span class="math inline">\((A_n)_{1\leq n\leq N}\)</span> est croissante, alors <span class="math inline">\(\bigcup\limits_{n=1}^N A_n=A_N\)</span>, et donc dans le membre de droite de la formule de Poincaré, toutes les probablités s’annulent après simplification, sauf <span class="math inline">\(\mathbb{P}(A_N)\)</span>.</p>
+<div class="methbox meth">
+<p><strong>Exercice 2.7 (Interne, 2012).</strong> On considère une population dont les individus sont susceptibles de présenter une maladie <span class="math inline">\(\mathcal{M}\)</span>. Pour chaque individu de la population considérée, on envisage trois facteurs de risque possibles de cette maladie : <span class="math inline">\(A, B\)</span> et <span class="math inline">\(C\)</span>
+.
+Grâce à une étude statistique, on dispose des renseignements suivants :</p>
+<ul>
+<li><p><span class="math inline">\(\mathbb{P}(A)=0,4 \hspace{1cm} \mathbb{P}(B)=0,06 \hspace{1cm} \mathbb{P}(A\cap B)=0,06 \hspace{1cm} \mathbb{P}(A\cap C)= 0,1\)</span></p></li>
+<li><p><span class="math inline">\(A\)</span> et <span class="math inline">\(C\)</span> sont indépendants</p></li>
+<li><p><span class="math inline">\(B\)</span> et <span class="math inline">\(C\)</span> sont incompatibles</p></li>
+</ul>
+<p></p>
+<p><strong>1.</strong> Déterminer <span class="math inline">\(\mathbb{P}(C)\)</span>, <span class="math inline">\(\mathbb{P}(B\cap C)\)</span> et <span class="math inline">\(\mathbb{P}(A\cap B\cap C)\)</span>.</p>
+<p></p>
+<p><strong>2.</strong> Calculer la probabilité pour qu’au moins un individu présente un facteur de risque.</p>
+<p></p>
+<p><strong>3.</strong> On note <span class="math inline">\(X\)</span> le nombre de facteurs de risque présents chez un individu. Quelles valeurs <span class="math inline">\(X\)</span> peut-elle prendre ? Pour chacune de ces valeurs <span class="math inline">\(i\)</span>, calculer <span class="math inline">\(\mathbb{P}(X=i)\)</span>.</p>
+<p></p>
+<p><strong>4.</strong> On note <span class="math inline">\(M\)</span> l’événement <em>L’individu est atteint de la maladie </em> <span class="math inline">\(\mathcal{M}\)</span>. On donne les probabilités conditionelles suivantes :</p>
+<p><span class="math display">\[\mathbb{P}_{\overline{A}}(M)=0 \hspace{1cm} \mathbb{P}_{A\cap B}(M)=0,06 \hspace{1cm} \mathbb{P}_{A\cap C}(M)=0,05 \hspace{1cm} \mathbb{P}_{A\cap \overline{B}\cap\overline{C}}(M)=0\]</span>
+</p>
+<p><strong>a.</strong> Interpréter ces quatre valeurs.</p>
+<p></p>
+<p><strong>b.</strong> Calculer la probabilité <span class="math inline">\(\mathbb{P}(M)\)</span>.</p>
+</div>
+<p></p>
+<p><strong>Solution.</strong> <em>Remarquons d’abord que cet exercice, posé lors des épreuves écrites du concours interne de 2012, est très proche dans l’esprit de l’exercice 5, lui aussi posé lors de ces épreuves ! Ce type d’exercices, de niveau lycée, est peu présent dans les sujets des précédentes années.</em></p>
+<p></p>
+<p><strong>1.</strong> - Comme <span class="math inline">\(A\)</span> et <span class="math inline">\(C\)</span> sont indépendants, <span class="math inline">\(\mathbb{P}(C)=\frac{\mathbb{P}(A\cap C)}{\mathbb{P}(A)}=\frac{1}{4}\)</span>.</p>
+<ul>
+<li><p><span class="math inline">\(B\cap C=\emptyset\)</span>, donc <span class="math inline">\(\mathbb{P}(B\cap C)=0\)</span>.</p></li>
+<li><p><span class="math inline">\((A\cap B\cap C)\subset (B\cap C)=\emptyset\)</span>, donc <span class="math inline">\(A\cap B\cap C=\emptyset\)</span>, d’où <span class="math inline">\(\mathbb{P}(A\cap B\cap C)=0\)</span>.</p></li>
+</ul>
+<p></p>
+<p><strong>2.</strong> On calcule <span class="math inline">\(\mathbb{P}(A\cup B\cup C)\)</span>. On utilise la formule de Poincaré :</p>
+<p><span class="math display">\[\begin{align}
+\mathbb{P}(A\cup B\cup C) &amp;= \mathbb{P}(A)+\mathbb{P}(B)+\mathbb{P}(C) \\
+&amp; \hspace{0.2cm} -\mathbb{P}(A\cap B)-\mathbb{P}(A\cap C)-\mathbb{P}(B\cap C) \\
+&amp; \hspace{0.2cm} + \mathbb{P}(A\cap B\cap C) \\
+&amp;= 0,4+0,06+0,25-0,06-0,1-0+0 \\
+&amp;= 0,55 \\
+\end{align}\]</span></p>
+<p></p>
+<p><strong>3.</strong> On a <em>a priori</em> <span class="math inline">\(X\in\{0, 1, 2, 3\}\)</span>. On a</p>
+<ul>
+<li><p><span class="math inline">\(\mathbb{P}(X=3)=\mathbb{P}(A\cap B\cap C)=0\)</span>.</p></li>
+<li><p><span class="math inline">\(\mathbb{P}(X=0)=1-\mathbb{P}(X\geq 1)=1-\mathbb{P}(A\cup B\cup C)=1-0,55=0,45\)</span>.</p></li>
+<li><p>Il est ensuite plus facile de calculer d’abord <span class="math inline">\(\mathbb{P}(X=2)\)</span> :</p></li>
+</ul>
+<p><span class="math display">\[\begin{align}
+\mathbb{P}(X=2)&amp;=\mathbb{P}(\overline{A}\cap B\cap C)+\mathbb{P}(A\cap \overline{B}\cap C)+\mathbb{P}(A\cap B\cap \overline{C}) \\
+&amp;= 0+\mathbb{P}(A\cap C)+\mathbb{P}(A\cap B) \\
+&amp;= 0,16 \\
+\end{align}\]</span></p>
+<ul>
+<li>et d’en déduire <span class="math inline">\(\mathbb{P}(X=1)\)</span> :</li>
+</ul>
+<p><span class="math display">\[\begin{align}
+\mathbb{P}(X=1)&amp;=\mathbb{P}(X\geq 1)-\mathbb{P}(X=2) \text{ ; car } $\mathbb{P}(X=3)=0$ \\
+&amp;=0,55-0,16 \\
+&amp;=0,39 \\
+\end{align}\]</span></p>
+<p></p>
+<p><strong>4.a.</strong></p>
+<ul>
+<li><p><span class="math inline">\(\mathbb{P}_{\overline{A}}(M)=0\)</span> : si l’individu ne présente pas le facteur de risque <span class="math inline">\(A\)</span>, alors la probabilité qu’il soit malade est nulle.</p></li>
+<li><p><span class="math inline">\(\mathbb{P}_{A\cap B}(M)=0,06\)</span> : la présence simultanée des facteurs de risque <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> implique une probabilité d’être malade de <span class="math inline">\(6\,\%\)</span>.</p></li>
+<li><p><span class="math inline">\(\mathbb{P}_{A\cap C}(M)=0,05\)</span> : la présence simultanée des facteurs de risque <span class="math inline">\(A\)</span> et <span class="math inline">\(C\)</span> implique une probabilité d’être malade de <span class="math inline">\(5\,\%\)</span>.</p></li>
+<li><p><span class="math inline">\(\mathbb{P}_{A\cap \overline{B}\cap\overline{C}}(M)=0\)</span> : si un individu présente le facteur de risque <span class="math inline">\(A\)</span>, mais pas les facteurs de risque <span class="math inline">\(B\)</span> et <span class="math inline">\(C\)</span>, alors la probabilité qu’il soit malade est nulle.</p></li>
+</ul>
+<p></p>
+<p><strong>b.</strong> Comme <span class="math inline">\(B\)</span> et <span class="math inline">\(C\)</span> sont incompatibles, <span class="math inline">\(\{A\cap B, A\cap C, A\cap\overline{B}\cap\overline{C}, \overline{A}\}\)</span> est un système complet d’événements. D’après la formule des probabilités totales on a alors</p>
+<p><span class="math display">\[\begin{align}
+\mathbb{P}(M)&amp;=\mathbb{P}_{\overline{A}}(M)\mathbb{P}(\overline{A})+\mathbb{P}_{A\cap B}(M)\mathbb{P}(A\cap B)+\mathbb{P}_{A\cap C}(M)\mathbb{P}(A\cap C)+\mathbb{P}_{A\cap\overline{B}\cap\overline{C}}(M)\mathbb{P}(A\cap\overline{B}\cap\overline{C}) \\
+&amp;= 0+0,06\times 0,06+0,05\times 0,1+0 \\
+&amp;= 0,0086 \\
+\end{align}\]</span></p>
+<div class="methbox meth">
+<p><strong>Exercice 2.8 (propagation d’une rumeur).</strong> Une information binaire (du type vrai/faux) se propage au sein d’une population. Lorsqu’une personne reçoit l’information :</p>
+<ul>
+<li>elle la retransmet telle quelle à la personne suivante avec probabilité <span class="math inline">\(p\)</span> ;</li>
+<li>elle la retransmet de façon erronée à la personne suivante avec probabilité <span class="math inline">\(1-p\)</span>.</li>
+</ul>
+<p>On note <span class="math inline">\(p_n\)</span> la probabilité pour que, après <span class="math inline">\(n\)</span> transmissions, l’information soit correcte. On suppose que <span class="math inline">\(p_0=1\)</span>.</p>
+<p></p>
+<p><strong>1.</strong> Donner une relation de récurrence entre <span class="math inline">\(p_{n+1}\)</span> et <span class="math inline">\(p_n\)</span>.</p>
+<p></p>
+<p><strong>2.</strong> En déduire une expression de <span class="math inline">\(p_n\)</span> en fonction de <span class="math inline">\(p\)</span> et de <span class="math inline">\(n\)</span>.</p>
+<p></p>
+<p><strong>3.</strong> En déduire la valeur de <span class="math inline">\(\lim_{n\to\infty} p_n\)</span>.</p>
+</div>
+<p></p>
+<p><strong>Solution.</strong> On note <span class="math inline">\(I_n\)</span> : <em>l’information est correcte après <span class="math inline">\(n\)</span> transmissions</em>. On a donc <span class="math inline">\(p_n=\mathbb{P}(I_n)\)</span>.</p>
+<p></p>
+<p><strong>1.</strong> D’après la formule des probabilités totales : <span class="math inline">\(\mathbb{P}(I_{n+1})=\mathbb{P}(I_{n+1}\vert I_n)\mathbb{P}(I_n)+\mathbb{P}(I_{n+1}\vert\overline{I_n})\mathbb{P}(\overline{I_n})\)</span>, autrement dit</p>
+<p><span class="math display">\[p_{n+1}=pp_n+(1-p)(1-p_n)\]</span></p>
+<p>soit encore</p>
+<p><span class="math display">\[p_{n+1}=(2p-1)p_n+1-p\]</span></p>
+<p></p>
+<p><strong>2.</strong> On reconnait une suite arithmético-géométrique <span class="math inline">\(p_{n+1}=ap_n+b\)</span>, avec <span class="math inline">\(a=2p-1\)</span> et <span class="math inline">\(b=1-p\)</span>.</p>
+<ul>
+<li><p>si <span class="math inline">\(2p-1=1\)</span>, autrement dit si <span class="math inline">\(p=1\)</span>, alors <span class="math inline">\((p_n)_{n}\)</span> est une suite constante, et donc pour tout entier naturel <span class="math inline">\(n\)</span> on a <span class="math inline">\(p_n=p_0=1\)</span>.</p></li>
+<li><p>sinon, la suite <span class="math inline">\((p_n)_n\)</span> converge vers une limite <span class="math inline">\(l\)</span> telle que <span class="math inline">\(l=al+b\)</span>, soit <span class="math inline">\(l=\frac{b}{1-a}=\frac{1-p}{2(1-p)}=\frac{1}{2}\)</span>. On a alors</p></li>
+</ul>
+<p><span class="math display">\[p_{n+1}-\frac{1}{2}=(2p-1)\left(p_n-\frac{1}{2}\right)\]</span></p>
+<p>donc la suite <span class="math inline">\((p_n-l)_n\)</span> est géométrique de raison <span class="math inline">\(2p-1\)</span>. D’où <span class="math inline">\(p_n-l=(2p-1)^n(p_0-l)\)</span>, et donc</p>
+<p><span class="math display">\[p_n=\frac{1}{2}+\frac{1}{2}(2p-1)^n\]</span></p>
+<p></p>
+<p><strong>Commentaire.</strong> <em>Le jour du concours, vous avez tout à fait le droit d’utiliser directement la formule explicitant le terme générique d’une suite arithmético-géométrique. A minima, si (comme moi…) vous ne le connaissez pas par coeur, il faut savoir la redémontrer rapidement en utilisant la méthode ci-dessus.</em></p>
+<p></p>
+<p><strong>3.</strong> - si <span class="math inline">\(p=1\)</span>, alors la suite <span class="math inline">\((p_n)_n\)</span> est constante égale à 1, donc <span class="math inline">\(\lim\limits_{n\to\infty}p_n=1\)</span>.</p>
+<ul>
+<li><p>si <span class="math inline">\(p=0\)</span>, alors <span class="math inline">\(p_n=\frac{1}{2}(1+(-1)^n)\)</span>. Les suites extraites <span class="math inline">\((p_{2n})_n\)</span> et <span class="math inline">\((p_{2n+1})_n\)</span> convergent donc respectivement vers <span class="math inline">\(1\)</span> et <span class="math inline">\(0\)</span> (elles sont mêmes constantes), donc la suite <span class="math inline">\((p_n)_n\)</span> admet deux valeurs d’adhérence distictes : elle ne converge pas.</p></li>
+<li><p>si <span class="math inline">\(0&lt;p&lt;1\)</span>, alors <span class="math inline">\(-1&lt;2p-1&lt;1\)</span>, et donc <span class="math inline">\(\lim\limits_{n\to\infty}(2p-1)^n=0\)</span> : on en déduit que <span class="math inline">\(\lim\limits_{n\to\infty}p_n=\frac{1}{2}\)</span>.</p></li>
+</ul>
+<p></p>
+<p><strong>Remarque.</strong> Ce dernier résultat nous dit que si d’une date à la date suivante l’information n’est ni <em>presque sûrement</em> transmise correctement, ni <em>presque sûrement</em> transmise de façon erronée, alors à une date asymptotitque il y a une chance sur deux qu’elle soit vraie. Un tel résultat était prévisible, car les événements <span class="math inline">\(I_n\)</span> et <span class="math inline">\(\overline{I_n}\)</span> jouent des rôles parfaitement symétriques, et il n’y a donc aucune raison que l’un des deux soit asymptotiquement plus probable que l’autre.</p>
+<div class="methbox meth">
+<p><strong>Exercice 2.9.</strong> Le gérant d’un magasin d’informatique a reçu un lot de clés USB. 5 % des boites sont abîmées. Le gérant estime que :</p>
+<ul>
+<li>60 % des boites abîmées contiennent au moins une clé défectueuse ;</li>
+<li>98 % des boites non abîmées ne contiennent aucune clé défectueuse.</li>
+</ul>
+<p>Un client achète une boite du lot. On désigne par</p>
+<ul>
+<li><span class="math inline">\(A\)</span> l’événement : la boite est abîmée ;</li>
+<li><span class="math inline">\(D\)</span> l’événement : la boite achetée contient au moins une clé défectueuse.</li>
+</ul>
+<p></p>
+<p><strong>1.</strong> Donner les probabilités <span class="math inline">\(\mathbb{P}(A)\)</span>, <span class="math inline">\(\mathbb{P}(\overline{A})\)</span>, <span class="math inline">\(\mathbb{P}(D\vert A)\)</span>, <span class="math inline">\(\mathbb{P}(D\vert\overline{A})\)</span>, <span class="math inline">\(\mathbb{P}(\overline{D}\vert A)\)</span> et <span class="math inline">\(\mathbb{P}(\overline{D}\vert\overline{A})\)</span>. En déduire <span class="math inline">\(\mathbb{P}(D)\)</span>.</p>
+<p></p>
+<p><strong>2.</strong> Le client constate qu’une des clés achetées est défectueuse. Quelle est la probabilité pour qu’il ait acheté une boite abîmée ?</p>
+</div>
+<p></p>
+<p><strong>Solution. 1.</strong></p>
+<ul>
+<li><p><span class="math inline">\(\mathbb{P}(A)=0,05\)</span> ;</p></li>
+<li><p><span class="math inline">\(\mathbb{P}(\overline{A})=0,95\)</span> d’après ce qui précède ;</p></li>
+<li><p><span class="math inline">\(\mathbb{P}(D\vert A)=0,6\)</span> ;</p></li>
+<li><p><span class="math inline">\(\mathbb{P}(\overline{D}\vert A)=0,4\)</span> d’après ce qui précède ;</p></li>
+<li><p><span class="math inline">\(\mathbb{P}(\overline{D}\vert\overline{A})=0,98\)</span> ;</p></li>
+<li><p>On en déduit, d’après la formule des probabilités totales et la formule de Bayes, que</p></li>
+</ul>
+<p><span class="math display">\[\begin{align}
+\mathbb{P}(D)&amp;=\mathbb{P}(D\vert A)\mathbb{P}(A)+\mathbb{P}(D\vert\overline{A})\mathbb{P}(\overline{A}) \\
+&amp;=0,6\times 0,05+0,02\times 0,95 \\
+&amp;\approx 0,049 \\
+\end{align}\]</span></p>
+<p></p>
+<p><strong>2.</strong> On veut déterminer <span class="math inline">\(\mathbb{P}(A\vert D)\)</span>. D’après la formule de Bayes :</p>
+<p><span class="math display">\[\begin{align}
+\mathbb{P}(A\vert D)&amp;=\frac{\mathbb{P}(D\vert A)\mathbb{P}(A)}{\mathbb{P}(D)} \\
+&amp;\approx\frac{0,6\times 0,05}{0,049} \\
+&amp;\approx 0,61 \\
+\end{align}\]</span></p>
+<div class="methbox meth">
+<p><strong>Exercice 2.10 (test de dépistage).</strong> Une maladie est présente dans la population, avec une prévalence d’une personne malade sur <span class="math inline">\(10\,000\)</span>. Un nouveau test de dépistage vient d’être mis au point. On constate que :</p>
+<ul>
+<li><p>lorsqu’une personne est malade, le test est positif dans <span class="math inline">\(99\,\%\)</span> des cas ;</p></li>
+<li><p>lorsqu’une personne n’est pas malade, le test est positif dans <span class="math inline">\(0,1\,\%\)</span> des cas.</p></li>
+</ul>
+<p>Selon vous, ce test doit-il être commercialisé ?</p>
+</div>
+<p></p>
+<p><strong>Solution.</strong> On note <span class="math inline">\(M\)</span> et <span class="math inline">\(P\)</span> les événements :</p>
+<ul>
+<li><span class="math inline">\(M\)</span> : <em>la personne est malade</em> ;</li>
+<li><span class="math inline">\(P\)</span> : <em>le test est positif</em>.</li>
+</ul>
+<p>On calcule <span class="math inline">\(\mathbb{P}(M\vert P)\)</span> avec la fomrule de Bayes :</p>
+<p><span class="math display">\[\begin{align}
+\mathbb{P}(M\vert P)&amp;=\frac{\mathbb{P}(P\vert M)\mathbb{P}(M)}{\mathbb{P}(P\vert M)\mathbb{P}(M)+\mathbb{P}(P\vert\overline{M})\mathbb{P}(\overline{M})} \\
+&amp;= \frac{0,99\times 0,0001}{0,99\times 0,0001+0,001\times 0,9999} \\
+&amp;\approx 0,09
+\end{align}\]</span></p>
+<p>La probabilité qu’une personne dont le test est positif soit malade est donc seulement égale à <span class="math inline">\(9\,\%\)</span>. Il faut donc éviter de commercialiser ce test.</p>
+<p></p>
+<p><strong>Remarque.</strong> Ce résultat qui peut paraître surprenant s’explique par le fait que la maladie étudiée est très rare (<span class="math inline">\(1\)</span> cas sur <span class="math inline">\(10\,000\)</span>), et donc même en cas de test positif la probabilité que la personne soit vraiment malade reste limitée.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="méthodologie.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/8_Exercices.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Probabilites_Statistique.pdf", "Probabilites_Statistique.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

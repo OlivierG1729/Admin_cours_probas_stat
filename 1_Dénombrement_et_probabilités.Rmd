@@ -414,11 +414,11 @@ $\square$
 
 \noindent
 
-**Solution. i.** Une anagramme du mot MATHS correspond à une permutation de l'ensemble $\{M,A,T,H,S\}$. Il y en a donc $4!=24$.
+**Solution. i.** Une anagramme du mot MATHS correspond à une permutation de l'ensemble $\{M,A,T,H,S\}$. Il y en a donc $5!=120$.
 
 \noindent
 
-**ii.** Pour le mot ANAGRAMME c'est un peu plus compliqué car certaines lettres apparaissent plusieurs fois. On commence par numéroter ces lettres-là, en les traitant comme des lettres différentes, autrement dit on commence par compter le nombre de permutations de l'ensemble $\{A_1,N,A_2,G,R,A_3,M_1,M_2,E\}$ : il y en a $8!$. Les lettres n'étant en réalité pas numérotées dans notre problème, il n'y a pas lieu de distinguer, par exemple, l'anagramme $A_1NA_2GRA_3M_1M_2E$ de l'anagramme $A_2NA_1GRA_3M_1M_2E$. Ainsi, la lettre $A$ étant de multiplicité $3$ dans le mot ANAGRAMME, chacune des $3!=6$ permutations de cette lettre fournit exactement le même mot, de sorte que la numérotation de la lettre $A$ conduit à compter $6$ fois plus de permutations qu'il n'y en a en réalité. De même, la lettre $M$ est de multiplicité $2$, et donc en la numérotant on compte $2!=2$ fois plus de permutations qu'il y en a réellement. Finalement, on en déduit que le nombre d'anagrammes du mot ANAGRAMME est égal à $\frac{8!}{3!2!}=420$.
+**ii.** Pour le mot ANAGRAMME c'est un peu plus compliqué car certaines lettres apparaissent plusieurs fois. On commence par numéroter ces lettres-là, en les traitant comme des lettres différentes, autrement dit on commence par compter le nombre de permutations de l'ensemble $\{A_1,N,A_2,G,R,A_3,M_1,M_2,E\}$ : il y en a $9!$. Les lettres n'étant en réalité pas numérotées dans notre problème, il n'y a pas lieu de distinguer, par exemple, l'anagramme $A_1NA_2GRA_3M_1M_2E$ de l'anagramme $A_2NA_1GRA_3M_1M_2E$. Ainsi, la lettre $A$ étant de multiplicité $3$ dans le mot ANAGRAMME, chacune des $3!=6$ permutations de cette lettre fournit exactement le même mot, de sorte que la numérotation de la lettre $A$ conduit à compter $6$ fois plus de permutations qu'il n'y en a en réalité. De même, la lettre $M$ est de multiplicité $2$, et donc en la numérotant on compte $2!=2$ fois plus de permutations qu'il y en a réellement. Finalement, on en déduit que le nombre d'anagrammes du mot ANAGRAMME est égal à $\frac{9!}{3!2!}=3\780$
 
 
 
@@ -985,7 +985,7 @@ $$\mathbb{P}(\emptyset)=0$$
 
 - la formule du crible de Poincaré se démontre exactement comme la formule déjà vue pour le cardinal. Le point important de la démonstration - celui qui fait que tout fonctionne bien - dans la formule avec le cardinal est le fait que l'application *cardinal* :
 
-$$\text{Card }:A\in\mathcal{A}\longrightarrow\text{Card }(A)$$
+$$\text{Card }:A\in\mathcal{A}\mapsto\text{Card }(A)$$
 
 est additive. Or, l'additivité (et même la $\sigma-$additivité) est au coeur même de la construction des probabilités : l'application
 

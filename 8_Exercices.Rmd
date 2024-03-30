@@ -1,0 +1,858 @@
+
+---
+output:
+  pdf_document: default
+  html_document: default
+---
+# Exercices
+
+## Dénombrement et probabilités
+
+\noindent On commence par quelques exercices de dénombrement, très classiques lorqu'on découvre le calcul des probabilités. Si ce type d'exercices a en soi très peu de chances de tomber au concours, on peut toujours imaginer un sujet dans lequel quelques questions isolées nécessitent des réflexes d'analyse combinatoire. 
+
+:::: {.methbox .meth data-latex="important"}
+**Exercice 2.1.** Dans un jeu de 52 cartes, on tire 5 cartes sans remise. Quelle est la probabilité de tirer :
+
+\noindent 
+
+**1.** 5 coeurs ?
+
+\noindent 
+
+**2.** 2 piques et 3 coeurs ?
+
+\noindent 
+
+**3.** 5 trèfles ou 5 coeurs ?
+
+\noindent 
+
+**4.** 5 cartes de la même couleur (pique, coeur, carreau, trèfle) ?
+
+\noindent 
+
+**5.** 3 cartes d’une couleur et 2 d’une autre ?
+
+\noindent 
+
+**6.** les 4 as et une autre carte ?
+::::
+
+\noindent
+
+**Solution.** Le nombre de main à $5$ cartes dans un jeu de $52$ cartes est $\binom{52}{5}$.
+
+\noindent
+
+**1.** Il y a $13$ coeurs dans un jeu de $52$ cartes, donc il y a $\binom{13}{5}$ mains à $5$ coeurs. La probabilité de tirer $5$ coeurs est donc $\frac{\binom{13}{5}}{\binom{52}{5}}$.
+
+\noindent
+
+**2.** Le nombre de façons de tirer $2$ piques et $3$ coeurs est $\binom{8}{2}\times\binom{8}{3}$. La probabilité d'un tel tirage est donc $\frac{\binom{8}{2}\times\binom{8}{3}}{\binom{52}{5}}$.
+
+\noindent 
+
+**3.** Les événements *obtenir 5 trèfles* et *obtenir 5 coeurs* étant incompatibles, la probabilité que l'un ou l'autre soit réalisé est la somme des probabilités, soit $\frac{\binom{13}{5}}{\binom{52}{5}}+\frac{\binom{13}{5}}{\binom{52}{5}}=\frac{2\,\binom{13}{5}}{\binom{52}{5}}$.
+
+\noindent
+
+**4.** Avec le même raisonnement qu'à la question 3., la probabilité d'avoir $5$ cartes de la même couleur est $\frac{4\,\binom{13}{5}}{\binom{52}{5}}$.
+
+\noindent
+
+**5.** 
+
+- choisir deux couleurs parmi quatre : $A_4^2$ possibilités (l'ordre des couleurs compte, puisque les nombres de cartes de chaque couleur sont différents) ;
+
+- pour une couleur choisir $3$ cartes : $\binom{13}{3}$ possibilités ;
+
+- pour l'autre couleur choisir $2$ cartes : $\binom{13}{2}$ possibilités.
+
+\noindent Donc, en vertu du principe mulitplicatif, il y a $\binom{4}{2}\times\binom{13}{3}\times\binom{13}{2}$ mains de $5$ cartes, avec $3$ cartes d'une couleur et $2$ cartes d'une autre. La probabilité d'un tel tirage est donc égale à $\frac{\binom{4}{2}\times\binom{13}{3}\times\binom{13}{2}}{\binom{52}{5}}$.
+
+\noindent 
+
+**6.** 
+
+- choisir les quatre as : une seule possibilité ;
+
+- choisir n'importe quelle carte parmi les $48$ cartes restantes : $48$ possibilités.
+
+Donc, la probabilité de tirer les quatre as et une autre carte (quelconque) est égale à $\frac{48}{\binom{13}{5}}$.
+
+
+
+:::: {.methbox .meth data-latex="important"}
+**Exercice 2.2.** On s'intéresse à une famille et on considère les événements suivants :
+
+- $A$ : la famille a des enfants des deux sexes
+- $B$ : la famille a au plus un garçon
+
+\noindent 
+
+**1.** Démontrer que si la famille a deux enfants, alors $A$ et $B$ sont dépendants.
+
+\noindent
+
+**2.** Démontrer que si la famille a trois enfants, alors $A$ et $B$ sont indépendants. 
+::::
+
+\noindent
+
+**Solution.** On suppose que la probabilité d'avoir une fille et celle d'avoir un garçon sont égales à $\frac{1}{2}$. On note 
+
+- $G_i$ l'événement : l'enfant numéro $i$ est un garçon ;
+- $F_i$ l'événement : l'enfant numéro $i$ est une fille.
+
+
+\noindent 
+
+**1.** On vérifie facilement que $A\cap B=A=(F_1\cap G_2)\cup (F_2\cap G_1)$. Il s'agit d'une réunion disjointe de deux événements de probabilité commune $\frac{1}{4}$, donc $\mathbb{P}(A\cap B)=\mathbb{P}(A)=\frac{1}{2}$. Comme $\mathbb{P}(B)>0$, on en déduit que $\mathbb{P}(A\cap B)\neq\mathbb{P}(A)\mathbb{P}(B)$, et donc $A$ et $B$ sont dépendants.
+
+**2.** $\overline{A}=(F_1\cap F_2\cap F_3)\cup(G_1\cap G_2\cap G_3)$ donc
+
+$$\mathbb{P}(A)=1-\mathbb{P}(F_1\cap F_2\cap F_3)-\mathbb{P}(G_1\cap G_2\cap G_3)=1-\frac{1}{8}-\frac{1}{8}=\frac{3}{4}$$
+
+\noindent $\overline{B}=(F_1\cap F_2\cap F_3)\cup(G_1\cap F_2\cap F_3)\cup (G_1\cap F_2\cap F_3)\cup (G_1\cap F_2\cap F_3)$.Il s'agit d'une réunion disjointe de quatre événements de probabilité commune $\frac{1}{8}$ donc $\mathbb{P}(\overline{B})=\frac{4}{8}=\frac{1}{2}$. D'où $\mathbb{P}(B)=\frac{1}{2}$.
+
+\noindent $A\cap B=(G_1\cap F_2\cap F_3)\cup (F_1\cap G_2\cap F_3)\cup (F_1\cap F_2\cap G_3)$. Il s'agit d'une réunion disjointe de trois événements de probabilité commune $\frac{1}{8}$. Donc, $\mathbb{P}(A\cap B)=\frac{3}{8}=\mathbb{P}(A)\mathbb{P}(B)$. Les événements $A$ et $B$ sont donc indépendants.
+
+
+
+
+:::: {.methbox .meth data-latex="important"}
+**Exercice 2.3 (coefficients binomiaux). 1.** Soit $1\leq p\leq n$. On considère $n$ boules et deux boîtes $A$ et $B$ vides. Un échantillon est constitué d'une boule que l'on met dans la boîte $A$ et $p-1$ boules que l'on met dans la boîte $B$. En dénombrant de deux façons différentes l'ensemble de tous les échantillons que l'on peut ainsi obtenir, établir la formule 
+
+$$n\binom{n-1}{p-1}=p\binom{n}{p}$$
+\noindent Démontrer cette formule par le calcul.
+
+\noindent
+
+**2.** Démontrer que pour $1\leq p\leq n$ on a la formule
+
+$$\sum\limits_{k=p}^n\binom{k}{p}=\binom{n+1}{p+1}$$
+
+\noindent 
+
+**3. (Extension de la formule de Pascal).** Soient $m, p, q$ des entiers naturels tels que $q\leq p\leq m$. Démontrer par un dénombrement la formule :
+
+$$\sum\limits_{j=0}^q \binom{q}{j}\binom{m-q}{p-j}=\binom{m}{p}$$
+
+**4.** Soit $n$ un entier tel que $n\geq 1$. Démontrer par un dénombrement la formule :
+
+$$\sum\limits_{k=0}^n \binom{n}{k}^2=\binom{2n}{n}$$
+::::
+
+\noindent
+
+**Solution. 1.**
+
+\noindent
+
+**Première méthode de dénombrement des échantillons :**
+
+- choisir une boule à mettre dans la boîte $A$ : $n$ choix possibles ;
+- choisir $p-1$ boules parmi les $n-1$ boules restantes, à mettre dans la boîte $B$ : $\binom{n-1}{p-1}$ choix possibles.
+
+\noindent En appliquant le principe multiplicatif, on en déduit qu'il y a donc $n\times\binom{n-1}{p-1}$ échantillons.
+
+\noindent
+
+**Deuxième méthode de dénombrement des échantillons :**
+
+- choisir $p$ boules parmi $n$ boules à mettre dans l'ensemble des deux boîtes $A$ et $B$ : $\binom{n}{p}$ choix possibles ;
+- choisir une boule parmi ces $p$ boules à mettre dans la boîte $A$ (les autres vont ditrectement dans la boîte $B$) : $p$ choix possibles.
+
+\noindent En appliquant le principe multiplicatif, on en déduit qu'il y a donc $p\times\binom{n}{p}$ échantillons.
+
+\noindent Ces deux méthodes comptent le même nombre d'échantillons. On en déduit que
+
+$$n\times\binom{n-1}{p-1}=p\times\binom{n}{p}$$
+
+\noindent
+
+**Approche calculatoire.** On peut démontrer cette formule par le calcul (c'est plus simple mais moins élégant) :
+
+\begin{align}
+n\times\binom{n-1}{p-1} &= n\frac{(n-1)!}{(p-1)!(n-p)!} \\
+&= \frac{n!}{(p-1)!(n-p)!} \\
+&=p\frac{n!}{p!(n-p)!} \\
+&=p\times\binom{n}{p} \\
+\end{align}
+
+\noindent 
+
+**2.** On choisit $p+1$ nombres parmi les entiers $1,2,\dots,n+1$ : $\binom{n+1}{p+1}$ choix possibles.
+
+\noindent On peut aussi dénombrer le nombre de choix possibles de la manière suivante :
+
+- fixer le maximum $k$ des $p+1$ nombres tirés : ce maximum est nécessairement compris entre $p+1$ et $n+1$ (inclus) ;
+- choisir les $p$ nombres restants parmi $1,2,\dots, k-1$ : à $k$ fixé, on a $\binom{p}{k-1}$ choix possibles.
+
+On en déduit que le nombre de façons de choisir $p+1$ nombres parmi les entiers $1,2,\dots n+1$ est égal à  $\sum\limits_{k=p+1}^{n+1}\binom{p}{k-1}=\sum\limits_{k=p}^n\binom{p}{k}$. 
+
+\noindent Ces deux méthodes de dénombrement doivent mener au même résultat, donc 
+
+$$\sum\limits_{k=p}^n\binom{p}{k}=\binom{n+1}{p+1}$$
+\noindent
+
+**3.** On choisit $p$ entiers parmi les entiers $1,2,\dots,m$ : $\binom{m}{p}$ choix possbles.
+
+\noindent Pour choisir ces $p$ entiers on peut aussi procéder de la manière suivante :
+
+- on choisit $j$ entiers parmi les entiers $1,2,\dots,q$. Cela n'est évidemment possible que pour $0\leq j\leq q$, et pour chaque entier $j$ vérifiant cet encadrement on a $\binom{q}{j}$ façons différentes de choisir ces $j$ entiers.
+
+- on complète notre sélection en choisissant les $p-j$ entiers restants parmi $q+1,q+2,\dots, m$ : $\binom{m-q}{p-j}$ choix possibles.
+
+\noindent En vertu du principe multiplicatif, à $j$ fixé compris entre $0$ et $q$ inclus, on a donc $\binom{q}{j}\binom{m-q}{p-j}$ façons de choisir $p$ entiers parmi $1,2,\dots m$ de sorte que $j$ de ces entiers soient compris entre $1$ et $q$ et les $p-j$ entiers restants soient compris entre $q+1$ et $m$.
+
+\noindent Par ailleurs, l'entier $j$ peut prendre n'importe quelle valeur comprise entre $0$ et $q$, et pour deux valeurs de $j$ distinctes on a deux sélections d'entiers distinctes. En vertu du principe additif, le nombre de façons de choisir $p$ entiers parmi $1,2,\dots, q$ est donc finalement égal à $\sum\limits_{j=0}^q \binom{q}{j}\binom{m-q}{p-j}$.
+
+\noindent On a dénombré de deux façons différentes le même ensemble, ces deux approches doivent aboutir au même résultat. On a donc
+
+$$\sum\limits_{j=0}^q \binom{q}{j}\binom{m-q}{p-j}=\binom{m}{p}$$
+
+\noindent 
+
+**4.** On applique la formule de la question précédente avec $q=n$, $p=n$ et $m=2n$ :
+
+$$\sum\limits_{k=0}^n \binom{n}{k}\binom{n}{n-k}=\binom{2n}{n}$$
+
+\noindent Par la formule de symétrie des coefficients binomiaux $\binom{n}{n-k}=\binom{n}{k}$, on en déduit que
+
+$$\sum\limits_{k=0}^n \binom{n}{k}^2=\binom{2n}{n}$$
+
+
+:::: {.methbox .meth data-latex="important"}
+**Exercice 2.4 (Interne, 2023).** Montrer que pour tout entier naturel $n$, on a $\sum\limits_{k=0}^n\binom{2n+1}{k}=\sum\limits_{k=0}^n\binom{2n+1}{n+k+1}$, et calculer la valeur commune de ces sommes.
+
+\noindent
+
+**b.** Montrer que pour tout entier naturel non nul $n$, on a $\sum\limits_{k=0}^{n-1}\binom{2n}{k}=\sum\limits_{k=1}^n\binom{2n}{n+k}=2^{2n-1}-\frac{1}{2}\binom{2n}{n}$.
+
+\noindent
+
+**c.** Déduire de ce qui précède le résultat suivant : $\forall n\in\mathbb{N}^{*}, \sum\limits_{k=1}^n k\binom{2n}{n+k}=\frac{n}{2}\binom{2n}{n}$.
+::::
+
+\noindent
+
+**Solution. 1.** 
+
+\begin{align}
+\sum\limits_{k=0}^n\binom{2n+1}{k}&=\sum\limits_{k=0}^n\binom{2n+1}{n-k} \\
+& \text{(changement de variable } k\mapsto n-k \text{)} \\
+&=\sum\limits_{k=0}^n\binom{2n+1}{(2n+1)-(n-k)} \\
+& \text{(symétrie des coefficients binomiaux : } \binom{n}{k}=\binom{n}{n-k} \text{)} \\
+&=\sum\limits_{k=0}^n\binom{2n+1}{n+k+1} \\
+\end{align}
+
+\noindent On pose $S_n:=\sum\limits_{k=0}^n\binom{2n+1}{k}$. On a donc
+
+\begin{align}
+2S_n&=\sum\limits_{k=0}^n\binom{2n+1}{k}+\sum\limits_{k=0}^n\binom{2n+1}{n+k+1} \\
+&=\sum\limits_{k=0}^{2n+1}\binom{2n+1}{k} \\
+&=2^{2n+1} \\
+\end{align}
+
+\noindent D'où :
+
+$$S_n=2^{2n}$$
+
+\noindent
+
+**2.** L'égalité $\sum\limits_{k=0}^{n-1}\binom{2n}{k}=\sum\limits_{k=1}^n\binom{2n}{n+k}$ se démontre de façon tout à fait analogue. On note $S'_n$ la valeur commune de ces deux sommes. Alors
+
+\begin{align}
+2S'_n &= \sum\limits_{k=0}^{n-1}\binom{2n}{k}+\sum\limits_{k=1}^n\binom{2n}{n+k} \\
+&= \sum\limits_{k=0}^{2n}\binom{2n}{k}-\binom{2n}{n} \\
+&= 2^{2n}-\binom{2n}{n} \\
+\end{align}
+
+\noindent On en déduit que
+
+$$S'_n=2^{2n-1}-\frac{1}{2}\binom{2n}{n}$$
+
+\noindent
+
+**3.** Pour tout réel $x$, on a d'après la formule du binôme de Newton $(1+x)^{2n}=\sum\limits_{k=0}^{2n}\binom{2n}{k}x^k$. En dérivant par rapport à $x$ on obtient donc
+
+$$2n(1+x)^{2n-1}=\sum\limits_{k=1}^{2n}k\binom{2n}{k}x^{k-1}$$
+
+\noindent On évalue cette égalité en $x=1$ :
+
+$$n2^{2n}=\sum\limits_{k=1}^{2n}k\binom{2n}{k}$$
+
+\noindent D'où
+
+\begin{align}
+n2^{2n}&=\sum\limits_{k=1}^{n}k\binom{2n}{k}+\sum\limits_{k=n+1}^{2n}k\binom{2n}{k} \\
+&=\sum\limits_{k=1}^{n}k\binom{2n}{k}+\sum\limits_{k=1}^{n}(n+k)\binom{2n}{n+k} \\
+&=\sum\limits_{k=1}^{n}k\binom{2n}{k}+n\sum\limits_{k=1}^{n}\binom{2n}{n+k}+\sum\limits_{k=1}^{n}k\binom{2n}{n+k} \\
+&=\sum\limits_{k=1}^{n}k\binom{2n}{k}+n\left(2^{2n-1}-\frac{1}{2}\binom{2n}{n}\right)+\sum\limits_{k=1}^{n}k\binom{2n}{n+k}
+\end{align}
+
+\noindent d'après 2.
+
+\noindent Par ailleurs, on a facilement
+
+$$k\binom{2n}{k}=2n\binom{2n-1}{k-1}$$
+
+\noindent D'où
+
+\begin{align}
+\sum\limits_{k=1}^n k\binom{2n}{k}&=2n\sum\limits_{k=1}^n
+\binom{2n-1}{k-1} \\
+&= 2n\sum\limits_{k=0}^{n-1}\binom{2n-1}{k} \\
+&= n2^{2n-1} \\
+\end{align}
+
+\noindent Ainsi
+
+$$n2^{2n}=n2^{2n-1}+n2^{2n-1}-\frac{n}{2}\binom{2n}{n}+\sum\limits_{k=1}^n k\binom{2n}{n+k}$$
+
+\noindent et donc
+
+$$\sum\limits_{k=1}^n k\binom{2n}{n+k}=\frac{n}{2}\binom{2n}{n}$$
+
+
+\noindent 
+
+:::: {.methbox .meth data-latex="important"}
+**Exercice 2.5 (Interne, 2012).** On considère trois événements $A, B, C$ d'un espace probabilisé tels que
+
+$$\mathbb{P}(A)=0,4 \hspace{1cm} \mathbb{P}(B)=0,2 \hspace{1cm} \mathbb{P}(C)=0,3$$
+$$\mathbb{P}(A\cap B)=0,2 \hspace{1cm} \mathbb{P}(A\cap C)=0,12 \hspace{1cm} \mathbb{P}(B\cap C)=0$$      
+
+
+\noindent
+
+**1.** Parmi les événements $A, B$ et $C$, quels sont les deux événements indépendants ?
+
+\noindent
+
+**2.** La réalisation de l'un des trois événements implique la réalisation de l'un des deux autres. De quel événement s'agit-il ?
+
+\noindent
+
+**3.** Déterminer la probabilité $\mathbb{P}(A\cap B\cap C)$.
+
+\noindent
+
+**4.** Calculer la probabilité qu'au moins l'un des événements $A, B, C$ se réalise.
+
+\noindent
+
+**5.** On considère maintenant l'expérience aléatoire pour laquelle les événements $A, B$ ou $C$, et seulement eux, peuvent se réaliser. 
+
+\noindent
+
+On note $X$ le nombre d'événements qui se sont réalisés, parmi $A, B, C$. Pour quelles valeurs de $i$ a-t-on $\mathbb{P}(X=i)>0$ ? Pour chacune de ces valeurs $i$, déterminer $\mathbb{P}(X=i)$. 
+::::
+
+\
+
+\noindent
+
+**Solution. 1.** $\mathbb{P}(A\cap C)=\mathbb{P}(A)\mathbb{P}(C)=0,12$, donc $A$ et $C$ sont indépendants.
+
+\noindent
+
+**2.** $\mathbb{P}(A\vert B)=\frac{\mathbb{P}(A\cap B)}{\mathbb{P}(B)}=\frac{0,2}{0,2}=1$, donc sachant que $B$ est réalisé, $A$ est réalisé avec probabilité $1$.
+
+\noindent
+
+**3.** $A\cap B\cap C\subset B\cap C$, et $\mathbb{P}(B\cap C)=0$. D'après la propriété de croissance des probabilités, on en déduit que $\mathbb{P}(A\cap B\cap C)=0$.
+
+\noindent
+
+**4.** On veut calculer $\mathbb{P}(A\cup B\cup C)$. On peut utiliser la formule de Poincaré :
+
+\begin{align}
+\mathbb{P}(A\cup B\cup C)&=\mathbb{P}(A)+\mathbb{P}(B)+\mathbb{P}(C)-\mathbb{P}(A\cap B)-\mathbb{P}(A\cap C)-\mathbb{P}(B\cap C)+\mathbb{P}(A\cap B\cap C) \\
+&=0,4+0,2+0,3-0,2-0,12-0+0 \\
+&=0,58 \\
+\end{align}
+
+\noindent
+
+**5.** Remarquons d'abord qu'*a priori* $X\in\{0,1,2,3\}$. Par ailleurs :
+
+$$A\cup B\cup C=(X\geq 1)$$
+$$A\cap B\cap C=(X=3)$$
+
+\noindent On en déduit que 
+
+$$\mathbb{P}(X=0\vert A\cup B\cup C)=\mathbb{P}(X=0\vert X\geq 1)=0$$
+
+\noindent et, d'après 3 :
+
+$$\mathbb{P}(X=3\vert A\cup B\cup C)=\frac{\mathbb{P}(X=3, X\geq 1)}{\mathbb{P}(X\geq 1)}=\frac{\mathbb{P}(X=3)}{\mathbb{P}(X\geq 1)}=\frac{\mathbb{P}(A\cap B\cap C)}{\mathbb{P}(X\geq 1)}=0$$
+
+\noindent De plus
+
+\begin{align}
+\mathbb{P}(X=2\vert A\cup B\cup C)&=\frac{\mathbb{P}(X=2\vert  X\geq 1)}{\mathbb{P}(X\geq 1)} \\
+&=\frac{\mathbb{P}(X=2, X\geq 1)}{\mathbb{P}(X\geq 1)} \\
+&=\frac{\mathbb{P}(X=2)}{\mathbb{P}(X\geq 1)} \text{ ;  car } (X=2)\subset (X\geq 1) \\
+&=\frac{\mathbb{P}(A\cap B\cap\overline{C})+\mathbb{P}(A\cap \overline{B}\cap C)+\mathbb{P}(\overline{A}\cap B\cap C)}{\mathbb{P}(X\geq 1)} \\
+&=\frac{\mathbb{P}(A\cap B)+\mathbb{P}(A\cap C)+\mathbb{P}(B\cap C)}{\mathbb{P}(X\geq 1)} \text{ ; car } \mathbb{P}(A\cap B\cap C)=0 \\
+&=\frac{0,32}{0,58} \\
+&=\frac{16}{29} \\
+\end{align}
+
+\noindent On en déduit enfin que
+
+\begin{align}
+\mathbb{P}(X=1\vert A\cup B\cup C)&=\mathbb{P}(X\geq 1\vert A\cup B\cup C)-\mathbb{P}(X=2\vert A\cup B\cup C)-\mathbb{P}(X=3\vert A\cup B\cup C) \\
+&= \frac{0,58}{0,29}-\frac{0,32}{0,29}-0 \\
+&= \frac{0,26}{0,39} \\
+&=\frac{2}{3} \\
+\end{align}
+
+\noindent 
+
+**Commentaire sur cette dernière question.** *Il s'agit typiquement du genre de question qui peut facilement devenir assez chronophage si l'on n'est pas un peu astucieux. Il y a plusieurs astuces / points à ne pas manquer pour s'économiser du temps de calcul :*
+
+- *bien traduire $(X\geq 1)$ par $A\cup B\cup C$ et $X=3$ par $A\cap B\cap C$. *
+
+- *constater que le calcul de $\mathbb{P}(X=1\vert A\cup B\cup C)$ et $\mathbb{P}(X=2\vert A\cup B\cup C)$ se ramène en fait au calcul d'un seul de ces deux termes. Pour voir cela, il faut penser à utiliser l'égalité $\mathbb{P}(X\geq 1\vert A\cup B\cup C)=\mathbb{P}(X=1\vert A\cup B\cup C)+\mathbb{P}(X=2\vert A\cup B\cup C)$ qui résulte de $\mathbb{P}(X=3\vert A\cup B\cup C)=0$.*
+
+- *remarquer que $\mathbb{P}(X=1\vert A\cup B\cup C)$ est plus rapide à calculer que $\mathbb{P}(X=2\vert A\cup B\cup C)$. Pour s'en convaincre, il suffit de calculer directement $\mathbb{P}(X=2\vert A\cup B\cup C)$ : cela n'a rien de difficile, mais c'est plus long.* 
+
+
+
+:::: {.methbox .meth data-latex="important"}
+**Exercice 2.6 (Interne, 2011). 1.** Soit $\Omega$ un ensemble fondamental tel que $\Omega=A_1\cup A_2$, où les $A_i$ ($i=1,2$) sont des événements donnés. On suppose $\Omega$ muni d'une probabilité $\mathbb{P}$ telle que $\mathbb{P}(A_1)=0,8$ et $\mathbb{P}(A_2)=0,5$. Donner la valeur de $\mathbb{P}(A_1\cap A_2)$.
+
+\noindent
+
+**2.** Un individu oublie sa carte bancaire 10 \% du temps, son chéquier 5 \% du temps et ces deux instruments de paiement 2 \% du temps. Calculer :
+
+- la probabilité pour que, à un moment donné, il détienne ces deux instruments sur lui ;
+- la probabilité qu'il trouve sa carte bancaire dans ses poches sachant qu'il a déjà trouvé son chéquier.
+
+\noindent
+
+**3.** Une automobile est classée comme étant "de luxe" si son moteur possède au moins 6 cylindres ou une cylindrée d'au moins 3 litres. On observe que 15 \% des véhicules ont au moins 6 cylindres, que 10 \% au moins 3 litres de cylindrées et que 80 \% des véhicules d'au moins 3 litres ont au moins 6 cylindres. Calculer la proportion de véhicules de luxe dans le parc automobile.
+
+\noindent
+
+**4.** Soient $\Omega$ un ensemble fondamental et $A$ et $B$ deux parties de $\Omega$. Montrer que
+
+$$\mathbb{P}(A\cap B)\leq\mathbb{P}(A)\leq\mathbb{P}(A\cup B)\leq\mathbb{P}(A)+\mathbb{P}(B)$$
+
+\noindent
+
+**5.** Soient $A$ et $B$ deux événements indépendants en probabilité et tels que $\mathbb{P}(B)=2\,\mathbb{P}(A)$ et $\mathbb{P}(A\cup B)=5/8$. Calculer $\mathbb{P}(A)$ et $\mathbb{P}(B)$.
+
+\noindent
+
+**6.** Chaque jour ouvrable de la semaine, le professeur Statys reçoit du courrier au collège avec une probabilité de $1/3$. Par ailleurs, il a annoncé qu'il viendra aujourd'hui avec une probabilité de $2/5$. Or, on observe que sa boite aux lettres est vide. Sachant cela, calculer la probabilité que Statys soit venu aujourd'hui.
+
+\noindent
+
+**7.a.** Démontrer que l'on peut généraliser (une récurrence est indiquée) la formule de base
+
+$$\mathbb{P}(A_1\cup A_2)=\mathbb{P}(A_1)+\mathbb{P}(A_2)-\mathbb{P}(A_1\cap A_2)$$
+
+\noindent au cas de $N$ événements $A_n$ ($n=1\dots N$), autrement dit
+
+\begin{align}
+\mathbb{P}(A_1\cup\dots A_n)&=\sum\limits_{n=1}^N\mathbb{P}(A_n)-\sum\limits_{i<j}\mathbb{P}(A_i\cap A_j)+\sum\limits_{i<j<k}\mathbb{P}(A_i\cap A_j\cap A_k) \\
+
+& +\dots+(-1)^{N-1}\mathbb{P}\left(\bigcap\limits_{n=1}^N A_n\right) \\
+\end{align}
+
+\noindent 
+
+**b.** Que se passe-t-il :
+
+- si la suite $(A_n)_{n=1\dots N}$ est emboitée de façon décroissante ($A_1\supset A_2\supset\dots\supset A_N$) ?
+
+- si la suite $(A_n)_{n=1\dots N}$ est emboitée de façon croissante ($A_1\subset A_2\subset\dots\subset A_N$) ?
+::::
+
+\noindent
+
+**Solution. 1.** $\mathbb{P}(A_1\cup A_2)=\mathbb{P}(A_1)+\mathbb{P}(A_2)-\mathbb{P}(A_1\cap A_2)=0,8+0,5-1=0,3$.
+
+\noindent
+
+**2.** On note $A$ et $B$ les événements
+
+- $A$ : l'individu a sa carte bancaire
+- $B$ : l'individu a son chéquier
+
+\noindent On doit donc déterminer $\mathbb{P}(A\cap B)$ et $\mathbb{P}(A\vert B)$. On a :
+
+\begin{align}
+\mathbb{P}(A\cap B)&=1-\mathbb{P}(\overline{A}\cup\overline{B}) \\
+&=1-\left(\mathbb{P}(\overline{A})+\mathbb{P}(\overline{B})-\mathbb{P}(\overline{A}\cap\overline{B})\right) \\
+&=0,87
+\end{align}
+
+\noindent et 
+
+\begin{align}
+\mathbb{P}(A\vert B)&=\frac{\mathbb{P}(A\cap B)}{\mathbb{P}(B)} \\
+&= \frac{\mathbb{P}(A\cap B)}{1-\mathbb{P}(\overline{B})} \\
+&= \frac{0,87}{1-0,05} \\
+&\approx 0,92 \\
+\end{align}
+
+\noindent 
+
+**3.** On note :
+
+- $(N\geq 6)$ l'événement : la voiture a au moins $6$ cylindres ;
+- $(C\geq 3)$ l'événement : la voiture a une cylindrée d'au moins $3$ litres ;
+- $L$ l'événement : la voiture est un véhicule de luxe.
+
+\noindent On a donc $L=(N\geq 6)\cup (C\geq 3)$, et 
+
+\begin{align}
+\mathbb{P}(L)&=\mathbb{P}\left((N\geq 6)\cup (C\geq 3)\right) \\
+&= \mathbb{P}(N\geq 6)+\mathbb{P}(C\geq 3)-\mathbb{P}(N\geq 6, C\geq 3) \\
+&= \mathbb{P}(N\geq 6)+\mathbb{P}(C\geq 3)-\mathbb{P}(N\geq 6\vert C\geq 3)\mathbb{P}(C\geq 3) \\
+&= 0,15+0,10-0,80\times 0,10 \\
+&= 0,17 \\
+\end{align} 
+
+\noindent La proportion de véhicules de luxe dans le parc automobile est donc égale à $17\,\%$.
+
+\noindent
+
+**4.** $(A\cap B)\subset A\subset (A\cup B)$ donc $\mathbb{P}(A\cap B)\leq\mathbb{P}(A)\leq\mathbb{P}(A\cup B)$. 
+
+\noindent De plus, $\mathbb{P}(A\cup B)=\mathbb{P}(A)+\mathbb{P}(B)-\mathbb{P}(A\cap B)\leq\mathbb{P}(A)+\mathbb{P}(B)$, d'où le résultat.
+
+\noindent 
+
+**5.** Par indépendance de $A$ et $B$ et étant donné la relation $\mathbb{P}(B)=2\mathbb{P}(A)$, on a 
+
+\begin{align}
+\frac{5}{8}&= \mathbb{P}(A\cup B) \\
+&=\mathbb{P}(A)+\mathbb{P}(B)-\mathbb{P}(A\cap B) \\
+&=\mathbb{P}(A)+\mathbb{P}(B)-\mathbb{P}(A)\mathbb{P}(B) \\
+&=3\mathbb{P}(A)-2\mathbb{P}(A)^2 \\
+\end{align}
+
+\noindent Posons $x=\mathbb{P}(A)$. Alors, $x$ est solution de l'équation
+
+$$3x-2x^2=\frac{5}{8}$$
+\noindent soit
+
+$$16x^2-24x+5=0$$
+
+\noindent Il s'agit d'une équation du second degré, qui admet deux racines réelles :
+
+$$x_1=\frac{1}{4} \text{ et } x_2=\frac{5}{4}$$
+\noindent Comme $\frac{5}{4}>1$, on en déduit que $\mathbb{P}(A)=\frac{1}{4}$, et donc $\mathbb{P}(B)=\frac{1}{2}$.
+
+\noindent
+
+**6.** La question a été posée telle quelle lors des écrits du concours interne de 2011. Toutefois, l'énoncé ne semble pas très clair, et en l'état il semble difficile de répondre. 
+
+\noindent On peut commencer par noter $V$ et $C$ les événements
+
+- $V$ : M.Statys vient au collège ;
+- $C$ : M.Statys reçoit du courrier.
+
+\noindent On veut calculer $\mathbb{P}(V\vert \overline{C})$ :
+
+\begin{align}
+\mathbb{P}(V\vert\overline{C})&=\frac{\mathbb{P}(V\cap\overline{C})}{\mathbb{P}(\overline{C})} \\
+&=\frac{\mathbb{P}(V)-\mathbb{P}(V\cap C)}{1-\mathbb{P}(C)} \\
+\end{align}
+
+\noindent On connaît $\mathbb{P}(V)$ et $\mathbb{P}(C)$, mais pas $\mathbb{P}(V\cap C)$. Cette probabilité n'est pas donnée dans l'énoncé, et sa détemination semble impossible en l'absence d'hypothèse supplémentaire... Voici deux hypothèses que l'on pourrait envisager, et leurs conséquences sur le calcul de $\mathbb{P}(V\vert\overline{C})$ :
+
+- **Hypothèse 1 : $V$ et $C$ sont indépendants.** Dans ce cas, $V$ et $\overline{C}$ aussi sont indépendants, et l'exercice devient trivial : $\mathbb{P}(V\vert\overline{C})=\mathbb{P}(V)=\frac{2}{5}$.
+
+- **Hypothèse 2 : $C\subset V$.** On peut imaginer - mais c'est un peu tiré par les cheveux - que l'expression *M. Statys reçoit du courrier* comme *M. Statys ouvre son courrier*. Dans ce cas, pas le choix : s'il ouvre son courrier (le jour où il le reçoit), c'est qu'il est présent ! Et donc on a bien $C\subset V$. Alors 
+
+\begin{align}
+\mathbb{P}(V\vert\overline{C})&=\frac{\mathbb{P}(V)-\mathbb{P}(V\cap C)}{1-\mathbb{P}(C)} \\
+&=\frac{\mathbb{P}(V)-\mathbb{P}(C)}{1-\mathbb{P}(C)} \\
+&=\frac{\frac{2}{5}-\frac{1}{3}}{1-\frac{1}{3}} \\
+&=\frac{1}{10} \\
+\end{align}
+
+\noindent L'hypothèse $2$ me semble plus crédible que l'hypothèse $1$, peut-être est-ce ainsi qu'il fallait interpréter l'énoncé ?
+
+\noindent 
+
+**7.a.** Voir cours.
+
+\noindent 
+
+**b.** Si la suite $(A_n)_{1\leq n\leq N}$ est décroissante, alors $\bigcup\limits_{n=1}^N A_n=A_1$, et donc dans le membre de droite de la formule de Poincaré, toutes les probablités s'annulent après simplification, sauf $\mathbb{P}(A_1)$.
+
+\noindent De même, si la suite $(A_n)_{1\leq n\leq N}$ est croissante, alors $\bigcup\limits_{n=1}^N A_n=A_N$, et donc dans le membre de droite de la formule de Poincaré, toutes les probablités s'annulent après simplification, sauf $\mathbb{P}(A_N)$.
+
+
+\vspace{1cm}
+
+
+
+:::: {.methbox .meth data-latex="important"}
+**Exercice 2.7 (Interne, 2012).** On considère une population dont les individus sont susceptibles de présenter une maladie $\mathcal{M}$. Pour chaque individu de la population considérée, on envisage trois facteurs de risque possibles de cette maladie : $A, B$ et $C$
+. 
+\noindent Grâce à une étude statistique, on dispose des renseignements suivants :
+
+- $\mathbb{P}(A)=0,4 \hspace{1cm} \mathbb{P}(B)=0,06 \hspace{1cm} \mathbb{P}(A\cap B)=0,06 \hspace{1cm} \mathbb{P}(A\cap C)= 0,1$
+
+- $A$ et $C$ sont indépendants
+- $B$ et $C$ sont incompatibles
+
+\noindent 
+
+**1.** Déterminer $\mathbb{P}(C)$, $\mathbb{P}(B\cap C)$ et $\mathbb{P}(A\cap B\cap C)$.
+
+\noindent 
+
+**2.** Calculer la probabilité pour qu'au moins un individu présente un facteur de risque.
+
+\noindent 
+
+**3.** On note $X$ le nombre de facteurs de risque présents chez un individu. Quelles valeurs $X$ peut-elle prendre ? Pour chacune de ces valeurs $i$, calculer $\mathbb{P}(X=i)$.
+
+\noindent 
+
+**4.** On note $M$ l'événement *L'individu est atteint de la maladie * $\mathcal{M}$. On donne les probabilités conditionelles suivantes :
+
+$$\mathbb{P}_{\overline{A}}(M)=0 \hspace{1cm} \mathbb{P}_{A\cap B}(M)=0,06 \hspace{1cm} \mathbb{P}_{A\cap C}(M)=0,05 \hspace{1cm} \mathbb{P}_{A\cap \overline{B}\cap\overline{C}}(M)=0$$
+\noindent 
+
+**a.** Interpréter ces quatre valeurs.
+
+\noindent
+
+**b.** Calculer la probabilité $\mathbb{P}(M)$.
+
+::::
+
+\noindent
+
+**Solution.** *Remarquons d'abord que cet exercice, posé lors des épreuves écrites du concours interne de 2012, est très proche dans l'esprit de l'exercice 5, lui aussi posé lors de ces épreuves ! Ce type d'exercices, de niveau lycée, est peu présent dans les sujets des précédentes années.*
+
+\noindent 
+
+**1.** - Comme $A$ et $C$ sont indépendants, $\mathbb{P}(C)=\frac{\mathbb{P}(A\cap C)}{\mathbb{P}(A)}=\frac{1}{4}$.
+
+- $B\cap C=\emptyset$, donc $\mathbb{P}(B\cap C)=0$.
+
+- $(A\cap B\cap C)\subset (B\cap C)=\emptyset$, donc $A\cap B\cap C=\emptyset$, d'où $\mathbb{P}(A\cap B\cap C)=0$.
+
+\noindent 
+
+**2.** On calcule $\mathbb{P}(A\cup B\cup C)$. On utilise la formule de Poincaré :
+
+\begin{align}
+\mathbb{P}(A\cup B\cup C) &= \mathbb{P}(A)+\mathbb{P}(B)+\mathbb{P}(C) \\
+& \hspace{0.2cm} -\mathbb{P}(A\cap B)-\mathbb{P}(A\cap C)-\mathbb{P}(B\cap C) \\
+& \hspace{0.2cm} + \mathbb{P}(A\cap B\cap C) \\
+&= 0,4+0,06+0,25-0,06-0,1-0+0 \\
+&= 0,55 \\
+\end{align}
+
+\noindent
+
+**3.** On a *a priori* $X\in\{0, 1, 2, 3\}$. On a 
+
+- $\mathbb{P}(X=3)=\mathbb{P}(A\cap B\cap C)=0$.
+
+- $\mathbb{P}(X=0)=1-\mathbb{P}(X\geq 1)=1-\mathbb{P}(A\cup B\cup C)=1-0,55=0,45$.
+
+- Il est ensuite plus facile de calculer d'abord $\mathbb{P}(X=2)$ :
+
+\begin{align}
+\mathbb{P}(X=2)&=\mathbb{P}(\overline{A}\cap B\cap C)+\mathbb{P}(A\cap \overline{B}\cap C)+\mathbb{P}(A\cap B\cap \overline{C}) \\
+&= 0+\mathbb{P}(A\cap C)+\mathbb{P}(A\cap B) \\
+&= 0,16 \\
+\end{align}
+
+- et d'en déduire $\mathbb{P}(X=1)$ :
+
+\begin{align}
+\mathbb{P}(X=1)&=\mathbb{P}(X\geq 1)-\mathbb{P}(X=2) \text{ ; car } $\mathbb{P}(X=3)=0$ \\
+&=0,55-0,16 \\
+&=0,39 \\
+\end{align}
+
+\noindent
+
+**4.a.** 
+
+- $\mathbb{P}_{\overline{A}}(M)=0$ : si l'individu ne présente pas le facteur de risque $A$, alors la probabilité qu'il soit malade est nulle.
+
+- $\mathbb{P}_{A\cap B}(M)=0,06$ : la présence simultanée des facteurs de risque $A$ et $B$ implique une probabilité d'être malade de $6\,\%$.
+
+- $\mathbb{P}_{A\cap C}(M)=0,05$ : la présence simultanée des facteurs de risque $A$ et $C$ implique une probabilité d'être malade de $5\,\%$.
+
+- $\mathbb{P}_{A\cap \overline{B}\cap\overline{C}}(M)=0$ : si un individu présente le facteur de risque $A$, mais pas les facteurs de risque $B$ et $C$, alors la probabilité qu'il soit malade est nulle.
+
+\noindent 
+
+**b.** Comme $B$ et $C$ sont incompatibles, $\{A\cap B, A\cap C, A\cap\overline{B}\cap\overline{C}, \overline{A}\}$ est un système complet d'événements. D'après la formule des probabilités totales on a alors
+
+\begin{align}
+\mathbb{P}(M)&=\mathbb{P}_{\overline{A}}(M)\mathbb{P}(\overline{A})+\mathbb{P}_{A\cap B}(M)\mathbb{P}(A\cap B)+\mathbb{P}_{A\cap C}(M)\mathbb{P}(A\cap C)+\mathbb{P}_{A\cap\overline{B}\cap\overline{C}}(M)\mathbb{P}(A\cap\overline{B}\cap\overline{C}) \\
+&= 0+0,06\times 0,06+0,05\times 0,1+0 \\
+&= 0,0086 \\
+\end{align}
+
+
+
+:::: {.methbox .meth data-latex="important"}
+**Exercice 2.8 (propagation d'une rumeur).** Une information binaire (du type vrai/faux) se propage au sein d'une population. Lorsqu'une personne reçoit l'information :
+
+- elle la retransmet telle quelle à la personne suivante avec probabilité $p$ ;
+- elle la retransmet de façon erronée à la personne suivante avec probabilité $1-p$.
+
+\noindent On note $p_n$ la probabilité pour que, après $n$ transmissions, l'information soit correcte. On suppose que $p_0=1$.
+
+\noindent
+
+**1.** Donner une relation de récurrence entre $p_{n+1}$ et $p_n$.
+
+\noindent
+
+**2.** En déduire une expression de $p_n$ en fonction de $p$ et de $n$.
+
+\noindent
+
+**3.** En déduire la valeur de $\lim_{n\to\infty} p_n$. 
+::::
+
+\noindent 
+
+**Solution.** On note $I_n$ : *l'information est correcte après $n$ transmissions*. On a donc $p_n=\mathbb{P}(I_n)$. 
+
+\noindent 
+
+**1.** D'après la formule des probabilités totales : $\mathbb{P}(I_{n+1})=\mathbb{P}(I_{n+1}\vert I_n)\mathbb{P}(I_n)+\mathbb{P}(I_{n+1}\vert\overline{I_n})\mathbb{P}(\overline{I_n})$, autrement dit
+
+$$p_{n+1}=pp_n+(1-p)(1-p_n)$$
+
+soit encore
+
+$$p_{n+1}=(2p-1)p_n+1-p$$
+
+\noindent 
+
+**2.** On reconnait une suite arithmético-géométrique $p_{n+1}=ap_n+b$, avec $a=2p-1$ et $b=1-p$. 
+
+- si $2p-1=1$, autrement dit si $p=1$, alors $(p_n)_{n}$ est une suite constante, et donc pour tout entier naturel $n$ on a $p_n=p_0=1$.
+
+- sinon, la suite $(p_n)_n$ converge vers une limite $l$ telle que $l=al+b$, soit $l=\frac{b}{1-a}=\frac{1-p}{2(1-p)}=\frac{1}{2}$. On a alors
+
+$$p_{n+1}-\frac{1}{2}=(2p-1)\left(p_n-\frac{1}{2}\right)$$
+
+\noindent donc la suite $(p_n-l)_n$ est géométrique de raison $2p-1$. D'où $p_n-l=(2p-1)^n(p_0-l)$, et donc
+
+$$p_n=\frac{1}{2}+\frac{1}{2}(2p-1)^n$$
+
+\noindent
+
+**Commentaire.** *Le jour du concours, vous avez tout à fait le droit d'utiliser directement la formule explicitant le terme générique d'une suite arithmético-géométrique. A minima, si (comme moi...) vous ne le connaissez pas par coeur, il faut savoir la redémontrer rapidement en utilisant la méthode ci-dessus.*
+
+\noindent
+
+**3.** - si $p=1$, alors la suite $(p_n)_n$ est constante égale à 1, donc $\lim\limits_{n\to\infty}p_n=1$.
+
+- si $p=0$, alors $p_n=\frac{1}{2}(1+(-1)^n)$. Les suites extraites $(p_{2n})_n$ et $(p_{2n+1})_n$ convergent donc respectivement vers $1$ et $0$ (elles sont mêmes constantes), donc la suite $(p_n)_n$ admet deux valeurs d'adhérence distictes : elle ne converge pas.
+
+- si $0<p<1$, alors $-1<2p-1<1$, et donc $\lim\limits_{n\to\infty}(2p-1)^n=0$ : on en déduit que $\lim\limits_{n\to\infty}p_n=\frac{1}{2}$.
+
+\noindent
+
+**Remarque.** Ce dernier résultat nous dit que si d'une date à la date suivante l'information n'est ni *presque sûrement* transmise correctement, ni *presque sûrement* transmise de façon erronée, alors à une date asymptotitque il y a une chance sur deux qu'elle soit vraie. Un tel résultat était prévisible, car les événements $I_n$ et $\overline{I_n}$ jouent des rôles parfaitement symétriques, et il n'y a donc aucune raison que l'un des deux soit asymptotiquement plus probable que l'autre.
+
+
+
+
+:::: {.methbox .meth data-latex="important"}
+**Exercice 2.9.** Le gérant d'un magasin d'informatique a reçu un lot de clés USB. 5 \% des boites sont abîmées. Le gérant estime que :
+
+- 60 \% des boites abîmées contiennent au moins une clé défectueuse ;
+- 98 \% des boites non abîmées ne contiennent aucune clé défectueuse.
+
+\noindent Un client achète une boite du lot. On désigne par 
+
+- $A$ l'événement : la boite est abîmée ;
+- $D$ l'événement : la boite achetée contient au moins une clé défectueuse.
+
+\noindent
+
+**1.** Donner les probabilités $\mathbb{P}(A)$, $\mathbb{P}(\overline{A})$, $\mathbb{P}(D\vert A)$, $\mathbb{P}(D\vert\overline{A})$, $\mathbb{P}(\overline{D}\vert A)$ et $\mathbb{P}(\overline{D}\vert\overline{A})$. En déduire $\mathbb{P}(D)$.
+
+\noindent
+
+**2.** Le client constate qu'une des clés achetées est défectueuse. Quelle est la probabilité pour qu'il ait acheté une boite abîmée ?
+::::
+
+\noindent
+
+**Solution. 1.** 
+
+- $\mathbb{P}(A)=0,05$ ;
+
+- $\mathbb{P}(\overline{A})=0,95$ d'après ce qui précède ;
+
+- $\mathbb{P}(D\vert A)=0,6$ ;
+
+- $\mathbb{P}(\overline{D}\vert A)=0,4$ d'après ce qui précède ;
+
+- $\mathbb{P}(\overline{D}\vert\overline{A})=0,98$ ;
+
+- On en déduit, d'après la formule des probabilités totales et la formule de Bayes, que 
+
+\begin{align}
+\mathbb{P}(D)&=\mathbb{P}(D\vert A)\mathbb{P}(A)+\mathbb{P}(D\vert\overline{A})\mathbb{P}(\overline{A}) \\
+&=0,6\times 0,05+0,02\times 0,95 \\
+&\approx 0,049 \\
+\end{align}
+
+\noindent 
+
+**2.** On veut déterminer $\mathbb{P}(A\vert D)$. D'après la formule de Bayes :
+
+\begin{align}
+\mathbb{P}(A\vert D)&=\frac{\mathbb{P}(D\vert A)\mathbb{P}(A)}{\mathbb{P}(D)} \\
+&\approx\frac{0,6\times 0,05}{0,049} \\
+&\approx 0,61 \\
+\end{align}
+
+:::: {.methbox .meth data-latex="important"}
+**Exercice 2.10 (test de dépistage).** Une maladie est présente dans la population, avec une prévalence d'une personne malade sur $10\,000$. Un nouveau test de dépistage vient d'être mis au point. On constate que :
+
+- lorsqu'une personne est malade, le test est positif dans $99\,\%$ des cas ;
+
+- lorsqu'une personne n'est pas malade, le test est positif dans $0,1\,\%$ des cas.
+
+\noindent Selon vous, ce test doit-il être commercialisé ?
+::::
+
+\noindent
+
+**Solution.** On note $M$ et $P$ les événements :
+
+- $M$ : *la personne est malade* ;
+- $P$ : *le test est positif*.
+
+\noindent On calcule $\mathbb{P}(M\vert P)$ avec la fomrule de Bayes :
+
+\begin{align}
+\mathbb{P}(M\vert P)&=\frac{\mathbb{P}(P\vert M)\mathbb{P}(M)}{\mathbb{P}(P\vert M)\mathbb{P}(M)+\mathbb{P}(P\vert\overline{M})\mathbb{P}(\overline{M})} \\
+&= \frac{0,99\times 0,0001}{0,99\times 0,0001+0,001\times 0,9999} \\
+&\approx 0,09
+\end{align}
+
+\noindent La probabilité qu'une personne dont le test est positif soit malade est donc seulement égale à $9\,\%$. Il faut donc éviter de commercialiser ce test.
+
+\noindent
+
+**Remarque.** Ce résultat qui peut paraître surprenant s'explique par le fait que la maladie étudiée est très rare ($1$ cas sur $10\,000$), et donc même en cas de test positif la probabilité que la personne soit vraiment malade reste limitée.
+
