@@ -1,12 +1,228 @@
 # Variables aléatoires discrètes
 
+\noindent Supposons que vous jouiez avec un ami au jeu suivant. Votre ami lance un dé équilibré et vous convenez des règles suivantes :
+
+- si le dé tombe sur $1$ ou $2$, vous donnez $3$ euros à votre ami ;
+- si le dé tombe sur $2$ ou $3$, votre ami vous donne $3$ euros ;
+- si le dé tombe sur $5$ ou $6$, aucun de vous deux ne gagne ni ne perd d'argent.
+
+\noindent On note $X$ votre gain algébrique. Alors, $X$ est un nombre aléatoire dont les valeurs possibles sont $-3, 3$ et $0$. L'expérience aléatoire qui consiste à lancer ce dé et à relever son numéro peut être modélisée par l'univers probabilisé $(\Omega, \mathcal{A}, \mathbb{P})$, où $\Omega=\{1,2,3,4,5,6\}$, $\mathcal{A}=\mathcal{P}(\Omega)$ et $\mathbb{P}$ est la mesure équirépartie : $\forall\omega\in\Omega, \,\mathbb{P}(\{\omega\})=\frac{1}{6}$. Dans ce cas, votre gain $X$ peut être vu comme une application
+
+$$X:\Omega=\{1,2,3,4,5,6\}\longrightarrow\{-3, 0, 3\}$$
+définie par 
+
+$$X(1)=X(2)=-3$$
+$$X(3)=X(4)=3$$
+$$X(5)=X(6)=0$$
+
+\noindent Imaginons maintenant qu'un ami commun prenne connaissance de votre gain à ce jeu, mais sans prendre connaissance du jeu lui-même (ni les issues possibles, ni les règles définissant le gain), et encore moins du numéro du dé que vous avez obtenu. De son point de vue, l'expérience qui aboutira à l'observation de votre gain sera également une expérience aléatoire, cependant l'espace probabilisé la modélisant ne sera plus $(\Omega, \mathcal{A}, \mathbb{P})$ mais plutôt $(\Omega_X, \mathcal{A}_X, \mathbb{P}_X)$, où
+
+$$\Omega_X=X(\Omega)=\{-3, 0, 3\}$$
+$$\mathcal{A}_X=\mathcal{P}(\{-3,0,3\})$$
+$$\mathbb{P}_X \text{ donnée par } \mathbb{P}_X(\{-3\})=\mathbb{P}_X(\{0\})=\mathbb{P}_X(\{0\})=\frac{1}{3}$$
+\noindent Dans ce genre de situation, on dit que $X$ est une **variable aléatoire**, et on appelle **loi de $X$** la mesure de probabilité $\mathbb{P}_X$. D'une certaine façon, la variable aléatoire $X$ a donc transformé l'espace probabilisé de départ $(\Omega, \mathcal{A}, \mathbb{P})$ en un nouvel espace probabilisé $(\Omega_X, \mathcal{A}_X,\mathbb{P}_X)$. Dans la plupart des expériences aléatoires, on cherchera à mesurer une grandeur (un gain à un jeu de hasard, la durée d'attente à un feu rouge, le nombre de coquilles dans un texte, le nombre buts marqués dans un match de foot, etc.), si bien que ce qui nous intéressera ne sera pas tant l'espace de départ $(\Omega, \mathcal{A}, \mathbb{P})$ mais plutôt son image $(\Omega_X, \mathcal{A}_X, \mathbb{P}_X)$ par cette grandeur. 
+
+\noindent Cela a une conséquence pratique lorsqu'on résout un exercice de probabilités mettant en scène une variable aléatoire $X$ : sauf dans des cas très simples, on n'explicitera pas $\Omega$ qu'on supposera donné (un peu à la façon de votre ami commun qui est aveugle aux numéros du dé) mais on cherchera plutôt à déterminer $X(\Omega)$. La tribu $\mathcal{A}_X$ sera, elle, généralement passée sous silence (en pratique, on aura souvent $\mathcal{A}_X=\mathcal{P}(X(\Omega)$). Enfin, on accordera toute l'attention sur la **loi de $X$**, autrement dit sur la mesure de probabilité $\mathbb{P}_X$, à partir de laquelle on pourra calculer différents indicateurs (espérance, variance, quantiles etc.).
+
+\noindent Ce chapitre s'intéresse aux **variables alétoires discrètes**, autrement dit les variables aléatoires dont les images forment un ensemble discret, soit parce que cet ensemble est **fini**, soit parce-qu'il est **infini** mais **dénombrable** (comme l'ensemble des entiers naturels ou des nombres rationnels). Le chapitre suivant traitera des **variables aléatoires continues** : ce sont les variables aléatoires dont l'ensemble des valeurs est **continu**, comme par exemple l'ensemble des nombres réels.
+
 ## Définition et premières propriétés
 
 ### Définition
 
+:::: {.defbox .def data-latex="important"}
+<center>**Variables aléatoires réelles, variables aléatoires discrètes**</center>
+Soit $(\Omega, \mathcal{A}, \mathbb{P})$ un espace probabilisé. On appelle **variable aléatoire réelle** toute application
+
+$$X:\Omega\longrightarrow\mathbb{R}$$
+\noindent telle que, pour tout intervalle ouvert $I$ de $\mathbb{R}$, l'ensemble 
+
+$$X^{-1}(I)=\{\omega\in\Omega, X(\omega)\in I\}$$
+\noindent est un élément de la tribu $\mathcal{A}$. En particulier, si $\mathcal{A}=\mathcal{P}(\Omega)$, toute application $X:\Omega\longrightarrow\mathbb{R}$ est donc une variable alétoire réelle.
+
+\noindent On dira de plus que $X$ est une **variable aléatoire discrète** si son ensemble image 
+
+$$X(\Omega)=\left\{X(\omega),\,\omega\in\Omega\right\}\subset\mathbb{R}$$
+\noindent est soit fini, soit infini mais dénombrable (ce que l'on résume souvent en *au plus dénombrable*).
+::::
+
+\noindent
+
+**Remarques. i.** En pratique dans ce cours, et pour rester dans les contours du programme, nous ne vérifierons jamais (sauf si cela est explicitement demandé lors d'un exercice) que $X$ est bien une variable aléatoire, autrement dit nous supposerons toujours la propriété $X^{-1}(I)\in\mathcal{A}$ acquise (ce qu'elle n'est pas dans le cas général). Cette propriété est en particulier toujours vraie si on suppose que $\mathcal{A}=\mathbb{P}(\Omega)$, ce qui sera souvent sous-entendu dans les exercices (notamment dans le cas discret). 
+
+<center>**On retiendra donc surtout la définition pratique donnée un peu plus bas**</center>
+
+\noindent 
+
+**ii. (Hors programme).** Dans le cas général, on peut définir une notion de variable aléatoire entre deux espaces **probabilisables** (la définition en elle-même ne suppose pas l'existence d'une mesure de probabilité, ni dans l'espace de départ ni dans l'espace d'arrivée) en disant que pour $(\Omega, \mathcal{A})$ et $(\Omega', \mathcal{A}')$ deux espaces probabilisables, une application 
+
+$$X:(\Omega, \mathcal{A})\longrightarrow (\Omega', \mathcal{A}')$$
+est une variable aléatoire lorsque
+
+$$\forall B\in\mathcal{A}', \, X^{-1}(B)=\{\omega\in\Omega, X(\omega)\in\mathcal{A}'\}\in \mathcal{A}$$
+\noindent autrement dit, lorsque l'image réciproque d'un observable (un élément de $\mathcal{A'}$) est encore un observable (un élément de $\mathcal{A}$).
+
+\noindent Dans la définition qui est encadrée, la tribu de l'espace d'arrivée est implicitement égale à la tribu *borélienne* sur $\mathbb{R}$, autrement dit la tribu de tous les ensembles pouvant s'écrire comme combinaison d'ouverts via les opérations de réunion dénombrable, d'intersection dénombrable et de passage à l'événement contraire. Cette tribu est notée $\mathcal{B}(\mathbb{R})$. Une telle tribu est dite *engendrée* par les ouverts de $\mathbb{R}$, et il s'agit de la plus petite tribu (au sens de l'inclusion) sur $\mathbb{R}$ contenant tous les ouverts de $\mathbb{R}$. Ses éléments sont appelés des *boréliens*. Dans ce cas, une variable aléatoire à  valeurs dans $\mathbb{R}$ est une application vérifiant $X^{-1}(B)\in\mathcal{A}$ pour tout $B$ dans $\mathcal{B}(\mathbb{R})$. On peut alors démontrer qu'il suffit en fait d'exiger cette propriété pour tout intervalle ouvert $B$ pour avoir une variable aléatoire, autrement dit dès que cette propriété est vraie pour les intervalles ouverts elle l'est plus généralement pour tous les boréliens.
+
+\noindent 
+
+:::: {.defbox .def data-latex="important"}
+<center>**Variables aléatoires discrètes en pratique**</center>
+
+\noindent Dans le cadre du programme de ce concours, une variable aléatoire discrète est, sauf mention explicite du contaire, une application 
+
+$$X:\Omega\longrightarrow F$$
+\noindent où $\Omega$ est l'univers d'une expérience aléatoire et $F$ est un ensemble au plus dénombrable.
+::::
+
+**Exemples. i.** On reprend l'exemple des deux dés équilibrés présenté dans le chapitre précédent :
+
+<center>
+```{r, echo = FALSE}
+knitr::include_graphics("C:/Users/olivier.guin/Travail/Formation_Administrateur/Cours/Cours_probabilités_statistique/images/somme_des.png") 
+```
+</center>
+
+\noindent L'expérience aléatoire associée à cette expérience aléatoire est modélisée par l'espace probabilisé $(\Omega, \mathcal{A}, \mathbb{P})$, avec  $\Omega=\{1,2,3,4,5,6\}^2$, $\mathcal{A}=\mathcal{P}(\Omega)$ et $\mathbb{P}$ la mesure de probabilité équirépartie.
+
+\noindent La somme $S$ des deux numéros obtenus est une variable aléatoire 
+
+$$X:\Omega \longrightarrow X(\Omega)$$
+\noindent définie, pour $\omega=(\omega_1, \omega_2)\in\Omega$, par $S(\omega)=\omega_1+\omega_2$. On a 
+
+$$X(\Omega)=[\![2;12]\!]$$
+\noindent où pour tout couple d'entiers $(a,b)$ tel que $a\leq b$, $[\![a;b]\!]$ désigne l'ensemble de tous les entiiers entre $a$ et $b$ (notation que nous réutiliserons régulièrement dans ce cours).
+
+\noindent Ainsi, $X(\Omega)$ est fini, et donc $X$ est une variable aléatoire discrète.
+
+\noindent
+
+**ii.** Une urne contient $4$ boules blanches et $6$ boules noires. On tire une boule au hasard. Si elle est noire on s'arrête là, sinon on remet la boule dans l'urne, et on recommence jusqu'à obtenir une boule noire. On note $N$ le nombre de boules tirées. $N$ est une variable aléatoire, prenant des valeurs entières et non majorée. Ainsi $N(\Omega)=\mathbb{N}^*$ et $N$ est discrète.
+
+**iii.** Dans une file d'attente, on note $T$ le temps de passage entre deux clients. $T$ est une variable aléatoire à valeurs dans $\mathbb{R}_+$. Elle n'est donc pas discrète, mais continue.
+
+
 ### Loi d'une variable aléatoire discrète
 
-### Définition de $p(X\in A)$
+\noindent Comme dit précédemment, la notion de variable aléatoire dans son sens le plus général se fait entre deux espaces probabilisables. Mais si l'on souhaite donner un sens à la notion de *loi d'une variable* aléatoire, on est obligé de prendre comme espace de départ un espace probabilisé $(\Omega, \mathcal{A}, \mathbb{P})$ Sous cette condition, on peut définir une loi sur l'espace d'arrivée, appelée *loi image de $\mathbb{P}$ par $X$* et notée $\mathbb{P}_X$. Cette loi est appelée aussi plus simplement la *loi de $X$*.
+
+:::: {.thmbox .def data-latex="important"}
+**Théorème (Loi d'une variable aléatoire discrète).** Soient $(\Omega, \mathcal{A}, \mathbb{P})$ un espace probabilisé et $X$ une variable aléatoire discrète définie sur $\Omega$ et à valeurs dans $\Omega'=X(\Omega)$. On peut définir une loi de probabilité $\mathbb{P}_X$ sur $(\Omega', \mathcal{P}(\Omega'))$, appelée **loi de $X$** en posant, pour tout $i$ dans $\Omega'$ :
+
+$$\mathbb{P}_X(\{i\})=\mathbb{P}(X^{-1}(\{i\}))$$
+\noindent On notera plus simplement :
+
+- $(X=i)$ l'événement $X^{-1}(\{i\})$  ;
+- $\mathbb{P}_X(i)=\mathbb{P}_X(\{i\})$.
+
+\noindent La loi de $X$ est donc définie par :
+
+- la donnée de $X(\Omega)$, i.e. l'ensemble de toutes les valeurs prises par $X$ ;
+- la donnée, pour tout $i$ dans $X(\Omega)$, de la probabilité $\mathbb{P}(X=i)$.
+
+\noindent Cette loi est unique à des événements de probabilité nulle près.
+::::
+
+\noindent
+
+**Remarque.** Si $X$ prend *a priori* les valeurs $(x_i)_I$, la loi de $X$ est donc définie par la donnée de tous les $x_i$ et de toutes les probabilités $\mathbb{P}(X=i)$. Toutefois il peut arriver qu'*a posteriori*, c'est-à-dire après calculs, on se rende compte que pour certains indices $i_0$ de $I$ l'on ait $\mathbb{P}(X=i_0)=0$. Dans ce cas, on peut très bien appeler loi de $X$ la donnée des couples $(j, \mathbb{P}(X=j))$ pour toutes les valeurs $j$ de $I$ telles que $\mathbb{P}(X=j)>0$. La loi de $X$ n'est donc pas unique au sens strict du terme, mais elle l'est bien à des événements élémentaires de probabilité nulle près. Par exemple, dans l'exercice 2 du sujet du concours interne de 2012 (exercice 2.7. de ce cours) la variable aléatoire $X$ prend *a priori* les valeurs $0,1,2,3$, mais *a posteriori* on a $\mathbb{P}(X=0)=0$, donc on peut enlever $0$ de $X(\Omega)$.
+
+\noindent 
+
+**Démonstration.** Admis.
+
+\noindent
+
+**Exemple. i.** On reprend l'exemple sur la somme des deux dés. On a vu que $X(\Omega)=[\![2;12]\!]$. On calcule maintenant toutes les probablités $\mathbb{P}(X=i)$ pour $i\in [\![2;12]\!]$. On montre en fait facilement que
+
+$$\forall i\in [\![2;6]\!],\, \mathbb{P}(X=i)=\frac{i-1}{36}$$
+$$\forall i\in [\![7;12]\!], \, \mathbb{P}(X=i)=\frac{13-i}{36}$$
+\noindent On peut vérifier la cohérence de ce résultat :
+
+\begin{align}
+\sum\limits_{i=2}^{6}\frac{i-1}{36}+\sum\limits_{i=7}^{12}\frac{13-i}{36} &= \sum\limits_{i=1}^{5}\frac{i}{36}+\sum\limits_{i=1}^{6}\frac{i}{36} \\
+&= \frac{2\sum\limits_{i=1}^5 i +6}{36} \\
+&= \frac{6\times 5+6}{36} \\
+&= 1 \\
+\end{align}
+
+\noindent
+
+**ii.** On reprend l'exemple de l'urne contenant $4$ boules blanches et $6$ boules noires. On répète des tirages successifs avec remise jusqu'à obtenir une boule noire, et $N\geq 1$ désigne le nombre de tirages. Pour $n\in\mathbb{N}^*$, l'événement $(N=n)$ est réalisé lorsque les $n-1$ premiers tirages amènent une boule blanche et le tirage numéro $n$ amène une boule noire. Les tirages étant effectués avec remise ils sont indépendants, donc
+
+$$\mathbb{P}(N=n)=\left(\frac{2}{5}\right)^{n-1}\frac{3}{5}$$
+\noindent ce qui définit complètement la loi de $N$.
+
+\noindent 
+
+**Remarques. i.** On peut vérifier de façon immédiate que la série $\sum\limits_{n}\mathbb{P}(N=n)$ est convergente de somme $1$ : c'est, au facteur $\frac{3}{5}$ près, une série géométrique de raison $\frac{2}{5}\in]-1;1[$, donc elle converge vers $\frac{3}{5}\frac{1}{1-\frac{2}{5}}=1$.
+
+
+\noindent 
+
+**ii.** $N$ suit une *loi géométrique* de paramètre $p=\frac{3}{5}$ (voir un peu plus loin la définition des lois géométriques).
+
+
+:::: {.thmbox .def data-latex="important"}
+**Théorème (calcul de $\mathbb{P}(X\in B)$).** Pour $X:\Omega\longrightarrow F$ une variable aléatoire discrète et $B\in\mathcal{P}(X(\Omega))$, on calcule la probablité $\mathbb{P}(X\in B)$ par
+
+$$\mathbb{P}(X\in B)=\mathbb{P}\left(\bigcup\limits_{n\in B} (X=n)\right)=\sum\limits_{n\in B}\mathbb{P}(X=n)$$
+::::
+
+\noindent
+
+**Démonstration.** Les événements $(X=n), n\in B$ forment une partition de l'événement $(X\in B)$. On conclut en utilisant le fait qu'une probabilité d'une réunion disjointe d'événements $A_n$ est la somme des probablités $\mathbb{P}(A_n)$.
+
+$\square$
+
+\noindent 
+
+**Exemple.** Dans l'exemple précédent de l'urne, on cherche maintenant la probabilité que $X$ soit impaire. On a 
+
+\begin{align}
+\mathbb{P}(X\in 2\mathbb{N}+1) &=  \sum\limits_{n=0}^{\infty}\mathbb{P}(X=2n+1) \\
+&=\sum\limits_{n=0}^{\infty}\left(\frac{2}{5}\right)^{2n}\frac{3}{5} \\
+&=\frac{3}{5}\sum\limits_{n=0}^{\infty}\left(\frac{4}{25}\right)^{n} \\
+&=\frac{3}{5}\frac{1}{1-\frac{4}{25}} \\
+&=\frac{5}{7} \\
+\end{align}
+
+\noindent La fonction de répartition d'une variable aléatoire discrète (ou même continue comme on le verra dans le prochain chapitre) est définie à partir des événements du type $(X\leq x)$ :
+
+:::: {.defbox .def data-latex="important"}
+<center>**Fonction de répartition**</center>
+
+\noindent Soit $X$ une variable aléatoire discrète. On appelle **fonction de répartition de $X$** la fonction $F_X$ définie sur $\mathbb{R}$ par 
+
+$$\forall x\in\mathbb{R},\,F_X(x)=\mathbb{P}(X\leq x)$$
+
+\noindent Quand le contexte le permet, on la note plus simplement $F$.
+::::
+
+\noindent
+
+**Exemple.** On considère une variable aléatoire $X$ telle que $X(\Omega)=\{1,2,3,4\}$ et $\mathbb{P}(X=i)$ est proportionnel à $i$. 
+
+\noindent On souhaite déterminer sa fonction de répartition.
+
+\noindent
+
+On note $\alpha=\mathbb{P}(X=1)$. On a donc $$\mathbb{P}(X=i)=\alpha\, i$$
+
+\noindent On a donc $\alpha\sum\limits_{i=1}^4 i=1$, soit $\alpha=\frac{1}{10}$ et donc
+
+$$\forall i\in [\![1;4]\!],\, \mathbb{P}(X=i)=\frac{i}{10}$$
+\noindent La fonction de répartition $F$ de $X$ est alors donnée par
+
+$$F(x)=\left \{
+\begin{array}{lcl}
+0&\text{ si }& x<1 \\
+\frac{1}{10}&\text{ si }& 1\leq x<2 \\
+\frac{3}{10}&\text{ si }& 2\leq x<3 \\
+\frac{3}{5}&\text{ si }& 3\leq x<4 \\
+1&\text{ si }& x\geq 4 \\
+\end{array}
+\right.$$
 
 ### Fonction de répartition, quantiles
 

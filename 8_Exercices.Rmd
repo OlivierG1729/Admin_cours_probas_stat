@@ -856,3 +856,27 @@ $$p_n=\frac{1}{2}+\frac{1}{2}(2p-1)^n$$
 
 **Remarque.** Ce résultat qui peut paraître surprenant s'explique par le fait que la maladie étudiée est très rare ($1$ cas sur $10\,000$), et donc même en cas de test positif la probabilité que la personne soit vraiment malade reste limitée.
 
+
+## Annales des oraux
+
+### Interne, 2016
+
+<center>
+```{r, echo = FALSE}
+knitr::include_graphics("C:/Users/olivier.guin/Travail/Formation_Administrateur/Cours/Cours_probabilités_statistique/images/oral_2016_probas_01.PNG") 
+```
+</center>
+
+\noindent 
+
+**Solution. 1.** 
+\begin{align}
+\mathbb{P}(Y>X) &= \mathbb{E}(1_{Y>X}) \\
+&= \int_{\mathbb{R}_+^2} 1_{y>x}\lambda e^{-\lambda x}\lambda e^{-\lambda y} \, \text{dy dx  (par indépendance)} \\
+&= \lambda\int_{0}^{+\infty}e^{-\lambda x}\int_{x}^{+\infty}\lambda e^{-\lambda y}\,\text{dy dx} \\
+&= \int_{0}^{+\infty} e^{-\lambda x}\,\lambda e^{-\lambda x}\,\text{dx} \\
+&= \int_{0}^{+\infty} e^{-\lambda y} f_{\lambda}(y)\text{ dy} \text{ (où } f_{\lambda} \text{ est la densité de la loi } \mathcal{E}(\lambda) \text{)} \\
+&= \mathbb{E}(e^{-\lambda X}) \\
+\end{align}
+
+
