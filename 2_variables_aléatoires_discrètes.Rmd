@@ -224,6 +224,43 @@ $$F(x)=\left \{
 \end{array}
 \right.$$
 
+
+:::: {.thmbox .def data-latex="important"}
+<center>**Propriétés des fonctions de répartition**</center>
+
+\noindent
+
+Soit $F$ la fonction de répartition d'une loi discrète. Alors :
+
+\noindent
+
+**i.** $F$ est une fonction croissante sur $\mathbb{R}$
+
+\noindent
+
+**ii.** $F$ est continue à droite
+
+**iii.** $\lim\limits_{x\to -\infty}F(x)=0$
+
+\noindent
+
+**iv.** $\lim\limits_{x\to +\infty}F(x)=1$
+::::
+
+\noindent
+
+**Démonstration.** On note $X$ une variable aléatoire discrète ayant $F$ pour fonction de répartition. 
+
+\noindent 
+
+**i.** Soient $x,y$ deux réels tels que $x\leq y$. Alors l'événement $\{X\leq x\}$ est inclus dans l'événement $\{X\leq y\}$. Par croissance des probabilités on a donc $\mathbb{P}(X\leq x)\leq\mathbb{P}(X\leq y)$, i.e. $F(x)\leq F(y)$. On en déduit que $F$ est croissante.
+
+\noindent
+
+**ii.** Soit $x$ un réel. Les intervalles $\left]-\infty\,;\,x+\frac{1}{n}\right]$ forment une suite décroissante (par rapport à $n$) pour l'inclusion, donc d'après les axiomes des probabilités on a 
+
+$$\mathbb{P}\left(\bigcap_{n=0}^{\infty}\left]-\infty\,;\,x+\frac{1}{n}\right]\right)=\lim\limits_{n\to\infty}\mathbb{P}\left(\left]-\infty\,;\,x+\frac{1}{n}\right]\right)$$
+
 ### Fonction de répartition, quantiles
 
 ### Exemples classiques :

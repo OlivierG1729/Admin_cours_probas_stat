@@ -962,6 +962,10 @@ $$\mathbb{P}(A\cup B)=\mathbb{P}(A)+\mathbb{P}(B)-\mathbb{P}(A\cap B)$$
 
 $$\mathbb{P}\left(\bigcup\limits_{k=1}^{n} A_k\right)=\sum\limits_{k=1}^{n}(-1)^{k+1}\sum\limits_{1\leq i_1<i_2<\dots <i_k}\mathbb{P}\left(\bigcap\limits_{j=1}^k A_{i_j}\right)$$
 
+- **Continuité par limite monotone.** Soit $(A_n)_n$ une suite monotone d'événements (pour l'inclusion). On convient de noter $\lim\limits_{n}A_n$ l'événement $\bigcap\limits_{n} A_n$ si la suite $(A_n)_n$ est décroissante, ou $\bigcup\limits_{n}A_n$ si la suite $(A_n)_n$ est croissante. Alors
+
+$$\mathbb{P}(\lim\limits_{n}A_n)=\lim\limits_{n}\mathbb{P}(A_n)$$
+\noindent et on résume cette égalité en disant que toute probabilité est continue par limite monotone.
 ::::
 
 \noindent 
@@ -992,7 +996,7 @@ est additive. Or, l'additivité (et même la $\sigma-$additivité) est au coeur 
 $$\mathbb{P}:A\in\mathcal{A}\longrightarrow\mathbb{P}(A)$$
 \noindent est elle aussi additive (et même $\sigma-$additive). Donc la démonstration de la formule de Poincaré pour les probabilités est une recopie exacte de celle pour les cardinaux, en remplaçant simplement l'application $\text{Card}$ par l'application $\mathbb{P}$.
 
-- enfin, soient $A$ et $B$ des événements tels que $A\subset B$. Alors :
+- soient $A$ et $B$ des événements tels que $A\subset B$. Alors :
 
 $$B= A\cup (B\cap\overline{A})$$
 $$A\cap(B\cap\overline{A})=\emptyset$$
@@ -1004,6 +1008,51 @@ $$A\cap(B\cap\overline{A})=\emptyset$$
 \end{align}
 
 \noindent car $\mathbb{P}(B\cap\overline{A})\geq 0$ (une probabilté est toujours positive).
+
+- enfin, supposons que $(A_n)_n$ est une suite monotone. 
+
+\noindent 
+
+**Pour commencer, on suppose que $(A_n)_n$ est croissante.** On peut écrire la réunion $\bigcup\limits_{n}A_n$ comme une partition dénombrable d'événements :
+
+$$\bigcup\limits_{n}A_n=\bigsqcup_{n}B_n$$
+\noindent où on pose
+
+$$B_n=A_n\setminus A_{n-1} \, \text{  si } n\in\mathbb{N}^{*}$$
+$$B_0=A_0$$
+
+\noindent La propriété de $\sigma-$additivité de $\mathbb{P}(.)$ s'écrit alors
+
+\begin{align}
+\mathbb{P}\left(\bigcup\limits_{n}A_n\right)&=\mathbb{P}\left(\bigsqcup\limits_{n}B_n\right) \\
+&= \sum\limits_{n}\mathbb{P}(B_n) \\
+\end{align}
+
+\noindent Or,
+
+\begin{align}
+\sum\limits_{n=0}^N\mathbb{P}(B_n) &=\mathbb{P}\left(\bigsqcup\limits_{n=0}^N B_n\right) \\
+&=\mathbb{P}(B_0)+\sum\limits_{n=1}^N\mathbb{P}(A_n\setminus A_{n-1}) \\
+&=\mathbb{P}(A_0)+\sum\limits_{n=1}^N\left(\mathbb{P}(A_n)-\mathbb{P}(A_{n-1}))\right) \\
+&=\mathbb{P}(A_0)+\mathbb{P}(A_N)-\mathbb{P}(A_0) \\
+&=\mathbb{P}(A_N) \\
+&=\mathbb{P}\left(\bigcup\limits_{n=0}^N A_n\right) \text{ par croissance de } (A_n)_n \\
+\end{align}
+
+\noindent La suite $(\mathbb{P}(A_N))_N$ est croissante (car la suite $(A_N)_N$ est croissante) et majorée (par $1$), donc elle est convergente. Sa limite est donnée par 
+
+\begin{align}
+\lim\limits_{N\to\infty}\mathbb{P}(A_N)&=\lim\limits_{N\to\infty}\mathbb{P}\left(\bigcup\limits_{n=0}^N A_n\right) \\
+&=\sum\limits_{n=0}^{\infty}\mathbb{P}(B_n) \\
+&=\mathbb{P}\left(\bigcup\limits_{n=0}^{\infty}A_n\right) \\
+\end{align}
+
+\noindent On a donc montré la propriété de continuité par limite croissante, autrement dit que pour toute suite $(A_n)_n$ croissante pour l'inclusion on a :
+
+$$\lim\limits_{N\to\infty}\mathbb{P}\left(\bigcup\limits_{n=0}^N A_n\right)=\mathbb{P}\left(\bigcup\limits_{n=0}^{\infty}A_n\right)$$
+\noindent 
+
+**On suppose maintenant que $(A_n)_n$ est décroissante.**
 
 \noindent D'où le résultat.
 
