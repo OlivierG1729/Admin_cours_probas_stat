@@ -257,9 +257,34 @@ Soit $F$ la fonction de répartition d'une loi discrète. Alors :
 
 \noindent
 
-**ii.** Soit $x$ un réel. Les intervalles $\left]-\infty\,;\,x+\frac{1}{n}\right]$ forment une suite décroissante (par rapport à $n$) pour l'inclusion, donc d'après la propriété de continuité décroissante des probabilités, on a 
+**ii.** Soit $x$ un réel. Les événements $\left\{X\in\left]-\infty\,;\,x+\frac{1}{n}\right]\right\}$ forment une suite décroissante (par rapport à $n$) pour l'inclusion, donc d'après la propriété de continuité décroissante des probabilités, on a 
 
-$$\mathbb{P}\left(\bigcap_{n=0}^{\infty}\left]-\infty\,;\,x+\frac{1}{n}\right]\right)=\lim\limits_{n\to\infty}\mathbb{P}\left(\left]-\infty\,;\,x+\frac{1}{n}\right]\right)$$
+$$\mathbb{P}\left(\bigcap_{n=1}^{\infty}\left\{X\in\left]-\infty\,;\,x+\frac{1}{n}\right]\right\}\right)=\lim\limits_{n\to\infty}\mathbb{P}\left(X\in\left]-\infty\,;\,x+\frac{1}{n}\right]\right)$$
+
+\noindent Or, $\bigcap\limits_{n=1}^{\infty}\left]-\infty\,;\,x+\frac{1}{n}\right]=]-\infty ; x]$, donc le terme de gauche est égal à $\mathbb{P}(X\leq x)=F(x)$. Comme le membre de droite est égal à $\lim\limits_{n\to\infty}F\left(x+\frac{1}{n}\right)$, on a donc
+
+$$F(x)=\lim\limits_{n\to\infty}F\left(x+\frac{1}{n}\right)$$
+\noindent ce qui traduit exactement la continuité à droite de $F$.
+
+\noindent 
+
+**iii.** La suite d'événements $\left\{X\leq -n\right\}_n$ est décroissante, donc d'après la propriété de continuité décroissante
+
+\begin{align}
+\lim\limits_{n\to\infty}F(-n)&=\mathbb{P}\left(\bigcap\limits_{n=0}^{\infty}\{X\leq -n\}\right) \\
+&=\mathbb{P}(\emptyset) \\
+&=0 \\
+\end{align}
+
+\noindent Par croissance de $F$, on en déduit que $\lim\limits_{x\to -\infty}F(x)=0$.
+
+\noindent
+
+**iv.** On utilise exactement le même raisonnement avec la suite croissante $\left\{X\geq n\right\}_n$.
+
+\noindent 
+
+$\square$
 
 ### Fonction de répartition, quantiles
 
