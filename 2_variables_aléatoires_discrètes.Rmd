@@ -257,7 +257,7 @@ Soit $F$ la fonction de répartition d'une loi discrète. Alors :
 
 \noindent
 
-**ii.** Soit $x$ un réel. Les intervalles $\left]-\infty\,;\,x+\frac{1}{n}\right]$ forment une suite décroissante (par rapport à $n$) pour l'inclusion, donc d'après les axiomes des probabilités on a 
+**ii.** Soit $x$ un réel. Les intervalles $\left]-\infty\,;\,x+\frac{1}{n}\right]$ forment une suite décroissante (par rapport à $n$) pour l'inclusion, donc d'après la propriété de continuité décroissante des probabilités, on a 
 
 $$\mathbb{P}\left(\bigcap_{n=0}^{\infty}\left]-\infty\,;\,x+\frac{1}{n}\right]\right)=\lim\limits_{n\to\infty}\mathbb{P}\left(\left]-\infty\,;\,x+\frac{1}{n}\right]\right)$$
 
