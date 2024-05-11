@@ -962,13 +962,29 @@ $$\mathbb{P}(A\cup B)=\mathbb{P}(A)+\mathbb{P}(B)-\mathbb{P}(A\cap B)$$
 
 $$\mathbb{P}\left(\bigcup\limits_{k=1}^{n} A_k\right)=\sum\limits_{k=1}^{n}(-1)^{k+1}\sum\limits_{1\leq i_1<i_2<\dots <i_k}\mathbb{P}\left(\bigcap\limits_{j=1}^k A_{i_j}\right)$$
 
-- **Continuité par limite monotone.** Soit $(A_n)_n$ une suite monotone d'événements (pour l'inclusion). On convient de noter $\lim\limits_{n}A_n$ l'événement $\bigcap\limits_{n} A_n$ si la suite $(A_n)_n$ est décroissante, ou $\bigcup\limits_{n}A_n$ si la suite $(A_n)_n$ est croissante. Alors
+- **Continuité par limite monotone.** Soit $(A_n)_n$ une suite monotone d'événements (pour l'inclusion). On convient de noter $\lim\limits_{n}A_n$ l'événement :
+
+  - $\lim\limits_{n\to\infty}A_n=\bigcap\limits_{n=0}^{\infty} A_n$ si la suite $(A_n)_n$ est décroissante ;
+  
+  - $\lim\limits_{n\to\infty}A_n=\bigcup\limits_{n=0}^{\infty} A_n$ si la suite $(A_n)_n$ est croissante. 
+  
+Alors
 
 $$\mathbb{P}(\lim\limits_{n}A_n)=\lim\limits_{n}\mathbb{P}(A_n)$$
 \noindent et on résume cette égalité en disant que toute probabilité est continue par limite monotone.
 ::::
 
 \noindent 
+
+**Remarque.** Une remarque sur l'origine de la notation $\lim\limits_{n\to\infty}A_n$ :
+
+- si $(A_n)_n$ est croissante, alors pour tout entier naturel $N$ on a $\bigcup\limits_{n=0}^N A_n=A_N$, et donc en faisant tendre $N$ vers l'infini il est naturel d'écrire
+
+$$\bigcup\limits_{n=0}^{\infty}A_n=\lim\limits_{n\to\infty}A_n$$
+
+- de même, si $(A_n)_n$ est décroissante alors $\bigcap\limits_{n=0}^N A_n=A_N$ et on a envie d'écrire le passage à la limite
+
+$$\bigcap\limits_{n=0}^{\infty}A_n=\lim\limits_{n\to\infty}A_n$$
 
 **Démonstration.** 
 
@@ -1047,14 +1063,23 @@ $$B_0=A_0$$
 &=\mathbb{P}\left(\bigcup\limits_{n=0}^{\infty}A_n\right) \\
 \end{align}
 
-\noindent On a donc montré la propriété de continuité par limite croissante, autrement dit que pour toute suite $(A_n)_n$ croissante pour l'inclusion on a :
+\noindent On a donc montré la propriété de continuité par limite croissante.
 
-$$\lim\limits_{N\to\infty}\mathbb{P}\left(\bigcup\limits_{n=0}^N A_n\right)=\mathbb{P}\left(\bigcup\limits_{n=0}^{\infty}A_n\right)$$
 \noindent 
 
-**On suppose maintenant que $(A_n)_n$ est décroissante.**
+**On suppose maintenant que $(A_n)_n$ est décroissante.** Alors, la suite $(\overline{A_n})_n$ est croissante, et donc on peut lui appliquer le résultat précédent :
 
-\noindent D'où le résultat.
+$$\lim\limits_{n\to\infty}\mathbb{P}\left( \overline{A_n}\right)=\mathbb{P}\left(\bigcup\limits_{n=0}^{\infty}\overline{A_n}\right)$$
+\noindent et donc
+
+\begin{align}
+\lim\limits_{n\to\infty}\mathbb{P}(A_n)&=1-\lim\limits_{n\to\infty}\mathbb{P}(\overline{A_n}) \\
+&= 1-\mathbb{P}\left(\bigcup\limits_{n=0}^{\infty} \overline{A_n} \right) \\
+&=\mathbb{P}\left(\overline{\bigcup\limits_{n=0}^{\infty}\overline{A_n}}\right) \\
+&=\mathbb{P}\left(\bigcap\limits_{n=0}^{\infty}A_n \right) \\
+\end{align}
+
+\noindent ce qui permet de conclure.
 
 $\square$
 

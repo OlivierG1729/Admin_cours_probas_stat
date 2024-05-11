@@ -23,7 +23,7 @@
 <meta name="author" content="Olivier Guin" />
 
 
-<meta name="date" content="2024-05-09" />
+<meta name="date" content="2024-05-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -869,12 +869,26 @@ La <span class="math inline">\(\sigma-\)</span>additivité est strictement plus 
 <p>Plus généralement, étant donné une suite finie <span class="math inline">\(A_1,A_2,\dots A_n\)</span> d’événements, on a la formule</p>
 <p><span class="math display">\[\mathbb{P}\left(\bigcup\limits_{k=1}^{n} A_k\right)=\sum\limits_{k=1}^{n}(-1)^{k+1}\sum\limits_{1\leq i_1&lt;i_2&lt;\dots &lt;i_k}\mathbb{P}\left(\bigcap\limits_{j=1}^k A_{i_j}\right)\]</span></p>
 <ul>
-<li><strong>Continuité par limite monotone.</strong> Soit <span class="math inline">\((A_n)_n\)</span> une suite monotone d’événements (pour l’inclusion). On convient de noter <span class="math inline">\(\lim\limits_{n}A_n\)</span> l’événement <span class="math inline">\(\bigcap\limits_{n} A_n\)</span> si la suite <span class="math inline">\((A_n)_n\)</span> est décroissante, ou <span class="math inline">\(\bigcup\limits_{n}A_n\)</span> si la suite <span class="math inline">\((A_n)_n\)</span> est croissante. Alors</li>
+<li><p><strong>Continuité par limite monotone.</strong> Soit <span class="math inline">\((A_n)_n\)</span> une suite monotone d’événements (pour l’inclusion). On convient de noter <span class="math inline">\(\lim\limits_{n}A_n\)</span> l’événement :</p>
+<ul>
+<li><p><span class="math inline">\(\lim\limits_{n\to\infty}A_n=\bigcap\limits_{n=0}^{\infty} A_n\)</span> si la suite <span class="math inline">\((A_n)_n\)</span> est décroissante ;</p></li>
+<li><p><span class="math inline">\(\lim\limits_{n\to\infty}A_n=\bigcup\limits_{n=0}^{\infty} A_n\)</span> si la suite <span class="math inline">\((A_n)_n\)</span> est croissante.</p></li>
+</ul></li>
 </ul>
+<p>Alors</p>
 <p><span class="math display">\[\mathbb{P}(\lim\limits_{n}A_n)=\lim\limits_{n}\mathbb{P}(A_n)\]</span>
 et on résume cette égalité en disant que toute probabilité est continue par limite monotone.</p>
 </div>
 <p></p>
+<p><strong>Remarque.</strong> Une remarque sur l’origine de la notation <span class="math inline">\(\lim\limits_{n\to\infty}A_n\)</span> :</p>
+<ul>
+<li>si <span class="math inline">\((A_n)_n\)</span> est croissante, alors pour tout entier naturel <span class="math inline">\(N\)</span> on a <span class="math inline">\(\bigcup\limits_{n=0}^N A_n=A_N\)</span>, et donc en faisant tendre <span class="math inline">\(N\)</span> vers l’infini il est naturel d’écrire</li>
+</ul>
+<p><span class="math display">\[\bigcup\limits_{n=0}^{\infty}A_n=\lim\limits_{n\to\infty}A_n\]</span></p>
+<ul>
+<li>de même, si <span class="math inline">\((A_n)_n\)</span> est décroissante alors <span class="math inline">\(\bigcap\limits_{n=0}^N A_n=A_N\)</span> et on a envie d’écrire le passage à la limite</li>
+</ul>
+<p><span class="math display">\[\bigcap\limits_{n=0}^{\infty}A_n=\lim\limits_{n\to\infty}A_n\]</span></p>
 <p><strong>Démonstration.</strong></p>
 <ul>
 <li>Pour tout événement <span class="math inline">\(A\)</span>, <span class="math inline">\(A\)</span> et <span class="math inline">\(\overline{A}\)</span> sont incompatibles, et par ailleurs <span class="math inline">\(A\cup\overline{A}=\Omega\)</span>, donc :</li>
@@ -935,11 +949,18 @@ où on pose</p>
 &amp;=\sum\limits_{n=0}^{\infty}\mathbb{P}(B_n) \\
 &amp;=\mathbb{P}\left(\bigcup\limits_{n=0}^{\infty}A_n\right) \\
 \end{align}\]</span></p>
-<p>On a donc montré la propriété de continuité par limite croissante, autrement dit que pour toute suite <span class="math inline">\((A_n)_n\)</span> croissante pour l’inclusion on a :</p>
-<p><span class="math display">\[\lim\limits_{N\to\infty}\mathbb{P}\left(\bigcup\limits_{n=0}^N A_n\right)=\mathbb{P}\left(\bigcup\limits_{n=0}^{\infty}A_n\right)\]</span>
-</p>
-<p><strong>On suppose maintenant que <span class="math inline">\((A_n)_n\)</span> est décroissante.</strong></p>
-<p>D’où le résultat.</p>
+<p>On a donc montré la propriété de continuité par limite croissante.</p>
+<p></p>
+<p><strong>On suppose maintenant que <span class="math inline">\((A_n)_n\)</span> est décroissante.</strong> Alors, la suite <span class="math inline">\((\overline{A_n})_n\)</span> est croissante, et donc on peut lui appliquer le résultat précédent :</p>
+<p><span class="math display">\[\lim\limits_{n\to\infty}\mathbb{P}\left( \overline{A_n}\right)=\mathbb{P}\left(\bigcup\limits_{n=0}^{\infty}\overline{A_n}\right)\]</span>
+et donc</p>
+<p><span class="math display">\[\begin{align}
+\lim\limits_{n\to\infty}\mathbb{P}(A_n)&amp;=1-\lim\limits_{n\to\infty}\mathbb{P}(\overline{A_n}) \\
+&amp;= 1-\mathbb{P}\left(\bigcup\limits_{n=0}^{\infty} \overline{A_n} \right) \\
+&amp;=\mathbb{P}\left(\overline{\bigcup\limits_{n=0}^{\infty}\overline{A_n}}\right) \\
+&amp;=\mathbb{P}\left(\bigcap\limits_{n=0}^{\infty}A_n \right) \\
+\end{align}\]</span></p>
+<p>ce qui permet de conclure.</p>
 <p><span class="math inline">\(\square\)</span></p>
 <p>Un cas particulier important est celui de l’<strong>équiprobabilité</strong> :</p>
 <div class="thmbox def">
