@@ -23,7 +23,7 @@
 <meta name="author" content="Olivier Guin" />
 
 
-<meta name="date" content="2024-05-11" />
+<meta name="date" content="2024-05-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -111,9 +111,12 @@
 <ul>
 <li class="chapter" data-level="3.1.1" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#définition"><i class="fa fa-check"></i><b>3.1.1</b> Définition</a></li>
 <li class="chapter" data-level="3.1.2" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#loi-dune-variable-aléatoire-discrète"><i class="fa fa-check"></i><b>3.1.2</b> Loi d’une variable aléatoire discrète</a></li>
-<li class="chapter" data-level="3.1.3" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#fonction-de-répartition-quantiles"><i class="fa fa-check"></i><b>3.1.3</b> Fonction de répartition, quantiles</a></li>
-<li class="chapter" data-level="3.1.4" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#exemples-classiques"><i class="fa fa-check"></i><b>3.1.4</b> Exemples classiques :</a></li>
-<li class="chapter" data-level="3.1.5" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#moments-dune-variable-aléatoire"><i class="fa fa-check"></i><b>3.1.5</b> Moments d’une variable aléatoire</a></li>
+<li class="chapter" data-level="3.1.3" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#calcul-de-mathbbpxin-b"><i class="fa fa-check"></i><b>3.1.3</b> Calcul de <span class="math inline">\(\mathbb{P}(X\in B)\)</span></a></li>
+<li class="chapter" data-level="3.1.4" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#fonction-de-répartition"><i class="fa fa-check"></i><b>3.1.4</b> Fonction de répartition</a></li>
+<li class="chapter" data-level="3.1.5" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#quantiles"><i class="fa fa-check"></i><b>3.1.5</b> Quantiles</a></li>
+<li class="chapter" data-level="3.1.6" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#fonction-de-répartition-quantiles"><i class="fa fa-check"></i><b>3.1.6</b> Fonction de répartition, quantiles</a></li>
+<li class="chapter" data-level="3.1.7" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#exemples-classiques"><i class="fa fa-check"></i><b>3.1.7</b> Exemples classiques :</a></li>
+<li class="chapter" data-level="3.1.8" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#moments-dune-variable-aléatoire"><i class="fa fa-check"></i><b>3.1.8</b> Moments d’une variable aléatoire</a></li>
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#transformation-dune-variable-aléatoire-discrète"><i class="fa fa-check"></i><b>3.2</b> Transformation d’une variable aléatoire discrète</a>
 <ul>
@@ -268,38 +271,19 @@ Dans ce genre de situation, on dit que <span class="math inline">\(X\)</span> es
 <h3><span class="header-section-number">3.1.1</span> Définition<a href="variables-aléatoires-discrètes.html#définition" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="defbox def">
 <center>
-<strong>Variables aléatoires réelles, variables aléatoires discrètes</strong>
+<strong>Variables aléatoires discrètes</strong>
 </center>
-<p>Soit <span class="math inline">\((\Omega, \mathcal{A}, \mathbb{P})\)</span> un espace probabilisé. On appelle <strong>variable aléatoire réelle</strong> toute application</p>
-<p><span class="math display">\[X:\Omega\longrightarrow\mathbb{R}\]</span>
-telle que, pour tout intervalle ouvert <span class="math inline">\(I\)</span> de <span class="math inline">\(\mathbb{R}\)</span>, l’ensemble</p>
-<p><span class="math display">\[X^{-1}(I)=\{\omega\in\Omega, X(\omega)\in I\}\]</span>
-est un élément de la tribu <span class="math inline">\(\mathcal{A}\)</span>. En particulier, si <span class="math inline">\(\mathcal{A}=\mathcal{P}(\Omega)\)</span>, toute application <span class="math inline">\(X:\Omega\longrightarrow\mathbb{R}\)</span> est donc une variable alétoire réelle.</p>
-<p>On dira de plus que <span class="math inline">\(X\)</span> est une <strong>variable aléatoire discrète</strong> si son ensemble image</p>
-<p><span class="math display">\[X(\Omega)=\left\{X(\omega),\,\omega\in\Omega\right\}\subset\mathbb{R}\]</span>
-est soit fini, soit infini mais dénombrable (ce que l’on résume souvent en <em>au plus dénombrable</em>).</p>
+<p>Soit <span class="math inline">\((\Omega, \mathcal{A}, \mathbb{P})\)</span> un espace probabilisé. On appelle <strong>variable aléatoire discrète (réelle)</strong> sur <span class="math inline">\(\Omega\)</span> toute application</p>
+<p><span class="math display">\[X:\Omega\longrightarrow F=X(\Omega)\subset\mathbb{R}\]</span>
+où <span class="math inline">\(F=X(\Omega)\)</span> est :</p>
+<ul>
+<li>soit un ensemble fini : <span class="math inline">\(F=\{x_1,\dots, x_n\}\)</span></li>
+<li>soit un ensemble infini dénombrable : <span class="math inline">\(F=\{x_n,\,n\in\mathbb{N}\}\)</span></li>
+</ul>
+<p>On dira alors que <span class="math inline">\(F\)</span> est au <em>plus dénombrable</em>, et on utilisera souvent la notation unifiée</p>
+<p><span class="math display">\[F=X(\Omega)=\{x_i, \, i\in I\}, \, I\subset\mathbb{N}\]</span></p>
 </div>
 <p></p>
-<p><strong>Remarques. i.</strong> En pratique dans ce cours, et pour rester dans les contours du programme, nous ne vérifierons jamais (sauf si cela est explicitement demandé lors d’un exercice) que <span class="math inline">\(X\)</span> est bien une variable aléatoire, autrement dit nous supposerons toujours la propriété <span class="math inline">\(X^{-1}(I)\in\mathcal{A}\)</span> acquise (ce qu’elle n’est pas dans le cas général). Cette propriété est en particulier toujours vraie si on suppose que <span class="math inline">\(\mathcal{A}=\mathbb{P}(\Omega)\)</span>, ce qui sera souvent sous-entendu dans les exercices (notamment dans le cas discret).</p>
-<center>
-<strong>On retiendra donc surtout la définition pratique donnée un peu plus bas</strong>
-</center>
-<p></p>
-<p><strong>ii. (Hors programme).</strong> Dans le cas général, on peut définir une notion de variable aléatoire entre deux espaces <strong>probabilisables</strong> (la définition en elle-même ne suppose pas l’existence d’une mesure de probabilité, ni dans l’espace de départ ni dans l’espace d’arrivée) en disant que pour <span class="math inline">\((\Omega, \mathcal{A})\)</span> et <span class="math inline">\((\Omega&#39;, \mathcal{A}&#39;)\)</span> deux espaces probabilisables, une application</p>
-<p><span class="math display">\[X:(\Omega, \mathcal{A})\longrightarrow (\Omega&#39;, \mathcal{A}&#39;)\]</span>
-est une variable aléatoire lorsque</p>
-<p><span class="math display">\[\forall B\in\mathcal{A}&#39;, \, X^{-1}(B)=\{\omega\in\Omega, X(\omega)\in\mathcal{A}&#39;\}\in \mathcal{A}\]</span>
-autrement dit, lorsque l’image réciproque d’un observable (un élément de <span class="math inline">\(\mathcal{A&#39;}\)</span>) est encore un observable (un élément de <span class="math inline">\(\mathcal{A}\)</span>).</p>
-<p>Dans la définition qui est encadrée, la tribu de l’espace d’arrivée est implicitement égale à la tribu <em>borélienne</em> sur <span class="math inline">\(\mathbb{R}\)</span>, autrement dit la tribu de tous les ensembles pouvant s’écrire comme combinaison d’ouverts via les opérations de réunion dénombrable, d’intersection dénombrable et de passage à l’événement contraire. Cette tribu est notée <span class="math inline">\(\mathcal{B}(\mathbb{R})\)</span>. Une telle tribu est dite <em>engendrée</em> par les ouverts de <span class="math inline">\(\mathbb{R}\)</span>, et il s’agit de la plus petite tribu (au sens de l’inclusion) sur <span class="math inline">\(\mathbb{R}\)</span> contenant tous les ouverts de <span class="math inline">\(\mathbb{R}\)</span>. Ses éléments sont appelés des <em>boréliens</em>. Dans ce cas, une variable aléatoire à valeurs dans <span class="math inline">\(\mathbb{R}\)</span> est une application vérifiant <span class="math inline">\(X^{-1}(B)\in\mathcal{A}\)</span> pour tout <span class="math inline">\(B\)</span> dans <span class="math inline">\(\mathcal{B}(\mathbb{R})\)</span>. On peut alors démontrer qu’il suffit en fait d’exiger cette propriété pour tout intervalle ouvert <span class="math inline">\(B\)</span> pour avoir une variable aléatoire, autrement dit dès que cette propriété est vraie pour les intervalles ouverts elle l’est plus généralement pour tous les boréliens.</p>
-<p></p>
-<div class="defbox def">
-<center>
-<strong>Variables aléatoires discrètes en pratique</strong>
-</center>
-<p>Dans le cadre du programme de ce concours, une variable aléatoire discrète est, sauf mention explicite du contaire, une application</p>
-<p><span class="math display">\[X:\Omega\longrightarrow F\]</span>
-où <span class="math inline">\(\Omega\)</span> est l’univers d’une expérience aléatoire et <span class="math inline">\(F\)</span> est un ensemble au plus dénombrable.</p>
-</div>
 <p><strong>Exemples. i.</strong> On reprend l’exemple des deux dés équilibrés présenté dans le chapitre précédent :</p>
 <center>
 <img src="images/somme_des.PNG" /><!-- -->
@@ -317,27 +301,29 @@ où pour tout couple d’entiers <span class="math inline">\((a,b)\)</span> tel 
 </div>
 <div id="loi-dune-variable-aléatoire-discrète" class="section level3 hasAnchor" number="3.1.2">
 <h3><span class="header-section-number">3.1.2</span> Loi d’une variable aléatoire discrète<a href="variables-aléatoires-discrètes.html#loi-dune-variable-aléatoire-discrète" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Comme dit précédemment, la notion de variable aléatoire dans son sens le plus général se fait entre deux espaces probabilisables. Mais si l’on souhaite donner un sens à la notion de <em>loi d’une variable</em> aléatoire, on est obligé de prendre comme espace de départ un espace probabilisé <span class="math inline">\((\Omega, \mathcal{A}, \mathbb{P})\)</span> Sous cette condition, on peut définir une loi sur l’espace d’arrivée, appelée <em>loi image de <span class="math inline">\(\mathbb{P}\)</span> par <span class="math inline">\(X\)</span></em> et notée <span class="math inline">\(\mathbb{P}_X\)</span>. Cette loi est appelée aussi plus simplement la <em>loi de <span class="math inline">\(X\)</span></em>.</p>
+<p>Pour une variable aléatoire discrète (réelle) définie sur un espace probabilisé <span class="math inline">\(\left(\Omega, \, \mathcal{P}(\Omega), \, \mathbb{P}\right)\)</span>, on peut définir la <em>loi de <span class="math inline">\(X\)</span></em>.</p>
 <div class="thmbox def">
-<p><strong>Théorème (Loi d’une variable aléatoire discrète).</strong> Soient <span class="math inline">\((\Omega, \mathcal{A}, \mathbb{P})\)</span> un espace probabilisé et <span class="math inline">\(X\)</span> une variable aléatoire discrète définie sur <span class="math inline">\(\Omega\)</span> et à valeurs dans <span class="math inline">\(\Omega&#39;=X(\Omega)\)</span>. On peut définir une loi de probabilité <span class="math inline">\(\mathbb{P}_X\)</span> sur <span class="math inline">\((\Omega&#39;, \mathcal{P}(\Omega&#39;))\)</span>, appelée <strong>loi de <span class="math inline">\(X\)</span></strong> en posant, pour tout <span class="math inline">\(i\)</span> dans <span class="math inline">\(\Omega&#39;\)</span> :</p>
-<p><span class="math display">\[\mathbb{P}_X(\{i\})=\mathbb{P}(X^{-1}(\{i\}))\]</span>
-On notera plus simplement :</p>
-<ul>
-<li><span class="math inline">\((X=i)\)</span> l’événement <span class="math inline">\(X^{-1}(\{i\})\)</span> ;</li>
-<li><span class="math inline">\(\mathbb{P}_X(i)=\mathbb{P}_X(\{i\})\)</span>.</li>
-</ul>
+<p><strong>Théorème (Loi d’une variable aléatoire discrète).</strong> Soit <span class="math inline">\(X\)</span> une variable aléatoire discrète définie sur un espace probabilisé <span class="math inline">\((\Omega,\, \mathcal{P}(\Omega),\, \mathbb{P})\)</span>, à valeurs dans <span class="math inline">\(F=X(\Omega)\)</span>. Sur l’espace probabilisable <span class="math inline">\((F,\, \mathcal{P}(F))\)</span> on peut alors définir une probabilité <span class="math inline">\(\mathbb{P}_X\)</span> en posant, pour tout <span class="math inline">\(x_i\)</span> dans <span class="math inline">\(F\)</span> :</p>
+<p><span class="math display">\[\mathbb{P}_X(\{x_i\})=\mathbb{P}(X^{-1}(\{x_i\}))\]</span>
+On notera plus simplement <span class="math inline">\((X=x_i)\)</span> l’événement <span class="math inline">\(X^{-1}(\{x_i\})\)</span>.</p>
 <p>La loi de <span class="math inline">\(X\)</span> est donc définie par :</p>
 <ul>
-<li>la donnée de <span class="math inline">\(X(\Omega)\)</span>, i.e. l’ensemble de toutes les valeurs prises par <span class="math inline">\(X\)</span> ;</li>
-<li>la donnée, pour tout <span class="math inline">\(i\)</span> dans <span class="math inline">\(X(\Omega)\)</span>, de la probabilité <span class="math inline">\(\mathbb{P}(X=i)\)</span>.</li>
+<li>la donnée de <span class="math inline">\(F=X(\Omega)\)</span>, i.e. l’ensemble de toutes les valeurs prises par <span class="math inline">\(X\)</span>. Cet ensemble s’appelle le <strong>support</strong> de la loi de <span class="math inline">\(X\)</span> ;</li>
+<li>la donnée, pour tout <span class="math inline">\(x_i\)</span> dans <span class="math inline">\(X(\Omega)\)</span>, de la probabilité <span class="math inline">\(\mathbb{P}(X=x_i)\)</span>.</li>
 </ul>
 <p>Cette loi est unique à des événements de probabilité nulle près.</p>
 </div>
 <p></p>
-<p><strong>Remarque.</strong> Si <span class="math inline">\(X\)</span> prend <em>a priori</em> les valeurs <span class="math inline">\((x_i)_I\)</span>, la loi de <span class="math inline">\(X\)</span> est donc définie par la donnée de tous les <span class="math inline">\(x_i\)</span> et de toutes les probabilités <span class="math inline">\(\mathbb{P}(X=i)\)</span>. Toutefois il peut arriver qu’<em>a posteriori</em>, c’est-à-dire après calculs, on se rende compte que pour certains indices <span class="math inline">\(i_0\)</span> de <span class="math inline">\(I\)</span> l’on ait <span class="math inline">\(\mathbb{P}(X=i_0)=0\)</span>. Dans ce cas, on peut très bien appeler loi de <span class="math inline">\(X\)</span> la donnée des couples <span class="math inline">\((j, \mathbb{P}(X=j))\)</span> pour toutes les valeurs <span class="math inline">\(j\)</span> de <span class="math inline">\(I\)</span> telles que <span class="math inline">\(\mathbb{P}(X=j)&gt;0\)</span>. La loi de <span class="math inline">\(X\)</span> n’est donc pas unique au sens strict du terme, mais elle l’est bien à des événements élémentaires de probabilité nulle près. Par exemple, dans l’exercice 2 du sujet du concours interne de 2012 (exercice 2.7. de ce cours) la variable aléatoire <span class="math inline">\(X\)</span> prend <em>a priori</em> les valeurs <span class="math inline">\(0,1,2,3\)</span>, mais <em>a posteriori</em> on a <span class="math inline">\(\mathbb{P}(X=0)=0\)</span>, donc on peut enlever <span class="math inline">\(0\)</span> de <span class="math inline">\(X(\Omega)\)</span>.</p>
-<p></p>
 <p><strong>Démonstration.</strong> Admis.</p>
 <p></p>
+<p></p>
+<p><strong>Remarques. i.</strong> On définit <span class="math inline">\(\mathbb{P}_X\)</span> à partir des <span class="math inline">\(\mathbb{P}_X(\{x_i\})\)</span> :</p>
+<ul>
+<li><p>les <span class="math inline">\(\{x_i\}\)</span> sont des éléments de (la tribu) <span class="math inline">\(\mathcal{P}(F)\)</span>, donc <span class="math inline">\(\mathbb{P}_X\)</span> est bien une mesure de probabilité sur l’espace probabilisable <span class="math inline">\((F,\,\mathcal{P}(F))\)</span> ;</p></li>
+<li><p>par ailleurs, <span class="math inline">\(\mathbb{P}_X(\{x_i\})\)</span> est définie par <span class="math inline">\(\mathbb{P}(X^{-1}(\{x_i\}))\)</span> et <span class="math inline">\(X^{-1}(\{x_i\})\)</span> est un élément de la tribu <span class="math inline">\(\mathcal{P}(\Omega)\)</span> sur laquelle est définie la probabilité <span class="math inline">\(\mathbb{P}\)</span>, donc cette définition a bien un sens.</p></li>
+</ul>
+<p></p>
+<p><strong>ii.</strong> La loi de <span class="math inline">\(X\)</span> est définie par la donnée des couples <span class="math inline">\((x_i, p_i)\)</span> tels que <span class="math inline">\(x_i\in X(\Omega)\)</span> et <span class="math inline">\(p_i=\mathbb{P}(X=x_i)\)</span>. Dans cette définition, on peut se restreindre aux couples <span class="math inline">\((x_i, p_i)\)</span> pour lesquels <span class="math inline">\(p_i&gt;0\)</span>. La loi de <span class="math inline">\(X\)</span> n’est donc pas unique au sens strict du terme, mais elle l’est bien à des événements élémentaires de probabilité nulle près. Par exemple, dans l’exercice 2 du sujet du concours interne de 2012 (exercice 2.7. de ce cours) la variable aléatoire <span class="math inline">\(X\)</span> prend <em>a priori</em> les valeurs <span class="math inline">\(0,1,2,3\)</span>, mais <em>a posteriori</em> on a <span class="math inline">\(\mathbb{P}(X=0)=0\)</span>, donc on peut enlever <span class="math inline">\(0\)</span> de <span class="math inline">\(X(\Omega)\)</span>.</p>
 <p><strong>Exemple. i.</strong> On reprend l’exemple sur la somme des deux dés. On a vu que <span class="math inline">\(X(\Omega)=[\![2;12]\!]\)</span>. On calcule maintenant toutes les probablités <span class="math inline">\(\mathbb{P}(X=i)\)</span> pour <span class="math inline">\(i\in [\![2;12]\!]\)</span>. On montre en fait facilement que</p>
 <p><span class="math display">\[\forall i\in [\![2;6]\!],\, \mathbb{P}(X=i)=\frac{i-1}{36}\]</span>
 <span class="math display">\[\forall i\in [\![7;12]\!], \, \mathbb{P}(X=i)=\frac{13-i}{36}\]</span>
@@ -356,12 +342,22 @@ ce qui définit complètement la loi de <span class="math inline">\(N\)</span>.<
 <p><strong>Remarques. i.</strong> On peut vérifier de façon immédiate que la série <span class="math inline">\(\sum\limits_{n}\mathbb{P}(N=n)\)</span> est convergente de somme <span class="math inline">\(1\)</span> : c’est, au facteur <span class="math inline">\(\frac{3}{5}\)</span> près, une série géométrique de raison <span class="math inline">\(\frac{2}{5}\in]-1;1[\)</span>, donc elle converge vers <span class="math inline">\(\frac{3}{5}\frac{1}{1-\frac{2}{5}}=1\)</span>.</p>
 <p></p>
 <p><strong>ii.</strong> <span class="math inline">\(N\)</span> suit une <em>loi géométrique</em> de paramètre <span class="math inline">\(p=\frac{3}{5}\)</span> (voir un peu plus loin la définition des lois géométriques).</p>
+</div>
+<div id="calcul-de-mathbbpxin-b" class="section level3 hasAnchor" number="3.1.3">
+<h3><span class="header-section-number">3.1.3</span> Calcul de <span class="math inline">\(\mathbb{P}(X\in B)\)</span><a href="variables-aléatoires-discrètes.html#calcul-de-mathbbpxin-b" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="thmbox def">
-<p><strong>Théorème (calcul de <span class="math inline">\(\mathbb{P}(X\in B)\)</span>).</strong> Pour <span class="math inline">\(X:\Omega\longrightarrow F\)</span> une variable aléatoire discrète et <span class="math inline">\(B\in\mathcal{P}(X(\Omega))\)</span>, on calcule la probablité <span class="math inline">\(\mathbb{P}(X\in B)\)</span> par</p>
-<p><span class="math display">\[\mathbb{P}(X\in B)=\mathbb{P}\left(\bigcup\limits_{n\in B} (X=n)\right)=\sum\limits_{n\in B}\mathbb{P}(X=n)\]</span></p>
+<p><strong>Théorème (calcul de <span class="math inline">\(\mathbb{P}(X\in B)\)</span>).</strong> Soit <span class="math inline">\(X:\Omega\longrightarrow X(\Omega)\)</span> une variable aléatoire discrète (réelle), avec</p>
+<p><span class="math display">\[X(\Omega)=\{x_i,\,\,i\in I\} \text{, où } I\subset\mathbb{N}\]</span></p>
+<p>Pour <span class="math inline">\(B\in\mathcal{P}(X(\Omega))\)</span>, on note <span class="math inline">\((X\in B)\)</span> l’événement</p>
+<p><span class="math display">\[(X\in B)=X^{-1}(B)=\left\{\omega\in\Omega, X(\omega)\in B\right\}\]</span>
+La probabilité d’un tel événement se calcule ainsi :</p>
+<p><span class="math display">\[\begin{align}
+\mathbb{P}(X\in B)&amp;=\mathbb{P}\left(\bigsqcup\limits_{i\in I/ x_i\in B} (X=x_i)\right) \\
+&amp;=\sum\limits_{i\in I/ x_i\in B}\mathbb{P}(X=x_i)
+\end{align}\]</span></p>
 </div>
 <p></p>
-<p><strong>Démonstration.</strong> Les événements <span class="math inline">\((X=n), n\in B\)</span> forment une partition de l’événement <span class="math inline">\((X\in B)\)</span>. On conclut en utilisant le fait qu’une probabilité d’une réunion disjointe d’événements <span class="math inline">\(A_n\)</span> est la somme des probablités <span class="math inline">\(\mathbb{P}(A_n)\)</span>.</p>
+<p><strong>Démonstration.</strong> Les événements <span class="math inline">\((X=x_i)\)</span> tels que <span class="math inline">\(i\in I, x_i\in B\)</span> forment une partition de l’événement <span class="math inline">\((X\in B)\)</span>. On conclut en utilisant le fait qu’une probabilité d’une réunion disjointe d’événements <span class="math inline">\(A_i\)</span> est la somme des probablités <span class="math inline">\(\mathbb{P}(A_i)\)</span>.</p>
 <p><span class="math inline">\(\square\)</span></p>
 <p></p>
 <p><strong>Exemple.</strong> Dans l’exemple précédent de l’urne, on cherche maintenant la probabilité que <span class="math inline">\(X\)</span> soit impaire. On a</p>
@@ -372,15 +368,24 @@ ce qui définit complètement la loi de <span class="math inline">\(N\)</span>.<
 &amp;=\frac{3}{5}\frac{1}{1-\frac{4}{25}} \\
 &amp;=\frac{5}{7} \\
 \end{align}\]</span></p>
-<p>La fonction de répartition d’une variable aléatoire discrète (ou même continue comme on le verra dans le prochain chapitre) est définie à partir des événements du type <span class="math inline">\((X\leq x)\)</span> :</p>
+</div>
+<div id="fonction-de-répartition" class="section level3 hasAnchor" number="3.1.4">
+<h3><span class="header-section-number">3.1.4</span> Fonction de répartition<a href="variables-aléatoires-discrètes.html#fonction-de-répartition" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>La fonction de répartition d’une variable aléatoire discrète (ou même continue comme on le verra dans le prochain chapitre) réelle est définie par la donnée des probabilités <span class="math inline">\(\mathbb{P}(X\leq x)=\mathbb{P}(X\in ]-\infty\,;\,x])\)</span> :</p>
 <div class="defbox def">
 <center>
 <strong>Fonction de répartition</strong>
 </center>
-<p>Soit <span class="math inline">\(X\)</span> une variable aléatoire discrète. On appelle <strong>fonction de répartition de <span class="math inline">\(X\)</span></strong> la fonction <span class="math inline">\(F_X\)</span> définie sur <span class="math inline">\(\mathbb{R}\)</span> par</p>
+<p>Soit <span class="math inline">\(X\)</span> une variable aléatoire discrète (réelle). On appelle <strong>fonction de répartition de <span class="math inline">\(X\)</span></strong> la fonction <span class="math inline">\(F_X\)</span> définie sur <span class="math inline">\(\mathbb{R}\)</span> par</p>
 <p><span class="math display">\[\forall x\in\mathbb{R},\,F_X(x)=\mathbb{P}(X\leq x)\]</span></p>
 <p>Quand le contexte le permet, on la note plus simplement <span class="math inline">\(F\)</span>.</p>
+<p></p>
+<p><strong>Note :</strong> cette définition de la fonction de répartition est valable pour toutes les variables aléatoires, qu’elles suivent ou non une loi discrète.</p>
 </div>
+<p></p>
+<p><strong>Calcul pratique.</strong> On note <span class="math inline">\(x_1,\dots x_n\)</span> (resp. <span class="math inline">\(x_1,\dots, x_n, \dots\)</span>) les éléments de <span class="math inline">\(X(\Omega)\)</span> rangés dans l’ordre croissant si <span class="math inline">\(X(\Omega)\)</span> est fini (resp. infini dénombrable).</p>
+<p>Soient <span class="math inline">\(x\in\mathbb{R}\)</span> et <span class="math inline">\(i_0\)</span> le plus grand entier tel que <span class="math inline">\(x_{i_0}\leq x\)</span>. Alors, d’après le théorème précédent :</p>
+<p><span class="math display">\[F(x)=\sum\limits_{i=1}^{i_0}\mathbb{P}(X=x_i)\]</span></p>
 <p></p>
 <p><strong>Exemple.</strong> On considère une variable aléatoire <span class="math inline">\(X\)</span> telle que <span class="math inline">\(X(\Omega)=\{1,2,3,4\}\)</span> et <span class="math inline">\(\mathbb{P}(X=i)\)</span> est proportionnel à <span class="math inline">\(i\)</span>.</p>
 <p>On souhaite déterminer sa fonction de répartition.</p>
@@ -403,23 +408,24 @@ La fonction de répartition <span class="math inline">\(F\)</span> de <span clas
 <strong>Propriétés des fonctions de répartition</strong>
 </center>
 <p></p>
-<p>Soit <span class="math inline">\(F\)</span> la fonction de répartition d’une loi discrète. Alors :</p>
-<p></p>
+<p>Soit <span class="math inline">\(F\)</span> la fonction de répartition d’une variable aléatoire réelle (discrète ou non). Alors :</p>
 <p><strong>i.</strong> <span class="math inline">\(F\)</span> est une fonction croissante sur <span class="math inline">\(\mathbb{R}\)</span></p>
-<p></p>
 <p><strong>ii.</strong> <span class="math inline">\(F\)</span> est continue à droite</p>
 <p><strong>iii.</strong> <span class="math inline">\(\lim\limits_{x\to -\infty}F(x)=0\)</span></p>
-<p></p>
 <p><strong>iv.</strong> <span class="math inline">\(\lim\limits_{x\to +\infty}F(x)=1\)</span></p>
+<p></p>
+<p><strong>Note :</strong> ces propriétés résultent directement de la défintion précédente, et sont donc vraies pour toutes les variables aléatoires, qu’elles soient discrètes ou non.</p>
 </div>
 <p></p>
-<p><strong>Démonstration.</strong> On note <span class="math inline">\(X\)</span> une variable aléatoire discrète ayant <span class="math inline">\(F\)</span> pour fonction de répartition.</p>
+<p><strong>Démonstration.</strong> On note <span class="math inline">\(X\)</span> une variable aléatoire réelle discrète ayant <span class="math inline">\(F\)</span> pour fonction de répartition.</p>
 <p></p>
 <p><strong>i.</strong> Soient <span class="math inline">\(x,y\)</span> deux réels tels que <span class="math inline">\(x\leq y\)</span>. Alors l’événement <span class="math inline">\(\{X\leq x\}\)</span> est inclus dans l’événement <span class="math inline">\(\{X\leq y\}\)</span>. Par croissance des probabilités on a donc <span class="math inline">\(\mathbb{P}(X\leq x)\leq\mathbb{P}(X\leq y)\)</span>, i.e. <span class="math inline">\(F(x)\leq F(y)\)</span>. On en déduit que <span class="math inline">\(F\)</span> est croissante.</p>
 <p></p>
 <p><strong>ii.</strong> Soit <span class="math inline">\(x\)</span> un réel. Les événements <span class="math inline">\(\left\{X\in\left]-\infty\,;\,x+\frac{1}{n}\right]\right\}\)</span> forment une suite décroissante (par rapport à <span class="math inline">\(n\)</span>) pour l’inclusion, donc d’après la propriété de continuité décroissante des probabilités, on a</p>
 <p><span class="math display">\[\mathbb{P}\left(\bigcap_{n=1}^{\infty}\left\{X\in\left]-\infty\,;\,x+\frac{1}{n}\right]\right\}\right)=\lim\limits_{n\to\infty}\mathbb{P}\left(X\in\left]-\infty\,;\,x+\frac{1}{n}\right]\right)\]</span></p>
-<p>Or, <span class="math inline">\(\bigcap\limits_{n=1}^{\infty}\left]-\infty\,;\,x+\frac{1}{n}\right]=]-\infty ; x]\)</span>, donc le terme de gauche est égal à <span class="math inline">\(\mathbb{P}(X\leq x)=F(x)\)</span>. Comme le membre de droite est égal à <span class="math inline">\(\lim\limits_{n\to\infty}F\left(x+\frac{1}{n}\right)\)</span>, on a donc</p>
+<p>i.e.</p>
+<p><span class="math display">\[\mathbb{P}\left(X\in \bigcap_{n=1}^{\infty}\left]-\infty\,;\,x+\frac{1}{n}\right]\right)=\lim\limits_{n\to\infty}\mathbb{P}\left(X\in\left]-\infty\,;\,x+\frac{1}{n}\right]\right)\]</span></p>
+<p>Or, <span class="math inline">\(\bigcap\limits_{n=1}^{\infty}\left]-\infty\,;\,x+\frac{1}{n}\right]=]-\infty ; x]\)</span>, donc le terme de gauche est égal à <span class="math inline">\(\mathbb{P}(X\leq x)=F(x)\)</span>. Par ailleurs le terme de droite est égal à <span class="math inline">\(\lim\limits_{n\to\infty}F\left(x+\frac{1}{n}\right)\)</span>, et donc :</p>
 <p><span class="math display">\[F(x)=\lim\limits_{n\to\infty}F\left(x+\frac{1}{n}\right)\]</span>
 ce qui traduit exactement la continuité à droite de <span class="math inline">\(F\)</span>.</p>
 <p></p>
@@ -434,12 +440,141 @@ ce qui traduit exactement la continuité à droite de <span class="math inline">
 <p><strong>iv.</strong> On utilise exactement le même raisonnement avec la suite croissante <span class="math inline">\(\left\{X\geq n\right\}_n\)</span>.</p>
 <p></p>
 <p><span class="math inline">\(\square\)</span></p>
+<p></p>
+<p><strong>Remarque.</strong> L’hypothèse d’une loi discrète n’étant utilisée nulle part dans cette démonstration, ces propriétés sont donc effectivement vraies pour toutes les lois de probabilités, discrètes ou non.</p>
+<p>Nous avons montré que les fonctions de répartition (de lois discrètes ou non) étaient toujours continues à droite. Pour avoir une propriété de continuité, il faudrait donc qu’elles soient également continues à gauche (rappel d’analyse : <span class="math inline">\(f\)</span> est continue en <span class="math inline">\(a\)</span> si et seulement si elle est continue à droite et à gauche en <span class="math inline">\(a\)</span>). Mais cette propriété n’est pas vraie en toute généralité :</p>
+<div class="thmbox def">
+<p>
+<strong>Théorème (discontinuités d’une fonction de répartition).</strong> Soit <span class="math inline">\(X\)</span> une variable aléatoire réelle (discrète ou non) définie sur un espace probabilisé <span class="math inline">\((\Omega, \, \mathcal{P}(\Omega), \, \mathbb{P})\)</span>. Pour tout réel <span class="math inline">\(x\)</span> on a :</p>
+<p><span class="math display">\[F(x)=F(x^{-})+\mathbb{P}(X=x)\]</span>
+où <span class="math inline">\(F(x^{-})=\lim\limits_{t\to x^{-}}F(t)\)</span>.</p>
+<p>Autrement dit, la fonction de répartition de <span class="math inline">\(F\)</span> est continue partout, sauf aux points <span class="math inline">\(x\)</span> tels que <span class="math inline">\(p_x:=\mathbb{P}(X=x)&gt;0\)</span> en lesquels elle présente un saut d’amplitude <span class="math inline">\(p_x\)</span>.</p>
+<p>En particulier, si <span class="math inline">\(X\)</span> est discrète sa fonction de répartition présente en chaque point <span class="math inline">\(x\)</span> de son support un saut d’amplitude <span class="math inline">\(p_x\)</span>.</p>
 </div>
-<div id="fonction-de-répartition-quantiles" class="section level3 hasAnchor" number="3.1.3">
-<h3><span class="header-section-number">3.1.3</span> Fonction de répartition, quantiles<a href="variables-aléatoires-discrètes.html#fonction-de-répartition-quantiles" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p></p>
+<p><strong>Démonstration.</strong> Pour tout réel <span class="math inline">\(x\)</span> on a</p>
+<p><span class="math display">\[F(x)=\mathbb{P}(X&lt;x)+\mathbb{P}(X=x)\]</span></p>
+<p>Or, <span class="math inline">\((X&lt;x)=\bigcup\limits_{n=1}^{\infty} \left(X\in\left]-\infty\,;\, x-\frac{1}{n}\right]\right)\)</span>, et les événements <span class="math inline">\(\left(X\in\left]-\infty\,;\, x-\frac{1}{n}\right]\right)_{n\geq 1}\)</span> forment une suite croissante pour l’inclusion, donc par continuité croissante de <span class="math inline">\(\mathbb{P}\)</span> on a :</p>
+<p><span class="math display">\[\begin{align}
+\mathbb{P}(X&lt;x)&amp;=\mathbb{P}\left(\bigcup_{n=1}^{\infty}\left(X\in\left]-\infty\,;\,x-\frac{1}{n}\right]\right)\right) \\
+&amp;=\lim\limits_{n\to\infty}\mathbb{P}\left(X\in\left]-\infty\,;\,x-\frac{1}{n}\right]\right) \\
+&amp;=\lim\limits_{n\to\infty}F\left(x-\frac{1}{n}\right) \\
+&amp;=F(x^{-})
+\end{align}\]</span></p>
+<p>ce qui montre l’égalité annoncée et permet de conclure.</p>
+<p><span class="math inline">\(\square\)</span></p>
+<p></p>
+<p><strong>Remarque.</strong> Les variables aléatoires ayant une fonction de répartition continue sont appelées des <em>lois continues</em>. Elles font l’objet du chapitre suivant (on se restreindra au cas où l’espace d’arrivée est l’ensemble des réels). D’après le résultat précédent, si <span class="math inline">\(X\)</span> est une variable aléatoire de loi continue on a donc <span class="math inline">\(\mathbb{P}(X=x)=0\)</span> pour tout réel <span class="math inline">\(x\)</span>.</p>
+<div class="thmbox def">
+<p>
+<strong>Théorème (fonction de répartition et loi).</strong> Soit <span class="math inline">\(X\)</span> une variable aléatoire réelle discrète définie sur un espace probabilisé <span class="math inline">\((\Omega, \,\mathcal{P}(\Omega), \mathbb{P})\)</span> et de fonction de répartition <span class="math inline">\(F\)</span>. Alors :</p>
+<ul>
+<li>si <span class="math inline">\(a\)</span> et <span class="math inline">\(b\)</span> sont des nombres réels tels que <span class="math inline">\(a\leq b\)</span> on a</li>
+</ul>
+<p><span class="math display">\[\mathbb{P}(X\in]a\,;\,b])=F(b)-F(a)\]</span></p>
+<ul>
+<li>supposons que <span class="math inline">\(X(\Omega)=\{x_i,\,i\in I\}\)</span> avec les <span class="math inline">\(x_i\)</span> rangés dans l’ordre croissant. Alors</li>
+</ul>
+<p><span class="math display">\[\mathbb{P}(X=x_0)=F(x_0)\]</span>
+et
+<span class="math display">\[\forall i\geq 1,\, \mathbb{P}(X=x_i)=F(x_i)-F(x_{i-1})\]</span></p>
 </div>
-<div id="exemples-classiques" class="section level3 hasAnchor" number="3.1.4">
-<h3><span class="header-section-number">3.1.4</span> Exemples classiques :<a href="variables-aléatoires-discrètes.html#exemples-classiques" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p></p>
+<p><strong>Démonstration.</strong> On a</p>
+<p><span class="math display">\[]-\infty\,;\,b]=]-\infty\,;\,a]\,\sqcup\,]a\,;\,b]\]</span></p>
+<p>donc</p>
+<p><span class="math display">\[F(b)=F(a)+\mathbb{P}(X\in ]a\,;\,b])\]</span>
+ce qui montre la première égalité.</p>
+<p>Comme <span class="math inline">\(x_0=\inf X(\Omega)\)</span>, on a <span class="math inline">\((X=x_0)=(X\leq x_0)\)</span> et donc ces deux événements ont la même probabilité, i.e. <span class="math inline">\(\mathbb{P}(X=x_0)=F(x_0)\)</span>.</p>
+<p>Soit <span class="math inline">\(i\geq 1\)</span>. D’après le théorème précédent, on a</p>
+<p><span class="math display">\[\begin{align}
+\mathbb{P}(X=x_i)&amp;=F(x_i)-F(x_i^{-}) \\
+&amp;=F(x_i)-\mathbb{P}(X&lt;x_i) \\
+&amp;=F(x_i)-\mathbb{P}(X\leq x_{i-1}) \\
+&amp;=F(x_i)-F(x_{i-1}) \\
+\end{align}\]</span></p>
+<p><span class="math inline">\(\square\)</span></p>
+<p>On déduit du résultat précédent :</p>
+<div class="thmbox def">
+<p><strong>Théorème.</strong> La fonction de répartition d’une variable aléatoire réelle discrète caractérise sa loi.</p>
+<p>Autrement dit, si <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span> sont deux variables aléatoires réelles discrètes, on a</p>
+<p><span class="math display">\[F_X=F_Y \text{ ssi } \mathbb{P}_X=\mathbb{P}_Y\]</span></p>
+</div>
+<p></p>
+<p><strong>Démonstration.</strong> La loi d’une variable aléatoire réelle discrète <span class="math inline">\(X\)</span> est complètement définie par la donnée des probabilités <span class="math inline">\(\mathbb{P}(X=x_i)\)</span>, qui elles-mêmes sont complètement définies par la fonction <span class="math inline">\(F\)</span> d’après le théorème précédent, d’où le résultat.</p>
+<p><span class="math inline">\(\square\)</span></p>
+<p></p>
+<p><strong>Remarque.</strong> Le résultat précédent autorise donc à parler de fonction de répartition associée à une loi, ou même réciproquement de loi associée à une fonction de répartition.</p>
+</div>
+<div id="quantiles" class="section level3 hasAnchor" number="3.1.5">
+<h3><span class="header-section-number">3.1.5</span> Quantiles<a href="variables-aléatoires-discrètes.html#quantiles" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Pour définir la notion de quantile, on a besoin de définir la notion d’inverse généralisé à gauche.</p>
+<div class="defbox def">
+<center>
+<strong>Inverse généralisé à gauche</strong>
+</center>
+<p></p>
+<p>Soit <span class="math inline">\(F\)</span> une fonction définie sur <span class="math inline">\(\mathbb{R}\)</span> et à valeurs dans <span class="math inline">\([0,1]\)</span>, croissante et continue à droite.</p>
+<p>On adopte les conventions suivantes :</p>
+<p><span class="math display">\[F(-\infty)=\lim\limits_{x\to -\infty}F(x)\]</span>
+<span class="math display">\[F(+\infty)=1\]</span></p>
+<p><span class="math display">\[\inf\,\emptyset=+\infty\]</span>
+On appelle alors <strong>fonction inverse généralisée à gauche de <span class="math inline">\(F\)</span></strong>, et on note <span class="math inline">\(F^{-1}\)</span>, la fonction définie sur <span class="math inline">\([0,1]\)</span> par</p>
+<p><span class="math display">\[\forall p\in [0,1],\, F^{-1}(p)=\inf\{x\in\mathbb{R},\,F(x)\geq p\}\]</span>
+Il s’agit d’une fonction croissante sur <span class="math inline">\(\mathbb{R}\)</span>.</p>
+</div>
+<p></p>
+<p><strong>Démonstration.</strong> Soient <span class="math inline">\(p\)</span> et <span class="math inline">\(q\)</span> deux réels tels que <span class="math inline">\(p\leq q\)</span>.</p>
+<ul>
+<li><p>si <span class="math inline">\(\{x\in\mathbb{R},\,F(x)\geq p\}=\emptyset\)</span>, alors <span class="math inline">\(\{x\in\mathbb{R}, \, F(x)\geq q\}=\emptyset\)</span> et donc <span class="math inline">\(F^{-1}(p)=F^{-1}(q)=+\infty\)</span>.</p></li>
+<li><p>supposons maintenant que <span class="math inline">\(\{x\in\mathbb{R},\,F(x)\geq p\}\neq\emptyset\)</span> : il existe donc un réel <span class="math inline">\(x\)</span> tel que <span class="math inline">\(F^{-1}(p)=x\)</span>. On diistingue deux cas :</p>
+<ul>
+<li><p>si <span class="math inline">\(\{x\in\mathbb{R}, \, F(x)\geq q\}=\emptyset\)</span>, alors <span class="math inline">\(F^{-1}(q)=+\infty\)</span>, et donc <span class="math inline">\(F^{-1}(p)=x&lt;+\infty=F^{-1}(q)\)</span>.</p></li>
+<li><p>si <span class="math inline">\(\{x\in\mathbb{R},\,F(x)\geq q\}\neq\emptyset\)</span>, alors il existe un réel <span class="math inline">\(y\)</span> tel que <span class="math inline">\(y=F^{-1}(q)\)</span>. Par définition de <span class="math inline">\(y\)</span>, on a <span class="math inline">\(F(y)\geq q\)</span>. Mais comme <span class="math inline">\(q\geq p\)</span>, on en déduit que <span class="math inline">\(F(y)\geq p\)</span>. Par définition de <span class="math inline">\(x\)</span>, on en déduit que <span class="math inline">\(y\geq x\)</span>, i.e. que <span class="math inline">\(F^{-1}(q)\geq F^{-1}(p)\)</span>.</p></li>
+</ul></li>
+</ul>
+<p>Ainsi, dans tous les cas, si <span class="math inline">\(p\leq q\)</span> alors <span class="math inline">\(F^{-1}(p)\leq F^{-1}(q)\)</span>, ce qui montre que <span class="math inline">\(F^{-1}\)</span> est croissante.</p>
+<p><span class="math inline">\(\square\)</span></p>
+<p></p>
+<p><strong>Remarque.</strong> Cette notion d’inverse généralisé à gauche permet de définir un pseudo-inverse pour des fonctions qui ne sont pas inversibles (on en verra un exemple un peu plus bas en application de la définition de la fonction quantile). Dans le cas où la fonction <span class="math inline">\(F\)</span> est strictement croissante et continue, elle est inversible, et son inverse et son inverse généralisé à gauche coïncident. Il s’agit donc bien d’une généralisation de l’inverse d’une fonction croissante et continue à droite.</p>
+<p>La <strong>fonction quantile</strong> d’une variable aléatoire réelle <span class="math inline">\(X\)</span> se définit alors ainsi :</p>
+<div class="defbox def">
+<center>
+<strong>Fonction quantile, quantiles</strong>
+</center>
+<p>Soient <span class="math inline">\(X\)</span> une variable aléatoire réelle (discrète ou non) et <span class="math inline">\(F\)</span> sa fonction de répartition. On appelle <strong>fonction quantile de <span class="math inline">\(X\)</span></strong> la fonction inverse généralisée à gauche <span class="math inline">\(F^{-1}\)</span> de <span class="math inline">\(F\)</span>.</p>
+<p>De plus, pour tout réel <span class="math inline">\(p\)</span> dans <span class="math inline">\([0,1]\)</span>, on appelle <strong>quantile d’ordre <span class="math inline">\(p\)</span></strong> le réel <span class="math inline">\(F^{-1}(p)\)</span>.</p>
+<p></p>
+<p><strong>Exemples usuels de quantiles :</strong></p>
+<ul>
+<li><p><span class="math inline">\(m_e=F^{-1}\left(\frac{1}{2}\right)\)</span> est la <strong>médiane</strong> de <span class="math inline">\(X\)</span> ;</p></li>
+<li><p><span class="math inline">\(Q_1=F^{-1}\left(\frac{1}{4}\right)\)</span> et <span class="math inline">\(Q_3=F^{-1}\left(\frac{3}{4}\right)\)</span> sont les <strong>quartiles</strong> de <span class="math inline">\(X\)</span> ;</p></li>
+<li><p>pour <span class="math inline">\(i=1,\dots,9\)</span>, les <span class="math inline">\(D_i=F^{-1}\left(\frac{i}{10}\right)\)</span> sont les <strong>déciles</strong> de <span class="math inline">\(X\)</span>.</p></li>
+</ul>
+</div>
+<p></p>
+<p><strong>Exemple.</strong> Dans un exemple précédent, on a introduit une variable aléatoire discrète <span class="math inline">\(X\)</span> de fonction de répartition <span class="math inline">\(F\)</span> donnée par</p>
+<p><span class="math display">\[F(x)=\left \{
+\begin{array}{lcl}
+0&amp;\text{ si }&amp; x&lt;1 \\
+\frac{1}{10}&amp;\text{ si }&amp; 1\leq x&lt;2 \\
+\frac{3}{10}&amp;\text{ si }&amp; 2\leq x&lt;3 \\
+\frac{3}{5}&amp;\text{ si }&amp; 3\leq x&lt;4 \\
+1&amp;\text{ si }&amp; x\geq 4 \\
+\end{array}
+\right.\]</span></p>
+<p>Déterminons sa médiane et ses quartiles :</p>
+<ul>
+<li><p><span class="math inline">\(F(x)\geq\frac{1}{2}\Leftrightarrow x\geq 3\)</span>, donc <span class="math inline">\(m_e=3\)</span> ;</p></li>
+<li><p><span class="math inline">\(F(x)\geq\frac{1}{4}\Leftrightarrow x\geq 2\)</span>, donc <span class="math inline">\(Q_1=2\)</span> ;</p></li>
+<li><p><span class="math inline">\(F(x)\geq\frac{3}{4}\Leftrightarrow x\geq 4\)</span>, donc <span class="math inline">\(Q_3=4\)</span>.</p></li>
+</ul>
+</div>
+<div id="fonction-de-répartition-quantiles" class="section level3 hasAnchor" number="3.1.6">
+<h3><span class="header-section-number">3.1.6</span> Fonction de répartition, quantiles<a href="variables-aléatoires-discrètes.html#fonction-de-répartition-quantiles" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="exemples-classiques" class="section level3 hasAnchor" number="3.1.7">
+<h3><span class="header-section-number">3.1.7</span> Exemples classiques :<a href="variables-aléatoires-discrètes.html#exemples-classiques" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>loi uniforme sur un ensemble fini</li>
 <li>loi de Bernoulli</li>
@@ -449,8 +584,8 @@ ce qui traduit exactement la continuité à droite de <span class="math inline">
 <li>loi hypergéométrique</li>
 </ul>
 </div>
-<div id="moments-dune-variable-aléatoire" class="section level3 hasAnchor" number="3.1.5">
-<h3><span class="header-section-number">3.1.5</span> Moments d’une variable aléatoire<a href="variables-aléatoires-discrètes.html#moments-dune-variable-aléatoire" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="moments-dune-variable-aléatoire" class="section level3 hasAnchor" number="3.1.8">
+<h3><span class="header-section-number">3.1.8</span> Moments d’une variable aléatoire<a href="variables-aléatoires-discrètes.html#moments-dune-variable-aléatoire" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>Espérance, variance, moments d’ordres supérieurs</li>
 <li>inégalité de Markov, inégalité de Bieanymé-Tchébychev (exemples + intérêt)</li>

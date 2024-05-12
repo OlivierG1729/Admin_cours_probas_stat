@@ -113,3 +113,6 @@ dénombrement-et-probabilités-1
 url-your-book-url-like-httpsbookdown.orgyihuibookdown
 annales-des-oraux
 interne-2016
+calcul-de-mathbbpxin-b
+fonction-de-répartition
+quantiles
