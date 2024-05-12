@@ -114,8 +114,8 @@
 <li class="chapter" data-level="3.1.3" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#calcul-de-mathbbpxin-b"><i class="fa fa-check"></i><b>3.1.3</b> Calcul de <span class="math inline">\(\mathbb{P}(X\in B)\)</span></a></li>
 <li class="chapter" data-level="3.1.4" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#fonction-de-répartition"><i class="fa fa-check"></i><b>3.1.4</b> Fonction de répartition</a></li>
 <li class="chapter" data-level="3.1.5" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#quantiles"><i class="fa fa-check"></i><b>3.1.5</b> Quantiles</a></li>
-<li class="chapter" data-level="3.1.6" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#fonction-de-répartition-quantiles"><i class="fa fa-check"></i><b>3.1.6</b> Fonction de répartition, quantiles</a></li>
-<li class="chapter" data-level="3.1.7" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#exemples-classiques"><i class="fa fa-check"></i><b>3.1.7</b> Exemples classiques :</a></li>
+<li class="chapter" data-level="3.1.6" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#exemples-classiques"><i class="fa fa-check"></i><b>3.1.6</b> Exemples classiques :</a></li>
+<li class="chapter" data-level="3.1.7" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#simulation-dune-variable-aléatoire-réelle"><i class="fa fa-check"></i><b>3.1.7</b> Simulation d’une variable aléatoire réelle</a></li>
 <li class="chapter" data-level="3.1.8" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#moments-dune-variable-aléatoire"><i class="fa fa-check"></i><b>3.1.8</b> Moments d’une variable aléatoire</a></li>
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#transformation-dune-variable-aléatoire-discrète"><i class="fa fa-check"></i><b>3.2</b> Transformation d’une variable aléatoire discrète</a>
@@ -139,7 +139,7 @@
 <li class="chapter" data-level="4.1.1" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#définition-3"><i class="fa fa-check"></i><b>4.1.1</b> Définition</a></li>
 <li class="chapter" data-level="4.1.2" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#loi-dune-variable-aléatoire-à-densité"><i class="fa fa-check"></i><b>4.1.2</b> Loi d’une variable aléatoire à densité</a></li>
 <li class="chapter" data-level="4.1.3" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#définition-de-pxin-a"><i class="fa fa-check"></i><b>4.1.3</b> Définition de <span class="math inline">\(p(X\in A)\)</span></a></li>
-<li class="chapter" data-level="4.1.4" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#fonction-de-répartition-quantiles-1"><i class="fa fa-check"></i><b>4.1.4</b> Fonction de répartition, quantiles</a></li>
+<li class="chapter" data-level="4.1.4" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#fonction-de-répartition-quantiles"><i class="fa fa-check"></i><b>4.1.4</b> Fonction de répartition, quantiles</a></li>
 <li class="chapter" data-level="4.1.5" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#exemples-classiques-1"><i class="fa fa-check"></i><b>4.1.5</b> Exemples classiques :</a></li>
 <li class="chapter" data-level="4.1.6" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#moments-dune-variable-aléatoire-1"><i class="fa fa-check"></i><b>4.1.6</b> Moments d’une variable aléatoire</a></li>
 </ul></li>
@@ -569,12 +569,12 @@ Il s’agit d’une fonction croissante sur <span class="math inline">\(\mathbb{
 <li><p><span class="math inline">\(F(x)\geq\frac{1}{4}\Leftrightarrow x\geq 2\)</span>, donc <span class="math inline">\(Q_1=2\)</span> ;</p></li>
 <li><p><span class="math inline">\(F(x)\geq\frac{3}{4}\Leftrightarrow x\geq 4\)</span>, donc <span class="math inline">\(Q_3=4\)</span>.</p></li>
 </ul>
+<p></p>
+<p><strong>Un intérêt des quantiles.</strong> Il est fréquent de vouloir résumer une distribution statistique à l’aide d’indicateurs. Un indicateur couramment utilisé est la moyenne. Il présente toutefois pour inconvénient majeur d’être fortement sensible aux valeurs extrêmes. Ainsi, une seule valeur atypique d’une distribution suffit à perturber considérablement la moyenne. Une alternative est alors de recourir à un quantile, comme par exemple la médiane, qui est plus robuste aux valeurs atypiques.</p>
+<p></p>
 </div>
-<div id="fonction-de-répartition-quantiles" class="section level3 hasAnchor" number="3.1.6">
-<h3><span class="header-section-number">3.1.6</span> Fonction de répartition, quantiles<a href="variables-aléatoires-discrètes.html#fonction-de-répartition-quantiles" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-</div>
-<div id="exemples-classiques" class="section level3 hasAnchor" number="3.1.7">
-<h3><span class="header-section-number">3.1.7</span> Exemples classiques :<a href="variables-aléatoires-discrètes.html#exemples-classiques" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="exemples-classiques" class="section level3 hasAnchor" number="3.1.6">
+<h3><span class="header-section-number">3.1.6</span> Exemples classiques :<a href="variables-aléatoires-discrètes.html#exemples-classiques" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>loi uniforme sur un ensemble fini</li>
 <li>loi de Bernoulli</li>
@@ -583,6 +583,9 @@ Il s’agit d’une fonction croissante sur <span class="math inline">\(\mathbb{
 <li>loi géométrique</li>
 <li>loi hypergéométrique</li>
 </ul>
+</div>
+<div id="simulation-dune-variable-aléatoire-réelle" class="section level3 hasAnchor" number="3.1.7">
+<h3><span class="header-section-number">3.1.7</span> Simulation d’une variable aléatoire réelle<a href="variables-aléatoires-discrètes.html#simulation-dune-variable-aléatoire-réelle" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
 <div id="moments-dune-variable-aléatoire" class="section level3 hasAnchor" number="3.1.8">
 <h3><span class="header-section-number">3.1.8</span> Moments d’une variable aléatoire<a href="variables-aléatoires-discrètes.html#moments-dune-variable-aléatoire" class="anchor-section" aria-label="Anchor link to header"></a></h3>

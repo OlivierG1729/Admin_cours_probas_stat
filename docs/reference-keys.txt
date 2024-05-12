@@ -116,3 +116,4 @@ interne-2016
 calcul-de-mathbbpxin-b
 fonction-de-répartition
 quantiles
+simulation-dune-variable-aléatoire-réelle
