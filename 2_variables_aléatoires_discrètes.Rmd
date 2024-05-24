@@ -491,14 +491,230 @@ $$F(x)=\left \{
 
 \noindent 
 
-### Exemples classiques :
+### Exemples classiques de lois discrètes
 
--   loi uniforme sur un ensemble fini
--   loi de Bernoulli
--   loi binomiale
--   loi de Poisson
--   loi géométrique
--   loi hypergéométrique
+\noindent Pour $X$ une variable aléatoire réelle discrète et $\mathcal{L}$ une loi de probabilité, la notation $X\sim\mathcal{L}$ signfiera que $X$ suit la loi $\mathcal{L}$.
+
+**Exemple 1 : loi uniforme sur un ensemble fini.** La loi uniforme affecte les mêmes probabilités à tous les éléments d'un ensemble fini $X(\Omega)=\{x_1,\dots, x_n\}$ :
+
+$$\forall 1\leq i\leq n,\, \mathbb{P}(X=x_i)=\frac{1}{n}$$
+\noindent C'est cette loi à laquelle on doit penser lorsqu'on parle de *tirer au hasard* parmi un ensemble fini. C'est aussi cette loi qu'on utilise si on veut modéliser un phénomène aléatoire sur un ensemble fini en l'absence de toute information sur le tirage.
+
+\noindent On suppose les $x_i$ rangés dans l'ordre croissant. Alors, la fonction de répartition de cette loi est la fonction $F$ donnée par
+
+$$F(x)=\left \{
+\begin{array}{lcl}
+0&\text{ si }& x<x_1 \\
+\frac{i}{n}&\text{ si }& x_i\leq x<x_{i+1}\, \text{, avec } 1\leq i\leq n-1 \\
+1&\text{ si }& x\geq x_n \\
+\end{array}
+\right.$$
+
+\noindent
+
+\vspace{0.5cm}
+
+**Exemple 2 : loi de Bernoulli $\mathcal{B}(p)$.** Ici, $p\in[0,1]$. Cette loi est généralement mobilisée lorsque l'on souhaite modéliser l'issue d'une **expérience de Bernoulli**, autrement dit une expérience ayant deux issues nommées *réussite* et *échec*. Il s'agit donc d'une loi à deux issues, généralement notées $0$ (représentant généralement l'échec) et $1$ (représentant généralement la réussite) :
+
+$$X(\Omega)=\{0,1\}$$
+
+\noindent Une telle loi est définie de façon unique à partir du paramètre $p=\mathbb{P}(X=1)$. De façon immédiate, on a $\mathbb{P}(X=0)=1-p$. On note souvent $q=1-p$.
+
+\noindent La fonction de répartition de la loi de Benoulli $\mathcal{B}(p)$ est donnée par
+
+$$F(x)=\left \{
+\begin{array}{lcl}
+0&\text{ si }& x<0 \\
+p&\text{ si }& 0\leq x<1 \\
+1&\text{ si }& x\geq 1 \\
+\end{array}
+\right.$$
+
+\noindent
+
+**Exemple 3 : loi binomiale $\mathcal{B}(n,p)$.** $n$ est un entier naturel non nul et $p\in [0,1]$. La loi binomiale sert à modéliser le nombre de succès lors de la répétition de $n$ expériences de Bernoulli identiques et indépendantes. On a donc 
+
+$$X(\Omega)=\{0,1,\dots, n\}$$
+
+\noindent Les probabilités de la loi binomiale $\mathcal{B}(n,p)$ font intervenir les coefficients binomiaux $\binom{n}{k}$ :
+
+:::: {.thmbox .def data-latex="important"}
+\noindent 
+**Probabilités d'une loi binomiale.** Soit $X$ une variable aléatoire telle que $X\sim\mathcal{B}(n,p)$. Alors, pour tout entier $0\leq k\leq n$, on a
+
+$$\mathbb{P}(X=k)=\binom{n}{k}\,p^k\,(1-p)^{n-k}$$
+:::
+
+\noindent
+
+**Démonstration.** Cette formule est une conséquence de la définition de la loi $\mathcal{B}(n,p)$. On peut écrire 
+$$X=\sum\limits_{i=1}^n X_i$$
+\noindent où les $X_i$ sont des variables aléatoires de Bernoulli de paramètre $\mathcal{B}(p)$, représentant l'issue de l'expérience de Bernoulli numéro $i$. 
+
+\noindent Soit $k$ un entier tel que $0\leq k\leq n$. Notons 
+
+$$E_k=\left\{(x_1,\dots, x_n)\in\{0,1\}^n,\, \sum\limits_{i=1}^n x_i=k\right\}$$
+
+\noindent Pour $(x_1,\dots, x_n)\in E_k$, les événements $(X_1=x_1),\dots,(X_n=x_n)$ sont indépendants, puisque les expériences de Bernoulli associées aux $X_i$ sont indépendantes. Par conséquent, on a 
+
+\begin{align}
+\mathbb{P}(X_1=x_1,\dots, X_n=x_n)&=\prod\limits_{i=1}^n\mathbb{P}(X=x_i) \\
+&=p^k\,(1-p)^{n-k} \\
+\end{align}
+
+\noindent puisque le vecteur $(x_1,\dots, x_n)$ est constitué de $k$ composantes égales à $1$ et $n-k$ composantes égales à $0$.
+
+\noindent Par ailleurs, $\text{Card }(E_k)=\binom{n}{k}$ donc :
+
+\begin{align}
+\mathbb{P}(X=k)&=\mathbb{P}\left(\sum\limits_{i=1}^n X_i=k\right) \\
+&=\mathbb{P}\left(\bigsqcup\limits_{(x_1,\dots, x_n)\in E_k} (X_1=x_1,\dots, X_n=x_n)\right) \\
+&=\sum\limits_{(x_1,\dots,x_n)\in E_k}\mathbb{P}\left(X_1=x_1,\dots, X_n=x_n\right) \\
+&=\sum\limits_{(x_1,\dots, x_n)\in E_k} p^k\,(1-p)^{n-k} \\
+&=\text{Card }(E_k)\,p^k\,(1-p)^{n-k} \\
+&=\binom{n}{k}\,p^k\,(1-p)^{n-k} \\
+\end{align}
+
+$\square$
+
+\noindent
+
+**Remarque.** On déduit de l'expression des $\mathbb{P}(X=k)$ l'identité 
+
+$$\sum\limits_{k=0}^n\binom{n}{k}\,p^k\,(1-p)^{n-k}=1$$
+\noindent qui n'est autre qu'un cas particulier de la formule du binôme de Newton :
+
+$$(p+(1-p))^n=\sum\limits_{k=0}^n\binom{n}{k}\,p^k\,(1-p)^{n-k}$$
+\noindent La fonction de répartition de la loi binomiale $\mathcal{B}(n,p)$ est donnée par
+
+$$F(x)=\left \{
+\begin{array}{lcl}
+0&\text{ si }& x<0 \\
+\sum\limits_{k=0}^l \binom{n}{k}\,p^k\,(1-p)^{n-k} &\text{ si }& l\leq x<l+1, \,0\leq l<n \\
+1&\text{ si }& x\geq n \\
+\end{array}
+\right.$$
+
+\noindent 
+
+**Exemple 4 : loi de Poisson $\mathcal{P}(\lambda)$.** $\lambda$ est un réel strictement positif. La loi de Poisson $\mathcal{P}(\lambda)$ permet de modéliser le nombre (aléatoire) $X$ d'événements se produisant sur une période $T$, lorsqu'on sait qu'en moyenne $\lambda$ événements se produisent sur une telle période. Elle est généralement appliquée pour des événements rares (accidents, fautes dans un texte, etc.). On peut aussi l'utiliser pour des domaines spatiaux plutôt que des intervalles temporels. On a 
+
+$$X(\Omega)=\mathbb{N}$$
+\noindent et les probabilités $\mathbb{P}(X=n)$ pour $n\in\mathbb{N}$ sont données par la formule suivante :
+
+:::: {.thmbox .def data-latex="important"}
+\noindent
+**Probabilités d'une loi de Poisson $\mathcal{P}(\lambda)$.** Soit $X$ une variable aléatoire telle que $X\sim\mathcal{P}(\lambda)$. Alors :
+
+$$\forall k\in\mathbb{N}, \, \mathbb{P}(X=k)=e^{-\lambda}\frac{\lambda^k}{k!}$$
+::::
+
+\noindent
+**Justification de cette formule.** On considère un événement qui se produit aléatoirement et de façon répétée dans le temps, selon les règles suivantes :
+
+- sur tout intervalle de temps de longueur (petite) $\Delta t$ :
+
+  - cet événement se produit une fois avec une probabilité $p$ très petite ;
+  
+  - pour tout $k\geq 2$, la probabilité qu'il se produise $k$ fois est négligeable ;
+  
+- sur deux intervalles de temps disjoints de longueur $\Delta t$, les survenues (ou non) de cet événement sont indépendantes.
+
+On compte alors le nombre d'occurences $X$ de cet événement sur un intervalle de temps $[a\,;\,a+n\Delta t]$, avec $a>0$ et $n$ un entier très grand. Pour tout entier $k$, on note $X_k$ la variable aléatoire prenant la valeur $1$ si l'événement s'est produit sur l'intervalle de temps $[a+k\Delta t \, ; \, a+(k+1)\Delta t[$ et $0$ sinon, de sorte que 
+
+$$X=\sum\limits_{k=0}^{n-1}X_k$$
+\noindent D'après les hypothèses faites plus haut, les variables $X_k$ suivent toutes la loi de Bernoulli $\mathcal{B}(p)$ et les événements $(X_1=\varepsilon_1),\dots,(X_n=\varepsilon_n)$ sont indépendantes pour tout $(\varepsilon_1,\dots,\varepsilon_n)\in\{0,1\}^n$, donc  $X$ suit une loi binomiale $\mathcal{B}(n,p)$. Ainsi
+
+$$\forall k\in\{0,1,\dots, n\}, \,\mathbb{P}(X=k)=\binom{n}{k}\,p^k\,(1-p)^{n-k}$$
+\noindent La loi de Poisson découle alors d'une approximation de la formule précédente pour de très grandes valeurs de $n$ et une très petite valeur de $p$. En posant $\lambda = np$, on a en effet :
+
+\begin{align}
+\mathbb{P}(X=k)&=\binom{n}{k}\,\left(\frac{\lambda}{n}\right)^k\,\left(1-\frac{\lambda}{n}\right)^{n-k} \\
+&=\frac{n(n-1)\dots(n-k+1)}{n^k} \frac{\lambda^k}{k!}\left(1-\frac{\lambda}{n}\right)^{n-k} \\
+&=\left(1-\frac{1}{n}\right)\dots \left(1-\frac{k-1}{n}\right) \frac{\lambda^k}{k!}e^{(n-k)\,\log\left(1-\frac{\lambda}{n}\right)} \\
+&\approx \left(1-\frac{1}{n}\right)\dots \left(1-\frac{k-1}{n}\right) \frac{\lambda^k}{k!}e^{-(n-k)\,\left(\frac{\lambda}{n}+o\left(\frac{1}{n} \right)\right)} \\
+&\approx \left(1-\frac{1}{n}\right)\dots \left(1-\frac{k-1}{n}\right) \frac{\lambda^k}{k!}e^{-\lambda+O\left(\frac{1}{n}\right)} \\
+&\to \frac{\lambda^k}{k!}e^{-\lambda}\, \text{ lorsque } n\to\infty 
+\end{align}
+
+**Remarque.** Comme $X$ suit une loi binomiale $\mathcal{B}(n,p)$, on a $\mathbb{E}(X)=np$. Le paramètre $\lambda$ d'une loi de Poisson $\mathcal{P}(\lambda)$ s'interprète donc comme le nombre moyen d'événements ayant lieu pendant une période de référence.
+
+**Exemple 5 : loi géométrique $\mathcal{G}(p)$.** $p$ est un réel appartenant à $]0\,;\,1[$ et on considère une succession d'épreuves de Bernoulli indépendantes (donc se soldant par un succès ou un échec). On dit que $X$ suit la loi géométrique de paramètre $p$ si $X\in\mathbb{N}^{*}$ est le numéro du premier succès.
+
+:::: {.thmbox .def data-latex="important"}
+**Probabilités d'une loi géométrique.** Soit $X$ une variable aléatoire telle que $X\sim\mathcal{G}(p)$. Alors, pour tout entier $k\geq 1$ on a 
+
+$$\mathbb{P}(X=k)=(1-p)^{k-1}p$$
+::::
+
+\noindent 
+**Démonstration.** Soit $k$ un entier supérieur ou égal à $1$. Dire que $X=k$ revient à dire que les $k-1$ premières expériences se sont soldées par des échecs et que l'expérience numéro $k$ a été un succès. En notant $S_k$ l'événement *L'expérience numéro $k$ s'est soldée par un succès* et $E_k$ l'événement *L'expérience numéro $k$ s'est soldée par un échec*, on a donc 
+
+\begin{align}
+\mathbb{P}(X=k)&=\mathbb{P}(S_1\cap S_2\cap\dots\cap S_{k-1}\cap E_k) \\
+&=\mathbb{P}(S_1)\mathbb{P}(S_2)\dots\mathbb{P}(S_{k-1})\mathbb{P}(E_k) \, \text{ par indépendance} \\
+&=(1-p)^{k-1}p \\
+\end{align}
+
+$\square$
+
+**Exemple 6 : loi hypergéométrique.** La loi hypergéométrique est, comme la loi binomiale, utilisée dans un contexte où l'on souhaite compter le nombre de succès dans une succession d'épreuves de Bernoulli. La différence avec la loi binomiale étant que maintenant, ces épreuves de Bernoulli ne sont plus identiques ni indépendantes. 
+
+On suppose qu'une population de taille $N$, exactement $D$ individus possèdent une certaine caractéristique $\mathcal{C}$ (donc $0\leq D\leq N$). On tire un échantillon de taille $n$ dans cette population, **sans remise** (donc $0\leq n\leq N$) et de façon équiprobable. On compte le nombre $X$ d'individus de l'échantillon possédant la caractéristique $\mathcal{C}$. On dit alors que $X$ suit la **loi hypergéométrique $\mathcal{H}(N,D,n)$**. On a alors : 
+
+
+:::: {.thmbox .def data-latex="important"}
+**Support et probabilités d'une loi hypergéométrique.** Pour $X\sim\mathcal{H}(N,D,n)$, on a :
+
+\noindent 
+
+**i. Support de X.** $$\max(0 \,; \,n-N+D)\leq X\leq \min(n\,;\,D)$$
+
+\noindent
+
+**ii. Probabilités.** Pour tout entier $\max(0 \,; \,n-N+D)\leq k\leq \min(n\,;\,D)$ :
+
+$$\mathbb{P}(X=k)=\frac{\binom{D}{k}\binom{N-D}{n-k}}{\binom{N}{n}}$$
+::::
+
+\noindent 
+
+**Démonstration. i.** On a nécessairement :
+
+- $0\leq X\leq n$ : l'échantillon étant de taille $n$, on tire au plus $n$ individus ayant la propriété $\mathcal{C}$ ;
+
+- $0\leq X\leq D$ : le tirage de l'échantillon étant sans remise, on ne peut pas tirer plus d'unités ayant la propriété $\mathcal{C}$ qu'il n'y en a dans la population.
+
+\noindent De façon symétrique, on fait exactement le même raisonnement pour le tirage des individus n'ayant pas la propriété $\mathcal{C}$ :
+
+- $0\leq n-X\leq n$ : l'échantillon étant de taille $n$, on tire au plus $n$ individus n'ayant pas la propriété $\mathcal{C}$. On remarque que cet encadrement est automatiquement vérifié dès que le premier encadrement (sa version symétrique) l'est ;
+
+- $0\leq n-X \leq N-D$ : on ne peut pas tirer plus d'individus n'ayant pas la propriété $\mathcal{C}$ qu'il n'y en a dans la population.
+
+\noindent Les deux premiers encadrements s'écrivent plus simplement $$0\leq X\leq \min(n,D)$$ et le dernier encadrement s'écrit $$\max(0,n-N+D)\leq X\leq n$$
+
+\noindent Enfin, ces deux encadrements s'écrivent 
+
+$$\max(0,n-N+D)\leq X\leq\min(n,D)$$
+
+\noindent
+
+**ii.** Soit $k\in R_X$. Dénombrons le nombre d'échantillons de taille $n$ satisfaisant la condition $X=k$. La donnée d'un tel échantillon repose sur :
+
+- le choix de $k$ individus parmi les $D$ ayant la caractéristique $\mathcal{C}$, soit $\binom{D}{k}$ choix possibles ;
+
+- le choix de $n-k$ individus parmi les $N-D$ n'ayant pas la caractéristique $\mathcal{C}$, soit $\binom{N-D}{n-k}$ choix possibles.
+
+\noindent Pour $k$ fixé, ces deux choix sont complètement indépendants, donc le nomnre $N_k$ de choix d'un tel échantillon s'obtient par produit : $N_k=\binom{D}{k}\binom{N-D}{n-k}$. Enfin, tous ces échantillons sont équiprobables, donc 
+
+$$\mathbb{P}(X=k)=\frac{\binom{D}{k}\binom{N-D}{n-k}}{\binom{N}{n}}$$
+$\square$
+
+**Exemple.** Une urne contient $20$ boules, parmi lesquelles $14$ exactement sont rouges. On tire $12$ boules dans l'urne, **sans remise**, et on compte le nombre $X$ de boules rouges obtenues. Alors, $X\sim\mathcal{H}(20, 8, 5)$. Le support de $X$ est $R_X= [\![6;12]\!]$ et
+
+$$\forall k\in R_X, \, \mathbb{P}(X=k)=\frac{\binom{14}{k}\binom{6}{12-k}}{\binom{20}{12}}$$
+
+
 
 
 ### Simulation d'une variable aléatoire réelle
