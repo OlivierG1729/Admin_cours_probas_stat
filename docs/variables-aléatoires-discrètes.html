@@ -730,6 +730,32 @@ La loi de Poisson découle alors d’une approximation de la formule précédent
 </div>
 <div id="moments-dune-variable-aléatoire" class="section level3 hasAnchor" number="3.1.8">
 <h3><span class="header-section-number">3.1.8</span> Moments d’une variable aléatoire<a href="variables-aléatoires-discrètes.html#moments-dune-variable-aléatoire" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="defbox def">
+<center>
+<strong>Espérance d’une variable aléatoire discrète</strong>
+</center>
+<p>Soit <span class="math inline">\(X\)</span> une variable aléatoire de <strong>support fini</strong> <span class="math inline">\(R_X=\{x_1,\dots,x_n\}\)</span>. On appelle <strong>espérance</strong> de <span class="math inline">\(X\)</span> le nombre réel</p>
+<p><span class="math display">\[\mathbb{E}(X)=\sum\limits_{k=1}^n \mathbb{P}(X=x_k)\,x_k\]</span></p>
+<p></p>
+<p>Pour une variable aléatoire discrète de <strong>support infini dénombrable</strong> <span class="math inline">\(R_x=\{x_1,\dots, x_n\dots\}\)</span>, l’existence d’une espérance n’est pas systématique. On dit qu’une telle variable <span class="math inline">\(X\)</span> admet une espérance si la série <span class="math inline">\(\sum\limits_{n}\mathbb{P}(X=x_n)\,x_n\)</span> est convergente. Dans ce cas, l’espérance <span class="math inline">\(\mathbb{E}(X)\)</span> de <span class="math inline">\(X\)</span> est la somme de cette série :</p>
+<p><span class="math display">\[\mathbb{E}(X)=\sum\limits_{n=0}^{\infty}\mathbb{P}(X=x_n)\,x_n\]</span></p>
+</div>
+<p>L’espérance possède une propriété de linéarité :</p>
+<div class="thmbox def">
+<p><strong>Théorème (linéarité de l’espérance).</strong> Soient <span class="math inline">\(X,Y\)</span> deux variables aléatoires discrètes et <span class="math inline">\(\lambda\)</span> un réel. On suppose que <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span> admettent une espérance. Alors, <span class="math inline">\(X+\lambda Y\)</span> admet une espérance, et</p>
+<p><span class="math display">\[\mathbb{E}(X+\lambda Y)=\mathbb{E}(X)+\lambda\,\mathbb{E}(Y)\]</span></p>
+</div>
+<p></p>
+<p><strong>Démonstration.</strong></p>
+<p><strong>Exemples. i. Espérance d’une loi uniforme finie.</strong> Sot <span class="math inline">\(X\)</span> une loi uniforme sur <span class="math inline">\(R_X=\{x_1,\dots,x_n\}\)</span>. On a donc <span class="math inline">\(\mathbb{P}(X=x_k)=\frac{1}{n}\)</span>, pour tout entier <span class="math inline">\(1\leq k\leq n\)</span>. D’où</p>
+<p><span class="math display">\[\mathbb{E}(X)=\frac{1}{n}\sum\limits_{k=1}^n x_k=\overline{x_n}\]</span>
+autrement dit, <span class="math inline">\(\mathbb{E}(X)\)</span> est la moyenne arithmétique des réels <span class="math inline">\(x_1,\dots, x_n\)</span>.</p>
+<p></p>
+<p><strong>ii. Espérance d’une loi de Bernoulli <span class="math inline">\(\mathcal{B}(p)\)</span>.</strong> On a</p>
+<p><span class="math display">\[\begin{align}
+\mathbb{E}(X)&amp;=0\times (1-p)+1\times p \\
+&amp;= p
+\end{align}\]</span></p>
 <ul>
 <li>Espérance, variance, moments d’ordres supérieurs</li>
 <li>inégalité de Markov, inégalité de Bieanymé-Tchébychev (exemples + intérêt)</li>

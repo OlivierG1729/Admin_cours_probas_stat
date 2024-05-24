@@ -723,6 +723,48 @@ $$\forall k\in R_X, \, \mathbb{P}(X=k)=\frac{\binom{14}{k}\binom{6}{12-k}}{\bino
 
 ### Moments d'une variable aléatoire
 
+:::: {.defbox .def data-latex="important"}
+<center>**Espérance d'une variable aléatoire discrète**</center>
+
+\noindent Soit $X$ une variable aléatoire de **support fini** $R_X=\{x_1,\dots,x_n\}$. On appelle **espérance** de $X$ le nombre réel 
+
+$$\mathbb{E}(X)=\sum\limits_{k=1}^n \mathbb{P}(X=x_k)\,x_k$$
+
+\noindent 
+
+Pour une variable aléatoire discrète de **support infini dénombrable** $R_x=\{x_1,\dots, x_n\dots\}$, l'existence d'une espérance n'est pas systématique. On dit qu'une telle variable $X$ admet une espérance si la série $\sum\limits_{n}\mathbb{P}(X=x_n)\,x_n$ est convergente. Dans ce cas, l'espérance $\mathbb{E}(X)$ de $X$ est la somme de cette série :
+
+$$\mathbb{E}(X)=\sum\limits_{n=0}^{\infty}\mathbb{P}(X=x_n)\,x_n$$
+::::
+
+\noindent L'espérance possède une propriété de linéarité :
+
+:::: {.thmbox .def data-latex="important"}
+**Théorème (linéarité de l'espérance).** Soient $X,Y$ deux variables aléatoires discrètes et $\lambda$ un réel. On suppose que $X$ et $Y$ admettent une espérance. Alors, $X+\lambda Y$ admet une espérance, et 
+
+$$\mathbb{E}(X+\lambda Y)=\mathbb{E}(X)+\lambda\,\mathbb{E}(Y)$$
+
+::::
+
+\noindent
+
+**Démonstration.** 
+
+
+**Exemples. i. Espérance d'une loi uniforme finie.** Sot $X$ une loi uniforme sur $R_X=\{x_1,\dots,x_n\}$. On a donc $\mathbb{P}(X=x_k)=\frac{1}{n}$, pour tout entier $1\leq k\leq n$. D'où
+
+$$\mathbb{E}(X)=\frac{1}{n}\sum\limits_{k=1}^n x_k=\overline{x_n}$$
+ \noindent autrement dit, $\mathbb{E}(X)$ est la moyenne arithmétique des réels $x_1,\dots, x_n$.
+ 
+ \noindent
+ 
+ **ii. Espérance d'une loi de Bernoulli $\mathcal{B}(p)$.** On a 
+ 
+ \begin{align}
+ \mathbb{E}(X)&=0\times (1-p)+1\times p \\
+ &= p
+ \end{align}
+
 -   Espérance, variance, moments d'ordres supérieurs
 -   inégalité de Markov, inégalité de Bieanymé-Tchébychev (exemples + intérêt)
 
