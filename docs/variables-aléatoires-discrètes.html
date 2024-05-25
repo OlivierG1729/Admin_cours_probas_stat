@@ -23,7 +23,7 @@
 <meta name="author" content="Olivier Guin" />
 
 
-<meta name="date" content="2024-05-25" />
+<meta name="date" content="2024-05-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -740,6 +740,8 @@ La loi de Poisson découle alors d’une approximation de la formule précédent
 <p>Pour une variable aléatoire réelle discrète de <strong>support infini dénombrable</strong> <span class="math inline">\(R_x=\{x_1,\dots, x_n\dots\}\)</span>, l’existence d’une espérance n’est pas systématique. On dit qu’une telle variable <span class="math inline">\(X\)</span> admet une espérance si la série <span class="math inline">\(\sum\limits_{n}\mathbb{P}(X=x_n)\,x_n\)</span> est convergente. Dans ce cas, l’espérance <span class="math inline">\(\mathbb{E}(X)\)</span> de <span class="math inline">\(X\)</span> est la somme de cette série :</p>
 <p><span class="math display">\[\mathbb{E}(X)=\sum\limits_{n=0}^{\infty}\mathbb{P}(X=x_n)\,x_n\]</span></p>
 </div>
+<p></p>
+<p><strong>Remarque.</strong> L’espérance d’une variable est donc une moyenne de ses valeurs, pondérée par les probabilités qui leur sont associées.</p>
 <p>Cette expression de l’espérance s’écrit à partir des valeurs <span class="math inline">\(x_k\)</span> prises par <span class="math inline">\(X:\Omega\longrightarrow\mathbb{R}\)</span>, c’est-à-dire les éléments de l’espace d’arrivée. Il est parfois plus commode d’utiliser une variante de cette formule, faisant plutôt intervenir les éléments de l’espace de départ <span class="math inline">\(\Omega\)</span> :</p>
 <div class="defbox def">
 <center>
@@ -762,6 +764,21 @@ où <span class="math inline">\(\Omega_k=X^{-1}(\{x_k\})=(X=x_k)\)</span>.</p>
 &amp;=\sum\limits_{k\in K}x_k\,\mathbb{P}(\Omega_k) \\
 &amp;=\sum\limits_{k\in K}x_k\,\mathbb{P}(X=x_k) \\
 &amp;=\mathbb{E}(X) \\
+\end{align}\]</span></p>
+<p><span class="math inline">\(\square\)</span></p>
+<p>Une application de ce résultat est le <strong>théorème de transfert</strong> :</p>
+<div class="thmbox def">
+<p><strong>Théorème de transfert.</strong> Soient <span class="math inline">\(X:\Omega\longrightarrow\mathbb{R}\)</span> une variable aléatoire réelle admettant une espérance et <span class="math inline">\(\phi:X(\Omega)\longrightarrow\mathbb{R}\)</span> une fonction. Alors, sous réserve d’existence de <span class="math inline">\(\mathbb{E}(\phi(X))\)</span>, on a</p>
+<p><span class="math display">\[\mathbb{E}(\phi(X))=\sum\limits_{k\in K}\mathbb{P}(X=x_k)\,\phi(x_k)\]</span>
+En particulier, pour <span class="math inline">\(\phi(x)=x^m\)</span>, avec <span class="math inline">\(m\)</span> entier naturel, on a donc</p>
+<p><span class="math display">\[\mathbb{E}(X^m)=\sum\limits_{k\in K}\mathbb{P}(X=x_k)\,x_k^m\]</span></p>
+</div>
+<p></p>
+<p><strong>Démonstration.</strong> Avec les mêmes notations que pour le résultat précédent, on a</p>
+<p><span class="math display">\[\begin{align}
+\mathbb{E}(\phi(X))&amp;=\sum\limits_{\omega\in\Omega}\mathbb{P}(\{\omega\})\phi(X(\omega)) \\
+&amp;=\sum\limits_{k\in K}\phi(x_k)\sum\limits_{\omega\in X^{-1}(x_k)}\mathbb{P}(\{\omega\}) \\
+&amp;=\sum\limits_{k\in K}\mathbb{P}(X=x_k)\phi(x_k) \\
 \end{align}\]</span></p>
 <p><span class="math inline">\(\square\)</span></p>
 <p>L’espérance, vue comme un opérateur, possède les propriétés suivantes :</p>
@@ -794,6 +811,156 @@ autrement dit, <span class="math inline">\(\mathbb{E}(X)\)</span> est la moyenne
 \mathbb{E}(X)&amp;=0\times (1-p)+1\times p \\
 &amp;= p
 \end{align}\]</span></p>
+<p></p>
+<p><strong>iii. Espérance d’une loi binomiale <span class="math inline">\(\mathcal{B}(n,p)\)</span>.</strong> Pour <span class="math inline">\(X\sim\mathcal{B}(n,p)\)</span>, on peut écrire <span class="math inline">\(X=\sum\limits_{i=1}^n X_i\)</span> avec <span class="math inline">\(X_i\sim\mathcal{B}(p)\)</span>. On a donc
+<span class="math display">\[\begin{align}
+\mathbb{E}\left(\sum\limits_{i=1}^n X_i\right) &amp;= \sum\limits_{i=1}^n \mathbb{E}(X_i) \\
+&amp;=np \\
+\end{align}\]</span></p>
+<p>d’après ii.</p>
+<p></p>
+<p><strong>iv. Espérance d’une loi de Poisson <span class="math inline">\(\mathcal{P}(\lambda)\)</span>.</strong> Soit <span class="math inline">\(X\sim\mathcal{P}(\lambda)\)</span> avec <span class="math inline">\(\lambda&gt;0\)</span>. La série <span class="math inline">\(\sum\limits_{k}\frac{\lambda^k}{k!}k\)</span> est convergente, de somme</p>
+<p><span class="math display">\[\begin{align}
+\sum\limits_{k=0}^{\infty}\frac{\lambda^k}{k!}k &amp;= \sum\limits_{k=1}^{\infty}\frac{\lambda^k}{(k-1)!} \\
+&amp;= \lambda \sum\limits_{k=1}^{\infty}\frac{\lambda^{k-1}}{(k-1)!} \\
+&amp;= \lambda\sum\limits_{k=0}^{\infty}\frac{\lambda^k}{k!} \\
+&amp;= \lambda e^{\lambda} \\
+\end{align}\]</span></p>
+<p>Par conséquent, <span class="math inline">\(X\)</span> admet une espérance et <span class="math inline">\(\mathbb{E}(X)=\lambda\)</span>.</p>
+<p></p>
+<p><strong>v. Espérance d’une loi géométrique <span class="math inline">\(\mathcal{G}(p)\)</span>.</strong> On montre que si <span class="math inline">\(X\sim\mathcal{G}(p)\)</span>, avec <span class="math inline">\(p\in ]0;1[\)</span> alors <span class="math inline">\(X\)</span> admet une espérance et <span class="math display">\[\mathbb{E}(X)=\frac{1}{p}\]</span></p>
+<p>Pour cela on utilise le résultat suivant (seule l’égalité ii. est utile pour le calcul de l’espérance) :</p>
+<div class="thmbox thm">
+<center>
+<strong>Série géométrique, séries géométriques dérivées</strong>
+</center>
+<p></p>
+<p>Soit <span class="math inline">\(x\)</span> un réel tel que <span class="math inline">\(|x|&lt;1\)</span>. Alors :</p>
+<p></p>
+<p><strong>i.</strong> <span class="math inline">\(\sum\limits_{n=0}^{\infty}x^n=\frac{1}{1-x}\)</span></p>
+<p></p>
+<p><strong>ii.</strong> <span class="math inline">\(\sum\limits_{n=1}^{\infty}nx^{n-1}=\frac{1}{(1-x)^2}\)</span></p>
+<p></p>
+<p><strong>iii.</strong> <span class="math inline">\(\sum\limits_{n=2}^{\infty}n(n-1)x^{n-2}=\frac{2}{(1-x)^3}\)</span></p>
+</div>
+<p></p>
+<p><strong>Démonstration. i.</strong> Il s’agit de la somme d’une série géométrique de raison <span class="math inline">\(x\)</span> tel que <span class="math inline">\(|x|&lt;1\)</span>. Pour <span class="math inline">\(n\)</span> un entier tel que <span class="math inline">\(n\geq 1\)</span>, on a <span class="math inline">\(\sum\limits_{k=0}^n x^k=\frac{1-x^{n+1}}{1-x}\)</span>. Comme <span class="math inline">\(|x|&lt;1\)</span> on a <span class="math inline">\(x^{n+1}\to 0\)</span> lorsque <span class="math inline">\(n\to\infty\)</span>. Donc la série <span class="math inline">\(\sum\limits_{n}x^n\)</span> est convergente, de somme <span class="math inline">\(\frac{1}{1-x}\)</span>.</p>
+<p></p>
+<p><strong>ii.</strong> Pour <span class="math inline">\(n\)</span> entier supérieur ou égal à <span class="math inline">\(1\)</span>, on pose <span class="math inline">\(S_n(x)=\sum\limits_{k=1}^n kx^{k-1}\)</span>. On a <span class="math inline">\(S_n=T_n^{&#39;}\)</span>, avec <span class="math inline">\(T_n(x)=\sum\limits_{k=0}^n x^k=\frac{1-x^{n+1}}{1-x}\)</span>. On a donc, pour <span class="math inline">\(x\)</span> réel tel que <span class="math inline">\(|x|&lt;1\)</span> :</p>
+<p><span class="math display">\[\begin{align}
+S_n(x)&amp;=T_n^{&#39;}(x) \\
+&amp;=\frac{-(n+1)x^n+(n+1)x^{n+1}+1-x^{n+1}}{(1-x)^2} \\
+&amp;=\frac{1-(n+1)x^n+nx^{n+1}}{(1-x)^2} \\
+&amp;\to\frac{1}{(1-x)^2}\, \text{ lorsque } n\to\infty \\
+\end{align}\]</span></p>
+<p>par croissances comparées. La série <span class="math inline">\(\sum\limits_{n}nx^{n-1}\)</span> est donc convergente de somme <span class="math inline">\(\frac{1}{(1-x)^2}\)</span>, ce qui permet de conclure.</p>
+<p></p>
+<p><strong>iii.</strong> L’égalité se montre exactement de la même façon que l’égalité ii.</p>
+<p><span class="math inline">\(\square\)</span></p>
+<p>Avec ce qui précède, la série <span class="math inline">\(\sum\limits_{n}\mathbb{P}(X=n)n=\sum\limits_{n=1}^{\infty}(1-p)\,n\,p^{n-1}\)</span> est convergente, de somme <span class="math inline">\(\frac{1-p}{(1-p)^2}=\frac{1}{1-p}\)</span>. Autrement dit, <span class="math inline">\(X\)</span> admet une espérance et <span class="math inline">\(\mathbb{E}(X)=\frac{1}{p}\)</span>.</p>
+<p></p>
+<p><strong>vi. Espérance d’une loi hypergéométrique <span class="math inline">\(\mathcal{H}(N,D,n)\)</span>.</strong> On note <span class="math inline">\(X\)</span> le nombre de boules blanches tirées lors de <span class="math inline">\(n\)</span> tirages successifs sans remise dans une urne contenant <span class="math inline">\(D\)</span> boules blanches et <span class="math inline">\(N-D\)</span> boules rouges. On a</p>
+<p><span class="math display">\[X=\sum\limits_{i=1}^n X_i\]</span>
+avec <span class="math inline">\(X_i=1\)</span> si lors du tirage numéro <span class="math inline">\(i\)</span> la boule est blanche, et <span class="math inline">\(X_i=0\)</span> si elle est rouge. On a <span class="math inline">\(X_i\sim\mathcal{B}(p_i)\)</span>, avec <span class="math inline">\(p_i=\mathbb{P}(X=i)\)</span>, et donc</p>
+<p><span class="math display">\[\mathbb{E}(X)=\sum\limits_{k=1}^n\mathbb{E}(X_i)=\sum\limits_{i=1}^n p_i\]</span>
+Montrons que <span class="math inline">\(p_i\)</span> est constant : <span class="math inline">\(p_i=p\)</span>. Pour cela, on note <span class="math inline">\(a_i\)</span> (resp. <span class="math inline">\(b_i\)</span>) le nombre de boules blanches (resp. rouges) restantes dans l’urne au moment du tirage numéro <span class="math inline">\(i\)</span>. Alors <span class="math inline">\(p_i=\frac{a_i}{b_i}\)</span> et :</p>
+<ul>
+<li><p>si <span class="math inline">\(X_i=1\)</span>, on a <span class="math inline">\((a_{i+1},b_{i+1})=(a_i-1,b_i)\)</span></p></li>
+<li><p>si <span class="math inline">\(X_i=0\)</span>, on a <span class="math inline">\((a_{i+1},b_{i+1})=(a_i,b_i-1)\)</span></p></li>
+</ul>
+<p>D’où</p>
+<p><span class="math display">\[\begin{align}
+p_{i+1}&amp;=\mathbb{P}(X_{i+1}=1|X_i=1)\,p_i+\mathbb{P}(X_{i+1}=1|X_i=0)\frac{b_i}{a_i+b_i}(1-p_i) \\
+&amp;=\frac{a_i-1}{a_i+b_i-1}\frac{a_i}{a_i+b_i}+\frac{a_i}{a_i+b_i-1}\frac{b_i}{a_i+b_i} \\
+&amp;=\frac{a_i(a_i+b_i-1)}{(a_i+b_i-1)(a_i+b_i)} \\
+&amp;=\frac{a_i}{a_i+b_i} \\
+&amp;=p_i
+\end{align}\]</span></p>
+<p>Ainsi, <span class="math inline">\(p_i\)</span> ne dépend pas de <span class="math inline">\(i\)</span> : <span class="math inline">\(p_i=p\)</span>, et donc</p>
+<p><span class="math display">\[\mathbb{E}(X)=np\]</span></p>
+<p>Plus généralement, on peut définir la notion de <strong>moment</strong> :</p>
+<div class="defbox thm">
+<center>
+<strong>Moments d’une variable aléatoire</strong>
+</center>
+<p>Soient <span class="math inline">\(X\)</span> une variable aléatoire et <span class="math inline">\(r\in\mathbb{N}\)</span>. On appelle <strong>moment d’ordre <span class="math inline">\(r\)</span></strong>, l’espérance - si elle existe - de <span class="math inline">\(X^r\)</span> :</p>
+<p><span class="math display">\[m_r=\mathbb{E}(X^r)\]</span>
+De même, sous réserve d’existence, le <strong>moment centré d’ordre <span class="math inline">\(r\)</span></strong> est le réel</p>
+<p><span class="math display">\[\mu_r=\mathbb{E}\left((X-\mu)^r\right)\]</span>
+où <span class="math inline">\(\mu=\mathbb{E}(X)\)</span>.</p>
+<p></p>
+<p><strong>Cas <span class="math inline">\(r=1\)</span> et <span class="math inline">\(r=2\)</span> (toujours sous résevre d’existence) :</strong></p>
+<ul>
+<li><span class="math inline">\(\mu_1=0\)</span></li>
+<li><span class="math inline">\(\mu_2\)</span> s’appelle la <strong>variance</strong> de <span class="math inline">\(X\)</span>, notée <span class="math inline">\(\mathbb{V}(X)\)</span> :</li>
+</ul>
+<p><span class="math display">\[\mathbb{V}(X)=\mathbb{E}\left((X-\mu)^2\right)\]</span>
+Si <span class="math inline">\(X\)</span> admet une variance, on appelle <strong>écart-type</strong> de <span class="math inline">\(X\)</span> le réel positif</p>
+<p><span class="math display">\[\sigma_X=\sqrt{\mathbb{V}(X)}\]</span></p>
+</div>
+<p></p>
+<p><strong>Remarques. i.</strong> La formule <span class="math inline">\(\mu_1=0\)</span> est une conséquence directe de la linéarité de l’espérance : <span class="math inline">\(\mu_1=\mathbb{E}(X-\mu)=\mathbb{E}(X)-\mu=0\)</span>.</p>
+<p></p>
+<p><strong>ii.</strong> L’espérance est un indicateur de position d’une variable aléatoire, alors que la variance et l’écart-type sont des indicateurs de dispersion. L’écart-type présente l’avantage sur la variance d’être de même dimension que la variable (tout comme l’espérance).</p>
+<p>La formule de König-Huygens permet d’exprimer la variance à partir des moments d’ordre 1 et 2 :</p>
+<div class="thmbox thm">
+<center>
+<strong>Formule de König-Huygens</strong>
+</center>
+<p>
+Soit <span class="math inline">\(X\)</span> une variable aléatoire réelle discrète admettant une variance. Alors</p>
+<p><span class="math display">\[\mathbb{V}(X)=\mathbb{E}(X^2)-\mathbb{E}(X)^2\]</span></p>
+</div>
+<p></p>
+<p><strong>Démonstration.</strong> En posant <span class="math inline">\(\mu=\mathbb{E}(X)\)</span>, on a</p>
+<p><span class="math display">\[(x-\mu)^2=X^2-2\mu X+\mu^2\]</span>
+En passant à l’espérance :</p>
+<p><span class="math display">\[\begin{align}
+\mathbb{V}(X)&amp;=\mathbb{E}(X^2)-2\mu^2+\mu^2 \\
+&amp;=\mathbb{E}(X^2)-\mu^2 \\
+\end{align}\]</span>
+d’où le résultat.
+<span class="math inline">\(\square\)</span></p>
+<p></p>
+<p><strong>Remarque.</strong> En pratique, c’est souvent cette formule que l’on utilise pour calculer une variance, qui est plus simple que celle de la définition.</p>
+<div class="thmbox thm">
+<center>
+<strong>Propriétés de la variance</strong>
+</center>
+<p>Soient <span class="math inline">\(X\)</span> une variable aléatoire réelle discrète admettant une variance, et <span class="math inline">\(a\)</span> et <span class="math inline">\(b\)</span> deux réels. Alors :</p>
+<p></p>
+<p><strong>i.</strong> <span class="math inline">\(\mathbb{V}(X)\geq 0\)</span> avec égalité si et seulement si <span class="math inline">\(X\)</span> est constante.</p>
+<p></p>
+<p><strong>ii.</strong> <span class="math inline">\(\mathbb{V}(aX+b)=a^2\mathbb{V}(X)\)</span>.</p>
+</div>
+<p></p>
+<p><strong>Démonstration. i.</strong> On note $ {x_k,;,kK}$ les valeurs prises par <span class="math inline">\(X\)</span> et <span class="math inline">\(p_k=\mathbb{P}(X=x_k)&gt;0\)</span>.</p>
+<p><span class="math inline">\(\mathbb{V}(X)=\sum\limits_{k\in K}p_k\,(x_k-\mu)^2=0\)</span> si et seulement si <span class="math inline">\(x_k=\mu\)</span> pour tout <span class="math inline">\(k\)</span> dans <span class="math inline">\(K\)</span>, autrement dit si et seulement si <span class="math inline">\(X\)</span> est constante, égale à son espérance <span class="math inline">\(\mu\)</span>.</p>
+<p></p>
+<p><strong>ii.</strong> <span class="math inline">\(\mathbb{E}(aX+b)=a\mu+b\)</span>, donc <span class="math inline">\(\left(aX+b-\mathbb{E}(aX+b)\right)^2=a^2(X-\mu)^2\)</span>, et en passant à l’espérance on en déduit que <span class="math inline">\(\mathbb{V}(aX+b)=a^2\,\mathbb{V}(X)\)</span>.</p>
+<p><span class="math inline">\(\square\)</span></p>
+<p><strong>Exemples. i. Variance d’une loi uniforme.</strong> Soit <span class="math inline">\(X\)</span> uniforme sur l’ensemble fini <span class="math inline">\(\{x_1,\dots,x_n\}\)</span>. Alors</p>
+<p><span class="math display">\[\mathbb{E}(X^2)=\frac{1}{n}\sum\limits_{k=1}^n x_k^2\]</span>
+et donc</p>
+<p><span class="math display">\[\mathbb{V}(X)=\frac{1}{n}\sum\limits_{k=1}^n x_k^2-\left(\frac{1}{n}\sum\limits_{k=1}^n x_k\right)^2\]</span></p>
+<p></p>
+<p><strong>ii. Variance d’une loi de Bernoulli <span class="math inline">\(\mathcal{B}(p)\)</span>.</strong> Si <span class="math inline">\(X\sim\mathcal{B}(p)\)</span>, alors <span class="math inline">\(X^2=X\)</span> (car <span class="math inline">\(X\in\{0,1\}\)</span>) donc <span class="math inline">\(\mathbb{E}(X^2)=\mathbb{E}(X)=p\)</span>, d’où</p>
+<p><span class="math display">\[\mathbb{V}(X)=p\,(1-p)\]</span></p>
+<p></p>
+<p><strong>iii. Variance d’une loi binomiale <span class="math inline">\(\mathcal{B}(n,p)\)</span>.</strong> On démontrera un peu plus loin que, si <span class="math inline">\(X\sim\mathcal{B}(n,p)\)</span>, alors</p>
+<p><span class="math display">\[\mathbb{V}(X)=n\,p\,(1-p)\]</span></p>
+<p></p>
+<p><strong>iv. Variance d’une loi de Poisson <span class="math inline">\(\mathcal{P}(\lambda)\)</span>.</strong> Soit <span class="math inline">\(X\sim\mathcal{P}(\lambda)\)</span>. Soit <span class="math inline">\(n\geq 1\)</span> un entier. On a</p>
+<p><span class="math display">\[\begin{align}
+\sum\limits_{k=0}^n\frac{\lambda^k}{k!}k^2&amp;=\sum\limits_{k=2}^n\frac{\lambda^k}{k!}k(k-1)+\sum\limits_{k=2}^n\frac{\lambda^k}{k!}k \\
+&amp;=\lambda^2\sum\limits_{k=2}^n\frac{\lambda^{k-2}}{(k-2)!}+\lambda\sum\limits_{k=1}^n\frac{\lambda^{k-1}}{(k-1)!} \\
+&amp;=\lambda^2\sum\limits_{k=0}^{n-2}\frac{\lambda^k}{k!}+\lambda^k\sum\limits_{k=0}^{n-1}\frac{\lambda^k}{k!} \\
+&amp;\to (\lambda^2+\lambda)e^{\lambda} \\
+\end{align}\]</span></p>
+<p>La série <span class="math inline">\(\sum\limits_{n}\frac{\lambda^n}{n!}n^2\)</span> est donc convergente de somme <span class="math inline">\((\lambda^2+\lambda)e^{\lambda}\)</span>. On en déduit que <span class="math inline">\(X^2\)</span> admet une espérance, et que</p>
+<p><span class="math display">\[\mathbb{E}(X^2)=\lambda^2+\lambda\]</span></p>
+<p>Comme <span class="math inline">\(\mathbb{E}(X)=\lambda\)</span>, on en déduit que</p>
+<p><span class="math display">\[\mathbb{V}(X)=\lambda\]</span></p>
 <ul>
 <li>Espérance, variance, moments d’ordres supérieurs</li>
 <li>inégalité de Markov, inégalité de Bieanymé-Tchébychev (exemples + intérêt)</li>
