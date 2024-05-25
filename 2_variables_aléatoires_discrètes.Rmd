@@ -724,31 +724,89 @@ $$\forall k\in R_X, \, \mathbb{P}(X=k)=\frac{\binom{14}{k}\binom{6}{12-k}}{\bino
 ### Moments d'une variable aléatoire
 
 :::: {.defbox .def data-latex="important"}
-<center>**Espérance d'une variable aléatoire discrète**</center>
+<center>**Espérance d'une variable aléatoire réelle discrète**</center>
 
-\noindent Soit $X$ une variable aléatoire de **support fini** $R_X=\{x_1,\dots,x_n\}$. On appelle **espérance** de $X$ le nombre réel 
+\noindent Soit $X$ une variable aléatoire réelle de **support fini** $R_X=\{x_1,\dots,x_n\}$. On appelle **espérance** de $X$ le nombre réel 
 
 $$\mathbb{E}(X)=\sum\limits_{k=1}^n \mathbb{P}(X=x_k)\,x_k$$
 
 \noindent 
 
-Pour une variable aléatoire discrète de **support infini dénombrable** $R_x=\{x_1,\dots, x_n\dots\}$, l'existence d'une espérance n'est pas systématique. On dit qu'une telle variable $X$ admet une espérance si la série $\sum\limits_{n}\mathbb{P}(X=x_n)\,x_n$ est convergente. Dans ce cas, l'espérance $\mathbb{E}(X)$ de $X$ est la somme de cette série :
+Pour une variable aléatoire réelle discrète de **support infini dénombrable** $R_x=\{x_1,\dots, x_n\dots\}$, l'existence d'une espérance n'est pas systématique. On dit qu'une telle variable $X$ admet une espérance si la série $\sum\limits_{n}\mathbb{P}(X=x_n)\,x_n$ est convergente. Dans ce cas, l'espérance $\mathbb{E}(X)$ de $X$ est la somme de cette série :
 
 $$\mathbb{E}(X)=\sum\limits_{n=0}^{\infty}\mathbb{P}(X=x_n)\,x_n$$
 ::::
 
-\noindent L'espérance possède une propriété de linéarité :
+\noindent Cette expression de l'espérance s'écrit à partir des valeurs $x_k$ prises par $X:\Omega\longrightarrow\mathbb{R}$, c'est-à-dire les éléments de l'espace d'arrivée. Il est parfois plus commode d'utiliser une variante de cette formule, faisant plutôt intervenir les éléments de l'espace de départ $\Omega$ :
+
+:::: {.defbox .def data-latex="important"}
+<center>**Espérance d'une variable aléatoire réelle discrète (variante)**</center>
+Soit $X:\Omega\longrightarrow\mathbb{R}$ une variable aléatoire réelle discrète. Alors, son espérance, si elle existe, est donnée par la formule
+
+$$\mathbb{E}(X)=\sum\limits_{\omega\in\Omega}\mathbb{P}(\{\omega\})X(\omega)$$
+::::
+
+\noindent
+
+**Démonstration.** $X$ étant discrète, il existe $K\subset\mathbb{N}$ (fini ou non) tel que le support de $X$ s'écrive
+
+$$R_X=\{x_k\,;\,k\in K\}$$
+
+L'univers $\Omega$ peut alors se décomposer en 
+
+$$\Omega=\bigsqcup\limits_{k\in K}\Omega_k$$
+\noindent où $\Omega_k=X^{-1}(\{x_k\})=(X=x_k)$.
+
+\noindent On a donc, sous réserve d'existence :
+
+\begin{align}
+\sum\limits_{\omega\in\Omega}\mathbb{P}(\{\omega\})X(\omega)&=\sum\limits_{k\in K}\sum\limits_{\omega\in\Omega_k}\mathbb{P}(\{\omega\})X(\omega) \\
+&=\sum\limits_{k\in K}\sum\limits_{\omega\in\Omega_k}\mathbb{P}(\{\omega\})x_k \\
+&=\sum\limits_{k\in K}x_k\sum\limits_{\omega\in\Omega_k}\mathbb{P}(\{\omega\}) \\
+&=\sum\limits_{k\in K}x_k\,\mathbb{P}(\Omega_k) \\
+&=\sum\limits_{k\in K}x_k\,\mathbb{P}(X=x_k) \\
+&=\mathbb{E}(X) \\
+\end{align}
+
+$\square$
+
+
+\noindent L'espérance, vue comme un opérateur, possède les propriétés suivantes :
 
 :::: {.thmbox .def data-latex="important"}
-**Théorème (linéarité de l'espérance).** Soient $X,Y$ deux variables aléatoires discrètes et $\lambda$ un réel. On suppose que $X$ et $Y$ admettent une espérance. Alors, $X+\lambda Y$ admet une espérance, et 
+**Propriétés de l'espérance.** $X$ et $Y$ désignent des variables aléatoires réelles discrètes admettant une espérance, $\lambda$ est un réel. On a :
 
-$$\mathbb{E}(X+\lambda Y)=\mathbb{E}(X)+\lambda\,\mathbb{E}(Y)$$
+**i. Espérance d'une constante.** Si $X=a$ est constante, alors $\mathbb{E}(X)=a$.
+
+**ii. Linéarité de l'espérance.** $\mathbb{E}(X+\lambda Y)=\mathbb{E}(X)+\lambda\,\mathbb{E}(Y)$
+
+**iii. Positivité de l'espérance.** Si $X\geq 0$, alors $\mathbb{E}(X)\geq 0$.
+
+**iv. Croissance de l'espérance.** Si $X\leq Y$, alors $\mathbb{E}(X)\leq\mathbb{E}(Y)$.
 
 ::::
 
 \noindent
 
-**Démonstration.** 
+**Démonstration. i.** Si $X=a$ est constante, alors elle a pour support $R_x=\{a\}$ et donc $\mathbb{E}(X)=\mathbb{P}(X=a).a=1.a=a$.
+
+\noindent
+
+**ii.** Ici, il est plus simple d'utiliser la variante de la définition de l'espérance puisque dans ce cas la linéarité de l'espérance n'est rien d'autre qu'une traduction de la linéarité de l'opérateur $\Sigma$ :
+
+\begin{align}
+\mathbb{E}(X+\lambda Y)&=\sum\limits_{\omega\in\Omega}\mathbb{P}(\{\omega\})\left(X(\omega)+\lambda\,Y(\omega)\right) \\
+&=\sum\limits_{\omega\in\Omega}\mathbb{P}(\{\omega\})X(\omega)+\lambda\sum\limits_{\omega\in\Omega}\mathbb{P}(\{\omega\})Y(\omega) \\
+&=\mathbb{E}(X)+\lambda\,\mathbb{E}(Y) \\
+\end{align}
+
+\noindent
+
+**iii.** $X$ étant positive, on a $\mathbb{E}(X)=\sum\limits_{\omega}\mathbb{P}(\{\omega\})X(\omega)\geq 0$.
+
+**iv.** $Y-X\geq 0$ donc par positivité de l'espérance on a $\mathbb{E}(Y-X)\geq 0$, et par linéarité on en déduit que $\mathbb{E}(X)\leq\mathbb{E}(Y)$.
+
+$\square$
 
 
 **Exemples. i. Espérance d'une loi uniforme finie.** Sot $X$ une loi uniforme sur $R_X=\{x_1,\dots,x_n\}$. On a donc $\mathbb{P}(X=x_k)=\frac{1}{n}$, pour tout entier $1\leq k\leq n$. D'où
@@ -782,6 +840,7 @@ $$\mathbb{E}(X)=\frac{1}{n}\sum\limits_{k=1}^n x_k=\overline{x_n}$$
 
 -   Théorème
 -   Exemple
+-   inégalité triangulaire
 
 ## Vecteurs aléatoires
 
