@@ -23,7 +23,7 @@
 <meta name="author" content="Olivier Guin" />
 
 
-<meta name="date" content="2024-05-26" />
+<meta name="date" content="2024-05-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -117,6 +117,7 @@
 <li class="chapter" data-level="3.1.6" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#exemples-classiques-de-lois-discrètes"><i class="fa fa-check"></i><b>3.1.6</b> Exemples classiques de lois discrètes</a></li>
 <li class="chapter" data-level="3.1.7" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#simulation-dune-variable-aléatoire-réelle"><i class="fa fa-check"></i><b>3.1.7</b> Simulation d’une variable aléatoire réelle</a></li>
 <li class="chapter" data-level="3.1.8" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#moments-dune-variable-aléatoire"><i class="fa fa-check"></i><b>3.1.8</b> Moments d’une variable aléatoire</a></li>
+<li class="chapter" data-level="3.1.9" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#quelques-inégalités-classiques"><i class="fa fa-check"></i><b>3.1.9</b> Quelques inégalités classiques</a></li>
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#transformation-dune-variable-aléatoire-discrète"><i class="fa fa-check"></i><b>3.2</b> Transformation d’une variable aléatoire discrète</a>
 <ul>
@@ -737,7 +738,7 @@ La loi de Poisson découle alors d’une approximation de la formule précédent
 <p>Soit <span class="math inline">\(X\)</span> une variable aléatoire réelle de <strong>support fini</strong> <span class="math inline">\(R_X=\{x_1,\dots,x_n\}\)</span>. On appelle <strong>espérance</strong> de <span class="math inline">\(X\)</span> le nombre réel</p>
 <p><span class="math display">\[\mathbb{E}(X)=\sum\limits_{k=1}^n \mathbb{P}(X=x_k)\,x_k\]</span></p>
 <p></p>
-<p>Pour une variable aléatoire réelle discrète de <strong>support infini dénombrable</strong> <span class="math inline">\(R_x=\{x_1,\dots, x_n\dots\}\)</span>, l’existence d’une espérance n’est pas systématique. On dit qu’une telle variable <span class="math inline">\(X\)</span> admet une espérance si la série <span class="math inline">\(\sum\limits_{n}\mathbb{P}(X=x_n)\,x_n\)</span> est convergente. Dans ce cas, l’espérance <span class="math inline">\(\mathbb{E}(X)\)</span> de <span class="math inline">\(X\)</span> est la somme de cette série :</p>
+<p>Pour une variable aléatoire réelle discrète de <strong>support infini dénombrable</strong> <span class="math inline">\(R_x=\{x_1,\dots, x_n\dots\}\)</span>, l’existence d’une espérance n’est pas systématique. On dit qu’une telle variable <span class="math inline">\(X\)</span> admet une espérance finie si la série <span class="math inline">\(\sum\limits_{n}\mathbb{P}(X=x_n)\,x_n\)</span> est asbolument convergente. Dans ce cas, l’espérance <span class="math inline">\(\mathbb{E}(X)\)</span> de <span class="math inline">\(X\)</span> est la somme de cette série :</p>
 <p><span class="math display">\[\mathbb{E}(X)=\sum\limits_{n=0}^{\infty}\mathbb{P}(X=x_n)\,x_n\]</span></p>
 </div>
 <p></p>
@@ -747,7 +748,7 @@ La loi de Poisson découle alors d’une approximation de la formule précédent
 <center>
 <strong>Espérance d’une variable aléatoire réelle discrète (variante)</strong>
 </center>
-<p>Soit <span class="math inline">\(X:\Omega\longrightarrow\mathbb{R}\)</span> une variable aléatoire réelle discrète. Alors, son espérance, si elle existe, est donnée par la formule</p>
+<p>Soit <span class="math inline">\(X:\Omega\longrightarrow\mathbb{R}\)</span> une variable aléatoire réelle discrète d’espérance finie. Alors :</p>
 <p><span class="math display">\[\mathbb{E}(X)=\sum\limits_{\omega\in\Omega}\mathbb{P}(\{\omega\})X(\omega)\]</span></p>
 </div>
 <p></p>
@@ -768,7 +769,7 @@ où <span class="math inline">\(\Omega_k=X^{-1}(\{x_k\})=(X=x_k)\)</span>.</p>
 <p><span class="math inline">\(\square\)</span></p>
 <p>Une application de ce résultat est le <strong>théorème de transfert</strong> :</p>
 <div class="thmbox def">
-<p><strong>Théorème de transfert.</strong> Soient <span class="math inline">\(X:\Omega\longrightarrow\mathbb{R}\)</span> une variable aléatoire réelle admettant une espérance et <span class="math inline">\(\phi:X(\Omega)\longrightarrow\mathbb{R}\)</span> une fonction. Alors, sous réserve d’existence de <span class="math inline">\(\mathbb{E}(\phi(X))\)</span>, on a</p>
+<p><strong>Théorème de transfert.</strong> Soient <span class="math inline">\(X:\Omega\longrightarrow\mathbb{R}\)</span> une variable aléatoire réelle dscrète et <span class="math inline">\(\phi:X(\Omega)\longrightarrow\mathbb{R}\)</span>. On suppose que <span class="math inline">\(X\)</span> et <span class="math inline">\(\phi(X)\)</span> admettent des espérances finies. Alors, on a</p>
 <p><span class="math display">\[\mathbb{E}(\phi(X))=\sum\limits_{k\in K}\mathbb{P}(X=x_k)\,\phi(x_k)\]</span>
 En particulier, pour <span class="math inline">\(\phi(x)=x^m\)</span>, avec <span class="math inline">\(m\)</span> entier naturel, on a donc</p>
 <p><span class="math display">\[\mathbb{E}(X^m)=\sum\limits_{k\in K}\mathbb{P}(X=x_k)\,x_k^m\]</span></p>
@@ -857,7 +858,7 @@ S_n(x)&amp;=T_n^{&#39;}(x) \\
 <p></p>
 <p><strong>iii.</strong> L’égalité se montre exactement de la même façon que l’égalité ii.</p>
 <p><span class="math inline">\(\square\)</span></p>
-<p>Avec ce qui précède, la série <span class="math inline">\(\sum\limits_{n}\mathbb{P}(X=n)n=\sum\limits_{n=1}^{\infty}(1-p)\,n\,p^{n-1}\)</span> est convergente, de somme <span class="math inline">\(\frac{1-p}{(1-p)^2}=\frac{1}{1-p}\)</span>. Autrement dit, <span class="math inline">\(X\)</span> admet une espérance et <span class="math inline">\(\mathbb{E}(X)=\frac{1}{p}\)</span>.</p>
+<p>Avec ce qui précède, la série <span class="math inline">\(\sum\limits_{n}\mathbb{P}(X=n)n=\sum\limits_{n}p\,n\,(1-p)^{n-1}\)</span> est convergente, de somme <span class="math inline">\(\frac{p}{(1-(1-p))^2}=\frac{1}{p}\)</span>. Autrement dit, <span class="math inline">\(X\)</span> admet une espérance et <span class="math inline">\(\mathbb{E}(X)=\frac{1}{p}\)</span>.</p>
 <p></p>
 <p><strong>vi. Espérance d’une loi hypergéométrique <span class="math inline">\(\mathcal{H}(N,D,n)\)</span>.</strong> On note <span class="math inline">\(X\)</span> le nombre de boules blanches tirées lors de <span class="math inline">\(n\)</span> tirages successifs sans remise dans une urne contenant <span class="math inline">\(D\)</span> boules blanches et <span class="math inline">\(N-D\)</span> boules rouges. On a</p>
 <p><span class="math display">\[X=\sum\limits_{i=1}^n X_i\]</span>
@@ -876,20 +877,20 @@ p_{i+1}&amp;=\mathbb{P}(X_{i+1}=1|X_i=1)\,p_i+\mathbb{P}(X_{i+1}=1|X_i=0)\frac{b
 &amp;=\frac{a_i}{a_i+b_i} \\
 &amp;=p_i
 \end{align}\]</span></p>
-<p>Ainsi, <span class="math inline">\(p_i\)</span> ne dépend pas de <span class="math inline">\(i\)</span> : <span class="math inline">\(p_i=p\)</span>, et donc</p>
+<p>Ainsi, <span class="math inline">\(p_i\)</span> ne dépend pas de <span class="math inline">\(i\)</span> : <span class="math inline">\(p_i=p=p_1=\frac{N}{D}\)</span>, et donc</p>
 <p><span class="math display">\[\mathbb{E}(X)=np\]</span></p>
 <p>Plus généralement, on peut définir la notion de <strong>moment</strong> :</p>
 <div class="defbox thm">
 <center>
 <strong>Moments d’une variable aléatoire</strong>
 </center>
-<p>Soient <span class="math inline">\(X\)</span> une variable aléatoire et <span class="math inline">\(r\in\mathbb{N}\)</span>. On appelle <strong>moment d’ordre <span class="math inline">\(r\)</span></strong>, l’espérance - si elle existe - de <span class="math inline">\(X^r\)</span> :</p>
+<p>Soient <span class="math inline">\(X\)</span> une variable aléatoire et <span class="math inline">\(r\in\mathbb{N}\)</span>. Si <span class="math inline">\(X^r\)</span> admet une espérance finie, alors</p>
 <p><span class="math display">\[m_r=\mathbb{E}(X^r)\]</span>
-De même, sous réserve d’existence, le <strong>moment centré d’ordre <span class="math inline">\(r\)</span></strong> est le réel</p>
+s’appelle <strong>moment d’ordre <span class="math inline">\(r\)</span></strong> de <span class="math inline">\(X\)</span>.</p>
+<p>De même, en notant <span class="math inline">\(\mu=\mathbb{E}(X)\)</span>, si <span class="math inline">\((X-\mu)^r\)</span> admet une espérance finie alors on appelle <strong>moment centré d’ordre <span class="math inline">\(r\)</span></strong> le réel</p>
 <p><span class="math display">\[\mu_r=\mathbb{E}\left((X-\mu)^r\right)\]</span>
-où <span class="math inline">\(\mu=\mathbb{E}(X)\)</span>.</p>
-<p></p>
-<p><strong>Cas <span class="math inline">\(r=1\)</span> et <span class="math inline">\(r=2\)</span> (toujours sous résevre d’existence) :</strong></p>
+</p>
+<p><strong>Cas <span class="math inline">\(r=1\)</span> et <span class="math inline">\(r=2\)</span> (toujours sous réserve d’existence) :</strong></p>
 <ul>
 <li><span class="math inline">\(\mu_1=0\)</span></li>
 <li><span class="math inline">\(\mu_2\)</span> s’appelle la <strong>variance</strong> de <span class="math inline">\(X\)</span>, notée <span class="math inline">\(\mathbb{V}(X)\)</span> :</li>
@@ -961,6 +962,95 @@ et donc</p>
 <p><span class="math display">\[\mathbb{E}(X^2)=\lambda^2+\lambda\]</span></p>
 <p>Comme <span class="math inline">\(\mathbb{E}(X)=\lambda\)</span>, on en déduit que</p>
 <p><span class="math display">\[\mathbb{V}(X)=\lambda\]</span></p>
+<p></p>
+<p><strong>v. Variance d’une loi géométrique <span class="math inline">\(\mathcal{G}(p)\)</span>.</strong> Pour <span class="math inline">\(p\in ]0\,;\,1[\)</span>, on a</p>
+<p><span class="math display">\[\sum\limits_{n=2}^{\infty}n(n-1)(1-p)^{n-2}=\frac{2}{p^3}\]</span></p>
+<p>soit</p>
+<p><span class="math display">\[\sum\limits_{n=1}^{\infty}n(n+1)(1-p)^{n-1}=\frac{2}{p^3}\]</span>
+et donc</p>
+<p><span class="math display">\[\begin{align}
+\mathbb{E}(X^2)&amp;=p\sum\limits_{n=1}^{\infty}n^2(1-p)^{n-1} \\
+&amp;=\frac{2}{p^2}-p\sum\limits_{n=1}^{\infty}n(1-p)^{n-1} \\
+&amp;=\frac{2}{p^2}-\mathbb{E}(X) \\
+&amp;=\frac{2}{p^2}-\frac{1}{p} \\
+&amp;=\frac{2-p}{p^2}
+\end{align}\]</span></p>
+<p>d’où</p>
+<p><span class="math display">\[\begin{align}
+\mathbb{V}(X)&amp;=\mathbb{E}(X^2)-\mathbb{E}(X)^2 \\
+&amp;=\frac{2-p}{p^2}-\frac{1}{p^2}\\
+&amp;=\frac{1-p}{p^2}
+\end{align}\]</span></p>
+<p></p>
+<p><strong>vi. Variance d’une loi hypergéométrique <span class="math inline">\(\mathcal{H}(N,D,n)\)</span>.</strong> Si <span class="math inline">\(X\sim\mathcal{H}(N,D,n)\)</span> alors <span class="math inline">\(X\)</span> admet une variance et</p>
+<p><span class="math display">\[\mathbb{V}(X)=\frac{N-n}{N-1}\times\frac{nD}{N}\left(1-\frac{D}{N}\right)\]</span></p>
+<p>(formule admise pour le moment)</p>
+</div>
+<div id="quelques-inégalités-classiques" class="section level3 hasAnchor" number="3.1.9">
+<h3><span class="header-section-number">3.1.9</span> Quelques inégalités classiques<a href="variables-aléatoires-discrètes.html#quelques-inégalités-classiques" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Les inégalités qui suivent reviennent souvent dans les exercices et problèmes du concours.</p>
+<div class="thmbox thm">
+<p><strong>Inégalité triangulaire.</strong> Soit <span class="math inline">\(X\)</span> une variable aléatoire réelle discrète telle que <span class="math inline">\(|X|\)</span> est d’espérance finie. Alors <span class="math inline">\(X\)</span> est d’espérance finie et</p>
+<p><span class="math display">\[|\mathbb{E}(X)|\leq\mathbb{E}(|X|)\]</span></p>
+</div>
+<p></p>
+<p><strong>Démonstration.</strong> Par définition, <span class="math inline">\(X\)</span> est d’espérance finie si et seulement si <span class="math inline">\(|X|\)</span> est d’espérance finie. On a alors :</p>
+<p><span class="math display">\[\begin{align}
+|\mathbb{E}(X)|&amp;=\left|\sum\limits_{\omega\in\Omega}\mathbb{P}(\{\omega\})X(\omega)\right| \\
+&amp;\leq\sum\limits_{\omega\in\Omega}|\mathbb{P}(\{\omega\})X(\omega)| \\
+&amp;=\sum\limits_{\omega\in\Omega}\mathbb{P}(\{\omega\})|X(\omega)| \\
+&amp;=\mathbb{E}(|X|)
+\end{align}\]</span></p>
+<p><span class="math inline">\(\square\)</span></p>
+<p>L’inégalité de Cauchy-Schwarz est un résultat important d’algèbre. On rappelle d’abord la notion de <strong>produit scalaire</strong> sur un espace vectoriel.</p>
+<p></p>
+<p><strong>Rappel : produit scalaire.</strong> Dans un espace-vectoriel <span class="math inline">\(E\)</span>, on appelle <em>produit scalaire</em> toute application <span class="math inline">\(\phi:E\times E\longrightarrow\mathbb{R}\)</span> vérifiant les propriétés suivantes :</p>
+<ul>
+<li><p><strong>Bilinéarité :</strong> <span class="math inline">\(\phi\)</span> est linéaire à gauche et linéaire à droite :</p>
+<ul>
+<li><p><strong>Linéarité à gauche :</strong> <span class="math inline">\(\forall x,y,z\in E,\, \forall\lambda\in\mathbb{R}, \, \phi(x+\lambda y, z)=\phi(x,z)+\lambda\phi(y,z)\)</span></p></li>
+<li><p><strong>linéarité à droite :</strong> <span class="math inline">\(\forall x,y,z\in E,\, \forall\lambda\in\mathbb{R}, \, \phi(x, y+\lambda z)=\phi(x,y)+\lambda\phi(x,z)\)</span></p></li>
+</ul></li>
+<li><p><strong>Symétrie :</strong> <span class="math inline">\(\forall x,y\in E,\, \phi(x,y)=\phi(y,x)\)</span></p></li>
+<li><p><strong>Définie positive :</strong> <span class="math inline">\(\forall x\in E, \phi(x,x)\geq 0\)</span>, avec égalité si et seulement si <span class="math inline">\(x=0\)</span>.</p></li>
+</ul>
+<p>Une notation courante pour un produit scalaire est <span class="math inline">\(&lt;.\,,\,.&gt;\)</span>. De plus, pour <span class="math inline">\(x\in E\)</span>, on note <span class="math inline">\(||x||=\sqrt{&lt;x\,,\,x&gt;}\)</span>. Il s’agit d’une <strong>norme</strong> sur <span class="math inline">\(E\)</span>, i.e. une application de <span class="math inline">\(E\)</span> dans <span class="math inline">\(\mathbb{R}\)</span> vérifiant les propriétés suivantes :</p>
+<ul>
+<li><p>pour tout <span class="math inline">\(x\)</span> dans <span class="math inline">\(E\)</span>, <span class="math inline">\(||x||=0\)</span> si et seulement si <span class="math inline">\(x=0\)</span> ;</p></li>
+<li><p>pour tout <span class="math inline">\(x\)</span> dans <span class="math inline">\(E\)</span> et pour tout réel <span class="math inline">\(\lambda\)</span> : <span class="math inline">\(||\lambda x||=|\lambda|.||x||\)</span> ;</p></li>
+<li><p>pour tous <span class="math inline">\(x,y\)</span> dans <span class="math inline">\(E\)</span>, <span class="math inline">\(||x+y||\leq ||x||+||y||\)</span>.</p></li>
+</ul>
+<p>L’inégalité de Cauchy-Schwarz établit une majoration du produit scalaire (et même de sa valeur absolue) par le produit des normes :</p>
+<div class="thmbox thm">
+<p><strong>Inégalité de Cauchy-Schwarz.</strong> Soient <span class="math inline">\((E\,,\,&lt;\,,\,&gt;)\)</span> un espace préhilbertien réel et <span class="math inline">\(||.||\)</span> la norme associée au produit scalaire <span class="math inline">\(&lt;\,,\,&gt;\)</span>. Alors, on a</p>
+<p><span class="math display">\[\forall x,y\in E,\,|&lt;x\,,y&gt;|\leq ||x||\,||y||\]</span>
+avec égalité si et seulement si <span class="math inline">\(x\)</span> et <span class="math inline">\(y\)</span> sont colinéaires.</p>
+</div>
+<p></p>
+<p><strong>Démonstration.</strong> Soient <span class="math inline">\(x,y\in E\)</span>. Pour tout réel <span class="math inline">\(t\)</span>, on a</p>
+<p><span class="math display">\[\begin{align}
+0&amp;\leq||x-ty||^2 \\
+&amp;=||y||^2t^2-2&lt;x\,,\,y&gt;t+||x||^2 \\
+\end{align}\]</span></p>
+<p>On peut voir <span class="math inline">\(||y||^2t^2-2&lt;x\,,\,y&gt;t+||x||^2\)</span> comme un trinôme en <span class="math inline">\(t\)</span>, toujours positif ou nul. Par conséquent son discriminant est négatif ou nul, soit</p>
+<p><span class="math display">\[4&lt;x\,,\,y&gt;^2-4||x||^2||y||^2\leq 0\]</span>
+i.e.</p>
+<p><span class="math display">\[|&lt;x\,,\,y&gt;|\leq ||x||\,||y||\]</span>
+Le cas d’égalité signifie que ce discriminant est nul. Dans ce cas, il existe <span class="math inline">\(t\)</span> réel tel que <span class="math inline">\(x=ty\)</span>, ce qui signifie exactement que <span class="math inline">\(x\)</span> et <span class="math inline">\(y\)</span> sont colinéaires.</p>
+<p><span class="math inline">\(\square\)</span></p>
+<p>Dans le cadre de la théorie des probabilités, l’inégalité de Cauchy-Schwarz est souvent appliquée dans l’epace <span class="math inline">\(L^2(\Omega, \mathcal{P}(\Omega), \mathbb{P})\)</span>.</p>
+<p></p>
+<p><strong>L’espace <span class="math inline">\(L^2(\Omega)\)</span>.</strong> On note <span class="math inline">\(L^2(\Omega, \mathcal{P}(\Omega),\mathbb{P})\)</span>, ou plus simplement <span class="math inline">\(L^2(\Omega)\)</span>, l’ensemble des variables aléatoires <span class="math inline">\(X:(\Omega,\mathcal{P}(\Omega),\mathbb{P})\longrightarrow\mathbb{R}\)</span> telles que <span class="math inline">\(\mathbb{E}(X^2)&lt;\infty\)</span>. Cet espace peut être muni d’un produit scalaire :</p>
+<p><span class="math display">\[\forall X,Y\in L^2(\Omega),\, &lt;X\,,\,Y&gt;=\mathbb{E}(XY)\]</span>
+La norme associée est définie par :</p>
+<p><span class="math display">\[\forall X\in L^2(\Omega),\,||X||=\sqrt{\mathbb{E}(X^2)}\]</span></p>
+<p>Dans <span class="math inline">\(L^2(\Omega)\)</span>, l’inégalité de Cauchy-Schwarz prend donc la forme suivante :</p>
+<div class="thmbox thm">
+<p><strong>Inégalité de Cauchy-Schwarz dans <span class="math inline">\(L^2(\Omega)\)</span>.</strong> Soient <span class="math inline">\(X,Y\in L^2(\Omega)\)</span> deux variables aléatoires discrètes. Alors :</p>
+<p><span class="math display">\[\mathbb{E}(XY)\leq\sqrt{\mathbb{E}(X^2)}\,\sqrt{\mathbb{E}(Y^2)}\]</span>
+Cette inégalité s’écrit aussi :</p>
+<p><span class="math display">\[\sum\limits_{\omega\in\Omega}\mathbb{P}(\{\omega\})\,X(\omega)\,Y(\omega)\leq\sqrt{\sum\limits_{\omega\in\Omega}\mathbb{P}(\{\omega\})\,X^2(\omega)}\sqrt{\sum\limits_{\omega\in\Omega}\mathbb{P}(\{\omega\})\,Y^2(\omega)}\]</span></p>
+</div>
 <ul>
 <li>Espérance, variance, moments d’ordres supérieurs</li>
 <li>inégalité de Markov, inégalité de Bieanymé-Tchébychev (exemples + intérêt)</li>

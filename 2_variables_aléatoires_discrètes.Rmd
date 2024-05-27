@@ -733,7 +733,7 @@ $$\mathbb{E}(X)=\sum\limits_{k=1}^n \mathbb{P}(X=x_k)\,x_k$$
 \noindent 
 
 
-Pour une variable aléatoire réelle discrète de **support infini dénombrable** $R_x=\{x_1,\dots, x_n\dots\}$, l'existence d'une espérance n'est pas systématique. On dit qu'une telle variable $X$ admet une espérance si la série $\sum\limits_{n}\mathbb{P}(X=x_n)\,x_n$ est convergente. Dans ce cas, l'espérance $\mathbb{E}(X)$ de $X$ est la somme de cette série :
+Pour une variable aléatoire réelle discrète de **support infini dénombrable** $R_x=\{x_1,\dots, x_n\dots\}$, l'existence d'une espérance n'est pas systématique. On dit qu'une telle variable $X$ admet une espérance finie si la série $\sum\limits_{n}\mathbb{P}(X=x_n)\,x_n$ est asbolument convergente. Dans ce cas, l'espérance $\mathbb{E}(X)$ de $X$ est la somme de cette série :
 
 $$\mathbb{E}(X)=\sum\limits_{n=0}^{\infty}\mathbb{P}(X=x_n)\,x_n$$
 ::::
@@ -746,7 +746,7 @@ $$\mathbb{E}(X)=\sum\limits_{n=0}^{\infty}\mathbb{P}(X=x_n)\,x_n$$
 
 :::: {.defbox .def data-latex="important"}
 <center>**Espérance d'une variable aléatoire réelle discrète (variante)**</center>
-Soit $X:\Omega\longrightarrow\mathbb{R}$ une variable aléatoire réelle discrète. Alors, son espérance, si elle existe, est donnée par la formule
+Soit $X:\Omega\longrightarrow\mathbb{R}$ une variable aléatoire réelle discrète d'espérance finie. Alors :
 
 $$\mathbb{E}(X)=\sum\limits_{\omega\in\Omega}\mathbb{P}(\{\omega\})X(\omega)$$
 ::::
@@ -778,7 +778,7 @@ $\square$
  \noindent Une application de ce résultat est le **théorème de transfert** :
  
 :::: {.thmbox .def data-latex="important"}
-**Théorème de transfert.** Soient $X:\Omega\longrightarrow\mathbb{R}$ une variable aléatoire réelle admettant une espérance et $\phi:X(\Omega)\longrightarrow\mathbb{R}$ une fonction. Alors, sous réserve d'existence de $\mathbb{E}(\phi(X))$, on a 
+**Théorème de transfert.** Soient $X:\Omega\longrightarrow\mathbb{R}$ une variable aléatoire réelle dscrète et $\phi:X(\Omega)\longrightarrow\mathbb{R}$. On suppose que $X$ et $\phi(X)$ admettent des espérances finies. Alors, on a 
 
 $$\mathbb{E}(\phi(X))=\sum\limits_{k\in K}\mathbb{P}(X=x_k)\,\phi(x_k)$$
 \noindent En particulier, pour $\phi(x)=x^m$, avec $m$ entier naturel, on a donc
@@ -925,7 +925,7 @@ S_n(x)&=T_n^{'}(x) \\
 
 $\square$
 
-\noindent Avec ce qui précède, la série $\sum\limits_{n}\mathbb{P}(X=n)n=\sum\limits_{n=1}^{\infty}(1-p)\,n\,p^{n-1}$ est convergente, de somme $\frac{1-p}{(1-p)^2}=\frac{1}{1-p}$. Autrement dit, $X$ admet une espérance et $\mathbb{E}(X)=\frac{1}{p}$.
+\noindent Avec ce qui précède, la série $\sum\limits_{n}\mathbb{P}(X=n)n=\sum\limits_{n}p\,n\,(1-p)^{n-1}$ est convergente, de somme $\frac{p}{(1-(1-p))^2}=\frac{1}{p}$. Autrement dit, $X$ admet une espérance et $\mathbb{E}(X)=\frac{1}{p}$.
 
 \noindent
 
@@ -951,7 +951,7 @@ p_{i+1}&=\mathbb{P}(X_{i+1}=1|X_i=1)\,p_i+\mathbb{P}(X_{i+1}=1|X_i=0)\frac{b_i}{
 &=p_i
 \end{align}
 
-\noindent Ainsi, $p_i$ ne dépend pas de $i$ : $p_i=p$, et donc 
+\noindent Ainsi, $p_i$ ne dépend pas de $i$ : $p_i=p=p_1=\frac{N}{D}$, et donc 
 
 $$\mathbb{E}(X)=np$$
 
@@ -960,17 +960,17 @@ $$\mathbb{E}(X)=np$$
 :::: {.defbox .thm data-latex="important"}
 <center>**Moments d'une variable aléatoire**</center>
 
-\noindent Soient $X$ une variable aléatoire et $r\in\mathbb{N}$. On appelle **moment d'ordre $r$**, l'espérance - si elle existe - de $X^r$ : 
+\noindent Soient $X$ une variable aléatoire et $r\in\mathbb{N}$. Si $X^r$ admet une espérance finie, alors 
 
 $$m_r=\mathbb{E}(X^r)$$
-\noindent De même, sous réserve d'existence, le **moment centré d'ordre $r$** est le réel
+\noindent s'appelle **moment d'ordre $r$** de $X$.
+
+\noindent De même, en notant $\mu=\mathbb{E}(X)$, si $(X-\mu)^r$ admet une espérance finie alors on appelle **moment centré d'ordre $r$** le réel
 
 $$\mu_r=\mathbb{E}\left((X-\mu)^r\right)$$
-\noindent où $\mu=\mathbb{E}(X)$.
-
 \noindent 
 
-**Cas $r=1$ et $r=2$ (toujours sous résevre d'existence) :**
+**Cas $r=1$ et $r=2$ (toujours sous réserve d'existence) :**
 
 - $\mu_1=0$
 - $\mu_2$ s'appelle la **variance** de $X$, notée $\mathbb{V}(X)$ :
@@ -1079,6 +1079,140 @@ $$\mathbb{E}(X^2)=\lambda^2+\lambda$$
 \noindent Comme $\mathbb{E}(X)=\lambda$, on en déduit que 
 
 $$\mathbb{V}(X)=\lambda$$
+
+\noindent
+
+**v. Variance d'une loi géométrique $\mathcal{G}(p)$.** Pour $p\in ]0\,;\,1[$, on a
+
+$$\sum\limits_{n=2}^{\infty}n(n-1)(1-p)^{n-2}=\frac{2}{p^3}$$
+
+\noindent soit
+
+$$\sum\limits_{n=1}^{\infty}n(n+1)(1-p)^{n-1}=\frac{2}{p^3}$$
+\noindent et donc
+
+\begin{align}
+\mathbb{E}(X^2)&=p\sum\limits_{n=1}^{\infty}n^2(1-p)^{n-1} \\
+&=\frac{2}{p^2}-p\sum\limits_{n=1}^{\infty}n(1-p)^{n-1} \\
+&=\frac{2}{p^2}-\mathbb{E}(X) \\
+&=\frac{2}{p^2}-\frac{1}{p} \\
+&=\frac{2-p}{p^2}
+\end{align}
+
+\noindent d'où
+
+\begin{align}
+\mathbb{V}(X)&=\mathbb{E}(X^2)-\mathbb{E}(X)^2 \\
+&=\frac{2-p}{p^2}-\frac{1}{p^2}\\
+&=\frac{1-p}{p^2}
+\end{align}
+
+\noindent
+
+**vi. Variance d'une loi hypergéométrique $\mathcal{H}(N,D,n)$.** Si $X\sim\mathcal{H}(N,D,n)$ alors $X$ admet une variance et 
+
+$$\mathbb{V}(X)=\frac{N-n}{N-1}\times\frac{nD}{N}\left(1-\frac{D}{N}\right)$$
+
+\noindent (formule admise pour le moment)
+
+### Quelques inégalités classiques
+
+\noindent Les inégalités qui suivent reviennent souvent dans les exercices et problèmes du concours.
+
+:::: {.thmbox .thm data-latex="important"}
+**Inégalité triangulaire.** Soit $X$ une variable aléatoire réelle discrète telle que $|X|$ est d'espérance finie. Alors $X$ est d'espérance finie et
+
+$$|\mathbb{E}(X)|\leq\mathbb{E}(|X|)$$
+
+::::
+
+\noindent
+
+**Démonstration.** Par définition, $X$ est d'espérance finie si et seulement si $|X|$ est d'espérance finie. On a alors :
+
+\begin{align}
+|\mathbb{E}(X)|&=\left|\sum\limits_{\omega\in\Omega}\mathbb{P}(\{\omega\})X(\omega)\right| \\
+&\leq\sum\limits_{\omega\in\Omega}|\mathbb{P}(\{\omega\})X(\omega)| \\
+&=\sum\limits_{\omega\in\Omega}\mathbb{P}(\{\omega\})|X(\omega)| \\
+&=\mathbb{E}(|X|)
+\end{align}
+
+$\square$
+
+\noindent L'inégalité de Cauchy-Schwarz est un résultat important d'algèbre. On rappelle d'abord la notion de **produit scalaire** sur un espace vectoriel.
+
+\noindent
+
+**Rappel : produit scalaire.** Dans un espace-vectoriel $E$, on appelle *produit scalaire* toute application $\phi:E\times E\longrightarrow\mathbb{R}$ vérifiant les propriétés suivantes :
+
+- **Bilinéarité :** $\phi$ est linéaire à gauche et linéaire à droite :
+
+  - **Linéarité à gauche :** $\forall x,y,z\in E,\, \forall\lambda\in\mathbb{R}, \, \phi(x+\lambda y, z)=\phi(x,z)+\lambda\phi(y,z)$
+  
+  - **linéarité à droite :** $\forall x,y,z\in E,\, \forall\lambda\in\mathbb{R}, \, \phi(x, y+\lambda z)=\phi(x,y)+\lambda\phi(x,z)$
+  
+- **Symétrie :** $\forall x,y\in E,\, \phi(x,y)=\phi(y,x)$
+
+- **Définie positive :** $\forall x\in E, \phi(x,x)\geq 0$, avec égalité si et seulement si $x=0$.
+
+\noindent Une notation courante pour un produit scalaire est $<.\,,\,.>$. De plus, pour $x\in E$, on note $||x||=\sqrt{<x\,,\,x>}$. Il s'agit d'une **norme** sur $E$, i.e. une application de $E$ dans $\mathbb{R}$ vérifiant les propriétés suivantes :
+
+- pour tout $x$ dans $E$, $||x||=0$ si et seulement si $x=0$ ;
+
+- pour tout $x$ dans $E$ et pour tout réel $\lambda$ : $||\lambda x||=|\lambda|.||x||$ ;
+
+- pour tous $x,y$ dans $E$, $||x+y||\leq ||x||+||y||$.
+
+\noindent L'inégalité de Cauchy-Schwarz établit une majoration du produit scalaire (et même de sa valeur absolue) par le produit des normes :
+
+:::: {.thmbox .thm data-latex="important"}
+**Inégalité de Cauchy-Schwarz.** Soient $(E\,,\,<\,,\,>)$ un espace préhilbertien réel et $||.||$ la norme associée au produit scalaire $<\,,\,>$. Alors, on a 
+
+$$\forall x,y\in E,\,|<x\,,y>|\leq ||x||\,||y||$$
+ \noindent avec égalité si et seulement si $x$ et $y$ sont colinéaires.
+::::
+
+\noindent
+
+**Démonstration.** Soient $x,y\in E$. Pour tout réel $t$, on a 
+
+\begin{align}
+0&\leq||x-ty||^2 \\
+&=||y||^2t^2-2<x\,,\,y>t+||x||^2 \\
+\end{align}
+
+\noindent On peut voir $||y||^2t^2-2<x\,,\,y>t+||x||^2$ comme un trinôme en $t$, toujours positif ou nul. Par conséquent son discriminant est négatif ou nul, soit
+
+$$4<x\,,\,y>^2-4||x||^2||y||^2\leq 0$$
+i.e.
+
+$$|<x\,,\,y>|\leq ||x||\,||y||$$
+\noindent Le cas d'égalité signifie que ce discriminant est nul. Dans ce cas, il existe $t$ réel tel que $x=ty$, ce qui signifie exactement que $x$ et $y$ sont colinéaires.
+
+$\square$
+
+\noindent Dans le cadre de la théorie des probabilités, l'inégalité de Cauchy-Schwarz est souvent appliquée dans l'epace $L^2(\Omega, \mathcal{P}(\Omega), \mathbb{P})$.
+
+\noindent 
+
+**L'espace $L^2(\Omega)$.** On note $L^2(\Omega, \mathcal{P}(\Omega),\mathbb{P})$, ou plus simplement $L^2(\Omega)$, l'ensemble des variables aléatoires $X:(\Omega,\mathcal{P}(\Omega),\mathbb{P})\longrightarrow\mathbb{R}$ telles que $\mathbb{E}(X^2)<\infty$. Cet espace peut être muni d'un produit scalaire :
+
+$$\forall X,Y\in L^2(\Omega),\, <X\,,\,Y>=\mathbb{E}(XY)$$
+\noindent La norme associée est définie par :
+
+$$\forall X\in L^2(\Omega),\,||X||=\sqrt{\mathbb{E}(X^2)}$$
+
+\noindent Dans $L^2(\Omega)$, l'inégalité de Cauchy-Schwarz prend donc la forme suivante :
+
+:::: {.thmbox .thm data-latex="important"}
+**Inégalité de Cauchy-Schwarz dans $L^2(\Omega)$.** Soient $X,Y\in L^2(\Omega)$ deux variables aléatoires discrètes. Alors :
+
+$$\mathbb{E}(XY)\leq\sqrt{\mathbb{E}(X^2)}\,\sqrt{\mathbb{E}(Y^2)}$$
+\noindent Cette inégalité s'écrit aussi :
+
+$$\sum\limits_{\omega\in\Omega}\mathbb{P}(\{\omega\})\,X(\omega)\,Y(\omega)\leq\sqrt{\sum\limits_{\omega\in\Omega}\mathbb{P}(\{\omega\})\,X^2(\omega)}\sqrt{\sum\limits_{\omega\in\Omega}\mathbb{P}(\{\omega\})\,Y^2(\omega)}$$
+
+::::
 
 -   Espérance, variance, moments d'ordres supérieurs
 -   inégalité de Markov, inégalité de Bieanymé-Tchébychev (exemples + intérêt)

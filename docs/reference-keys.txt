@@ -118,3 +118,4 @@ fonction-de-répartition
 quantiles
 simulation-dune-variable-aléatoire-réelle
 exemples-classiques-de-lois-discrètes
+quelques-inégalités-classiques
