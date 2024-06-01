@@ -1502,7 +1502,7 @@ $$\mathbb{P}(Y=y_j)=\frac{1}{p}$$
 
 **ii.** 
 
-\noindent En revanche : **la connaissance des lois marginales ne suffit pas à retrouver la loi conjointe**, sauf dans des cas particuliers, par exemple si l'on sait que les variables aléatoires $X$ et $Y$ sont indépendantes, ce que nous allons voir un peu plus tard.
+
 
 
 
