@@ -120,3 +120,7 @@ simulation-dune-variable-aléatoire-réelle
 exemples-classiques-de-lois-discrètes
 quelques-inégalités-classiques
 inégalité-de-cauchy-schwarz
+couple-aléatoire-loi-conjointe-lois-marginales
+n-uplets-aléatoires
+variables-aléatoires-indépendantes
+loi-conditionnelle-mathbbp_xyy_j

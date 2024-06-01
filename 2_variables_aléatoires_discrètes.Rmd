@@ -1386,6 +1386,8 @@ $\square$
 
 ## Vecteurs aléatoires
 
+### Couple aléatoire : loi conjointe, lois marginales
+
 :::: {.defbox .def data-latex="important"}
 <center>**Couple de variables aléatoires, loi conjointe, lois marginales**</center>
 \noindent Soient $X$ et $Y$ deux variables aléatoires réelles discrètes définies sur le même espace probabilisé $(\Omega,\mathcal{P}(\Omega),\mathbb{P})$.
@@ -1441,9 +1443,9 @@ On y trouve :
 
 - la loi du couple $(X,Y)$, donnée par les cellules du tableau, en nombre $\text{Card}(X(\Omega))\times\text{Card}(Y(\Omega))$ (éventuellement infini). La probabilité $p_{ij}=\mathbb{P}(X=i, Y=j)$ se trouve dans la cellule située à la ligne $i$ et la colonne $j$  ;
 
-- la loi de la marginale $\mathbb{P}_Y$ sur la ligne des totaux (en bleu) ;
+- la loi marginale $\mathbb{P}_Y$ de $Y$ sur la ligne des totaux (en bleu) ;
 
-- la loi de la marginale $\mathbb{P}_X$ sur la colonne des totaux (en rouge).
+- la loi marginale $\mathbb{P}_X$ de $X$ sur la colonne des totaux (en rouge).
 
 
 \noindent Ce tableau doit aussi servir de mise en garde sur le fait que :
@@ -1454,9 +1456,9 @@ On y trouve :
 
 
 
-\noindent En effet, les lois marginales correspondent à la ligne des totaux (en bleu) et la colonne des totaux (en rouge). Or, il n'y a pas unicité des nombres $p_{ij}$ permettant de générer cette ligne et cette colonne. La connaissance des $p_{i.}$ et des $p_{.j}$ ne suffit donc pas à reconstruire les $p_{ij}$.
+\noindent En effet, les lois marginales correspondent à la ligne des totaux (en bleu) et la colonne des totaux (en rouge). Or, il n'y a pas unicité des nombres $p_{ij}$ permettant de générer cette ligne et cette colonne. La connaissance des $p_{i.}$ et des $p_{.j}$ ne suffit donc pas à reconstruire les $p_{ij}$. Le premier (contre-)exemple ci-dessous permet de s'en convaincre.
 
-**Exemple.** On considère les couples de variables aléatoires $(X_1, Y_1)$ et $(X_2, Y_2)$ dont les lois sont données par les tableaux ci-dessous :
+**Exemples.i.** On considère les couples de variables aléatoires $(X_1, Y_1)$ et $(X_2, Y_2)$ dont les lois sont données par les tableaux ci-dessous :
 
 <center>
 ```{r, echo = FALSE}
@@ -1483,7 +1485,8 @@ $$\mathbb{P}(X_1=x_2)=\mathbb{P}(X_2=x_2)=0,7$$
 $$\mathbb{P}(X_1=x_1, Y_1=y_1)=0,2$$
 $$\mathbb{P}(X_2=x_1, Y_2=y_1)=0,25$$
 
-**Exemples. i.** On suppose que le couple $(X,Y)$ est à valeurs dans $E=\{x_1\dots x_n\}\times\{y_1\dots y_p\}$ et que
+
+**ii.** On suppose que le couple $(X,Y)$ est à valeurs dans $E=\{x_1\dots x_n\}\times\{y_1\dots y_p\}$ et que
 
 $$\forall 1\leq i\leq n, \, \forall 1\leq j\leq p,\,\mathbb{P}(X=x_i, Y=y_j)=\frac{1}{np}$$
 
@@ -1500,15 +1503,233 @@ $$\forall 1\leq i\leq n, \, \forall 1\leq j\leq p,\,\mathbb{P}(X=x_i, Y=y_j)=\fr
 $$\mathbb{P}(Y=y_j)=\frac{1}{p}$$
 \noindent
 
-**ii.** 
+**iii.** Soient $X$ et $Y$ deux variables aléatoires à valeurs dans $\mathbb{N}$. On suppose que la loi conjointe de $(X,Y)$ est donnée par
+
+$$\mathbb{P}(X=i, Y=j)=\frac{a}{i!\,j!}$$
+\noindent avec $a$ un réel.
+
+\noindent Nous allons déterminer les lois marginales de $X$ et $Y$. Pour cela, on constate d'abord que la valeur de $a$ est contrainte par l'égalité
+
+$$\sum\limits_{i=0}^{\infty}\sum\limits_{j=0}^{\infty}\mathbb{P}(X=i, Y=j)=1$$
+\noindent qui s'écrit
+
+$$a\sum\limits_{i=0}^{\infty}\frac{1}{i!}.\sum\limits_{j=0}^{\infty}\frac{1}{j!}=1$$
+\noident et qui permet de trouver que
+
+$$a=\frac{1}{e^2}$$
+\noindent On en déduit que, pour tout entier naturel $i$, on a :
+
+\begin{align}
+\mathbb{P}(X=i&)=\sum\limits_{j=0}^{\infty}\mathbb{P}(X=i, Y=j) \\
+&= \frac{1}{e^2}\sum\limits_{j=0}^{\infty}\frac{1}{i!\,j!} \\
+&=\frac{1}{e.i!}
+\end{align}
+
+\noindent On reconnaît la loi de Poisson $\mathcal{P}(1)$. 
+
+\noindent $X$ et $Y$ jouant des rôles symétriques, on a donc
+
+$$X\sim\mathcal{P}(1)$$
+$$Y\sim\mathcal{P}(1)$$
+
+### $n-$uplets aléatoires
+
+\noindent Ce qui précède se généralise sans difficulté aux vecteurs aléatoires de taille quelconque, i.e. aux $n-$uplets $(X_1,\dots,X_n)$ de variables aléatoires discrètes réelles définies sur un même espace probabilisé $(\Omega, \mathcal{P}(\Omega), \mathbb{P})$.
+
+\noindent La loi conjointe d'un tel vecteur est définie par la donnée de son support $X_1(\Omega)\times\dots\times X_n(\Omega)$ et des probabilités
+
+$$\mathbb{P}(X_1=x_1,\dots,X_n=x_n)$$
+\noindent pour tous les $n-$uplets $(x_1,\dots,x_n)\in X_1(\Omega)\times\dots\times X_n(\Omega)$.
+
+\noindent Le vecteur $(X_1,\dots,X_n)$ possède $n$ lois marginales, qui sont les lois $\mathbb{P}_{X_1},\dots,\mathbb{P}_{X_n}$ des variables $X_1,\dots,X_n$. 
+
+\noindent La loi conjointe d'un vecteur de taille quelconque définit complètement les lois marginales, mais à nouveau les lois marginales ne suffisent pas à définir la loi conjointe.
 
 
+### Loi conditionnelle $\mathbb{P}_{X|Y=y_j}$
+
+\noindent Soit $(X,Y)$ un couple aléatoire dont la loi est donnée par le tableau de contingence suivant :
+
+<center>
+```{r, echo = FALSE}
+knitr::include_graphics("C:/Users/olivier.guin/Travail/Formation_Administrateur/Cours/Cours_probabilités_statistique/images/tableau_contingence.PNG") 
+```
+</center>
+
+\noindent La colonne numéro $j$ fixe la valeur de $Y$ à $Y=y_j$. Considérons la liste des probabilités apparaissant dans cette colonne :
+
+$$p_{1j},\dots,p_{nj}$$
+\noindent Cette série de valeurs somme à $p_{.j}$ :
+
+$$\sum\limits_{i\in I}p_{ij}=p_{.j}$$
+\noindent Donc, en divisant toutes ces probabilités par $p_{.j}$, on obtient des nombres compris entre $0$ et $1$ et qui somment à $1$ :
+
+$$\sum\limits_{i\in I}\frac{p_{ij}}{p_{.j}}=1$$
+\noindent de sorte que le vecteur $\left(\frac{p_{1j}}{p_{.j}},\dots,\frac{p_{nj}}{p_{.j}},\dots\right)$ peut s'interpréter comme une loi de probabilité. Mais ces valeurs caractérisent la distribution de $X$ lorsqu'on se place dans la colonne numéro $j$, autrement dit lorsqu'on fait l'hypothèse $Y=j$. Il est donc naturel d'appeler cette distribution la **loi de $X$ conditionnellement à $(Y=y_j)$**.
+
+\noindent L'ensemble des lois conditionnelles $\mathbb{P}(X|Y=y_j)$ sont données par le tableau suivant (lecture en colonnes) :
+
+<center>
+```{r, echo = FALSE}
+knitr::include_graphics("C:/Users/olivier.guin/Travail/Formation_Administrateur/Cours/Cours_probabilités_statistique/images/tableau_x_sachant_y.PNG") 
+```
+</center>
 
 
+:::: {.defbox .def data-latex="important"}
+**Loi conditionnelle de $X$ sachant $Y=y_j$.** Avec les notations précédentes, et sous réserve que $\mathbb{P}(Y=y_j)>0$, on pose, pour tout $x_i\in X(\Omega)$ :
 
-### Définition
+$$\mathbb{P}(X=x_i|Y=y_j)=\frac{\mathbb{P}(X=x_i, Y=y_j)}{\mathbb{P}(Y=y_j)}$$
 
-### Loi jointe, loi marginales
+\noindent On définit ainsi une loi de probabilité, appelée **loi conditionnelle de $X$ sachant que $Y=y_j$**, et notée $\mathbb{P}_{X|Y=y_j}$.
+::::
+
+\noindent
+
+**Remarques. i.** De façon symétrique, on définit des lois conditionnelles $\mathbb{P}_{Y|X=x_i}$ pour toutes les valeurs de $i$ telles que $\mathbb{P}(X=x_i)>0$. Cette loi est définie par la donnée des probabilités
+
+$$\mathbb{P}(Y=y_j|X=x_i)=\frac{\mathbb{P}(X=x_i, Y=y_j)}{\mathbb{P}(X=x_i)}$$
+\noindent pour tous les $y_j\in Y(\Omega)$.
+
+\noindent L'ensemble de ces lois conditionnelles $\mathbb{P}_{Y|X=x_i}$ sont représentées dans le tableau suivant (lecture en lignes) :
+
+<center>
+```{r, echo = FALSE}
+knitr::include_graphics("C:/Users/olivier.guin/Travail/Formation_Administrateur/Cours/Cours_probabilités_statistique/images/tableau_y_sachant_x.PNG") 
+```
+</center>
+
+\noindent
+
+**ii.** On peut aussi introduire la notion de loi conditionnelle en utilisant directement la définion de probabilité conditionnelle faite au chapitre précédent. Pour deux événements $A$ et $B$ tels que $\mathbb{P}(B)>0$, on définit la probabilité de $A$ sachant $B$ en posant 
+
+$$\mathbb{P}(A|B)=\frac{\mathbb{P}(A\cap B)}{\mathbb{P}(B)}$$
+\noindent En posant $A=(X=x_i)$ et $B=(Y=y_j)$, on a donc
+
+$$\mathbb{P}(X=x_i|Y=y_j)=\frac{\mathbb{P}(X=x_i, Y=y_j)}{\mathbb{P}(Y=y_j)}$$
+\noindent L'approche par tableau de contingence présente toutefois l'avantage d'être un peu plus intuitive.
+
+\noindent 
+
+**Exemples. i.** On tire aléatoirement deux nombres $X$ et $Y$ selon la règle suivante :
+
+- tirage de $X$ selon une loi de Bernoulli de paramètre $p\in ]0,1[$ ;
+
+- puis tirage de $Y$ :
+
+  - si $X=0$, on tire $Y$ selon une loi de Poisson $\mathcal{P}(\lambda)$, avec $\lambda>0$ ;
+  
+  - si $X=1$, on tire $Y$ selon une loi uniforme sur $\{0,1,2,3\}$.
+  
+
+\noindent On connait donc la loi de $X$ : 
+$$X\sim\mathcal{B}(p)$$
+\noindent et on connait les lois de $Y$ sachant $X=0$ et de $Y$ sachant $X=1$ :
+
+$$Y|X=0\sim\mathcal{P}(\lambda)$$
+$$Y|X=1\sim\mathcal{U}\left(\{0,1,2,3\}\right)$$
+\noindent On peut en déduire facilement les lois $\mathbb{P}_Y$ et $\mathbb{P}_{(X,Y)}$.
+
+**Commençons par la loi de $Y$.**
+
+- **Support de $Y$ :** $Y(\Omega)=\mathbb{N}$
+- **Probabilités $\mathbb{P}(Y=j)$ :** pour tout entier naturel $j$, on a
+
+\begin{align}
+\mathbb{P}(Y=j)&=\mathbb{P}(Y=j|X=0)\mathbb{P}(X=0)+\mathbb{P}(Y=j|X=1)\mathbb{P}(X=1) \\
+&=(1-p).\mathbb{P}(Y=j|X=0)+p.\mathbb{P}(Y=j|X=1)
+\end{align}
+
+\noindent On en déduit que :
+
+- si $0\leq j\leq 3$, alors
+
+$$\mathbb{P}(Y=j)=(1-p)\,e^{-\lambda}\frac{\lambda^j}{j!}+\frac{p}{4}$$
+
+- si $j\geq 4$, alors
+
+$$\mathbb{P}(Y=j)=(1-p)\,e^{-\lambda}\frac{\lambda^j}{j!}$$
+\noindent **On détermine maintenant la loi conjointe de $(X,Y)$**
+
+- **Support de $(X,Y)$ :** $(X,Y)(\Omega)=\{0,1\}\times\mathbb{N}$
+
+- **Probabilités $\mathbb{P}(X=i, Y=j)$ :** pour $(i,j)\in\{0,1\}\times\mathbb{N}$, on a 
+
+- pour $i=0$ :
+
+\begin{align}
+\mathbb{P}(X=0,Y=j)&=\mathbb{P}(Y=j|X=0)\mathbb{P}(X=0) \\
+&= (1-p)e^{-\lambda}\frac{\lambda^j}{j!} \\
+\end{align}
+
+- pour $i=1$, on a 
+
+\begin{align}
+\mathbb{P}(X=1,Y=j)&=\mathbb{P}(Y=j|X=1)\mathbb{P}(X=1) \\
+&=\left \{
+\begin{array}{c @{=} c}
+    \frac{p}{4} & \text{ si } 0\leq j\leq 3 \\
+    0 & \text{ si } j\geq 4
+\end{array}
+\right.
+\end{align}
+
+\noindent On peut donner l'expression générale de $\mathbb{P}(X=i, Y=j)$ :
+
+$$\mathbb{P}(X=i, Y=j)=i\,\frac{p}{4}.\mathbb{1}_{0\leq j\leq 3}+(1-i)(1-p)e^{-\lambda}\frac{\lambda^j}{j!}$$
+
+\noindent 
+
+**On en déduit alors la loi de $Y$.**
+
+- **Support de $Y$ :** $Y(\Omega)=\mathbb{N}$
+- **Probabilités $\mathbb{P}(Y=j)$ :** pour tout entier naturel $j$, on a, d'après la formule des probabilités totales :
+
+\begin{align}
+\mathbb{P}(Y=j)&=\mathbb{P}(Y=j,X=0)+\mathbb{P}(Y=j,X=1) \\
+&=(1-p)e^{-\lambda}\frac{\lambda^j}{j!}+\frac{p}{4}\mathbb{1}_{0\leq j\leq 3}
+\end{align}
+
+
+\noindent 
+
+**ii.** Dans un exemple précédent, on a défini la loi d'un couple aléatoire $(X,Y)$ par
+
+$$\forall (i,j)\in\mathbb{N}^2,\,\mathbb{P}(X=i, Y=j)=\frac{1}{e^2\,i!\,j!}$$
+\noindent et on a montré que les lois marginales sont toutes les deux égales à la loi de Poisson $\mathcal{P}(1)$ :
+
+$$\forall i\in\mathbb{N},\,\mathbb{P}(X=i)=\mathbb{P}(Y=i)=\frac{1}{e.i!}$$
+\noindent On en déduit que
+
+\begin{align}
+\mathbb{P}(X=i|Y=j)&=\frac{\mathbb{P}(X=i, Y=j)}{\mathbb{P}(Y=j)}\\
+&=\frac{\frac{1}{e^2\,i!\,j!}}{\frac{1}{e\,j!}} \\
+&=\frac{1}{e\,i!} \\
+&=\mathbb{P}(X=i)
+\end{align}
+
+\noindent De façon analogue :
+
+$$\mathbb{P}(Y=j|X=i)=\mathbb{P}(Y=j)$$
+
+\noindent Ces deux égalités signifient :
+
+- pour la première, que l'information de la valeur prise par $Y$ n'a aucun impact sur la loi de $X$ ;
+
+- pour la deuxième, que l'information de la valeur prise par $X$ n'a aucun impact sur la loi de $Y$.
+
+\noindent Dans une telle situation, on dit que les variables aléatoires $X$ et $Y$ sont indépendantes. 
+
+\noindent De façon générale, l'indépendance de deux variables aléatoires est définie de façon simple par une égalité (ou plutôt une série d'égalités) :
+
+:::: {.defbox .def data-latex="important"}
+<center>**Indépendance de deux variables aléatoires**</center>
+
+Deux variables aléatoires réelles discrètes $X$ et $Y$ définies sur un même espace probabilisé $(\Omega, \mathcal{P}(\Omega),\mathbb{P})$ sont dites **indépendantes** lorsque
+
+$$\forall (x,y)\in X(\Omega)\times Y(\Omega),\, \mathbb{P}(X=i, Y=j)=\mathbb{P}(X=i)\,\mathbb{P}(Y=j)$$
+
+::::
 
 ### Loi conditionnelle $\mathcal{L}(Y|X)$
 
