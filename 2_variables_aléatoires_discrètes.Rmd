@@ -1731,12 +1731,11 @@ $$\forall (x,y)\in X(\Omega)\times Y(\Omega),\, \mathbb{P}(X=i, Y=j)=\mathbb{P}(
 
 ::::
 
+### Espérance conditionnelle $\mathbb{E}(Y|X=x)$
+
 ### Loi conditionnelle $\mathcal{L}(Y|X)$
 
-### Loi d'un couple de VA indépendantes
-
--   Définition
--   Somme de deux VA indépendantes (produit de convolution discret)
+### Somme de deux VA indépendantes (produit de convolution discret)
 
 ### Inégalité de Cauchy-Schwarz
 
@@ -1821,5 +1820,3 @@ $$\left|\sum\limits_{k\in K}\sum\limits_{l\in L}\mathbb{P}(X=x_k, Y=y_l)\,x_k\,y
 
 
 
-
-### Espérance conditionnelle, variance conditionnelle
