@@ -43,6 +43,8 @@ $$X:\Omega\longrightarrow F=X(\Omega)\subset\mathbb{R}$$
 \noindent On dira alors que $F$ est au *plus dénombrable*, et on utilisera souvent la notation unifiée
 
 $$F=X(\Omega)=\{x_i, \, i\in I\}, \, I\subset\mathbb{N}$$
+
+\noindent De plus, pour tout $\omega\in\Omega$, on dira que $X(\omega)$ est une **réalisation** de $X$.
 ::::
 
 \noindent
@@ -852,7 +854,36 @@ $$\mathbb{E}(X)=\frac{1}{n}\sum\limits_{k=1}^n x_k=\overline{x_n}$$
  &= p
  \end{align}
  
- \noindent
+ \noindent On en profite pour signaler une égalité extrêment simple mais souvent utile en pratique :
+ 
+:::: {.thmbox .def data-latex="important"}
+**Espérance d'une indicatrice.** Pour tout événement $A$, on note $\mathbb{1}_A$ la variable aléatoire appelée **indicatrice de $A$**, définie par 
+
+$$\mathbb{1}_A=
+\left \{
+\begin{array}{c @{=} c}
+    1 & \text{ si } A \text{ est réalisé } \\
+    0 & \text{ sinon}
+\end{array}
+\right.
+$$
+autrement dit, pour tout $\omega\in\Omega$ :
+
+
+$$\mathbb{1}_A(\omega)=
+\left \{
+\begin{array}{c @{=} c}
+    1 & \text{ si } \omega\in A \\
+    0 & \text{ sinon}
+\end{array}
+\right.
+$$
+\noindent $\mathbb{1}_A$ suit une loi de Bernoulli de paramètre $p=\mathbb{P}(A)$, donc en particulier on a
+
+$$\mathbb{E}(\mathbb{1}_A)=\mathbb{P}(A)$$
+::::
+ 
+ \noindent Un exemple classique d'application de cette égalité est l'**inégalité de Markov**, qui est démontrée un peu plus bas. 
  
  **iii. Espérance d'une loi binomiale $\mathcal{B}(n,p)$.** Pour $X\sim\mathcal{B}(n,p)$, on peut écrire $X=\sum\limits_{i=1}^n X_i$ avec $X_i\sim\mathcal{B}(p)$. On a donc 
 \begin{align}
@@ -1139,6 +1170,355 @@ $$|\mathbb{E}(X)|\leq\mathbb{E}(|X|)$$
 
 $\square$
 
+\noindent L'inégalité triangulaire est un cas particulier d'une inégalité beaucoup plus générale, appelée **inégalité de Jensen**. 
+
+\noindent
+
+**Rappel (fonction convexe) :** Soit $I\subset\mathbb{R}$ un intervalle. Une fonction $\varphi:I\longrightarrow\mathbb{R}$ est dite **convexe** si pour tout couple $(x,y)\in I^2$ et pour tout réel $t\in [0,1]$ on a
+
+$$\varphi(tx+(1-t)y)\leq t\,\varphi(x)+(1-t)\,\varphi(y)$$
+
+\noindent Cette définition admet une interprétation graphique simple : $\varphi$ est convexe si et seulement si sa courbe représentative est située **en-dessous** de chacune de ses **cordes**.
+
+\noindent On peut montrer que cette définition de la convexité est équivalente à la définition suivante : $\varphi:I\longrightarrow\mathbb{R}$ est convexe si et seulement si pour tout $n-$uplet $(t_1,\dots t_n)$ de réels positifs tels que $t_1+\dots t_n=1$, pour tout $n-$uplet $(x_1,\dots, x_n)$ de réels, on a 
+
+$$\varphi(t_1x_1+\dots t_n x_n)\leq t_1\,\varphi(x_1)+\dots t_n\,\varphi(x_n)$$
+
+\noindent Dans le cas où $\varphi$ est dérivable sur $I$, elle est convexe si et seulement si sa dérivée $\varphi^{'}$ est croissante sur $I$, autrement dit si la pente de sa courbe représentative est croissante. On peut montrer que cela revient encore à dire que la courbe représentative de $\varphi$ est située **au-dessus** de chacune de ses tangentes.
+
+\noindent Dans le cas où $\varphi$ est deux fois dérivable sur $I$, avec ce qui précède on obtient immédiatement que $\varphi$ est convexe si et seulement si $\varphi^{''}\geq 0$ sur $I$.
+
+\noindent Enfin, on dit que $\varphi:I\longrightarrow\mathbb{R}$ est **concave** sur $I$ si et seulement si $-\varphi$ est convexe sur $I$.
+
+:::: {.thmbox .thm data-latex="important"}
+**Inégalité de Jensen.** Soient $I$ un intervalle réel, $\varphi:I\longrightarrow\mathbb{R}$ une fonction convexe et $X:\Omega\longrightarrow I$ une variable aléatoire discrète à valeurs dans $I$, admettant une espérance et telle que $\varphi(X)$ admet une espérance. Alors
+
+$$\varphi\left(\mathbb{E}(X)\right)\leq\mathbb{E}\left(\varphi(X)\right)$$
+
+::::
+
+\noindent 
+
+**Démonstration.** On démontre l'inégalité dans le cas où $\varphi$ est dérivable. Dans ce cas, la convexité de $\varphi$ signifie que la courbe représentative de $f$ est située au-dessus de chacune de ses **tangentes**. Pour tout réel $a$ dans $I$, on a donc
+
+$$\forall x\in I,\, \varphi(x)\geq \varphi(a)+(x-a)\,\varphi'(a)$$
+\noindent et donc en particulier pour $a=\mathbb{E}(X)$ et $x=X$ on obtient
+
+$$\varphi(X)\geq\varphi\left(\mathbb{E}(X)\right)+\left(X-\mathbb{E}(X)\right)\,\varphi'\left(\mathbb{E}(X)\right)$$
+\noindent En passant à l'espérance, on obtient
+
+\begin{align}
+\mathbb{E}(\varphi(X))&\geq\mathbb{E}\left(\varphi(\mathbb{E}(X))+\left(X-\mathbb{E}(X)\right)\,\varphi'(\mathbb{E}(X))\right) \\
+&=\varphi(\mathbb{E}(X))+(\mathbb{E}(X)-\mathbb{E}(X))\,\varphi'(\mathbb{E}(X)) \\
+&=\varphi(\mathbb{E}(X))
+\end{align}
+
+\noindet par croissance et linéarité de l'espérance.
+
+$\square$
+
+\noindent 
+
+**Remarque.** Dans le cas où $X$ est à support fini $\{x_1,\dots, x_n\}$ on a 
+
+\begin{align}
+\varphi(\mathbb{E}(X))&=\varphi\left(\sum\limits_{k=1}^n\mathbb{P}(X=x_k)\,x_k\right) \\
+&\leq\sum\limits_{k=1}^n\mathbb{P}(X=x_k)\,\varphi(x_k) \,\text{ ; par convexité} \\
+&=\mathbb{E}\left(\varphi(X)\right) \\
+\end{align}
+
+\noindent Le cas discret infini revient à étendre cette inégalité à des sommes infinies (sous réserve d'existence), autrement dit à écrire que
+
+$$\varphi\left(\sum\limits_{k=1}^{\infty}\mathbb{P}(X=x_k)\,x_k\right)\leq\sum\limits_{k=1}^{\infty}\mathbb{P}(X=x_k)\,\varphi(x_k)$$
+\noindent
+
+**Exemples. i.** L'inégalité triangulaire est un cas particulier d'application de l'inégalité de Jensen à la fonction valeur absolue, qui est bien convexe sur $\mathbb{R}$. 
+
+\noindent 
+
+**ii.** La fonction $x\mapsto x^2$ est convexe sur $\mathbb{R}$, donc, sous réserve d'existence des espérances, on a 
+
+$$\mathbb{E}(X)^2\leq\mathbb{E}(X^2)$$
+\noindent Les deux inégalités qui suivent sont des **inégalités de concentration**. Une inégalité de concentration donne un majorant à la probabilité qu'une variable aléatoire positive s'écarte d'une certaine valeur.
+
+\noindent L'inégalité de Markov est à la fois très utile et très facile à démontrer. Il faut retenir qu'elle permet de montrer l'inégalité de Bieanymé-Tchébychev. 
+
+:::: {.thmbox .thm data-latex="important"}
+**Inégalité de Markov.** Soit $X$ une variable aléatoire **positive** admettant une espérance. Alors, pour tout réel $a$ positif :
+
+$$\mathbb{P}(X\geq a)\leq\frac{\mathbb{E}(X)}{a}$$
+::::
+
+\noindent
+
+**Démonstration.** Soit $a$ un réel positif. Toute réalisation $X(\omega)$ est soit supérieure ou égale à $a$, soit strictement inférieure à $a$. On a donc l'égalité
+
+$$X=X.\mathbb{1}_{X\geq a}+X.\mathbb{1}_{X<a}$$
+
+\noindent d'où 
+
+\begin{align}
+\mathbb{E}(X)&=\mathbb{E}(X.\mathbb{1}_{X\geq a}+X.\mathbb{1}_{X<a}) \\
+&=\mathbb{E}(X.\mathbb{1}_{X\geq a})+\mathbb{E}(X.\mathbb{1}_{X<a}) \\
+&\geq a\mathbb{E}(\mathbb{1}_{X\geq a}) \\
+&=a\mathbb{P}(X\geq a)
+\end{align}
+
+\noindent d'où (puisque $a>0$) :
+
+$$\mathbb{P}(X\geq a)\leq\frac{\mathbb{E}(X)}{a}$$
+$\square$
+
+\noindent
+
+**Exemples. i.** Démontrer que pour toute variable aléatoire $X$ et pour tout réel $a$, on a $\mathbb{P}(X\geq a)\leq\mathbb{E}(e^{X-a})$.
+
+\noindent 
+
+**Solution.** Posons $Y=e^{X-a}$ : il s'agit d'une variable aléatoire positive. Par ailleurs, l'événement $(X\geq a)$ peut aussi s'écrire $(Y\geq 1)$. Donc, par application de l'inégalité de Markov :
+
+\begin{align}
+\mathbb{P}(X\geq a)&=\mathbb{P}(Y\geq 1) \\
+&\leq\frac{\mathbb{E}(Y)}{1} \\
+&=\mathbb{E}(e^{X-a})
+\end{align}
+
+\noindent 
+
+**ii.** Soient $X$ une variable aléatoire et $f:\mathbb{R}_+\longrightarrow\mathbb{R}_+$ une fonction strictement croissante. Démontrer :
+
+$$\forall a>0,\,\mathbb{P}(|X|\geq a)\leq\frac{\mathbb{E}(f(|X|))}{f(a)}$$
+\noindent
+
+**Solution.** On pose $Y=f(|X|)$ : on a $Y\geq 0$, puisque $f$ est une fonction de $\mathbb{R}_+$ dans lui-même. Comme $f$ est croissante, les événements $(|X|\geq a)$ et $(Y\geq f(a))$ sont égaux. D'où, par l'inégalité de Markov :
+
+\begin{align}
+\mathbb{P}(|X|\geq a)&=\mathbb{P}(Y\geq f(a)) \\
+&\leq\frac{\mathbb{E}(Y)}{f(a)} \\
+&=\frac{\mathbb{E}(f(|X|))}{f(a)}
+\end{align}
+
+$\square$
+
+\noindent Lorsque $X$ admet des moments d'ordres $1$ et $2$, on peut appliquer l'**inégalité de Bienaymé-Tchebychev**, qui se déduit de façon immédiate de l'inégalité de Markov :
+
+:::: {.thmbox .thm data-latex="important"}
+**Inégalité de Bienaymé-Tchebychev.** Soit $X$ une variable aléatoire admettant une espérance et une variance. Alors, pour tout réel $a$ strictement positif :
+
+$$\mathbb{P}\left(|X-\mathbb{E}(X)|\geq a\right)\leq\frac{\mathbb{V}(X)}{a^2}$$
+::::
+
+\noindent
+
+**Démonstration.** On pose $Y=\left(X-\mathbb{E}(X)\right)^2\geq 0$. On a $|X-\mathbb{E}(X)|\geq a\Leftrightarrow Y\geq a^2$. D'après l'inégalité de Markov :
+
+\begin{align}
+\mathbb{P}(|X-\mathbb{E}(X)|\geq a)&=\mathbb{P}(Y\geq a^2) \\
+&\leq\frac{\mathbb{E}(Y)}{a^2} \\
+&=\frac{\mathbb{V}(X)}{a^2} \\
+\end{align}
+
+$\square$
+
+\noindent
+
+**Interprétation.** L'inégalité de Bienaymé-Tchebychev nous dit qu'une variable aléatoire ne peut s'éloigner de son espérance qu'avec une faible probabilité :  $\mathbb{P}(|X-\mathbb{E}(X)|\geq a)$ est coincé entre $0$ et $\frac{\mathbb{V}(X)}{a^2}$, qui devient de plus en plus proche de $0$ au fur et à mesure que $a$ augmente.
+
+\noindent
+
+**Application de l'inégalité de Bienaymé-Tchebychev :** la loi faible des grands nombres, qui sera abordée plus tard.
+
+\noindent
+
+**Exemple.** On joue $1\,000$ fois à pile ou face avec une pièce équilibrée. Montrer que la probabilité d'obtenir entre $480$ et $520$ faces est supérieure ou égale à $0,375$.
+
+\noindent
+
+**Solution.** On note $X$ le nombre de faces obtenues. $X$ est une variable aléatoire suivant la loi de Benoulli $\mathcal{B}\left(1\,000\,;\,\frac{1}{2}\right)$. On a $\mathbb{E}(X)=500$ et $\mathbb{V}(X)=250$. Donc, d'après l'inégalité de Bienaymé-Tchebcychev :
+
+\begin{align}
+\mathbb{P}\left(X\in[480\,;\,520]\right)&=\mathbb{P}(|X-\mathbb{E}(X)|\leq 20) \\
+&=1-\mathbb{P}(|X-\mathbb{E}(X)|>20) \\
+&\geq 1-\mathbb{P}(|X-\mathbb{E}(X)|\geq 20) \\
+&\geq 1-\frac{\mathbb{V}(X)}{20^2} \\
+&=1-\frac{250}{400} \\
+&=0,375
+\end{align}
+
+\noindent d'où le résultat.
+
+
+
+
+\noindent Une autre inégalité classique est l'inégalité de Cauchy-Schwarz. Elle sera présentée un peu plus bas, dans la section consacrée aux vecteurs aléatoires.
+
+
+
+## Transformation d'une variable aléatoire discrète
+
+\noindent Il arrive souvent dans les exercices qu'on étudie des variables aléatoires s'écrivant comme fonctions de variables aléatoires plus simples, ou dont la loi est connue.
+
+\noindent Soient $D$ un sous-ensemble au plus dénombrable de $\mathbb{R}$, $X:\Omega\longrightarrow D$ une variable aléatoire réelle discrète de support $D$, et $\varphi:D\longrightarrow\mathbb{R}$ une fonction injective. Elle réalise donc une bijection de $D$ sur $\varphi(D)=\{\varphi(x),\,x\in D\}$.
+
+\noindent On pose $Y=\varphi(X)$ : il s'agit d'une variable aléatoire réelle discrète, définie sur $\Omega$ et de support $\varphi(D)$.
+
+\noindent La loi de $Y$ se déduit facilement de celle de $X$. Pour tout $y\in\varphi(D)$ :
+
+\begin{align}
+\mathbb{P}(Y=y)&=\mathbb{P}(\varphi(X)=y)\\
+&=\mathbb{P}(X=\varphi^{-1}(y))
+\end{align}
+
+\noindent
+
+**Exemple.** Soit $X\sim\mathcal{P}(\lambda)$, où $\lambda>0$. Déterminer la loi de $\ln(X+1)$.
+
+\noindent
+
+**Solution.** $X$ est à support dans $\mathbb{N}$, donc $Y=\ln(X+1)$ est à support dans $\{\ln(k),\,k\in\mathbb{N}^*\}\subset\mathbb{R}_+$ et, pour tout $k\in\mathbb{N}^*$ :
+
+\begin{align}
+\mathbb{P}(\ln(X+1)=\ln k)&=\mathbb{P}(X=k-1) \\
+&=e^{-\lambda}\frac{\lambda^{k-1}}{(k-1)!}
+\end{align}
+
+
+
+## Vecteurs aléatoires
+
+:::: {.defbox .def data-latex="important"}
+<center>**Couple de variables aléatoires, loi conjointe, lois marginales**</center>
+\noindent Soient $X$ et $Y$ deux variables aléatoires réelles discrètes définies sur le même espace probabilisé $(\Omega,\mathcal{P}(\Omega),\mathbb{P})$.
+
+\noindent La variable aléatoire
+
+$$(X,Y):\omega\in\Omega\longrightarrow (X(\omega), Y(\omega))\in\mathbb{R}^2$$
+\noindent est également une variable aléatoire discrète.
+Sa loi, appelée **loi conjointe** de $X$ et $Y$, est définie par la donnée des probabilités $\mathbb{P}(\{X=x\}\cap\{Y=y\})$ pour tous les couples $(x,y)\in X(\Omega)\times Y(\Omega)$. Ces probabilités seront notées par la suite plus simplement $\mathbb{P}(X=x,Y=y)$.
+
+\noindent Par ailleurs, les lois de $X$ et de $Y$ sont appelées les **lois marginales** du couple $(X,Y)$.
+
+\noindent Les lois marginales se déduisent de la loi conjointe :
+
+$$\forall x\in X(\Omega),\, \mathbb{P}(X=x)=\sum\limits_{y\in Y(\Omega)}\mathbb{P}(X=x, Y=y)$$
+$$\forall y\in Y(\Omega),\, \mathbb{P}(Y=y)=\sum\limits_{x\in X(\Omega)}\mathbb{P}(X=x, Y=y)$$
+::::
+
+\noindent
+
+**Démonstration.** Soit $x\in X(\Omega)$. Les événements $(Y=y), \, y\in Y(\Omega)$ forment un système complet d'événements, donc les événements $(X=x, Y=y),\, y\in Y(\Omega)$ constituent une partition de l'événement $(X=x)$. D'après la formule des probabilités totales, on a donc
+
+$$\mathbb{P}(X=x)=\sum\limits_{y\in Y(\Omega)}\mathbb{P}(X=x,Y=y)$$
+\noindent En échangeant les rôles de $X$ et $Y$, on obtient la deuxième formule.
+
+$\square$
+
+\noindent
+
+**Notation.** Soient $x_i, \, i\in I$ et $y_j,\,j\in J$ les valeurs prises par $X$ et $Y$ (avec $I,J\subset\mathbb{N}$ puisque $X$ et $Y$ sont discrètes). Dans la suite, on notera souvent, pour $(i,j)\in I\times J$ :
+
+\begin{align}
+p_{ij}&=\mathbb{P}(X=x_i, Y=y_j) \\
+p_{i.}&=\mathbb{P}(X=x_i) \\
+p_{.j}&=\mathbb{P}(Y=y_j)
+\end{align}
+
+\noindent Avec ces notations, a donc, pour tout couple $(i,j)\in I\times J$ :
+
+$$p_{i.}=\sum\limits_{j\in J}p_{ij}$$
+$$p_{.j}=\sum\limits_{i\in I}p_{ij}$$
+\noindent
+
+**Tableau de contingence.** Un tableau de contingence d'un couple de variables aléatoires contient toutes les informations sur la loi de ce couple :
+
+<center>
+```{r, echo = FALSE}
+knitr::include_graphics("C:/Users/olivier.guin/Travail/Formation_Administrateur/Cours/Cours_probabilités_statistique/images/tableau_contingence.PNG") 
+```
+</center>
+
+On y trouve :
+
+- la loi du couple $(X,Y)$, donnée par les cellules du tableau, en nombre $\text{Card}(X(\Omega))\times\text{Card}(Y(\Omega))$ (éventuellement infini). La probabilité $p_{ij}=\mathbb{P}(X=i, Y=j)$ se trouve dans la cellule située à la ligne $i$ et la colonne $j$  ;
+
+- la loi de la marginale $\mathbb{P}_Y$ sur la ligne des totaux (en bleu) ;
+
+- la loi de la marginale $\mathbb{P}_X$ sur la colonne des totaux (en rouge).
+
+
+\noindent Ce tableau doit aussi servir de mise en garde sur le fait que :
+
+<center>**La connaissance des lois marginales ne suffit pas à caractériser la loi du couple**</center>
+
+<br>
+
+
+
+\noindent En effet, les lois marginales correspondent à la ligne des totaux (en bleu) et la colonne des totaux (en rouge). Or, il n'y a pas unicité des nombres $p_{ij}$ permettant de générer cette ligne et cette colonne. La connaissance des $p_{i.}$ et des $p_{.j}$ ne suffit donc pas à reconstruire les $p_{ij}$.
+
+**Exemple.** On considère les couples de variables aléatoires $(X_1, Y_1)$ et $(X_2, Y_2)$ dont les lois sont données par les tableaux ci-dessous :
+
+<center>
+```{r, echo = FALSE}
+knitr::include_graphics("C:/Users/olivier.guin/Travail/Formation_Administrateur/Cours/Cours_probabilités_statistique/images/contingence_exemples.PNG") 
+```
+</center>
+
+\noindent $(X_1, Y_1)$ et $(X_2, Y_2)$ ont les même lois marginales :
+
+- $X_1$ et $X_2$ ont pour support commun $\{x_1, x_2\}$ et :
+
+$$\mathbb{P}(X_1=x_1)=\mathbb{P}(X_2=x_1)=0,6$$
+
+$$\mathbb{P}(X_1=x_2)=\mathbb{P}(X_2=x_2)=0,4$$
+
+- $Y_1$ et $Y_2$ ont pour support commun $\{y_1, y_2\}$ et :
+
+$$\mathbb{P}(Y_1=y_1)=\mathbb{P}(Y_2=y_1)=0,3$$
+
+$$\mathbb{P}(X_1=x_2)=\mathbb{P}(X_2=x_2)=0,7$$
+
+\noindent Pourtant, $(X_1, Y_1)$ et $(X_2, Y_2)$ n'ont pas les mêmes lois conjointes. Par exemple :
+
+$$\mathbb{P}(X_1=x_1, Y_1=y_1)=0,2$$
+$$\mathbb{P}(X_2=x_1, Y_2=y_1)=0,25$$
+
+**Exemples. i.** On suppose que le couple $(X,Y)$ est à valeurs dans $E=\{x_1\dots x_n\}\times\{y_1\dots y_p\}$ et que
+
+$$\forall 1\leq i\leq n, \, \forall 1\leq j\leq p,\,\mathbb{P}(X=x_i, Y=y_j)=\frac{1}{np}$$
+
+\noindent autrement dit $(X,Y)$ consiste en un tirage uniforme dans $E$. Intuitivement, on devine que $X$ (resp. $Y$) correspond à un tirage uniforme dans $\{x_1,\dots,x_n\}$ (resp. dans $\{y_1,\dots y_p\}$). La démonstration est évidente :
+
+\begin{align}
+\mathbb{P}(X=x_i)&=\sum\limits_{j=1}^p\mathbb{P}(X=x_i, Y=y_j) \\
+&=\sum\limits_{j=1}^p\frac{1}{np} \\
+&=\frac{1}{n}
+\end{align}
+
+\noindent et symétriquement on a évidemment
+
+$$\mathbb{P}(Y=y_j)=\frac{1}{p}$$
+\noindent
+
+**ii.** 
+
+\noindent En revanche : **la connaissance des lois marginales ne suffit pas à retrouver la loi conjointe**, sauf dans des cas particuliers, par exemple si l'on sait que les variables aléatoires $X$ et $Y$ sont indépendantes, ce que nous allons voir un peu plus tard.
+
+
+
+### Définition
+
+### Loi jointe, loi marginales
+
+### Loi conditionnelle $\mathcal{L}(Y|X)$
+
+### Loi d'un couple de VA indépendantes
+
+-   Définition
+-   Somme de deux VA indépendantes (produit de convolution discret)
+
+### Inégalité de Cauchy-Schwarz
+
 \noindent L'inégalité de Cauchy-Schwarz est un résultat important d'algèbre. On rappelle d'abord la notion de **produit scalaire** sur un espace vectoriel.
 
 \noindent
@@ -1207,43 +1587,18 @@ $$\forall X\in L^2(\Omega),\,||X||=\sqrt{\mathbb{E}(X^2)}$$
 :::: {.thmbox .thm data-latex="important"}
 **Inégalité de Cauchy-Schwarz dans $L^2(\Omega)$.** Soient $X,Y\in L^2(\Omega)$ deux variables aléatoires discrètes. Alors :
 
-$$\mathbb{E}(XY)\leq\sqrt{\mathbb{E}(X^2)}\,\sqrt{\mathbb{E}(Y^2)}$$
+$$|\mathbb{E}(XY)|\leq\sqrt{\mathbb{E}(X^2)}\,\sqrt{\mathbb{E}(Y^2)}$$
 \noindent Cette inégalité s'écrit aussi :
 
-$$\sum\limits_{\omega\in\Omega}\mathbb{P}(\{\omega\})\,X(\omega)\,Y(\omega)\leq\sqrt{\sum\limits_{\omega\in\Omega}\mathbb{P}(\{\omega\})\,X^2(\omega)}\sqrt{\sum\limits_{\omega\in\Omega}\mathbb{P}(\{\omega\})\,Y^2(\omega)}$$
+$$\left|\sum\limits_{\omega\in\Omega}\mathbb{P}(\{\omega\})\,X(\omega)\,Y(\omega)\right|\leq\sqrt{\sum\limits_{\omega\in\Omega}\mathbb{P}(\{\omega\})\,X^2(\omega)}\sqrt{\sum\limits_{\omega\in\Omega}\mathbb{P}(\{\omega\})\,Y^2(\omega)}$$
+\noindent Avec le théorème de transfert, on peut aussi écrire :
 
+$$\left|\sum\limits_{k\in K}\sum\limits_{l\in L}\mathbb{P}(X=x_k, Y=y_l)\,x_k\,y_l\right|\leq\sqrt{\sum\limits_{k\in K}\mathbb{P}(X=x_k)\,x_k^2}\,\sqrt{\sum\limits_{l\in L}\mathbb{P}(Y=y_l)\,y_l^2}$$
 ::::
 
--   Espérance, variance, moments d'ordres supérieurs
--   inégalité de Markov, inégalité de Bieanymé-Tchébychev (exemples + intérêt)
+\noindent
 
-## Transformation d'une variable aléatoire discrète
 
-### Définition
 
--   Définition
--   Cas particuliers :
-    -   bijection continue
-    -   un unique extremum
--   Déterminer la loi de $f(X)$ en pratique (message = passer par la fonction de répartition)
-
-### Théorème de transfert (cas discret)
-
--   Théorème
--   Exemple
--   inégalité triangulaire
-
-## Vecteurs aléatoires
-
-### Définition
-
-### Loi jointe, loi marginales
-
-### Loi conditionnelle $\mathcal{L}(Y|X)$
-
-### Loi d'un couple de VA indépendantes
-
--   Définition
--   Somme de deux VA indépendantes (produit de convolution discret)
 
 ### Espérance conditionnelle, variance conditionnelle
