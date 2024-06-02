@@ -124,3 +124,5 @@ couple-aléatoire-loi-conjointe-lois-marginales
 n-uplets-aléatoires
 variables-aléatoires-indépendantes
 loi-conditionnelle-mathbbp_xyy_j
+espérance-conditionnelle-mathbbeyxx
+somme-de-deux-va-indépendantes-produit-de-convolution-discret

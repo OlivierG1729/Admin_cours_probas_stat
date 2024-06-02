@@ -728,23 +728,29 @@ $$\forall k\in R_X, \, \mathbb{P}(X=k)=\frac{\binom{14}{k}\binom{6}{12-k}}{\bino
 :::: {.defbox .def data-latex="important"}
 <center>**Espérance d'une variable aléatoire réelle discrète**</center>
 
-\noindent Soit $X$ une variable aléatoire réelle de **support fini** $R_X=\{x_1,\dots,x_n\}$. On appelle **espérance** de $X$ le nombre réel 
+\noindent Soit $X$ une variable aléatoire réelle de **support fini** $X(\Omega)=\{x_1,\dots,x_n\}$. On appelle **espérance** de $X$ le nombre réel 
 
 $$\mathbb{E}(X)=\sum\limits_{k=1}^n \mathbb{P}(X=x_k)\,x_k$$
 
 \noindent 
 
 
-Pour une variable aléatoire réelle discrète de **support infini dénombrable** $R_x=\{x_1,\dots, x_n\dots\}$, l'existence d'une espérance n'est pas systématique. On dit qu'une telle variable $X$ admet une espérance finie si la série $\sum\limits_{n}\mathbb{P}(X=x_n)\,x_n$ est asbolument convergente. Dans ce cas, l'espérance $\mathbb{E}(X)$ de $X$ est la somme de cette série :
+Pour une variable aléatoire réelle discrète de **support infini dénombrable** $X(\Omega)=\{x_1,\dots, x_n\dots\}$, l'existence d'une espérance n'est pas systématique. On dit qu'une telle variable $X$ admet une espérance finie si la série $\sum\limits_{n}\mathbb{P}(X=x_n)\,x_n$ est asbolument convergente. Dans ce cas, l'espérance $\mathbb{E}(X)$ de $X$ est la somme de cette série :
 
 $$\mathbb{E}(X)=\sum\limits_{n=0}^{\infty}\mathbb{P}(X=x_n)\,x_n$$
+
+\noindent 
+
+**Notation unifiée.** Pour ne pas avoir à distinguer le cas fini / infini dénombrable, on peut aussi utiliser une notation englobant les deux cas :
+
+$$\mathbb{E}(X)=\sum\limits_{x\in X(\Omega)}\mathbb{P}(X=x)\,x$$
 ::::
 
 \noindent
 
 **Remarque.** L'espérance d'une variable est donc une moyenne de ses valeurs, pondérée par les probabilités qui leur sont associées.
 
-\noindent Cette expression de l'espérance s'écrit à partir des valeurs $x_k$ prises par $X:\Omega\longrightarrow\mathbb{R}$, c'est-à-dire les éléments de l'espace d'arrivée. Il est parfois plus commode d'utiliser une variante de cette formule, faisant plutôt intervenir les éléments de l'espace de départ $\Omega$ :
+\noindent Cette expression de l'espérance s'écrit à partir des valeurs $x$ prises par $X:\Omega\longrightarrow\mathbb{R}$, c'est-à-dire les éléments de l'**espace d'arrivée** de $X$. On peut aussi exprimer l'espérance à partir des éléments de l'**espace de départ** de $X$ :
 
 :::: {.defbox .def data-latex="important"}
 <center>**Espérance d'une variable aléatoire réelle discrète (variante)**</center>
@@ -755,37 +761,72 @@ $$\mathbb{E}(X)=\sum\limits_{\omega\in\Omega}\mathbb{P}(\{\omega\})X(\omega)$$
 
 \noindent
 
-**Démonstration.** $X$ étant discrète, il existe $K\subset\mathbb{N}$ (fini ou non) tel que le support de $X$ s'écrive
+**Démonstration.** L'univers $\Omega$ peut se décomposer en 
 
-$$R_X=\{x_k\,;\,k\in K\}$$
-
-L'univers $\Omega$ peut alors se décomposer en 
-
-$$\Omega=\bigsqcup\limits_{k\in K}\Omega_k$$
-\noindent où $\Omega_k=X^{-1}(\{x_k\})=(X=x_k)$.
-
+$$\Omega=\bigsqcup\limits_{x\in X(\Omega)}\bigsqcup\limits_{\omega\in X^{-1}(\{x\})}\{\omega\}$$
 \noindent On a donc, sous réserve d'existence :
 
 \begin{align}
-\sum\limits_{\omega\in\Omega}\mathbb{P}(\{\omega\})X(\omega)&=\sum\limits_{k\in K}\sum\limits_{\omega\in\Omega_k}\mathbb{P}(\{\omega\})X(\omega) \\
-&=\sum\limits_{k\in K}\sum\limits_{\omega\in\Omega_k}\mathbb{P}(\{\omega\})x_k \\
-&=\sum\limits_{k\in K}x_k\sum\limits_{\omega\in\Omega_k}\mathbb{P}(\{\omega\}) \\
-&=\sum\limits_{k\in K}x_k\,\mathbb{P}(\Omega_k) \\
-&=\sum\limits_{k\in K}x_k\,\mathbb{P}(X=x_k) \\
+\sum\limits_{\omega\in\Omega}\mathbb{P}(\{\omega\})X(\omega)&=\sum\limits_{x\in X(\Omega)}\sum\limits_{\omega\in X^{-1}(\{x\})}\mathbb{P}(\{\omega\})X(\omega) \\
+&=\sum\limits_{x\in X(\Omega)}\left(\sum\limits_{\omega\in X^{-1}(\{x\})}\mathbb{P}(\{\omega\})\right)x \\
+&=\sum\limits_{x\in X(\Omega)}\mathbb{P}(X=x)\,x \\
 &=\mathbb{E}(X) \\
 \end{align}
 
 $\square$
 
+
+\noindent 
+
+**Exemple.** Le résultat précédent énonce l'égalité suivante :
+
+$$\sum\limits_{\omega\in\Omega}\mathbb{P}(\{\omega\})\,X(\omega)=\sum\limits_{x\in X(\Omega)}\mathbb{P}(X=x)\,x$$
+\noindent Il nous dit que l'espérance de $X$ peut être vue comme une moyenne sur l'espace de départ de $X$, ou comme une moyenne sur l'espace d'arrivée de $X$. L'équivalence entre ces deux points de vue est facile à saisir sur un exemple. 
+
+\noindent Soient $(\Omega, \mathcal{P}(\Omega), \mathbb{P})$ un espace probabilisé tel que $\Omega=\{a,b,c,d\}$ et $X$ une variable aléatoire réelle discrète sur cet espace. On donne le tableau suivant :
+
+<center>
+```{r, echo = FALSE, out.width="80%", out.height="80%"}
+knitr::include_graphics("C:/Users/olivier.guin/Travail/Formation_Administrateur/Cours/Cours_probabilités_statistique/images/probas_univers.PNG") 
+```
+</center>
+
+\noindent Pour calculer $\mathbb{E}(X)$, on peut utiliser l'expression de l'espérance utilisant les éléments de l'univers $\Omega$ :
+
+\begin{align}
+\mathbb{E}(X)&=\sum\limits_{\omega\in\Omega}\mathbb{P}(\{\omega\})\,X(\omega) \\
+&=0,3\times 1+0,1\times 1+0,4\times 2+0,2\times 2 \\
+&=1,6 \\
+\end{align}
+
+\noindent Mais on peut aussi regrouper les valeurs de $\omega$ ayant des images communes par $X$, et raisonner directement sur ces images (et leurs probabilités associées) :
+
+<center>
+```{r, echo = FALSE, out.width="50%", out.height="50%"}
+knitr::include_graphics("C:/Users/olivier.guin/Travail/Formation_Administrateur/Cours/Cours_probabilités_statistique/images/probas_image.PNG") 
+```
+</center>
+
+\noindent Dans ce cas, on fait plutôt le calcul :
+
+\begin{align}
+\mathbb{E}(X)&=0,4\times 1+0,6\times 2 \\
+&=1,6 \\
+\end{align}
+
+\noindent On obtient alors bien le même résultat.
+
+<br>
+
  \noindent Une application de ce résultat est le **théorème de transfert** :
  
 :::: {.thmbox .def data-latex="important"}
-**Théorème de transfert.** Soient $X:\Omega\longrightarrow\mathbb{R}$ une variable aléatoire réelle dscrète et $\phi:X(\Omega)\longrightarrow\mathbb{R}$. On suppose que $X$ et $\phi(X)$ admettent des espérances finies. Alors, on a 
+**Théorème de transfert.** Soient $X:\Omega\longrightarrow\mathbb{R}$ une variable aléatoire réelle discrète et $\phi:X(\Omega)\longrightarrow\mathbb{R}$. On suppose que $\phi(X)$ admet une espérance finie. Alors, on a 
 
-$$\mathbb{E}(\phi(X))=\sum\limits_{k\in K}\mathbb{P}(X=x_k)\,\phi(x_k)$$
-\noindent En particulier, pour $\phi(x)=x^m$, avec $m$ entier naturel, on a donc
+$$\mathbb{E}(\phi(X))=\sum\limits_{x\in X(\Omega)}\mathbb{P}(X=x)\,\phi(x)$$
+\noindent En particulier, pour $\phi(x)=x^m$, avec $m$ entier naturel, on a donc (sous réserve d'existence) :
 
-$$\mathbb{E}(X^m)=\sum\limits_{k\in K}\mathbb{P}(X=x_k)\,x_k^m$$
+$$\mathbb{E}(X^m)=\sum\limits_{x\in X(\Omega)}\mathbb{P}(X=x)\,x^m$$
 ::::
 
 \noindent
@@ -794,13 +835,60 @@ $$\mathbb{E}(X^m)=\sum\limits_{k\in K}\mathbb{P}(X=x_k)\,x_k^m$$
 
 \begin{align}
 \mathbb{E}(\phi(X))&=\sum\limits_{\omega\in\Omega}\mathbb{P}(\{\omega\})\phi(X(\omega)) \\
-&=\sum\limits_{k\in K}\phi(x_k)\sum\limits_{\omega\in X^{-1}(x_k)}\mathbb{P}(\{\omega\}) \\
-&=\sum\limits_{k\in K}\mathbb{P}(X=x_k)\phi(x_k) \\
+&=\sum\limits_{x\in X(\Omega)}\phi(x)\sum\limits_{\omega\in X^{-1}(\{x\})}\mathbb{P}(\{\omega\}) \\
+&=\sum\limits_{x\in X(\Omega)}\mathbb{P}(X=x)\phi(x) \\
 \end{align}
 
 $\square$
 
+\noindent
 
+**Inteprétation du théorème de transfert.** Ce résultat nous dit que pour calculer l'espérance de $\phi(X)$, la connaissance de la loi de $\phi(X)$ - qui dans certains cas peut être couteuse à acquérir - est inutile : la loi de $X$ suffit.
+
+\noindent 
+
+**Exemple.** Soit $X$ une variable aléatoire de support $X(\Omega)=\mathbb{N}^*$ et telle que 
+
+$$\forall n\in\mathbb{N}^*,\,\mathbb{P}(X=n)=\frac{1}{n(n+1)}$$
+\noindent Nous allons montrer :
+
+- qu'on définit ainsi bien la loi de probabilité d'une variable aléatoire ;
+
+- que $X$ n'admet pas d'espérance finie ;
+
+- que $\frac{X+1}{X}$ admet une espérance finie, et que celle-ci est donnée par
+
+$$\mathbb{E}(X)=\frac{\pi^2}{6}$$
+\noindent Soit $n$ un entier naturel non nul. On a 
+
+\begin{align}
+\sum\limits_{k=1}^n\frac{1}{k(k+1)}&=\sum\limits_{k=1}^n\left(\frac{1}{k}-\frac{1}{k+1}\right) \\
+&= 1-\frac{1}{n+1} \\
+& \text{(somme télescopique)} \\
+\end{align}
+
+\noindent La série de terme général $\frac{1}{n(n+1)}$ est donc convergente, et sa somme vaut $1$ :
+
+$$\sum\limits_{n=1}^{\infty}\frac{1}{n(n+1)}=1$$
+\noindent On a donc bien défini la loi d'une variable aléatoire.
+
+\noindent Par ailleurs, la série de terme général $n\,\mathbb{P}(X=n)=\frac{1}{n+1}$ n'est pas (absolument) convergente, donc $X$ n'admet pas d'espérance finie.
+
+\noindent Enfin, pour démontrer que $\frac{X+1}{X}$ admet une espérance finie, il suffit d'après le théorème de transfert de montrer que la série de terme $\sum\limits_{n}\mathbb{P}(X=n)\,\frac{n+1}{n}$ est convergente. Si c'est bien le cas, son espérance sera égale à la somme de cette série.
+
+\noindent Or, on a :
+
+\begin{align}
+\mathbb{P}(X=n)\,\frac{n+1}{n}&=\frac{1}{n(n+1)}\frac{n+1}{n} \\
+&=\frac{1}{n^2} \\
+\end{align}
+
+\noindent La série $\sum\limits_{n}\frac{1}{n^2}$ est convergente, de somme
+
+$$\sum\limits_{n=1}^{\infty}\frac{1}{n^2}=\frac{\pi^2}{6}$$
+\noindent On en déduit le résultat.
+
+<br>
 
 \noindent L'espérance, vue comme un opérateur, possède les propriétés suivantes :
 
@@ -1448,7 +1536,7 @@ On y trouve :
 - la loi marginale $\mathbb{P}_X$ de $X$ sur la colonne des totaux (en rouge).
 
 
-\noindent Ce tableau doit aussi servir de mise en garde sur le fait que :
+\noindent Ce tableau doit aussi servir de mise en garde sur le fait que, sauf cas trivial (variable(s) aléatoire(s) constante(s)) :
 
 <center>**La connaissance des lois marginales ne suffit pas à caractériser la loi du couple**</center>
 
@@ -1727,9 +1815,133 @@ $$\mathbb{P}(Y=j|X=i)=\mathbb{P}(Y=j)$$
 
 Deux variables aléatoires réelles discrètes $X$ et $Y$ définies sur un même espace probabilisé $(\Omega, \mathcal{P}(\Omega),\mathbb{P})$ sont dites **indépendantes** lorsque
 
-$$\forall (x,y)\in X(\Omega)\times Y(\Omega),\, \mathbb{P}(X=i, Y=j)=\mathbb{P}(X=i)\,\mathbb{P}(Y=j)$$
-
+$$\forall (x,y)\in X(\Omega)\times Y(\Omega),\, \mathbb{P}(X=x, Y=y)=\mathbb{P}(X=x)\,\mathbb{P}(Y=y)$$
+\noindent 
+**Notation :** $X\perp\!\!\!\perp Y$
 ::::
+
+\noindent
+
+**Remarques. i.** Tout variable aléatoire constante est donc, selon cette définition, indépendante de n'importe quelle variable aléatoire (y compris elle-même !). En effet, soient $X=a$ ($a\in\mathbb{R}$) une variable aléatoire constante et $Y$ une variable aléatoire quelconque.
+
+\noindent On a, pour $x\in\mathbb{R}$ :
+
+$$(X=x)=\left \{
+\begin{array}{c @{=} c}
+    \Omega & \text{ si } x=a \\
+    \emptyset & \text{ si } x\neq a
+\end{array}
+\right.$$
+
+\noindent donc 
+
+\begin{align}
+\mathbb{P}(X=x)\,\mathbb{P}(Y=y)&=\left \{
+\begin{array}{c @{=} c}
+    \mathbb{P}(Y=y) & \text{ si } x=a \\
+    0 & \text{ si } x\neq a
+\end{array}
+\right. \\
+&=\mathbb{P}(X=x, Y=y) \\
+\end{align}
+
+\noindent
+
+**ii.** Si deux variables aléatoires  sont indépendantes, leur loi conjointe peut donc être reconstruite à partir des lois marginales. Toutefois, à l'exception du cas trivial ou l'une au moins des deux variables est constante, la connaissance du caractère indépendant ou non de ces variables ne peut être acquise à l'aide de la seule information des lois marginales : la propriété d'indépendance est bien une propriété du couple, et non une propriété des lois marginales.
+
+
+**Exemples. i.** On considère deux variables aléatoires sont la loi conjointe est donnée par le tableau de contingence suivant :
+
+<center>
+```{r, echo = FALSE}
+knitr::include_graphics("C:/Users/olivier.guin/Travail/Formation_Administrateur/Cours/Cours_probabilités_statistique/images/tableau_exemple_loi.PNG") 
+```
+</center>
+
+\noindent Pour déterminer si $X$ et $Y$ sont ou non indépendantes, on peut ajouter à ce tableau les probabilités marginales :
+
+<center>
+```{r, echo = FALSE}
+knitr::include_graphics("C:/Users/olivier.guin/Travail/Formation_Administrateur/Cours/Cours_probabilités_statistique/images/tableau_exemple_c.PNG") 
+```
+</center>
+
+\noindent On constate par exemple que $\mathbb{P}(X=1,Y=1)=0$, mais $\mathbb{P}(X=1)\,\mathbb{P}(Y=1)\neq 0$ : donc $X$ et $Y$ ne sont donc pas indépendantes.
+
+\noindent
+
+**ii.** Cette fois, le couple $(X,Y)$ a pour tableau de contingence :
+
+<center>
+```{r, echo = FALSE}
+knitr::include_graphics("C:/Users/olivier.guin/Travail/Formation_Administrateur/Cours/Cours_probabilités_statistique/images/tableau_exemple2.PNG") 
+```
+</center>
+
+\noindent Comme dans l'exemple précédent, on le complète des probabilités marginales :
+
+
+<center>
+```{r, echo = FALSE}
+knitr::include_graphics("C:/Users/olivier.guin/Travail/Formation_Administrateur/Cours/Cours_probabilités_statistique/images/tableau_exemple2_c.PNG") 
+```
+</center>
+
+\noindent Cette fois, on constate que chaque probabilité conjointe est égale au produit des probabilités marginales correspondantes, donc $X$ et $Y$ sont indépendantes.
+
+<br>
+
+\noindent Par définition de l'indépendance de deux variables, l'expression de chaque probabilité conjointe $\mathbb{P}(X=x,Y=y)$ peut s'écrire comme un produit de deux termes : un premier terme qui est une fonction de $x$ uniquement, et un deuxième terme qui est une fonction de $y$ uniquement. Cette possibilité de séparer en un terme en $x$ et en un terme en $y$ a pour conséquence que l'espérance d'un produit de deux variables indépendantes est le produit de leurs espérances :
+
+:::: {.thmbox .thm data-latex="important"}
+**Théorème.** Soient $X$ et $Y$ deux variables aléatoires définies sur un espace probabilisé $(\Omega, \mathcal{P}(\Omega), \mathbb{P})$.
+
+\noindent Si $X$ et $Y$ sont indépendantes, alors, sous réserve d'existence de ces espérances :
+
+$$\mathbb{E}(XY)=\mathbb{E}(X)\,\mathbb{E}(Y)$$
+::::
+
+\noindent
+
+**Démonstration.** 
+
+\begin{align}
+\mathbb{E}(XY)&=\sum\limits_{\omega\in\Omega}\mathbb{P}(\{\omega\})\,X(\omega)\,Y(\omega) \\
+&=\sum\limits_{x\in X(\Omega)}\sum\limits_{y\in Y(\omega)}\mathbb{P}(X=x, Y=y)\,x\,y \\
+&\text{(théorème de transfert)} \\
+& \\
+&=\sum\limits_{x\in X(\Omega)}\sum\limits_{y\in Y(\omega)}\mathbb{P}(X=x)\,\mathbb{P}(Y=y)\,x\,y \\
+&\text{(indépendance de } X \text{ et } Y \text{)} \\
+&\\
+&=\left(\sum\limits_{x\in X(\Omega)}\mathbb{P}(X=x)\, x\right).\left(\sum\limits_{y\in Y(\omega)}\mathbb{P}(Y=y)\,y\right) \\
+&=\mathbb{E}(X)\,\mathbb{E}(Y) \\
+\end{align}
+
+$\square$
+
+\noindent
+
+**Exemple.** On reprend l'exemple précédent, dans lequel nous avons montré l'indépendance entre $X$ et $Y$.
+
+\noindent On a :
+
+\begin{align}
+\mathbb{E}(X)&=0,4\times 1+0,2\times 2+0,4\times 3 \\
+&=2 \\
+\end{align}
+
+\noindent et
+
+\begin{align}
+\mathbb{E}(Y)&=0,2\times 1+0,1\times 2+0,4\times 3+0,3\times 4 \\
+&=2,8 \\
+\end{align}
+
+\noindent Par indépendance de $X$ et $Y$, on en déduit que 
+
+$$\mathbb{E}(XY)=\mathbb{E}(X)\,\mathbb{E}(Y)=5,6$$
+
+
 
 ### Espérance conditionnelle $\mathbb{E}(Y|X=x)$
 
