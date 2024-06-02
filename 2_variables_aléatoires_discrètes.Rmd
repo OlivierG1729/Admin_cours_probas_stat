@@ -2294,7 +2294,7 @@ $$\mathbb{P}\left(Z=\frac{3}{4}\right)=\mathbb{P}(X=2)=\frac{4}{12}$$
 $$\mathbb{P}\left(Z=\frac{2}{3}\right)=\mathbb{P}(X=3)=\frac{6}{12}$$
 \noindent 
 
-**Calculons maintenant son espérance.** On peut le faire de deux faons différentes :
+**Calculons maintenant son espérance.** On peut le faire de trois façons différentes :
 
 - **Méthode 1 :** on utilise la loi de $Z$ :
 
