@@ -1633,7 +1633,7 @@ $$\mathbb{P}(X_1=x_1,\dots,X_n=x_n)$$
 \noindent La loi conjointe d'un vecteur de taille quelconque définit complètement les lois marginales, mais à nouveau les lois marginales ne suffisent pas à définir la loi conjointe.
 
 
-### Loi conditionnelle $\mathbb{P}_{X|Y=y_j}$
+## Loi conditionnelle $\mathbb{P}_{X|Y=y_j}$
 
 \noindent Soit $(X,Y)$ un couple aléatoire dont la loi est donnée par le tableau de contingence suivant :
 
@@ -1780,7 +1780,7 @@ $$\mathbb{P}(X=i, Y=j)=i\,\frac{p}{4}.\mathbb{1}_{0\leq j\leq 3}+(1-i)(1-p)e^{-\
 
 \noindent 
 
-### Indépendance de deux variables aléatoires
+## Indépendance de deux variables aléatoires
 
 \noindent Dans un exemple précédent, on a défini la loi d'un couple aléatoire $(X,Y)$ par
 
@@ -1894,7 +1894,7 @@ knitr::include_graphics("C:/Users/olivier.guin/Travail/Formation_Administrateur/
 
 \noindent 
 
-**Indépendance mutuelle.**
+
 
 \noindent Par définition de l'indépendance de deux variables, l'expression de chaque probabilité conjointe $\mathbb{P}(X=x,Y=y)$ peut s'écrire comme un produit de deux termes : un premier terme qui est une fonction de $x$ uniquement, et un deuxième terme qui est une fonction de $y$ uniquement. Cette possibilité de séparer en un terme en $x$ et en un terme en $y$ a pour conséquence que l'espérance d'un produit de deux variables indépendantes est le produit de leurs espérances :
 
@@ -1944,7 +1944,7 @@ $\square$
 
 $$\mathbb{E}(XY)=\mathbb{E}(X)\,\mathbb{E}(Y)=5,6$$
 
-<br>
+## Covariance et coefficient de corrélation de deux variables aléatoires
 
 \noindent La **covariance** de deux variables aléatoires mesure à quel point on s'éloigne de l'égalité $\mathbb{E}(XY)=\mathbb{E}(X)\,\mathbb{E}(Y)$.
 
@@ -1989,21 +1989,21 @@ $\square$
 
 <br>
 
-- **variance d'une somme**
+
 
 \noindent La covariance présente l'inconvénient de dépendre de l'échelle des valeurs prises par $X$ et $Y$. Pour neutraliser cet effet d'échelle, on peut utiliser la **corrélation** :
 
 :::: {.defbox .def data-latex="important"}
 <center>**Corrélation linéaire**</center>
 
-\noindent Soient $X$ et $Y$ deux variables aléatoires. Sous réserve d'existence, on appelle **coefficient de corrélation linéaire** enntre $X$ et $Y$, le nombre
+\noindent Soient $X$ et $Y$ deux variables aléatoires. Sous réserve d'existence, on appelle **coefficient de corrélation linéaire** entre $X$ et $Y$, le nombre
 
 $$\rho_{XY}=\frac{\text{Cov}(X,Y)}{\sigma_X\,\sigma_Y}$$
 \noindent où $\sigma_X$ et $\sigma_Y$ sont les écarts-types de $X$ et $Y$.
 
 \noindent On a l'encadrement suivant :
 
-$$0\leq\rho_{XY}\leq 1$$
+$$-1\leq\rho_{XY}\leq 1$$
 ::::
 
 \noindent Pour démontrer cet encadrement, on peut utiliser l'inégalité de Cauchy-Schwarz dans l'espace $L^2$. Cette inégalité, en toute généralité, s'applique dans le cadre théorique des espaces préhilbertiens : des rappels sont en annexe.
@@ -2034,12 +2034,12 @@ $$\left|\sum\limits_{k\in K}\sum\limits_{l\in L}\mathbb{P}(X=x_k, Y=y_l)\,x_k\,y
 
 \noindent 
 
-**Démonstration de l'encadrement $0\leq\rho_{XY}\leq 1$.**
+**Démonstration de l'encadrement $-1\leq\rho_{XY}\leq 1$.**
 
 \noindent L'encadrement du coefficient de corrélation linéaire se montre alors en appliquant l'inégalité de Cauchy-Schwarz à $X-\mathbb{E}(X)$ et $Y-\mathbb{E}(Y)$, sous réserve que ces variables sont bien dans $L^2(\Omega)$ :
 
 \begin{align}
-|\mathbb{E}((X-\mathbb{E}(X)).(Y-\mathbb{E}(Y)))|\leq\sqrt{\mathbb{E}(X-\mathbb{E}(X))^2}\,\sqrt{\mathbb{E}(Y-\mathbb{E}(Y))^2} \\
+\left|\mathbb{E}((X-\mathbb{E}(X)).(Y-\mathbb{E}(Y)))\right|&\leq\sqrt{\mathbb{E}(X-\mathbb{E}(X))^2}\,\sqrt{\mathbb{E}(Y-\mathbb{E}(Y))^2} \\
 &=\sqrt{\mathbb{V}(X)}.\sqrt{\mathbb{V}(Y)} \\
 &=\sigma_X\,\sigma_Y
 \end{align}
@@ -2048,10 +2048,115 @@ d'où le résultat.
 
 $\square$
 
+\noindent Nous avons vu que pour deux variables aléatoires indépendantes $X$ et $Y$ on a $\mathbb{E}(XY)=\mathbb{E}(X)\mathbb{E}(Y)$. On peut donc formuler ce résultat ainsi :
+
+
+:::: {.thmbox .thm data-latex="important"}
+\noindent
+**Théorème.** Soient $X$ et $Y$ deux variables aléatoires indépendantes. Alors :
+
+$$\text{Cov}(X,Y)=0$$
+
+\noindent soit encore, de façon équivalente :
+
+$$\rho_{XY}=0$$
+::::
+
 \noindent
 
+**Remarques. i.** L'indépendance implique donc la non-corrélation.
 
-### Espérance conditionnelle $\mathbb{E}(Y|X=x)$
+\noindent
+
+**ii.** La réciproque est fausse : deux variables aléatoires peuvent être de corrélation nulle sans être indépendantes. 
+
+\noindent
+
+**iii. Interprétation du coefficient de corrélation linéaire.** Le coefficient de corrélation linéaire mesure la dépendance linéaire entre deux variables. On a vu en effet que d'après l'inégalité de Cauchy-Schwarz appliquée aux variables centrées $X-\mathbb{E}(X)$ et $Y-\mathbb{E}-Y)$ on a  $-1\leq\rho_{XY}\leq 1$. Les cas d'égalité se produisent lorsque ces deux variables sont colinéaires, autrement dit :
+
+$$\rho_{XY}=\pm 1 \Leftrightarrow\exists (a,b,c)\in\mathbb{R}^3,\, aX+bY+c=0$$ 
+\noindent Au contraire, plus $\rho_{XY}$ s'éloigne de $-1$ et $1$ et moins $X$ et $Y$ sont linéairement liées. Dans le cas extrême où $X$ et $Y$ sont indépendantes, elles sont en particulier linéairement indépendantes, et  leur coefficient de corrélation est nul.
+
+**iv.** Dire que deux variables sont non corrélées revient à dire que leur produit scalaire dans l'espace préhlibertien $\left(L^2(\Omega), <.\,,\,.>\right)$ est nul. On dit alors que ces deux variables sont **orthogonales**, ce qui est donc synonyme de "sans dépendance linéaire."
+
+<br>
+
+Nous avons vu que l'application
+
+\begin{align}
+L^2(\Omega)\times L^2(\Omega)&\longrightarrow\mathbb{R} \\
+(X,Y)&\mapsto\mathbb{E}(XY)
+\end{align}
+
+\noidnent est un produit scalaire sur $L^2(\Omega)$. 
+
+\noindent La fonction de covariance
+
+\begin{align}
+L^2(\Omega)\times L^2(\Omega)&\longrightarrow\mathbb{R} \\
+(X,Y)&\mapsto\text{Cov}(XY)
+\end{align}
+
+\noindent n'est pas un produit scalaire, mais elle s'en approche grandement :
+
+:::: {.thmbox .thm data-latex="important"}
+\noindent
+**Propriétés de la covariance.** L'application
+
+\begin{align}
+L^2(\Omega)\times L^2(\Omega)&\longrightarrow\mathbb{R} \\
+(X,Y)&\mapsto\text{Cov}(XY)
+\end{align}
+
+\noindent est :
+
+- **bilinéaire :** $\forall (X,Y,Z)\in L^2(\Omega)\times L^2(\Omega)\times L^2(\Omega), \forall\alpha\in\mathbb{R}$ :
+
+$$\text{Cov}(\alpha X+Y,Z)=\alpha\text{Cov}(X,Z)+\text{Cov}(Y,Z)$$
+$$\text{Cov}(X,\alpha Y+Z)=\alpha\text{Cov}(X,Z)+\alpha\text{Cov}(Y,Z)$$
+
+- **symétrique :** $\forall (X,Y)\in L^2(\Omega)\times L^2(\Omega), \text{Cov}(X,Y)=\text{Cov}(Y,X)$
+
+- **positive :** $\forall $X\in L^2(\Omega)$ :
+
+$$\text{Cov}(X,X)\geq 0$$
+\noindent Sa **forme quadratique** associée est la fonction de variance $$X\in L^2(\Omega)\mapsto\mathbb{V}(X)$$
+::::
+
+\noindent
+
+**Démonstration.** Exactement le même type de calculs que pour l'application  $(X,Y)\in L^2(\Omega)\times L^2(\Omega)\mapsto\mathbb{E}(XY)$ (voir annexe).
+
+$\square$
+
+\noindent
+
+**Remarque.** Cette application est ainsi une forme bilinaire symétrique positive, mais elle n'est pas définie positive. Autrement dit, il existe $X\in L^2(\Omega)$ telle que $\mathbb{V}(X)=0$ sans pour autant que $X$ soit nulle. Il suffit de prendre $X=a$ une constante réelle non nulle. La fonction de covariance n'est donc pas un produit scalaire sur $L^2(\Omega)$, même si elle en satisfait de nombreuses propriétés (en fait, toutes sauf une).
+
+\noindent Il découle du résultat précédent une formule pour la variance d'une somme de variables aléatoires :
+
+:::: {.thmbox .thm data-latex="important"}
+\noindent
+**Variance d'une somme.** Soient $X_1,\dots,X_n$ des variables aléatoires réelles discrètes. La variance de leur somme est donnée par la formule 
+
+$$\mathbb{V}\left(\sum\limits_{i=1}^n X_i\right)=\sum\limits_{i=1}^n\mathbb{V}(X_i)+2\sum\limits_{1\leq i<j\leq n}\text{Cov}(X_i, X_j)$$
+\noindent En particulier, si les variables aléatoires $X_1,\dots, X_n$ sont deux à deux indépendantes (i.e. si $X_i$ est indépendante de $X_j$ dès que $i\neq j$), la variance de la somme est égale à la somme des variances :
+
+$$\mathbb{V}\left(\sum\limits_{i=1}^n X_i\right)=\sum\limits_{i=1}^n\mathbb{V}(X_i)$$
+::::
+
+\noindent
+
+**Démonstration.** La première égalité est une simple traduction du fait que la fonction de covariance est une forme bilinéaire de forme quadratique associée $\text{Cov}(X,X)=\mathbb{V}(X)$.
+
+\noindent La deuxième égalité provient du fait que la covariance de deux variables aléatoires indépendantes est nulle.
+
+$\square$
+
+
+
+
+## Espérance conditionnelle $\mathbb{E}(Y|X=x)$
 
 \noindent On a défini la loi conditionnelle $\mathbb{P}_{Y|X=x}$. L'espérance $\mathbb{E}(Y|X=x)$, si elle existe, est l'espérance de $Y$ sous cette loi. 
 

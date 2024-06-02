@@ -131,3 +131,4 @@ indépendance-de-deux-variables-aléatoires
 théorème-de-fubini-pour-les-séries-doubles-à-termes-génériques-positifs
 théorème-de-fubini-pour-les-séries-doubles
 variance-conditionnelle
+covariance-et-coefficient-de-corrélation-de-deux-variables-aléatoires
