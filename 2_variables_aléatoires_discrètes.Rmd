@@ -432,7 +432,7 @@ $$\forall p\in [0,1],\, F^{-1}(p)=\inf\{x\in\mathbb{R},\,F(x)\geq p\}$$
 
 - si $\{x\in\mathbb{R},\,F(x)\geq p\}=\emptyset$, alors $\{x\in\mathbb{R}, \, F(x)\geq q\}=\emptyset$ et donc $F^{-1}(p)=F^{-1}(q)=+\infty$.
 
-- supposons maintenant que $\{x\in\mathbb{R},\,F(x)\geq p\}\neq\emptyset$ : il existe donc un réel $x$ tel que $F^{-1}(p)=x$. On diistingue deux cas :
+- supposons maintenant que $\{x\in\mathbb{R},\,F(x)\geq p\}\neq\emptyset$ : il existe donc un réel $x$ tel que $F^{-1}(p)=x$. On distingue deux cas :
 
   - si $\{x\in\mathbb{R}, \, F(x)\geq q\}=\emptyset$, alors $F^{-1}(q)=+\infty$, et donc $F^{-1}(p)=x<+\infty=F^{-1}(q)$.
   
@@ -465,9 +465,8 @@ $\square$
 - pour $i=1,\dots,9$, les $D_i=F^{-1}\left(\frac{i}{10}\right)$ sont les **déciles** de $X$.
 ::::
 
-\noindent
 
-**Exemple.** Dans un exemple précédent, on a introduit une variable aléatoire discrète $X$ de fonction de répartition $F$ donnée par 
+\noindent Dans un exemple précédent, on a introduit une variable aléatoire discrète $X$ de fonction de répartition $F$ donnée par 
 
 $$F(x)=\left \{
 \begin{array}{lcl}
@@ -1781,7 +1780,9 @@ $$\mathbb{P}(X=i, Y=j)=i\,\frac{p}{4}.\mathbb{1}_{0\leq j\leq 3}+(1-i)(1-p)e^{-\
 
 \noindent 
 
-**ii.** Dans un exemple précédent, on a défini la loi d'un couple aléatoire $(X,Y)$ par
+### Indépendance de deux variables aléatoires
+
+\noindent Dans un exemple précédent, on a défini la loi d'un couple aléatoire $(X,Y)$ par
 
 $$\forall (i,j)\in\mathbb{N}^2,\,\mathbb{P}(X=i, Y=j)=\frac{1}{e^2\,i!\,j!}$$
 \noindent et on a montré que les lois marginales sont toutes les deux égales à la loi de Poisson $\mathcal{P}(1)$ :
@@ -1891,6 +1892,10 @@ knitr::include_graphics("C:/Users/olivier.guin/Travail/Formation_Administrateur/
 
 <br>
 
+\noindent 
+
+**Indépendance mutuelle.**
+
 \noindent Par définition de l'indépendance de deux variables, l'expression de chaque probabilité conjointe $\mathbb{P}(X=x,Y=y)$ peut s'écrire comme un produit de deux termes : un premier terme qui est une fonction de $x$ uniquement, et un deuxième terme qui est une fonction de $y$ uniquement. Cette possibilité de séparer en un terme en $x$ et en un terme en $y$ a pour conséquence que l'espérance d'un produit de deux variables indépendantes est le produit de leurs espérances :
 
 :::: {.thmbox .thm data-latex="important"}
@@ -1908,8 +1913,6 @@ $$\mathbb{E}(XY)=\mathbb{E}(X)\,\mathbb{E}(Y)$$
 \begin{align}
 \mathbb{E}(XY)&=\sum\limits_{\omega\in\Omega}\mathbb{P}(\{\omega\})\,X(\omega)\,Y(\omega) \\
 &=\sum\limits_{x\in X(\Omega)}\sum\limits_{y\in Y(\omega)}\mathbb{P}(X=x, Y=y)\,x\,y \\
-&\text{(théorème de transfert)} \\
-& \\
 &=\sum\limits_{x\in X(\Omega)}\sum\limits_{y\in Y(\omega)}\mathbb{P}(X=x)\,\mathbb{P}(Y=y)\,x\,y \\
 &\text{(indépendance de } X \text{ et } Y \text{)} \\
 &\\
@@ -1941,13 +1944,293 @@ $\square$
 
 $$\mathbb{E}(XY)=\mathbb{E}(X)\,\mathbb{E}(Y)=5,6$$
 
+<br>
+
+\noindent La **covariance** de deux variables aléatoires mesure à quel point on s'éloigne de l'égalité $\mathbb{E}(XY)=\mathbb{E}(X)\,\mathbb{E}(Y)$.
+
+:::: {.defbox .def data-latex="important"}
+**Covariance de deux variables aléatoires.** La **covariance** de deux variables aléatoires $X$ et $Y$ est l'espérance, si elle existe, de $\left(X-\mathbb{E}(X)\right).\left(Y-\mathbb{E}(Y)\right)$ :
+
+$$\text{Cov}(X,Y)=\mathbb{E}\left(\left(X-\mathbb{E}(X)\right).\left(Y-\mathbb{E}(Y)\right)\right)$$
+
+\noindent Elle admet également pour expression :
+
+$$\text{Cov}(X,Y)=\mathbb{E}(XY)-\mathbb{E}(X).\mathbb{E}(Y)$$
+
+
+\noindent En particulier, donc, la covariance d'une variance avec elle-même est égale à sa variance :
+
+$$\text{Cov}(X,X)=\mathbb{V}(X)$$
+
+\noindent 
+
+**Remarque. :** la covariance de $X$ et $Y$ est également parfois notée $\sigma_{XY}$.
+::::
+
+\noindent
+
+**Démonstration de la deuxième formule de la covariance.** On utilise la linéarité de l'espérance :
+
+\begin{align}
+\text{Cov}(X,Y)&=\mathbb{E}\left((X-\mathbb{E}(X)).(Y-\mathbb{E}(Y))\right) \\
+&=\mathbb{E}(XY)-\mathbb{E}(X)\mathbb{E}(Y)-\mathbb{E}(X)\mathbb{E}(Y)+\mathbb{E}(X)\mathbb{E}(Y) \\
+&=\mathbb{E}(XY)-\mathbb{E}(X)\mathbb{E}(Y) \\
+\end{align}
+
+$\square$
+
+\noindent 
+
+**Remarque.** La deuxième expression de la covariance est généralement préférable car moins coûteuse en calculs.
+
+\noindent 
+
+**Interprétation de la covariance.** Comme son nom l'indique, la covariance mesure à quel point, en moyenne, les (versions centrées des) variables $X$ et $Y$ covarient. Intuitivement, dire que deux variables ont un lien (que ce lien soit causal ou non), c'est dire que les variations de l'une et celles de l'autre sont concomitantes. Au contraire, si on imagine que l'une de ces deux variables bouge beaucoup alors que l'autre reste constante, on s'attend à ce qu'elles ne soient pas liées l'une à l'autre. La covariance est une simple formalisation de cette idée. 
+
+<br>
+
+- **variance d'une somme**
+
+\noindent La covariance présente l'inconvénient de dépendre de l'échelle des valeurs prises par $X$ et $Y$. Pour neutraliser cet effet d'échelle, on peut utiliser la **corrélation** :
+
+:::: {.defbox .def data-latex="important"}
+<center>**Corrélation linéaire**</center>
+
+\noindent Soient $X$ et $Y$ deux variables aléatoires. Sous réserve d'existence, on appelle **coefficient de corrélation linéaire** enntre $X$ et $Y$, le nombre
+
+$$\rho_{XY}=\frac{\text{Cov}(X,Y)}{\sigma_X\,\sigma_Y}$$
+\noindent où $\sigma_X$ et $\sigma_Y$ sont les écarts-types de $X$ et $Y$.
+
+\noindent On a l'encadrement suivant :
+
+$$0\leq\rho_{XY}\leq 1$$
+::::
+
+\noindent Pour démontrer cet encadrement, on peut utiliser l'inégalité de Cauchy-Schwarz dans l'espace $L^2$. Cette inégalité, en toute généralité, s'applique dans le cadre théorique des espaces préhilbertiens : des rappels sont en annexe.
+
+
+\noindent 
+
+**L'espace $L^2(\Omega)$.** On note $L^2(\Omega, \mathcal{P}(\Omega),\mathbb{P})$, ou plus simplement $L^2(\Omega)$, l'ensemble des variables aléatoires $X:(\Omega,\mathcal{P}(\Omega),\mathbb{P})\longrightarrow\mathbb{R}$ telles que $\mathbb{E}(X^2)<\infty$. Cet espace peut être muni d'un produit scalaire :
+
+$$\forall X,Y\in L^2(\Omega),\, <X\,,\,Y>=\mathbb{E}(XY)$$
+\noindent La norme associée est définie par :
+
+$$\forall X\in L^2(\Omega),\,||X||=\sqrt{\mathbb{E}(X^2)}$$
+
+\noindent Dans $L^2(\Omega)$, l'inégalité de Cauchy-Schwarz prend donc la forme suivante :
+
+:::: {.thmbox .thm data-latex="important"}
+**Inégalité de Cauchy-Schwarz dans $L^2(\Omega)$.** Soient $X,Y\in L^2(\Omega)$ deux variables aléatoires discrètes. Alors :
+
+$$|\mathbb{E}(XY)|\leq\sqrt{\mathbb{E}(X^2)}\,\sqrt{\mathbb{E}(Y^2)}$$
+\noindent Cette inégalité s'écrit aussi :
+
+$$\left|\sum\limits_{\omega\in\Omega}\mathbb{P}(\{\omega\})\,X(\omega)\,Y(\omega)\right|\leq\sqrt{\sum\limits_{\omega\in\Omega}\mathbb{P}(\{\omega\})\,X^2(\omega)}\sqrt{\sum\limits_{\omega\in\Omega}\mathbb{P}(\{\omega\})\,Y^2(\omega)}$$
+\noindent Avec le théorème de transfert, on peut aussi écrire :
+
+$$\left|\sum\limits_{k\in K}\sum\limits_{l\in L}\mathbb{P}(X=x_k, Y=y_l)\,x_k\,y_l\right|\leq\sqrt{\sum\limits_{k\in K}\mathbb{P}(X=x_k)\,x_k^2}\,\sqrt{\sum\limits_{l\in L}\mathbb{P}(Y=y_l)\,y_l^2}$$
+::::
+
+\noindent 
+
+**Démonstration de l'encadrement $0\leq\rho_{XY}\leq 1$.**
+
+\noindent L'encadrement du coefficient de corrélation linéaire se montre alors en appliquant l'inégalité de Cauchy-Schwarz à $X-\mathbb{E}(X)$ et $Y-\mathbb{E}(Y)$, sous réserve que ces variables sont bien dans $L^2(\Omega)$ :
+
+\begin{align}
+|\mathbb{E}((X-\mathbb{E}(X)).(Y-\mathbb{E}(Y)))|\leq\sqrt{\mathbb{E}(X-\mathbb{E}(X))^2}\,\sqrt{\mathbb{E}(Y-\mathbb{E}(Y))^2} \\
+&=\sqrt{\mathbb{V}(X)}.\sqrt{\mathbb{V}(Y)} \\
+&=\sigma_X\,\sigma_Y
+\end{align}
+
+d'où le résultat.
+
+$\square$
+
+\noindent
 
 
 ### Espérance conditionnelle $\mathbb{E}(Y|X=x)$
 
-### Loi conditionnelle $\mathcal{L}(Y|X)$
+\noindent On a défini la loi conditionnelle $\mathbb{P}_{Y|X=x}$. L'espérance $\mathbb{E}(Y|X=x)$, si elle existe, est l'espérance de $Y$ sous cette loi. 
+
+:::: {.defbox .def data-latex="important"}
+<center>**Espérance conditionnelle $\mathbb{E}(Y|X=x)$**</center>
+
+Soient $X$ et $Y$ deux variables aléatoires réelles discrètes sur un espace probabilisé $(\Omega, \mathcal{P}(\Omega), \mathbb{P})$. Soit $x\in X(\Omega)$. On suppose que 
+
+$$\forall y\in Y(\Omega),\,\mathbb{P}(Y|X=x)>0$$
+\noindent L'**espérance conditionnelle de $Y$ sachant $X=x$**, notée $\mathbb{E}(Y|X=x)$, est définie par
+
+$$\mathbb{E}(Y|X=x)=\sum\limits_{y\in Y(\Omega)}\mathbb{P}(Y=y|X=x)\,y$$
+::::
+
+\noindent
+
+**Exemple.** On reprend l'exemple du couple aléatoire $(X,Y)$ de loi conjointe donnée par le tableau suivant :
+
+<center>
+```{r, echo = FALSE}
+knitr::include_graphics("C:/Users/olivier.guin/Travail/Formation_Administrateur/Cours/Cours_probabilités_statistique/images/tableau_exemple_c.PNG") 
+```
+</center>
+
+\noindent Calculons les espérances conditionnelles $\mathbb{E}(Y|X=i)$ pour $1\leq i\leq 3$ :
+
+\begin{align}
+\mathbb{E}(Y|X=1)&=\sum\limits_{i=0}^2\mathbb{P}(Y=i|X=1)\,i \\
+&=\frac{1}{\mathbb{P}(X=1)}\sum\limits_{i=0}^2\mathbb{P}(Y=i|X=1)\,i \\
+&=\frac{\frac{1}{12}\times 0+0\times 1+\frac{1}{12}\times 2}{\frac{2}{12}} \\
+&= 1 \\
+\end{align}
+
+\begin{align}
+\mathbb{E}(Y|X=2)&=\sum\limits_{i=0}^2\mathbb{P}(Y=i|X=2)\,i \\
+&=\frac{1}{\mathbb{P}(X=2)}\sum\limits_{i=0}^2\mathbb{P}(Y=i|X=2)\,i \\
+&=\frac{\frac{2}{12}\times 0+\frac{1}{12}\times 1+\frac{1}{12}\times 2}{\frac{4}{12}} \\
+&= \frac{3}{4} \\
+\end{align}
+
+\begin{align}
+\mathbb{E}(Y|X=3)&=\sum\limits_{i=0}^2\mathbb{P}(Y=i|X=3)\,i \\
+&=\frac{1}{\mathbb{P}(X=3)}\sum\limits_{i=0}^2\mathbb{P}(Y=i|X=3)\,i \\
+&=\frac{\frac{3}{12}\times 0+\frac{2}{12}\times 1+\frac{1}{12}\times 2}{\frac{6}{12}} \\
+&= \frac{2}{3} \\
+\end{align}
+
+
+<br>
+
+\noindent Les espérances conditionnelles permettent de reconstruire l'espérance :
+
+:::: {.thmbox .thm data-latex="important"}
+\noindent
+**Théorème.** Sous les hypothèses et notations précédentes, on a
+
+$$\mathbb{E}(Y)=\sum\limits_{x\in X(\Omega)}\mathbb{P}(X=x)\,\mathbb{E}(Y|X=x)$$
+\noindent Autrement dit, en notant $\mathbb{E}(Y|X)$ la variable aléatoire
+
+$$\mathbb{E}(Y|X)(\omega)=\mathbb{E}(Y|X=X(\omega))$$
+\noindent on a 
+
+$$\mathbb{E}\left(\mathbb{E}(Y|X)\right)=\mathbb{E}(Y)$$
+::::
+
+\noindent
+
+**Remarque.** L'espérance conditionnelle $\mathbb{E}(Y|X)$ est donc une **variable aléatoire** et pas un nombre dans le cas général (elle peut l'être par exemple si $X$ et $Y$ sont indépendantes : exercice !). Son support est constitué des espérances conditionnelles $\mathbb{E}(Y|X=x)$ (ici ce sont bien des nombres !), pour $x\in X(\Omega)$.
+
+\noindent
+
+
+**Démonstration.** On a :
+
+\begin{align}
+\sum\limits_{x\in X(\Omega)}\mathbb{P}(X=x)\,\mathbb{E}(Y|X=x) &= \sum\limits_{x\in X(\Omega)}\mathbb{P}(X=x)\,\sum\limits_{y\in Y(\Omega)}\mathbb{P}(Y=y|X=x)\,y \\
+&=\sum\limits_{x\in X(\Omega)}\sum\limits_{y\in Y(\Omega)}\mathbb{P}(Y=y,X=x)\,y \\
+\end{align}
+
+\noindent Montrons que l'on peut intervertir des deux sommes sans changer le résultat. Si $X(\Omega)$ et $Y(\Omega)$ sont des ensembles finis, il n'y a pas de problème. Sinon, on utilise le théorème de Fubini pour les séries à double indice, dont l'énoncé est rappelé en annexe. On peut appliquer ce théorème car :
+
+- pour tout $y$ dans $Y(\Omega)$, la série $\sum\limits_{x\in X(\Omega)}\mathbb{P}(Y=y, X=x)$ est convergente (et même absolument convergente car son terme générique est positif) puisque, par $\sigma-$additivté, on a
+
+$$\sum\limits_{x\in X(\Omega)}\mathbb{P}(Y=y, X=x)=\mathbb{P}(Y=y)$$
+
+- \begin{align}
+\sum\limits_{y\in Y(\Omega)}\left(\sum\limits_{x\in X(\Omega)}\mathbb{P}(Y=y,X=x)\right)\,y &=\sum\limits_{y\in Y(\Omega)}\mathbb{P}(Y=y)\,y \\
+&=\mathbb{E}(Y) \\
+\end{align}
+
+\noindent On obtient donc :
+
+\begin{align}
+\sum\limits_{x\in X(\Omega)}\mathbb{P}(X=x)\,\mathbb{E}(Y|X=x) &=\sum\limits_{y\in Y(\Omega)}\left(\sum\limits_{x\in X(\Omega)}\mathbb{P}(Y=y,X=x)\right)\,y \\
+&=\mathbb{E}(Y) \\
+\end{align}
+
+\noindent On en déduit que :
+
+\begin{align}
+\mathbb{E}(\mathbb{E}(Y|X))&=\sum\limits_{\omega\in\Omega}\mathbb{P}(\{\omega\})\,\mathbb{E}(Y|X=X(\omega)) \\
+&=\sum\limits_{x\in X(\Omega)}\mathbb{P}(X=x)\,\mathbb{E}(Y|X=x) \\
+&=\mathbb{E}(Y)
+\end{align}
+
+\noindent d'après ce qui précède.
+
+$\square$
+
+\noindent
+
+**Interprétation de ce résultat.** Elle est extrêmement simple : une moyenne $\mathbb{E}(Y)$ peut s'obtenir de la façon suivante :
+
+- dans un premier temps on calcule des moyennes par groupes :  $\mathbb{E}(Y|X=x)$. Ici, les groupes sont les événements $(X=x)$, pour $x\in X(\Omega)$) ;
+
+- dans un second temps, puis on calcule la moyenne (pondérée) de ces moyennes : $\sum\limits_{x\in X(\Omega)}\mathbb{P}(X=x)\mathbb{E}(Y|X=x)$.
+
+\noindent
+
+**Exemple.** On reprend l'exemple précédent :
+
+$$\mathbb{E}(Y|X=1)=1$$
+$$\mathbb{E}(Y|X=2)=\frac{3}{4}$$
+$$\mathbb{E}(Y|X=3)=\frac{2}{3}$$
+\noindent
+
+**Déterminons la loi de $Z=\mathbb{E}(Y|X)$.** Son support est
+
+$$Z(\Omega)=\left\{1,\frac{3}{4},\frac{2}{3}\right\}$$
+
+\noindent Par ailleurs, on a
+
+$$\mathbb{P}(Z=1)=\mathbb{P}(X=1)=\frac{2}{12}$$
+$$\mathbb{P}\left(Z=\frac{3}{4}\right)=\mathbb{P}(X=2)=\frac{4}{12}$$
+$$\mathbb{P}\left(Z=\frac{2}{3}\right)=\mathbb{P}(X=3)=\frac{6}{12}$$
+\noindent 
+
+**Calculons maintenant son espérance.** On peut le faire de deux faons différentes :
+
+- **Méthode 1 :** on utilise la loi de $Z$ :
+
+\begin{align}
+\mathbb{E}(Z)&=\sum\limits_{z\in Z(\Omega)}\mathbb{P}(Z=z)\,z \\
+&=\frac{2}{12}\times 1+\frac{4}{12}\times\frac{3}{4}+\frac{6}{12}\times\frac{2}{3} \\
+&=\frac{3}{4} \\
+\end{align}
+
+- **Méthode 2 :** on utilise l'égalité $\mathbb{E}(Z)=\mathbb{E}(\mathbb{E}(Y|X))=\mathbb{E}(Y)$ :
+
+\begin{align}
+\mathbb{E}(Z)&=\mathbb{E}(Y) \\
+&=\sum\limits_{x\in X(\Omega)}\mathbb{P}(X=x)\,\mathbb{E}(Y|X=x) \\
+&=\frac{2}{12}\times 1+\frac{4}{12}\times\frac{3}{4}+\frac{6}{12}\times\frac{2}{3} \\
+&=\frac{3}{4} \\
+\end{align}
+
+\noindent
+
+- **Méthode 3** : on utilise l'égalité $\mathbb{E}(Z)=\mathbb{E}(Y)$, que l'on calcule à partir de la loi de $Y$ :
+
+\begin{align}
+\mathbb{E}(Z)&=\mathbb{E}(Y) \\
+&=\sum\limits_{y\in Y(\Omega)}\mathbb{P}(Y=y)\,y \\
+&=\frac{6}{12}\times 0+\frac{3}{12}\times 1+\frac{3}{12}\times 2 \\
+&=\frac{3}{4} \\
+\end{align}
+
+\noindent Les trois méthodes aboutissent bien au même résultat.
+
+<br>
+
+### Variance conditionnelle
+
+- variance conditionnelle
+- théorème de la variance totale 
 
 ### Somme de deux VA indépendantes (produit de convolution discret)
+
+## Annexes
 
 ### Inégalité de Cauchy-Schwarz
 
@@ -2005,30 +2288,20 @@ $\square$
 
 \noindent Dans le cadre de la théorie des probabilités, l'inégalité de Cauchy-Schwarz est souvent appliquée dans l'epace $L^2(\Omega, \mathcal{P}(\Omega), \mathbb{P})$.
 
-\noindent 
+### Théorème de Fubini pour les séries doubles
 
-**L'espace $L^2(\Omega)$.** On note $L^2(\Omega, \mathcal{P}(\Omega),\mathbb{P})$, ou plus simplement $L^2(\Omega)$, l'ensemble des variables aléatoires $X:(\Omega,\mathcal{P}(\Omega),\mathbb{P})\longrightarrow\mathbb{R}$ telles que $\mathbb{E}(X^2)<\infty$. Cet espace peut être muni d'un produit scalaire :
-
-$$\forall X,Y\in L^2(\Omega),\, <X\,,\,Y>=\mathbb{E}(XY)$$
-\noindent La norme associée est définie par :
-
-$$\forall X\in L^2(\Omega),\,||X||=\sqrt{\mathbb{E}(X^2)}$$
-
-\noindent Dans $L^2(\Omega)$, l'inégalité de Cauchy-Schwarz prend donc la forme suivante :
+\noindent On rappelle le résultat d'analyse suivant (que l'on admet) :
 
 :::: {.thmbox .thm data-latex="important"}
-**Inégalité de Cauchy-Schwarz dans $L^2(\Omega)$.** Soient $X,Y\in L^2(\Omega)$ deux variables aléatoires discrètes. Alors :
-
-$$|\mathbb{E}(XY)|\leq\sqrt{\mathbb{E}(X^2)}\,\sqrt{\mathbb{E}(Y^2)}$$
-\noindent Cette inégalité s'écrit aussi :
-
-$$\left|\sum\limits_{\omega\in\Omega}\mathbb{P}(\{\omega\})\,X(\omega)\,Y(\omega)\right|\leq\sqrt{\sum\limits_{\omega\in\Omega}\mathbb{P}(\{\omega\})\,X^2(\omega)}\sqrt{\sum\limits_{\omega\in\Omega}\mathbb{P}(\{\omega\})\,Y^2(\omega)}$$
-\noindent Avec le théorème de transfert, on peut aussi écrire :
-
-$$\left|\sum\limits_{k\in K}\sum\limits_{l\in L}\mathbb{P}(X=x_k, Y=y_l)\,x_k\,y_l\right|\leq\sqrt{\sum\limits_{k\in K}\mathbb{P}(X=x_k)\,x_k^2}\,\sqrt{\sum\limits_{l\in L}\mathbb{P}(Y=y_l)\,y_l^2}$$
-::::
-
 \noindent
+**Théorème de Fubini pour les séries doubles.** On suppose que $(a_{mn})_{(m,n),\in\mathbb{N}^2}$ est une suite à double indice telle que :
 
+- pour tout entier $m$, la série $\sum\limits_{n}a_{m,n}$ est absolument convergente ;
+- la série double $\sum\limits_{m}\sum\limits_{n}a_{m,n}$ est convergente.
 
+\noindent Alors :
+
+$$\sum\limits_{m=0}^{\infty}\sum\limits_{n=0}^{\infty}a_{m,n}=\sum\limits_{n=0}^{\infty}\sum\limits_{m=0}^{\infty}a_{m,n}$$
+\noindent autrement dit on peut interertir l'ordre des sommes sans modifier le résultat.
+::::
 

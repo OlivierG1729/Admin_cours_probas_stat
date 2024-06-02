@@ -126,3 +126,8 @@ variables-aléatoires-indépendantes
 loi-conditionnelle-mathbbp_xyy_j
 espérance-conditionnelle-mathbbeyxx
 somme-de-deux-va-indépendantes-produit-de-convolution-discret
+annexes
+indépendance-de-deux-variables-aléatoires
+théorème-de-fubini-pour-les-séries-doubles-à-termes-génériques-positifs
+théorème-de-fubini-pour-les-séries-doubles
+variance-conditionnelle
