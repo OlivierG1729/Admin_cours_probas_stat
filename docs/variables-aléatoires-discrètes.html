@@ -23,7 +23,7 @@
 <meta name="author" content="Olivier Guin" />
 
 
-<meta name="date" content="2024-06-02" />
+<meta name="date" content="2024-06-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -1681,6 +1681,8 @@ L’<strong>espérance conditionnelle de <span class="math inline">\(Y\)</span> 
 <p><span class="math display">\[\mathbb{E}(Y|X=x)=\sum\limits_{y\in Y(\Omega)}\mathbb{P}(Y=y|X=x)\,y\]</span></p>
 </div>
 <p></p>
+<p><strong>Interprétation.</strong> L’espérance conditionnelle <span class="math inline">\(\mathbb{E}(Y|X=x)\)</span> s’interprète comme l’espérance de <span class="math inline">\(Y\)</span> dans le sous-univers <span class="math inline">\((X=X)\subset\Omega\)</span>. Elle a d’ailleurs toutes les propriétés de l’espérance : linéarité, positivité, croissance…</p>
+<p></p>
 <p><strong>Exemple.</strong> On reprend l’exemple du couple aléatoire <span class="math inline">\((X,Y)\)</span> de loi conjointe donnée par le tableau suivant :</p>
 <center>
 <img src="images/tableau_exemple_c.PNG" /><!-- -->
@@ -1705,6 +1707,16 @@ L’<strong>espérance conditionnelle de <span class="math inline">\(Y\)</span> 
 &amp;= \frac{2}{3} \\
 \end{align}\]</span></p>
 <p><br></p>
+<div class="defbox def">
+<p><strong>Propriétés de l’espérance conditionnelle <span class="math inline">\(\mathbb{E}(.|X=x)\)</span>.</strong> Sous les hypothèses et notations précédentes, l’espérance conditionnelle <span class="math inline">\(\mathbb{E}(.|X=x)\)</span> possède toutes les propriétés de l’espérance :</p>
+<ul>
+<li><p>elle est <strong>linéaire :</strong> <span class="math inline">\(\mathbb{E}(Y+\alpha Z|X)=\mathbb{E}(Y|X)+\alpha\mathbb{E}(Z|X)\)</span></p></li>
+<li><p>elle est <strong>positive :</strong> si <span class="math inline">\(Y\geq 0\)</span> alors <span class="math inline">\(\mathbb{E}(Y|X)\geq 0\)</span></p></li>
+<li><p>elle est <strong>croissante :</strong> si <span class="math inline">\(Y\leq Z\)</span> alors <span class="math inline">\(\mathbb{E}(Y|X)\leq\mathbb{E}(Z|X)\)</span>.</p></li>
+</ul>
+</div>
+<p></p>
+<p><br></p>
 <p>Les espérances conditionnelles permettent de reconstruire l’espérance :</p>
 <div class="thmbox thm">
 <p>
@@ -1716,7 +1728,12 @@ on a</p>
 <p><span class="math display">\[\mathbb{E}\left(\mathbb{E}(Y|X)\right)=\mathbb{E}(Y)\]</span></p>
 </div>
 <p></p>
-<p><strong>Remarque.</strong> L’espérance conditionnelle <span class="math inline">\(\mathbb{E}(Y|X)\)</span> est donc une <strong>variable aléatoire</strong> et pas un nombre dans le cas général (elle peut l’être par exemple si <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span> sont indépendantes : exercice !). Son support est constitué des espérances conditionnelles <span class="math inline">\(\mathbb{E}(Y|X=x)\)</span> (ici ce sont bien des nombres !), pour <span class="math inline">\(x\in X(\Omega)\)</span>.</p>
+<p><strong>Remarques. i.</strong> L’espérance conditionnelle <span class="math inline">\(\mathbb{E}(Y|X)\)</span> est donc une <strong>variable aléatoire</strong> et pas un nombre dans le cas général (elle peut l’être par exemple si <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span> sont indépendantes : exercice !). Son support est constitué des espérances conditionnelles <span class="math inline">\(\mathbb{E}(Y|X=x)\)</span> (ici ce sont bien des nombres !), pour <span class="math inline">\(x\in X(\Omega)\)</span>.</p>
+<p></p>
+<p><strong>ii.</strong> Pour tout <span class="math inline">\(x\in X(\Omega)\)</span>, <span class="math inline">\(\mathbb{E}(Y|X=x)=\sum\limits_{y\in Y(\Omega)}\mathbb{P}(Y|X=x)\,y\)</span> est une fonction de <span class="math inline">\(x\)</span> :</p>
+<p><span class="math display">\[\mathbb{E}(Y|X=x)=\phi(x)\]</span>
+Donc, l’espérance conditionnelle <span class="math inline">\(\mathbb{E}(Y|X)\)</span> est une fonction de <span class="math inline">\(X\)</span> :</p>
+<p><span class="math display">\[\mathbb{E}(Y|X)=\phi(X)\]</span></p>
 <p></p>
 <p><strong>Démonstration.</strong> On a :</p>
 <p><span class="math display">\[\begin{align}
@@ -1766,7 +1783,7 @@ on a</p>
 <span class="math display">\[\mathbb{P}\left(Z=\frac{3}{4}\right)=\mathbb{P}(X=2)=\frac{4}{12}\]</span>
 <span class="math display">\[\mathbb{P}\left(Z=\frac{2}{3}\right)=\mathbb{P}(X=3)=\frac{6}{12}\]</span>
 </p>
-<p><strong>Calculons maintenant son espérance.</strong> On peut le faire de deux faons différentes :</p>
+<p><strong>Calculons maintenant son espérance.</strong> On peut le faire de trois façons différentes :</p>
 <ul>
 <li><strong>Méthode 1 :</strong> on utilise la loi de <span class="math inline">\(Z\)</span> :</li>
 </ul>
@@ -1796,15 +1813,58 @@ on a</p>
 \end{align}\]</span></p>
 <p>Les trois méthodes aboutissent bien au même résultat.</p>
 <p><br></p>
+<p>On termine avec une propriété intuitive de l’espérance conditionnelle. Si <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span> sont indépendantes, la connaissance de la réalisation <span class="math inline">\(x=X(\omega)\)</span> de <span class="math inline">\(X\)</span> n’a aucun impact sur la moyenne de <span class="math inline">\(Y\)</span> :</p>
+<div class="thmbox thm">
+<p>
+<strong>Théorème.</strong> Avec les notations et hypothèses précédentes, si <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span> sont indépendantes, alors pour toute réalisation <span class="math inline">\(x=X(\omega)\)</span> de <span class="math inline">\(X\)</span>, on a</p>
+<p><span class="math display">\[\mathbb{E}(Y|X=x)=\mathbb{E}(Y)\]</span>
+Autrement dit, si <span class="math inline">\(Y\)</span> est indépendante de <span class="math inline">\(X\)</span>, alors :</p>
+<p><span class="math display">\[\mathbb{E}(Y|X)=\mathbb{E}(Y)\]</span></p>
+</div>
+<p></p>
+<p><strong>Démonstration.</strong> Elle est immédiate : soit <span class="math inline">\(x\in X(\Omega)\)</span>, alors</p>
+<p><span class="math display">\[\begin{align}
+\mathbb{E}(Y|X=x)&amp;=\sum\limits_{y\in Y(\Omega)}\mathbb{P}(Y=y|X=x)\,y \\
+&amp;=\sum\limits_{y\in Y(\Omega)}\mathbb{P}(Y=y)\,y \\
+&amp; \text{(car } Y \text{ est indépendante de } X \text{)} \\
+&amp;=\mathbb{E}(Y)
+\end{align}\]</span></p>
+<p><span class="math inline">\(\square\)</span></p>
+<ul>
+<li></li>
+</ul>
 <div id="variance-conditionnelle" class="section level3 hasAnchor" number="3.7.1">
 <h3><span class="header-section-number">3.7.1</span> Variance conditionnelle<a href="variables-aléatoires-discrètes.html#variance-conditionnelle" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li>variance conditionnelle</li>
-<li>théorème de la variance totale</li>
-</ul>
+<div class="thmbox thm">
+<center>
+<strong>Variance conditionnelle</strong>
+</center>
+<p>Sous réserve d’existence, la variance conditionnelle de <span class="math inline">\(Y\)</span> sachant <span class="math inline">\(X=x\)</span> est définie par</p>
+<p><span class="math display">\[\mathbb{V}(Y|X=x)=\mathbb{E}\left((Y-\mathbb{E}(Y|X=x))^2\right)\]</span>
+soit</p>
+<p><span class="math display">\[\mathbb{V}(Y|X=x)=\sum\limits_{y\in Y(\Omega)}\mathbb{P}(Y=y|X=x)\,(y-\mathbb{E}(Y|X=x))^2\]</span>
+On a alors la formule de König-Huygens :</p>
+<p><span class="math display">\[\mathbb{V}(Y|X=x)=\mathbb{E}(Y^2|X=x)-\mathbb{E}(Y|X=x)^2\]</span>
+On peut également définir une notion de variance conditionnelle comme variable aléatoire :</p>
+<p><span class="math display">\[\mathbb{V}(Y|X)=\mathbb{E}\left(\left(Y-\mathbb{E}(Y|X)\right)^2\right)\]</span>
+et à nouveau on a :</p>
+<p><span class="math display">\[\mathbb{V}(Y|X)=\mathbb{E}(Y^2|X)-\mathbb{E}(Y|X)^2\]</span>
+Avec ces définitions, la variable aléatoire <span class="math inline">\(\mathbb{V}(Y|X)\)</span> admet pour réalisations les <span class="math inline">\(\mathbb{V}(Y|X=x)\)</span>, pour <span class="math inline">\(x\in X(\Omega)\)</span>.</p>
+</div>
+<p>La variance, l’espérance conditionnelle et la variance conditionnelle sont liées par la formule suivante :</p>
+<div class="thmbox thm">
+<p><strong>Formule de décomposition de la variance.</strong> Soient <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span> deux variables aléatoires réelles discrètes. On suppose que <span class="math inline">\(Y\)</span> admet une variance finie. Alors</p>
+<p><span class="math display">\[\mathbb{V}(Y)=\mathbb{E}\left(\mathbb{V}(Y|X)\right)+\mathbb{V}\left(\mathbb{E}(Y|X)\right)\]</span></p>
+</div>
 </div>
 <div id="somme-de-deux-va-indépendantes-produit-de-convolution-discret" class="section level3 hasAnchor" number="3.7.2">
 <h3><span class="header-section-number">3.7.2</span> Somme de deux VA indépendantes (produit de convolution discret)<a href="variables-aléatoires-discrètes.html#somme-de-deux-va-indépendantes-produit-de-convolution-discret" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="thmbox thm">
+<p>Soient <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span> deux variables aléatoires réelles discrètes <strong>indépendantes</strong> définies sur <span class="math inline">\((\Omega, \mathcal{P}(\Omega), \mathbb{P})\)</span>. La loi de leur somme <span class="math inline">\(X+Y\)</span> est donnée par</p>
+<p><span class="math display">\[\forall z\in X+Y(\Omega),\,\mathbb{P}(X+Y=z)=\sum\limits_{x\in X(\Omega), z-x\in Y(\Omega)} \mathbb{P}(X=x)\,\mathbb{P}(Y=z-x)\]</span>
+La fonction <span class="math display">\[z\in X+Y(\Omega)\mapsto \sum\limits_{x\in X(\Omega), z-x\in Y(\Omega)} \mathbb{P}(X=x)\,\mathbb{P}(Y=z-x)\]</span></p>
+<p>s’appelle le <strong>produit de convolution</strong> de <span class="math inline">\(X\)</span> par <span class="math inline">\(Y\)</span>.</p>
+</div>
 </div>
 </div>
 <div id="annexes" class="section level2 hasAnchor" number="3.8">

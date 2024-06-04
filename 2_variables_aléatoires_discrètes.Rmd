@@ -2173,6 +2173,11 @@ $$\mathbb{E}(Y|X=x)=\sum\limits_{y\in Y(\Omega)}\mathbb{P}(Y=y|X=x)\,y$$
 
 \noindent
 
+**Interprétation.** L'espérance conditionnelle $\mathbb{E}(Y|X=x)$ s'interprète comme l'espérance de $Y$ dans le sous-univers $(X=X)\subset\Omega$. Elle a d'ailleurs toutes les propriétés de l'espérance : linéarité, positivité, croissance...
+
+
+\noindent
+
 **Exemple.** On reprend l'exemple du couple aléatoire $(X,Y)$ de loi conjointe donnée par le tableau suivant :
 
 <center>
@@ -2207,6 +2212,23 @@ knitr::include_graphics("C:/Users/olivier.guin/Travail/Formation_Administrateur/
 
 <br>
 
+:::: {.defbox .def data-latex="important"}
+**Propriétés de l'espérance conditionnelle $\mathbb{E}(.|X=x)$.** Sous les hypothèses et notations précédentes, l'espérance conditionnelle $\mathbb{E}(.|X=x)$ possède toutes les propriétés de l'espérance :
+
+- elle est **linéaire :** $\mathbb{E}(Y+\alpha Z|X)=\mathbb{E}(Y|X)+\alpha\mathbb{E}(Z|X)$
+
+- elle est **positive :** si $Y\geq 0$ alors $\mathbb{E}(Y|X)\geq 0$
+
+- elle est **croissante :** si $Y\leq Z$ alors $\mathbb{E}(Y|X)\leq\mathbb{E}(Z|X)$.
+::::
+
+\noindent 
+
+<br>
+
+
+
+
 \noindent Les espérances conditionnelles permettent de reconstruire l'espérance :
 
 :::: {.thmbox .thm data-latex="important"}
@@ -2224,7 +2246,17 @@ $$\mathbb{E}\left(\mathbb{E}(Y|X)\right)=\mathbb{E}(Y)$$
 
 \noindent
 
-**Remarque.** L'espérance conditionnelle $\mathbb{E}(Y|X)$ est donc une **variable aléatoire** et pas un nombre dans le cas général (elle peut l'être par exemple si $X$ et $Y$ sont indépendantes : exercice !). Son support est constitué des espérances conditionnelles $\mathbb{E}(Y|X=x)$ (ici ce sont bien des nombres !), pour $x\in X(\Omega)$.
+**Remarques. i.** L'espérance conditionnelle $\mathbb{E}(Y|X)$ est donc une **variable aléatoire** et pas un nombre dans le cas général (elle peut l'être par exemple si $X$ et $Y$ sont indépendantes : exercice !). Son support est constitué des espérances conditionnelles $\mathbb{E}(Y|X=x)$ (ici ce sont bien des nombres !), pour $x\in X(\Omega)$.
+
+\noindent
+
+**ii.** Pour tout $x\in X(\Omega)$, $\mathbb{E}(Y|X=x)=\sum\limits_{y\in Y(\Omega)}\mathbb{P}(Y|X=x)\,y$ est une fonction de $x$ :
+
+$$\mathbb{E}(Y|X=x)=\phi(x)$$
+\noindent Donc, l'espérance conditionnelle $\mathbb{E}(Y|X)$ est une fonction de $X$ :
+
+$$\mathbb{E}(Y|X)=\phi(X)$$
+
 
 \noindent
 
@@ -2328,12 +2360,73 @@ $$\mathbb{P}\left(Z=\frac{2}{3}\right)=\mathbb{P}(X=3)=\frac{6}{12}$$
 
 <br>
 
+\noindent On termine avec une propriété intuitive de l'espérance conditionnelle. Si $X$ et $Y$ sont indépendantes, la connaissance de la réalisation $x=X(\omega)$ de $X$ n'a aucun impact sur la moyenne de $Y$ :
+
+:::: {.thmbox .thm data-latex="important"}
+\noindent
+**Théorème.** Avec les notations et hypothèses précédentes, si $X$ et $Y$ sont indépendantes, alors pour toute réalisation $x=X(\omega)$ de $X$, on a
+
+$$\mathbb{E}(Y|X=x)=\mathbb{E}(Y)$$
+\noindent Autrement dit, si $Y$ est indépendante de $X$, alors :
+
+$$\mathbb{E}(Y|X)=\mathbb{E}(Y)$$
+::::
+
+\noindent
+
+**Démonstration.** Elle est immédiate : soit $x\in X(\Omega)$, alors
+
+\begin{align}
+\mathbb{E}(Y|X=x)&=\sum\limits_{y\in Y(\Omega)}\mathbb{P}(Y=y|X=x)\,y \\
+&=\sum\limits_{y\in Y(\Omega)}\mathbb{P}(Y=y)\,y \\
+& \text{(car } Y \text{ est indépendante de } X \text{)} \\
+&=\mathbb{E}(Y)
+\end{align}
+
+$\square$
+
+
 ### Variance conditionnelle
 
-- variance conditionnelle
-- théorème de la variance totale 
+:::: {.thmbox .thm data-latex="important"}
+<center>**Variance conditionnelle**</center>
+\noindent Sous réserve d'existence, la variance conditionnelle de $Y$ sachant $X=x$ est définie par
+
+$$\mathbb{V}(Y|X=x)=\mathbb{E}\left((Y-\mathbb{E}(Y|X=x))^2\right)$$
+\noindent soit
+
+$$\mathbb{V}(Y|X=x)=\sum\limits_{y\in Y(\Omega)}\mathbb{P}(Y=y|X=x)\,(y-\mathbb{E}(Y|X=x))^2$$
+\noindent On a alors la formule de König-Huygens :
+
+$$\mathbb{V}(Y|X=x)=\mathbb{E}(Y^2|X=x)-\mathbb{E}(Y|X=x)^2$$
+\noindent On peut également définir une notion de variance conditionnelle comme variable aléatoire :
+
+$$\mathbb{V}(Y|X)=\mathbb{E}\left(\left(Y-\mathbb{E}(Y|X)\right)^2\right)$$
+\noindent et à nouveau on a :
+
+$$\mathbb{V}(Y|X)=\mathbb{E}(Y^2|X)-\mathbb{E}(Y|X)^2$$
+\noindent Avec ces définitions, la variable aléatoire $\mathbb{V}(Y|X)$ admet pour réalisations les $\mathbb{V}(Y|X=x)$, pour $x\in X(\Omega)$.
+::::
+
+\noindent La variance, l'espérance conditionnelle et la variance conditionnelle sont liées par la formule suivante :
+
+:::: {.thmbox .thm data-latex="important"}
+**Formule de décomposition de la variance.** Soient $X$ et $Y$ deux variables aléatoires réelles discrètes. On suppose que $Y$ admet une variance finie. Alors
+
+$$\mathbb{V}(Y)=\mathbb{E}\left(\mathbb{V}(Y|X)\right)+\mathbb{V}\left(\mathbb{E}(Y|X)\right)$$
+::::
+
 
 ### Somme de deux VA indépendantes (produit de convolution discret)
+
+:::: {.thmbox .thm data-latex="important"}
+Soient $X$ et $Y$ deux variables aléatoires réelles discrètes **indépendantes** définies sur $(\Omega, \mathcal{P}(\Omega), \mathbb{P})$. La loi de leur somme $X+Y$ est donnée par
+
+$$\forall z\in X+Y(\Omega),\,\mathbb{P}(X+Y=z)=\sum\limits_{x\in X(\Omega), z-x\in Y(\Omega)} \mathbb{P}(X=x)\,\mathbb{P}(Y=z-x)$$
+\noindent La fonction $$z\in X+Y(\Omega)\mapsto \sum\limits_{x\in X(\Omega), z-x\in Y(\Omega)} \mathbb{P}(X=x)\,\mathbb{P}(Y=z-x)$$
+
+\noindent s'appelle le **produit de convolution** de $X$ par $Y$.
+::::
 
 ## Annexes
 
