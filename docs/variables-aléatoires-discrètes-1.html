@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapitre 4 Variables aléatoires discrètes | Cours de probabilités-statistiques pour le concours interne d’administrateur Insee</title>
+  <meta name="description" content="Cours de probabilités et statistiques" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapitre 4 Variables aléatoires discrètes | Cours de probabilités-statistiques pour le concours interne d’administrateur Insee" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Cours de probabilités et statistiques" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapitre 4 Variables aléatoires discrètes | Cours de probabilités-statistiques pour le concours interne d’administrateur Insee" />
+  
+  <meta name="twitter:description" content="Cours de probabilités et statistiques" />
+  
+
+<meta name="author" content="Olivier Guin" />
+
+
+<meta name="date" content="2024-06-07" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="variables-aléatoires-discrètes.html"/>
+<link rel="next" href="convergence.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Cours de probabilités et statistique pour le concours interne d'administrateur de l'Insee</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> url: your book url like https://bookdown.org/yihui/bookdown</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#généralités"><i class="fa fa-check"></i><b>1.1</b> Généralités</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#coquilles-et-erreurs"><i class="fa fa-check"></i><b>1.2</b> Coquilles et erreurs</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html"><i class="fa fa-check"></i><b>2</b> Dénombrement et probabilités</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#rappels-sur-les-opérations-ensemblistes"><i class="fa fa-check"></i><b>2.1</b> Rappels sur les opérations ensemblistes</a></li>
+<li class="chapter" data-level="2.2" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#dénombrement"><i class="fa fa-check"></i><b>2.2</b> Dénombrement</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#produit-cartésien-et-principe-multiplicatif"><i class="fa fa-check"></i><b>2.2.1</b> Produit cartésien et principe multiplicatif</a></li>
+<li class="chapter" data-level="2.2.2" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#principe-additif"><i class="fa fa-check"></i><b>2.2.2</b> Principe additif</a></li>
+<li class="chapter" data-level="2.2.3" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#formule-de-poincaré"><i class="fa fa-check"></i><b>2.2.3</b> Formule de Poincaré</a></li>
+<li class="chapter" data-level="2.2.4" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#dénombrement-par-bijection"><i class="fa fa-check"></i><b>2.2.4</b> Dénombrement par bijection</a></li>
+<li class="chapter" data-level="2.2.5" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#permutations"><i class="fa fa-check"></i><b>2.2.5</b> Permutations</a></li>
+<li class="chapter" data-level="2.2.6" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#arrangements"><i class="fa fa-check"></i><b>2.2.6</b> Arrangements</a></li>
+<li class="chapter" data-level="2.2.7" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#combinaisons"><i class="fa fa-check"></i><b>2.2.7</b> Combinaisons</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#langage-et-formalisme-des-probabilités"><i class="fa fa-check"></i><b>2.3</b> Langage et formalisme des probabilités</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#lunivers-omega-dune-expérience-aléatoire"><i class="fa fa-check"></i><b>2.3.1</b> L’univers <span class="math inline">\(\Omega\)</span> d’une expérience aléatoire</a></li>
+<li class="chapter" data-level="2.3.2" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#lespace-probabilisable-omega-mathcala"><i class="fa fa-check"></i><b>2.3.2</b> L’espace probabilisable <span class="math inline">\((\Omega, \mathcal{A})\)</span></a></li>
+<li class="chapter" data-level="2.3.3" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#lespace-probabilisé-omega-mathcala-mathbbp"><i class="fa fa-check"></i><b>2.3.3</b> L’espace probabilisé <span class="math inline">\((\Omega, \mathcal{A}, \mathbb{P})\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#indépendance"><i class="fa fa-check"></i><b>2.4</b> Indépendance</a></li>
+<li class="chapter" data-level="2.5" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#probabilités-conditionnelles"><i class="fa fa-check"></i><b>2.5</b> Probabilités conditionnelles</a></li>
+<li class="chapter" data-level="2.6" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#formule-des-probabilités-totales"><i class="fa fa-check"></i><b>2.6</b> Formule des probabilités totales</a></li>
+<li class="chapter" data-level="2.7" data-path="dénombrement-et-probabilités.html"><a href="dénombrement-et-probabilités.html#formule-de-bayes"><i class="fa fa-check"></i><b>2.7</b> Formule de Bayes</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html"><i class="fa fa-check"></i><b>3</b> Variables aléatoires discrètes</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#définition-et-premières-propriétés"><i class="fa fa-check"></i><b>3.1</b> Définition et premières propriétés</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#définition"><i class="fa fa-check"></i><b>3.1.1</b> Définition</a></li>
+<li class="chapter" data-level="3.1.2" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#loi-dune-variable-aléatoire-discrète"><i class="fa fa-check"></i><b>3.1.2</b> Loi d’une variable aléatoire discrète</a></li>
+<li class="chapter" data-level="3.1.3" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#calcul-de-mathbbpxin-b"><i class="fa fa-check"></i><b>3.1.3</b> Calcul de <span class="math inline">\(\mathbb{P}(X\in B)\)</span></a></li>
+<li class="chapter" data-level="3.1.4" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#fonction-de-répartition"><i class="fa fa-check"></i><b>3.1.4</b> Fonction de répartition</a></li>
+<li class="chapter" data-level="3.1.5" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#quantiles"><i class="fa fa-check"></i><b>3.1.5</b> Quantiles</a></li>
+<li class="chapter" data-level="3.1.6" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#exemples-classiques-de-lois-discrètes"><i class="fa fa-check"></i><b>3.1.6</b> Exemples classiques de lois discrètes</a></li>
+<li class="chapter" data-level="3.1.7" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#simulation-dune-variable-aléatoire-réelle"><i class="fa fa-check"></i><b>3.1.7</b> Simulation d’une variable aléatoire réelle</a></li>
+<li class="chapter" data-level="3.1.8" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#moments-dune-variable-aléatoire"><i class="fa fa-check"></i><b>3.1.8</b> Moments d’une variable aléatoire</a></li>
+<li class="chapter" data-level="3.1.9" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#quelques-inégalités-classiques"><i class="fa fa-check"></i><b>3.1.9</b> Quelques inégalités classiques</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#transformation-dune-variable-aléatoire-discrète"><i class="fa fa-check"></i><b>3.2</b> Transformation d’une variable aléatoire discrète</a></li>
+<li class="chapter" data-level="3.3" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#vecteurs-aléatoires"><i class="fa fa-check"></i><b>3.3</b> Vecteurs aléatoires</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#couple-aléatoire-loi-conjointe-lois-marginales"><i class="fa fa-check"></i><b>3.3.1</b> Couple aléatoire : loi conjointe, lois marginales</a></li>
+<li class="chapter" data-level="3.3.2" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#n-uplets-aléatoires"><i class="fa fa-check"></i><b>3.3.2</b> <span class="math inline">\(n-\)</span>uplets aléatoires</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#loi-conditionnelle-mathbbp_xyy_j"><i class="fa fa-check"></i><b>3.4</b> Loi conditionnelle <span class="math inline">\(\mathbb{P}_{X|Y=y_j}\)</span></a></li>
+<li class="chapter" data-level="3.5" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#indépendance-de-deux-variables-aléatoires"><i class="fa fa-check"></i><b>3.5</b> Indépendance de deux variables aléatoires</a></li>
+<li class="chapter" data-level="3.6" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#covariance-et-coefficient-de-corrélation-de-deux-variables-aléatoires"><i class="fa fa-check"></i><b>3.6</b> Covariance et coefficient de corrélation de deux variables aléatoires</a></li>
+<li class="chapter" data-level="3.7" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#espérance-conditionnelle-mathbbeyxx"><i class="fa fa-check"></i><b>3.7</b> Espérance conditionnelle <span class="math inline">\(\mathbb{E}(Y|X=x)\)</span></a>
+<ul>
+<li class="chapter" data-level="3.7.1" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#variance-conditionnelle"><i class="fa fa-check"></i><b>3.7.1</b> Variance conditionnelle</a></li>
+<li class="chapter" data-level="3.7.2" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#somme-de-deux-va-indépendantes-produit-de-convolution-discret"><i class="fa fa-check"></i><b>3.7.2</b> Somme de deux VA indépendantes (produit de convolution discret)</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#annexes"><i class="fa fa-check"></i><b>3.8</b> Annexes</a>
+<ul>
+<li class="chapter" data-level="3.8.1" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#inégalité-de-cauchy-schwarz"><i class="fa fa-check"></i><b>3.8.1</b> Inégalité de Cauchy-Schwarz</a></li>
+<li class="chapter" data-level="3.8.2" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#théorème-de-fubini-pour-les-séries-doubles"><i class="fa fa-check"></i><b>3.8.2</b> Théorème de Fubini pour les séries doubles</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#variables-aléatoires-à-densité"><i class="fa fa-check"></i><b>3.9</b> Variables aléatoires à densité</a></li>
+<li class="chapter" data-level="3.10" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#définition-et-premières-propriétés-1"><i class="fa fa-check"></i><b>3.10</b> Définition et premières propriétés</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="variables-aléatoires-discrètes-1.html"><a href="variables-aléatoires-discrètes-1.html"><i class="fa fa-check"></i><b>4</b> Variables aléatoires discrètes</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="variables-aléatoires-discrètes-1.html"><a href="variables-aléatoires-discrètes-1.html#définition-et-premières-propriétés-2"><i class="fa fa-check"></i><b>4.1</b> Définition et premières propriétés</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="variables-aléatoires-discrètes-1.html"><a href="variables-aléatoires-discrètes-1.html#définition-1"><i class="fa fa-check"></i><b>4.1.1</b> Définition</a></li>
+<li class="chapter" data-level="4.1.2" data-path="variables-aléatoires-discrètes-1.html"><a href="variables-aléatoires-discrètes-1.html#loi-dune-variable-aléatoire-discrète-1"><i class="fa fa-check"></i><b>4.1.2</b> Loi d’une variable aléatoire discrète</a></li>
+<li class="chapter" data-level="4.1.3" data-path="variables-aléatoires-discrètes-1.html"><a href="variables-aléatoires-discrètes-1.html#calcul-de-mathbbpxin-b-1"><i class="fa fa-check"></i><b>4.1.3</b> Calcul de <span class="math inline">\(\mathbb{P}(X\in B)\)</span></a></li>
+<li class="chapter" data-level="4.1.4" data-path="variables-aléatoires-discrètes-1.html"><a href="variables-aléatoires-discrètes-1.html#fonction-de-répartition-1"><i class="fa fa-check"></i><b>4.1.4</b> Fonction de répartition</a></li>
+<li class="chapter" data-level="4.1.5" data-path="variables-aléatoires-discrètes-1.html"><a href="variables-aléatoires-discrètes-1.html#définition-2"><i class="fa fa-check"></i><b>4.1.5</b> Définition</a></li>
+<li class="chapter" data-level="4.1.6" data-path="variables-aléatoires-discrètes-1.html"><a href="variables-aléatoires-discrètes-1.html#loi-dune-variable-aléatoire-à-densité"><i class="fa fa-check"></i><b>4.1.6</b> Loi d’une variable aléatoire à densité</a></li>
+<li class="chapter" data-level="4.1.7" data-path="variables-aléatoires-discrètes-1.html"><a href="variables-aléatoires-discrètes-1.html#définition-de-pxin-a"><i class="fa fa-check"></i><b>4.1.7</b> Définition de <span class="math inline">\(p(X\in A)\)</span></a></li>
+<li class="chapter" data-level="4.1.8" data-path="variables-aléatoires-discrètes-1.html"><a href="variables-aléatoires-discrètes-1.html#fonction-de-répartition-quantiles"><i class="fa fa-check"></i><b>4.1.8</b> Fonction de répartition, quantiles</a></li>
+<li class="chapter" data-level="4.1.9" data-path="variables-aléatoires-discrètes-1.html"><a href="variables-aléatoires-discrètes-1.html#exemples-classiques"><i class="fa fa-check"></i><b>4.1.9</b> Exemples classiques :</a></li>
+<li class="chapter" data-level="4.1.10" data-path="variables-aléatoires-discrètes-1.html"><a href="variables-aléatoires-discrètes-1.html#moments-dune-variable-aléatoire-1"><i class="fa fa-check"></i><b>4.1.10</b> Moments d’une variable aléatoire</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="variables-aléatoires-discrètes-1.html"><a href="variables-aléatoires-discrètes-1.html#transformation-dune-variable-aléatoire-à-densité"><i class="fa fa-check"></i><b>4.2</b> Transformation d’une variable aléatoire à densité</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="variables-aléatoires-discrètes-1.html"><a href="variables-aléatoires-discrètes-1.html#définition-3"><i class="fa fa-check"></i><b>4.2.1</b> Définition</a></li>
+<li class="chapter" data-level="4.2.2" data-path="variables-aléatoires-discrètes-1.html"><a href="variables-aléatoires-discrètes-1.html#théorème-de-transfert-cas-à-densité"><i class="fa fa-check"></i><b>4.2.2</b> Théorème de transfert (cas à densité)</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="variables-aléatoires-discrètes-1.html"><a href="variables-aléatoires-discrètes-1.html#vecteurs-aléatoires-1"><i class="fa fa-check"></i><b>4.3</b> Vecteurs aléatoires</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="variables-aléatoires-discrètes-1.html"><a href="variables-aléatoires-discrètes-1.html#définition-4"><i class="fa fa-check"></i><b>4.3.1</b> Définition</a></li>
+<li class="chapter" data-level="4.3.2" data-path="variables-aléatoires-discrètes-1.html"><a href="variables-aléatoires-discrètes-1.html#loi-jointe-loi-marginales"><i class="fa fa-check"></i><b>4.3.2</b> Loi jointe, loi marginales</a></li>
+<li class="chapter" data-level="4.3.3" data-path="variables-aléatoires-discrètes-1.html"><a href="variables-aléatoires-discrètes-1.html#loi-conditionnelle-mathcallyx"><i class="fa fa-check"></i><b>4.3.3</b> Loi conditionnelle <span class="math inline">\(\mathcal{L}(Y|X)\)</span></a></li>
+<li class="chapter" data-level="4.3.4" data-path="variables-aléatoires-discrètes-1.html"><a href="variables-aléatoires-discrètes-1.html#loi-dun-couple-de-va-indépendantes"><i class="fa fa-check"></i><b>4.3.4</b> Loi d’un couple de VA indépendantes</a></li>
+<li class="chapter" data-level="4.3.5" data-path="variables-aléatoires-discrètes-1.html"><a href="variables-aléatoires-discrètes-1.html#espérance-matrice-de-variance-covariance"><i class="fa fa-check"></i><b>4.3.5</b> Espérance, matrice de variance-covariance</a></li>
+<li class="chapter" data-level="4.3.6" data-path="variables-aléatoires-discrètes-1.html"><a href="variables-aléatoires-discrètes-1.html#espérance-conditionnelle-variance-conditionnelle"><i class="fa fa-check"></i><b>4.3.6</b> Espérance conditionnelle, variance conditionnelle</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="convergence.html"><a href="convergence.html"><i class="fa fa-check"></i><b>5</b> Convergence</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="convergence.html"><a href="convergence.html#différents-modes-de-convergence"><i class="fa fa-check"></i><b>5.1</b> Différents modes de convergence</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="convergence.html"><a href="convergence.html#convergence-en-probabilité"><i class="fa fa-check"></i><b>5.1.1</b> Convergence en probabilité</a></li>
+<li class="chapter" data-level="5.1.2" data-path="convergence.html"><a href="convergence.html#convergence-dans-les-espaces-lp"><i class="fa fa-check"></i><b>5.1.2</b> Convergence dans les espaces <span class="math inline">\(L^p\)</span></a></li>
+<li class="chapter" data-level="5.1.3" data-path="convergence.html"><a href="convergence.html#convergence-en-loi"><i class="fa fa-check"></i><b>5.1.3</b> Convergence en loi</a></li>
+<li class="chapter" data-level="5.1.4" data-path="convergence.html"><a href="convergence.html#convergence-presque-sûre-hors-prgramme"><i class="fa fa-check"></i><b>5.1.4</b> Convergence presque-sûre (hors-prgramme ?)</a></li>
+<li class="chapter" data-level="5.1.5" data-path="convergence.html"><a href="convergence.html#liens-entre-les-différents-modes-de-convergence"><i class="fa fa-check"></i><b>5.1.5</b> Liens entre les différents modes de convergence</a></li>
+<li class="chapter" data-level="5.1.6" data-path="convergence.html"><a href="convergence.html#approximations"><i class="fa fa-check"></i><b>5.1.6</b> Approximations</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="convergence.html"><a href="convergence.html#loi-faible-des-grands-nombres-loi-forte-des-grands-nombres"><i class="fa fa-check"></i><b>5.2</b> Loi Faible des Grands Nombres, Loi Forte des Grands Nombres</a></li>
+<li class="chapter" data-level="5.3" data-path="convergence.html"><a href="convergence.html#théorème-central-limite-tcl"><i class="fa fa-check"></i><b>5.3</b> Théorème Central Limite (TCL)</a></li>
+<li class="chapter" data-level="5.4" data-path="convergence.html"><a href="convergence.html#variantes-du-tcl-hors-programme"><i class="fa fa-check"></i><b>5.4</b> Variantes du TCL (hors-programme)</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="statistique-descriptive.html"><a href="statistique-descriptive.html"><i class="fa fa-check"></i><b>6</b> Statistique descriptive</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="statistique-descriptive.html"><a href="statistique-descriptive.html#vocabulaire"><i class="fa fa-check"></i><b>6.1</b> Vocabulaire</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="statistique-descriptive.html"><a href="statistique-descriptive.html#population-individus-échantillon"><i class="fa fa-check"></i><b>6.1.1</b> Population, individus, échantillon</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="statistique-descriptive.html"><a href="statistique-descriptive.html#analyse-statistique-univariée"><i class="fa fa-check"></i><b>6.2</b> Analyse statistique univariée</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="statistique-descriptive.html"><a href="statistique-descriptive.html#notion-de-série-statistique-univariée"><i class="fa fa-check"></i><b>6.2.1</b> Notion de série statistique univariée</a></li>
+<li class="chapter" data-level="6.2.2" data-path="statistique-descriptive.html"><a href="statistique-descriptive.html#indicateurs-dune-série-statistique-univariée"><i class="fa fa-check"></i><b>6.2.2</b> Indicateurs d’une série statistique univariée</a></li>
+<li class="chapter" data-level="6.2.3" data-path="statistique-descriptive.html"><a href="statistique-descriptive.html#représentations-graphiques"><i class="fa fa-check"></i><b>6.2.3</b> Représentations graphiques</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="statistique-descriptive.html"><a href="statistique-descriptive.html#analyse-statistique-bivariée"><i class="fa fa-check"></i><b>6.3</b> Analyse statistique bivariée</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="statistique-descriptive.html"><a href="statistique-descriptive.html#notion-de-série-statistique-bivariée"><i class="fa fa-check"></i><b>6.3.1</b> Notion de série statistique bivariée</a></li>
+<li class="chapter" data-level="6.3.2" data-path="statistique-descriptive.html"><a href="statistique-descriptive.html#indicateurs-propres-à-lanalyse-statistique-multivariée"><i class="fa fa-check"></i><b>6.3.2</b> Indicateurs propres à l’analyse statistique multivariée</a></li>
+<li class="chapter" data-level="6.3.3" data-path="statistique-descriptive.html"><a href="statistique-descriptive.html#nuage-de-points"><i class="fa fa-check"></i><b>6.3.3</b> Nuage de points</a></li>
+<li class="chapter" data-level="6.3.4" data-path="statistique-descriptive.html"><a href="statistique-descriptive.html#ajustement-des-moindres-carrés"><i class="fa fa-check"></i><b>6.3.4</b> Ajustement des moindres carrés</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="statistique-inférentielle.html"><a href="statistique-inférentielle.html"><i class="fa fa-check"></i><b>7</b> Statistique inférentielle</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="statistique-inférentielle.html"><a href="statistique-inférentielle.html#estimation"><i class="fa fa-check"></i><b>7.1</b> Estimation</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="statistique-inférentielle.html"><a href="statistique-inférentielle.html#premières-définitions"><i class="fa fa-check"></i><b>7.1.1</b> Premières définitions</a></li>
+<li class="chapter" data-level="7.1.2" data-path="statistique-inférentielle.html"><a href="statistique-inférentielle.html#convergence-dun-estimateur"><i class="fa fa-check"></i><b>7.1.2</b> Convergence d’un estimateur</a></li>
+<li class="chapter" data-level="7.1.3" data-path="statistique-inférentielle.html"><a href="statistique-inférentielle.html#exemples-classiques-1"><i class="fa fa-check"></i><b>7.1.3</b> Exemples classiques</a></li>
+<li class="chapter" data-level="7.1.4" data-path="statistique-inférentielle.html"><a href="statistique-inférentielle.html#méthodes-de-construction-des-estimateurs"><i class="fa fa-check"></i><b>7.1.4</b> Méthodes de construction des estimateurs</a></li>
+<li class="chapter" data-level="7.1.5" data-path="statistique-inférentielle.html"><a href="statistique-inférentielle.html#compléments-hors-programme"><i class="fa fa-check"></i><b>7.1.5</b> Compléments (hors-programme)</a></li>
+<li class="chapter" data-level="7.1.6" data-path="statistique-inférentielle.html"><a href="statistique-inférentielle.html#estimation-des-coefficients-dune-régression-linéaire"><i class="fa fa-check"></i><b>7.1.6</b> Estimation des coefficients d’une régression linéaire</a></li>
+<li class="chapter" data-level="7.1.7" data-path="statistique-inférentielle.html"><a href="statistique-inférentielle.html#intervalles-de-confiance"><i class="fa fa-check"></i><b>7.1.7</b> Intervalles de confiance</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="statistique-inférentielle.html"><a href="statistique-inférentielle.html#tests-statistiques"><i class="fa fa-check"></i><b>7.2</b> Tests statistiques</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="statistique-inférentielle.html"><a href="statistique-inférentielle.html#définition-et-principes"><i class="fa fa-check"></i><b>7.2.1</b> Définition et principes</a></li>
+<li class="chapter" data-level="7.2.2" data-path="statistique-inférentielle.html"><a href="statistique-inférentielle.html#tests-unilatéraux-tests-bilatéraux"><i class="fa fa-check"></i><b>7.2.2</b> Tests unilatéraux, tests bilatéraux</a></li>
+<li class="chapter" data-level="7.2.3" data-path="statistique-inférentielle.html"><a href="statistique-inférentielle.html#exemples"><i class="fa fa-check"></i><b>7.2.3</b> Exemples</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="méthodologie.html"><a href="méthodologie.html"><i class="fa fa-check"></i><b>8</b> Méthodologie</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="méthodologie.html"><a href="méthodologie.html#convergence-1"><i class="fa fa-check"></i><b>8.1</b> Convergence</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="exercices.html"><a href="exercices.html"><i class="fa fa-check"></i><b>9</b> Exercices</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="exercices.html"><a href="exercices.html#dénombrement-et-probabilités-1"><i class="fa fa-check"></i><b>9.1</b> Dénombrement et probabilités</a></li>
+<li class="chapter" data-level="9.2" data-path="exercices.html"><a href="exercices.html#annales-des-oraux"><i class="fa fa-check"></i><b>9.2</b> Annales des oraux</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="exercices.html"><a href="exercices.html#interne-2016"><i class="fa fa-check"></i><b>9.2.1</b> Interne, 2016</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Cours de probabilités-statistiques pour le concours interne d’administrateur Insee</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="variables-aléatoires-discrètes-1" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Chapitre 4</span> Variables aléatoires discrètes<a href="variables-aléatoires-discrètes-1.html#variables-aléatoires-discrètes-1" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Supposons que vous jouiez avec un ami au jeu suivant. Votre ami lance un dé équilibré et vous convenez des règles suivantes :</p>
+<ul>
+<li>si le dé tombe sur <span class="math inline">\(1\)</span> ou <span class="math inline">\(2\)</span>, vous donnez <span class="math inline">\(3\)</span> euros à votre ami ;</li>
+<li>si le dé tombe sur <span class="math inline">\(2\)</span> ou <span class="math inline">\(3\)</span>, votre ami vous donne <span class="math inline">\(3\)</span> euros ;</li>
+<li>si le dé tombe sur <span class="math inline">\(5\)</span> ou <span class="math inline">\(6\)</span>, aucun de vous deux ne gagne ni ne perd d’argent.</li>
+</ul>
+<p>On note <span class="math inline">\(X\)</span> votre gain algébrique. Alors, <span class="math inline">\(X\)</span> est un nombre aléatoire dont les valeurs possibles sont <span class="math inline">\(-3, 3\)</span> et <span class="math inline">\(0\)</span>. L’expérience aléatoire qui consiste à lancer ce dé et à relever son numéro peut être modélisée par l’univers probabilisé <span class="math inline">\((\Omega, \mathcal{A}, \mathbb{P})\)</span>, où <span class="math inline">\(\Omega=\{1,2,3,4,5,6\}\)</span>, <span class="math inline">\(\mathcal{A}=\mathcal{P}(\Omega)\)</span> et <span class="math inline">\(\mathbb{P}\)</span> est la mesure équirépartie : <span class="math inline">\(\forall\omega\in\Omega, \,\mathbb{P}(\{\omega\})=\frac{1}{6}\)</span>. Dans ce cas, votre gain <span class="math inline">\(X\)</span> peut être vu comme une application</p>
+<p><span class="math display">\[X:\Omega=\{1,2,3,4,5,6\}\longrightarrow\{-3, 0, 3\}\]</span>
+définie par</p>
+<p><span class="math display">\[X(1)=X(2)=-3\]</span>
+<span class="math display">\[X(3)=X(4)=3\]</span>
+<span class="math display">\[X(5)=X(6)=0\]</span></p>
+<p>Imaginons maintenant qu’un ami commun prenne connaissance de votre gain à ce jeu, mais sans prendre connaissance du jeu lui-même (ni les issues possibles, ni les règles définissant le gain), et encore moins du numéro du dé que vous avez obtenu. De son point de vue, l’expérience qui aboutira à l’observation de votre gain sera également une expérience aléatoire, cependant l’espace probabilisé la modélisant ne sera plus <span class="math inline">\((\Omega, \mathcal{A}, \mathbb{P})\)</span> mais plutôt <span class="math inline">\((\Omega_X, \mathcal{A}_X, \mathbb{P}_X)\)</span>, où</p>
+<p><span class="math display">\[\Omega_X=X(\Omega)=\{-3, 0, 3\}\]</span>
+<span class="math display">\[\mathcal{A}_X=\mathcal{P}(\{-3,0,3\})\]</span>
+<span class="math display">\[\mathbb{P}_X \text{ donnée par } \mathbb{P}_X(\{-3\})=\mathbb{P}_X(\{0\})=\mathbb{P}_X(\{0\})=\frac{1}{3}\]</span>
+Dans ce genre de situation, on dit que <span class="math inline">\(X\)</span> est une <strong>variable aléatoire</strong>, et on appelle <strong>loi de <span class="math inline">\(X\)</span></strong> la mesure de probabilité <span class="math inline">\(\mathbb{P}_X\)</span>. D’une certaine façon, la variable aléatoire <span class="math inline">\(X\)</span> a donc transformé l’espace probabilisé de départ <span class="math inline">\((\Omega, \mathcal{A}, \mathbb{P})\)</span> en un nouvel espace probabilisé <span class="math inline">\((\Omega_X, \mathcal{A}_X,\mathbb{P}_X)\)</span>. Dans la plupart des expériences aléatoires, on cherchera à mesurer une grandeur (un gain à un jeu de hasard, la durée d’attente à un feu rouge, le nombre de coquilles dans un texte, le nombre buts marqués dans un match de foot, etc.), si bien que ce qui nous intéressera ne sera pas tant l’espace de départ <span class="math inline">\((\Omega, \mathcal{A}, \mathbb{P})\)</span> mais plutôt son image <span class="math inline">\((\Omega_X, \mathcal{A}_X, \mathbb{P}_X)\)</span> par cette grandeur.</p>
+<p>Cela a une conséquence pratique lorsqu’on résout un exercice de probabilités mettant en scène une variable aléatoire <span class="math inline">\(X\)</span> : sauf dans des cas très simples, on n’explicitera pas <span class="math inline">\(\Omega\)</span> qu’on supposera donné (un peu à la façon de votre ami commun qui est aveugle aux numéros du dé) mais on cherchera plutôt à déterminer <span class="math inline">\(X(\Omega)\)</span>. La tribu <span class="math inline">\(\mathcal{A}_X\)</span> sera, elle, généralement passée sous silence (en pratique, on aura souvent <span class="math inline">\(\mathcal{A}_X=\mathcal{P}(X(\Omega)\)</span>). Enfin, on accordera toute l’attention sur la <strong>loi de <span class="math inline">\(X\)</span></strong>, autrement dit sur la mesure de probabilité <span class="math inline">\(\mathbb{P}_X\)</span>, à partir de laquelle on pourra calculer différents indicateurs (espérance, variance, quantiles etc.).</p>
+<p>Ce chapitre s’intéresse aux <strong>variables alétoires discrètes</strong>, autrement dit les variables aléatoires dont les images forment un ensemble discret, soit parce que cet ensemble est <strong>fini</strong>, soit parce-qu’il est <strong>infini</strong> mais <strong>dénombrable</strong> (comme l’ensemble des entiers naturels ou des nombres rationnels). Le chapitre suivant traitera des <strong>variables aléatoires continues</strong> : ce sont les variables aléatoires dont l’ensemble des valeurs est <strong>continu</strong>, comme par exemple l’ensemble des nombres réels.</p>
+<div id="définition-et-premières-propriétés-2" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Définition et premières propriétés<a href="variables-aléatoires-discrètes-1.html#définition-et-premières-propriétés-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="définition-1" class="section level3 hasAnchor" number="4.1.1">
+<h3><span class="header-section-number">4.1.1</span> Définition<a href="variables-aléatoires-discrètes-1.html#définition-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="defbox def">
+<center>
+<strong>Variables aléatoires discrètes</strong>
+</center>
+<p>Soit <span class="math inline">\((\Omega, \mathcal{A}, \mathbb{P})\)</span> un espace probabilisé. On appelle <strong>variable aléatoire discrète (réelle)</strong> sur <span class="math inline">\(\Omega\)</span> toute application</p>
+<p><span class="math display">\[X:\Omega\longrightarrow F=X(\Omega)\subset\mathbb{R}\]</span>
+où <span class="math inline">\(F=X(\Omega)\)</span> est :</p>
+<ul>
+<li>soit un ensemble fini : <span class="math inline">\(F=\{x_1,\dots, x_n\}\)</span></li>
+<li>soit un ensemble infini dénombrable : <span class="math inline">\(F=\{x_n,\,n\in\mathbb{N}\}\)</span></li>
+</ul>
+<p>On dira alors que <span class="math inline">\(F\)</span> est au <em>plus dénombrable</em>, et on utilisera souvent la notation unifiée</p>
+<p><span class="math display">\[F=X(\Omega)=\{x_i, \, i\in I\}, \, I\subset\mathbb{N}\]</span></p>
+<p>De plus, pour tout <span class="math inline">\(\omega\in\Omega\)</span>, on dira que <span class="math inline">\(X(\omega)\)</span> est une <strong>réalisation</strong> de <span class="math inline">\(X\)</span>.</p>
+</div>
+<p></p>
+<p><strong>Exemples. i.</strong> On reprend l’exemple des deux dés équilibrés présenté dans le chapitre précédent :</p>
+<center>
+<img src="images/somme_des.PNG" /><!-- -->
+</center>
+<p>L’expérience aléatoire associée à cette expérience aléatoire est modélisée par l’espace probabilisé <span class="math inline">\((\Omega, \mathcal{A}, \mathbb{P})\)</span>, avec <span class="math inline">\(\Omega=\{1,2,3,4,5,6\}^2\)</span>, <span class="math inline">\(\mathcal{A}=\mathcal{P}(\Omega)\)</span> et <span class="math inline">\(\mathbb{P}\)</span> la mesure de probabilité équirépartie.</p>
+<p>La somme <span class="math inline">\(S\)</span> des deux numéros obtenus est une variable aléatoire</p>
+<p><span class="math display">\[X:\Omega \longrightarrow X(\Omega)\]</span>
+définie, pour <span class="math inline">\(\omega=(\omega_1, \omega_2)\in\Omega\)</span>, par <span class="math inline">\(S(\omega)=\omega_1+\omega_2\)</span>. On a</p>
+<p><span class="math display">\[X(\Omega)=[\![2;12]\!]\]</span>
+où pour tout couple d’entiers <span class="math inline">\((a,b)\)</span> tel que <span class="math inline">\(a\leq b\)</span>, <span class="math inline">\([\![a;b]\!]\)</span> désigne l’ensemble de tous les entiiers entre <span class="math inline">\(a\)</span> et <span class="math inline">\(b\)</span> (notation que nous réutiliserons régulièrement dans ce cours).</p>
+<p>Ainsi, <span class="math inline">\(X(\Omega)\)</span> est fini, et donc <span class="math inline">\(X\)</span> est une variable aléatoire discrète.</p>
+<p></p>
+<p><strong>ii.</strong> Une urne contient <span class="math inline">\(4\)</span> boules blanches et <span class="math inline">\(6\)</span> boules noires. On tire une boule au hasard. Si elle est noire on s’arrête là, sinon on remet la boule dans l’urne, et on recommence jusqu’à obtenir une boule noire. On note <span class="math inline">\(N\)</span> le nombre de boules tirées. <span class="math inline">\(N\)</span> est une variable aléatoire, prenant des valeurs entières et non majorée. Ainsi <span class="math inline">\(N(\Omega)=\mathbb{N}^*\)</span> et <span class="math inline">\(N\)</span> est discrète.</p>
+<p><strong>iii.</strong> Dans une file d’attente, on note <span class="math inline">\(T\)</span> le temps de passage entre deux clients. <span class="math inline">\(T\)</span> est une variable aléatoire à valeurs dans <span class="math inline">\(\mathbb{R}_+\)</span>. Elle n’est donc pas discrète, mais continue.</p>
+</div>
+<div id="loi-dune-variable-aléatoire-discrète-1" class="section level3 hasAnchor" number="4.1.2">
+<h3><span class="header-section-number">4.1.2</span> Loi d’une variable aléatoire discrète<a href="variables-aléatoires-discrètes-1.html#loi-dune-variable-aléatoire-discrète-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Pour une variable aléatoire discrète (réelle) définie sur un espace probabilisé <span class="math inline">\(\left(\Omega, \, \mathcal{P}(\Omega), \, \mathbb{P}\right)\)</span>, on peut définir la <em>loi de <span class="math inline">\(X\)</span></em>.</p>
+<div class="thmbox def">
+<p><strong>Théorème (Loi d’une variable aléatoire discrète).</strong> Soit <span class="math inline">\(X\)</span> une variable aléatoire discrète définie sur un espace probabilisé <span class="math inline">\((\Omega,\, \mathcal{P}(\Omega),\, \mathbb{P})\)</span>, à valeurs dans <span class="math inline">\(F=X(\Omega)\)</span>. Sur l’espace probabilisable <span class="math inline">\((F,\, \mathcal{P}(F))\)</span> on peut alors définir une probabilité <span class="math inline">\(\mathbb{P}_X\)</span> en posant, pour tout <span class="math inline">\(x_i\)</span> dans <span class="math inline">\(F\)</span> :</p>
+<p><span class="math display">\[\mathbb{P}_X(\{x_i\})=\mathbb{P}(X^{-1}(\{x_i\}))\]</span>
+On notera plus simplement <span class="math inline">\((X=x_i)\)</span> l’événement <span class="math inline">\(X^{-1}(\{x_i\})\)</span>.</p>
+<p>La loi de <span class="math inline">\(X\)</span> est donc définie par :</p>
+<ul>
+<li>la donnée de <span class="math inline">\(F=X(\Omega)\)</span>, i.e. l’ensemble de toutes les valeurs prises par <span class="math inline">\(X\)</span>. Cet ensemble s’appelle le <strong>support</strong> de la loi de <span class="math inline">\(X\)</span> ;</li>
+<li>la donnée, pour tout <span class="math inline">\(x_i\)</span> dans <span class="math inline">\(X(\Omega)\)</span>, de la probabilité <span class="math inline">\(\mathbb{P}(X=x_i)\)</span>.</li>
+</ul>
+<p>Cette loi est unique à des événements de probabilité nulle près.</p>
+</div>
+<p></p>
+<p><strong>Démonstration.</strong> Admis.</p>
+<p></p>
+<p></p>
+<p><strong>Remarques. i.</strong> On définit <span class="math inline">\(\mathbb{P}_X\)</span> à partir des <span class="math inline">\(\mathbb{P}_X(\{x_i\})\)</span> :</p>
+<ul>
+<li><p>les <span class="math inline">\(\{x_i\}\)</span> sont des éléments de (la tribu) <span class="math inline">\(\mathcal{P}(F)\)</span>, donc <span class="math inline">\(\mathbb{P}_X\)</span> est bien une mesure de probabilité sur l’espace probabilisable <span class="math inline">\((F,\,\mathcal{P}(F))\)</span> ;</p></li>
+<li><p>par ailleurs, <span class="math inline">\(\mathbb{P}_X(\{x_i\})\)</span> est définie par <span class="math inline">\(\mathbb{P}(X^{-1}(\{x_i\}))\)</span> et <span class="math inline">\(X^{-1}(\{x_i\})\)</span> est un élément de la tribu <span class="math inline">\(\mathcal{P}(\Omega)\)</span> sur laquelle est définie la probabilité <span class="math inline">\(\mathbb{P}\)</span>, donc cette définition a bien un sens.</p></li>
+</ul>
+<p></p>
+<p><strong>ii.</strong> La loi de <span class="math inline">\(X\)</span> est définie par la donnée des couples <span class="math inline">\((x_i, p_i)\)</span> tels que <span class="math inline">\(x_i\in X(\Omega)\)</span> et <span class="math inline">\(p_i=\mathbb{P}(X=x_i)\)</span>. Dans cette définition, on peut se restreindre aux couples <span class="math inline">\((x_i, p_i)\)</span> pour lesquels <span class="math inline">\(p_i&gt;0\)</span>. La loi de <span class="math inline">\(X\)</span> n’est donc pas unique au sens strict du terme, mais elle l’est bien à des événements élémentaires de probabilité nulle près. Par exemple, dans l’exercice 2 du sujet du concours interne de 2012 (exercice 2.7. de ce cours) la variable aléatoire <span class="math inline">\(X\)</span> prend <em>a priori</em> les valeurs <span class="math inline">\(0,1,2,3\)</span>, mais <em>a posteriori</em> on a <span class="math inline">\(\mathbb{P}(X=0)=0\)</span>, donc on peut enlever <span class="math inline">\(0\)</span> de <span class="math inline">\(X(\Omega)\)</span>.</p>
+<p><strong>Exemple. i.</strong> On reprend l’exemple sur la somme des deux dés. On a vu que <span class="math inline">\(X(\Omega)=[\![2;12]\!]\)</span>. On calcule maintenant toutes les probablités <span class="math inline">\(\mathbb{P}(X=i)\)</span> pour <span class="math inline">\(i\in [\![2;12]\!]\)</span>. On montre en fait facilement que</p>
+<p><span class="math display">\[\forall i\in [\![2;6]\!],\, \mathbb{P}(X=i)=\frac{i-1}{36}\]</span>
+<span class="math display">\[\forall i\in [\![7;12]\!], \, \mathbb{P}(X=i)=\frac{13-i}{36}\]</span>
+On peut vérifier la cohérence de ce résultat :</p>
+<p><span class="math display">\[\begin{align}
+\sum\limits_{i=2}^{6}\frac{i-1}{36}+\sum\limits_{i=7}^{12}\frac{13-i}{36} &amp;= \sum\limits_{i=1}^{5}\frac{i}{36}+\sum\limits_{i=1}^{6}\frac{i}{36} \\
+&amp;= \frac{2\sum\limits_{i=1}^5 i +6}{36} \\
+&amp;= \frac{6\times 5+6}{36} \\
+&amp;= 1 \\
+\end{align}\]</span></p>
+<p></p>
+<p><strong>ii.</strong> On reprend l’exemple de l’urne contenant <span class="math inline">\(4\)</span> boules blanches et <span class="math inline">\(6\)</span> boules noires. On répète des tirages successifs avec remise jusqu’à obtenir une boule noire, et <span class="math inline">\(N\geq 1\)</span> désigne le nombre de tirages. Pour <span class="math inline">\(n\in\mathbb{N}^*\)</span>, l’événement <span class="math inline">\((N=n)\)</span> est réalisé lorsque les <span class="math inline">\(n-1\)</span> premiers tirages amènent une boule blanche et le tirage numéro <span class="math inline">\(n\)</span> amène une boule noire. Les tirages étant effectués avec remise ils sont indépendants, donc</p>
+<p><span class="math display">\[\mathbb{P}(N=n)=\left(\frac{2}{5}\right)^{n-1}\frac{3}{5}\]</span>
+ce qui définit complètement la loi de <span class="math inline">\(N\)</span>.</p>
+<p></p>
+<p><strong>Remarques. i.</strong> On peut vérifier de façon immédiate que la série <span class="math inline">\(\sum\limits_{n}\mathbb{P}(N=n)\)</span> est convergente de somme <span class="math inline">\(1\)</span> : c’est, au facteur <span class="math inline">\(\frac{3}{5}\)</span> près, une série géométrique de raison <span class="math inline">\(\frac{2}{5}\in]-1;1[\)</span>, donc elle converge vers <span class="math inline">\(\frac{3}{5}\frac{1}{1-\frac{2}{5}}=1\)</span>.</p>
+<p></p>
+<p><strong>ii.</strong> <span class="math inline">\(N\)</span> suit une <em>loi géométrique</em> de paramètre <span class="math inline">\(p=\frac{3}{5}\)</span> (voir un peu plus loin la définition des lois géométriques).</p>
+</div>
+<div id="calcul-de-mathbbpxin-b-1" class="section level3 hasAnchor" number="4.1.3">
+<h3><span class="header-section-number">4.1.3</span> Calcul de <span class="math inline">\(\mathbb{P}(X\in B)\)</span><a href="variables-aléatoires-discrètes-1.html#calcul-de-mathbbpxin-b-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="thmbox def">
+<p><strong>Théorème (calcul de <span class="math inline">\(\mathbb{P}(X\in B)\)</span>).</strong> Soit <span class="math inline">\(X:\Omega\longrightarrow X(\Omega)\)</span> une variable aléatoire discrète (réelle), avec</p>
+<p><span class="math display">\[X(\Omega)=\{x_i,\,\,i\in I\} \text{, où } I\subset\mathbb{N}\]</span></p>
+<p>Pour <span class="math inline">\(B\in\mathcal{P}(X(\Omega))\)</span>, on note <span class="math inline">\((X\in B)\)</span> l’événement</p>
+<p><span class="math display">\[(X\in B)=X^{-1}(B)=\left\{\omega\in\Omega, X(\omega)\in B\right\}\]</span>
+La probabilité d’un tel événement se calcule ainsi :</p>
+<p><span class="math display">\[\begin{align}
+\mathbb{P}(X\in B)&amp;=\mathbb{P}\left(\bigsqcup\limits_{i\in I/ x_i\in B} (X=x_i)\right) \\
+&amp;=\sum\limits_{i\in I/ x_i\in B}\mathbb{P}(X=x_i)
+\end{align}\]</span></p>
+</div>
+<p></p>
+<p><strong>Démonstration.</strong> Les événements <span class="math inline">\((X=x_i)\)</span> tels que <span class="math inline">\(i\in I, x_i\in B\)</span> forment une partition de l’événement <span class="math inline">\((X\in B)\)</span>. On conclut en utilisant le fait qu’une probabilité d’une réunion disjointe d’événements <span class="math inline">\(A_i\)</span> est la somme des probablités <span class="math inline">\(\mathbb{P}(A_i)\)</span>.</p>
+<p><span class="math inline">\(\square\)</span></p>
+<p></p>
+<p><strong>Exemple.</strong> Dans l’exemple précédent de l’urne, on cherche maintenant la probabilité que <span class="math inline">\(X\)</span> soit impaire. On a</p>
+<p><span class="math display">\[\begin{align}
+\mathbb{P}(X\in 2\mathbb{N}+1) &amp;=  \sum\limits_{n=0}^{\infty}\mathbb{P}(X=2n+1) \\
+&amp;=\sum\limits_{n=0}^{\infty}\left(\frac{2}{5}\right)^{2n}\frac{3}{5} \\
+&amp;=\frac{3}{5}\sum\limits_{n=0}^{\infty}\left(\frac{4}{25}\right)^{n} \\
+&amp;=\frac{3}{5}\frac{1}{1-\frac{4}{25}} \\
+&amp;=\frac{5}{7} \\
+\end{align}\]</span></p>
+</div>
+<div id="fonction-de-répartition-1" class="section level3 hasAnchor" number="4.1.4">
+<h3><span class="header-section-number">4.1.4</span> Fonction de répartition<a href="variables-aléatoires-discrètes-1.html#fonction-de-répartition-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>La fonction de répartition d’une variable aléatoire discrète (ou même continue comme on le verra dans le prochain chapitre) réelle est définie par la donnée des probabilités <span class="math inline">\(\mathbb{P}(X\leq x)=\mathbb{P}(X\in ]-\infty\,;\,x])\)</span> :</p>
+<div class="defbox def">
+<center>
+<strong>Fonction de répartition</strong>
+</center>
+<p>Soit <span class="math inline">\(X\)</span> une variable aléatoire discrète (réelle). On appelle <strong>fonction de répartition de <span class="math inline">\(X\)</span></strong> la fonction <span class="math inline">\(F_X\)</span> définie sur <span class="math inline">\(\mathbb{R}\)</span> par</p>
+<p><span class="math display">\[\forall x\in\mathbb{R},\,F_X(x)=\mathbb{P}(X\leq x)\]</span></p>
+<p>Quand le contexte le permet, on la note plus simplement <span class="math inline">\(F\)</span>.</p>
+<p></p>
+<p><strong>Note :</strong> cette définition de la fonction de répartition est valable pour toutes les variables aléatoires, qu’elles suivent ou non une loi discrète.</p>
+</div>
+<p></p>
+<p><strong>Calcul pratique.</strong> On note <span class="math inline">\(x_1,\dots x_n\)</span> (resp. <span class="math inline">\(x_1,\dots, x_n, \dots\)</span>) les éléments de <span class="math inline">\(X(\Omega)\)</span> rangés dans l’ordre croissant si <span class="math inline">\(X(\Omega)\)</span> est fini (resp. infini dénombrable).</p>
+<p>Soient <span class="math inline">\(x\in\mathbb{R}\)</span> et <span class="math inline">\(i_0\)</span> le plus grand entier tel que <span class="math inline">\(x_{i_0}\leq x\)</span>. Alors, d’après le théorème précédent :</p>
+<p><span class="math display">\[F(x)=\sum\limits_{i=1}^{i_0}\mathbb{P}(X=x_i)\]</span></p>
+<p></p>
+<p><strong>Exemple.</strong> On considère une variable aléatoire <span class="math inline">\(X\)</span> telle que <span class="math inline">\(X(\Omega)=\{1,2,3,4\}\)</span> et <span class="math inline">\(\mathbb{P}(X=i)\)</span> est proportionnel à <span class="math inline">\(i\)</span>.</p>
+<p>On souhaite déterminer sa fonction de répartition.</p>
+<p></p>
+<p>On note <span class="math inline">\(\alpha=\mathbb{P}(X=1)\)</span>. On a donc <span class="math display">\[\mathbb{P}(X=i)=\alpha\, i\]</span></p>
+<p>On a donc <span class="math inline">\(\alpha\sum\limits_{i=1}^4 i=1\)</span>, soit <span class="math inline">\(\alpha=\frac{1}{10}\)</span> et donc</p>
+<p><span class="math display">\[\forall i\in [\![1;4]\!],\, \mathbb{P}(X=i)=\frac{i}{10}\]</span>
+La fonction de répartition <span class="math inline">\(F\)</span> de <span class="math inline">\(X\)</span> est alors donnée par</p>
+<p><span class="math display">\[F(x)=\left \{
+\begin{array}{lcl}
+0&amp;\text{ si }&amp; x&lt;1 \\
+\frac{1}{10}&amp;\text{ si }&amp; 1\leq x&lt;2 \\
+\frac{3}{10}&amp;\text{ si }&amp; 2\leq x&lt;3 \\
+\frac{3}{5}&amp;\text{ si }&amp; 3\leq x&lt;4 \\
+1&amp;\text{ si }&amp; x\geq 4 \\
+\end{array}
+\right.\]</span></p>
+<div class="thmbox def">
+<center>
+<strong>Propriétés des fonctions de répartition</strong>
+</center>
+<p></p>
+<p>Soit <span class="math inline">\(F\)</span> la fonction de répartition d’une variable aléatoire réelle (discrète ou non). Alors :</p>
+<p><strong>i.</strong> <span class="math inline">\(F\)</span> est une fonction croissante sur <span class="math inline">\(\mathbb{R}\)</span></p>
+<p><strong>ii.</strong> <span class="math inline">\(F\)</span> est continue à droite</p>
+<p><strong>iii.</strong> <span class="math inline">\(\lim\limits_{x\to -\infty}F(x)=0\)</span></p>
+<p><strong>iv.</strong> <span class="math inline">\(\lim\limits_{x\to +\infty}F(x)=1\)</span></p>
+<p></p>
+<p><strong>Note :</strong> ces propriétés résultent directement de la défintion précédente, et sont donc vraies pour toutes les variables aléatoires, qu’elles soient discrètes ou non.</p>
+</div>
+<p></p>
+<p><strong>Démonstration.</strong> On note <span class="math inline">\(X\)</span> une variable aléatoire réelle discrète ayant <span class="math inline">\(F\)</span> pour fonction de répartition.</p>
+<p></p>
+<p><strong>i.</strong> Soient <span class="math inline">\(x,y\)</span> deux réels tels que <span class="math inline">\(x\leq y\)</span>. Alors l’événement <span class="math inline">\(\{X\leq x\}\)</span> est inclus dans l’événement <span class="math inline">\(\{X\leq y\}\)</span>. Par croissance des probabilités on a donc <span class="math inline">\(\mathbb{P}(X\leq x)\leq\mathbb{P}(X\leq y)\)</span>, i.e. <span class="math inline">\(F(x)\leq F(y)\)</span>. On en déduit que <span class="math inline">\(F\)</span> est croissante.</p>
+<p></p>
+<p><strong>ii.</strong> Soit <span class="math inline">\(x\)</span> un réel. Les événements <span class="math inline">\(\left\{X\in\left]-\infty\,;\,x+\frac{1}{n}\right]\right\}\)</span> forment une suite décroissante (par rapport à <span class="math inline">\(n\)</span>) pour l’inclusion, donc d’après la propriété de continuité décroissante des probabilités, on a</p>
+<p><span class="math display">\[\mathbb{P}\left(\bigcap_{n=1}^{\infty}\left\{X\in\left]-\infty\,;\,x+\frac{1}{n}\right]\right\}\right)=\lim\limits_{n\to\infty}\mathbb{P}\left(X\in\left]-\infty\,;\,x+\frac{1}{n}\right]\right)\]</span></p>
+<p>i.e.</p>
+<p><span class="math display">\[\mathbb{P}\left(X\in \bigcap_{n=1}^{\infty}\left]-\infty\,;\,x+\frac{1}{n}\right]\right)=\lim\limits_{n\to\infty}\mathbb{P}\left(X\in\left]-\infty\,;\,x+\frac{1}{n}\right]\right)\]</span></p>
+<p>Or, <span class="math inline">\(\bigcap\limits_{n=1}^{\infty}\left]-\infty\,;\,x+\frac{1}{n}\right]=]-\infty ; x]\)</span>, donc le terme de gauche est égal à <span class="math inline">\(\mathbb{P}(X\leq x)=F(x)\)</span>. Par ailleurs le terme de droite est égal à <span class="math inline">\(\lim\limits_{n\to\infty}F\left(x+\frac{1}{n}\right)\)</span>, et donc :</p>
+<p><span class="math display">\[F(x)=\lim\limits_{n\to\infty}F\left(x+\frac{1}{n}\right)\]</span>
+ce qui traduit exactement la continuité à droite de <span class="math inline">\(F\)</span>.</p>
+<p></p>
+<p><strong>iii.</strong> La suite d’événements <span class="math inline">\(\left\{X\leq -n\right\}_n\)</span> est décroissante, donc d’après la propriété de continuité décroissante</p>
+<p><span class="math display">\[\begin{align}
+\lim\limits_{n\to\infty}F(-n)&amp;=\mathbb{P}\left(\bigcap\limits_{n=0}^{\infty}\{X\leq -n\}\right) \\
+&amp;=\mathbb{P}(\emptyset) \\
+&amp;=0 \\
+\end{align}\]</span></p>
+<p>Par croissance de <span class="math inline">\(F\)</span>, on en déduit que <span class="math inline">\(\lim\limits_{x\to -\infty}F(x)=0\)</span>.</p>
+<p></p>
+<p><strong>iv.</strong> On utilise exactement le même raisonnement avec la suite croissante <span class="math inline">\(\left\{X\geq n\right\}_n\)</span>.</p>
+<p></p>
+<p><span class="math inline">\(\square\)</span></p>
+<p></p>
+<p><strong>Remarque.</strong> L’hypothèse d’une loi discrète n’étant utilisée nulle part dans cette démonstration, ces propriétés sont donc effectivement vraies pour toutes les lois de probabilités, discrètes ou non.</p>
+<p>Nous avons montré que les fonctions de répartition (de lois discrètes ou non) étaient toujours continues à droite. Pour avoir une propriété de continuité, il faudrait donc qu’elles soient également continues à gauche (rappel d’analyse : <span class="math inline">\(f\)</span> est continue en <span class="math inline">\(a\)</span> si et seulement si elle est continue à droite et à gauche en <span class="math inline">\(a\)</span>). Mais cette propriété n’est pas vraie en toute généralité :</p>
+<div class="thmbox def">
+<p>
+<strong>Théorème (discontinuités d’une fonction de répartition).</strong> Soit <span class="math inline">\(X\)</span> une variable aléatoire réelle (discrète ou non) définie sur un espace probabilisé <span class="math inline">\((\Omega, \, \mathcal{P}(\Omega), \, \mathbb{P})\)</span>. Pour tout réel <span class="math inline">\(x\)</span> on a :</p>
+<p><span class="math display">\[F(x)=F(x^{-})+\mathbb{P}(X=x)\]</span>
+où <span class="math inline">\(F(x^{-})=\lim\limits_{t\to x^{-}}F(t)\)</span>.</p>
+<p>Autrement dit, la fonction de répartition de <span class="math inline">\(F\)</span> est continue partout, sauf aux points <span class="math inline">\(x\)</span> tels que <span class="math inline">\(p_x:=\mathbb{P}(X=x)&gt;0\)</span> en lesquels elle présente un saut d’amplitude <span class="math inline">\(p_x\)</span>.</p>
+<p>En particulier, si <span class="math inline">\(X\)</span> est discrète sa fonction de répartition présente en chaque point <span class="math inline">\(x\)</span> de son support un saut d’amplitude <span class="math inline">\(p_x\)</span>.</p>
+</div>
+<p></p>
+<p><strong>Démonstration.</strong> Pour tout réel <span class="math inline">\(x\)</span> on a</p>
+<p><span class="math display">\[F(x)=\mathbb{P}(X&lt;x)+\mathbb{P}(X=x)\]</span></p>
+<p>Or, <span class="math inline">\((X&lt;x)=\bigcup\limits_{n=1}^{\infty} \left(X\in\left]-\infty\,;\, x-\frac{1}{n}\right]\right)\)</span>, et les événements <span class="math inline">\(\left(X\in\left]-\infty\,;\, x-\frac{1}{n}\right]\right)_{n\geq 1}\)</span> forment une suite croissante pour l’inclusion, donc par continuité croissante de <span class="math inline">\(\mathbb{P}\)</span> on a :</p>
+<p><span class="math display">\[\begin{align}
+\mathbb{P}(X&lt;x)&amp;=\mathbb{P}\left(\bigcup_{n=1}^{\infty}\left(X\in\left]-\infty\,;\,x-\frac{1}{n}\right]\right)\right) \\
+&amp;=\lim\limits_{n\to\infty}\mathbb{P}\left(X\in\left]-\infty\,;\,x-\frac{1}{n}\right]\right) \\
+&amp;=\lim\limits_{n\to\infty}F\left(x-\frac{1}{n}\right) \\
+&amp;=F(x^{-})
+\end{align}\]</span></p>
+<p>ce qui montre l’égalité annoncée et permet de conclure.</p>
+<p><span class="math inline">\(\square\)</span></p>
+<p></p>
+<p><strong>Remarque.</strong> Les variables aléatoires ayant une fonction de répartition continue sont appelées des <em>lois continues</em>. Elles font l’objet du chapitre suivant (on se restreindra au cas où l’espace d’arrivée est l’ensemble des réels). D’après le résultat précédent, si <span class="math inline">\(X\)</span> est une variable aléatoire de loi continue on a donc <span class="math inline">\(\mathbb{P}(X=x)=0\)</span> pour tout réel <span class="math inline">\(x\)</span>.</p>
+<div class="thmbox def">
+<p>
+<strong>Théorème (fonction de répartition et loi).</strong> Soit <span class="math inline">\(X\)</span> une variable aléatoire réelle discrète définie sur un espace probabilisé <span class="math inline">\((\Omega, \,\mathcal{P}(\Omega), \mathbb{P})\)</span> et de fonction de répartition <span class="math inline">\(F\)</span>. Alors :</p>
+<ul>
+<li>si <span class="math inline">\(a\)</span> et <span class="math inline">\(b\)</span> sont des nombres réels tels que <span class="math inline">\(a\leq b\)</span> on a</li>
+</ul>
+<p><span class="math display">\[\mathbb{P}(X\in]a\,;\,b])=F(b)-F(a)\]</span></p>
+<ul>
+<li>supposons que <span class="math inline">\(X(\Omega)=\{x_i,\,i\in I\}\)</span> avec les <span class="math inline">\(x_i\)</span> rangés dans l’ordre croissant. Alors</li>
+</ul>
+<p><span class="math display">\[\mathbb{P}(X=x_0)=F(x_0)\]</span>
+et
+<span class="math display">\[\forall i\geq 1,\, \mathbb{P}(X=x_i)=F(x_i)-F(x_{i-1})\]</span></p>
+</div>
+<p></p>
+<p><strong>Démonstration.</strong> On a</p>
+<p><span class="math display">\[]-\infty\,;\,b]=]-\infty\,;\,a]\,\sqcup\,]a\,;\,b]\]</span></p>
+<p>donc</p>
+<p><span class="math display">\[F(b)=F(a)+\mathbb{P}(X\in ]a\,;\,b])\]</span>
+ce qui montre la première égalité.</p>
+<p>Comme <span class="math inline">\(x_0=\inf X(\Omega)\)</span>, on a <span class="math inline">\((X=x_0)=(X\leq x_0)\)</span> et donc ces deux événements ont la même probabilité, i.e. <span class="math inline">\(\mathbb{P}(X=x_0)=F(x_0)\)</span>.</p>
+<p>Soit <span class="math inline">\(i\geq 1\)</span>. D’après le théorème précédent, on a</p>
+<p><span class="math display">\[\begin{align}
+\mathbb{P}(X=x_i)&amp;=F(x_i)-F(x_i^{-}) \\
+&amp;=F(x_i)-\mathbb{P}(X&lt;x_i) \\
+&amp;=F(x_i)-\mathbb{P}(X\leq x_{i-1}) \\
+&amp;=F(x_i)-F(x_{i-1}) \\
+\end{align}\]</span></p>
+<p><span class="math inline">\(\square\)</span></p>
+<p>On déduit du résultat précédent :</p>
+<div class="thmbox def">
+<p><strong>Théorème.</strong> La fonction de répartition d’une variable aléatoire réelle discrète caractérise sa loi.</p>
+<p>Autrement dit, si <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span> sont deux variables aléatoires réelles discrètes, on a</p>
+<p><span class="math display">\[F_X=F_Y \text{ ssi } \mathbb{P}_X=\mathbb{P}_Y\]</span></p>
+</div>
+<p></p>
+<p><strong>Démonstration.</strong> La loi d’une variable aléatoire réelle discrète <span class="math inline">\(X\)</span> est complètement définie par la donnée des probabilités <span class="math inline">\(\mathbb{P}(X=x_i)\)</span>, qui elles-mêmes sont complètement définies par la fonction <span class="math inline">\(F\)</span> d’après le théorème précédent, d’où le résultat.</p>
+<p><span class="math inline">\(\square\)</span></p>
+<p></p>
+<p><strong>Remarque.</strong> Le résultat précédent autorise donc à parler de fonction de répartition associée à une loi, ou même réciproquement de loi associée à une fonction de répartition.</p>
+</div>
+<div id="définition-2" class="section level3 hasAnchor" number="4.1.5">
+<h3><span class="header-section-number">4.1.5</span> Définition<a href="variables-aléatoires-discrètes-1.html#définition-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="loi-dune-variable-aléatoire-à-densité" class="section level3 hasAnchor" number="4.1.6">
+<h3><span class="header-section-number">4.1.6</span> Loi d’une variable aléatoire à densité<a href="variables-aléatoires-discrètes-1.html#loi-dune-variable-aléatoire-à-densité" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="définition-de-pxin-a" class="section level3 hasAnchor" number="4.1.7">
+<h3><span class="header-section-number">4.1.7</span> Définition de <span class="math inline">\(p(X\in A)\)</span><a href="variables-aléatoires-discrètes-1.html#définition-de-pxin-a" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="fonction-de-répartition-quantiles" class="section level3 hasAnchor" number="4.1.8">
+<h3><span class="header-section-number">4.1.8</span> Fonction de répartition, quantiles<a href="variables-aléatoires-discrètes-1.html#fonction-de-répartition-quantiles" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="exemples-classiques" class="section level3 hasAnchor" number="4.1.9">
+<h3><span class="header-section-number">4.1.9</span> Exemples classiques :<a href="variables-aléatoires-discrètes-1.html#exemples-classiques" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>loi uniforme sur un segment</li>
+<li>loi normale</li>
+<li>loi exponentielle</li>
+<li>loi gamma <span class="math inline">\(\gamma(p\,;\,\theta)\)</span></li>
+<li>loi log-normale</li>
+<li>loi du Chi-Deux</li>
+<li>loi de Student</li>
+<li>loi de Fisher</li>
+</ul>
+</div>
+<div id="moments-dune-variable-aléatoire-1" class="section level3 hasAnchor" number="4.1.10">
+<h3><span class="header-section-number">4.1.10</span> Moments d’une variable aléatoire<a href="variables-aléatoires-discrètes-1.html#moments-dune-variable-aléatoire-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Espérance, variance, espaces <span class="math inline">\(L^1\)</span> et <span class="math inline">\(L^2\)</span></li>
+<li>moments d’ordres supérieurs</li>
+<li>inégalité de Markov, inégalité de Bieanymé-Tchébychev (exemples + intérêt)</li>
+</ul>
+</div>
+</div>
+<div id="transformation-dune-variable-aléatoire-à-densité" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Transformation d’une variable aléatoire à densité<a href="variables-aléatoires-discrètes-1.html#transformation-dune-variable-aléatoire-à-densité" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="définition-3" class="section level3 hasAnchor" number="4.2.1">
+<h3><span class="header-section-number">4.2.1</span> Définition<a href="variables-aléatoires-discrètes-1.html#définition-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Définition</li>
+<li>Cas particuliers :
+<ul>
+<li>bijection continue</li>
+<li>un unique extremum</li>
+</ul></li>
+<li>Déterminer la loi de <span class="math inline">\(f(X)\)</span> en pratique (message = passer par la fonction de répartition)</li>
+</ul>
+</div>
+<div id="théorème-de-transfert-cas-à-densité" class="section level3 hasAnchor" number="4.2.2">
+<h3><span class="header-section-number">4.2.2</span> Théorème de transfert (cas à densité)<a href="variables-aléatoires-discrètes-1.html#théorème-de-transfert-cas-à-densité" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Théorème</li>
+<li>Exemple</li>
+</ul>
+</div>
+</div>
+<div id="vecteurs-aléatoires-1" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Vecteurs aléatoires<a href="variables-aléatoires-discrètes-1.html#vecteurs-aléatoires-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="définition-4" class="section level3 hasAnchor" number="4.3.1">
+<h3><span class="header-section-number">4.3.1</span> Définition<a href="variables-aléatoires-discrètes-1.html#définition-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="loi-jointe-loi-marginales" class="section level3 hasAnchor" number="4.3.2">
+<h3><span class="header-section-number">4.3.2</span> Loi jointe, loi marginales<a href="variables-aléatoires-discrètes-1.html#loi-jointe-loi-marginales" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="loi-conditionnelle-mathcallyx" class="section level3 hasAnchor" number="4.3.3">
+<h3><span class="header-section-number">4.3.3</span> Loi conditionnelle <span class="math inline">\(\mathcal{L}(Y|X)\)</span><a href="variables-aléatoires-discrètes-1.html#loi-conditionnelle-mathcallyx" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="loi-dun-couple-de-va-indépendantes" class="section level3 hasAnchor" number="4.3.4">
+<h3><span class="header-section-number">4.3.4</span> Loi d’un couple de VA indépendantes<a href="variables-aléatoires-discrètes-1.html#loi-dun-couple-de-va-indépendantes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Définition</li>
+<li>Somme de deux VA indépendantes (produit de convolution à densité)</li>
+</ul>
+</div>
+<div id="espérance-matrice-de-variance-covariance" class="section level3 hasAnchor" number="4.3.5">
+<h3><span class="header-section-number">4.3.5</span> Espérance, matrice de variance-covariance<a href="variables-aléatoires-discrètes-1.html#espérance-matrice-de-variance-covariance" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>exemple : vecteurs gaussiens en dimension 2</li>
+</ul>
+</div>
+<div id="espérance-conditionnelle-variance-conditionnelle" class="section level3 hasAnchor" number="4.3.6">
+<h3><span class="header-section-number">4.3.6</span> Espérance conditionnelle, variance conditionnelle<a href="variables-aléatoires-discrètes-1.html#espérance-conditionnelle-variance-conditionnelle" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="variables-aléatoires-discrètes.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="convergence.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/3_variables_à_densité.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Probabilites_Statistique.pdf", "Probabilites_Statistique.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

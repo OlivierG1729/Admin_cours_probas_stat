@@ -23,7 +23,7 @@
 <meta name="author" content="Olivier Guin" />
 
 
-<meta name="date" content="2024-03-30" />
+<meta name="date" content="2024-06-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -54,6 +54,70 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 <style type="text/css">
   
@@ -76,7 +140,7 @@
 <li><a href="./">Cours de probabilités et statistique pour le concours interne d'administrateur de l'Insee</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Présentation du cours</a>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> url: your book url like https://bookdown.org/yihui/bookdown</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#généralités"><i class="fa fa-check"></i><b>1.1</b> Généralités</a></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#coquilles-et-erreurs"><i class="fa fa-check"></i><b>1.2</b> Coquilles et erreurs</a></li>
@@ -111,49 +175,61 @@
 <ul>
 <li class="chapter" data-level="3.1.1" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#définition"><i class="fa fa-check"></i><b>3.1.1</b> Définition</a></li>
 <li class="chapter" data-level="3.1.2" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#loi-dune-variable-aléatoire-discrète"><i class="fa fa-check"></i><b>3.1.2</b> Loi d’une variable aléatoire discrète</a></li>
-<li class="chapter" data-level="3.1.3" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#définition-de-pxin-a"><i class="fa fa-check"></i><b>3.1.3</b> Définition de <span class="math inline">\(p(X\in A)\)</span></a></li>
-<li class="chapter" data-level="3.1.4" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#fonction-de-répartition-quantiles"><i class="fa fa-check"></i><b>3.1.4</b> Fonction de répartition, quantiles</a></li>
-<li class="chapter" data-level="3.1.5" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#exemples-classiques"><i class="fa fa-check"></i><b>3.1.5</b> Exemples classiques :</a></li>
-<li class="chapter" data-level="3.1.6" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#moments-dune-variable-aléatoire"><i class="fa fa-check"></i><b>3.1.6</b> Moments d’une variable aléatoire</a></li>
+<li class="chapter" data-level="3.1.3" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#calcul-de-mathbbpxin-b"><i class="fa fa-check"></i><b>3.1.3</b> Calcul de <span class="math inline">\(\mathbb{P}(X\in B)\)</span></a></li>
+<li class="chapter" data-level="3.1.4" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#fonction-de-répartition"><i class="fa fa-check"></i><b>3.1.4</b> Fonction de répartition</a></li>
+<li class="chapter" data-level="3.1.5" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#quantiles"><i class="fa fa-check"></i><b>3.1.5</b> Quantiles</a></li>
+<li class="chapter" data-level="3.1.6" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#exemples-classiques-de-lois-discrètes"><i class="fa fa-check"></i><b>3.1.6</b> Exemples classiques de lois discrètes</a></li>
+<li class="chapter" data-level="3.1.7" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#simulation-dune-variable-aléatoire-réelle"><i class="fa fa-check"></i><b>3.1.7</b> Simulation d’une variable aléatoire réelle</a></li>
+<li class="chapter" data-level="3.1.8" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#moments-dune-variable-aléatoire"><i class="fa fa-check"></i><b>3.1.8</b> Moments d’une variable aléatoire</a></li>
+<li class="chapter" data-level="3.1.9" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#quelques-inégalités-classiques"><i class="fa fa-check"></i><b>3.1.9</b> Quelques inégalités classiques</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#transformation-dune-variable-aléatoire-discrète"><i class="fa fa-check"></i><b>3.2</b> Transformation d’une variable aléatoire discrète</a>
-<ul>
-<li class="chapter" data-level="3.2.1" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#définition-1"><i class="fa fa-check"></i><b>3.2.1</b> Définition</a></li>
-<li class="chapter" data-level="3.2.2" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#théorème-de-transfert-cas-discret"><i class="fa fa-check"></i><b>3.2.2</b> Théorème de transfert (cas discret)</a></li>
-</ul></li>
+<li class="chapter" data-level="3.2" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#transformation-dune-variable-aléatoire-discrète"><i class="fa fa-check"></i><b>3.2</b> Transformation d’une variable aléatoire discrète</a></li>
 <li class="chapter" data-level="3.3" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#vecteurs-aléatoires"><i class="fa fa-check"></i><b>3.3</b> Vecteurs aléatoires</a>
 <ul>
-<li class="chapter" data-level="3.3.1" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#définition-2"><i class="fa fa-check"></i><b>3.3.1</b> Définition</a></li>
-<li class="chapter" data-level="3.3.2" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#loi-jointe-loi-marginales"><i class="fa fa-check"></i><b>3.3.2</b> Loi jointe, loi marginales</a></li>
-<li class="chapter" data-level="3.3.3" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#loi-conditionnelle-mathcallyx"><i class="fa fa-check"></i><b>3.3.3</b> Loi conditionnelle <span class="math inline">\(\mathcal{L}(Y|X)\)</span></a></li>
-<li class="chapter" data-level="3.3.4" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#loi-dun-couple-de-va-indépendantes"><i class="fa fa-check"></i><b>3.3.4</b> Loi d’un couple de VA indépendantes</a></li>
-<li class="chapter" data-level="3.3.5" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#espérance-conditionnelle-variance-conditionnelle"><i class="fa fa-check"></i><b>3.3.5</b> Espérance conditionnelle, variance conditionnelle</a></li>
+<li class="chapter" data-level="3.3.1" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#couple-aléatoire-loi-conjointe-lois-marginales"><i class="fa fa-check"></i><b>3.3.1</b> Couple aléatoire : loi conjointe, lois marginales</a></li>
+<li class="chapter" data-level="3.3.2" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#n-uplets-aléatoires"><i class="fa fa-check"></i><b>3.3.2</b> <span class="math inline">\(n-\)</span>uplets aléatoires</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#loi-conditionnelle-mathbbp_xyy_j"><i class="fa fa-check"></i><b>3.4</b> Loi conditionnelle <span class="math inline">\(\mathbb{P}_{X|Y=y_j}\)</span></a></li>
+<li class="chapter" data-level="3.5" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#indépendance-de-deux-variables-aléatoires"><i class="fa fa-check"></i><b>3.5</b> Indépendance de deux variables aléatoires</a></li>
+<li class="chapter" data-level="3.6" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#covariance-et-coefficient-de-corrélation-de-deux-variables-aléatoires"><i class="fa fa-check"></i><b>3.6</b> Covariance et coefficient de corrélation de deux variables aléatoires</a></li>
+<li class="chapter" data-level="3.7" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#espérance-conditionnelle-mathbbeyxx"><i class="fa fa-check"></i><b>3.7</b> Espérance conditionnelle <span class="math inline">\(\mathbb{E}(Y|X=x)\)</span></a>
+<ul>
+<li class="chapter" data-level="3.7.1" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#variance-conditionnelle"><i class="fa fa-check"></i><b>3.7.1</b> Variance conditionnelle</a></li>
+<li class="chapter" data-level="3.7.2" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#somme-de-deux-va-indépendantes-produit-de-convolution-discret"><i class="fa fa-check"></i><b>3.7.2</b> Somme de deux VA indépendantes (produit de convolution discret)</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#annexes"><i class="fa fa-check"></i><b>3.8</b> Annexes</a>
+<ul>
+<li class="chapter" data-level="3.8.1" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#inégalité-de-cauchy-schwarz"><i class="fa fa-check"></i><b>3.8.1</b> Inégalité de Cauchy-Schwarz</a></li>
+<li class="chapter" data-level="3.8.2" data-path="variables-aléatoires-discrètes.html"><a href="variables-aléatoires-discrètes.html#théorème-de-fubini-pour-les-séries-doubles"><i class="fa fa-check"></i><b>3.8.2</b> Théorème de Fubini pour les séries doubles</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html"><i class="fa fa-check"></i><b>4</b> Variables aléatoires à densité</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#définition-et-premières-propriétés-1"><i class="fa fa-check"></i><b>4.1</b> Définition et premières propriétés</a>
+<li class="chapter" data-level="4.1" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#variables-aléatoires-cas-général"><i class="fa fa-check"></i><b>4.1</b> Variables aléatoires : cas général</a>
 <ul>
-<li class="chapter" data-level="4.1.1" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#définition-3"><i class="fa fa-check"></i><b>4.1.1</b> Définition</a></li>
-<li class="chapter" data-level="4.1.2" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#loi-dune-variable-aléatoire-à-densité"><i class="fa fa-check"></i><b>4.1.2</b> Loi d’une variable aléatoire à densité</a></li>
-<li class="chapter" data-level="4.1.3" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#définition-de-pxin-a-1"><i class="fa fa-check"></i><b>4.1.3</b> Définition de <span class="math inline">\(p(X\in A)\)</span></a></li>
-<li class="chapter" data-level="4.1.4" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#fonction-de-répartition-quantiles-1"><i class="fa fa-check"></i><b>4.1.4</b> Fonction de répartition, quantiles</a></li>
-<li class="chapter" data-level="4.1.5" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#exemples-classiques-1"><i class="fa fa-check"></i><b>4.1.5</b> Exemples classiques :</a></li>
-<li class="chapter" data-level="4.1.6" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#moments-dune-variable-aléatoire-1"><i class="fa fa-check"></i><b>4.1.6</b> Moments d’une variable aléatoire</a></li>
+<li class="chapter" data-level="4.1.1" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#définition-générale"><i class="fa fa-check"></i><b>4.1.1</b> Définition générale</a></li>
+<li class="chapter" data-level="4.1.2" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#loi-dune-variable-aléatoire"><i class="fa fa-check"></i><b>4.1.2</b> Loi d’une variable aléatoire</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#transformation-dune-variable-aléatoire-à-densité"><i class="fa fa-check"></i><b>4.2</b> Transformation d’une variable aléatoire à densité</a>
+<li class="chapter" data-level="4.2" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#variables-aléatoires-réelles-continues"><i class="fa fa-check"></i><b>4.2</b> Variables aléatoires réelles continues</a></li>
+<li class="chapter" data-level="4.3" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#variables-aléatoires-réelles-à-densité"><i class="fa fa-check"></i><b>4.3</b> Variables aléatoires réelles à densité</a>
 <ul>
-<li class="chapter" data-level="4.2.1" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#définition-4"><i class="fa fa-check"></i><b>4.2.1</b> Définition</a></li>
-<li class="chapter" data-level="4.2.2" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#théorème-de-transfert-cas-à-densité"><i class="fa fa-check"></i><b>4.2.2</b> Théorème de transfert (cas à densité)</a></li>
+<li class="chapter" data-level="4.3.1" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#définition-1"><i class="fa fa-check"></i><b>4.3.1</b> Définition</a></li>
+<li class="chapter" data-level="4.3.2" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#fonction-de-densité"><i class="fa fa-check"></i><b>4.3.2</b> Fonction de densité</a></li>
+<li class="chapter" data-level="4.3.3" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#calcul-de-mathbbpxin-i"><i class="fa fa-check"></i><b>4.3.3</b> Calcul de <span class="math inline">\(\mathbb{P}(X\in I)\)</span></a></li>
+<li class="chapter" data-level="4.3.4" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#quantiles-1"><i class="fa fa-check"></i><b>4.3.4</b> Quantiles</a></li>
+<li class="chapter" data-level="4.3.5" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#exemples-classiques-de-lois-à-densité"><i class="fa fa-check"></i><b>4.3.5</b> Exemples classiques de lois à densité</a></li>
+<li class="chapter" data-level="4.3.6" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#moments-dune-variable-aléatoire-1"><i class="fa fa-check"></i><b>4.3.6</b> Moments d’une variable aléatoire</a></li>
+<li class="chapter" data-level="4.3.7" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#quelques-inégalités-classiques-1"><i class="fa fa-check"></i><b>4.3.7</b> Quelques inégalités classiques</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#vecteurs-aléatoires-1"><i class="fa fa-check"></i><b>4.3</b> Vecteurs aléatoires</a>
+<li class="chapter" data-level="4.4" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#transformation-dune-variable-aléatoire-à-densité"><i class="fa fa-check"></i><b>4.4</b> Transformation d’une variable aléatoire à densité</a></li>
+<li class="chapter" data-level="4.5" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#vecteurs-aléatoires-1"><i class="fa fa-check"></i><b>4.5</b> Vecteurs aléatoires</a>
 <ul>
-<li class="chapter" data-level="4.3.1" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#définition-5"><i class="fa fa-check"></i><b>4.3.1</b> Définition</a></li>
-<li class="chapter" data-level="4.3.2" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#loi-jointe-loi-marginales-1"><i class="fa fa-check"></i><b>4.3.2</b> Loi jointe, loi marginales</a></li>
-<li class="chapter" data-level="4.3.3" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#loi-conditionnelle-mathcallyx-1"><i class="fa fa-check"></i><b>4.3.3</b> Loi conditionnelle <span class="math inline">\(\mathcal{L}(Y|X)\)</span></a></li>
-<li class="chapter" data-level="4.3.4" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#loi-dun-couple-de-va-indépendantes-1"><i class="fa fa-check"></i><b>4.3.4</b> Loi d’un couple de VA indépendantes</a></li>
-<li class="chapter" data-level="4.3.5" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#espérance-matrice-de-variance-covariance"><i class="fa fa-check"></i><b>4.3.5</b> Espérance, matrice de variance-covariance</a></li>
-<li class="chapter" data-level="4.3.6" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#espérance-conditionnelle-variance-conditionnelle-1"><i class="fa fa-check"></i><b>4.3.6</b> Espérance conditionnelle, variance conditionnelle</a></li>
+<li class="chapter" data-level="4.5.1" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#définition-2"><i class="fa fa-check"></i><b>4.5.1</b> Définition</a></li>
+<li class="chapter" data-level="4.5.2" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#loi-jointe-loi-marginales"><i class="fa fa-check"></i><b>4.5.2</b> Loi jointe, loi marginales</a></li>
+<li class="chapter" data-level="4.5.3" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#loi-conditionnelle-mathcallyx"><i class="fa fa-check"></i><b>4.5.3</b> Loi conditionnelle <span class="math inline">\(\mathcal{L}(Y|X)\)</span></a></li>
+<li class="chapter" data-level="4.5.4" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#loi-dun-couple-de-va-indépendantes"><i class="fa fa-check"></i><b>4.5.4</b> Loi d’un couple de VA indépendantes</a></li>
+<li class="chapter" data-level="4.5.5" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#espérance-matrice-de-variance-covariance"><i class="fa fa-check"></i><b>4.5.5</b> Espérance, matrice de variance-covariance</a></li>
+<li class="chapter" data-level="4.5.6" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#espérance-conditionnelle-variance-conditionnelle"><i class="fa fa-check"></i><b>4.5.6</b> Espérance conditionnelle, variance conditionnelle</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="convergence.html"><a href="convergence.html"><i class="fa fa-check"></i><b>5</b> Convergence</a>
@@ -197,7 +273,7 @@
 <ul>
 <li class="chapter" data-level="7.1.1" data-path="statistique-inférentielle.html"><a href="statistique-inférentielle.html#premières-définitions"><i class="fa fa-check"></i><b>7.1.1</b> Premières définitions</a></li>
 <li class="chapter" data-level="7.1.2" data-path="statistique-inférentielle.html"><a href="statistique-inférentielle.html#convergence-dun-estimateur"><i class="fa fa-check"></i><b>7.1.2</b> Convergence d’un estimateur</a></li>
-<li class="chapter" data-level="7.1.3" data-path="statistique-inférentielle.html"><a href="statistique-inférentielle.html#exemples-classiques-2"><i class="fa fa-check"></i><b>7.1.3</b> Exemples classiques</a></li>
+<li class="chapter" data-level="7.1.3" data-path="statistique-inférentielle.html"><a href="statistique-inférentielle.html#exemples-classiques"><i class="fa fa-check"></i><b>7.1.3</b> Exemples classiques</a></li>
 <li class="chapter" data-level="7.1.4" data-path="statistique-inférentielle.html"><a href="statistique-inférentielle.html#méthodes-de-construction-des-estimateurs"><i class="fa fa-check"></i><b>7.1.4</b> Méthodes de construction des estimateurs</a></li>
 <li class="chapter" data-level="7.1.5" data-path="statistique-inférentielle.html"><a href="statistique-inférentielle.html#compléments-hors-programme"><i class="fa fa-check"></i><b>7.1.5</b> Compléments (hors-programme)</a></li>
 <li class="chapter" data-level="7.1.6" data-path="statistique-inférentielle.html"><a href="statistique-inférentielle.html#estimation-des-coefficients-dune-régression-linéaire"><i class="fa fa-check"></i><b>7.1.6</b> Estimation des coefficients d’une régression linéaire</a></li>
@@ -217,6 +293,10 @@
 <li class="chapter" data-level="9" data-path="exercices.html"><a href="exercices.html"><i class="fa fa-check"></i><b>9</b> Exercices</a>
 <ul>
 <li class="chapter" data-level="9.1" data-path="exercices.html"><a href="exercices.html#dénombrement-et-probabilités-1"><i class="fa fa-check"></i><b>9.1</b> Dénombrement et probabilités</a></li>
+<li class="chapter" data-level="9.2" data-path="exercices.html"><a href="exercices.html#annales-des-oraux"><i class="fa fa-check"></i><b>9.2</b> Annales des oraux</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="exercices.html"><a href="exercices.html#interne-2016"><i class="fa fa-check"></i><b>9.2.1</b> Interne, 2016</a></li>
+</ul></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -240,46 +320,477 @@
             <section class="normal" id="section-">
 <div id="variables-aléatoires-à-densité" class="section level1 hasAnchor" number="4">
 <h1><span class="header-section-number">Chapitre 4</span> Variables aléatoires à densité<a href="variables-aléatoires-à-densité.html#variables-aléatoires-à-densité" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="définition-et-premières-propriétés-1" class="section level2 hasAnchor" number="4.1">
-<h2><span class="header-section-number">4.1</span> Définition et premières propriétés<a href="variables-aléatoires-à-densité.html#définition-et-premières-propriétés-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="définition-3" class="section level3 hasAnchor" number="4.1.1">
-<h3><span class="header-section-number">4.1.1</span> Définition<a href="variables-aléatoires-à-densité.html#définition-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Le chapitre précédent trait des variables aléatoires réelles discrètes, i.e. les variables aléatoires <span class="math inline">\(X:(\Omega, \mathcal{P}(\Omega), \mathbb{P})\longrightarrow\mathbb{R}\)</span> (ou <span class="math inline">\(\mathbb{R}^d\)</span> pour un vecteur aléatoire discret) de support <span class="math inline">\(X(\Omega)\subset\mathbb{R}\)</span> au plus dénombrable.</p>
+<p>On va s’intéresser dans ce chapitre aux variables aléatoires <strong>continues</strong>, et plus spécifiquement aux variables aléatoires <strong>continues à densité</strong>. Mais on commence d’abord par une définition plus générale qui englobe tous ces cas.</p>
+<div id="variables-aléatoires-cas-général" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Variables aléatoires : cas général<a href="variables-aléatoires-à-densité.html#variables-aléatoires-cas-général" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Dans tout ce chapitre, <span class="math inline">\((\Omega, \mathcal{A}, \mathbb{P})\)</span> est un espace probabilisé. Pour rappel, <span class="math inline">\(\Omega\)</span> est l’univers de l’expérience aléatoire modélisée, <span class="math inline">\(\mathcal{A}\)</span> est une tribu, et <span class="math inline">\(\mathbb{P}\)</span> est une mesure de probabilité sur <span class="math inline">\((\Omega, \mathcal{A})\)</span> (appelé espace probabilisable). Dans le cas discret, on supposait implicitment <span class="math inline">\(\mathcal{A}=\mathcal{P}(\Omega)\)</span>. Dans le cas général, <span class="math inline">\(\mathcal{P}(\Omega)\)</span> peut être un ensemble extrêment vaste et on préfère restreindre l’espace des observables à un espace plus petit. Mais une fois ceci dit, sauf mention explicite du contraire, nous ne parlerons plus de tribu, et l’espace probabilisé <span class="math inline">\((\Omega, \mathcal{A}, \mathbb{P})\)</span> restera dans ce cours un objet purement formel.</p>
+<div id="définition-générale" class="section level3 hasAnchor" number="4.1.1">
+<h3><span class="header-section-number">4.1.1</span> Définition générale<a href="variables-aléatoires-à-densité.html#définition-générale" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="defbox def">
+<center>
+<strong>Variables aléatoires : cas général)</strong>
+</center>
+<p>On appelle <strong>variable aléatoire réelle</strong> sur l’espace probabilisé <span class="math inline">\((\Omega, \mathcal{A}, \mathbb{P})\)</span> toute application <span class="math inline">\(X:\Omega\longrightarrow\mathbb{R}\)</span> telle que :</p>
+<p><span class="math display">\[\text{pour tout intervalle } I\subset\mathbb{R}, \, X^{-1}(I)\in\mathcal{A}\]</span></p>
+<p>Ceci revient à dire que pour tout intervalle <span class="math inline">\(I\subset\mathbb{R}\)</span>, <span class="math inline">\(X^{-1}(I)\)</span> est un événement (i.e. un <em>observable</em>). Cet événement sera souvent noté <span class="math inline">\((X\in I)\)</span> :</p>
+<p><span class="math display">\[\forall\omega\in\Omega, \, \omega\in (X\in I) \text{ ssi } X(\omega)\in I\]</span>
+De plus, pour tout <span class="math inline">\(\omega\in\Omega\)</span>, <span class="math inline">\(X(\omega)\)</span> sera appelé une <strong>réalisation</strong> de <span class="math inline">\(X\)</span>.</p>
 </div>
-<div id="loi-dune-variable-aléatoire-à-densité" class="section level3 hasAnchor" number="4.1.2">
-<h3><span class="header-section-number">4.1.2</span> Loi d’une variable aléatoire à densité<a href="variables-aléatoires-à-densité.html#loi-dune-variable-aléatoire-à-densité" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
-<div id="définition-de-pxin-a-1" class="section level3 hasAnchor" number="4.1.3">
-<h3><span class="header-section-number">4.1.3</span> Définition de <span class="math inline">\(p(X\in A)\)</span><a href="variables-aléatoires-à-densité.html#définition-de-pxin-a-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-</div>
-<div id="fonction-de-répartition-quantiles-1" class="section level3 hasAnchor" number="4.1.4">
-<h3><span class="header-section-number">4.1.4</span> Fonction de répartition, quantiles<a href="variables-aléatoires-à-densité.html#fonction-de-répartition-quantiles-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-</div>
-<div id="exemples-classiques-1" class="section level3 hasAnchor" number="4.1.5">
-<h3><span class="header-section-number">4.1.5</span> Exemples classiques :<a href="variables-aléatoires-à-densité.html#exemples-classiques-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="loi-dune-variable-aléatoire" class="section level3 hasAnchor" number="4.1.2">
+<h3><span class="header-section-number">4.1.2</span> Loi d’une variable aléatoire<a href="variables-aléatoires-à-densité.html#loi-dune-variable-aléatoire" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>On a vu que la loi d’une variable aléatoire discrète <span class="math inline">\(X\)</span> sur <span class="math inline">\((\Omega, \mathcal{P}(\Omega), \mathbb{P})\)</span> était définie par la donnée de son support <span class="math inline">\(X(\Omega)\)</span> et de toutes les probabilités <span class="math inline">\(\mathbb{P}(X=x)\)</span> pour <span class="math inline">\(x\)</span> dans le support.</p>
+<p>La définition suivante est un peu plus générale, puisqu’elle englobe le cas discret sans s’y limiter :</p>
+<div class="thmbox def">
+<p><strong>Théorème (Loi d’une variable aléatoire : cas général).</strong> Soit <span class="math inline">\(X\)</span> une variable aléatoire (réelle) définie sur un espace probabilisé <span class="math inline">\((\Omega,\, \mathcal{A},\, \mathbb{P})\)</span>.</p>
+<p>La loi de <span class="math inline">\(X\)</span> est complétement définie par :</p>
 <ul>
-<li>loi uniforme sur un segment</li>
-<li>loi normale</li>
-<li>loi exponentielle</li>
-<li>loi gamma <span class="math inline">\(\gamma(p\,;\,\theta)\)</span></li>
-<li>loi log-normale</li>
-<li>loi du Chi-Deux</li>
-<li>loi de Student</li>
-<li>loi de Fisher</li>
+<li><p>la donnée de son <strong>support</strong> <span class="math inline">\(F=X(\Omega)\)</span> ;</p></li>
+<li><p>la donnée, pour tout <span class="math inline">\(x\)</span> dans <span class="math inline">\(X(\Omega)\)</span>, de la probabilité <span class="math inline">\(\mathbb{P}(X\leq x)\)</span>.</p></li>
+</ul>
+<p>Cette loi est unique à des événements de probabilité nulle près.</p>
+<p>Par ailleurs, l’application <span class="math inline">\(F_X\)</span> (ou plus simplement <span class="math inline">\(F\)</span>) définie sur <span class="math inline">\(\mathbb{R}\)</span> par</p>
+<p><span class="math display">\[F(x)=\mathbb{P}(X\leq x)\]</span></p>
+<p>est appelée <strong>fonction de répartition</strong> de <span class="math inline">\(F\)</span>.</p>
+</div>
+<p></p>
+<p><strong>Remarque.</strong> La loi d’une variable discrète pourrait tout à fait être définie comme la donnée de <span class="math inline">\(X(\Omega)\)</span> et des probabilités <span class="math inline">\(\mathbb{P}(X\leq x)\)</span> (plutôt que <span class="math inline">\(\mathbb{P}(X=x)\)</span>) : c’est le résulat selon lequel la loi d’une variable aléatoire discrète est complètement définie par sa fonction de répartition.</p>
+<p>Les propriétés de la fonction de répartition dans le cas général sont les mêmes que celles vues dans le cas discret :</p>
+<div class="thmbox def">
+<center>
+<strong>Propriétés des fonctions de répartition : cas général</strong>
+</center>
+<p></p>
+<p>Soit <span class="math inline">\(F\)</span> la fonction de répartition d’une variable aléatoire réelle (discrète ou non). Alors :</p>
+<p><strong>i.</strong> <span class="math inline">\(F\)</span> est une fonction croissante sur <span class="math inline">\(\mathbb{R}\)</span> ;</p>
+<p><strong>ii.</strong> <span class="math inline">\(F\)</span> est continue à droite ;</p>
+<p><strong>iii.</strong> <span class="math inline">\(\lim\limits_{x\to -\infty}F(x)=0\)</span> ;</p>
+<p><strong>iv.</strong> <span class="math inline">\(\lim\limits_{x\to +\infty}F(x)=1\)</span> ;</p>
+<p><strong>v.</strong> Pour tout couple <span class="math inline">\((a,b)\)</span> de réels :</p>
+<p><span class="math display">\[\mathbb{P}(X\in ]a\,;\,b])=F(b)-F(a)\]</span></p>
+</div>
+<p></p>
+<p><strong>Démonstration.</strong> La même que dans le cas discret !</p>
+<p><span class="math inline">\(\square\)</span></p>
+<p>La fonction de répartition d’une variable aléatoire quelconque est donc toujours continue à droite. Elle peut cependant ne pas être continue : les variables aléatoires réelles discrètes sont exactement dans ce cas (voir chapitre précédent).</p>
+<p>Ce chapitre va s’intéresser au cas particulier où <span class="math inline">\(F\)</span> est continue, et même plus particulièrement où <span class="math inline">\(F\)</span> est continue et à densité.</p>
+</div>
+</div>
+<div id="variables-aléatoires-réelles-continues" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Variables aléatoires réelles continues<a href="variables-aléatoires-à-densité.html#variables-aléatoires-réelles-continues" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="thmbox def">
+<center>
+<strong>Variables aléatoires réelles continues</strong>
+</center>
+<p>Une variable aléatoire réelle <span class="math inline">\(X:(\Omega, \mathcal{A}, \mathbb{P}):\longrightarrow\mathbb{R}\)</span> est dite <strong>continue</strong> lorsque sa fonction de répartition est <strong>continue</strong>.</p>
+</div>
+<p>Une conséquence immédiate de cette définition est la suivante :</p>
+<div class="thmbox def">
+<p><strong>Théorème.</strong> Si <span class="math inline">\(X:(\Omega, \mathcal{A}, \mathbb{P}):\longrightarrow\mathbb{R}\)</span> est une variable aléatoire réelle continue, alors</p>
+<p><span class="math display">\[\forall x\in X(\Omega),\,\mathbb{P}(X=x)=0\]</span></p>
+<p>En particulier, pour tout couple <span class="math inline">\((a,b)\)</span> de réels tels que <span class="math inline">\(a\leq b\)</span>, on a</p>
+<p><span class="math display">\[\begin{align}
+\mathbb{P}\left(X\in \left[a\,;\,b\right]\right) &amp;= \mathbb{P}\left(X\in \left[a\,;\,b\right[\right) \\
+&amp;= \mathbb{P}\left(X\in \left]a\,;\,b\right]\right) \\
+&amp;= \mathbb{P}\left(X\in \left]a\,;\,b\right[\right) \\
+&amp;= F(b)-F(a)
+\end{align}\]</span></p>
+</div>
+<p></p>
+<p></p>
+<p><strong>Notation.</strong> Puisque pour une loi continue, le sens des crochets d’un intervalle n’a pas d’importance, on utilisera la notation unifiée <span class="math inline">\((a;b)\)</span> pour désigner n’importe quel intervalle construit à partir des bornes <span class="math inline">\(a\)</span> et <span class="math inline">\(b\)</span> (éventuellement infinies).</p>
+<p></p>
+<p><strong>Démonstration.</strong> Voir la démonstration du théorème sur les discontinuités d’une fonction de répartition et de la remarque qui la suit (chapitre précédent).</p>
+<p><span class="math inline">\(\square\)</span></p>
+</div>
+<div id="variables-aléatoires-réelles-à-densité" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Variables aléatoires réelles à densité<a href="variables-aléatoires-à-densité.html#variables-aléatoires-réelles-à-densité" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="définition-1" class="section level3 hasAnchor" number="4.3.1">
+<h3><span class="header-section-number">4.3.1</span> Définition<a href="variables-aléatoires-à-densité.html#définition-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Tout le reste de ce chapitre va se concentrer sur une sous-famille de la famille des lois continues : celle des lois <strong>à densité</strong> (dites aussi lois <strong>absolument continues</strong>).</p>
+<p>L’idée est la suivante. On suppose qu’on tire un grand nombre <span class="math inline">\(n\)</span> de réalisations <span class="math inline">\(x_1,\dots, x_n\)</span> d’une variable aléatoire <span class="math inline">\(X\)</span> continue. On représente ces points sur une droite graduée :</p>
+<center>
+<img src="images/densite_points.PNG" width="80%" height="80%" />
+</center>
+<p>La droite se découpe alors en des zones de différents niveaux de densité : la distribution des points est inégalitaire. Si <span class="math inline">\(x\)</span> est un réel, et <span class="math inline">\(\Delta x\)</span> un nombre réel positif très proche de <span class="math inline">\(0\)</span>, on note <span class="math inline">\(n_{x,x+\Delta x}\)</span> le nombre de réalisations comprises dans l’intervalle <span class="math inline">\([x\,,\,x+\Delta x[\)</span>. La probabilité qu’un nombre tiré sous la loi de <span class="math inline">\(X\)</span> soit compris dans cet intervalle peut alors être approchée par la proportion de nombres de la série <span class="math inline">\(x_1,\dots, x_n\)</span> qui sont effectivement dans cet intervalle :</p>
+<p><span class="math display">\[\mathbb{P}\left(X\in[x\,;\, x+\Delta x[\right)\approx\frac{n_{x,x+\Delta x}}{n}\]</span>
+Par ailleurs, sous réserve d’une certaine régularité de cette distribution, on peut s’attendre à ce que pour un <span class="math inline">\(x\)</span> donné, le nombre de réalisations dans <span class="math inline">\([x\,;\,x+\Delta x[\)</span> soit proportionnel à l’amplitude <span class="math inline">\(\Delta x\)</span> de cet intervalle :</p>
+<p><span class="math display">\[n_{x,x+\Delta x}\approx n\,f(x)\,\Delta x\]</span>
+avec <span class="math inline">\(n\,f(x)\)</span> le coefficient de proportionnalité.</p>
+<p>Donc, toujours sous réserve de régularité de la distribution de <span class="math inline">\(X\)</span> :</p>
+<p><span class="math display">\[\mathbb{P}\left(X\in [x\,;\,x+\Delta x[\right)\approx f(x)\,\Delta x\]</span></p>
+<p>Dans ces conditions, on a</p>
+<p><span class="math display">\[\frac{\mathbb{P}\left(X\in [x\,;\,x+\Delta x[\right)}{\Delta x}\approx f(x)\]</span>
+et <span class="math inline">\(f(x)\)</span> est donc le ratio entre la probabilité que <span class="math inline">\(X\)</span> appartienne à un intervalle local d’extrêmité <span class="math inline">\(x\)</span> et la longueur de cet intervalle : <span class="math inline">\(f(x)\)</span> s’interpréte donc comme une <strong>densité</strong> de probabilité.</p>
+<p></p>
+<p><strong>Quelles sont les conditions d’existence de <span class="math inline">\(f(x)\)</span> ?</strong> On a dit de façon intuitive que la loi de <span class="math inline">\(X\)</span> devait présenter une certaine forme de régularité. On peut donner un sens rigoureux à cette idée en se rappelant que</p>
+<p><span class="math display">\[\mathbb{P}\left(X\in [x\,;\,x+\Delta x[\right)=F(x+\Delta x)-F(x)\]</span>
+où <span class="math inline">\(F\)</span> est la fonction de répartition de <span class="math inline">\(X\)</span>. On veut donc trouver une condition à l’existence d’une fonction <span class="math inline">\(f\)</span> telle que pour tout réel <span class="math inline">\(x\)</span> on ait, pour <span class="math inline">\(\Delta x\)</span> très proche de <span class="math inline">\(0\)</span>, l’approximation :</p>
+<p><span class="math display">\[\frac{F(x+\Delta x)-F(x)}{\Delta x}\approx f(x)\]</span>
+Le cours d’analyse dit que cette condition est celle de la <strong>dérivabilité</strong> de <span class="math inline">\(F\)</span> en tout réel <span class="math inline">\(x\)</span>. Dans la définition d’une variable aléatoire absolument continue (ou à densité), on n’exige pas exactement une condition de dérivabilité de <span class="math inline">\(f\)</span> sur <span class="math inline">\(\mathbb{R}\)</span>, mais quelque chose d’assez proche :</p>
+<p></p>
+<div class="defbox def">
+<center>
+<strong>Lois à densité, fonctions de densité</strong>
+</center>
+<p>Soit <span class="math inline">\(X:(\Omega, \mathcal{A}, \mathbb{P})\longrightarrow\mathbb{R}\)</span> une variable aléatoire réelle <strong>continue</strong>. On dit qu’elle est <strong>absolument continue</strong> ou <strong>à densité</strong> si sa fonction de répartition est de classe <span class="math inline">\(\mathcal{C}^1\)</span> sur <span class="math inline">\(\mathbb{R}\)</span> (ou éventuellement sur <span class="math inline">\(\mathbb{R}\)</span> privé d’un ensemble fini de points).</p>
+</div>
+<p></p>
+<p><strong>Remarques. i.</strong> Une variable aléatoire peut donc être :</p>
+<ul>
+<li>discrète ;</li>
+<li>continue, et dans ce cas elle peut être :
+<ul>
+<li>à densité ;</li>
+<li>continue sans être à densité ;</li>
+</ul></li>
+<li>ni discrète ni continue (exemple un peu plus loin).</li>
+</ul>
+<p><strong>ii.</strong> Pour une variable aléatoire à densité, de densité <span class="math inline">\(f\)</span>, on a donc</p>
+<p><span class="math display">\[\lim\limits_{\Delta x\to 0}\frac{\mathbb{P}(X\in[x\,;\,x+\Delta x[)}{\Delta x}=f(x)\]</span>
+Cette limite prend parfois la forme suivante</p>
+<p><span class="math display">\[\frac{\mathbb{P}(X\in [x\,;\,x+dx[)}{dx}=f(x)\]</span>
+où <span class="math inline">\(dx\)</span> est conçu comme un élément infinitésimal, autrement dit un <span class="math inline">\(\Delta x\)</span> qui peut être rendu aussi petit que l’on veut. On s’autorise alors à faire un produit en croix et écrire cela sous la forme</p>
+<p><span class="math display">\[\mathbb{P}(X\in [x\,;\,x+dx[)=f(x)\,dx\]</span>
+Cette écriture peut se comprendre de la manière suivante : le produit de la densité en <span class="math inline">\(x\)</span> par un élément infinitésimal <span class="math inline">\(dx\)</span> est égal à la probabilité que <span class="math inline">\(X\)</span> appartienne à l’intervalle infinitésimal de borne inférieure <span class="math inline">\(x\)</span> et de longueur <span class="math inline">\(dx\)</span>.</p>
+<p><br></p>
+<p>Le programme du concours d’administrateur Insee se concentre surtout sur le cas discret et le cas à densité, mais on peut dans certains sujets rencontrer d’autres types de lois. Dans ce cas, aucune connaissance n’est supposée requise pour traiter l’exercice ou le problème.</p>
+<p><br></p>
+<p></p>
+</div>
+<div id="fonction-de-densité" class="section level3 hasAnchor" number="4.3.2">
+<h3><span class="header-section-number">4.3.2</span> Fonction de densité<a href="variables-aléatoires-à-densité.html#fonction-de-densité" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>On peut maintenant définir la notion de densité d’une variable aléatoire à densité :</p>
+<div class="defbox def">
+<center>
+<strong>Fonction de densité</strong>
+</center>
+<p><br>
+Soit <span class="math inline">\(X:(\Omega, \mathcal{A}, \mathbb{P})\longrightarrow\mathbb{R}\)</span> une variable aléatoire réelle suivant une <strong>loi à densité</strong>. Sa dérivée <span class="math inline">\(F&#39;\)</span> est donc définie et continue partout sauf éventuellement en un nombre fini de points. On appelle alors <strong>fonction de densité</strong> (ou <strong>densité</strong>, ou <strong>densité de probabilité</strong>) de <span class="math inline">\(X\)</span> toute fonction <span class="math inline">\(f:\mathbb{R}\longrightarrow\mathbb{R}\)</span> :</p>
+<ul>
+<li>positive sur <span class="math inline">\(\mathbb{R}\)</span> ;</li>
+<li>égale à <span class="math inline">\(F&#39;\)</span> sauf éventuellement en un nombre fini de points ;</li>
+<li>d’intégrale sur <span class="math inline">\(\mathbb{R}\)</span> convergente et égale à <span class="math inline">\(1\)</span> :</li>
+</ul>
+<p><span class="math display">\[\int_{-\infty}^{+\infty}f(x)\,dx=1\]</span></p>
+</div>
+<p></p>
+<p><strong>Remarques. i.</strong> La densité d’une loi de probabilité s’interprète bien comme la densité d’une probabilité : elle nous indique à quel point un réel tiré sous cette loi a une probabilité par unité de longueur élevée de se trouver dans une zone infinitésimale.</p>
+<p></p>
+<p><strong>ii.</strong> Pour une loi à densité, il n’y a pas unicité de la fonction de densité. Dès qu’on a trouvé une densité <span class="math inline">\(f\)</span>, il suffit de choisir un réel <span class="math inline">\(x_0\)</span> quelconque, un réel <span class="math inline">\(a\)</span> quelconque différent de <span class="math inline">\(f(x_0)\)</span>, et de poser <span class="math inline">\(g(x)=f(x)\)</span> pour tout réel <span class="math inline">\(x\)</span> différent de <span class="math inline">\(x_0\)</span> et <span class="math inline">\(g(x_0)=a\)</span>. Comme le nombre de choix possibles pour <span class="math inline">\(a\)</span> est infini, celui pour <span class="math inline">\(g\)</span> l’est aussi.</p>
+<p></p>
+<p><strong>iii.</strong> Ceci étant dit, deux densités d’une même variable à densité sont égales à un ensemble fini près. Autrement dit, on a le résultat suivant :</p>
+<p></p>
+<div class="thmbox def">
+<p><strong>Théorème.</strong> La densité caractérise la loi d’une variable à densité, à un ensemble de mesure de probabilité nulle près.</p>
+</div>
+<p></p>
+<p><strong>Exemple.</strong> On dispose d’un échantillon de <span class="math inline">\(500\)</span> points tirés sous une certaine loi à densité (en fait une loi normale standard). Sur le bas du graphique, chaque petit segment vertical noir représente l’une des <span class="math inline">\(500\)</span> réalisations obtenues. Certaines zones sont denses et sont donc associées à des parties hautes de l’histogramme et de la courbe de densité. D’autres sont moins peuplées et correspondent à des niveaux plus bas.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="variables-aléatoires-à-densité.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggpubr)</span>
+<span id="cb1-2"><a href="variables-aléatoires-à-densité.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb1-3"><a href="variables-aléatoires-à-densité.html#cb1-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">realisations =</span> <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">500</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>))</span>
+<span id="cb1-4"><a href="variables-aléatoires-à-densité.html#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">gghistogram</span>(data, <span class="at">x =</span> <span class="st">&quot;realisations&quot;</span>,  <span class="at">y =</span> <span class="st">&quot;..density..&quot;</span>,</span>
+<span id="cb1-5"><a href="variables-aléatoires-à-densité.html#cb1-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">add =</span> <span class="st">&quot;mean&quot;</span>, <span class="at">rug =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb1-6"><a href="variables-aléatoires-à-densité.html#cb1-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">fill =</span> <span class="st">&quot;#E7B800&quot;</span>, <span class="at">bins =</span> <span class="dv">50</span>,</span>
+<span id="cb1-7"><a href="variables-aléatoires-à-densité.html#cb1-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">add_density =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p><img src="Probabilites_Statistique_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p></p>
+</div>
+<div id="calcul-de-mathbbpxin-i" class="section level3 hasAnchor" number="4.3.3">
+<h3><span class="header-section-number">4.3.3</span> Calcul de <span class="math inline">\(\mathbb{P}(X\in I)\)</span><a href="variables-aléatoires-à-densité.html#calcul-de-mathbbpxin-i" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Pour une loi discrète, on a la formule</p>
+<p><span class="math display">\[\mathbb{P}(X\in I)=\sum\limits_{x\in I}\mathbb{P}(X=x)\]</span>
+Pour une loi à densité, on a une formule tout à fait analogue. Il suffit de faire les changements suivants :</p>
+<p><span class="math display">\[\begin{align}
+\mathbb{P}(X=x) &amp; \leftrightarrow f(x)\,dx \\
+\sum &amp; \leftrightarrow \int
+\end{align}\]</span></p>
+<p>En effet :</p>
+<div class="thmbox def">
+<p><strong>Théorème (calcul de <span class="math inline">\(\mathbb{P}(X\in I)\)</span>).</strong> Soit <span class="math inline">\(X:(\Omega, \mathcal{A},\mathbb{P})\longrightarrow\mathbb{R}\)</span> une variable aléatoire réelle à densité. On note <span class="math inline">\(f\)</span> sa densité. Alors, pour tout intervalle <span class="math inline">\(I\)</span>, l’intégrale <span class="math inline">\(\int_I f(x)\,dx\)</span> est convergente, et</p>
+<p><span class="math display">\[\mathbb{P}(X\in I)=\int_I f(x)\,dx\]</span>
+En particulier, pour tout réel <span class="math inline">\(x\)</span> :</p>
+<p><span class="math display">\[F(x)=\mathbb{P}(X\leq x)=\int_{-\infty}^x f(t)\,dt\]</span></p>
+</div>
+<p></p>
+<p><strong>Démonstration.</strong> <span class="math inline">\(F&#39;(x)=f(x)\)</span>, sauf éventuellement pour un nombre fini de réels <span class="math inline">\(x\)</span>, donc si <span class="math inline">\(I=(a\,;\,b)\)</span>, on a</p>
+<p><span class="math display">\[\begin{align}
+\mathbb{P}\left(X\in [a\,;\,b]\right)&amp;=F(b)-F(a) \\
+&amp;=\int_a^b f(t)\,dt
+\end{align}\]</span></p>
+<p>Soient <span class="math inline">\(x\)</span> un réel et <span class="math inline">\((x_n)_n\)</span> une suite de réels telle que <span class="math inline">\(\lim\limits_{n\to\infty}x_n=-\infty\)</span>. On a donc</p>
+<p><span class="math display">\[F(x)-F(x_n)=\int_{x_n}^x f(t)\,dt\]</span>
+i.e.</p>
+<p><span class="math display">\[\mathbb{P}(X\leq x)=\int_{-\infty}^x f(t)\,dt\]</span></p>
+<p>L’égalité est donc montrée pour tout intervalle du type <span class="math inline">\((a,b)\)</span>, avec <span class="math inline">\(a\)</span> un réel ou <span class="math inline">\(-\infty\)</span>. Un raisonnement strictement analogue montre que l’égalité s’étend aux intervalles du type <span class="math inline">\((a,+\infty)\)</span>, avec <span class="math inline">\(a\)</span> réel. Enfin, l’égalité est clairement vraie pour <span class="math inline">\(I=]-\infty\,;\,+\infty[\)</span> puisque <span class="math inline">\(\int_{-\infty}^{+\infty}f(t)\,dt=1\)</span>.</p>
+<p>D’où le résultat.</p>
+<p><span class="math inline">\(\square\)</span></p>
+</div>
+<div id="quantiles-1" class="section level3 hasAnchor" number="4.3.4">
+<h3><span class="header-section-number">4.3.4</span> Quantiles<a href="variables-aléatoires-à-densité.html#quantiles-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>La définition des quantiles est exactement la même que dans le cas discret. Dans le cas continu toutefois, la fonction de répartition est continue. Par ailleurs, elle est également croissante. Si cette croissance est stricte, alors <span class="math inline">\(F\)</span> est inversible, et son inverse à gauche est égal à son inverse.</p>
+<div class="defbox def">
+<center>
+<strong>Fonction quantile, quantiles</strong>
+</center>
+<p>Soient <span class="math inline">\(X\)</span> une variable aléatoire réelle continue et <span class="math inline">\(F\)</span> sa fonction de répartition. On appelle <strong>fonction quantile de <span class="math inline">\(X\)</span></strong> la fonction inverse généralisée à gauche <span class="math inline">\(F^{-1}\)</span> de <span class="math inline">\(F\)</span>. Si <span class="math inline">\(F\)</span> est strictement continue, alors <span class="math inline">\(F^{-1}\)</span> est l’inverse de <span class="math inline">\(F\)</span> au sens classique.</p>
+<p>De plus, pour tout réel <span class="math inline">\(p\)</span> dans <span class="math inline">\([0,1]\)</span>, on appelle <strong>quantile d’ordre <span class="math inline">\(p\)</span></strong> le réel <span class="math inline">\(F^{-1}(p)\)</span>.</p>
+<p></p>
+<p><strong>Exemples usuels de quantiles :</strong></p>
+<ul>
+<li><p><span class="math inline">\(m_e=F^{-1}\left(\frac{1}{2}\right)\)</span> est la <strong>médiane</strong> de <span class="math inline">\(X\)</span> ;</p></li>
+<li><p><span class="math inline">\(Q_1=F^{-1}\left(\frac{1}{4}\right)\)</span> et <span class="math inline">\(Q_3=F^{-1}\left(\frac{3}{4}\right)\)</span> sont les <strong>quartiles</strong> de <span class="math inline">\(X\)</span> ;</p></li>
+<li><p>pour <span class="math inline">\(i=1,\dots,9\)</span>, les <span class="math inline">\(D_i=F^{-1}\left(\frac{i}{10}\right)\)</span> sont les <strong>déciles</strong> de <span class="math inline">\(X\)</span>.</p></li>
 </ul>
 </div>
-<div id="moments-dune-variable-aléatoire-1" class="section level3 hasAnchor" number="4.1.6">
-<h3><span class="header-section-number">4.1.6</span> Moments d’une variable aléatoire<a href="variables-aléatoires-à-densité.html#moments-dune-variable-aléatoire-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="exemples-classiques-de-lois-à-densité" class="section level3 hasAnchor" number="4.3.5">
+<h3><span class="header-section-number">4.3.5</span> Exemples classiques de lois à densité<a href="variables-aléatoires-à-densité.html#exemples-classiques-de-lois-à-densité" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>
+<strong>Exemple 1 : loi uniforme <span class="math inline">\(\mathcal{U}_{[a;b]}\)</span> sur un segment <span class="math inline">\([a;b]\)</span> (avec <span class="math inline">\(a&lt;b\)</span>).</strong> Sa densité est définie par</p>
+<p><span class="math display">\[\begin{align}
+f(x)&amp;=\frac{1}{b-a}.\mathbb{1}_{[a;b]}(x) \\
+&amp;=\left \{
+\begin{array}{c @{} c}
+    \frac{1}{b-a} &amp; \text{ si } x\in[a;b] \\
+    0 &amp; \text{ sinon }
+\end{array}
+\right.
+\end{align}\]</span></p>
+<p>Elle a donc pour support le segment <span class="math inline">\([a\,;\,b]\)</span> et a pour particularité de ne privilégier aucune zone du segment par rapport à une autre. C’est en quelque sorte l’équivalent de la loi uniforme sur un ensemble fini pour le cas continu.</p>
+<p>Sa fonction de répartion s’obtient par un calcul facile :</p>
+<p><span class="math display">\[F(x)=\left \{
+\begin{array}{c @{} c}
+    0 &amp; \text{ si } x&lt;a \\
+    \frac{x-a}{b-a} &amp; \text{ si } x\in [a\,;b] \\
+    1 &amp; \text{ si } x&gt;b
+\end{array}
+\right.\]</span></p>
+<p>
+<strong>Exemple 2 : loi normale <span class="math inline">\(\mathcal{N}(\mu\,;\,\sigma^2)\)</span>.</strong> Ici, <span class="math inline">\(\mu\)</span> et <span class="math inline">\(\sigma\)</span> sont des réels. La densité de la loi normale <span class="math inline">\(\mathcal{N}(\mu\,;\,\sigma^2)\)</span> est donnée, pour tout réel <span class="math inline">\(x\)</span>, par :</p>
+<p><span class="math display">\[f(x)=\frac{1}{\sigma\,\sqrt{2\pi}}\,e^{-\frac{(x-\mu)^2}{2\sigma^2}}\]</span>
+Il s’agit d’une fonction indéfiniment dérivable, dont la courbe représentative - appelée <strong>courbe en cloche</strong> ou <strong>gaussienne</strong> - est symétrique par rapport à l’axe vertical d’équation <span class="math inline">\(x=\mu\)</span>.</p>
+<p>Sa fonction de répartition est la fonction <span class="math inline">\(F\)</span> définie sur <span class="math inline">\(\mathbb{R}\)</span> par</p>
+<p><span class="math display">\[F(x)=\frac{1}{\sigma\,\sqrt{2\pi}}\int_{-\infty}^x e^{-\frac{(t-\mu)^2}{2\sigma^2}}\,dt\]</span>
+Cette fonction n’est pas exprimable à partir des fonctions usuelles.</p>
+<p>Dans le cas particulier où <span class="math inline">\((\mu\,,\,\sigma)=(0\,,\,1)\)</span>, on parle de <strong>loi normale standard</strong>, dont la densité est alors souvent notée <span class="math inline">\(\varphi\)</span>, et est définie pour tout réel <span class="math inline">\(x\)</span> par :</p>
+<p><span class="math display">\[\varphi(x)=\frac{1}{\sqrt{2\pi}}\,e^{-\frac{x^2}{2}}\]</span>
+Il s’agit d’une fonction <strong>paire</strong>, indéfiniment dérivable, et telle que pour tout réel <span class="math inline">\(t\)</span> :</p>
+<p><span class="math display">\[\varphi^{&#39;}(t)=-t\,\varphi(t)\]</span></p>
+<p>Sa fonction de répartition est souvent notée <span class="math inline">\(\Phi\)</span>, elle est donnée pour tout réel <span class="math inline">\(x\)</span> par</p>
+<p><span class="math display">\[\Phi(x)=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^x e^{-\frac{t^2}{2}}\,dt\]</span>
+Elle n’est pas exprimable à partir des fonctions usuelles.</p>
+<p>
+<strong>Exemple 3 : loi exponentielle <span class="math inline">\(\mathcal{E}(\lambda)\)</span>.</strong> Ici <span class="math inline">\(\lambda\)</span> désigne un réel strictement positif. La loi exponentielle de paramètre <span class="math inline">\(\lambda\)</span> a pour densité la fonction <span class="math inline">\(f\)</span> définie pour tout réel <span class="math inline">\(x\)</span> par</p>
+<p><span class="math display">\[\begin{align}
+f(x)&amp;=\lambda.e^{-\lambda x}.\mathbb{1}_{\mathbb{R}_+}(x) \\
+&amp;=\left \{
+\begin{array}{c @{} c}
+    \lambda.e^{-\lambda x} &amp; \text{ si } x\geq 0 \\
+    0 &amp; \text{ sinon }
+\end{array}
+\right.
+\end{align}\]</span></p>
+<p>Elle a donc pour support <span class="math inline">\(\mathbb{R}_+\)</span>.</p>
+<p>Sa fonction de répartition s’obtient facilement :</p>
+<p><span class="math display">\[\begin{align}
+F(x)&amp;=(1-e^{-\lambda x}).\mathbb{1}_{\mathbb{R}_+}(x) \\
+&amp;=\left \{
+\begin{array}{c @{} c}
+    0 &amp; \text{ si } x&lt;0 \\
+    1-e^{-\lambda x} &amp; \text{ si } x\geq 0 \\
+\end{array}
+\right.
+\end{align}\]</span></p>
+<p><strong>Exemple 4 : loi gamma <span class="math inline">\(\gamma(p\,;\,\theta)\)</span>.</strong> Ici, <span class="math inline">\(p&gt;0\)</span> et <span class="math inline">\(\theta&gt;0\)</span>. La densité de cette loi est donnée par</p>
+<p><span class="math display">\[\begin{align}
+f(x)&amp;=\frac{\theta^p}{\Gamma(p)}.e^{-\theta x}\,x^{p-1}\mathbb{1}_{\mathbb{R}_+}(x) \\
+&amp;=\left \{
+\begin{array}{c @{} c}
+    \frac{\theta^p}{\Gamma(p)}.e^{-\theta x}\,x^{p-1} &amp; \text{ si } x\geq 0 \\
+    0 &amp; \text{ sinon }
+\end{array}
+\right.
+\end{align}\]</span></p>
+<p>où la fonction <span class="math inline">\(\Gamma\)</span> est définie, pour tout <span class="math inline">\(p&gt;0\)</span>, par</p>
+<p><span class="math display">\[\Gamma(p)=\int_0^{+\infty} e^{-x}x^{p-1}\,dx\]</span></p>
+<p>La loi gamma a donc pour support <span class="math inline">\(\mathbb{R}_+\)</span>.</p>
+<p>La fonction <span class="math inline">\(\Gamma\)</span> admet de nombreuses propriétés. La plus commune est une égalité, qui s’obtient en effectuant une intégration par parties. Pour tout <span class="math inline">\(p&gt;1\)</span> :</p>
+<p><span class="math display">\[\Gamma(p)=(p-1)\Gamma(p-1)\]</span></p>
+<p>En particulier, si <span class="math inline">\(p\)</span> est un <strong>entier</strong> strictement positif, on obtient :</p>
+<p><span class="math display">\[\Gamma(p)=(p-1)!\]</span></p>
+<p>
+<strong>Exemple 5 : loi log-normale <span class="math inline">\(Log-\mathcal{N}(\mu,\sigma^2)\)</span>.</strong> Une variable aléatoire positive <span class="math inline">\(X\)</span> suit une loi log-normale de paramètres <span class="math inline">\(\mu\)</span> et <span class="math inline">\(\sigma^2\)</span> si la variable aléatoire <span class="math inline">\(\ln x\)</span> suit une loi <span class="math inline">\(\mathcal{N}(\mu,\sigma^2)\)</span>. On en déduit la fonction de répartition d’une telle loi : si <span class="math inline">\(x&gt;0\)</span>, alors</p>
+<p><span class="math display">\[\begin{align}
+F(x)&amp;=\mathbb{P}(X\leq x) \\
+&amp;=\mathbb{P}\left(\ln X\leq \ln x\right) \\
+&amp;=\mathbb{P}\left(\frac{\ln X -\mu}{\sigma}\leq\frac{\ln x-\mu}{\sigma}\right) \\
+&amp;=\Phi\left(\frac{\ln x-\mu}{\sigma}\right)
+\end{align}\]</span></p>
+<p>avec <span class="math inline">\(\Phi\)</span> la fonction de répartition de la loi normale standard <span class="math inline">\(\mathcal{N}(0\,;\,1)\)</span>. On en déduit la fonction de densité <span class="math inline">\(f\)</span>, définie pour <span class="math inline">\(x&gt;0\)</span> par :</p>
+<p><span class="math display">\[\begin{align}
+f(x)&amp;=F&#39;(x) \\
+&amp;=\varphi\left(\frac{\ln x-\mu}{\sigma}\right)\,\frac{1}{\sigma x}\\
+&amp;=\frac{1}{\sigma x\sqrt{2\pi}}\,e^{-\frac{\ln x-\mu}{2\sigma^2}}
+\end{align}\]</span></p>
+<p>où <span class="math inline">\(\varphi\)</span> est la fonction de densité de la loi normale standard.</p>
+<p>
+<strong>Exemple 6 : loi du Chi-deux <span class="math inline">\(\chi^2_n\)</span>.</strong> Pour <span class="math inline">\(n\geq 1\)</span>, la loi du Chi-deux (ou loi du khi-deux) à <span class="math inline">\(n\)</span> degrés de liberté est la loi <span class="math inline">\(\gamma\left(\frac{n}{2},\frac{1}{2}\right)\)</span>. Sa densité est donc définie, pour <span class="math inline">\(x&gt;0\)</span>, par</p>
+<p><span class="math display">\[f(x)=\frac{1}{2^{\frac{n}{2}}\Gamma\left(\frac{n}{2}\right)}e^{-\frac{x}{2}}\,x^{\frac{n}{2}-1}\]</span></p>
+<p>Si <span class="math inline">\(X_1,\dots,X_n\)</span> sont des variables aléatoires mutuellement indépendantes, toutes de loi normale <span class="math inline">\(\mathcal{N}(0,1)\)</span>, alors la variable aléatoire</p>
+<p><span class="math display">\[S_n=\sum\limits_{i=1}^n X_i^2\]</span>
+suit la loi <span class="math inline">\(\chi^2(n)\)</span>. C’est même une autre façon de définir cette loi.</p>
+<p><strong>Exemple 7 : loi de Student.</strong> Soient <span class="math inline">\(X\)</span> et <span class="math inline">\(U\)</span> deux variables aléatoires indépendantes telles que</p>
+<p><span class="math display">\[X\sim\mathcal{N}(0,1)\]</span>
+<span class="math display">\[U\sim\chi^2_n\]</span>
+Alors la loi de Student à <span class="math inline">\(n\)</span> degrés de liberté est la loi suivie par la variable aléatoire</p>
+<p><span class="math display">\[\frac{X}{\sqrt{\frac{U}{n}}}\]</span>
+Sa densité est définie, pour <span class="math inline">\(x\)</span> réel, par</p>
+<p><span class="math display">\[f(x)=\frac{1}{\sqrt{n\pi}}\frac{\Gamma\left(\frac{n+1}{2}\right)}{\Gamma\left(\frac{n}{2}\right)}\left(1+\frac{x^2}{n}\right)^{-\frac{n+1}{2}}\]</span>
+où <span class="math inline">\(\Gamma\)</span> est la fonction Gamma d’Euler.</p>
+<p></p>
+<p><strong>Applications :</strong> test de Student, construction d’intervalles de confiance.</p>
+<p><strong>Exemple 8 : loi de Fisher <span class="math inline">\(F_{m,n}\)</span>.</strong> Soient <span class="math inline">\(m\)</span> et <span class="math inline">\(n\)</span> deux entiers tels que <span class="math inline">\(m\geq 1\)</span> et <span class="math inline">\(n\geq 1\)</span>. Soient <span class="math inline">\(U\)</span> et <span class="math inline">\(V\)</span> deux variables aléatoires indépendantes telles que</p>
+<p><span class="math display">\[U\sim\chi^2_m\]</span>
+<span class="math display">\[V\sim\chi^2_n\]</span>
+Alors la loi de Fisher de paramètres <span class="math inline">\(m\)</span> et <span class="math inline">\(n\)</span> est la loi suivie par la variable aléatoire</p>
+<p><span class="math display">\[\frac{\frac{U}{m}}{\frac{V}{n}}\]</span>
+Autrement dit</p>
+<p><span class="math display">\[F_{m,n}=\frac{\frac{\chi^2}{m}}{\frac{\chi^2}{n}}\]</span>
+Sa densité est définie, pour tout réel <span class="math inline">\(x\)</span>, par :</p>
+<p><span class="math display">\[f(x)=\frac{\Gamma\left(\frac{m+n}{2}\right)}{\Gamma\left(\frac{m}{2}\right)\Gamma\left(\frac{n}{2}\right)}\,n^{\frac{n}{2}}m^{\frac{m}{2}}\frac{x^{\frac{m}{2}-1}}{(mx+n)^{\frac{m+n}{2}}}\]</span>
+<strong>Remarque.</strong> Dans le cadre du concours d’administrateur Insee, il est précisé dans la notice fixant les programmes et les modalités des épreuves que <em>les
+définitions des lois log-normale, loi du Chi-Deux,
+loi de Student, loi de Fisher devront être connues
+sans que soit exigible aucun calcul à leur sujet
+(moments, densités..)</em>.</p>
+</div>
+<div id="moments-dune-variable-aléatoire-1" class="section level3 hasAnchor" number="4.3.6">
+<h3><span class="header-section-number">4.3.6</span> Moments d’une variable aléatoire<a href="variables-aléatoires-à-densité.html#moments-dune-variable-aléatoire-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Comme pour les lois discrètes, l’espérance d’une variable aléatoire continue, si elle existe, est définie comme une moyenne pondérée des valeurs qu’elle peut prendre.</p>
+<p>Dans le cas discret, on a</p>
+<p><span class="math display">\[\mathbb{E}(X)=\sum\limits_{x\in X(\Omega)}\mathbb{P}(X=x)x\]</span>
+Dans le cas d’une variable à densité, on remplace <span class="math inline">\(\mathbb{P}(X=x)\)</span> (qui vaut <span class="math inline">\(0\)</span>) par <span class="math inline">\(\mathbb{P}(X\in [x\,;\,x+dx]\)</span>, où <span class="math inline">\(dx\)</span> est un élément infinitésimal). On a vu que</p>
+<p><span class="math display">\[\mathbb{P}(X\in [x\,;\,x+dx])=f(x)\,dx\]</span>
+et donc l’expression <span class="math inline">\(\mathbb{P}(X=x)x\)</span> du cas discret devient, dans le cas à densité</p>
+<p><span class="math display">\[\mathbb{P}(X\in [x\,;\,x+dx])\,x=xf(x)\,dx\]</span>
+Comme on somme des éléments infinitésimaux, on remplace le symbole <span class="math inline">\(\Sigma\)</span> du cas discret par une intégrale <span class="math inline">\(\int\)</span>, qui est une somme continue. On obtient donc la définition suivante :</p>
+<div class="defbox def">
+<center>
+<strong>Espérance d’une variable aléatoire à densité</strong>
+</center>
+<p>Soit <span class="math inline">\(X:(\Omega,\mathcal{A},\mathbb{P})\longrightarrow\mathbb{R}\)</span> une variable aléatoire à densité. On note <span class="math inline">\(f\)</span> sa fonction de densité.</p>
+<p>On dit alors que <span class="math inline">\(X\)</span> admet une espérance (finie) lorsque l’intégrale</p>
+<p><span class="math display">\[\int_{-\infty}^{+\infty}x\,f(x)\,dx\]</span>
+est <strong>absolument convergente</strong>. Dans ce cas, l’espérance de <span class="math inline">\(X\)</span> est égale à cette intégrale :</p>
+<p><span class="math display">\[\mathbb{E}(X)=\int_{-\infty}^{+\infty}x\,f(x)\,dx\]</span>
+Une variable <span class="math inline">\(X\)</span> pour laquelle <span class="math inline">\(\mathbb{E}(X)=0\)</span> sera dite <strong>centrée</strong>.</p>
+</div>
+<p></p>
+<p><strong>Remarque.</strong> En pratique, pour calculer l’espérance d’une variable aléatoire <span class="math inline">\(X\)</span>, on s’assure donc au préalable que l’intégrale ci-dessus est absolument convergente. Si le support de <span class="math inline">\(X\)</span> est un segment et que <span class="math inline">\(f\)</span> est continue, il n’y aura aucun problème de convergence puisque l’intégrale sur un segment d’une fonction continue sur ce segment est toujours absolument convergente. Dans les autres cas, au moins une borne pose problème, soit parce-que c’est une borne finie en laquelle la fonction n’est pas définie, soit parce-que c’est une borne infinie. Dans ce cas, on peut essayer de se ramener à une intégrale de référence puis utiliser un résultat du cours d’analyse (critère de Riemann, critère d’équivalence, critère de comparaison etc.) pour conclure sur la nature de l’intégrale. On peut aussi remplacer la borne problématique <span class="math inline">\(a\)</span> par une bornes <span class="math inline">\(X\)</span> qui ne l’est pas puis à faire tendre <span class="math inline">\(X\)</span> vers <span class="math inline">\(a\)</span>. Si les deux bornes sont problématiques, on applique la même procédure pour les deux.</p>
+<p><strong>Exemple.</strong></p>
+<p>L’espérance d’une variable aléatoire à densité possède les mêmes propriétés que l’espérance d’une variable discrète :</p>
+<div class="thmbox def">
+<p><strong>Propriétés de l’espérance.</strong> <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span> désignent des variables aléatoires réelles discrètes admettant une espérance, <span class="math inline">\(\lambda\)</span> est un réel. On a :</p>
+<p><strong>i. Espérance d’une constante.</strong> Si <span class="math inline">\(X=a\)</span> est constante, alors <span class="math inline">\(\mathbb{E}(X)=a\)</span>.</p>
+<p><strong>ii. Linéarité de l’espérance.</strong> <span class="math inline">\(\mathbb{E}(X+\lambda Y)=\mathbb{E}(X)+\lambda\,\mathbb{E}(Y)\)</span></p>
+<p><strong>iii. Positivité de l’espérance.</strong> Si <span class="math inline">\(X\geq 0\)</span>, alors <span class="math inline">\(\mathbb{E}(X)\geq 0\)</span>.</p>
+<p><strong>iv. Croissance de l’espérance.</strong> Si <span class="math inline">\(X\leq Y\)</span>, alors <span class="math inline">\(\mathbb{E}(X)\leq\mathbb{E}(Y)\)</span>.</p>
+<p><strong>v. Théorème de transfert.</strong> Soit <span class="math inline">\(X:(\Omega, \mathcal{A}, \mathbb{P})\longrightarrow\mathbb{R}\)</span> une variable aléatoire à densité, de densité <span class="math inline">\(f\)</span>. On suppose que <span class="math inline">\(f\)</span> est nulle en dehors de <span class="math inline">\(]a,b[\)</span>, où <span class="math inline">\(a,b\in\mathbb{R}\cup\{-\infty,+\infty\}\)</span>. Soit <span class="math inline">\(\varphi:]a,b[\longrightarrow\mathbb{R}\)</span> une fonction continue, sauf éventuellement en un nombre fini de points. Alors, on a équivalence entre :</p>
+<p>i. La variable <span class="math inline">\(\varphi(X)\)</span> admet une espérance</p>
+<p>ii. L’intégrale <span class="math inline">\(\int_a^b \varphi(x)f(x)\,dx\)</span> est absolument convergente.</p>
+<p>Si c’est le cas, alors on a</p>
+<p><span class="math display">\[\mathbb{E}\left(\varphi(X)\right)=\int_a^b\varphi(x)f(x)\,dx\]</span></p>
+</div>
+<p>
+<strong>Exemple.</strong> Soit <span class="math inline">\(X\)</span> une variable aléatoire de densité</p>
+<p><span class="math display">\[f(x)=\mathbb{1}_{]0,1[}(x)\]</span>
+Considérons la variable aléatoire</p>
+<p><span class="math display">\[Y=\ln(X)\]</span>
+D’après le théorème de transfert, <span class="math inline">\(Y\)</span> admet une espérance si et seulement l’intégrale</p>
+<p><span class="math display">\[\int_0^1\ln(x)\,dx\]</span>
+est absolument convergente. Remarquons que l’absolue convergence équivaut ici à la convergence, car <span class="math inline">\(\ln\)</span> est de signe constant négatif (et donc <span class="math inline">\(|\ln|=-\ln\)</span>).</p>
+<p>La fonction <span class="math inline">\(\ln\)</span> étant continue sur tout segment <span class="math inline">\([A,1]\)</span> tel que <span class="math inline">\(0&lt;A\leq 1\)</span>, l’intégrale <span class="math inline">\(\int_A^1\ln x\,dx\)</span> est absolument convergente. Par ailleurs, une primitive de <span class="math inline">\(\ln\)</span> est la fonction <span class="math inline">\(x\mapsto x\ln x-x\)</span> (faire une intégration par parties <span class="math inline">\(\int_a^bu&#39;(x)v(x)=[u(x)v(x)]_a^b-\int_a^b u(x)v&#39;(x)\)</span> avec <span class="math inline">\(u&#39;(x)=1\)</span> et <span class="math inline">\(v(x)=\ln x\)</span>). On a donc</p>
+<p><span class="math display">\[\int_A^1\ln x\,dx=-A\ln A-1+A\]</span></p>
+<p>Par croissances comparées :</p>
+<p><span class="math display">\[\lim\limits_{A\to 0}A\ln A=0\]</span>
+et donc, en faisant tendre <span class="math inline">\(A\)</span> vers <span class="math inline">\(0\)</span>, on en déduit que <span class="math inline">\(\int_0^1\ln x\,dx\)</span> est convergente (et donc absolument convergente car <span class="math inline">\(\ln\)</span> est de signe constant (négatif) sur <span class="math inline">\(]0,1[\)</span>]) et que</p>
+<p><span class="math display">\[\int_0^1\ln x\,dx=-1\]</span>
+Donc <span class="math inline">\(Y=\ln X\)</span> admet une espérance, et</p>
+<p><span class="math display">\[\mathbb{E}(\ln X)=-1\]</span></p>
+<p><br></p>
+<div class="defbox def">
+<center>
+<strong>Variance d’une loi à densité</strong>
+</center>
+<p>Soit <span class="math inline">\(X:(\Omega,\mathcal{A},\mathbb{P})\longrightarrow\mathbb{R}\)</span> une variable aléatoire à densité. On note <span class="math inline">\(f\)</span> sa fonction de densité.</p>
+<p>On dit alors que <span class="math inline">\(X\)</span> admet une variance (finie) lorsque l’intégrale</p>
+<p><span class="math display">\[\int_{-\infty}^{+\infty}t^2f(t)\,dt\]</span>
+est convergente (ce qui équivaut à l’absolue convergence, par positivité de l’intégrande). Dans ce cas, on la note <span class="math inline">\(\mathbb{V}(X)\)</span>, et on a</p>
+<p><span class="math display">\[\mathbb{V}(X)=\int_{-\infty}^{+\infty}\left(t-\mathbb{E}(X)\right)^2f(t)\,dt\]</span>
+Lorsque <span class="math inline">\(\mathbb{V}(X)=1\)</span>, on dit que <span class="math inline">\(X\)</span> est <strong>réduite</strong>.</p>
+<p>Enfin, on définit l’écart-type <span class="math inline">\(\sigma_X\)</span> de <span class="math inline">\(X\)</span> par</p>
+<p><span class="math display">\[\sigma_X=\sqrt{\mathbb{V}(X)}\]</span></p>
+</div>
+<p>La formule de König-Huygens reste vraie dans le cas à densité :</p>
+<div class="thmbox thm">
+<center>
+<strong>Formule de König-Huygens</strong>
+</center>
+<p>
+Soit <span class="math inline">\(X\)</span> une variable aléatoire réelle à densité admettant une variance. Alors</p>
+<p><span class="math display">\[\mathbb{V}(X)=\mathbb{E}(X^2)-\mathbb{E}(X)^2\]</span></p>
+</div>
+<p>Les propriétés suivantes restent également vraies dans le cas à densité :</p>
+<div class="thmbox thm">
+<center>
+<strong>Propriétés de la variance</strong>
+</center>
+<p>Soient <span class="math inline">\(X\)</span> une variable aléatoire réelle à densité admettant une variance, et <span class="math inline">\(a\)</span> et <span class="math inline">\(b\)</span> deux réels. Alors :</p>
+<p></p>
+<p><strong>i.</strong> <span class="math inline">\(\mathbb{V}(X)\geq 0\)</span> avec égalité si et seulement si <span class="math inline">\(X\)</span> est constante.</p>
+<p></p>
+<p><strong>ii.</strong> <span class="math inline">\(\mathbb{V}(aX+b)=a^2\mathbb{V}(X)\)</span>.</p>
+</div>
+<p>Plus généralement, on peut définir des moments d’ordre <span class="math inline">\(r\geq 2\)</span> :</p>
+<div class="defbox thm">
+<center>
+<strong>Moments d’une variable aléatoire</strong>
+</center>
+<p>Soient <span class="math inline">\(X\)</span> une variable aléatoire à densité, <span class="math inline">\(f\)</span> sa densité et <span class="math inline">\(r\in\mathbb{N}\)</span>. Si <span class="math inline">\(X^r\)</span> admet une espérance finie, alors</p>
+<p><span class="math display">\[m_r=\mathbb{E}(X^r)=\int_{-\infty}^{+\infty}x^rf(x)\,dx\]</span>
+s’appelle <strong>moment d’ordre <span class="math inline">\(r\)</span></strong> de <span class="math inline">\(X\)</span>.</p>
+<p>De même, en notant <span class="math inline">\(\mu=\mathbb{E}(X)\)</span>, si <span class="math inline">\((X-\mu)^r\)</span> admet une espérance finie alors on appelle <strong>moment centré d’ordre <span class="math inline">\(r\)</span></strong> le réel</p>
+<p><span class="math display">\[\mu_r=\mathbb{E}\left((X-\mu)^r\right)=\int_{-\infty}^{+\infty}(x-\mu)^r f(x)\,dx\]</span></p>
+</div>
+<p><strong>Exemples. i. Espérance et variance d’une loi uniforme <span class="math inline">\(\mathcal{U}_{[a,b]}\)</span>.</strong></p>
+</div>
+<div id="quelques-inégalités-classiques-1" class="section level3 hasAnchor" number="4.3.7">
+<h3><span class="header-section-number">4.3.7</span> Quelques inégalités classiques<a href="variables-aléatoires-à-densité.html#quelques-inégalités-classiques-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Les inégalités vues dans le cas discret (inégalité triangulaire, inégalité de Jensen, inégalité de Markov, inégalité de Bienaymé-Tchebychev, inégalité de Cauchy-Schwarz) restent vraies dans le cas à densité.</p>
+<div class="thmbox thm">
+<p><strong>Inégalités classiques.</strong></p>
+<p>
+<strong>i. Inégalité triangulaire.</strong> Soit <span class="math inline">\(X\)</span> une variable aléatoire réelle à densité telle que <span class="math inline">\(|X|\)</span> est d’espérance finie. Alors <span class="math inline">\(X\)</span> est d’espérance finie et</p>
+<p><span class="math display">\[|\mathbb{E}(X)|\leq\mathbb{E}(|X|)\]</span></p>
+<p>
+<strong>ii. Inégalité de Jensen.</strong> Soient <span class="math inline">\(I\)</span> un intervalle réel, <span class="math inline">\(\varphi:I\longrightarrow\mathbb{R}\)</span> une fonction convexe et <span class="math inline">\(X:\Omega\longrightarrow I\)</span> une variable aléatoire à densité à valeurs dans <span class="math inline">\(I\)</span>, admettant une espérance et telle que <span class="math inline">\(\varphi(X)\)</span> admet une espérance. Alors</p>
+<p><span class="math display">\[\varphi\left(\mathbb{E}(X)\right)\leq\mathbb{E}\left(\varphi(X)\right)\]</span></p>
+<p></p>
+<p><strong>iii.Inégalité de Markov.</strong> Soit <span class="math inline">\(X\)</span> une variable aléatoire <strong>positive</strong> admettant une espérance. Alors, pour tout réel <span class="math inline">\(a\)</span> positif :</p>
+<p><span class="math display">\[\mathbb{P}(X\geq a)\leq\frac{\mathbb{E}(X)}{a}\]</span>
+</p>
+<p><strong>iv. Inégalité de Bienaymé-Tchebychev.</strong> Soit <span class="math inline">\(X\)</span> une variable aléatoire à densité admettant une espérance et une variance. Alors, pour tout réel <span class="math inline">\(a\)</span> strictement positif :</p>
+<p><span class="math display">\[\mathbb{P}\left(|X-\mathbb{E}(X)|\geq a\right)\leq\frac{\mathbb{V}(X)}{a^2}\]</span></p>
+</div>
 <ul>
-<li>Espérance, variance, espaces <span class="math inline">\(L^1\)</span> et <span class="math inline">\(L^2\)</span></li>
-<li>moments d’ordres supérieurs</li>
 <li>inégalité de Markov, inégalité de Bieanymé-Tchébychev (exemples + intérêt)</li>
 </ul>
 </div>
 </div>
-<div id="transformation-dune-variable-aléatoire-à-densité" class="section level2 hasAnchor" number="4.2">
-<h2><span class="header-section-number">4.2</span> Transformation d’une variable aléatoire à densité<a href="variables-aléatoires-à-densité.html#transformation-dune-variable-aléatoire-à-densité" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="définition-4" class="section level3 hasAnchor" number="4.2.1">
-<h3><span class="header-section-number">4.2.1</span> Définition<a href="variables-aléatoires-à-densité.html#définition-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="transformation-dune-variable-aléatoire-à-densité" class="section level2 hasAnchor" number="4.4">
+<h2><span class="header-section-number">4.4</span> Transformation d’une variable aléatoire à densité<a href="variables-aléatoires-à-densité.html#transformation-dune-variable-aléatoire-à-densité" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li>Définition</li>
 <li>Cas particuliers :
@@ -290,40 +801,32 @@
 <li>Déterminer la loi de <span class="math inline">\(f(X)\)</span> en pratique (message = passer par la fonction de répartition)</li>
 </ul>
 </div>
-<div id="théorème-de-transfert-cas-à-densité" class="section level3 hasAnchor" number="4.2.2">
-<h3><span class="header-section-number">4.2.2</span> Théorème de transfert (cas à densité)<a href="variables-aléatoires-à-densité.html#théorème-de-transfert-cas-à-densité" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li>Théorème</li>
-<li>Exemple</li>
-</ul>
+<div id="vecteurs-aléatoires-1" class="section level2 hasAnchor" number="4.5">
+<h2><span class="header-section-number">4.5</span> Vecteurs aléatoires<a href="variables-aléatoires-à-densité.html#vecteurs-aléatoires-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="définition-2" class="section level3 hasAnchor" number="4.5.1">
+<h3><span class="header-section-number">4.5.1</span> Définition<a href="variables-aléatoires-à-densité.html#définition-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
+<div id="loi-jointe-loi-marginales" class="section level3 hasAnchor" number="4.5.2">
+<h3><span class="header-section-number">4.5.2</span> Loi jointe, loi marginales<a href="variables-aléatoires-à-densité.html#loi-jointe-loi-marginales" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
-<div id="vecteurs-aléatoires-1" class="section level2 hasAnchor" number="4.3">
-<h2><span class="header-section-number">4.3</span> Vecteurs aléatoires<a href="variables-aléatoires-à-densité.html#vecteurs-aléatoires-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="définition-5" class="section level3 hasAnchor" number="4.3.1">
-<h3><span class="header-section-number">4.3.1</span> Définition<a href="variables-aléatoires-à-densité.html#définition-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="loi-conditionnelle-mathcallyx" class="section level3 hasAnchor" number="4.5.3">
+<h3><span class="header-section-number">4.5.3</span> Loi conditionnelle <span class="math inline">\(\mathcal{L}(Y|X)\)</span><a href="variables-aléatoires-à-densité.html#loi-conditionnelle-mathcallyx" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
-<div id="loi-jointe-loi-marginales-1" class="section level3 hasAnchor" number="4.3.2">
-<h3><span class="header-section-number">4.3.2</span> Loi jointe, loi marginales<a href="variables-aléatoires-à-densité.html#loi-jointe-loi-marginales-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-</div>
-<div id="loi-conditionnelle-mathcallyx-1" class="section level3 hasAnchor" number="4.3.3">
-<h3><span class="header-section-number">4.3.3</span> Loi conditionnelle <span class="math inline">\(\mathcal{L}(Y|X)\)</span><a href="variables-aléatoires-à-densité.html#loi-conditionnelle-mathcallyx-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-</div>
-<div id="loi-dun-couple-de-va-indépendantes-1" class="section level3 hasAnchor" number="4.3.4">
-<h3><span class="header-section-number">4.3.4</span> Loi d’un couple de VA indépendantes<a href="variables-aléatoires-à-densité.html#loi-dun-couple-de-va-indépendantes-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="loi-dun-couple-de-va-indépendantes" class="section level3 hasAnchor" number="4.5.4">
+<h3><span class="header-section-number">4.5.4</span> Loi d’un couple de VA indépendantes<a href="variables-aléatoires-à-densité.html#loi-dun-couple-de-va-indépendantes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>Définition</li>
 <li>Somme de deux VA indépendantes (produit de convolution à densité)</li>
 </ul>
 </div>
-<div id="espérance-matrice-de-variance-covariance" class="section level3 hasAnchor" number="4.3.5">
-<h3><span class="header-section-number">4.3.5</span> Espérance, matrice de variance-covariance<a href="variables-aléatoires-à-densité.html#espérance-matrice-de-variance-covariance" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="espérance-matrice-de-variance-covariance" class="section level3 hasAnchor" number="4.5.5">
+<h3><span class="header-section-number">4.5.5</span> Espérance, matrice de variance-covariance<a href="variables-aléatoires-à-densité.html#espérance-matrice-de-variance-covariance" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>exemple : vecteurs gaussiens en dimension 2</li>
 </ul>
 </div>
-<div id="espérance-conditionnelle-variance-conditionnelle-1" class="section level3 hasAnchor" number="4.3.6">
-<h3><span class="header-section-number">4.3.6</span> Espérance conditionnelle, variance conditionnelle<a href="variables-aléatoires-à-densité.html#espérance-conditionnelle-variance-conditionnelle-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="espérance-conditionnelle-variance-conditionnelle" class="section level3 hasAnchor" number="4.5.6">
+<h3><span class="header-section-number">4.5.6</span> Espérance conditionnelle, variance conditionnelle<a href="variables-aléatoires-à-densité.html#espérance-conditionnelle-variance-conditionnelle" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 
 </div>
 </div>

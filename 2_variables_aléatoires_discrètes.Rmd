@@ -32,7 +32,8 @@ $$\mathbb{P}_X \text{ donnée par } \mathbb{P}_X(\{-3\})=\mathbb{P}_X(\{0\})=\ma
 
 :::: {.defbox .def data-latex="important"}
 <center>**Variables aléatoires discrètes**</center>
-Soit $(\Omega, \mathcal{A}, \mathbb{P})$ un espace probabilisé. On appelle **variable aléatoire discrète (réelle)** sur $\Omega$ toute application
+Soit $(\Omega, \mathcal{
+P}(\Omega), \mathbb{P})$ un espace probabilisé. On appelle **variable aléatoire discrète (réelle)** sur $\Omega$ toute application
 
 $$X:\Omega\longrightarrow F=X(\Omega)\subset\mathbb{R}$$
 \noindent où $F=X(\Omega)$ est :
@@ -1053,7 +1054,7 @@ $$X=\sum\limits_{i=1}^n X_i$$
 \noindent avec $X_i=1$ si lors du tirage numéro $i$ la boule est blanche, et $X_i=0$ si elle est rouge. On a $X_i\sim\mathcal{B}(p_i)$, avec $p_i=\mathbb{P}(X=i)$, et donc 
 
 $$\mathbb{E}(X)=\sum\limits_{k=1}^n\mathbb{E}(X_i)=\sum\limits_{i=1}^n p_i$$
-\noindent Montrons que $p_i$ est constant : $p_i=p$. Pour cela, on note $a_i$ (resp. $b_i$) le nombre de boules blanches (resp. rouges) restantes dans l'urne au moment du tirage numéro $i$. Alors $p_i=\frac{a_i}{b_i}$ et :
+\noindent Montrons que $p_i$ est constant : $p_i=p$. Pour cela, on note $a_i$ (resp. $b_i$) le nombre de boules blanches (resp. rouges) restantes dans l'urne au moment du tirage numéro $i$. Alors $p_i=\frac{a_i}{a_i+b_i}$ et :
 
 - si $X_i=1$, on a $(a_{i+1},b_{i+1})=(a_i-1,b_i)$
 
@@ -1331,7 +1332,7 @@ $$\mathbb{E}(X)^2\leq\mathbb{E}(X^2)$$
 \noindent L'inégalité de Markov est à la fois très utile et très facile à démontrer. Il faut retenir qu'elle permet de montrer l'inégalité de Bieanymé-Tchébychev. 
 
 :::: {.thmbox .thm data-latex="important"}
-**Inégalité de Markov.** Soit $X$ une variable aléatoire **positive** admettant une espérance. Alors, pour tout réel $a$ positif :
+**Inégalité de Markov.** Soit $X$ une variable aléatoire discrète **positive** admettant une espérance. Alors, pour tout réel $a$ positif :
 
 $$\mathbb{P}(X\geq a)\leq\frac{\mathbb{E}(X)}{a}$$
 ::::
@@ -1390,7 +1391,7 @@ $\square$
 \noindent Lorsque $X$ admet des moments d'ordres $1$ et $2$, on peut appliquer l'**inégalité de Bienaymé-Tchebychev**, qui se déduit de façon immédiate de l'inégalité de Markov :
 
 :::: {.thmbox .thm data-latex="important"}
-**Inégalité de Bienaymé-Tchebychev.** Soit $X$ une variable aléatoire admettant une espérance et une variance. Alors, pour tout réel $a$ strictement positif :
+**Inégalité de Bienaymé-Tchebychev.** Soit $X$ une variable aléatoire réelle discrète admettant une espérance et une variance. Alors, pour tout réel $a$ strictement positif :
 
 $$\mathbb{P}\left(|X-\mathbb{E}(X)|\geq a\right)\leq\frac{\mathbb{V}(X)}{a^2}$$
 ::::
