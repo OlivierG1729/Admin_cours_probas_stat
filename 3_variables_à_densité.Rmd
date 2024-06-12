@@ -765,7 +765,7 @@ $$f_Y(y)=\int\limits_{-\infty}^{+\infty} f(x,y)\,dx$$
 ### Loi conditionnelle $\mathcal{L}(Y|X)$
 
 :::: {.defbox .def data-latex="important"}
-**Densité conditionnelle $f_{X|Y=y}$.** Soient $X$ et $Y$ deux variables aléatoires à densité. On note $f_{(X,Y)}$ la densité jointe du couple $(X,Y)$ et $f_X$, $f_Y$ ses densités marginales.
+**Densité conditionnelle $f_{Y|X=x}$.** Soient $X$ et $Y$ deux variables aléatoires à densité. On note $f_{(X,Y)}$ la densité jointe du couple $(X,Y)$ et $f_X$, $f_Y$ ses densités marginales.
 
 \noindent Soit $y$ un réel tel que $f_X(x)>0$. La **densité conditionnelle de $Y$ sachant $X=x$** est la fonction définie, pour tout réel $x$, par
 
