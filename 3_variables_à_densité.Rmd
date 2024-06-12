@@ -677,7 +677,6 @@ $$\mathbb{P}\left(|X-\mathbb{E}(X)|\geq a\right)\leq\frac{\mathbb{V}(X)}{a^2}$$
 
 ::::
 
--   inégalité de Markov, inégalité de Bieanymé-Tchébychev (exemples + intérêt)
 
 ## Transformation d'une variable aléatoire à densité
 
@@ -689,11 +688,102 @@ $$\mathbb{P}\left(|X-\mathbb{E}(X)|\geq a\right)\leq\frac{\mathbb{V}(X)}{a^2}$$
 
 ## Vecteurs aléatoires
 
-### Définition
+Soit $(X,Y)$ un couple de variables aléatoires réelles continues, donc $(X,Y)$ est à valeurs dans $\mathbb{R}^2$. Comme pour les variables aléatoires unidimensionnelles, on peut définir la **loi** d'un tel couple via sa fonction de répartition.
 
-### Loi jointe, loi marginales
+### Fonction de répartition d'un couple $(X,Y)$ de variables continues
+
+:::: {.defbox .thm data-latex="important"}
+<center>**Loi d'un couple de variables aléatoires continues**</center>
+\vpsace{0.5cm}
+\noindent La **loi** d'un couple $(X,Y)$ de variables aléatoires **continues** est définie par la donnée de la **fonction de répartition** :
+
+$$F:(x,y)\in\mathbb{R}^2\mapsto F(x,
+y)=\mathbb{P}(X\leq x, Y\leq y)$$
+::::
+
+\noindent Les propriétés des fonctions de répartition des variables aléatoires réelles continues s'étendent aux couples de variables aléatoires réelles continues :
+
+:::: {.thmbox .def data-latex="important"}
+**Propriétés.** Soit $F$ la fonction de répartition d'un couple de variables aléatoires réelles. Alors :
+
+\noindent 
+
+**i.** $F$ est une fonction croissante sur $\mathbb{R}$ par rapport à chacune de ses variables ;
+
+\noindent 
+
+**ii.** Pour tout couple $(x,y)$ de réels, on a $1\leq F(x,y)\leq 1$ ;
+
+\noindent 
+
+**iii.** Pour tout réel $y$ : $\lim\limits_{x\to -\infty}F(x,y)=0$ ;
+
+\noindent 
+
+**iv.** Pour tout réel $x$ : $\lim\limits_{y\to -\infty}F(x,y)=0$ ;
+
+\noindent 
+
+**v.** $\lim\limits_{x\to +\infty}\lim\limits_{y\to +\infty}F(x,y)=\lim\limits_{y\to +\infty}\lim\limits_{x\to +\infty}F(x,y)=1$ ;
+::::
+
+### Couples $(X,Y)$ admettant une densité
+
+:::: {.defbox .def data-latex="important"}
+<center>**Couples à densité**</center>
+
+\noindent Si, de plus, $F$ est deux fois dérivable, alors on dit que $(X,Y)$ est une **loi à densité**, et sa **fonction de densité** est la fonction définie par
+
+$$f(x,y)=\frac{\partial^2 F}{\partial x\partial y}(x,y)$$
+\noindent Dans ce cas, la fonction de répartition se calcule par intégration, i.e. pour tout couple $(x,y)\in\mathbb{R}^2$ :
+
+$$F(x,y)=\int_{-\infty}^{x}\int_{-\infty}^y f(u,v)\,du\,dv$$
+::::
+
+
+### Lois marginales
+
+\noindent Si l'on dispose de la **loi jointe** d'un couple $(X,Y)$, i.e. de la fonction de répartition $F$ ou de la densité $f$ (si $(X,Y)$ est à densité), alors on peut en déduire ses **lois marginales**, i.e. les lois de $X$ et $Y$, prises individuellement. Comme dans le cas discret, la donnée des lois marginales ne suffit cependant pas à reconstruire la loi jointe.
+
+:::: {.defbox .def data-latex="important"}
+<center>**Lois marginales**</center>
+\vspace{0.5cm}
+**i**. Si $(X,Y)$ est un couple de variables aléatoires réelles continues, alors ses **fonctions de répartition marginales** sont définies par :
+
+$$F_X(x)=\mathbb{P}(X\leq x)=\lim\limits_{y\to +\infty}F(x,y)$$
+$$F_Y(y)=\mathbb{P}(Y\leq y)=\lim\limits_{x\to +\infty}F(x,y)$$
+\noindent 
+
+**ii.** Si, de plus, $(X,Y)$ est à densité, alors ses **densités marginales** sont données par :
+
+$$f_X(x)=\int\limits_{-\infty}^{+\infty} f(x,y)\,dy$$
+$$f_Y(y)=\int\limits_{-\infty}^{+\infty} f(x,y)\,dx$$
+
+::::
+
 
 ### Loi conditionnelle $\mathcal{L}(Y|X)$
+
+:::: {.defbox .def data-latex="important"}
+**Densité conditionnelle $f_{X|Y=y}$.** Soient $X$ et $Y$ deux variables aléatoires à densité. On note $f_{(X,Y)}$ la densité jointe du couple $(X,Y)$ et $f_X$, $f_Y$ ses densités marginales.
+
+\noindent Soit $y$ un réel tel que $f_X(x)>0$. La **densité conditionnelle de $Y$ sachant $X=x$** est la fonction définie, pour tout réel $x$, par
+
+$$f_{Y|X=x}(x)=\frac{f_{(X,Y)}(x,y)}{f_X(x)}$$
+
+::::
+
+### Espérance conditionnelle
+
+\noindent On peut alors définir une notion d'**espérance conditionnelle**, comme pour les variables discrètes :
+
+:::: {.defbox .def data-latex="important"}
+Soient $X$ et $Y$ deux variables aléatoires à densité et $y$ un réel tel que $f_X(x)>0$. L'**espérance conditionnelle de $Y$ sachant $X=x$ est définie par
+
+$$\mathbb{E}(Y|X=x)=\int_{-\infty}^{+\infty}y\,f_{Y|X=x}(x)\,dx$$
+
+::::
+
 
 ### Loi d'un couple de VA indépendantes
 

@@ -149,3 +149,9 @@ fonction-de-densité
 calcul-de-mathbbpxin-i
 exemples-classiques-de-lois-à-densité
 quelques-inégalités-classiques-1
+loi-dun-couple-xy-de-variables-continues
+couples
+fonction-de-répartition-dun-couple-xy-de-variables-continues
+couples-xy-admettant-une-densité
+lois-marginales
+espérance-conditionnelle

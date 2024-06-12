@@ -23,7 +23,7 @@
 <meta name="author" content="Olivier Guin" />
 
 
-<meta name="date" content="2024-06-11" />
+<meta name="date" content="2024-06-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -224,12 +224,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.4" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#transformation-dune-variable-aléatoire-à-densité"><i class="fa fa-check"></i><b>4.4</b> Transformation d’une variable aléatoire à densité</a></li>
 <li class="chapter" data-level="4.5" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#vecteurs-aléatoires-1"><i class="fa fa-check"></i><b>4.5</b> Vecteurs aléatoires</a>
 <ul>
-<li class="chapter" data-level="4.5.1" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#définition-2"><i class="fa fa-check"></i><b>4.5.1</b> Définition</a></li>
-<li class="chapter" data-level="4.5.2" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#loi-jointe-loi-marginales"><i class="fa fa-check"></i><b>4.5.2</b> Loi jointe, loi marginales</a></li>
-<li class="chapter" data-level="4.5.3" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#loi-conditionnelle-mathcallyx"><i class="fa fa-check"></i><b>4.5.3</b> Loi conditionnelle <span class="math inline">\(\mathcal{L}(Y|X)\)</span></a></li>
-<li class="chapter" data-level="4.5.4" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#loi-dun-couple-de-va-indépendantes"><i class="fa fa-check"></i><b>4.5.4</b> Loi d’un couple de VA indépendantes</a></li>
-<li class="chapter" data-level="4.5.5" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#espérance-matrice-de-variance-covariance"><i class="fa fa-check"></i><b>4.5.5</b> Espérance, matrice de variance-covariance</a></li>
-<li class="chapter" data-level="4.5.6" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#espérance-conditionnelle-variance-conditionnelle"><i class="fa fa-check"></i><b>4.5.6</b> Espérance conditionnelle, variance conditionnelle</a></li>
+<li class="chapter" data-level="4.5.1" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#fonction-de-répartition-dun-couple-xy-de-variables-continues"><i class="fa fa-check"></i><b>4.5.1</b> Fonction de répartition d’un couple <span class="math inline">\((X,Y)\)</span> de variables continues</a></li>
+<li class="chapter" data-level="4.5.2" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#couples-xy-admettant-une-densité"><i class="fa fa-check"></i><b>4.5.2</b> Couples <span class="math inline">\((X,Y)\)</span> admettant une densité</a></li>
+<li class="chapter" data-level="4.5.3" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#lois-marginales"><i class="fa fa-check"></i><b>4.5.3</b> Lois marginales</a></li>
+<li class="chapter" data-level="4.5.4" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#loi-conditionnelle-mathcallyx"><i class="fa fa-check"></i><b>4.5.4</b> Loi conditionnelle <span class="math inline">\(\mathcal{L}(Y|X)\)</span></a></li>
+<li class="chapter" data-level="4.5.5" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#espérance-conditionnelle"><i class="fa fa-check"></i><b>4.5.5</b> Espérance conditionnelle</a></li>
+<li class="chapter" data-level="4.5.6" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#loi-dun-couple-de-va-indépendantes"><i class="fa fa-check"></i><b>4.5.6</b> Loi d’un couple de VA indépendantes</a></li>
+<li class="chapter" data-level="4.5.7" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#espérance-matrice-de-variance-covariance"><i class="fa fa-check"></i><b>4.5.7</b> Espérance, matrice de variance-covariance</a></li>
+<li class="chapter" data-level="4.5.8" data-path="variables-aléatoires-à-densité.html"><a href="variables-aléatoires-à-densité.html#espérance-conditionnelle-variance-conditionnelle"><i class="fa fa-check"></i><b>4.5.8</b> Espérance conditionnelle, variance conditionnelle</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="convergence.html"><a href="convergence.html"><i class="fa fa-check"></i><b>5</b> Convergence</a>
@@ -784,9 +786,6 @@ s’appelle <strong>moment d’ordre <span class="math inline">\(r\)</span></str
 <p><strong>iv. Inégalité de Bienaymé-Tchebychev.</strong> Soit <span class="math inline">\(X\)</span> une variable aléatoire à densité admettant une espérance et une variance. Alors, pour tout réel <span class="math inline">\(a\)</span> strictement positif :</p>
 <p><span class="math display">\[\mathbb{P}\left(|X-\mathbb{E}(X)|\geq a\right)\leq\frac{\mathbb{V}(X)}{a^2}\]</span></p>
 </div>
-<ul>
-<li>inégalité de Markov, inégalité de Bieanymé-Tchébychev (exemples + intérêt)</li>
-</ul>
 </div>
 </div>
 <div id="transformation-dune-variable-aléatoire-à-densité" class="section level2 hasAnchor" number="4.4">
@@ -803,30 +802,91 @@ s’appelle <strong>moment d’ordre <span class="math inline">\(r\)</span></str
 </div>
 <div id="vecteurs-aléatoires-1" class="section level2 hasAnchor" number="4.5">
 <h2><span class="header-section-number">4.5</span> Vecteurs aléatoires<a href="variables-aléatoires-à-densité.html#vecteurs-aléatoires-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="définition-2" class="section level3 hasAnchor" number="4.5.1">
-<h3><span class="header-section-number">4.5.1</span> Définition<a href="variables-aléatoires-à-densité.html#définition-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Soit <span class="math inline">\((X,Y)\)</span> un couple de variables aléatoires réelles continues, donc <span class="math inline">\((X,Y)\)</span> est à valeurs dans <span class="math inline">\(\mathbb{R}^2\)</span>. Comme pour les variables aléatoires unidimensionnelles, on peut définir la <strong>loi</strong> d’un tel couple via sa fonction de répartition.</p>
+<div id="fonction-de-répartition-dun-couple-xy-de-variables-continues" class="section level3 hasAnchor" number="4.5.1">
+<h3><span class="header-section-number">4.5.1</span> Fonction de répartition d’un couple <span class="math inline">\((X,Y)\)</span> de variables continues<a href="variables-aléatoires-à-densité.html#fonction-de-répartition-dun-couple-xy-de-variables-continues" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="defbox thm">
+<center>
+<strong>Loi d’un couple de variables aléatoires continues</strong>
+</center>
+<p>La <strong>loi</strong> d’un couple <span class="math inline">\((X,Y)\)</span> de variables aléatoires <strong>continues</strong> est définie par la donnée de la <strong>fonction de répartition</strong> :</p>
+<p><span class="math display">\[F:(x,y)\in\mathbb{R}^2\mapsto F(x,
+y)=\mathbb{P}(X\leq x, Y\leq y)\]</span></p>
 </div>
-<div id="loi-jointe-loi-marginales" class="section level3 hasAnchor" number="4.5.2">
-<h3><span class="header-section-number">4.5.2</span> Loi jointe, loi marginales<a href="variables-aléatoires-à-densité.html#loi-jointe-loi-marginales" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Les propriétés des fonctions de répartition des variables aléatoires réelles continues s’étendent aux couples de variables aléatoires réelles continues :</p>
+<div class="thmbox def">
+<p><strong>Propriétés.</strong> Soit <span class="math inline">\(F\)</span> la fonction de répartition d’un couple de variables aléatoires réelles. Alors :</p>
+<p></p>
+<p><strong>i.</strong> <span class="math inline">\(F\)</span> est une fonction croissante sur <span class="math inline">\(\mathbb{R}\)</span> par rapport à chacune de ses variables ;</p>
+<p></p>
+<p><strong>ii.</strong> Pour tout couple <span class="math inline">\((x,y)\)</span> de réels, on a <span class="math inline">\(1\leq F(x,y)\leq 1\)</span> ;</p>
+<p></p>
+<p><strong>iii.</strong> Pour tout réel <span class="math inline">\(y\)</span> : <span class="math inline">\(\lim\limits_{x\to -\infty}F(x,y)=0\)</span> ;</p>
+<p></p>
+<p><strong>iv.</strong> Pour tout réel <span class="math inline">\(x\)</span> : <span class="math inline">\(\lim\limits_{y\to -\infty}F(x,y)=0\)</span> ;</p>
+<p></p>
+<p><strong>v.</strong> <span class="math inline">\(\lim\limits_{x\to +\infty}\lim\limits_{y\to +\infty}F(x,y)=\lim\limits_{y\to +\infty}\lim\limits_{x\to +\infty}F(x,y)=1\)</span> ;</p>
 </div>
-<div id="loi-conditionnelle-mathcallyx" class="section level3 hasAnchor" number="4.5.3">
-<h3><span class="header-section-number">4.5.3</span> Loi conditionnelle <span class="math inline">\(\mathcal{L}(Y|X)\)</span><a href="variables-aléatoires-à-densité.html#loi-conditionnelle-mathcallyx" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
-<div id="loi-dun-couple-de-va-indépendantes" class="section level3 hasAnchor" number="4.5.4">
-<h3><span class="header-section-number">4.5.4</span> Loi d’un couple de VA indépendantes<a href="variables-aléatoires-à-densité.html#loi-dun-couple-de-va-indépendantes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="couples-xy-admettant-une-densité" class="section level3 hasAnchor" number="4.5.2">
+<h3><span class="header-section-number">4.5.2</span> Couples <span class="math inline">\((X,Y)\)</span> admettant une densité<a href="variables-aléatoires-à-densité.html#couples-xy-admettant-une-densité" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="defbox def">
+<center>
+<strong>Couples à densité</strong>
+</center>
+<p>Si, de plus, <span class="math inline">\(F\)</span> est deux fois dérivable, alors on dit que <span class="math inline">\((X,Y)\)</span> est une <strong>loi à densité</strong>, et sa <strong>fonction de densité</strong> est la fonction définie par</p>
+<p><span class="math display">\[f(x,y)=\frac{\partial^2 F}{\partial x\partial y}(x,y)\]</span>
+Dans ce cas, la fonction de répartition se calcule par intégration, i.e. pour tout couple <span class="math inline">\((x,y)\in\mathbb{R}^2\)</span> :</p>
+<p><span class="math display">\[F(x,y)=\int_{-\infty}^{x}\int_{-\infty}^y f(u,v)\,du\,dv\]</span></p>
+</div>
+</div>
+<div id="lois-marginales" class="section level3 hasAnchor" number="4.5.3">
+<h3><span class="header-section-number">4.5.3</span> Lois marginales<a href="variables-aléatoires-à-densité.html#lois-marginales" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Si l’on dispose de la <strong>loi jointe</strong> d’un couple <span class="math inline">\((X,Y)\)</span>, i.e. de la fonction de répartition <span class="math inline">\(F\)</span> ou de la densité <span class="math inline">\(f\)</span> (si <span class="math inline">\((X,Y)\)</span> est à densité), alors on peut en déduire ses <strong>lois marginales</strong>, i.e. les lois de <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span>, prises individuellement. Comme dans le cas discret, la donnée des lois marginales ne suffit cependant pas à reconstruire la loi jointe.</p>
+<div class="defbox def">
+<center>
+<strong>Lois marginales</strong>
+</center>
+<p><strong>i</strong>. Si <span class="math inline">\((X,Y)\)</span> est un couple de variables aléatoires réelles continues, alors ses <strong>fonctions de répartition marginales</strong> sont définies par :</p>
+<p><span class="math display">\[F_X(x)=\mathbb{P}(X\leq x)=\lim\limits_{y\to +\infty}F(x,y)\]</span>
+<span class="math display">\[F_Y(y)=\mathbb{P}(Y\leq y)=\lim\limits_{x\to +\infty}F(x,y)\]</span>
+</p>
+<p><strong>ii.</strong> Si, de plus, <span class="math inline">\((X,Y)\)</span> est à densité, alors ses <strong>densités marginales</strong> sont données par :</p>
+<p><span class="math display">\[f_X(x)=\int\limits_{-\infty}^{+\infty} f(x,y)\,dy\]</span>
+<span class="math display">\[f_Y(y)=\int\limits_{-\infty}^{+\infty} f(x,y)\,dx\]</span></p>
+</div>
+</div>
+<div id="loi-conditionnelle-mathcallyx" class="section level3 hasAnchor" number="4.5.4">
+<h3><span class="header-section-number">4.5.4</span> Loi conditionnelle <span class="math inline">\(\mathcal{L}(Y|X)\)</span><a href="variables-aléatoires-à-densité.html#loi-conditionnelle-mathcallyx" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="defbox def">
+<p><strong>Densité conditionnelle <span class="math inline">\(f_{X|Y=y}\)</span>.</strong> Soient <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span> deux variables aléatoires à densité. On note <span class="math inline">\(f_{(X,Y)}\)</span> la densité jointe du couple <span class="math inline">\((X,Y)\)</span> et <span class="math inline">\(f_X\)</span>, <span class="math inline">\(f_Y\)</span> ses densités marginales.</p>
+<p>Soit <span class="math inline">\(y\)</span> un réel tel que <span class="math inline">\(f_X(x)&gt;0\)</span>. La <strong>densité conditionnelle de <span class="math inline">\(Y\)</span> sachant <span class="math inline">\(X=x\)</span></strong> est la fonction définie, pour tout réel <span class="math inline">\(x\)</span>, par</p>
+<p><span class="math display">\[f_{Y|X=x}(x)=\frac{f_{(X,Y)}(x,y)}{f_X(x)}\]</span></p>
+</div>
+</div>
+<div id="espérance-conditionnelle" class="section level3 hasAnchor" number="4.5.5">
+<h3><span class="header-section-number">4.5.5</span> Espérance conditionnelle<a href="variables-aléatoires-à-densité.html#espérance-conditionnelle" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>On peut alors définir une notion d’<strong>espérance conditionnelle</strong>, comme pour les variables discrètes :</p>
+<div class="defbox def">
+<p>Soient <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span> deux variables aléatoires à densité et <span class="math inline">\(y\)</span> un réel tel que <span class="math inline">\(f_X(x)&gt;0\)</span>. L’**espérance conditionnelle de <span class="math inline">\(Y\)</span> sachant <span class="math inline">\(X=x\)</span> est définie par</p>
+<p><span class="math display">\[\mathbb{E}(Y|X=x)=\int_{-\infty}^{+\infty}y\,f_{Y|X=x}(x)\,dx\]</span></p>
+</div>
+</div>
+<div id="loi-dun-couple-de-va-indépendantes" class="section level3 hasAnchor" number="4.5.6">
+<h3><span class="header-section-number">4.5.6</span> Loi d’un couple de VA indépendantes<a href="variables-aléatoires-à-densité.html#loi-dun-couple-de-va-indépendantes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>Définition</li>
 <li>Somme de deux VA indépendantes (produit de convolution à densité)</li>
 </ul>
 </div>
-<div id="espérance-matrice-de-variance-covariance" class="section level3 hasAnchor" number="4.5.5">
-<h3><span class="header-section-number">4.5.5</span> Espérance, matrice de variance-covariance<a href="variables-aléatoires-à-densité.html#espérance-matrice-de-variance-covariance" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="espérance-matrice-de-variance-covariance" class="section level3 hasAnchor" number="4.5.7">
+<h3><span class="header-section-number">4.5.7</span> Espérance, matrice de variance-covariance<a href="variables-aléatoires-à-densité.html#espérance-matrice-de-variance-covariance" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>exemple : vecteurs gaussiens en dimension 2</li>
 </ul>
 </div>
-<div id="espérance-conditionnelle-variance-conditionnelle" class="section level3 hasAnchor" number="4.5.6">
-<h3><span class="header-section-number">4.5.6</span> Espérance conditionnelle, variance conditionnelle<a href="variables-aléatoires-à-densité.html#espérance-conditionnelle-variance-conditionnelle" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="espérance-conditionnelle-variance-conditionnelle" class="section level3 hasAnchor" number="4.5.8">
+<h3><span class="header-section-number">4.5.8</span> Espérance conditionnelle, variance conditionnelle<a href="variables-aléatoires-à-densité.html#espérance-conditionnelle-variance-conditionnelle" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 
 </div>
 </div>
