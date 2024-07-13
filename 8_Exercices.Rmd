@@ -1501,7 +1501,7 @@ Y&=\max(X_1,\dots X_n)\\
 
 **ii.**  *Dans la question précédente, on aurait très bien pu écrire le résultat de $\mathbb{P}(X=i)$ sous une forme générique comme on le fait ici.*
 
-**iii.** *Modulo un échange entre les symboles $\min$ et $\max$ d'une part, et $\leq$ et $\geq$ d'autre part, les questions 1 et 2 sont identiques. Dès lors qu'on a traité la question 1 soigneusement, on peut certainement se permettre de gagner un peu de temps et donner directement (si on le voit !) le résultat de la question 2, en évoquant par exemple un "raisonnement analogue" à celui de la question 1. De façon générale, il faut se dire qu'une rédaction efficace doit :*
+**iii.** *Modulo un échange entre les symboles $\min$ et $\max$ d'une part, et $\geq$ et $\leq$ d'autre part, les questions 1 et 2 sont identiques. Dès lors qu'on a traité la question 1 soigneusement, on peut certainement se permettre de gagner un peu de temps et donner directement (si on le voit !) le résultat de la question 2, en évoquant par exemple un "raisonnement analogue" à celui de la question 1. De façon générale, il faut se dire qu'une rédaction efficace doit :*
 
 *- convaincre le correcteur qu'on a bien compris ce qu'on faisait et qu'on sait rédiger de façon rigoureuse (l'un impliquant généralement l'autre) ;*
 
