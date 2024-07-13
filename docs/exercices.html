@@ -1303,10 +1303,46 @@ et, par indépendance de <span class="math inline">\(X\)</span> et <span class="
 <p>On a donc construit un exemple de deux variables aléatoires non corrélées mais non indépendantes.</p>
 <div class="methbox meth">
 <p><strong>Exercice 3.8.</strong> Soient <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span> deux variables aléatoires à valeurs dans <span class="math inline">\(\mathbb{N}\)</span>. On donne la loi du couple <span class="math inline">\((X,Y)\)</span> :</p>
-<p><span class="math display">\[\forall (i,j)\mathbb{N}^2, \, \mathbb{P}(X=i, Y=j)=\frac{(i+j)\lambda^{i+j}}{e\,i!\,j!}\]</span></p>
+<p><span class="math display">\[\forall (i,j)\in\mathbb{N}^2, \, \mathbb{P}(X=i, Y=j)=\frac{(i+j)\lambda^{i+j}}{e\,i!\,j!}\]</span></p>
 <p><strong>1.</strong> Déterminer <span class="math inline">\(\lambda\)</span>. Donner la loi de <span class="math inline">\(X\)</span>.</p>
 <p><strong>2.</strong> Les variables <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span> sont-elles indépendantes ?</p>
 </div>
+<p></p>
+<p><strong>Solution. 1. Heuristique.</strong> Pour déterminer <span class="math inline">\(\lambda\)</span>, on doit résoudre l’équation</p>
+<p><span class="math display">\[\sum\limits_{i=0}^{+\infty}\sum\limits_{j=0}^{+\infty}\frac{(i+j)\lambda^{i+j}}{e\,i!j!}=1\]</span></p>
+<p>Résoudre cette équation suppose d’étudier la convergence de la série double <span class="math inline">\(\sum\limits_i\sum\limits_j\frac{(i+j)\lambda^{i+j}}{e\,i! j!}\)</span>. Comme souvent quand on a à montrer la convergence d’une série, le plus simple est de manipuler celle-ci au brouillon comme si on savait déjà qu’elle convergeait. De telles manipulations amènent souvent à voir émerger les conditions de sa convergence, et il ne reste plus alors qu’à transformer la suite de calculs informels en une démonstration rigoureuse.</p>
+<p>Ici, on a envie d’écrire :</p>
+<p><span class="math display">\[\sum\limits_{i=0}\sum\limits_{j=0}\frac{(i+j)\lambda^{i+j}}{e\,i!j!}=\frac{1}{e}\left(\sum\limits_{i=0}^{+\infty}\frac{i\lambda^i}{i!}\sum\limits_{j=0}^{+\infty}\frac{\lambda^{j}}{j!}+\sum\limits_{i=0}^{+\infty}\frac{\lambda^i}{i!}\sum\limits_{j=0}^{+\infty}\frac{j\lambda^{j}}{j!}\right)\]</span></p>
+<p>soit encore</p>
+<p><span class="math display">\[\sum\limits_{i=0}\sum\limits_{j=0}\frac{(i+j)\lambda^{i+j}}{e\,i!j!}=\frac{1}{e}\left(\sum\limits_{i=1}^{+\infty}\frac{\lambda^i}{(i-1)!}\sum\limits_{j=0}^{+\infty}\frac{\lambda^{j}}{j!}+\sum\limits_{i=0}^{+\infty}\frac{\lambda^i}{i!}\sum\limits_{j=1}^{+\infty}\frac{\lambda^{j}}{(j-1)!}\right)\]</span></p>
+<p>On ne peut pas écrire ces égalités telles quelles, justement car on ignore si la série relative au membre de gauche est convergente. En revanche, toutes les séries relatives au membre de droite sont bien convergentes pour tout réel <span class="math inline">\(\lambda\)</span>, car toutes sont égales, à un éventuel facteur près, à la série <span class="math inline">\(\sum\limits_i\frac{\lambda^i}{i!}\)</span>, dont la somme vaut <span class="math inline">\(\sum\limits_{=0}\frac{\lambda^i}{i!}=e^{\lambda}\)</span>. Mais puisque les séries du membre de droite sont convergentes, leur somme l’est aussi, autrement dit le membre de gauche est convergent, et donc par là même les égalités ci-dessus sont bien vraies.</p>
+<p>On rédige maintenant notre solution.</p>
+<p><strong>Solution rédigée.</strong> Pour tout réel <span class="math inline">\(\lambda\)</span>, la série <span class="math inline">\(\sum\limits_i\frac{\lambda^i}{i!}\)</span> converge et <span class="math inline">\(\sum\limits_{i=0}\frac{\lambda^i}{i!}=e^{\lambda}\)</span>. Donc, la série</p>
+<p><span class="math display">\[\sum\limits_i\sum\limits_j\frac{(i+j)\lambda^{i+j}}{e\,i!j!}=\frac{1}{e}\left(\sum\limits_{i}^{+\infty}\frac{\lambda^i}{(i-1)!}\sum\limits_{j}^{+\infty}\frac{\lambda^{j}}{j!}+\sum\limits_{i=0}^{+\infty}\frac{\lambda^i}{i!}\sum\limits_{j=1}^{+\infty}\frac{\lambda^{j}}{(j-1)!}\right)\]</span>
+est convergente, et</p>
+<p><span class="math display">\[\begin{align}
+\sum\limits_{i=0}\sum\limits_{j=0}\frac{(i+j)\lambda^{i+j}}{e\,i!j!}&amp;=\frac{1}{e}\left(\sum\limits_{i=1}^{+\infty}\frac{\lambda^i}{(i-1)!}\sum\limits_{j=0}^{+\infty}\frac{\lambda^{j}}{j!}+\sum\limits_{i=0}^{+\infty}\frac{\lambda^i}{i!}\sum\limits_{j=1}^{+\infty}\frac{\lambda^{j}}{(j-1)!}\right) \\
+&amp;=\frac{1}{e}2\lambda e^{2\lambda}
+\end{align}\]</span></p>
+<p>On cherche donc un réel <span class="math inline">\(\lambda\)</span> tel que</p>
+<p><span class="math display">\[2\lambda e^{2\lambda}=e\]</span></p>
+<p>La fonction <span class="math inline">\(x\mapsto x e^x\)</span> est dérivable sur <span class="math inline">\(\mathbb{R}\)</span>, et pour tout réel <span class="math inline">\(x\)</span> on a <span class="math inline">\(f&#39;(x)=(1+x)e^x\)</span>. On en déduit que <span class="math inline">\(f&#39;&lt;0\)</span> - et donc <span class="math inline">\(f\)</span> est strictement décroissante - sur <span class="math inline">\(]-\infty\,;\,-1[\)</span> et <span class="math inline">\(f&#39;&gt;0\)</span> - et donc <span class="math inline">\(f\)</span> est strictement croissante - sur <span class="math inline">\(]-1\,;\,+\infty[\)</span>. Comme par ailleurs <span class="math inline">\(\lim\limits_{x\to -\infty}f(x)=0\)</span> et <span class="math inline">\(\lim\limits_{x\to +\infty}f(x)=+\infty\)</span>, l’équation <span class="math inline">\(f(x)=e\)</span> admet une unique solution sur <span class="math inline">\(\mathbb{R}\)</span>. Or, <span class="math inline">\(f(1)=e\)</span>, et donc cette unique solution est <span class="math inline">\(\lambda=\frac{1}{2}\)</span>.</p>
+<p>Déterminons maintenant la loi de <span class="math inline">\(X\)</span>. Soit <span class="math inline">\(i\in\mathbb{N}\)</span>. On a</p>
+<p><span class="math display">\[\begin{align}
+\mathbb{P}(X=i)&amp;=\sum\limits_{j=0}^{+\infty}\mathbb{P}(X=i, Y=j) \\
+&amp;=\sum\limits_{j=0}^{+\infty}\frac{i+j}{e\,i!j!}\frac{1}{2^{i+j}} \\
+&amp;=\frac{i}{e\,i!2^i}\sum\limits_{j=0}^{+\infty}\frac{1}{j!}\frac{1}{2^j}+\frac{1}{e\,i!2^i}\sum\limits_{j=0}^{+\infty}\frac{j}{j!}\frac{1}{2^j} \\
+&amp;=\frac{i}{e\,i! 2^i}e^{\frac{1}{2}}+\frac{1}{e\,i!2^i.2}e^{\frac{1}{2}} \\
+&amp;=\frac{2i+1}{\sqrt{e}\,2^{i+1}\,i!} \\
+\end{align}\]</span></p>
+<p></p>
+<p><strong>2.</strong> Par symétrie des rôles joués par <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span>, on a</p>
+<p><span class="math display">\[\forall j\in\mathbb{N}, \, \mathbb{P}(Y=j)=\frac{2j+1}{\sqrt{e}\,2^{j+1}\,j!}\]</span>
+On en déduit que</p>
+<p><span class="math display">\[\mathbb{P}(X=0)\mathbb{P}(Y=0)=\frac{1}{4e}\]</span>
+alors que</p>
+<p><span class="math display">\[\mathbb{P}(X=0, Y=0)=0\]</span></p>
+<p>Ainsi, <span class="math inline">\(\mathbb{P}(X=0, Y=0)\neq\mathbb{P}(X=0)\mathbb{P}(Y=0)\)</span>, et donc les variables aléatoires <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span> ne sont pas indépendantes.</p>
 <div class="methbox meth">
 <p><strong>Exercice 3.9.</strong> Soient <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span> deux variables aléatoires indepéndantes de loi de Poisson de paramètres respectifs <span class="math inline">\(\lambda\)</span> et <span class="math inline">\(\mu\)</span>. Déterminer la loi conditionnelle de <span class="math inline">\(X\)</span> lorsque la somme <span class="math inline">\(S=X+Y\)</span> a une valeur finie <span class="math inline">\(S=s\)</span>. En déduire l’expression de la fonction de régression de <span class="math inline">\(X\)</span> sur <span class="math inline">\(S\)</span> puis la valeur de <span class="math inline">\(\mathbb{E}(\mathbb{E}(X|S)\)</span>.</p>
 </div>
