@@ -1234,7 +1234,7 @@ Y&amp;=\max(X_1,\dots X_n)\\
 <p><strong>ii.</strong> <em>Dans la question précédente, on aurait très bien pu écrire le résultat de <span class="math inline">\(\mathbb{P}(X=i)\)</span> sous une forme générique comme on le fait ici.</em></p>
 <p><strong>iii.</strong> <em>Modulo un échange entre les symboles <span class="math inline">\(\min\)</span> et <span class="math inline">\(\max\)</span> d’une part, et <span class="math inline">\(\geq\)</span> et <span class="math inline">\(\leq\)</span> d’autre part, les questions 1 et 2 sont identiques. Dès lors qu’on a traité la question 1 soigneusement, on peut certainement se permettre de gagner un peu de temps et donner directement (si on le voit !) le résultat de la question 2, en évoquant par exemple un “raisonnement analogue” à celui de la question 1. De façon générale, il faut se dire qu’une rédaction efficace doit :</em></p>
 <p><em>- convaincre le correcteur qu’on a bien compris ce qu’on faisait et qu’on sait rédiger de façon rigoureuse (l’un impliquant généralement l’autre) ;</em></p>
-<p><em>- éviter les redites afin de gagner un peu de temps, sans trop sacrifier le point précédent. Sur un type de raisonnement que l’on a déjà rédigé de façon rigoureuse lors d’une question précédente, on peut probablement aller un peu plus vite sans s’attirer les foudres de la personne qui corrige la copie…</em></p>
+<p><em>- éviter les redites afin de gagner un peu de temps, sans trop sacrifier le point précédent. Sur un type de raisonnement que l’on a déjà rédigé proprement lors d’une question précédente, on peut probablement aller un peu plus vite sans s’attirer les foudres de la personne qui corrige la copie…</em></p>
 <p></p>
 <p><strong>3.</strong> On a <span class="math inline">\(X\leq Y\)</span>, donc <span class="math inline">\(\mathbb{P}(X=2, Y=1)=0\neq\mathbb{P}(X=2)\mathbb{P}(Y=1)\)</span>. Les variables <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span> ne sont donc pas indépendantes.</p>
 <div class="methbox meth">
@@ -1243,6 +1243,64 @@ Y&amp;=\max(X_1,\dots X_n)\\
 <p><strong>2.</strong> Calculer le coefficient de corrélation <span class="math inline">\(\rho_{U,V}\)</span>.</p>
 <p><strong>3.</strong> <span class="math inline">\(U\)</span> et <span class="math inline">\(V\)</span> sont-elles indépendantes ? Que peut-on conclure ?</p>
 </div>
+<p></p>
+<p><strong>Solution. 1.</strong> <span class="math inline">\(U(\Omega)=[\![0;2]\!]\)</span> et <span class="math inline">\(V(\Omega)=[\![-1;1]\!]\)</span>. Par ailleurs :</p>
+<p><span class="math display">\[(U,V)(\Omega)=\left\{(0;0),\, (1;-1),\,(1;0),\,(2;0)\right\}\]</span>
+et, par indépendance de <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span> :</p>
+<p><span class="math display">\[\begin{align}
+\mathbb{P}(U=0,V=0)&amp;=\mathbb{P}(X=0,Y=0) \\
+&amp;=\mathbb{P}(X=0)\mathbb{P}(Y=0) \\
+&amp;=(1-p)^2 \\
+\end{align}\]</span></p>
+<p><span class="math display">\[\begin{align}
+\mathbb{P}(U=1,V=-1)&amp;=\mathbb{P}(X=0,Y=1) \\
+&amp;=\mathbb{P}(X=0)\mathbb{P}(Y=1) \\
+&amp;=(1-p)p\\
+\end{align}\]</span></p>
+<p><span class="math display">\[\begin{align}
+\mathbb{P}(U=1,V=1)&amp;=\mathbb{P}(X=1,Y=0) \\
+&amp;=\mathbb{P}(X=1)\mathbb{P}(Y=0) \\
+&amp;=p(1-p) \\
+\end{align}\]</span></p>
+<p><span class="math display">\[\begin{align}
+\mathbb{P}(U=2,V=0)&amp;=\mathbb{P}(X=1,Y=1) \\
+&amp;=\mathbb{P}(X=1)\mathbb{P}(Y=1) \\
+&amp;=p^2 \\
+\end{align}\]</span></p>
+<p></p>
+<p><strong>2.</strong></p>
+<p></p>
+<p><strong>Commentaire.</strong> <em>La question précédente incite à utiliser la loi du couple <span class="math inline">\((U,V)\)</span> pour :</em></p>
+<ul>
+<li><em>calculer <span class="math inline">\(\mathbb{E}(UV)\)</span> ;</em></li>
+<li><em>calculer les lois marginales de <span class="math inline">\(U\)</span> et <span class="math inline">\(V\)</span> et en déduire <span class="math inline">\(\mathbb{E}(U)\)</span>, <span class="math inline">\(\mathbb{E}(V)\)</span>, <span class="math inline">\(\sigma_U\)</span> et <span class="math inline">\(\sigma_V\)</span> ;</em></li>
+<li><em>en déduire enfin <span class="math inline">\(cov(U,V)\)</span>, puis <span class="math inline">\(\rho_{U,V}\)</span>.</em></li>
+</ul>
+<p></p>
+<p><em>Mais tout cela serait assez long, et il est bien plus efficace ici d’utiliser les propriétés de bilinéarité et de symétrie de la covariance…</em></p>
+<p></p>
+<p><span class="math display">\[\begin{align}
+\text{cov}(U,V)&amp;=\text{cov}(X+Y,X-Y) \\
+&amp;=\mathbb{V}(X)-\text{cov}(X,Y)+\text{cov}(Y,X)-\mathbb{V}(Y) \\
+&amp;=\mathbb{V}(X)-\mathbb{V}(Y) \\
+&amp;=0
+\end{align}\]</span></p>
+<p>et donc</p>
+<p><span class="math display">\[\rho_{U,V}=0\]</span></p>
+<p></p>
+<p><strong>3.</strong> <span class="math inline">\(\mathbb{P}(U=2,V=1)=0\)</span>, car <span class="math inline">\((2,1)\not\in (U,V)(\Omega)\)</span>. Mais <span class="math inline">\(\mathbb{P}(U=2)\mathbb{P}(V=1)\neq 0\)</span> car aucun de ces facteurs n’est nul :</p>
+<p><span class="math display">\[\begin{align}
+\mathbb{P}(U=2)&amp;=\mathbb{P}(U=2,V=0) \\
+&amp;=p^2 \\
+&amp;\neq 0 \text{ car } p&gt;0 \\
+\end{align}\]</span></p>
+<p><span class="math display">\[\begin{align}
+\mathbb{P}(V=1)&amp;=\mathbb{P}(U=1, V=1) \\
+&amp;=p(1-p) \\
+&amp;\neq 0 \text{ car } p\not\in\{0,1\} \\
+\end{align}\]</span></p>
+<p>Les variables <span class="math inline">\(U\)</span> et <span class="math inline">\(V\)</span> ne sont donc pas indépendantes.</p>
+<p>On a donc construit un exemple de deux variables aléatoires non corrélées mais non indépendantes.</p>
 <div class="methbox meth">
 <p><strong>Exercice 3.8.</strong> Soient <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span> deux variables aléatoires à valeurs dans <span class="math inline">\(\mathbb{N}\)</span>. On donne la loi du couple <span class="math inline">\((X,Y)\)</span> :</p>
 <p><span class="math display">\[\forall (i,j)\mathbb{N}^2, \, \mathbb{P}(X=i, Y=j)=\frac{(i+j)\lambda^{i+j}}{e\,i!\,j!}\]</span></p>

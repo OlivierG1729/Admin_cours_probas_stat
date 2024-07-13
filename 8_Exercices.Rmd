@@ -1505,7 +1505,7 @@ Y&=\max(X_1,\dots X_n)\\
 
 *- convaincre le correcteur qu'on a bien compris ce qu'on faisait et qu'on sait rédiger de façon rigoureuse (l'un impliquant généralement l'autre) ;*
 
-*- éviter les redites afin de gagner un peu de temps, sans trop sacrifier le point précédent. Sur un type de raisonnement que l'on a déjà rédigé de façon rigoureuse lors d'une question précédente, on peut probablement aller un peu plus vite sans s'attirer les foudres de la personne qui corrige la copie...*
+*- éviter les redites afin de gagner un peu de temps, sans trop sacrifier le point précédent. Sur un type de raisonnement que l'on a déjà rédigé proprement lors d'une question précédente, on peut probablement aller un peu plus vite sans s'attirer les foudres de la personne qui corrige la copie...*
 
 \noindent
 
@@ -1522,7 +1522,85 @@ Y&=\max(X_1,\dots X_n)\\
 **3.** $U$ et $V$ sont-elles indépendantes ? Que peut-on conclure ?
 ::::
 
+\noindent
 
+**Solution. 1.** $U(\Omega)=[\![0;2]\!]$ et $V(\Omega)=[\![-1;1]\!]$. Par ailleurs :
+
+$$(U,V)(\Omega)=\left\{(0;0),\, (1;-1),\,(1;0),\,(2;0)\right\}$$
+\noindent et, par indépendance de $X$ et $Y$ :
+
+\begin{align}
+\mathbb{P}(U=0,V=0)&=\mathbb{P}(X=0,Y=0) \\
+&=\mathbb{P}(X=0)\mathbb{P}(Y=0) \\
+&=(1-p)^2 \\
+\end{align}
+
+\begin{align}
+\mathbb{P}(U=1,V=-1)&=\mathbb{P}(X=0,Y=1) \\
+&=\mathbb{P}(X=0)\mathbb{P}(Y=1) \\
+&=(1-p)p\\
+\end{align}
+
+\begin{align}
+\mathbb{P}(U=1,V=1)&=\mathbb{P}(X=1,Y=0) \\
+&=\mathbb{P}(X=1)\mathbb{P}(Y=0) \\
+&=p(1-p) \\
+\end{align}
+
+\begin{align}
+\mathbb{P}(U=2,V=0)&=\mathbb{P}(X=1,Y=1) \\
+&=\mathbb{P}(X=1)\mathbb{P}(Y=1) \\
+&=p^2 \\
+\end{align}
+
+\noindent
+
+**2.** 
+
+\noindent
+
+**Commentaire.** *La question précédente incite à utiliser la loi du couple $(U,V)$ pour :*
+
+- *calculer $\mathbb{E}(UV)$ ;*
+- *calculer les lois marginales de $U$ et $V$ et en déduire $\mathbb{E}(U)$,  $\mathbb{E}(V)$, $\sigma_U$ et $\sigma_V$ ;*
+- *en déduire enfin  $cov(U,V)$, puis $\rho_{U,V}$.*
+
+\noindent
+
+*Mais tout cela serait assez long, et il est bien plus efficace ici d'utiliser les propriétés de bilinéarité et de symétrie de la covariance...*
+
+\noindent 
+
+\begin{align}
+\text{cov}(U,V)&=\text{cov}(X+Y,X-Y) \\
+&=\mathbb{V}(X)-\text{cov}(X,Y)+\text{cov}(Y,X)-\mathbb{V}(Y) \\
+&=\mathbb{V}(X)-\mathbb{V}(Y) \\
+&=0
+\end{align}
+
+\noindent et donc
+
+$$\rho_{U,V}=0$$
+
+\noindent 
+
+**3.** $\mathbb{P}(U=2,V=1)=0$, car $(2,1)\not\in (U,V)(\Omega)$. Mais $\mathbb{P}(U=2)\mathbb{P}(V=1)\neq 0$ car aucun de ces facteurs n'est nul : 
+
+\begin{align}
+\mathbb{P}(U=2)&=\mathbb{P}(U=2,V=0) \\
+&=p^2 \\
+&\neq 0 \text{ car } p>0 \\
+\end{align}
+
+\begin{align}
+\mathbb{P}(V=1)&=\mathbb{P}(U=1, V=1) \\
+&=p(1-p) \\
+&\neq 0 \text{ car } p\not\in\{0,1\} \\
+\end{align}
+
+\noindent Les variables $U$ et $V$ ne sont donc pas indépendantes.
+
+\noindent On a donc construit un exemple de deux variables aléatoires non corrélées mais non indépendantes.
 
 :::: {.methbox .meth data-latex="important"}
 **Exercice 3.8.** Soient $X$ et $Y$ deux variables aléatoires à valeurs dans $\mathbb{N}$. On donne la loi du couple $(X,Y)$ :
