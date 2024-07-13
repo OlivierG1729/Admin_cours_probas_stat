@@ -224,15 +224,15 @@ $$\sum\limits_{k=0}^n \binom{n}{k}^2=\binom{2n}{n}$$
 
 
 :::: {.methbox .meth data-latex="important"}
-**Exercice 2.4 (Interne, 2023).** Montrer que pour tout entier naturel $n$, on a $\sum\limits_{k=0}^n\binom{2n+1}{k}=\sum\limits_{k=0}^n\binom{2n+1}{n+k+1}$, et calculer la valeur commune de ces sommes.
+**Exercice 2.4 (Interne, 2023). 1.** Montrer que pour tout entier naturel $n$, on a $\sum\limits_{k=0}^n\binom{2n+1}{k}=\sum\limits_{k=0}^n\binom{2n+1}{n+k+1}$, et calculer la valeur commune de ces sommes.
 
 \noindent
 
-**b.** Montrer que pour tout entier naturel non nul $n$, on a $\sum\limits_{k=0}^{n-1}\binom{2n}{k}=\sum\limits_{k=1}^n\binom{2n}{n+k}=2^{2n-1}-\frac{1}{2}\binom{2n}{n}$.
+**2.** Montrer que pour tout entier naturel non nul $n$, on a $\sum\limits_{k=0}^{n-1}\binom{2n}{k}=\sum\limits_{k=1}^n\binom{2n}{n+k}=2^{2n-1}-\frac{1}{2}\binom{2n}{n}$.
 
 \noindent
 
-**c.** Déduire de ce qui précède le résultat suivant : $\forall n\in\mathbb{N}^{*}, \sum\limits_{k=1}^n k\binom{2n}{n+k}=\frac{n}{2}\binom{2n}{n}$.
+**3.** Déduire de ce qui précède le résultat suivant : $\forall n\in\mathbb{N}^{*}, \sum\limits_{k=1}^n k\binom{2n}{n+k}=\frac{n}{2}\binom{2n}{n}$.
 ::::
 
 \noindent
@@ -597,28 +597,21 @@ $$x_1=\frac{1}{4} \text{ et } x_2=\frac{5}{4}$$
 
 
 :::: {.methbox .meth data-latex="important"}
-**Exercice 2.7 (Interne, 2012).** On considère une population dont les individus sont susceptibles de présenter une maladie $\mathcal{M}$. Pour chaque individu de la population considérée, on envisage trois facteurs de risque possibles de cette maladie : $A, B$ et $C$
-. 
-\noindent Grâce à une étude statistique, on dispose des renseignements suivants :
+**Exercice 2.7 (Interne, 2012).** On considère une population dont les individus sont susceptibles de présenter une maladie $\mathcal{M}$. Pour chaque individu de la population considérée, on envisage trois facteurs de risque possibles de cette maladie : $A, B$ et $C$.
+
+Grâce à une étude statistique, on dispose des renseignements suivants :
 
 - $\mathbb{P}(A)=0,4 \hspace{1cm} \mathbb{P}(B)=0,06 \hspace{1cm} \mathbb{P}(A\cap B)=0,06 \hspace{1cm} \mathbb{P}(A\cap C)= 0,1$
 
 - $A$ et $C$ sont indépendants
 - $B$ et $C$ sont incompatibles
 
-\noindent 
 
 **1.** Déterminer $\mathbb{P}(C)$, $\mathbb{P}(B\cap C)$ et $\mathbb{P}(A\cap B\cap C)$.
 
-\noindent 
-
 **2.** Calculer la probabilité pour qu'au moins un individu présente un facteur de risque.
 
-\noindent 
-
 **3.** On note $X$ le nombre de facteurs de risque présents chez un individu. Quelles valeurs $X$ peut-elle prendre ? Pour chacune de ces valeurs $i$, calculer $\mathbb{P}(X=i)$.
-
-\noindent 
 
 **4.** On note $M$ l'événement *L'individu est atteint de la maladie * $\mathcal{M}$. On donne les probabilités conditionelles suivantes :
 
@@ -627,10 +620,7 @@ $$\mathbb{P}_{\overline{A}}(M)=0 \hspace{1cm} \mathbb{P}_{A\cap B}(M)=0,06 \hspa
 
 **a.** Interpréter ces quatre valeurs.
 
-\noindent
-
 **b.** Calculer la probabilité $\mathbb{P}(M)$.
-
 ::::
 
 \noindent
@@ -855,6 +845,795 @@ $$p_n=\frac{1}{2}+\frac{1}{2}(2p-1)^n$$
 \noindent
 
 **Remarque.** Ce résultat qui peut paraître surprenant s'explique par le fait que la maladie étudiée est très rare ($1$ cas sur $10\,000$), et donc même en cas de test positif la probabilité que la personne soit vraiment malade reste limitée.
+
+## Variables aléatoires discrètes
+
+:::: {.methbox .meth data-latex="important"}
+**Exercice 3.1. 1.** Soit $X$ une variable aléatoire discrète de support $X(\Omega)=\mathbb{N}^*$ et telle que pour tout entier naturel $n\geq 1$ on ait 
+
+$$\mathbb{P}(X=n)=\frac{1}{2^n}$$
+
+**a.** Vérifier que l'on définit bien une loi de probabilité.
+
+**b.** $X$ admet-elle une espérance ? Si oui, la calculer.
+
+**c.** $X$ admet-elle une variance ? Si oui, la calculer.
+
+
+**2.** Soient $\alpha$ un réel et $Y$ une variable aléatoire discrète de support $Y(\Omega)=\mathbb{N}$ et telle que, pour tout entier naturel $n$ on ait 
+
+$$\mathbb{P}(Y=n)=\frac{\alpha}{n!}$$
+
+**a.** Déterminer la valeur de $\alpha$ pour qu'on ait bien ainsi défini une loi de probabilité.
+
+**b.** $Y$ admet-elle une espérance ? Si oui, la calculer.
+
+
+**3.** $Z$ une variable aléatoire discrète de support $Y(\Omega)=\mathbb{N}^*$ et telle que, pour tout entier naturel $n\geq 1$ on ait 
+
+$$\mathbb{P}(Z=n)=\frac{1}{n(n+1)}$$
+
+**a.** Vérifier que l'on définit bien une loi de probabilité.
+
+**b.** $Z$ admet-elle une espérance ? Si oui, la calculer.
+::::
+
+**Solution. 1.a.** La série $\sum\limits_n \frac{1}{2^n}$ est convergente (série géométrique de raison $\frac{1}{2}\in\left]-1\,;\,1\right[$) et
+\begin{align}
+\sum\limits_{n=1}^{+\infty}\frac{1}{2^n}&=\sum\limits_{n=0}^{+\infty}\frac{1}{2^n}-1 \\
+&=\frac{1}{1-\frac{1}{2}}-1 \\
+&=1
+\end{align}
+
+\noindent On a donc bien défini une loi de probabilité.
+
+\noindent
+
+**b.** On commence par quelques rappels d'analyse, utiles pour cette question et la suivante :
+
+:::: {.thmbox .thm data-latex="important"}
+**Rappels d'analyse.** Pour cette question, comme pour la question suivante, on va passer par les séries dérivées de la série géométrique $\sum\limits_{n}x^n$. Cette série est convergente sur $]-1\,;\,1[$ et sa somme est indéfiniment dérivable sur cet intervalle. Les dérivées successives de cette dernière s'obtiennent alors par dérivations successives du terme général. Autrement dit, en posant, pour tout réel $x$ dans $]-1\,;\,1[$ :
+
+$$f(x)=\sum\limits_{n=0}^{+\infty}x^n$$
+\noindent on a 
+
+\begin{align}
+f(x)&=\sum\limits_{n=0}^{+\infty}x^n=\frac{1}{1-x} \\
+f'(x)&=\sum\limits_{n=0}^{+\infty}n\,x^{n-1}=\frac{1}{(1-x)^2} \\
+f''(x)&=\sum\limits_{n=0}^{+\infty}n(n-1)\,x^{n-2}=\frac{2}{(1-x)^3} \\
+\end{align}
+
+::::
+
+\noindent On montre maintenant que $X$ admet une espérance. Cela revient à montrer que la série $\sum\limits_{n}\frac{n}{2^{n}}$ est convergente. Or, avec ce qui précède :
+
+\begin{align}
+f'\left(\frac{1}{2}\right)&=\sum\limits_{n=0}^{+\infty}\frac{n}{2^{n-1}} \\
+&=\sum\limits_{n=1}^{+\infty}\frac{n}{2^{n-1}} \\
+&=\frac{1}{\left(1-\frac{1}{2}\right)^2} \\
+&=4 \\
+\end{align}
+
+\noindent 
+
+Donc, la série $\sum\limits_{n}\frac{n}{2^{n}}$ est bien convergente, et 
+
+\begin{align}
+\sum\limits_{n=0}\frac{n}{2^{n}}&=\frac{1}{2}\sum\limits_{n=0}^{+\infty}\frac{n}{2^{n-1}} \\
+&=2
+\end{align}
+
+**Ainsi, $X$ admet une espérance et $\mathbb{E}(X)=2$.**
+
+\noindent  
+
+**c.** On obtient de même :
+
+\begin{align}
+f''\left(\frac{1}{2}\right)&=\sum\limits_{n=2}^{+\infty}\frac{n(n-1)}{2^{n-2}} \\
+&=\frac{2}{\left(1-\frac{1}{2}\right)^2} \\
+&= 16
+\end{align}
+
+\noindent La série $\sum\limits_{n}\frac{n}{2^{n-2}}=2\sum\limits_{n}\frac{n}{2^{n-1}}$ converge et la somme $\sum\limits_{n=2}\frac{n}{2^{n-2}}$ vaut $2\left(\sum\limits_{n=1}\frac{n}{2^{n-1}}-1\right)=6$ (question précédente). Par conséquent, la série $\sum\limits_{n}\frac{n^2}{2^{n}}$ converge et 
+
+\begin{align}
+\sum\limits_{n=1}^{+\infty}\frac{n^2}{2^{n}}&=\frac{1}{2}+\sum\limits_{n=2}^{+\infty}\frac{n^2}{2^{n}} \\
+&=\frac{1}{2}+\frac{1}{4}\sum\limits_{n=2}^{+\infty}\frac{n^2}{2^{n-2}} \\
+&=\frac{1}{2}+\frac{1}{4}\left(\sum\limits_{n=2}^{+\infty}\frac{n(n-1)}{2^{n-2}}+\sum\limits_{n=2}^{+\infty}\frac{n}{2^{n-2}}\right) \\
+&=\frac{1}{2}+\frac{1}{4}(16+6) \\
+&=6 \\
+\end{align}
+
+\noindent
+
+Donc, $X$ admet un moment d'ordre $2$, et donc une variance, et $\mathbb{E}(X^2)=6$. On en déduit sa variance par la formule de Koenig-Huygens :
+
+\begin{align}
+\mathbb{V}(X)&=\mathbb{E}(X^2)-\mathbb{E}(X)^2 \\
+&=6-4 \\
+&=2
+\end{align}
+
+\noindent
+
+**Ainsi, $X$ admet une variance et $\mathbb{V}(X)=2$.**
+
+**2.a.** La série $\sum\limits_{n}\frac{\alpha}{n!}$ converge et $\sum\limits_{n=0}^{+\infty}\frac{\alpha}{n!}=\alpha\,e$. Pour qu'on ait bien défini une loi de probabilité, cette somme doit être égale à $1$, ce qui impose de poser $\alpha=\frac{1}{e}$.
+
+**b.** $Y$ admet une espérance si et seulement si la série $\sum\limits_{n}n\,\frac{1}{e\,n!}$ est convergente. 
+
+\noindent Or, pour tout entier naturel $N$ :
+
+\begin{align}
+\sum\limits_{n=0}^N n\,\frac{1}{e\,n!}&=\sum\limits_{n=1}^N\frac{1}{e\,(n-1)!} \\
+&=\frac{1}{e}\sum\limits_{n=0}^{N-1}\frac{1}{n!} \\
+&\underset{N\to +\infty}{\longrightarrow}  1\\
+\end{align}
+
+\noindent 
+
+**$Y$ admet donc une espérance et $\mathbb{E}(Y)=1$.**
+
+\noindent 
+
+**3.a.** Soit $N$ un entier naturel tel que $N\geq 1$. On a :
+
+\begin{align}
+\sum\limits_{n=1}^N\frac{1}{n(n+1)}&=\sum\limits_{n=1}^N\left(\frac{1}{n}-\frac{1}{n+1}\right) \\
+&=\sum\limits_{n=1}^N\frac{1}{n}-\sum\limits_{n=1}^N\frac{1}{n+1} \\
+&=\sum\limits_{n=1}^N\frac{1}{n}-\sum\limits_{n=2}^{N+1}\frac{1}{n} \\
+&=1-\frac{1}{N+1} \\
+&\underset{N\to +\infty}{\longrightarrow} 1 \\
+\end{align}
+
+\noindent 
+
+ce qui permet de conclure.
+
+\noindent
+
+**Commentaires. i.** *La première égalité résulte d'une décomposition en éléments simples. Une fois qu'on l'a écrite, on peut se contenter, le jour du concours, d'évoquer une somme télescopique pour justifier directement le passage à l'expression $1-\frac{1}{N+1}$, sans écrire, donc, les deux lignes intermédiaires. Pour rappel, une somme télescopique est - à un changement éventuel de signe près - une somme du type $\sum\limits_{n=p}^q (a_{n+1}-a_{n})$. Dans une telle somme, tous les termes s'annulent deux à deux à l'exception de ceux situés aux extremités. On a donc* $$\sum\limits_{n=p}^{q} (a_{n+1}-a_{n})=a_{q+1}-a_{p}$$
+
+\noindent
+
+**ii. Un exemple d'approche incorrecte.** *Il peut être tentant de dire que la série $\sum\limits_{n}\frac{1}{n(n+1)}$ est convergente (par exemple, son terme général est positif et majoré par $\frac{1}{n^2}$, qui est celui d'une série convergente) et d'écrire ensuite*
+
+\begin{align}
+\sum\limits_{n=1}^{+\infty}\frac{1}{n(n+1)}&=\sum\limits_{n=1}^{+\infty}\left(\frac{1}{n}-\frac{1}{n+1}\right) \\
+&=\sum\limits_{n=1}^{+\infty}\frac{1}{n}-\sum\limits_{n=1}^{+\infty}\frac{1}{n+1} \\
+\end{align}
+
+\noindent
+
+*La première égalité est correcte, puisqu'on a juste remplacé $\frac{1}{n(n+1)}$ par $\frac{1}{n}-\frac{1}{n+1}$, qui sont deux termes égaux.* 
+
+\noindent 
+
+*En revanche, l'égalité $\sum\limits_{n=1}^{+\infty}\left(\frac{1}{n}-\frac{1}{n+1}\right)=\sum\limits_{n=1}^{+\infty}\frac{1}{n}-\sum\limits_{n=1}^{+\infty}\frac{1}{n+1}$ est incorrecte à cause du terme de droite. Celui-ci correspond à la différence entre les sommes de deux séries divergentes (autrement dit, quelque chose du type $(+\infty)-(+\infty))$). En l'état, il n'a donc a priori pas de sens et ne peut être écrit tel quel.*
+
+*On a ici utilisé (à tort) une formule de linéarité $$\sum\limits_{n=p}^{+\infty}(u_n+v_n)=\sum\limits_{n=p}^{+\infty}u_n+\sum\limits_{n=p}^{+\infty}v_n$$ mais l'utilisation d'une telle formule suppose de vérifier au préalable que tous les termes en jeu sont bien définis. Autrement dit, on doit non seulement s'assurer de la convergence de la série $\sum\limits_n(u_n+v_n)$, mais aussi de celle des séries $\sum\limits_n u_n$ et $\sum\limits_n v_n$, et c'est justement la convergence de ces deux séries qui pose problème dans notre exemple.*
+
+*La seule approche correcte dans cette question est donc bien de se placer d'abord dans le cas fini en sommant de $1$ à $N$, d'utiliser ensuite la linéarité (qui est licite dans le cas fini), puis de terminer en faisant tendre $N$ vers l'infini.*
+
+**b.** $Z$ admet une espérance (finie) si et seulement si la série $\sum\limits_n\frac{n}{n(n+1)}=\sum\limits_n\frac{1}{n+1}$ est convergente. Or, cette série diverge (série harmonique), donc $Z$ n'admet pas d'espérance (finie).
+
+
+
+
+
+:::: {.methbox .meth data-latex="important"}
+**Exercice 3.2 (à retenir).** Soit $X$ une variable aléatoire discrète à valeurs dans $\mathbb{N}$ et d'espérance finie.
+
+**1.** Démontrer que, pour tout entier naturel $n$, on a 
+
+$$\sum\limits_{k=0}^n\mathbb{P}(X>k)=\sum\limits_{k=0}^n k\,\mathbb{P}(X=k)+(n+1)\,\mathbb{P}(X>n)$$
+
+**2.** En déduire que 
+
+$$\mathbb{E}(X)=\sum\limits_{k=0}^{\infty}\mathbb{P}(X>k)$$
+
+**Commentaire.** *Cette formule donne donc une autre expression de l'espérance pour une variable aléatoire \textbf{positive} (dans le cas général, elle peut être fausse). On peut presque la considérer comme du cours, donc il faut penser à l'utiliser.*
+::::
+
+\noindent
+
+**Solution. 1.** 
+
+\noindent
+
+On procède par récurrence sur $n\in\mathbb{N}$.
+
+- pour $n=0$ :
+
+\begin{align}
+\sum\limits_{k=0}^0 k\,\mathbb{P}(X=k)+(0+1)\,\mathbb{P}(X>0)&=0.\mathbb{P}(X=0)+\mathbb{P}(X>0) \\
+&=\mathbb{P}(X>0) \\
+&=\sum\limits_{k=0}^0\mathbb{P}(X>k)
+\end{align}
+
+\noindent donc l'égalité est vraie au rang $n=0$.
+
+- supposons maintenant cette égalité vraie au rang $n$, pour un entier naturel $n$ donné, et démontrons qu'elle est alors vraie au rang $n+1$. On a donc
+
+\begin{align}
+\sum\limits_{k=0}^{n+1}\mathbb{P}(X>k)&=\sum\limits_{k=0}^{n}\mathbb{P}(X>k)+\mathbb{P}(X>n+1) \\
+&=\sum\limits_{k=0}^{n}k\,\mathbb{P}(X=k)+(n+1)\mathbb{P}(X>n)+\mathbb{P}(X>n+1) \\
+&\text{(par hypothèse de réccurence)} \\
+&=\sum\limits_{k=0}^{n}k\,\mathbb{P}(X=k)+(n+1)\mathbb{P}(X=n+1)+(n+1)\mathbb{P}(X>n+1)+\mathbb{P}(X>n+1) \\
+&=\sum\limits_{k=0}^{n+1}k\,\mathbb{P}(X=k)+(n+2)\mathbb{P}(X>n+1)
+\end{align}
+
+\noindent ce qui permet de conclure.
+
+\noindent
+
+**2.** D'après la question précédente, il suffit de démontrer que $\lim\limits_{n\to +\infty}(n+1)\,\mathbb{P}(X>n)=0$. Or, on a
+
+\begin{align}
+0&\leq (n+1)\,\mathbb{P}(X>n) \\
+&=\sum\limits_{k=n+1}^{+\infty}(n+1)\mathbb{P}(X=k) \\
+&\leq\sum\limits_{k=n+1}^{+\infty}\mathbb{P}(X=k) \\
+\end{align}
+
+Or, ce dernier terme est le reste de la série $\sum\limits_{n}n\,\mathbb{P}(X=n)$, qui est une série convergente de somme $\mathbb{E}(X)$. Par conséquent, ce terme tend vers $0$ lorsque $n$ tend vers l'infini, et on conclut en appliquant le théorème des gendarmes.
+
+
+\noindent
+
+**Commentaires.** *L'égalité de la question 2 a été établie à partir d'une égalité entre sommes sur des ensembles d'indices finis. Cette égalité a été démontrée par récurrence dans la question 1. Comme souvent, une démonstration par récurrence présente l'avantage de réduire essentiellement la question en un simple jeu d'écriture, ce qui peut s'avérer plus efficace le jour du concours.*
+
+*On présente dans ce qui suit une approche complètement différente, qui demande davantage d'intuition et est plus visuelle. On commence par présenter son heuristique, avant de formaliser l'idée principale en un raisonnement plus rigoureux.*
+
+
+**Méthode 2 (calcul direct). Heuristique.** On peut partir de la définition de l'espérance  
+$$\mathbb{E}(X)=\sum\limits_{i=1}^{+\infty}i\,\mathbb{P}(X=i)$$
+
+et écrire le terme général de cette série comme somme de $k$ termes égaux :
+
+$$i\,\mathbb{P}(X=i)=\mathbb{P}(X=i)+\mathbb{P}(X=i)+\dots\mathbb{P}(X=i)$$
+
+\noindent 
+
+On construit alors un tableau infini, dont la ligne numéro $i$ contient exactement $i$ termes non nuls, tous égaux à $\mathbb{P}(X=i)$ :
+
+<center>
+```{r, echo = FALSE, out.width="80%", out.height="80%"}
+knitr::include_graphics("C:/Users/olivier.guin/Travail/Formation_Administrateur/Cours/Cours_probabilités_statistique/images/tableau_formule_esperance.PNG") 
+```
+</center>
+
+\noindent
+
+Ainsi :
+
+- en sommant tous les éléments de la ligne $i$, on obtient $i\,\mathbb{P}(X=i)$ ;
+
+- en sommant toutes ces sommes par ligne, on obtient $\sum\limits_{i=0}^{+\infty}i\,\mathbb{P}(X=i)$, soit $\mathbb{E}(X)$.
+
+\noindent 
+
+On regarde maintenant ce qui se passe si, plutôt que de sommer les sommes par lignes, on somme les sommes par colonnes :
+
+- la somme des éléments de la colonne $j$ est égale à 
+$\mathbb{P}(X=j)+\mathbb{P}(X=j+1)+\dots+\mathbb{P}(X=n)+\dots$, soit encore $\mathbb{P}(X>j-1)$.
+
+- en sommant les sommes par colonnes, on obtient donc $\sum\limits_{j=1}^{+\infty}\mathbb{P}(X>j-1)=\sum\limits_{j=0}^{+\infty}\mathbb{P}(X>j)$.
+
+\noindent 
+
+On s'attend à ce que ces deux façons de calculer amènent au même résultat, ce qui se traduit exactement par l'égalité $\mathbb{E}(X)=\sum\limits_{j=0}^{+\infty}\mathbb{P}(X>j)$. 
+
+\noindent 
+
+Il s'agit maintenant d'écrire tout cela un peu plus rigoureusement. Ce qui précède s'appuie sur une seule idée : pour sommer tous les éléments d'un tableau, on peut soit sommer les sommes par lignes, soit sommer les sommes par colonnes. Notons de manière générale $a_{i,j}$ l'élément situé sur la ligne $i$ et la colonne $j$ du tableau, que l'on suppose dans un premier temps fini (à $p$ lignes et $q$ colonnes).
+
+\noindent La somme des sommes par lignes s'écrit alors $\sum\limits_{i=1}^p\sum\limits_{j=1}^q a_{i,j}$ et la somme des sommes par colonnes s'écrit $\sum\limits_{j=1}^q\sum\limits_{i=1}^p a_{i,j}$, si bien que dans le cas d'un tableau fini, l'équivalence entre ces deux procédés de calcul se traduit par l'égalité
+
+$$\sum\limits_{i=1}^p\sum\limits_{j=1}^q a_{i,j}=\sum\limits_{j=1}^q\sum\limits_{i=1}^p a_{i,j}$$
+\noindent Autrement dit, passer d'une sommation de sommes par lignes à une sommation de sommes par colonnes revient exactement à intervertir deux symboles $\Sigma$, ce qui dans le cas où les ensembles d'indices sur lesquels on somme sont tous **finis** est trivialement vrai (c'est une conséquence directe des propriétés de commutativité et d'associativité de l'addition dans $\mathbb{R}$).
+
+\noindent 
+
+Dans le cas infini, il faut être un peu plus prudent : l'égalité $$\sum\limits_{i\in I}\sum\limits_{j\in J}a_{ij}=\sum\limits_{j\in J}\sum\limits_{i\in I}a_{ij}$$
+n'est pas nécessairement vraie si l'un au moins des ensembles $I$ et $J$ est infini. Cependant, pour $I=J=\mathbb{N}$ on a le résultat suivant :
+
+:::: {.thmbox .thm data-latex="important"}
+**Théorème de Fubini pour les séries.** Soit $(a_{m,n})_{(m,n)\in\mathbb{N}^2}$ une suite à double indice. Si 
+
+$$\sum\limits_{i=0}^{+\infty}\sum\limits_{j=0}^{+\infty}|a_{i,j}|<+\infty$$
+\noindent alors 
+
+$$\sum\limits_{i=0}^{+\infty}\sum\limits_{j=0}^{+\infty}a_{i,j}=\sum\limits_{i=0}^{+\infty}\sum\limits_{j=0}^{+\infty}a_{i,j}$$
+(étant entendu que toutes les séries en jeu sont convergentes)
+::::
+
+\noindent
+
+Avec ce résultat, on peut maintenant rédiger une solution plus formalisée des idées précédentes.
+
+**Solution formalisée.** On pose $a_{i,j}=\mathbb{P}(X=i).1_{j\leq i}$. On a
+
+\begin{align}
+\sum\limits_{i=1}^{+\infty}\sum\limits_{j=1}^{+\infty}|a_{i,j}|&=\sum\limits_{i=1}^{+\infty}\sum\limits_{j=1}^{+\infty}\mathbb{P}(X=i).1_{j\leq i} \\
+&=\sum\limits_{i=1}^{+\infty}\sum\limits_{j=1}^{i}\mathbb{P}(X=i) \\
+&=\sum\limits_{i=1}^{+\infty}i\,\mathbb{P}(X=i) \\
+&=\mathbb{E}(X) \\
+&<+\infty
+\end{align}
+
+\noindent 
+
+D'après le théorème de Fubini, la série double $\sum\limits_j\sum\limits_i\mathbb{P}(X=i).1_{j\leq i}$ est donc convergente et
+
+\begin{align}
+\mathbb{E}(X)&=\sum\limits_{i=1}^{+\infty}\sum\limits_{j=1}^{+\infty}\mathbb{P}(X=i).1_{j\leq i} \\
+&=\sum\limits_{j=1}^{+\infty}\sum\limits_{i=1}^{+\infty}\mathbb{P}(X=i).1_{j\leq i} \\
+&=\sum\limits_{j=1}^{+\infty}\sum\limits_{i=j}^{+\infty}\mathbb{P}(X=i) \\
+&=\sum\limits_{j=1}^{+\infty}\mathbb{P}(X\geq j) \\
+&=\sum\limits_{j=0}^{+\infty}\mathbb{P}(X> j) \\
+\end{align}
+::::
+
+
+
+:::: {.methbox .meth data-latex="important"}
+**Exercice 3.3.** Soient $n\in\mathbb{N}^*$ et $a\in\mathbb{R}$. On considère une variable aléatoire discrète de support $\{0,1,\dots, n\}$ et telle que, pour tout entier $0\leq k\leq n$ :
+
+$$\mathbb{P}(X=k)=\frac{a}{k+1}\binom{n}{k}$$
+
+**1.** Déterminer le réel $a$.
+
+**2.a.** Calculer les espérance $\mathbb{E}(X+1)$ et $\mathbb{E}(X(X+1))$.
+
+**b.** En déduire les valeurs de $\mathbb{E}(X)$ et $\mathbb{V}(X)$.
+::::
+
+\noindent
+
+**Solution. 1.** Pour déterminer le réel $a$, on utilise l'égalité $$\sum\limits_{k=0}^n\mathbb{P}(X=k)=1$$
+
+soit encore
+
+$$a\sum\limits_{k=0}^n\frac{\binom{n}{k}}{k+1}=1$$
+
+\noindent 
+
+Or, on a l'égalité
+
+$$\frac{\binom{n}{k}}{k+1}=\frac{\binom{n+1}{k+1}}{n+1}$$
+\noindent
+
+Celle-ci a déjà été démontrée dans l'exercice 2.3. sur les coefficients binomiaux (question 1).
+
+\noindent
+
+On en déduit que
+
+\begin{align}
+a&=\frac{1}{\sum\limits_{k=0}^n\frac{\binom{n}{k}}{k+1}} \\
+&=\frac{n+1}{\sum\limits_{k=0}^n\binom{n+1}{k+1}} \\
+&=\frac{n+1}{\sum\limits_{k=0}^{n+1}\binom{n+1}{k}-1} \\
+&=\frac{n+1}{2^{n+1}-1}
+\end{align}
+
+\noindent
+
+**2.a.** D'après le théorème de transfert, on a 
+
+\begin{align}
+\mathbb{E}(X+1)&=\sum\limits_{k=0}^n (k+1)\,\mathbb{P}(X=k) \\
+&=\sum\limits_{k=0}^n (k+1)\,\frac{a}{k+1}\binom{n}{k} \\
+&=a\sum\limits_{k=0}^n\binom{n}{k} \\
+&=a\,2^n \\
+&=\frac{n+1}{2^{n+1}-1}\,2^n
+\end{align}
+
+\noindent De façon analogue, on a
+
+\begin{align}
+\mathbb{E}(X(X+1))&=\sum\limits_{k=0}^n (k+1)\,\mathbb{P}(X=k) \\
+&=\sum\limits_{k=0}^n (k+1)\frac{a}{k+1}\binom{n}{k} \\
+&=a\sum\limits_{k=0}^n k\,\binom{n}{k} \\
+&=a\sum\limits_{k=1}^n k\,\binom{n}{k} \\
+&=a\,n\sum\limits_{k=1}^n \binom{n-1}{k-1} \\
+&=a\,n\sum\limits_{k=0}^{n-1} \binom{n-1}{k} \\
+&=a\, n2^{n-1} \\
+&=\frac{n(n+1)}{2^{n+1}-1}\,2^{n-1} \\
+\end{align}
+
+\noindent
+
+**b.** On en déduit que
+
+\begin{align}
+\mathbb{E}(X)&=\mathbb{E}(X+1)-1 \\
+&=\frac{n+1}{2^{n+1}-1}\,2^n-1
+\end{align}
+
+\noindent
+
+et
+
+\begin{align}
+\mathbb{V}(X)&=\mathbb{E}(X^2)-\mathbb{E}(X)^2 \\
+&=\mathbb{E}(X(X+1))-\mathbb{E}(X)-\mathbb{E}(X)^2 \\
+&=\mathbb{E}(X(X+1))-\mathbb{E}(X).(\mathbb{E}(X)+1) \\
+&=\frac{n(n+1)}{2^{n+1}-1}\,2^{n+1}-\left(\frac{n+1}{2^{n+1}-1}2^n-1\right)\frac{n+1}{2^{n+1}-1}2^n
+\end{align}
+
+\noindent
+
+**Commentaire.** *Pour calculer l'espérance et la variance de $X$, on décide donc dans cet exercice de commencer par calculer les espérances de $X$ et $X(X+1)$. Ces calculs sont en effet plus simples car ils permettent, via le théorème de transfert, d'annuler le terme $\frac{1}{k+1}$ de la probabilité $\mathbb{P}(X=k)$. Une fois qu'on a calculé $\mathbb{E}(X)$ et $\mathbb{E}(X(X+1))$, on en déduit facilement, par linéarité de l'espérance, $\mathbb{E}(X)$ et $\mathbb{V}(X)$. Ici, l'exercice est guidé, mais on pourrait très bien imaginer une question d'un sujet du concours dans laquelle il est directement demandé de calculer ces deux quantités, sans les indications fournies par la question 2. Dans ce cas, c'est au candidat de prendre l'initiative d'introduire les variables $X+1$ et $X(X+1)$. De façon générale, retenir que pour calculer l'espérance (ou la variance) d'une variable aléatoire, il est parfois avantageux de calculer au préalable l'espérance (ou la variance) d'une transformation (simple) de cette variable.*
+
+
+:::: {.methbox .meth data-latex="important"}
+**Exercice 3.4 (Somme de deux VA).** Soient $X$ et $Y$ deux variables aléatoires indépendantes, à valeurs dans $\mathbb{N}$ et telles que pour tout entier naturel $k$ :
+
+$$\mathbb{P}(X=k)=\mathbb{P}(Y=k)=pq^k$$
+
+\noindent où $q=1-p$ et $p\in ]0\,;\,1[$.
+
+**1.** Calculer $\mathbb{P}(X=Y)$.
+
+**2.** Calculer $\mathbb{P}(X<Y)$.
+
+**3.** Déterminer la loi de $X+Y$.
+::::
+
+\noindent
+
+**1.** 
+
+\begin{align}
+\mathbb{P}(X=Y)&=\sum\limits_{k=0}^{+\infty}\mathbb{P}(X=k, Y=k) \\
+&=\sum\limits_{k=0}^{+\infty}\mathbb{P}(X=k)\,\mathbb{P}(Y=k) \\
+&\text{(par indépendance de } X \text{ et } Y \text{)} \\
+&=\sum\limits_{k=0}^{+\infty}p^2 q^{2k} \\
+&=p^2\,\frac{1}{1-q^2} \\
+&=\frac{p^2}{(1-q)(1+q)} \\
+&=\frac{p^2}{p(1+q)} \\
+&=\frac{p}{1+q} \\
+\end{align}
+
+\noindent
+
+**2.** $X$ et $Y$ jouent des rôles symétriques, donc $\mathbb{P}(X<Y)=\mathbb{P}(Y>X)$, et ces deux probabilités sont alors égales à $\frac{1-\mathbb{P}(X=Y)}{2}$, soit :
+
+$$\mathbb{P}(X<Y)=\mathbb{P}(Y<X)=\frac{q}{1+q}$$
+
+\noindent 
+
+**3.** $X$ et $Y$ étant indépendantes, la loi de $X+Y$ s'obtient par produit de convolution. Son support est $(X+Y)(\Omega)=\mathbb{N}$, et pour tout entier naturel $k$, on a
+
+\begin{align}
+\mathbb{P}(X+Y=k)&=\sum\limits_{i=0}^k\mathbb{P}(X=i)\,\mathbb{P}(Y=k-i) \\
+&=\sum\limits_{i=0}^k pq^i pq^{k-i} \\
+&=p^2\sum\limits_{i=0}^k q^k \\
+&=(k+1)p^2 q^k \\
+\end{align}
+
+\noindent
+
+**Commentaire.** *Bien faire attention ici aux supports des variables $X$ et $Y$. Comme $Y$ est positive, les événements $(X=k)$ et $(Y=k-i)$ ne peuvent être réalisés que si $i\geq 0$ et $k-i\geq 0$, soit $0\leq i\leq k$.*
+
+:::: {.methbox .meth data-latex="important"}
+**Exercice 3.5.** Soit $X$ une variable aléatoire suivant la loi binomiale $\mathcal{B}(n,p)$, avec $n\geq 2$ et $0<p<1$.
+\noindent Soit $Y$ une variable aléatoire telle que :
+
+- pour tout entier $k$ tel que $1\leq k\leq n$, la réalisation de l'événement $(X=k)$ entraîne celle de l'événement $(Y=k)$ ;
+
+- la loi de $Y$ sachant $(X=0)$ est la loi uniforme sur $\{1,2,\dots, n\}$.
+
+
+**1.** Déterminer la loi de probabilité de $Y$.
+
+**2.** Calculer $\mathbb{E}(Y)$.
+
+**3.** Déterminer la loi de probabilité conditionnelle $\mathcal{L}(Y|X\neq 0)$.
+::::
+
+\noindent
+
+**Solution. 1.** On a 
+
+$$\left \{
+\begin{array}{rcl}
+Y|X=0\sim\mathcal{U}_{[\![1;n]\!]} \\
+\forall k\in [\![1;n]\!],\, (X=k)\subset (Y=k) \\
+\end{array}
+\right.$$
+
+\noindent Soit $k\in $[\![1;n]\!]$, alors, d'après la formule des probabilités totales :
+
+\begin{align}
+\mathbb{P}(Y=k)&=\sum\limits_{i=0}^n\mathbb{P}(Y=k, X=i) \\
+&=\underbrace{\mathbb{P}(Y=k|X=0)}_{=\frac{1}{n}}\underbrace{\mathbb{P}(X=0)}_{=(1-p)^n}+\sum\limits_{i=1}^n\underbrace{\mathbb{P}(Y=k, X=i)}_{=\left \{
+\begin{array}{rcl}
+0&;\, \text{ si } i\neq k \\
+\mathbb{P}(X=k)&;\,\text{ si } i=k \\
+\end{array}
+\right.} \\
+&=\frac{1}{n}(1-p)^n+\mathbb{P}(X=k) \\
+&=\frac{1}{n}(1-p)^n+\binom{n}{k}p^k(1-p)^{n-k} \\
+\end{align}
+
+\noindent Montrons enfin que $Y$ a pour support $Y(\Omega)[\![1;n]\!]=$ :
+ 
+
+\begin{align}
+\sum\limits_{k=1}^n\mathbb{P}(Y=k)&=(1-p)^n+\sum\limits_{k=1}^n\binom{n}{k}p^k (1-p)^{n-k} \\
+&=\sum\limits_{k=0}^n\binom{n}{k}p^k (1-p)^{n-k} \\
+&=1 \\
+\end{align}
+
+\noindent car on a sommé les probabilités $\mathbb{P}(Z=k)$, $k\in [\![0;n]\!]$, où $Z\sim\mathcal{B}(n\,;\,p)$.
+
+\noindent On a donc $Y(\Omega)=[\![1;n]\!]$, ce qui permet de conclure cette question.
+
+\noindent
+
+
+**Commentaire :** *Pour traiter rigoureusement cette question, il est important de ne pas éluder la question du support. On peut, comme on l'a fait, calculer $\sum\limits_{k=1}^n\mathbb{P}(Y=k)$, et conclure, si cette somme est bien égale à $1$, que le support est égal à $[\![1;n]\!]$. Une autre approche aurait consisté à démontrer que $\mathbb{P}(Y=x)=0$ pour $x\not\in [\![1;n]\!]$.*
+
+\noindent
+
+**2.** On peut écrire, pour tout $k\in [\![1;n]\!]$, $\mathbb{P}(Y=k)=\frac{1}{n}(1-p)^n+\mathbb{P}(Z=k)$, avec $Z\sim\mathcal{B}(n\,;\,p)$.
+
+\noindent Donc :
+
+\begin{align}
+\sum\limits_{k=1}^n k\mathbb{P}(Y=k)&=\frac{1}{n}(1-p)^n\sum\limits_{k=1}^n k+\sum\limits_{k=1}^n k\mathbb{P}(Z=k) \\
+&=\frac{n+1}{2}(1-p)^n+\mathbb{E}(Z) \\
+&=\frac{n+1}{2}(1-p)^n+np
+\end{align}
+
+\noindent
+
+**3.** Conditionnellement à $(X\neq 0)$, $Y$ prend ses valeurs dans $[\![1;n]\!]$, et pour tout $k\in [\![1;n]\!]$ on a :
+
+\begin{align}
+\mathbb{P}(Y=k|X\neq 0)&=\frac{\mathbb{P}(Y=k, X\neq 0)}{\mathbb{P}(X\neq 0)} \\
+&=\frac{\mathbb{P}(Y=k)-\mathbb{P}(Y=k, X=0)}{1-\mathbb{P}(X=0)} \\
+&=\frac{\mathbb{P}(Y=k)-\mathbb{P}(Y=k| X=0)\mathbb{P}(X=0)}{1-\mathbb{P}(X=0)} \\
+&=\frac{\frac{1}{n}(1-p)^n+\binom{n}{k}p^k (1-p)^{n-k}-(1-p)^n\frac{1}{n}}{1-(1-p)^n} \\ 
+&=\frac{\binom{n}{k}p^k (1-p)^{n-k}}{1-(1-p)^n}
+\end{align}
+
+
+
+
+
+:::: {.methbox .meth data-latex="important"}
+**Exercice 3.6.** Une urne contient des boules numérotées $1$, $2$ et $3$. On tire $n$ boules une à une avec remise. Soient $X$ la variable aléatoire représentant le plus petit des numéros obtenus et $Y$ la variable aléatoire représentant le plus grand.
+
+**1.** Calculer $\mathbb{P}(X\geq i)$ pour $i\in\{1,2,3\}$. En déduire la loi de $X$.
+
+**2.** Calculer $\mathbb{P}(Y\leq j)$ pour tout $j\in\{1,2,3\}$. En déduire la loi de $Y$.
+
+**3.** Les variables aléatoires $X$ et $Y$ sont-elles indépendantes ?
+
+\vspace{0.5cm}
+::::
+
+\noindent
+
+**Commentaire général sur cet exercice.** *Les questions 1 et 2 sont ultra classiques dans les sujets de probas-stat du concours. Il s'agit de calculer la probabilité que le $\max$ ou le $\min$ de $n$ variables aléatoires indépendantes soient inférieures ou supérieures à une certaine valeur. Dans ce cas, le schéma est toujours le même :*
+
+- *on exprime l'événement sur le max ou le min comme une intersection d'événements ;* 
+- *on utilise l'indépendance pour justifier que la probabilité de l'intersection est le produit des probabilités ;*
+- *si de plus les variables aléatoires sont identiquement distribuées (elles sont alors i.i.d.) on utilise le fait que toutes ces probabilités sont égales..*
+
+**Solution. 1.** Pour $k\in [\![1;n]\!]$, on note $X_k\in\{1,2,3\}$ le numéro obtenu lors du tirage numéro $k$. Ces tirages étant effectués avec remise, les variables $X_k$ sont indépendantes.
+
+\noindent On a alors
+
+$$\left \{
+\begin{array}{rcl}
+X&=\min(X_1,\dots, X_n) \\
+Y&=\max(X_1,\dots X_n)\\
+\end{array}
+\right.$$
+
+\noindent $X$ et $Y$ sont à valeurs dans $\{1,2,3\}$.
+
+\noindent Pour $i\in\{1,2,3\}$, on a
+
+\begin{align}
+\mathbb{P}(X\geq i)&=\mathbb{P}\left(\min(X_1,\dots X_n)\geq i \right) \\
+&=\mathbb{P}\left(\bigcap_{k=1}^n (X_k\geq i) \right) \\
+&=\prod\limits_{k=1}^n\mathbb{P}(X_k\geq i) \\
+&\text{(par indépendance)} \\
+&=\left(1-\frac{i-1}{3}\right)^n \\
+&=\left(\frac{4-i}{3}\right)^n \\
+\end{align}
+
+\noindent On a alors
+
+\begin{align}
+\mathbb{P}(X=1)&=\mathbb{P}(X\geq 1)-\mathbb{P}(X\geq 2) \\
+&=1-\left(\frac{2}{3}\right)^n
+\end{align}
+
+\begin{align}
+\mathbb{P}(X=2)&=\mathbb{P}(X\geq 2)-\mathbb{P}(X\geq 3) \\
+&=\left(\frac{2}{3}\right)^n-\frac{1}{3^n} \\
+&=\frac{2^n-1}{3^n} \\
+\end{align}
+
+\begin{align}
+\mathbb{P}(X=3)&=\mathbb{P}(X\geq 3) \\
+&=\frac{1}{3^n}
+\end{align}
+
+\noindent On vérifie de façon immédiate qu'on a bien $\sum\limits_{k=1}^3\mathbb{P}(X=k)=1$.
+
+\noindent
+
+**Commentaire.** *On pourrait aussi calculer $\mathbb{P}(X=3)$ en utilisant la formule $\mathbb{P}(X=3)=1-\mathbb{P}(X=1)-\mathbb{P}(X=2)$. Cependant, dans cet exemple une telle approche ne rendrait pas le calcul plus rapide et présenterait de plus l'inconvénient de masquer d'éventuelles erreurs sur les calculs préalables de $\mathbb{P}(X=1)$ et $\mathbb{P}(X=2)$.*
+
+
+ \noindent
+ 
+ **2.** Soit $j\in [\![1;3]\!]$. On a 
+ 
+\begin{align}
+\mathbb{P}(Y\leq j)&=\mathbb{P}\left(\max(X_1,\dots X_n)\leq j \right) \\
+&=\mathbb{P}\left(\bigcap_{k=1}^n (X_k\leq j) \right) \\
+&=\prod\limits_{k=1}^n\mathbb{P}(X_k\leq j) \\
+&\text{(par indépendance)} \\
+&=\left(\frac{j}{3}\right)^n \\
+\end{align}
+
+\noindent pour tout $j\in[\![1;3]\!]$ on a donc
+
+\begin{align}
+\mathbb{P}(Y=j)&=\mathbb{P}(Y\leq j)-\mathbb{P}(Y\leq j-1) \\
+&=\left(\frac{j}{3}\right)^n-\left(\frac{j-1}{3}\right)^n
+\end{align}
+
+
+\noindent
+
+**Commentaires. i.** *Si on veut être un tout petit peu plus explicite, on peut préciser que cette dernière expression est valable pour $j=2,3$, mais qu'elle l'est aussi a posteriori pour $j=1$ car $\mathbb{P}(Y\leq 1-1)=0=\left(\frac{1-1}{3}\right)^n$.*
+
+\noindent
+
+**ii.**  *Dans la question précédente, on aurait très bien pu écrire le résultat de $\mathbb{P}(X=i)$ sous une forme générique comme on le fait ici.*
+
+**iii.** *Modulo un échange entre les symboles $\min$ et $\max$ d'une part, et $\leq$ et $\geq$ d'autre part, les questions 1 et 2 sont identiques. Dès lors qu'on a traité la question 1 soigneusement, on peut certainement se permettre de gagner un peu de temps et donner directement (si on le voit !) le résultat de la question 2, en évoquant par exemple un "raisonnement analogue" à celui de la question 1. De façon générale, il faut se dire qu'une rédaction efficace doit :*
+
+*- convaincre le correcteur qu'on a bien compris ce qu'on faisait et qu'on sait rédiger de façon rigoureuse (l'un impliquant généralement l'autre) ;*
+
+*- éviter les redites afin de gagner un peu de temps, sans trop sacrifier le point précédent. Sur un type de raisonnement que l'on a déjà rédigé de façon rigoureuse lors d'une question précédente, on peut probablement aller un peu plus vite sans s'attirer les foudres de la personne qui corrige la copie...*
+
+\noindent
+
+**3.** On a $X\leq Y$, donc $\mathbb{P}(X=2, Y=1)=0\neq\mathbb{P}(X=2)\mathbb{P}(Y=1)$. Les variables $X$ et $Y$ ne sont donc pas indépendantes.
+
+
+:::: {.methbox .meth data-latex="important"}
+**Exercice 3.7.** Soient $X$ et $Y$ deux variables aléatoires de Bernoulli indépendantes, de même paramètre $p\in ]0\,;\,1[$. On note $U=X+Y$ et $V=X-Y$.
+
+**1.** Déterminer la loi du couple $(U,V)$.
+
+**2.** Calculer le coefficient de corrélation $\rho_{U,V}$.
+
+**3.** $U$ et $V$ sont-elles indépendantes ? Que peut-on conclure ?
+::::
+
+
+
+:::: {.methbox .meth data-latex="important"}
+**Exercice 3.8.** Soient $X$ et $Y$ deux variables aléatoires à valeurs dans $\mathbb{N}$. On donne la loi du couple $(X,Y)$ :
+
+$$\forall (i,j)\mathbb{N}^2, \, \mathbb{P}(X=i, Y=j)=\frac{(i+j)\lambda^{i+j}}{e\,i!\,j!}$$
+
+**1.** Déterminer $\lambda$. Donner la loi de $X$.
+
+**2.** Les variables $X$ et $Y$ sont-elles indépendantes ?
+::::
+
+
+
+
+:::: {.methbox .meth data-latex="important"}
+**Exercice 3.9.** Soient $X$ et $Y$ deux variables aléatoires indepéndantes de loi de Poisson de paramètres respectifs $\lambda$ et $\mu$. Déterminer la loi conditionnelle de $X$ lorsque la somme $S=X+Y$ a une valeur finie $S=s$. En déduire l'expression de la fonction de régression de $X$ sur $S$ puis la valeur de $\mathbb{E}(\mathbb{E}(X|S)$.
+::::
+
+:::: {.methbox .meth data-latex="important"}
+**Exercice 3.10.** Soit $X$ une variable aléatoire suivant une loi exponentielle de paramètre $\frac{1}{2}$.
+
+**1.a.** Déterminer une densité de $Y=\sqrt{X}$.
+
+**b.** Déterminer l'espérance et la variance de $Y$.
+
+**2.** Déterminer une densité de $Z=X^2$.
+::::
+
+
+
+
+:::: {.methbox .meth data-latex="important"}
+**Exercice 3.11.** Soient $X$ et $U$ deux variables aléatoires indépendantes, où $X\sim\mathcal{N}(0,1)$ et $U\sim\mathcal{U}_{\{-1,1\}}$. On définit $Y=UX$.
+
+**1.** Démontrer que, pour tout réel $x$ :
+
+$$\mathbb{P}(Y\leq x)=\frac{1}{2}\mathbb{P}(X\leq x)+\frac{1}{2}\mathbb{P}(X\geq -x)$$
+
+**2.** En déduire que $Y$ suit une loi normale centrée réduite.
+
+**3.** Calculer l'espérance de $U$ puis démontrer que $\mathbb{E}(XY)=0$.
+
+**4.** En déduire que $\text{Cov}(X,Y)=0$.
+::::
+
+
+
+:::: {.methbox .meth data-latex="important"}
+**Exercice 3.12. 1.** Soient $X$ et $Y$ deux variables aléatoires indépendantes de loi commune $\mathcal{E}(\lambda)$, avec $\lambda>0$. Déterminer une densité de $X+Y$.
+
+**2.** Plus généralement, soient $X_1,\dots,X_n$ des variables aléatoires indépendantes de même loi $\mathcal{E}(\lambda)$. Pour tout entier $n\geq 1$, on note
+
+$$S_n=\sum\limits_{k=1}^n X_k$$
+
+\noindent Démontrer qu'une densité de $S_n$ est donnée par
+
+$$f_n(x)=\left \{
+\begin{array}{c @{} c}
+    \frac{\lambda^n}{(n-1)!}\,x^{n-1}\,e^{-\lambda x} & \text{ si } x\geq 0 \\
+    0 & \text{ si }\lambda<0
+\end{array}
+\right.$$
+::::
+
+
+:::: {.methbox .meth data-latex="important"}
+**Exercice 3.13.** Soient $X$ et $Y$ deux variables indépendantes de loi normale centrée réduite (de densité $\varphi$ et de fonction de répartition $\Phi$). On pose
+
+$$Z=\text{sup}(X,Y)$$
+
+**1.a.** Démontrer que $Z$ est une variable à densité.
+
+**b.** Vérifier que $Z$ admet pour densité $f$ définie, pour tout réel $x$, par $f(x)=2\,\varphi(x)\,\Phi(x)$.
+
+**2.a.** Justifier la convergence et donner la valeur de $\int_{-\infty}^{+\infty}e^{-t^2}\,dt$.
+
+**b.** En remarquant que $\varphi'(x)=-x\,\varphi(x)$, démontrer que
+
+$$\int_{0}^{+\infty}x\,f(x)\,dx=\frac{1}{\sqrt{2\pi}}+\frac{1}{\pi}\int_{0}^{+\infty}e^{-x^2}\,dx$$
+    
+**c.** Vérifier de même que
+
+$$\int_{-\infty}^{0}x\,f(x)\,dx=-\frac{1}{\sqrt{2\pi}}+\frac{1}{\pi}\int_{-\infty}^{0}e^{-x^2}\,dx$$
+
+En déduire que $Z$ admet une espérance et donner sa valeur.
+
+**3.a.** Démontrer que $X^2$ et $Z^2$ suivent la même loi.
+
+**b.** Déterminer $\mathbb{E}(X^2)$ puis donner la valeur de $\mathbb{V}(Z)$.
+::::
+
+
+
+:::: {.methbox .meth data-latex="important"}
+**Exercice 3.14.** Soit $(X,Y)$ un couple de variables aléatoires, de densité 
+
+$$f(x,y)=\left \{
+\begin{array}{c @{} c}
+    \frac{k}{\sqrt{xy}} & \text{ si } 0<x\leq y<1 \\
+    0 & \text{ sinon }
+\end{array}
+\right.$$
+
+**1.** Déterminer la valeur de $k$ ainsi que la fonction de répartition du couple $(X,Y)$.
+
+**2.** Déterminer les lois marginales de $X$ et $Y$. Ces variables sont-elles indépendantes ?
+
+**3.** Déterminer les lois conditionnelles de $X|Y=y$ et de $Y|X=x$. En déduire l'expression de la fonction de régression $x\mapsto\mathbb{E}(Y|X=x)$, puis calculer $\mathbb{E}(\mathbb{E}(Y|X))$.
+::::
+
+## Variables à densité
 
 
 ## Annales des oraux

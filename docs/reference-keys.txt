@@ -155,3 +155,4 @@ fonction-de-répartition-dun-couple-xy-de-variables-continues
 couples-xy-admettant-une-densité
 lois-marginales
 espérance-conditionnelle
+variables-à-densité
