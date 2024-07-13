@@ -1344,16 +1344,74 @@ alors que</p>
 <p><span class="math display">\[\mathbb{P}(X=0, Y=0)=0\]</span></p>
 <p>Ainsi, <span class="math inline">\(\mathbb{P}(X=0, Y=0)\neq\mathbb{P}(X=0)\mathbb{P}(Y=0)\)</span>, et donc les variables aléatoires <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span> ne sont pas indépendantes.</p>
 <div class="methbox meth">
-<p><strong>Exercice 3.9.</strong> Soient <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span> deux variables aléatoires indepéndantes de loi de Poisson de paramètres respectifs <span class="math inline">\(\lambda\)</span> et <span class="math inline">\(\mu\)</span>. Déterminer la loi conditionnelle de <span class="math inline">\(X\)</span> lorsque la somme <span class="math inline">\(S=X+Y\)</span> a une valeur finie <span class="math inline">\(S=s\)</span>. En déduire l’expression de la fonction de régression de <span class="math inline">\(X\)</span> sur <span class="math inline">\(S\)</span> puis la valeur de <span class="math inline">\(\mathbb{E}(\mathbb{E}(X|S)\)</span>.</p>
+<p><strong>Exercice 3.9.</strong> Soient <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span> deux variables aléatoires indepéndantes de loi de Poisson de paramètres respectifs <span class="math inline">\(\lambda\)</span> et <span class="math inline">\(\mu\)</span>. Déterminer la loi conditionnelle de <span class="math inline">\(X\)</span> lorsque la somme <span class="math inline">\(S=X+Y\)</span> a une valeur finie <span class="math inline">\(S=s\)</span>. En déduire l’expression de la fonction de régression de <span class="math inline">\(X\)</span> sur <span class="math inline">\(S\)</span> puis la valeur de <span class="math inline">\(\mathbb{E}(\mathbb{E}(X|S))\)</span>.</p>
 </div>
+<p></p>
+<p><strong>Solution.</strong> <span class="math inline">\(S(\Omega)=\mathbb{N}\)</span>, on cherche donc la loi <span class="math inline">\(\mathcal{L}(X|X+Y=s)\)</span> pour <span class="math inline">\(s\in\mathbb{N}\)</span>. Conditionnellement à l’événement <span class="math inline">\((X+Y=s)\)</span>, <span class="math inline">\(X\)</span> est à valeurs dans <span class="math inline">\([\![0\,;\,s]\!]\)</span>.</p>
+<p>Soit <span class="math inline">\(k\in[\![0\,;\,s]\!]\)</span>, calculons <span class="math inline">\(\mathbb{P}(X=k|X+Y=s)\)</span>. On a :</p>
+<p><span class="math display">\[\begin{align}
+\mathbb{P}(X=k|X+Y=s)&amp;=\frac{\mathbb{P}(X=k, X+Y=s)}{\mathbb{P}(X+Y=s)} \\
+&amp;=\frac{\mathbb{P}(X=k, Y=s-k)}{\mathbb{P}(X+Y=s)} \\
+&amp;=\frac{\mathbb{P}(X=k)\mathbb{P}(Y=s-k)}{\mathbb{P}(X+Y=s)} \\
+&amp;\text{(car } X \text{ et } Y \text{ sont indépendantes)} \\
+\end{align}\]</span></p>
+<p>On utilise le résultat classique suivant :</p>
 <div class="methbox meth">
-<p><strong>Exercice 3.10.</strong> Soit <span class="math inline">\(X\)</span> une variable aléatoire suivant une loi exponentielle de paramètre <span class="math inline">\(\frac{1}{2}\)</span>.</p>
+<p><strong>Somme de deux lois de Poisson indépendantes.</strong> Soient <span class="math inline">\(\lambda\)</span> et <span class="math inline">\(\mu\)</span> deux réels strictement positifs et <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span> deux variables indépendantes telles que</p>
+<p><span class="math display">\[X\sim\mathcal{P}(\lambda)\]</span>
+<span class="math display">\[Y\sim\mathcal{P}(\mu)\]</span>
+Alors :</p>
+<p><span class="math display">\[X+Y\sim\mathcal{P}(\lambda+\mu)\]</span></p>
+</div>
+<p></p>
+<p><strong>Démonstration.</strong> <span class="math inline">\(X+Y(\Omega)=\mathbb{N}\)</span>. Comme <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span> sont indépendantes, la loi de <span class="math inline">\(X+Y\)</span> est donnée par le produit de convolution entre <span class="math inline">\(\mathbb{P}_X\)</span> et <span class="math inline">\(\mathbb{P}_Y\)</span> :</p>
+<p><span class="math display">\[\mathbb{P}_{X+Y}=\mathbb{P}_X*\mathbb{P}_Y\]</span></p>
+<p>Soit <span class="math inline">\(k\in\mathbb{N}\)</span>. On a donc</p>
+<p><span class="math display">\[\begin{align}
+\mathbb{P}(X+Y=k)&amp;=\sum\limits_{i\in\mathbb{N}}\mathbb{P}(X=i)\,\mathbb{P}(Y=k-i) \\
+&amp;=\sum\limits_{i=0}^k\mathbb{P}(X=i)\,\mathbb{P}(Y=k-i) \\
+&amp;=\sum\limits_{i=0}^k\frac{\lambda^i}{i!}e^{-\lambda}\frac{\mu^{k-i}}{(k-i)!}e^{-\mu} \\
+&amp;=e^{-(\lambda+\mu)}\mu^k\sum\limits_{i=0}^k\left(\frac{\lambda}{\mu}\right)^i\frac{1}{i!}\frac{1}{(k-i)!} \\
+&amp;=e^{-(\lambda+\mu)}\frac{\mu^k}{k!}\sum\limits_{i=0}^k\binom{k}{i}\left(\frac{\lambda}{\mu}\right)^i \\
+&amp;=e^{-(\lambda+\mu)}\frac{\mu^k}{k!}\left(1+\frac{\lambda}{\mu}\right)^k \\
+&amp;=e^{-(\lambda+\mu)}\frac{(\lambda+\mu)^k}{k!} \\
+\end{align}\]</span></p>
+<p>et on donc on a bien <span class="math inline">\(X+Y\sim\mathcal{P}(\lambda+\mu)\)</span>.</p>
+<p><span class="math inline">\(\square\)</span></p>
+<p></p>
+<p><strong>Commentaire.</strong> <em>Ce résultat peut être considéré comme du cours. En pratique, il faut donc le connaître, mais aussi savoir le démontrer.</em></p>
+<p>On revient au calcul de <span class="math inline">\(\mathbb{P}(X=k|X+Y=s)\)</span>. On a donc :</p>
+<p><span class="math display">\[\begin{align}
+\mathbb{P}(X=k|X+Y=s)&amp;=\frac{\mathbb{P}(X=k)\mathbb{P}(Y=s-k)}{\mathbb{P}(X+Y=s)} \\
+&amp;=\frac{\lambda^k e^{-\lambda}\,\mu^{s-k} e^{-\mu}}{k!\,(s-k)!\,\frac{(\lambda+\mu)^s}{s!}e^{-(\lambda+\mu)}} \\
+&amp;=\frac{s!}{k!\,(s-k)!}\,\frac{\lambda^k\,\mu^{s-k}}{(\lambda+\mu)^s} \\
+&amp;=\binom{s}{k}\left(\frac{\lambda}{\lambda+\mu}\right)^k\,\left(\frac{\mu}{\lambda+\mu}\right)^{s-k} \\
+&amp;=\binom{s}{k}p^k\,(1-p)^{s-k}\\
+\end{align}\]</span></p>
+<p>où <span class="math inline">\(p=\frac{\lambda}{\lambda+\mu}\)</span>.</p>
+<p>Ainsi, on a</p>
+<p><span class="math display">\[X|X+Y=s\sim\mathcal{B}\left(s\,;\,\frac{\lambda}{\lambda+\mu}\right)\]</span>
+On en déduit que</p>
+<p><span class="math display">\[\forall s\in\mathbb{N},\,\mathbb{E}(X|X+Y=s)=\frac{\lambda}{\lambda+\mu}s\]</span></p>
+<p>Par conséquent, <span class="math inline">\(\mathbb{E}(X|S)\)</span> est la variable aléatoire</p>
+<p><span class="math display">\[\mathbb{E}(X|S)=\frac{\lambda}{\lambda+\mu}S\]</span>
+Elle admet une espérance, et</p>
+<p><span class="math display">\[\begin{align}
+\mathbb{E}\left(\mathbb{E}(X|S)\right)&amp;=\frac{\lambda}{\lambda+\mu}\mathbb{E}(S) \\
+&amp;=\frac{\lambda}{\lambda+\mu}(\lambda+\mu) \\
+&amp;=\lambda
+\end{align}\]</span></p>
+</div>
+<div id="variables-à-densité" class="section level2 hasAnchor" number="9.3">
+<h2><span class="header-section-number">9.3</span> Variables à densité<a href="exercices.html#variables-à-densité" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="methbox meth">
+<p><strong>Exercice 4.1.</strong> Soit <span class="math inline">\(X\)</span> une variable aléatoire suivant une loi exponentielle de paramètre <span class="math inline">\(\frac{1}{2}\)</span>.</p>
 <p><strong>1.a.</strong> Déterminer une densité de <span class="math inline">\(Y=\sqrt{X}\)</span>.</p>
 <p><strong>b.</strong> Déterminer l’espérance et la variance de <span class="math inline">\(Y\)</span>.</p>
 <p><strong>2.</strong> Déterminer une densité de <span class="math inline">\(Z=X^2\)</span>.</p>
 </div>
 <div class="methbox meth">
-<p><strong>Exercice 3.11.</strong> Soient <span class="math inline">\(X\)</span> et <span class="math inline">\(U\)</span> deux variables aléatoires indépendantes, où <span class="math inline">\(X\sim\mathcal{N}(0,1)\)</span> et <span class="math inline">\(U\sim\mathcal{U}_{\{-1,1\}}\)</span>. On définit <span class="math inline">\(Y=UX\)</span>.</p>
+<p><strong>Exercice 4.2.</strong> Soient <span class="math inline">\(X\)</span> et <span class="math inline">\(U\)</span> deux variables aléatoires indépendantes, où <span class="math inline">\(X\sim\mathcal{N}(0,1)\)</span> et <span class="math inline">\(U\sim\mathcal{U}_{\{-1,1\}}\)</span>. On définit <span class="math inline">\(Y=UX\)</span>.</p>
 <p><strong>1.</strong> Démontrer que, pour tout réel <span class="math inline">\(x\)</span> :</p>
 <p><span class="math display">\[\mathbb{P}(Y\leq x)=\frac{1}{2}\mathbb{P}(X\leq x)+\frac{1}{2}\mathbb{P}(X\geq -x)\]</span></p>
 <p><strong>2.</strong> En déduire que <span class="math inline">\(Y\)</span> suit une loi normale centrée réduite.</p>
@@ -1361,7 +1419,7 @@ alors que</p>
 <p><strong>4.</strong> En déduire que <span class="math inline">\(\text{Cov}(X,Y)=0\)</span>.</p>
 </div>
 <div class="methbox meth">
-<p><strong>Exercice 3.12. 1.</strong> Soient <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span> deux variables aléatoires indépendantes de loi commune <span class="math inline">\(\mathcal{E}(\lambda)\)</span>, avec <span class="math inline">\(\lambda&gt;0\)</span>. Déterminer une densité de <span class="math inline">\(X+Y\)</span>.</p>
+<p><strong>Exercice 4.3. 1.</strong> Soient <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span> deux variables aléatoires indépendantes de loi commune <span class="math inline">\(\mathcal{E}(\lambda)\)</span>, avec <span class="math inline">\(\lambda&gt;0\)</span>. Déterminer une densité de <span class="math inline">\(X+Y\)</span>.</p>
 <p><strong>2.</strong> Plus généralement, soient <span class="math inline">\(X_1,\dots,X_n\)</span> des variables aléatoires indépendantes de même loi <span class="math inline">\(\mathcal{E}(\lambda)\)</span>. Pour tout entier <span class="math inline">\(n\geq 1\)</span>, on note</p>
 <p><span class="math display">\[S_n=\sum\limits_{k=1}^n X_k\]</span></p>
 <p>Démontrer qu’une densité de <span class="math inline">\(S_n\)</span> est donnée par</p>
@@ -1373,7 +1431,7 @@ alors que</p>
 \right.\]</span></p>
 </div>
 <div class="methbox meth">
-<p><strong>Exercice 3.13.</strong> Soient <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span> deux variables indépendantes de loi normale centrée réduite (de densité <span class="math inline">\(\varphi\)</span> et de fonction de répartition <span class="math inline">\(\Phi\)</span>). On pose</p>
+<p><strong>Exercice 4.4.</strong> Soient <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span> deux variables indépendantes de loi normale centrée réduite (de densité <span class="math inline">\(\varphi\)</span> et de fonction de répartition <span class="math inline">\(\Phi\)</span>). On pose</p>
 <p><span class="math display">\[Z=\text{sup}(X,Y)\]</span></p>
 <p><strong>1.a.</strong> Démontrer que <span class="math inline">\(Z\)</span> est une variable à densité.</p>
 <p><strong>b.</strong> Vérifier que <span class="math inline">\(Z\)</span> admet pour densité <span class="math inline">\(f\)</span> définie, pour tout réel <span class="math inline">\(x\)</span>, par <span class="math inline">\(f(x)=2\,\varphi(x)\,\Phi(x)\)</span>.</p>
@@ -1387,7 +1445,7 @@ alors que</p>
 <p><strong>b.</strong> Déterminer <span class="math inline">\(\mathbb{E}(X^2)\)</span> puis donner la valeur de <span class="math inline">\(\mathbb{V}(Z)\)</span>.</p>
 </div>
 <div class="methbox meth">
-<p><strong>Exercice 3.14.</strong> Soit <span class="math inline">\((X,Y)\)</span> un couple de variables aléatoires, de densité</p>
+<p><strong>Exercice 4.5.</strong> Soit <span class="math inline">\((X,Y)\)</span> un couple de variables aléatoires, de densité</p>
 <p><span class="math display">\[f(x,y)=\left \{
 \begin{array}{c @{} c}
     \frac{k}{\sqrt{xy}} &amp; \text{ si } 0&lt;x\leq y&lt;1 \\
@@ -1398,9 +1456,6 @@ alors que</p>
 <p><strong>2.</strong> Déterminer les lois marginales de <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span>. Ces variables sont-elles indépendantes ?</p>
 <p><strong>3.</strong> Déterminer les lois conditionnelles de <span class="math inline">\(X|Y=y\)</span> et de <span class="math inline">\(Y|X=x\)</span>. En déduire l’expression de la fonction de régression <span class="math inline">\(x\mapsto\mathbb{E}(Y|X=x)\)</span>, puis calculer <span class="math inline">\(\mathbb{E}(\mathbb{E}(Y|X))\)</span>.</p>
 </div>
-</div>
-<div id="variables-à-densité" class="section level2 hasAnchor" number="9.3">
-<h2><span class="header-section-number">9.3</span> Variables à densité<a href="exercices.html#variables-à-densité" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 </div>
 <div id="annales-des-oraux" class="section level2 hasAnchor" number="9.4">
 <h2><span class="header-section-number">9.4</span> Annales des oraux<a href="exercices.html#annales-des-oraux" class="anchor-section" aria-label="Anchor link to header"></a></h2>

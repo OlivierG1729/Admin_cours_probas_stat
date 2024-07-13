@@ -1690,11 +1690,98 @@ $$\mathbb{P}(X=0, Y=0)=0$$
 
 
 :::: {.methbox .meth data-latex="important"}
-**Exercice 3.9.** Soient $X$ et $Y$ deux variables aléatoires indepéndantes de loi de Poisson de paramètres respectifs $\lambda$ et $\mu$. Déterminer la loi conditionnelle de $X$ lorsque la somme $S=X+Y$ a une valeur finie $S=s$. En déduire l'expression de la fonction de régression de $X$ sur $S$ puis la valeur de $\mathbb{E}(\mathbb{E}(X|S)$.
+**Exercice 3.9.** Soient $X$ et $Y$ deux variables aléatoires indepéndantes de loi de Poisson de paramètres respectifs $\lambda$ et $\mu$. Déterminer la loi conditionnelle de $X$ lorsque la somme $S=X+Y$ a une valeur finie $S=s$. En déduire l'expression de la fonction de régression de $X$ sur $S$ puis la valeur de $\mathbb{E}(\mathbb{E}(X|S))$.
 ::::
 
+\noindent
+
+**Solution.** $S(\Omega)=\mathbb{N}$, on cherche donc la loi $\mathcal{L}(X|X+Y=s)$ pour $s\in\mathbb{N}$. Conditionnellement à l'événement $(X+Y=s)$, $X$ est à valeurs dans $[\![0\,;\,s]\!]$.
+
+\noindent Soit $k\in[\![0\,;\,s]\!]$, calculons $\mathbb{P}(X=k|X+Y=s)$. On a :
+
+\begin{align}
+\mathbb{P}(X=k|X+Y=s)&=\frac{\mathbb{P}(X=k, X+Y=s)}{\mathbb{P}(X+Y=s)} \\
+&=\frac{\mathbb{P}(X=k, Y=s-k)}{\mathbb{P}(X+Y=s)} \\
+&=\frac{\mathbb{P}(X=k)\mathbb{P}(Y=s-k)}{\mathbb{P}(X+Y=s)} \\
+&\text{(car } X \text{ et } Y \text{ sont indépendantes)} \\
+\end{align}
+
+\noindent On utilise le résultat classique suivant :
+
 :::: {.methbox .meth data-latex="important"}
-**Exercice 3.10.** Soit $X$ une variable aléatoire suivant une loi exponentielle de paramètre $\frac{1}{2}$.
+**Somme de deux lois de Poisson indépendantes.** Soient $\lambda$ et $\mu$ deux réels strictement positifs et $X$ et $Y$ deux variables indépendantes telles que 
+
+$$X\sim\mathcal{P}(\lambda)$$
+$$Y\sim\mathcal{P}(\mu)$$
+\noindent Alors :
+
+$$X+Y\sim\mathcal{P}(\lambda+\mu)$$
+::::
+
+\noindent 
+
+**Démonstration.** $X+Y(\Omega)=\mathbb{N}$. Comme $X$ et $Y$ sont indépendantes, la loi de $X+Y$ est donnée par le produit de convolution entre $\mathbb{P}_X$ et $\mathbb{P}_Y$ :
+
+$$\mathbb{P}_{X+Y}=\mathbb{P}_X*\mathbb{P}_Y$$
+
+Soit $k\in\mathbb{N}$. On a donc
+
+\begin{align}
+\mathbb{P}(X+Y=k)&=\sum\limits_{i\in\mathbb{N}}\mathbb{P}(X=i)\,\mathbb{P}(Y=k-i) \\
+&=\sum\limits_{i=0}^k\mathbb{P}(X=i)\,\mathbb{P}(Y=k-i) \\
+&=\sum\limits_{i=0}^k\frac{\lambda^i}{i!}e^{-\lambda}\frac{\mu^{k-i}}{(k-i)!}e^{-\mu} \\
+&=e^{-(\lambda+\mu)}\mu^k\sum\limits_{i=0}^k\left(\frac{\lambda}{\mu}\right)^i\frac{1}{i!}\frac{1}{(k-i)!} \\
+&=e^{-(\lambda+\mu)}\frac{\mu^k}{k!}\sum\limits_{i=0}^k\binom{k}{i}\left(\frac{\lambda}{\mu}\right)^i \\
+&=e^{-(\lambda+\mu)}\frac{\mu^k}{k!}\left(1+\frac{\lambda}{\mu}\right)^k \\
+&=e^{-(\lambda+\mu)}\frac{(\lambda+\mu)^k}{k!} \\
+\end{align}
+
+\noindent et on donc on a bien $X+Y\sim\mathcal{P}(\lambda+\mu)$.
+
+$\square$
+
+\noindent
+
+**Commentaire.** *Ce résultat peut être considéré comme du cours. En pratique, il faut donc le connaître, mais aussi savoir le démontrer.*
+
+\noindent On revient au calcul de $\mathbb{P}(X=k|X+Y=s)$. On a donc :
+
+\begin{align}
+\mathbb{P}(X=k|X+Y=s)&=\frac{\mathbb{P}(X=k)\mathbb{P}(Y=s-k)}{\mathbb{P}(X+Y=s)} \\
+&=\frac{\lambda^k e^{-\lambda}\,\mu^{s-k} e^{-\mu}}{k!\,(s-k)!\,\frac{(\lambda+\mu)^s}{s!}e^{-(\lambda+\mu)}} \\
+&=\frac{s!}{k!\,(s-k)!}\,\frac{\lambda^k\,\mu^{s-k}}{(\lambda+\mu)^s} \\
+&=\binom{s}{k}\left(\frac{\lambda}{\lambda+\mu}\right)^k\,\left(\frac{\mu}{\lambda+\mu}\right)^{s-k} \\
+&=\binom{s}{k}p^k\,(1-p)^{s-k}\\
+\end{align}
+
+\noindent où $p=\frac{\lambda}{\lambda+\mu}$.
+
+\noindent Ainsi, on a
+
+$$X|X+Y=s\sim\mathcal{B}\left(s\,;\,\frac{\lambda}{\lambda+\mu}\right)$$
+\noindent On en déduit que
+
+$$\forall s\in\mathbb{N},\,\mathbb{E}(X|X+Y=s)=\frac{\lambda}{\lambda+\mu}s$$
+
+\noindent Par conséquent, $\mathbb{E}(X|S)$ est la variable aléatoire
+
+$$\mathbb{E}(X|S)=\frac{\lambda}{\lambda+\mu}S$$
+\noindent Elle admet une espérance, et
+
+\begin{align}
+\mathbb{E}\left(\mathbb{E}(X|S)\right)&=\frac{\lambda}{\lambda+\mu}\mathbb{E}(S) \\
+&=\frac{\lambda}{\lambda+\mu}(\lambda+\mu) \\
+&=\lambda
+\end{align}
+
+
+
+
+## Variables à densité
+
+
+:::: {.methbox .meth data-latex="important"}
+**Exercice 4.1.** Soit $X$ une variable aléatoire suivant une loi exponentielle de paramètre $\frac{1}{2}$.
 
 **1.a.** Déterminer une densité de $Y=\sqrt{X}$.
 
@@ -1707,7 +1794,7 @@ $$\mathbb{P}(X=0, Y=0)=0$$
 
 
 :::: {.methbox .meth data-latex="important"}
-**Exercice 3.11.** Soient $X$ et $U$ deux variables aléatoires indépendantes, où $X\sim\mathcal{N}(0,1)$ et $U\sim\mathcal{U}_{\{-1,1\}}$. On définit $Y=UX$.
+**Exercice 4.2.** Soient $X$ et $U$ deux variables aléatoires indépendantes, où $X\sim\mathcal{N}(0,1)$ et $U\sim\mathcal{U}_{\{-1,1\}}$. On définit $Y=UX$.
 
 **1.** Démontrer que, pour tout réel $x$ :
 
@@ -1723,7 +1810,7 @@ $$\mathbb{P}(Y\leq x)=\frac{1}{2}\mathbb{P}(X\leq x)+\frac{1}{2}\mathbb{P}(X\geq
 
 
 :::: {.methbox .meth data-latex="important"}
-**Exercice 3.12. 1.** Soient $X$ et $Y$ deux variables aléatoires indépendantes de loi commune $\mathcal{E}(\lambda)$, avec $\lambda>0$. Déterminer une densité de $X+Y$.
+**Exercice 4.3. 1.** Soient $X$ et $Y$ deux variables aléatoires indépendantes de loi commune $\mathcal{E}(\lambda)$, avec $\lambda>0$. Déterminer une densité de $X+Y$.
 
 **2.** Plus généralement, soient $X_1,\dots,X_n$ des variables aléatoires indépendantes de même loi $\mathcal{E}(\lambda)$. Pour tout entier $n\geq 1$, on note
 
@@ -1741,7 +1828,7 @@ $$f_n(x)=\left \{
 
 
 :::: {.methbox .meth data-latex="important"}
-**Exercice 3.13.** Soient $X$ et $Y$ deux variables indépendantes de loi normale centrée réduite (de densité $\varphi$ et de fonction de répartition $\Phi$). On pose
+**Exercice 4.4.** Soient $X$ et $Y$ deux variables indépendantes de loi normale centrée réduite (de densité $\varphi$ et de fonction de répartition $\Phi$). On pose
 
 $$Z=\text{sup}(X,Y)$$
 
@@ -1769,7 +1856,7 @@ En déduire que $Z$ admet une espérance et donner sa valeur.
 
 
 :::: {.methbox .meth data-latex="important"}
-**Exercice 3.14.** Soit $(X,Y)$ un couple de variables aléatoires, de densité 
+**Exercice 4.5.** Soit $(X,Y)$ un couple de variables aléatoires, de densité 
 
 $$f(x,y)=\left \{
 \begin{array}{c @{} c}
@@ -1785,7 +1872,6 @@ $$f(x,y)=\left \{
 **3.** Déterminer les lois conditionnelles de $X|Y=y$ et de $Y|X=x$. En déduire l'expression de la fonction de régression $x\mapsto\mathbb{E}(Y|X=x)$, puis calculer $\mathbb{E}(\mathbb{E}(Y|X))$.
 ::::
 
-## Variables à densité
 
 
 ## Annales des oraux
