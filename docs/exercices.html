@@ -1544,6 +1544,59 @@ Comme <span class="math inline">\(X\)</span> suit la loi normale centrée rédui
 \end{array}
 \right.\]</span></p>
 </div>
+<p></p>
+<p><strong>Commentaire.</strong> <em>Le but de cet exercice est de démontrer le résultat suivant : si <span class="math inline">\(X_1,\dots X_n\)</span> sont <span class="math inline">\(n\)</span> variables aléatoires i.i.d. de loi commune la loi exponentielle <span class="math inline">\(\mathcal{E}(\lambda)\)</span>, avec <span class="math inline">\(\lambda&gt;0\)</span>, alors leur somme <span class="math inline">\(X_1+\dots+X_n\)</span> suit la loi Gamma de paramètres <span class="math inline">\((n,\lambda)\)</span> :</em></p>
+<p><span class="math display">\[X_1+\dots+ X_n\sim\Gamma(n\,;\,\lambda)\]</span></p>
+<p><em>Il est conseillé de retenir ce résultat pour le concours et de savoir le démontrer rapidement.</em></p>
+<p><strong>Solution. 1.</strong> <span class="math inline">\(X+Y\)</span> a pour support <span class="math inline">\(\mathbb{R}_+\)</span> et comme <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span> sont indépendantes, la fonction de densité de <span class="math inline">\(X+Y\)</span> s’obtient comme produit de convolution des densités de <span class="math inline">\(X\)</span> et de <span class="math inline">\(Y\)</span> :</p>
+<p><span class="math display">\[\forall z\geq 0, \, f_{X+Y}(z)=\int_{-\infty}^{+\infty}f_X(x)\,f_Y(z-x)\,dx\]</span>
+sous réserve, pour tout réel <span class="math inline">\(z\geq 0\)</span>, d’existence de cette intégrale.</p>
+<p>Le premier point à vérifier est donc que cette intégrale est bien convergente pour tout <span class="math inline">\(z\geq 0\)</span>.</p>
+<p>Soient <span class="math inline">\(z\geq 0\)</span> et <span class="math inline">\(x\)</span> un réel. Alors <span class="math inline">\(f_X(x)f_Y(z-x)\neq 0\)</span> si et seulement si <span class="math inline">\(x&gt;0\)</span> et <span class="math inline">\(z-x&gt;0\)</span>, autrement dit si et seulement si <span class="math inline">\(0&lt;x&lt;z\)</span>. Mais pour tout <span class="math inline">\(z\geq 0\)</span>, la fonction <span class="math inline">\(x\mapsto f_X(x)f_Y(z-x)\)</span> est continue sur le segment <span class="math inline">\([0\,z]\)</span> (et même sur <span class="math inline">\(\mathbb{R}\)</span>). Par conséquent, pour tout réel <span class="math inline">\(z\geq 0\)</span>, l’intégrale <span class="math inline">\(\int_{-\infty}^{+\infty}f_X(x)f_Y(z-x)\,dx=\int_0^z f_X(x)f_Y(z-x)\,dx\)</span> est convergente, et donc le produit de convolution <span class="math inline">\(f_X*f_Y\)</span> existe.</p>
+<p>Soit <span class="math inline">\(z\geq 0\)</span>. On a</p>
+<p><span class="math display">\[\begin{align}
+f_{X+Y}(z)&amp;=\int_0^z f_X(x)\,f_Y(z-x)\,dx \\
+&amp;=\int_0^z \lambda e^{-\lambda x}.\lambda e^{-\lambda(z-x)}\,dx \\
+&amp;=\lambda^2 e^{-\lambda z}\int_0^z dx \\
+&amp;=\lambda^2 z e^{-\lambda z}
+\end{align}\]</span></p>
+<p>Ainsi, on a</p>
+<p><span class="math display">\[\forall z\in\mathbb{R}, f_{X+Y}(z)=\lambda ^2 z e^{-\lambda z}.1_{\mathbb{R}_+(z)}\]</span>
+On reconnaît la fonction de densité de la loi <span class="math inline">\(\Gamma(2\,;\,\lambda)\)</span>. Autrement dit :</p>
+<p><span class="math display">\[X+Y\sim\Gamma(2\,;\,\lambda)\]</span>
+On en profite pour faire un petit rappel sur la loi Gamma :</p>
+<div class="methbox meth">
+<p><strong>Rappel (densité de la loi Gamma).</strong> Soient <span class="math inline">\(p&gt;0\)</span> et <span class="math inline">\(\theta&gt;0\)</span>. On pose</p>
+<p><span class="math display">\[\Gamma(p)=\int_0^{+\infty} e^{-x} x^{p-1}\,dx\]</span>
+Il s’agit d’une intégrale convergente.</p>
+<p>On appelle alors loi Gamma de paramètres <span class="math inline">\((p,\theta)\)</span>, et on note <span class="math inline">\(\Gamma(p,\theta)\)</span> la loi de densité donnée par</p>
+<p><span class="math display">\[f(x)=\frac{\theta^p}{\Gamma(p)}e^{-\theta x}x^{p-1}.1_{\mathbb{R}_+(x)}\]</span></p>
+</div>
+<p></p>
+<p><strong>2.</strong> On démontre le résultat par récurrence sur <span class="math inline">\(n\in\mathbb{N}^*\)</span>. Celui-ci est clairement vrai pour <span class="math inline">\(n=1\)</span>, et le cas <span class="math inline">\(n=2\)</span> a été démontré dans la question précédente.</p>
+<p>Supposons donc le résultat vrai pour un entier <span class="math inline">\(n\geq 1\)</span> donné, et montrons qu’il est également vrai pour l’entier <span class="math inline">\(n+1\)</span>. On considère donc <span class="math inline">\(n+1\)</span> variables aléatoires <span class="math inline">\(X_1,\dots,X_n,X_{n+1}\)</span> indépendantes et de même loi <span class="math inline">\(\mathcal{E}(\lambda)\)</span>. Leur somme <span class="math inline">\(S_{n+1}\)</span> est à valeur dans <span class="math inline">\(\mathbb{R}_+\)</span>. Par ailleurs,</p>
+<p><span class="math display">\[S_{n+1}=S_n+X_{n+1}\]</span>
+et les variables aléatoires <span class="math inline">\(X_1,\dots,X_n,X_{n+1}\)</span> étant indépendantes, <span class="math inline">\(S_n=\sum\limits_{i=1}^n X_i\)</span> est indépendante de <span class="math inline">\(X_{n+1}\)</span>.</p>
+<p>Pour tout réel <span class="math inline">\(z\geq 0\)</span>, la fonction</p>
+<p><span class="math display">\[x\mapsto f_{n}(x)f_{X_{n+1}}(z-x)=\frac{\lambda^n}{(n-1)!}x^{n-1}e^{-\lambda x}.\lambda e^{-\lambda(z-x)}\]</span></p>
+<p>est continue sur <span class="math inline">\(\mathbb{R}\)</span> et à support dans le segment <span class="math inline">\([0;z]\)</span>. Par conséquent, pour tout <span class="math inline">\(z\geq 0\)</span>, le produit de convolution</p>
+<p><span class="math display">\[\int_{-\infty}^{+\infty}f_{n}(x)f_{X_{n+1}}(z-x)\,dx\]</span></p>
+<p>est une intégrale convergente, et cette intégrale est égale à <span class="math inline">\(f_{n+1}(z)\)</span>.</p>
+<p>On a alors</p>
+<p><span class="math display">\[\begin{align}
+f_{n+1}(z)&amp;=\int_{-\infty}^{+\infty}f_{n}(x)f_{X_{n+1}}(z-x)\,dx \\
+&amp;=\int_{0}^{z}f_{n}(x)f_{X_{n+1}}(z-x)\,dx \\
+&amp;=\int_{0}^{z}\frac{\lambda^n}{(n-1)!}x^{n-1}e^{-\lambda x}.\lambda e^{-\lambda(z-x)}\,dx \\
+&amp;\text{(par hypothèse de récurrence)} \\
+&amp;=\frac{\lambda^{n+1}}{(n-1)!}e^{-\lambda z}\int_0^z x^{n-1}\,dx \\
+&amp;=\frac{\lambda^{n+1}}{n!}x^n e^{-\lambda x} \\
+
+\end{align}\]</span></p>
+<p>Ainsi, pour tout réel <span class="math inline">\(x\)</span> :</p>
+<p><span class="math display">\[f_{n+1}(x)=\frac{\lambda^{n+1}}{n!}x^n e^{-\lambda x}.1_{\mathbb{R}_+}(x)\]</span>
+et le résultat est démontré au rang <span class="math inline">\(n+1\)</span>, ce qui termine la démonstration par récurrence.</p>
+<p>On reconnaît en <span class="math inline">\(f_n\)</span> la densité de la loi <span class="math inline">\(\Gamma(n\,;\,\lambda)\)</span>.</p>
+<p><strong>On a donc montré que la somme de <span class="math inline">\(n\)</span> lois <span class="math inline">\(\mathcal{E}(\lambda)\)</span> indépendantes est égale à la loi <span class="math inline">\(\Gamma(n\,;\,\lambda)\)</span>.</strong></p>
 <div class="methbox meth">
 <p><strong>Exercice 4.4.</strong> Soient <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span> deux variables indépendantes de loi normale centrée réduite (de densité <span class="math inline">\(\varphi\)</span> et de fonction de répartition <span class="math inline">\(\Phi\)</span>). On pose</p>
 <p><span class="math display">\[Z=\text{sup}(X,Y)\]</span></p>

@@ -2002,7 +2002,90 @@ $$f_n(x)=\left \{
 
 \noindent
 
-**Solution. 1.** 
+**Commentaire.** *Le but de cet exercice est de démontrer le résultat suivant : si $X_1,\dots X_n$ sont $n$ variables aléatoires i.i.d. de loi commune la loi exponentielle $\mathcal{E}(\lambda)$, avec $\lambda>0$, alors leur somme $X_1+\dots+X_n$ suit la loi Gamma de paramètres $(n,\lambda)$ :*
+
+$$X_1+\dots+ X_n\sim\Gamma(n\,;\,\lambda)$$
+
+*Il est conseillé de retenir ce résultat pour le concours et de savoir le démontrer rapidement.*
+
+**Solution. 1.** $X+Y$ a pour support $\mathbb{R}_+$ et comme $X$ et $Y$ sont indépendantes, la fonction de densité de $X+Y$ s'obtient comme produit de convolution des densités de $X$ et de $Y$ :
+
+$$\forall z\geq 0, \, f_{X+Y}(z)=\int_{-\infty}^{+\infty}f_X(x)\,f_Y(z-x)\,dx$$
+\noindent sous réserve, pour tout réel $z\geq 0$, d'existence de cette intégrale.
+
+\noindent Le premier point à vérifier est donc que cette intégrale est bien convergente pour tout $z\geq 0$.
+
+\noindent Soient $z\geq 0$ et $x$ un réel. Alors $f_X(x)f_Y(z-x)\neq 0$ si et seulement si $x>0$ et $z-x>0$, autrement dit si et seulement si $0<x<z$. Mais pour tout $z\geq 0$, la fonction $x\mapsto f_X(x)f_Y(z-x)$ est continue sur le segment $[0\,z]$ (et même sur $\mathbb{R}$). Par conséquent, pour tout réel $z\geq 0$, l'intégrale $\int_{-\infty}^{+\infty}f_X(x)f_Y(z-x)\,dx=\int_0^z f_X(x)f_Y(z-x)\,dx$ est convergente, et donc le produit de convolution $f_X*f_Y$ existe.  
+
+\noindent Soit $z\geq 0$. On a
+
+\begin{align}
+f_{X+Y}(z)&=\int_0^z f_X(x)\,f_Y(z-x)\,dx \\
+&=\int_0^z \lambda e^{-\lambda x}.\lambda e^{-\lambda(z-x)}\,dx \\
+&=\lambda^2 e^{-\lambda z}\int_0^z dx \\
+&=\lambda^2 z e^{-\lambda z}
+\end{align}
+
+\noindent Ainsi, on a 
+
+$$\forall z\in\mathbb{R}, f_{X+Y}(z)=\lambda ^2 z e^{-\lambda z}.1_{\mathbb{R}_+(z)}$$
+\noindent On reconnaît la fonction de densité de la loi $\Gamma(2\,;\,\lambda)$. Autrement dit :
+
+$$X+Y\sim\Gamma(2\,;\,\lambda)$$
+\noindent On en profite pour faire un petit rappel sur la loi Gamma :
+
+:::: {.methbox .meth data-latex="important"}
+**Rappel (densité de la loi Gamma).** Soient $p>0$ et $\theta>0$. On pose 
+
+$$\Gamma(p)=\int_0^{+\infty} e^{-x} x^{p-1}\,dx$$
+\noindent Il s'agit d'une intégrale convergente.
+
+\noindent On appelle alors loi Gamma de paramètres $(p,\theta)$, et on note $\Gamma(p,\theta)$ la loi de densité donnée par 
+
+$$f(x)=\frac{\theta^p}{\Gamma(p)}e^{-\theta x}x^{p-1}.1_{\mathbb{R}_+(x)}$$
+::::
+
+
+\noindent
+
+**2.** On démontre le résultat par récurrence sur $n\in\mathbb{N}^*$. Celui-ci est clairement vrai pour $n=1$, et le cas $n=2$ a été démontré dans la question précédente.
+
+\noindent Supposons donc le résultat vrai pour un entier $n\geq 1$ donné, et montrons qu'il est également vrai pour l'entier $n+1$. On considère donc $n+1$ variables aléatoires $X_1,\dots,X_n,X_{n+1}$ indépendantes et de même loi $\mathcal{E}(\lambda)$. Leur somme $S_{n+1}$ est à valeur dans $\mathbb{R}_+$. Par ailleurs, 
+
+$$S_{n+1}=S_n+X_{n+1}$$
+\noindent et les variables aléatoires $X_1,\dots,X_n,X_{n+1}$ étant indépendantes, $S_n=\sum\limits_{i=1}^n X_i$ est indépendante de $X_{n+1}$. 
+
+\noindent Pour tout réel $z\geq 0$, la fonction 
+
+$$x\mapsto f_{n}(x)f_{X_{n+1}}(z-x)=\frac{\lambda^n}{(n-1)!}x^{n-1}e^{-\lambda x}.\lambda e^{-\lambda(z-x)}$$
+
+\noindent est continue sur $\mathbb{R}$ et à support dans le segment $[0;z]$. Par conséquent, pour tout $z\geq 0$, le produit de convolution
+
+$$\int_{-\infty}^{+\infty}f_{n}(x)f_{X_{n+1}}(z-x)\,dx$$
+
+\noindent est une intégrale convergente, et cette intégrale est égale à $f_{n+1}(z)$.
+
+\noindent On a alors
+
+\begin{align}
+f_{n+1}(z)&=\int_{-\infty}^{+\infty}f_{n}(x)f_{X_{n+1}}(z-x)\,dx \\
+&=\int_{0}^{z}f_{n}(x)f_{X_{n+1}}(z-x)\,dx \\
+&=\int_{0}^{z}\frac{\lambda^n}{(n-1)!}x^{n-1}e^{-\lambda x}.\lambda e^{-\lambda(z-x)}\,dx \\
+&\text{(par hypothèse de récurrence)} \\
+&=\frac{\lambda^{n+1}}{(n-1)!}e^{-\lambda z}\int_0^z x^{n-1}\,dx \\
+&=\frac{\lambda^{n+1}}{n!}x^n e^{-\lambda x} \\
+
+\end{align}
+
+\noindent Ainsi, pour tout réel $x$ :
+
+$$f_{n+1}(x)=\frac{\lambda^{n+1}}{n!}x^n e^{-\lambda x}.1_{\mathbb{R}_+}(x)$$
+\noindent et le résultat est démontré au rang $n+1$, ce qui termine la démonstration par récurrence.
+
+\noindent On reconnaît en $f_n$ la densité de la loi $\Gamma(n\,;\,\lambda)$.
+
+**On a donc montré que la somme de $n$ lois $\mathcal{E}(\lambda)$ indépendantes est égale à la loi $\Gamma(n\,;\,\lambda)$.**
+
 
 
 :::: {.methbox .meth data-latex="important"}
