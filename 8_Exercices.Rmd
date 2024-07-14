@@ -1790,6 +1790,126 @@ $$\mathbb{E}(X|S)=\frac{\lambda}{\lambda+\mu}S$$
 **2.** Déterminer une densité de $Z=X^2$.
 ::::
 
+\noindent
+
+**Solution.** Dans tout cet exercice, pour toute variable aléatoire $U$ à densité, on notera $f_U$ sa fonction de densité et $F_U$ sa fonction de répartition.
+
+\noindent 
+
+**1.a.** $X$ a pour densité la fonction $f_X$ définie par
+
+$$\forall x\in\mathbb{R},\,f_X(x)=\frac{1}{2}e^{-\frac{x}{2}}.\mathbb{1}_{\mathbb{R}_+}(x)$$
+\noindent et pour fonction de répartition la fonction $F_X$ définie par
+
+$$\forall x\in\mathbb{R},\,F_x(x)=\left(1-e^{-\frac{x}{2}}\right).\mathbb{1}_{\mathbb{R}_+}(x)$$
+
+\noindent Soit $y$ un réel. 
+
+\noindent Si $y<0$ alors $F_Y(y)=0$. 
+
+\noindent Si $y\geq 0$, alors
+
+\begin{align}
+F_Y(y)&=\mathbb{P}(Y\leq y) \\
+&=\mathbb{P}(\sqrt{X}\leq y) \\
+&=\mathbb{P}(0\leq X\leq y^2) \\
+&=F_X(y^2) \text{ car } F_X(0)=0 \\
+&=1-e^{-\frac{y^2}{2}} \\
+\end{align}
+
+\noindent $F_Y$ est dérivable sur $\mathbb{R}_+^*$ et donc $Y$ admet une densité donnée par $f_Y=F_Y'$ :
+
+\begin{align}
+f_Y(y)&=F_Y'(y) \\
+&=y.e^{-\frac{y^2}{2}}
+\end{align}
+
+\noindent D'où l'expression générale de $f_Y(y)$, quel que soit le réel $y$ :
+
+$$f_y(y)=y.e^{-\frac{y^2}{2}}.\mathbb{1}_{\mathbb{R}_+}(y)$$
+
+\noindent
+
+**b.** $Y$ admet une espérance si et seulement si l'intégrale $\int_0^{+\infty}y^2e^{-\frac{y^2}{2}}\,dy$ est convergente. Or, si $U$ suit une loi normale standard, la variance de $U$ s'écrit comme l'intégrale $\int_{-\infty}^{+\infty}\frac{1}{\sqrt{2\pi}}y^2e^{-\frac{y^2}{2}}\,dy$, autrement dit cette intégrale vaut $1$. On en déduit que $Y$ admet une espérance et que
+
+$$\mathbb{E}(Y)=\sqrt{\frac{\pi}{2}}$$
+
+\noindent De même, $Y$ admet un moment d'ordre $2$, et donc une variance, si et seulement si l'intégrale $\int_{0}^{+\infty}y^3e^{-\frac{y^2}{2}}\,dy$ est convergente.
+
+\noindent Soit $A>0$. On a 
+
+$$\int_0^A y^3e^{-\frac{y^2}{2}}\,dy=\int_0^A y^2.\left(ye^{-\frac{y^2}{2}}\right)\,dy$$
+
+\noindent Les fonctions $y\mapsto y^2$ et $y\mapsto ye^{-\frac{y^2}{2}}$ sont de classe $\mathcal{C}^1$ sur le segment $[0\,;\,A]$, ce qui va nous permettre d'effectuer une intégration par parties :
+
+- on dérive $u:y\mapsto y^2$ : $u'(y)=2y$ ;
+- on intègre $v':y\mapsto ye^{-\frac{y^2}{2}}$ en posant $v(y)=-e^{-\frac{y^2}{2}}$.
+
+\noindent On en déduit que
+
+\begin{align}
+\int_0^A y^3e^{-\frac{y^2}{2}}\,dy&=\left[-y^2e^{-\frac{y^2}{2}}\right]_0^A+2\int_0^A ye^{-\frac{y^2}{2}}\, dy \\
+&=-A^2e^{-\frac{A^2}{2}}+2-2e^{-\frac{A^2}{2}} \\
+&\longrightarrow_{A\to +\infty} 2
+\end{align}
+
+\noindent Ainsi, $Y$ admet un moment d'ordre $2$ et 
+
+$$\mathbb{E}(Y^2)=2$$
+
+\noindent D'après la formule de König-Huygens, on a alors
+
+\begin{align}
+\mathbb{V}(Y)&=\mathbb{E}(Y^2)-\mathbb{E}(Y)^2 \\
+&=2-\frac{\pi}{2} \\
+\end{align}
+
+\noindent
+
+\noindent 
+
+**Commentaire.** *Dans le cadre du programme, l'intégration par parties s'applique sur un segment. Pour une intégrale impropre comme celle de cette question, on fixe donc une (ou deux) borne(s) finie(s), on transforme l'intégrale sur le segment constitué par ces deux bornes par intégration par parties, et seulement après on fait tendre cette (ou ces) borne(s) vers la (les) valeur(s) souhaitée(s).*
+
+**2.** $Z(\Omega)=\mathbb{R}_+$ et, pour $z\geq 0$ on a 
+
+\begin{align}
+F_Z(z)&=\mathbb{P}(Z\leq z) \\
+&=\mathbb{P}(X^2\leq z) \\
+&=\mathbb{P}\left(0\leq X\leq\sqrt{Z}\right) \\
+&=F_X\left(\sqrt{z}\right) \, \text{ car } F_X(0)=0 \\
+&=1-e^{-\frac{\sqrt{z}}{2}} \\
+\end{align}
+
+$F_Z$ est dérivable sur $\mathbb{R}_+^*$ et donc $Z$ admet une densité, donnée par $f_Z=F_Z'$. Pour tout $z\geq 0$ on a 
+
+\begin{align}
+f_Z(z)&=F_Z'(z) \\
+&=\frac{1}{4\sqrt{z}}e^{-\frac{\sqrt{z}}{2}} \\
+\end{align}
+
+\noindent On a donc
+
+$$f_Z(z)=\frac{1}{4\sqrt{z}}e^{-\frac{\sqrt{z}}{2}}.1_{\mathbb{R}_+}(z)$$
+
+\noindent
+
+**Commentaire sur cet exercice.** *Dans la question 1.a., tout comme dans la question 2., on cherche la densité d'une transformation $\varphi(X)$ d'une variable aléatoire $X$ dont on connaît la loi. Ce type de question revient très fréquemment dans les sujets de concours. La stratégie qui fonctionne souvent le mieux est de calculer d'abord la fonction de répartition, puis de la dériver afin d'obtenir la fonction de densité.* 
+
+*Pour pouvoir appliquer cette méthode, on doit :*
+
+- *s'assurer que $\varphi$ est strictement monotone sur $X(\Omega)$ : si c'est bien le cas, alors en particulier elle réalise une bijection de $\Omega$ sur $X(\Omega)$ ;*
+
+- *calculer son inverse $\varphi^{-1}$ sur $X(\Omega)$.*
+
+*En pratique, ces deux points sont assez souvent immédiats, comme c'est le cas dans cet exercice. Alors, on peut transformer le calcul de la probabilité $\mathbb{P}(\varphi(X)\leq a)$ en*
+
+- *$\mathbb{P}(X\leq\varphi^{-1}(\{a\}))$ si $X$ est strictement croissante sur $X(\Omega)$* ;
+
+- *$\mathbb{P}(X\geq\varphi^{-1}(\{a\}))$ si $X$ est strictement décroissante sur $X(\Omega)$.*
+
+
+
+
 
 
 

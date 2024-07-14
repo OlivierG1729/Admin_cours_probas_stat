@@ -23,7 +23,7 @@
 <meta name="author" content="Olivier Guin" />
 
 
-<meta name="date" content="2024-07-13" />
+<meta name="date" content="2024-07-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -1410,6 +1410,84 @@ Elle admet une espérance, et</p>
 <p><strong>b.</strong> Déterminer l’espérance et la variance de <span class="math inline">\(Y\)</span>.</p>
 <p><strong>2.</strong> Déterminer une densité de <span class="math inline">\(Z=X^2\)</span>.</p>
 </div>
+<p></p>
+<p><strong>Solution.</strong> Dans tout cet exercice, pour toute variable aléatoire <span class="math inline">\(U\)</span> à densité, on notera <span class="math inline">\(f_U\)</span> sa fonction de densité et <span class="math inline">\(F_U\)</span> sa fonction de répartition.</p>
+<p></p>
+<p><strong>1.a.</strong> <span class="math inline">\(X\)</span> a pour densité la fonction <span class="math inline">\(f_X\)</span> définie par</p>
+<p><span class="math display">\[\forall x\in\mathbb{R},\,f_X(x)=\frac{1}{2}e^{-\frac{x}{2}}.\mathbb{1}_{\mathbb{R}_+}(x)\]</span>
+et pour fonction de répartition la fonction <span class="math inline">\(F_X\)</span> définie par</p>
+<p><span class="math display">\[\forall x\in\mathbb{R},\,F_x(x)=\left(1-e^{-\frac{x}{2}}\right).\mathbb{1}_{\mathbb{R}_+}(x)\]</span></p>
+<p>Soit <span class="math inline">\(y\)</span> un réel.</p>
+<p>Si <span class="math inline">\(y&lt;0\)</span> alors <span class="math inline">\(F_Y(y)=0\)</span>.</p>
+<p>Si <span class="math inline">\(y\geq 0\)</span>, alors</p>
+<p><span class="math display">\[\begin{align}
+F_Y(y)&amp;=\mathbb{P}(Y\leq y) \\
+&amp;=\mathbb{P}(\sqrt{X}\leq y) \\
+&amp;=\mathbb{P}(0\leq X\leq y^2) \\
+&amp;=F_X(y^2) \text{ car } F_X(0)=0 \\
+&amp;=1-e^{-\frac{y^2}{2}} \\
+\end{align}\]</span></p>
+<p><span class="math inline">\(F_Y\)</span> est dérivable sur <span class="math inline">\(\mathbb{R}_+^*\)</span> et donc <span class="math inline">\(Y\)</span> admet une densité donnée par <span class="math inline">\(f_Y=F_Y&#39;\)</span> :</p>
+<p><span class="math display">\[\begin{align}
+f_Y(y)&amp;=F_Y&#39;(y) \\
+&amp;=y.e^{-\frac{y^2}{2}}
+\end{align}\]</span></p>
+<p>D’où l’expression générale de <span class="math inline">\(f_Y(y)\)</span>, quel que soit le réel <span class="math inline">\(y\)</span> :</p>
+<p><span class="math display">\[f_y(y)=y.e^{-\frac{y^2}{2}}.\mathbb{1}_{\mathbb{R}_+}(y)\]</span></p>
+<p></p>
+<p><strong>b.</strong> <span class="math inline">\(Y\)</span> admet une espérance si et seulement si l’intégrale <span class="math inline">\(\int_0^{+\infty}y^2e^{-\frac{y^2}{2}}\,dy\)</span> est convergente. Or, si <span class="math inline">\(U\)</span> suit une loi normale standard, la variance de <span class="math inline">\(U\)</span> s’écrit comme l’intégrale <span class="math inline">\(\int_{-\infty}^{+\infty}\frac{1}{\sqrt{2\pi}}y^2e^{-\frac{y^2}{2}}\,dy\)</span>, autrement dit cette intégrale vaut <span class="math inline">\(1\)</span>. On en déduit que <span class="math inline">\(Y\)</span> admet une espérance et que</p>
+<p><span class="math display">\[\mathbb{E}(Y)=\sqrt{\frac{\pi}{2}}\]</span></p>
+<p>De même, <span class="math inline">\(Y\)</span> admet un moment d’ordre <span class="math inline">\(2\)</span>, et donc une variance, si et seulement si l’intégrale <span class="math inline">\(\int_{0}^{+\infty}y^3e^{-\frac{y^2}{2}}\,dy\)</span> est convergente.</p>
+<p>Soit <span class="math inline">\(A&gt;0\)</span>. On a</p>
+<p><span class="math display">\[\int_0^A y^3e^{-\frac{y^2}{2}}\,dy=\int_0^A y^2.\left(ye^{-\frac{y^2}{2}}\right)\,dy\]</span></p>
+<p>Les fonctions <span class="math inline">\(y\mapsto y^2\)</span> et <span class="math inline">\(y\mapsto ye^{-\frac{y^2}{2}}\)</span> sont de classe <span class="math inline">\(\mathcal{C}^1\)</span> sur le segment <span class="math inline">\([0\,;\,A]\)</span>, ce qui va nous permettre d’effectuer une intégration par parties :</p>
+<ul>
+<li>on dérive <span class="math inline">\(u:y\mapsto y^2\)</span> : <span class="math inline">\(u&#39;(y)=2y\)</span> ;</li>
+<li>on intègre <span class="math inline">\(v&#39;:y\mapsto ye^{-\frac{y^2}{2}}\)</span> en posant <span class="math inline">\(v(y)=-e^{-\frac{y^2}{2}}\)</span>.</li>
+</ul>
+<p>On en déduit que</p>
+<p><span class="math display">\[\begin{align}
+\int_0^A y^3e^{-\frac{y^2}{2}}\,dy&amp;=\left[-y^2e^{-\frac{y^2}{2}}\right]_0^A+2\int_0^A ye^{-\frac{y^2}{2}}\, dy \\
+&amp;=-A^2e^{-\frac{A^2}{2}}+2-2e^{-\frac{A^2}{2}} \\
+&amp;\longrightarrow_{A\to +\infty} 2
+\end{align}\]</span></p>
+<p>Ainsi, <span class="math inline">\(Y\)</span> admet un moment d’ordre <span class="math inline">\(2\)</span> et</p>
+<p><span class="math display">\[\mathbb{E}(Y^2)=2\]</span></p>
+<p>D’après la formule de König-Huygens, on a alors</p>
+<p><span class="math display">\[\begin{align}
+\mathbb{V}(Y)&amp;=\mathbb{E}(Y^2)-\mathbb{E}(Y)^2 \\
+&amp;=2-\frac{\pi}{2} \\
+\end{align}\]</span></p>
+<p></p>
+<p></p>
+<p><strong>Commentaire.</strong> <em>Dans le cadre du programme, l’intégration par parties s’applique sur un segment. Pour une intégrale impropre comme celle de cette question, on fixe donc une (ou deux) borne(s) finie(s), on transforme l’intégrale sur le segment constitué par ces deux bornes par intégration par parties, et seulement après on fait tendre cette (ou ces) borne(s) vers la (les) valeur(s) souhaitée(s).</em></p>
+<p><strong>2.</strong> <span class="math inline">\(Z(\Omega)=\mathbb{R}_+\)</span> et, pour <span class="math inline">\(z\geq 0\)</span> on a</p>
+<p><span class="math display">\[\begin{align}
+F_Z(z)&amp;=\mathbb{P}(Z\leq z) \\
+&amp;=\mathbb{P}(X^2\leq z) \\
+&amp;=\mathbb{P}\left(0\leq X\leq\sqrt{Z}\right) \\
+&amp;=F_X\left(\sqrt{z}\right) \, \text{ car } F_X(0)=0 \\
+&amp;=1-e^{-\frac{\sqrt{z}}{2}} \\
+\end{align}\]</span></p>
+<p><span class="math inline">\(F_Z\)</span> est dérivable sur <span class="math inline">\(\mathbb{R}_+^*\)</span> et donc <span class="math inline">\(Z\)</span> admet une densité, donnée par <span class="math inline">\(f_Z=F_Z&#39;\)</span>. Pour tout <span class="math inline">\(z\geq 0\)</span> on a</p>
+<p><span class="math display">\[\begin{align}
+f_Z(z)&amp;=F_Z&#39;(z) \\
+&amp;=\frac{1}{4\sqrt{z}}e^{-\frac{\sqrt{z}}{2}} \\
+\end{align}\]</span></p>
+<p>On a donc</p>
+<p><span class="math display">\[f_Z(z)=\frac{1}{4\sqrt{z}}e^{-\frac{\sqrt{z}}{2}}.1_{\mathbb{R}_+}(z)\]</span></p>
+<p></p>
+<p><strong>Commentaire sur cet exercice.</strong> <em>Dans la question 1.a., tout comme dans la question 2., on cherche la densité d’une transformation <span class="math inline">\(\varphi(X)\)</span> d’une variable aléatoire <span class="math inline">\(X\)</span> dont on connaît la loi. Ce type de question revient très fréquemment dans les sujets de concours. La stratégie qui fonctionne souvent le mieux est de calculer d’abord la fonction de répartition, puis de la dériver afin d’obtenir la fonction de densité.</em></p>
+<p><em>Pour pouvoir appliquer cette méthode, on doit :</em></p>
+<ul>
+<li><p><em>s’assurer que <span class="math inline">\(\varphi\)</span> est strictement monotone sur <span class="math inline">\(X(\Omega)\)</span> : si c’est bien le cas, alors en particulier elle réalise une bijection de <span class="math inline">\(\Omega\)</span> sur <span class="math inline">\(X(\Omega)\)</span> ;</em></p></li>
+<li><p><em>calculer son inverse <span class="math inline">\(\varphi^{-1}\)</span> sur <span class="math inline">\(X(\Omega)\)</span>.</em></p></li>
+</ul>
+<p><em>En pratique, ces deux points sont assez souvent immédiats, comme c’est le cas dans cet exercice. Alors, on peut transformer le calcul de la probabilité <span class="math inline">\(\mathbb{P}(\varphi(X)\leq a)\)</span> en</em></p>
+<ul>
+<li><p><em><span class="math inline">\(\mathbb{P}(X\leq\varphi^{-1}(\{a\}))\)</span> si <span class="math inline">\(X\)</span> est strictement croissante sur <span class="math inline">\(X(\Omega)\)</span></em> ;</p></li>
+<li><p><em><span class="math inline">\(\mathbb{P}(X\geq\varphi^{-1}(\{a\}))\)</span> si <span class="math inline">\(X\)</span> est strictement décroissante sur <span class="math inline">\(X(\Omega)\)</span>.</em></p></li>
+</ul>
 <div class="methbox meth">
 <p><strong>Exercice 4.2.</strong> Soient <span class="math inline">\(X\)</span> et <span class="math inline">\(U\)</span> deux variables aléatoires indépendantes, où <span class="math inline">\(X\sim\mathcal{N}(0,1)\)</span> et <span class="math inline">\(U\sim\mathcal{U}_{\{-1,1\}}\)</span>. On définit <span class="math inline">\(Y=UX\)</span>.</p>
 <p><strong>1.</strong> Démontrer que, pour tout réel <span class="math inline">\(x\)</span> :</p>
