@@ -1929,6 +1929,60 @@ $$\mathbb{P}(Y\leq x)=\frac{1}{2}\mathbb{P}(X\leq x)+\frac{1}{2}\mathbb{P}(X\geq
 
 
 
+\noindent
+
+**Solution. 1.** Comme $\left\{(U=-1), (U=1)\right\}$ est un sysème complet d'événements, pour tout réel $x$ on a, d'après la formule des probabilités totales :
+
+\begin{align}
+\mathbb{P}(Y\leq x)&=\mathbb{P}(Y\leq x, U=1)+\mathbb{P}(Y\leq x, U=-1) \\
+&=\mathbb{P}(Y\leq x|U=1)\,\mathbb{P}(U=1)+\mathbb{P}(Y\leq x|U=-1)\,\mathbb{P}(U=-1) \\
+&=\mathbb{P}(UX\leq x|U=1)\mathbb{P}(U=1)+\mathbb{P}(UX\leq x|U=-1)\mathbb{P}(U=-1) \\
+&=\mathbb{P}(X\leq x|U=1).\frac{1}{2}+\mathbb{P}(X\geq -x|U=-1).\frac{1}{2} \\
+&=\frac{1}{2}\mathbb{P}(X\leq x)+\frac{1}{2}\mathbb{P}(X\geq -x) \\
+&\text{(car } U \text{ et } X \text{ sont indépendantes)}
+\end{align}
+
+\noindent
+
+**2.** On a donc, pour tout réel $x$ :
+
+$$F_Y(x)=\frac{1}{2}F_X(x)+\frac{1}{2}\left(1-F_X(-x)\right)$$
+\noindent Comme $X$ suit la loi normale centrée réduite, sa fonction de répartition vérifie la propriété de symétrie suivante :
+
+$$\forall x\in\mathbb{R}, F_X(x)=1-F_X(-x)$$
+
+\noindent Avec la question précédente, on en déduit que $F_Y=F_X$, autrement dit $Y$ suit également la loi normale centrée réduite.
+
+\noindent
+
+**3.** On a :
+
+\begin{align}
+\mathbb{E}(U)&=-1.\mathbb{P}(U=-1)+1.\mathbb{P}(U=1) \\
+&=-\frac{1}{2}+\frac{1}{2} \\
+&=0 \\
+\end{align}
+
+\noindent On en déduit que
+
+\begin{align}
+\mathbb{E}(XY)&=\mathbb{E}(X^2U) \\
+&=\mathbb{E}(X^2)\mathbb{E}(U) \\
+&\text{(par indépendance de } X \text{ et } \text{U)} \\
+&=0 \\
+\end{align}
+
+
+\noindent 
+
+**4.** Comme $\mathbb{E}(X)=0$ et $\mathbb{E}(XY)=0$, on obtient de façon immédiate que 
+
+\begin{align}
+\text{cov}(X,Y)&=\mathbb{E}(XY)-\mathbb{E}(X)\mathbb{E}(Y) \\
+&=0 \\
+\end{align}
+
+
 :::: {.methbox .meth data-latex="important"}
 **Exercice 4.3. 1.** Soient $X$ et $Y$ deux variables aléatoires indépendantes de loi commune $\mathcal{E}(\lambda)$, avec $\lambda>0$. Déterminer une densité de $X+Y$.
 
@@ -1945,6 +1999,10 @@ $$f_n(x)=\left \{
 \end{array}
 \right.$$
 ::::
+
+\noindent
+
+**Solution. 1.** 
 
 
 :::: {.methbox .meth data-latex="important"}

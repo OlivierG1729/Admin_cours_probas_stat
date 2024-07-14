@@ -1496,6 +1496,42 @@ f_Z(z)&amp;=F_Z&#39;(z) \\
 <p><strong>3.</strong> Calculer l’espérance de <span class="math inline">\(U\)</span> puis démontrer que <span class="math inline">\(\mathbb{E}(XY)=0\)</span>.</p>
 <p><strong>4.</strong> En déduire que <span class="math inline">\(\text{Cov}(X,Y)=0\)</span>.</p>
 </div>
+<p></p>
+<p><strong>Solution. 1.</strong> Comme <span class="math inline">\(\left\{(U=-1), (U=1)\right\}\)</span> est un sysème complet d’événements, pour tout réel <span class="math inline">\(x\)</span> on a, d’après la formule des probabilités totales :</p>
+<p><span class="math display">\[\begin{align}
+\mathbb{P}(Y\leq x)&amp;=\mathbb{P}(Y\leq x, U=1)+\mathbb{P}(Y\leq x, U=-1) \\
+&amp;=\mathbb{P}(Y\leq x|U=1)\,\mathbb{P}(U=1)+\mathbb{P}(Y\leq x|U=-1)\,\mathbb{P}(U=-1) \\
+&amp;=\mathbb{P}(UX\leq x|U=1)\mathbb{P}(U=1)+\mathbb{P}(UX\leq x|U=-1)\mathbb{P}(U=-1) \\
+&amp;=\mathbb{P}(X\leq x|U=1).\frac{1}{2}+\mathbb{P}(X\geq -x|U=-1).\frac{1}{2} \\
+&amp;=\frac{1}{2}\mathbb{P}(X\leq x)+\frac{1}{2}\mathbb{P}(X\geq -x) \\
+&amp;\text{(car } U \text{ et } X \text{ sont indépendantes)}
+\end{align}\]</span></p>
+<p></p>
+<p><strong>2.</strong> On a donc, pour tout réel <span class="math inline">\(x\)</span> :</p>
+<p><span class="math display">\[F_Y(x)=\frac{1}{2}F_X(x)+\frac{1}{2}\left(1-F_X(-x)\right)\]</span>
+Comme <span class="math inline">\(X\)</span> suit la loi normale centrée réduite, sa fonction de répartition vérifie la propriété de symétrie suivante :</p>
+<p><span class="math display">\[\forall x\in\mathbb{R}, F_X(x)=1-F_X(-x)\]</span></p>
+<p>Avec la question précédente, on en déduit que <span class="math inline">\(F_Y=F_X\)</span>, autrement dit <span class="math inline">\(Y\)</span> suit également la loi normale centrée réduite.</p>
+<p></p>
+<p><strong>3.</strong> On a :</p>
+<p><span class="math display">\[\begin{align}
+\mathbb{E}(U)&amp;=-1.\mathbb{P}(U=-1)+1.\mathbb{P}(U=1) \\
+&amp;=-\frac{1}{2}+\frac{1}{2} \\
+&amp;=0 \\
+\end{align}\]</span></p>
+<p>On en déduit que</p>
+<p><span class="math display">\[\begin{align}
+\mathbb{E}(XY)&amp;=\mathbb{E}(X^2U) \\
+&amp;=\mathbb{E}(X^2)\mathbb{E}(U) \\
+&amp;\text{(par indépendance de } X \text{ et } \text{U)} \\
+&amp;=0 \\
+\end{align}\]</span></p>
+<p></p>
+<p><strong>4.</strong> Comme <span class="math inline">\(\mathbb{E}(X)=0\)</span> et <span class="math inline">\(\mathbb{E}(XY)=0\)</span>, on obtient de façon immédiate que</p>
+<p><span class="math display">\[\begin{align}
+\text{cov}(X,Y)&amp;=\mathbb{E}(XY)-\mathbb{E}(X)\mathbb{E}(Y) \\
+&amp;=0 \\
+\end{align}\]</span></p>
 <div class="methbox meth">
 <p><strong>Exercice 4.3. 1.</strong> Soient <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span> deux variables aléatoires indépendantes de loi commune <span class="math inline">\(\mathcal{E}(\lambda)\)</span>, avec <span class="math inline">\(\lambda&gt;0\)</span>. Déterminer une densité de <span class="math inline">\(X+Y\)</span>.</p>
 <p><strong>2.</strong> Plus généralement, soient <span class="math inline">\(X_1,\dots,X_n\)</span> des variables aléatoires indépendantes de même loi <span class="math inline">\(\mathcal{E}(\lambda)\)</span>. Pour tout entier <span class="math inline">\(n\geq 1\)</span>, on note</p>
