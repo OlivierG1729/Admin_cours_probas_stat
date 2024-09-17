@@ -156,3 +156,6 @@ couples-xy-admettant-une-densité
 lois-marginales
 espérance-conditionnelle
 variables-à-densité
+convergence-dans-les-espaces-l1-et-l2
+lois-des-grands-nombres
+les-ensembles-l1omega-et-l2omega
