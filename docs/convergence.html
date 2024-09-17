@@ -177,9 +177,11 @@
 <li class="chapter" data-level="5.1.1" data-path="convergence.html"><a href="convergence.html#convergence-en-probabilité"><i class="fa fa-check"></i><b>5.1.1</b> Convergence en probabilité</a></li>
 <li class="chapter" data-level="5.1.2" data-path="convergence.html"><a href="convergence.html#convergence-dans-les-espaces-l1-et-l2"><i class="fa fa-check"></i><b>5.1.2</b> Convergence dans les espaces <span class="math inline">\(L^1\)</span> et <span class="math inline">\(L^2\)</span></a></li>
 <li class="chapter" data-level="5.1.3" data-path="convergence.html"><a href="convergence.html#convergence-en-loi"><i class="fa fa-check"></i><b>5.1.3</b> Convergence en loi</a></li>
-<li class="chapter" data-level="5.1.4" data-path="convergence.html"><a href="convergence.html#convergence-presque-sûre-hors-prgramme"><i class="fa fa-check"></i><b>5.1.4</b> Convergence presque-sûre (hors-prgramme ?)</a></li>
+<li class="chapter" data-level="5.1.4" data-path="convergence.html"><a href="convergence.html#convergence-presque-sûre-hors-programme"><i class="fa fa-check"></i><b>5.1.4</b> Convergence presque-sûre (hors-programme ?)</a></li>
 <li class="chapter" data-level="5.1.5" data-path="convergence.html"><a href="convergence.html#liens-entre-les-différents-modes-de-convergence"><i class="fa fa-check"></i><b>5.1.5</b> Liens entre les différents modes de convergence</a></li>
-<li class="chapter" data-level="5.1.6" data-path="convergence.html"><a href="convergence.html#approximations"><i class="fa fa-check"></i><b>5.1.6</b> Approximations</a></li>
+<li class="chapter" data-level="5.1.6" data-path="convergence.html"><a href="convergence.html#transformation-par-une-application-continue"><i class="fa fa-check"></i><b>5.1.6</b> Transformation par une application continue</a></li>
+<li class="chapter" data-level="5.1.7" data-path="convergence.html"><a href="convergence.html#théorème-de-slutsky-hors-programme"><i class="fa fa-check"></i><b>5.1.7</b> Théorème de Slutsky (hors-programme ?)</a></li>
+<li class="chapter" data-level="5.1.8" data-path="convergence.html"><a href="convergence.html#approximations"><i class="fa fa-check"></i><b>5.1.8</b> Approximations</a></li>
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="convergence.html"><a href="convergence.html#lois-des-grands-nombres"><i class="fa fa-check"></i><b>5.2</b> Lois des grands nombres</a></li>
 <li class="chapter" data-level="5.3" data-path="convergence.html"><a href="convergence.html#théorème-central-limite-tcl"><i class="fa fa-check"></i><b>5.3</b> Théorème Central Limite (TCL)</a></li>
@@ -590,9 +592,43 @@ et donc la suite <span class="math inline">\((F_n)_n\)</span> converge simplemen
 <p>Donc, la suite <span class="math inline">\((X_n)_n\)</span> ne converge pas en loi.</p>
 <p></p>
 <p><strong>Remarque.</strong> La convergence simple de la suite des fonctions de répartition ne suffit pas pour établir une convergence en loi. Il faut, en plus, s’assurer que la limite est bien une fonction de répartition.</p>
+<p>Il existe différents critères de convergence en loi. Certaine s’appliquent uniquement à des variables discrètes avec limite discrète, d’autres à des variables absolument continues avec limite absolument continue, et d’autres enfin s’appliquent à toutes les variables aléatoires.</p>
+<div class="thmbox def">
+<p>
+<strong>Théorème (Quelques critères de convergence en loi.)</strong></p>
+<p></p>
+<p><strong>i. Espérance contre des fonctions tests.</strong> La suite <span class="math inline">\((X_n)_n\)</span> converge en loi vers <span class="math inline">\(X\)</span> si et seulement si, pour toute fonction <strong>continue</strong> et <strong>bornée</strong> <span class="math inline">\(f\)</span>, on a</p>
+<p><span class="math display">\[\mathbb{E}(f(X_n))\underset{n \to +\infty}{\overset{}{\longrightarrow}}\mathbb{E}(f(X))\]</span></p>
+<p></p>
+<p><strong>ii. Espérance contre des fonctions tests (variante).</strong> La suite <span class="math inline">\((X_n)_n\)</span> converge en loi vers <span class="math inline">\(X\)</span> si et seulement si, pour toute fonction <strong>uniformémént continue</strong> et <strong>bornée</strong> <span class="math inline">\(f\)</span>, on a</p>
+<p><span class="math display">\[\mathbb{E}(f(X_n))\underset{n \to +\infty}{\overset{}{\longrightarrow}}\mathbb{E}(f(X))\]</span></p>
+<p></p>
+<p><strong>iii. Par les fonctions caractéristiques.</strong> Soit <span class="math inline">\(d\in\mathbb{N}^*\)</span>. On suppose <span class="math inline">\(\mathbb{R}^d\)</span> muni d’un produit scalaire <span class="math inline">\(&lt;.,.&gt;\)</span>. Pour toute variable aléatoire <span class="math inline">\(X\)</span> à valeurs dans <span class="math inline">\(\mathbb{R}^d\)</span>, on note <span class="math inline">\(\varphi_X\)</span> la <strong>fonction caractéristique de <span class="math inline">\(X\)</span></strong> :</p>
+<p><span class="math display">\[\forall t\in\mathbb{R},\,\varphi_X(t)=\mathbb{E}(e^{i&lt;t,X&gt;})\]</span>
+Cette fonction caractérise la loi de <span class="math inline">\(X\)</span> (i.e. <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span> ont la même loi si et seulement si <span class="math inline">\(\varphi_X=\varphi_Y\)</span>), et elle caractérise la convergence en loi :</p>
+<p><span class="math display">\[X_n \underset{n \to +\infty}{\overset{\mathcal{L}}{\longrightarrow}}X\text{ si et seulement si } \varphi_{X_n}\underset{n \to +\infty}{\overset{}{\longrightarrow}}\varphi_X\]</span>
+<strong>iv. Convergence en loi des variables aléatoires discrètes.</strong> si <span class="math inline">\((X_n)_n\)</span> et <span class="math inline">\(X\)</span> sont des variables aléatoires réelles discrètes, à valeurs dans un même ensemble dénombrable </p>
+<p><span class="math display">\[E=\{x_k,\, k\in K\}\hspace{1cm}\text{ avec } K\subset\mathbb{Z}\]</span></p>
+<p>alors</p>
+<p><span class="math display">\[X_n \underset{n \to +\infty}{\overset{\mathcal{L}}{\longrightarrow}}X\]</span></p>
+<p>si, et seulement si</p>
+<p><span class="math display">\[\forall k\in K,\,\mathbb{P}(X_n=x_k) \underset{n \to +\infty}{\overset{}{\longrightarrow}}\mathbb{P}(X=x_k)\]</span></p>
+<p>
+<strong>v. Convergence en loi des variables aléatoires à densité.</strong> Soient <span class="math inline">\((X_n)_n\)</span> et <span class="math inline">\(X\)</span> des variables aléatoires à densité. On note <span class="math inline">\(f_n\)</span> et <span class="math inline">\(f\)</span> ces densités, définies sur <span class="math inline">\(\mathbb{R}\)</span>.</p>
+<p>Si</p>
+<p><span class="math display">\[\forall x\in\mathbb{R},\, f_n(x) \underset{n \to +\infty}{\overset{}{\longrightarrow}}f(x)\]</span></p>
+<p>alors, <span class="math inline">\((X_n)_n\)</span> converge en loi vers <span class="math inline">\(X\)</span>.</p>
 </div>
-<div id="convergence-presque-sûre-hors-prgramme" class="section level3 hasAnchor" number="5.1.4">
-<h3><span class="header-section-number">5.1.4</span> Convergence presque-sûre (hors-prgramme ?)<a href="convergence.html#convergence-presque-sûre-hors-prgramme" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p></p>
+<p><strong>Démonstration.</strong> L’assertion i. est démontrée en exercice (feuille de la session 3) pour la condition suffisante, la condition nécessaire est admise.</p>
+<p>Les assertions ii. sont admises.</p>
+<p>Les assertions iv. et v. sont démontrées en exercices.</p>
+<p><span class="math inline">\(\square\)</span></p>
+<p></p>
+<p><strong>Exemples.</strong> Voir les exercices 3, 4, 5 et 13 de la feuille de la session 3.</p>
+</div>
+<div id="convergence-presque-sûre-hors-programme" class="section level3 hasAnchor" number="5.1.4">
+<h3><span class="header-section-number">5.1.4</span> Convergence presque-sûre (hors-programme ?)<a href="convergence.html#convergence-presque-sûre-hors-programme" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="defbox def">
 <center>
 <strong>Convergence presque sûre</strong>
@@ -614,9 +650,81 @@ et donc la suite <span class="math inline">\((F_n)_n\)</span> converge simplemen
 </div>
 <p></p>
 <p><strong>Remarque.</strong> D’après le schéma ci-dessus, la convergence en loi est donc le mode de convergence le plus faible. Dit autrement, pour qu’une suite de variables aléatoires converge sous un mode ou un autre, elle doit <strong>a minima</strong> converger en loi.</p>
+<p>Si la convergence en probabilité implique la convergence en loi, la réciproque est fausse en général.</p>
+<p>
+<strong>Contre-exemple.</strong> Voir la question 2 de l’exercice 2.</p>
+<p>En revanche, il existe tout de même une réciproque partielle :</p>
+<div class="thmbox thm">
+<p>
+<strong>Théorème.</strong> Soient <span class="math inline">\(c\)</span> un réel et <span class="math inline">\((X_n)_n\)</span> une suite de variables aléatoires. Si</p>
+<p><span class="math display">\[X_n \underset{n \to +\infty}{\overset{\mathbb{P}}{\longrightarrow}}c\]</span></p>
+<p>alors</p>
+<p><span class="math display">\[X_n \underset{n \to +\infty}{\overset{\mathcal{L}}{\longrightarrow}}c\]</span></p>
 </div>
-<div id="approximations" class="section level3 hasAnchor" number="5.1.6">
-<h3><span class="header-section-number">5.1.6</span> Approximations<a href="convergence.html#approximations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>
+<strong>Démonstration.</strong> Voir la question 1 de l’exercice 2.</p>
+<p><span class="math inline">\(\square\)</span></p>
+</div>
+<div id="transformation-par-une-application-continue" class="section level3 hasAnchor" number="5.1.6">
+<h3><span class="header-section-number">5.1.6</span> Transformation par une application continue<a href="convergence.html#transformation-par-une-application-continue" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Souvent, on est amené à étudier la convergence (sous un mode ou un autre) d’une variable aléatoire <span class="math inline">\(Y_n\)</span> s’exprimant comme une fonction d’une autre variable <span class="math inline">\(X_n\)</span> :</p>
+<p><span class="math display">\[Y_n=f(X_n)\]</span></p>
+<p>Si la fonction <span class="math inline">\(f\)</span> est continue, les choses se passent bien en général :</p>
+<div class="thmbox thm">
+<p>
+<strong>Théorème. [Continuous mapping theorem].</strong> Soient <span class="math inline">\((X_n)_n\)</span> une suite de variables aléatoires réelles (ou à valeurs dans <span class="math inline">\(\mathbb{R}^d\)</span>), <span class="math inline">\(X\)</span> une variable aléatoire réelle (ou à valeurs dans <span class="math inline">\(\mathbb{R}^d\)</span>), et <span class="math inline">\(g\)</span> une fonction continue sur <span class="math inline">\(\mathbb{R}\)</span> (ou <span class="math inline">\(\mathbb{R}^d\)</span>) et à valeurs dans <span class="math inline">\(\mathbb{R}\)</span>.</p>
+<p>
+<strong>i.</strong> Si <span class="math inline">\(X_n \underset{n \to +\infty}{\overset{\mathcal{L}}{\longrightarrow}}X\)</span> alors <span class="math inline">\(g(X_n) \underset{n \to +\infty}{\overset{\mathcal{L}}{\longrightarrow}}g(X)\)</span></p>
+<p>
+<strong>ii.</strong> Si <span class="math inline">\(X_n \underset{n \to +\infty}{\overset{\mathbb{P}}{\longrightarrow}}X\)</span> alors <span class="math inline">\(g(X_n) \underset{n \to +\infty}{\overset{\mathbb{P}}{\longrightarrow}}g(X)\)</span>.</p>
+<p>
+<strong>iii.</strong> Si <span class="math inline">\(X_n \underset{n \to +\infty}{\overset{p.s.}{\longrightarrow}}X\)</span> alors <span class="math inline">\(X_n \underset{n \to +\infty}{\overset{p.s.}{\longrightarrow}}g(X)\)</span></p>
+<p>On résume les points i. ii. et iii. en disant que la convergence en loi, la convergence en probabilité et la convergence presque sûre sont <strong>stables par transformation continue</strong>.</p>
+</div>
+<p></p>
+<p><strong>Démonstration.</strong> Voir exercice 6.</p>
+<p><span class="math inline">\(\square\)</span></p>
+<p><strong>Exemple.</strong> Soit <span class="math inline">\((X_n)_n\)</span> une suite de variables aléatoires i.i.d. de loi <span class="math inline">\(\mathcal{E}(\lambda)\)</span>. note</p>
+<p><span class="math display">\[\overline{X_n}=\frac{1}{n}\sum\limits_{i=1}^n X_i\]</span></p>
+<p>leur moyenne empirique, et</p>
+<p><span class="math display">\[Y_n=\cos\left(\frac{1}{1+\overline{X_n}^2}\right)\]</span>
+Démontrons les convergences en probabilité et en loi de la suite <span class="math inline">\((Y_n)_n\)</span>.</p>
+<p>Le faire directement serait compliqué. Le mieux est de se ramener à une variable dont la convergence (en probabilité, en loi) est facile à établir. Nous avons déjà montré dans un exemple précédent que</p>
+<p><span class="math display">\[\overline{X_n} \underset{n \to +\infty}{\overset{\mathbb{P}}{\longrightarrow}}\frac{1}{\lambda}\]</span>
+Comme la convergence en probabilité implique la convergence en loi, on en déduit que</p>
+<p><span class="math display">\[\overline{X_n} \underset{n \to +\infty}{\overset{\mathcal{L}}{\longrightarrow}}\frac{1}{\lambda}\]</span>
+Par ailleurs, la fonction <span class="math inline">\(f\)</span> définie sur <span class="math inline">\(\mathbb{R}\)</span> par</p>
+<p><span class="math display">\[f(x)=\cos\left(\frac{1}{1+x^2}\right)\]</span>
+est continue. Donc, d’après le continuous mapping theorem, on a</p>
+<p><span class="math display">\[Y_n\underset{n \to +\infty}{\overset{\mathbb{P}}{\longrightarrow}}\frac{1}{1+\frac{1}{\lambda^2}}=\frac{\lambda^2}{1+\lambda^2}\]</span>
+et</p>
+<p><span class="math display">\[Y_n\underset{n \to +\infty}{\overset{\mathcal{L}}{\longrightarrow}}\frac{1}{1+\frac{1}{\lambda^2}}=\frac{\lambda^2}{1+\lambda^2}\]</span></p>
+<p><span class="math inline">\(\square\)</span></p>
+</div>
+<div id="théorème-de-slutsky-hors-programme" class="section level3 hasAnchor" number="5.1.7">
+<h3><span class="header-section-number">5.1.7</span> Théorème de Slutsky (hors-programme ?)<a href="convergence.html#théorème-de-slutsky-hors-programme" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Ce résultat est très pratique dans les exercices pour démontrer une convergence en loi. Son appartenance au programme du concours n’est cependant pas certaine (je penche plutôt pour non), donc sauf s’il est explicitement écrit dans le sujet que le résultat est admis (comme cela a déjà le cas) il semble risqué de l’utiliser. Dans tous les cas, comme l’énoncé est simple, ça ne coût pas grand chose de l’avoir en tête.</p>
+<div class="thmbox thm">
+<p>
+<strong>Théorème de Slutsky.</strong> Si <span class="math inline">\(X_n \underset{n \to +\infty}{\overset{\mathbb{P}}{\longrightarrow}}X\)</span> et <span class="math inline">\(Y_n \underset{n \to +\infty}{\overset{\mathcal{L}}{\longrightarrow}}c\)</span>, où <span class="math inline">\(c\)</span> est une constante, alors <span class="math inline">\((X_n, Y_n) \underset{n \to +\infty}{\overset{\mathbb{P}}{\longrightarrow}}(X,c)\)</span>.</p>
+</div>
+<p></p>
+<p><strong>Démonstration.</strong> Admise.</p>
+<p></p>
+<p><strong>Remarque.</strong> Comme la convergence en loi <strong>vers une constante</strong> implique la convergence en probabilité vers cette même constante (rappel : ce n’est pas nécessairement vrai si la limite est une variable aléatoire non constante !), on pourrait de manière totalement équivalente énoncer le théorème de Slutsky en disant que si X_n X$ et <span class="math inline">\(Y_n \underset{n \to +\infty}{\overset{\mathcal{P}}{\longrightarrow}}c\)</span>, où <span class="math inline">\(c\)</span> est une constante, alors <span class="math inline">\((X_n, Y_n) \underset{n \to +\infty}{\overset{\mathbb{P}}{\longrightarrow}}(X,c)\)</span>.</p>
+<p>Ce théorème présente tout son intérêt lorsqu’il est couplé avec le continuous mapping theorem, car il permet alors d’en déduire le corollaire suivant :</p>
+<div class="thmbox thm">
+<p>
+<strong>Corollaire.</strong> Si <span class="math inline">\(X_n \underset{n \to +\infty}{\overset{\mathbb{P}}{\longrightarrow}}X\)</span> et <span class="math inline">\(Y_n \underset{n \to +\infty}{\overset{\mathcal{L}}{\longrightarrow}}c\)</span>, où <span class="math inline">\(c\)</span> est une constante, alors <span class="math inline">\(X_n+Y_n \underset{n \to +\infty}{\overset{\mathbb{P}}{\longrightarrow}}X+c\)</span>, <span class="math inline">\(X_n.Y_n \underset{n \to +\infty}{\overset{\mathbb{P}}{\longrightarrow}}cX\)</span> et (sous réserve d’existence de tous les termes) <span class="math inline">\(\frac{X_n}{Y_n} \underset{n \to +\infty}{\overset{\mathbb{P}}{\longrightarrow}}\frac{X}{c}\)</span>.</p>
+</div>
+<p>
+<strong>Démonstration.</strong> Avec le théorème de Slutsky, on a</p>
+<p><span class="math display">\[(X_n, Y_n) \underset{n \to +\infty}{\overset{\mathbb{P}}{\longrightarrow}}(X,c)\]</span></p>
+<p>Par ailleurs, les fonctions <span class="math inline">\((x,y)\mapsto x+y\)</span>, <span class="math inline">\((x,y)\mapsto x.y\)</span> et <span class="math inline">\((x,y)\mapsto\frac{x}{y}\)</span> sont définies et continues sur <span class="math inline">\(\mathbb{R^2}\)</span> pour les deux premières et sur <span class="math inline">\(\mathbb{R}\times\mathbb{R}^*\)</span> pour la troisième. On en déduit alors le résultat en appliquant le continuous mapping theorem.</p>
+<p><span class="math inline">\(\square\)</span></p>
+</div>
+<div id="approximations" class="section level3 hasAnchor" number="5.1.8">
+<h3><span class="header-section-number">5.1.8</span> Approximations<a href="convergence.html#approximations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="thmbox def">
 <p>
 <strong>Théorème. i.</strong> Soit <span class="math inline">\((X_n)_n\)</span> une suite de variables aléatoires telle que, pour tout entier naturel <span class="math inline">\(n\)</span>, on ait <span class="math inline">\(X_n\sim\mathcal{B}(n, p_n)\)</span>.</p>

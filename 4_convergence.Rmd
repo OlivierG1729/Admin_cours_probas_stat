@@ -526,6 +526,76 @@ $$F_n(x)=1_{[n\,;\,+\infty[}(x)$$
 
 **Remarque.** La convergence simple de la suite des fonctions de répartition ne suffit pas pour établir une convergence en loi. Il faut, en plus, s'assurer que la limite est bien une fonction de répartition.
 
+\noindent Il existe différents critères de convergence en loi. Certaine s'appliquent uniquement à des variables discrètes avec limite discrète, d'autres à des variables absolument continues avec limite absolument continue, et d'autres enfin s'appliquent à toutes les variables aléatoires.
+
+
+:::: {.thmbox .def data-latex="important"}
+\noindent
+**Théorème (Quelques critères de convergence en loi.)** 
+
+\noindent
+
+**i. Espérance contre des fonctions tests.** La suite $(X_n)_n$ converge en loi vers $X$ si et seulement si, pour toute fonction **continue** et **bornée** $f$, on a 
+
+$$\mathbb{E}(f(X_n))\underset{n \to +\infty}{\overset{}{\longrightarrow}}\mathbb{E}(f(X))$$
+
+\noindent
+
+**ii. Espérance contre des fonctions tests (variante).** La suite $(X_n)_n$ converge en loi vers $X$ si et seulement si, pour toute fonction **uniformémént continue** et **bornée** $f$, on a 
+
+$$\mathbb{E}(f(X_n))\underset{n \to +\infty}{\overset{}{\longrightarrow}}\mathbb{E}(f(X))$$
+
+\noindent
+
+**iii. Par les fonctions caractéristiques.** Soit $d\in\mathbb{N}^*$. On suppose $\mathbb{R}^d$ muni d'un produit scalaire $<.,.>$. Pour toute variable aléatoire $X$ à valeurs dans $\mathbb{R}^d$, on note $\varphi_X$ la **fonction caractéristique de $X$** :
+
+$$\forall t\in\mathbb{R},\,\varphi_X(t)=\mathbb{E}(e^{i<t,X>})$$
+\noindent Cette fonction caractérise la loi de $X$ (i.e. $X$ et $Y$ ont la même loi si et seulement si $\varphi_X=\varphi_Y$), et elle caractérise la convergence en loi :
+
+$$X_n \underset{n \to +\infty}{\overset{\mathcal{L}}{\longrightarrow}}X\text{ si et seulement si } \varphi_{X_n}\underset{n \to +\infty}{\overset{}{\longrightarrow}}\varphi_X$$
+\noindent
+**iv. Convergence en loi des variables aléatoires discrètes.** si $(X_n)_n$ et $X$ sont des variables aléatoires réelles discrètes, à valeurs dans un même ensemble dénombrable \textbf{discret} 
+
+$$E=\{x_k,\, k\in K\}\hspace{1cm}\text{ avec } K\subset\mathbb{Z}$$
+
+\vspace{0.3cm} 
+
+\noindent alors 
+
+$$X_n \underset{n \to +\infty}{\overset{\mathcal{L}}{\longrightarrow}}X$$
+
+\vspace{0.3cm}
+
+\noindent si, et seulement si
+
+$$\forall k\in K,\,\mathbb{P}(X_n=x_k) \underset{n \to +\infty}{\overset{}{\longrightarrow}}\mathbb{P}(X=x_k)$$
+
+\noindent
+**v. Convergence en loi des variables aléatoires à densité.**  Soient $(X_n)_n$ et $X$ des variables aléatoires à densité. On note $f_n$ et $f$ ces densités, définies sur $\mathbb{R}$. 
+
+\vspace{0.3cm}
+
+\noindent Si
+
+$$\forall x\in\mathbb{R},\, f_n(x) \underset{n \to +\infty}{\overset{}{\longrightarrow}}f(x)$$
+
+\noindent alors, $(X_n)_n$ converge en loi vers $X$.
+
+::::
+
+\noindent
+
+**Démonstration.** L'assertion i. est démontrée en exercice (feuille de la session 3) pour la condition suffisante, la condition nécessaire est admise. 
+
+\noindent Les assertions ii. sont admises.
+
+\noindent Les assertions iv. et v. sont démontrées en exercices.
+
+$\square$
+
+\noindent
+
+**Exemples.** Voir les exercices 3, 4, 5 et 13 de la feuille de la session 3.
 
 
 
@@ -560,6 +630,131 @@ knitr::include_graphics("C:/Users/olivier.guin/Travail/Formation_Administrateur/
 \noindent
 
 **Remarque.** D'après le schéma ci-dessus, la convergence en loi est donc le mode de convergence le plus faible. Dit autrement, pour qu'une suite de variables aléatoires converge sous un mode ou un autre, elle doit **a minima** converger en loi.
+
+
+\noindent Si la convergence en probabilité implique la convergence en loi, la réciproque est fausse en général.
+
+\noindent
+**Contre-exemple.** Voir la question 2 de l'exercice 2.
+
+\noindent En revanche, il existe tout de même une réciproque partielle :
+
+:::: {.thmbox .thm data-latex="important"}
+\noindent
+**Théorème.** Soient $c$ un réel et $(X_n)_n$ une suite de variables aléatoires. Si 
+
+$$X_n \underset{n \to +\infty}{\overset{\mathbb{P}}{\longrightarrow}}c$$
+
+\noindent alors 
+
+$$X_n \underset{n \to +\infty}{\overset{\mathcal{L}}{\longrightarrow}}c$$
+::::
+
+\noindent
+**Démonstration.** Voir la question 1 de l'exercice 2.
+
+$\square$
+
+### Transformation par une application continue
+
+\noindent Souvent, on est amené à étudier la convergence (sous un mode ou un autre) d'une variable aléatoire $Y_n$ s'exprimant comme une fonction d'une autre variable $X_n$ :
+
+$$Y_n=f(X_n)$$
+
+\noindent Si la fonction $f$ est continue, les choses se passent bien en général :
+
+:::: {.thmbox .thm data-latex="important"}
+\noindent
+**Théorème. [Continuous mapping theorem].** Soient $(X_n)_n$ une suite de variables aléatoires réelles (ou à valeurs dans $\mathbb{R}^d$), $X$  une variable aléatoire réelle (ou à valeurs dans $\mathbb{R}^d$), et $g$ une fonction continue sur $\mathbb{R}$ (ou $\mathbb{R}^d$) et à valeurs dans $\mathbb{R}$.
+
+\vspace{0.3cm}
+
+\noindent 
+**i.** Si $X_n \underset{n \to +\infty}{\overset{\mathcal{L}}{\longrightarrow}}X$ alors $g(X_n) \underset{n \to +\infty}{\overset{\mathcal{L}}{\longrightarrow}}g(X)$
+
+\noindent
+**ii.** Si $X_n \underset{n \to +\infty}{\overset{\mathbb{P}}{\longrightarrow}}X$ alors $g(X_n) \underset{n \to +\infty}{\overset{\mathbb{P}}{\longrightarrow}}g(X)$.
+
+\noindent 
+**iii.** Si $X_n \underset{n \to +\infty}{\overset{p.s.}{\longrightarrow}}X$ alors $X_n \underset{n \to +\infty}{\overset{p.s.}{\longrightarrow}}g(X)$
+
+\noindent On résume les points i. ii. et iii. en disant que la convergence en loi, la convergence en probabilité et la convergence presque sûre sont **stables par transformation continue**.
+:::
+
+\noindent
+
+**Démonstration.** Voir exercice 6.
+
+$\square$
+
+**Exemple.** Soit $(X_n)_n$ une suite de variables aléatoires i.i.d. de loi $\mathcal{E}(\lambda)$. note 
+
+$$\overline{X_n}=\frac{1}{n}\sum\limits_{i=1}^n X_i$$
+
+\noindent leur moyenne empirique, et 
+
+$$Y_n=\cos\left(\frac{1}{1+\overline{X_n}^2}\right)$$
+\noindent Démontrons les convergences en probabilité et en loi de la suite $(Y_n)_n$. 
+
+\noindent Le faire directement serait compliqué. Le mieux est de se ramener à une variable dont la convergence (en probabilité, en loi) est facile à établir. Nous avons déjà montré dans un exemple précédent que
+
+$$\overline{X_n} \underset{n \to +\infty}{\overset{\mathbb{P}}{\longrightarrow}}\frac{1}{\lambda}$$
+\noindent Comme la convergence en probabilité implique la convergence en loi, on en déduit que
+
+$$\overline{X_n} \underset{n \to +\infty}{\overset{\mathcal{L}}{\longrightarrow}}\frac{1}{\lambda}$$
+\noindent Par ailleurs, la fonction $f$ définie sur $\mathbb{R}$ par
+
+$$f(x)=\cos\left(\frac{1}{1+x^2}\right)$$
+\noindent est continue. Donc, d'après le continuous mapping theorem, on a
+
+$$Y_n\underset{n \to +\infty}{\overset{\mathbb{P}}{\longrightarrow}}\frac{1}{1+\frac{1}{\lambda^2}}=\frac{\lambda^2}{1+\lambda^2}$$
+\noindent et
+
+$$Y_n\underset{n \to +\infty}{\overset{\mathcal{L}}{\longrightarrow}}\frac{1}{1+\frac{1}{\lambda^2}}=\frac{\lambda^2}{1+\lambda^2}$$
+
+$\square$
+
+
+### Théorème de Slutsky (hors-programme ?)
+
+\noindent Ce résultat est très pratique dans les exercices pour démontrer une convergence en loi. Son appartenance au programme du concours n'est cependant pas certaine (je penche plutôt pour non), donc sauf s'il est explicitement écrit dans le sujet que le résultat est admis (comme cela a déjà le cas) il semble risqué de l'utiliser. Dans tous les cas, comme l'énoncé est simple, ça ne coût pas grand chose de l'avoir en tête.
+
+:::: {.thmbox .thm data-latex="important"}
+\noindent
+**Théorème de Slutsky.** Si $X_n \underset{n \to +\infty}{\overset{\mathbb{P}}{\longrightarrow}}X$ et $Y_n \underset{n \to +\infty}{\overset{\mathcal{L}}{\longrightarrow}}c$, où $c$ est une constante, alors $(X_n, Y_n) \underset{n \to +\infty}{\overset{\mathbb{P}}{\longrightarrow}}(X,c)$.
+::::
+
+
+\noindent
+
+**Démonstration.** Admise.
+
+\noindent
+
+**Remarque.** Comme la convergence en loi **vers une constante** implique la convergence en probabilité vers cette même constante (rappel : ce n'est pas nécessairement vrai si la limite est une variable aléatoire non constante !), on pourrait de manière totalement équivalente énoncer le théorème de Slutsky en disant que si X_n \underset{n \to +\infty}{\overset{\mathbb{P}}{\longrightarrow}}X$ et $Y_n \underset{n \to +\infty}{\overset{\mathcal{P}}{\longrightarrow}}c$, où $c$ est une constante, alors $(X_n, Y_n) \underset{n \to +\infty}{\overset{\mathbb{P}}{\longrightarrow}}(X,c)$.
+
+\noindent Ce théorème présente tout son intérêt lorsqu'il est couplé avec le continuous mapping theorem, car il permet alors d'en déduire le corollaire suivant :
+
+:::: {.thmbox .thm data-latex="important"}
+\noindent
+**Corollaire.**  Si $X_n \underset{n \to +\infty}{\overset{\mathbb{P}}{\longrightarrow}}X$ et $Y_n \underset{n \to +\infty}{\overset{\mathcal{L}}{\longrightarrow}}c$, où $c$ est une constante, alors 
+
+- $X_n+Y_n \underset{n \to +\infty}{\overset{\mathbb{P}}{\longrightarrow}}X+c$ ;
+
+- $X_n.Y_n \underset{n \to +\infty}{\overset{\mathbb{P}}{\longrightarrow}}cX$ ;
+
+- et sous réserve d'existence de tous les termes, $\frac{X_n}{Y_n} \underset{n \to +\infty}{\overset{\mathbb{P}}{\longrightarrow}}\frac{X}{c}$.
+::::
+
+\noindent
+**Démonstration.** Avec le théorème de Slutsky, on a
+
+$$(X_n, Y_n) \underset{n \to +\infty}{\overset{\mathbb{P}}{\longrightarrow}}(X,c)$$
+
+\noindent Par ailleurs, les fonctions $(x,y)\mapsto x+y$, $(x,y)\mapsto x.y$ et $(x,y)\mapsto\frac{x}{y}$  sont définies et continues sur $\mathbb{R^2}$ pour les deux premières et sur $\mathbb{R}\times\mathbb{R}^*$ pour la troisième. On en déduit alors le résultat en appliquant le continuous mapping theorem.
+
+$\square$
+
 
 
 ### Approximations

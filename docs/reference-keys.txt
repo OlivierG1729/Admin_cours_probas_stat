@@ -159,3 +159,6 @@ variables-à-densité
 convergence-dans-les-espaces-l1-et-l2
 lois-des-grands-nombres
 les-ensembles-l1omega-et-l2omega
+convergence-presque-sûre-hors-programme
+transformation-par-une-application-continue
+théorème-de-slutsky-hors-programme
